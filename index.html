@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glaze Digital — Client Previews</title>
+  <meta name="description" content="Live previews shared by Glaze Digital." />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --panel-hover: #1d212b;
+      --border: #262b36;
+      --text: #e7eaf0;
+      --muted: #9aa3b2;
+      --accent: #6ea8fe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 56px 24px 80px; }
+    header { margin-bottom: 40px; }
+    .brand {
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0 0 10px;
+    }
+    h1 { font-size: 30px; margin: 0 0 8px; font-weight: 650; }
+    .sub { color: var(--muted); margin: 0; font-size: 15px; }
+    .grid { display: grid; gap: 14px; margin-top: 8px; }
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    }
+    .card:hover {
+      background: var(--panel-hover);
+      border-color: #34506e;
+      transform: translateY(-1px);
+    }
+    .card-title { font-size: 18px; margin: 0; font-weight: 600; }
+    .card-desc { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
+    .view { margin-left: auto; color: var(--accent); font-weight: 600; }
+    .empty {
+      text-align: center;
+      padding: 60px 20px;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      color: var(--muted);
+    }
+    .empty-sub { font-size: 14px; }
+    code { background: #20242e; padding: 2px 6px; border-radius: 5px; font-size: 13px; }
+    footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
+    a.footlink { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="brand">Glaze Digital</p>
+      <h1>Client Previews</h1>
+      <p class="sub">1 preview</p>
+    </header>
+    <main class="grid">
+      <a class="card" href="Backyard-movie-nights.html">
+        <div class="card-body">
+          <h2 class="card-title">Backyard Movie Nights</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Jun 29, 2026</span>
+          <span class="dot"></span>
+          <span>22 MB</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+    </main>
+    <footer>
+      Updated automatically on each push.
+    </footer>
+  </div>
+</body>
+</html>
