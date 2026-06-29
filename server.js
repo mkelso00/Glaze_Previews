@@ -11,9 +11,91 @@ import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
 import { join, normalize, extname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { createHash, timingSafeEqual } from "node:crypto";
 
 const ROOT = fileURLToPath(new URL(".", import.meta.url)).replace(/\/+$/, "");
 const PORT = process.env.PORT || 3000;
+
+// Password gate for the gallery index. Set PREVIEW_PASSWORD on Railway to keep
+// the password out of this (public) repo; falls back to a default so it works
+// without configuration.
+const PASSWORD = process.env.PREVIEW_PASSWORD || "glaze26";
+const COOKIE_NAME = "gp_auth";
+// Deterministic session token derived from the password — the cookie never
+// contains the password itself, and a new password invalidates old cookies.
+const AUTH_TOKEN = createHash("sha256")
+  .update(PASSWORD + "::glaze-previews-v1")
+  .digest("hex");
+// Only the gallery is gated; individual preview files stay reachable by their
+// (intentionally shared) direct links.
+const GATED_PATHS = new Set(["/index.html"]);
+
+function parseCookies(header) {
+  const out = {};
+  if (!header) return out;
+  for (const part of header.split(";")) {
+    const i = part.indexOf("=");
+    if (i === -1) continue;
+    out[part.slice(0, i).trim()] = decodeURIComponent(part.slice(i + 1).trim());
+  }
+  return out;
+}
+
+function isAuthed(req) {
+  const token = parseCookies(req.headers.cookie)[COOKIE_NAME];
+  if (!token || token.length !== AUTH_TOKEN.length) return false;
+  try {
+    return timingSafeEqual(Buffer.from(token), Buffer.from(AUTH_TOKEN));
+  } catch {
+    return false;
+  }
+}
+
+function readBody(req, limit = 4096) {
+  return new Promise((resolve) => {
+    let data = "";
+    req.on("data", (c) => {
+      data += c;
+      if (data.length > limit) req.destroy();
+    });
+    req.on("end", () => resolve(data));
+    req.on("error", () => resolve(""));
+  });
+}
+
+function loginPage(error) {
+  const msg = error
+    ? `<p class="err">Incorrect password. Try again.</p>`
+    : "";
+  return `<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glaze Digital — Client Previews</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:#0f1115;color:#e7eaf0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  .card{width:100%;max-width:340px;padding:36px 30px;background:#171a21;border:1px solid #262b36;border-radius:14px;text-align:center}
+  .brand{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6ea8fe;font-weight:600;margin:0 0 6px}
+  h1{font-size:20px;margin:0 0 22px;font-weight:600}
+  input{width:100%;padding:11px 13px;font-size:15px;color:#e7eaf0;background:#0f1115;
+    border:1px solid #262b36;border-radius:9px;margin-bottom:12px;outline:none}
+  input:focus{border-color:#6ea8fe}
+  button{width:100%;padding:11px;font-size:15px;font-weight:600;color:#0f1115;background:#6ea8fe;
+    border:none;border-radius:9px;cursor:pointer}
+  button:hover{background:#8bbcff}
+  .err{color:#ff8a80;font-size:13px;margin:0 0 12px}
+</style></head>
+<body>
+  <form class="card" method="POST" action="/__auth">
+    <p class="brand">Glaze Digital</p>
+    <h1>Client Previews</h1>
+    ${msg}
+    <input type="password" name="password" placeholder="Password" autofocus autocomplete="current-password" required>
+    <button type="submit">View previews</button>
+  </form>
+</body></html>`;
+}
 
 // CSP validated against the bundled-page format: scripts need 'unsafe-eval'
 // (the runtime uses new Function()) plus blob:/data:; fonts/images/media/styles
@@ -66,7 +148,38 @@ const server = createServer(async (req, res) => {
   try {
     // Decode and strip query/hash, default "/" to the gallery index.
     let pathname = decodeURIComponent((req.url || "/").split("?")[0].split("#")[0]);
+
+    // Login form submission for the gallery gate.
+    if (req.method === "POST" && pathname === "/__auth") {
+      const body = await readBody(req);
+      const params = new URLSearchParams(body);
+      const ok =
+        (params.get("password") || "") === PASSWORD && PASSWORD.length > 0;
+      if (ok) {
+        const secure =
+          (req.headers["x-forwarded-proto"] || "").split(",")[0].trim() ===
+          "https";
+        return send(res, 303, null, {
+          Location: "/",
+          "Set-Cookie": `${COOKIE_NAME}=${AUTH_TOKEN}; HttpOnly; SameSite=Lax; Path=/; Max-Age=2592000${secure ? "; Secure" : ""}`,
+        });
+      }
+      return send(res, 401, loginPage(true), {
+        "Content-Type": "text/html; charset=utf-8",
+      });
+    }
+
     if (pathname === "/" || pathname === "") pathname = "/index.html";
+
+    // Gate the gallery: serve the login form unless the visitor is authed.
+    if (GATED_PATHS.has(pathname) && !isAuthed(req)) {
+      if (req.method === "HEAD") {
+        return send(res, 401, null, { "Content-Type": "text/html; charset=utf-8" });
+      }
+      return send(res, 401, loginPage(false), {
+        "Content-Type": "text/html; charset=utf-8",
+      });
+    }
 
     // Resolve within ROOT and reject any traversal outside it.
     const filePath = normalize(join(ROOT, pathname));
