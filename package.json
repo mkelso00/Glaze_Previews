@@ -1,0 +1,14 @@
+{
+  "name": "glaze-previews",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Hosting for HTML previews shared with clients.",
+  "scripts": {
+    "build": "node scripts/build-index.mjs",
+    "start": "node scripts/build-index.mjs && node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

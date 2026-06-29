@@ -41,6 +41,38 @@ const META_OVERRIDES = {
 
 A `<meta name="description">` tag in the HTML is also picked up automatically.
 
+## Hosting on Railway
+
+This repo also runs as a tiny Node server ([`server.js`](server.js)) so it can be
+hosted on Railway. Railway's default static serving sends a restrictive
+Content-Security-Policy that blocks the `blob:`/`data:` URLs and `eval` that
+Claude Code "bundled page" exports depend on — so previews render blank. The
+server serves the same files with a CSP that permits exactly what those bundles
+need.
+
+- Start command: `node scripts/build-index.mjs && node server.js`
+  (regenerates the gallery, then serves). Configured in
+  [`railway.json`](railway.json) and `package.json`.
+- The server listens on `$PORT` (set by Railway) and serves every file in the
+  repo, with `/` mapped to the gallery index.
+
+Pushing to the branch Railway is connected to triggers a redeploy. Because a
+`package.json` is now present, Railway builds this as a Node app rather than a
+static site.
+
+Run it locally the same way: `npm start`, then open http://localhost:3000.
+
+> ### Why bundled previews can render blank
+> These exports rebuild themselves in the browser from packed assets and pull in
+> React at runtime. Two things break that on a strict host:
+> 1. **CDN dependency** — older exports fetched React from `unpkg.com`; if that's
+>    unreachable from the viewer's browser, the page stays blank. Inlining React
+>    into the file (as done for `Backyard-movie-nights.html`) makes it
+>    self-contained.
+> 2. **CSP** — the host must allow `blob:`, `data:`, and `'unsafe-eval'` in
+>    `script-src` (and `blob:`/`data:` for fonts/images/media). That's what
+>    `server.js` sets.
+
 ## One-time setup (enable GitHub Pages)
 
 The deploy workflow is committed, but Pages must be turned on once in the repo settings:
