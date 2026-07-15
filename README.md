@@ -62,6 +62,17 @@ static site.
 
 Run it locally the same way: `npm start`, then open http://localhost:3000.
 
+### Password protection
+
+The gallery index is password-protected (a login form gated server-side). The
+individual preview files are **not** gated — they stay reachable by their direct
+links, which is how you share a specific preview with a client.
+
+The password is read from the `PREVIEW_PASSWORD` environment variable, falling
+back to a default if unset. **Because this repo is public, set
+`PREVIEW_PASSWORD` in the Railway dashboard** (Service → Variables) so the real
+password isn't visible in the source here.
+
 > ### Why bundled previews can render blank
 > These exports rebuild themselves in the browser from packed assets and pull in
 > React at runtime. Two things break that on a strict host:
