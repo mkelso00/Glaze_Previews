@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="design_doc_mode" content="canvas">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Archivo', -apple-system, sans-serif; background: #dedddb; color: #111; }
+  a { color: #111; text-decoration: none; }
+  a:hover { color: #d81f2a; }
+  .art-scroll::-webkit-scrollbar { width: 8px; }
+  .art-scroll::-webkit-scrollbar-thumb { background: #c9c7c4; border-radius: 8px; }
+  @keyframes toastIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</helmet>
+<div style="padding: 56px 48px 96px; display: flex; flex-direction: column; gap: 56px; max-width: 1680px; margin: 0 auto;">
+
+  <!-- FRAMING -->
+  <header style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; background: #111; color: #fff; padding: 7px 14px; border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;">
+      <span style="width: 7px; height: 7px; border-radius: 50%; background: #d81f2a;"></span>
+      CRO Opportunity · Blog → Product
+    </div>
+    <h1 style="margin: 0; font-size: 44px; line-height: 1.02; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; max-width: 880px;">Turn high-intent blog readers into add-to-carts</h1>
+    <p style="margin: 0; font-size: 18px; line-height: 1.55; max-width: 760px; color: #3a3937;">Over a quarter of organic traffic lands on guides like <em>“Home Gym Rack Attachments.”</em> These pages currently convert at <strong>0% ATC / 0% CR</strong> — no product CTAs exist. Embedding shoppable blocks could convert <strong>1–2%</strong> of this traffic. Content-only change, low engineering effort.</p>
+    <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 6px;">
+      <div style="background: #fff; border: 1px solid #e2e0dd; border-radius: 14px; padding: 16px 20px; min-width: 150px;">
+        <div style="font-size: 30px; font-weight: 900; letter-spacing: -0.02em;">27%</div>
+        <div style="font-size: 12.5px; color: #6b6966; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px;">Organic lands on blog</div>
+      </div>
+      <div style="background: #fff; border: 1px solid #e2e0dd; border-radius: 14px; padding: 16px 20px; min-width: 150px;">
+        <div style="font-size: 30px; font-weight: 900; letter-spacing: -0.02em; color: #d81f2a;">0%</div>
+        <div style="font-size: 12.5px; color: #6b6966; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px;">Current ATC / CR</div>
+      </div>
+      <div style="background: #111; color: #fff; border-radius: 14px; padding: 16px 20px; min-width: 150px;">
+        <div style="font-size: 30px; font-weight: 900; letter-spacing: -0.02em;">1–2%</div>
+        <div style="font-size: 12.5px; color: #b8b6b3; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px;">Projected conversion</div>
+      </div>
+    </div>
+    <p style="margin: 4px 0 0; font-size: 13px; color: #8a8885;">Four block formats below (<a href="#1b">1b</a> · <a href="#1c">1c</a> · <a href="#1d">1d</a> · <a href="#1e">1e</a>) plus the in-context view (<a href="#1a">1a</a>). Prices shown are illustrative Summer-Sale pricing.</p>
+  </header>
+
+  <!-- TURN 2 — MOBILE -->
+  <section style="display: flex; flex-direction: column; gap: 24px;">
+    <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+      <span style="background: #d81f2a; color: #fff; font-weight: 800; font-size: 13px; padding: 4px 11px; border-radius: 7px; letter-spacing: 0.04em;">Turn 2</span>
+      <h2 style="margin: 0; font-size: 22px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em;">Mobile versions</h2>
+      <span style="font-size: 13.5px; color: #7a7875;">Sidebars collapse on mobile — the sticky bottom banner (<a href="#2a">2a</a>) does the heavy lifting.</span>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+
+      <!-- 2a IN-CONTEXT MOBILE + STICKY BOTTOM BANNER -->
+      <div id="2a" style="display: flex; flex-direction: column; gap: 14px; width: 300px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="background: #111; color: #fff; font-weight: 800; font-size: 13px; padding: 4px 11px; border-radius: 7px;">2a</span>
+          <h3 style="margin: 0; font-size: 16px; font-weight: 800; text-transform: uppercase;">In context</h3>
+        </div>
+        <p style="margin: 0; font-size: 13px; color: #6b6966; line-height: 1.5;">Sticky bottom banner over the live article. Scroll the phone ↓</p>
+        <!-- phone -->
+        <div style="width: 300px; background: #111; border-radius: 42px; padding: 11px; box-shadow: 0 30px 60px -28px rgba(0,0,0,0.45);">
+          <div style="position: relative; background: #fff; border-radius: 32px; overflow: hidden; height: 620px;">
+            <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 130px; height: 26px; background: #111; border-radius: 0 0 16px 16px; z-index: 30;"></div>
+            <div class="art-scroll" style="height: 100%; overflow-y: auto;">
+              <!-- mobile site bar -->
+              <div style="position: sticky; top: 0; z-index: 20; background: #0b0b0b; color: #fff;">
+                <div style="text-align: center; font-size: 9.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 10px 0 6px; background: #d81f2a;">Summer Sale — Up to 70% off</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px;">
+                  <span style="font-size: 18px; line-height: 1;">☰</span>
+                  <img src="https://www.blkboxfitness.com/cdn/shop/files/BLK_BOX_White_Logo.svg?v=1770896323&width=160" alt="BLK BOX" style="height: 17px;">
+                  <span style="position: relative; font-size: 12px; font-weight: 700;">Cart<span style="position: absolute; top: -8px; right: -13px; background: #d81f2a; color: #fff; font-size: 9px; font-weight: 800; min-width: 15px; height: 15px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; padding: 0 3px;">{{ cartCount }}</span></span>
+                </div>
+              </div>
+              <div style="padding: 18px 18px 90px;">
+                <div style="font-size: 10px; color: #8a8885; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Buying Guide</div>
+                <h1 style="font-size: 24px; line-height: 1.06; font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; margin: 8px 0 12px;">Home Gym Rack Attachments</h1>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                  <img src="https://www.blkboxfitness.com/cdn/shop/files/392-1-2.jpg?v=1764673394&width=64" alt="" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover;">
+                  <span style="font-size: 11.5px; color: #55534f; font-weight: 600;">Katie McGonigle · Jul 9</span>
+                </div>
+                <img src="https://cdn.shopify.com/s/files/1/0728/8355/files/16_0657356c-4805-4d71-8612-39e38167c708.png?v=1783591747" alt="" style="width: 100%; border-radius: 10px; background: #f2f1ef; margin-bottom: 16px;">
+                <h2 style="font-size: 17px; font-weight: 800; text-transform: uppercase; margin: 6px 0 8px;">Dip Station</h2>
+                <p style="font-size: 14px; line-height: 1.65; color: #2c2b29; margin: 0 0 14px;">A staple in any strength programme. The Dip Station adds one of the most effective bodyweight movements to your rack, helping develop pressing strength and upper body muscle.</p>
+                <p style="font-size: 14px; line-height: 1.65; color: #2c2b29; margin: 0 0 14px;">Simple, durable and highly effective — an attachment every home gym should have.</p>
+                <p style="font-size: 14px; line-height: 1.65; color: #2c2b29; margin: 0;">Complete your setup with the Leg Extension &amp; Curl and Hip Thrust attachments to unlock full lower-body training without another machine.</p>
+              </div>
+            </div>
+            <!-- sticky bottom banner -->
+            <div style="position: absolute; left: 0; right: 0; bottom: 0; background: #0b0b0b; color: #fff; display: flex; align-items: center; gap: 11px; padding: 11px 14px; z-index: 25;">
+              <img src="https://cdn.shopify.com/s/files/1/0728/8355/files/16_0657356c-4805-4d71-8612-39e38167c708.png?v=1783591747" alt="" style="width: 44px; height: 44px; object-fit: contain; background: #1c1c1c; border-radius: 8px; flex-shrink: 0;">
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 12.5px; font-weight: 800; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Adjustable Dip Station</div>
+                <div style="display: flex; align-items: baseline; gap: 6px;">
+                  <span style="font-size: 14px; font-weight: 900; color: #ff5a63;">£189</span>
+                  <span style="font-size: 11px; color: #9a9895; text-decoration: line-through;">£249</span>
+                </div>
+              </div>
+              <button onClick="{{ addToCart }}" data-name="Adjustable Dip Station" style="flex-shrink: 0; background: #fff; color: #111; border: none; padding: 11px 15px; border-radius: 8px; font-family: inherit; font-size: 11px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;" style-hover="background:#d81f2a;color:#fff;">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2b INLINE CARD MOBILE -->
+      <div id="2b" style="display: flex; flex-direction: column; gap: 14px; width: 300px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="background: #111; color: #fff; font-weight: 800; font-size: 13px; padding: 4px 11px; border-radius: 7px;">2b</span>
+          <h3 style="margin: 0; font-size: 16px; font-weight: 800; text-transform: uppercase;">Inline card</h3>
+        </div>
+        <p style="margin: 0; font-size: 13px; color: #6b6966; line-height: 1.5;">Stacks full-width between paragraphs.</p>
+        <div style="width: 300px; background: #111; border-radius: 42px; padding: 11px; box-shadow: 0 30px 60px -28px rgba(0,0,0,0.45);">
+          <div style="background: #fff; border-radius: 32px; overflow: hidden; padding: 24px 18px;">
+            <p style="font-size: 14px; line-height: 1.65; color: #2c2b29; margin: 6px 0 4px;">Store your barbell securely while keeping your training area clear.</p>
+            <div style="background: #0b0b0b; color: #fff; border-radius: 14px; overflow: hidden; margin: 16px 0;">
+              <div style="position: relative; background: radial-gradient(circle at 50% 40%, #262626, #0f0f0f); padding: 22px; display: flex; align-items: center; justify-content: center;">
+                <span style="position: absolute; top: 12px; left: 12px; background: #d81f2a; color: #fff; font-size: 10.5px; font-weight: 800; padding: 3px 7px; border-radius: 5px;">-23%</span>
+                <img src="https://cdn.shopify.com/s/files/1/0728/8355/files/barbell-holder-2675128.png?v=1762853600" alt="" style="max-height: 120px; object-fit: contain;">
+              </div>
+              <div style="padding: 16px;">
+                <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #ff5a63;">Featured in this guide</div>
+                <div style="font-size: 16px; font-weight: 800; margin: 3px 0 8px;">Vertical Barbell Holder</div>
+                <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px;">
+                  <span style="font-size: 18px; font-weight: 900;">£89</span>
+                  <span style="font-size: 12.5px; color: #8a8885; text-decoration: line-through;">£115</span>
+                </div>
+                <button onClick="{{ addToCart }}" data-name="Vertical Barbell Holder" style="width: 100%; background: #fff; color: #111; border: none; padding: 12px; border-radius: 8px; font-family: inherit; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;" style-hover="background:#d81f2a;color:#fff;">Add to cart</button>
+              </div>
+            </div>
+            <p style="font-size: 14px; line-height: 1.65; color: #2c2b29; margin: 4px 0 0;">Designed to mount directly to your rack, keeping everything within easy reach.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2c FEATURED LIST MOBILE -->
+      <div id="2c" style="display: flex; flex-direction: column; gap: 14px; width: 300px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="background: #111; color: #fff; font-weight: 800; font-size: 13px; padding: 4px 11px; border-radius: 7px;">2c</span>
+          <h3 style="margin: 0; font-size: 16px; font-weight: 800; text-transform: uppercase;">Featured list</h3>
+        </div>
+        <p style="margin: 0; font-size: 13px; color: #6b6966; line-height: 1.5;">End-of-article round-up, tap + to add.</p>
+        <div style="width: 300px; background: #111; border-radius: 42px; padding: 11px; box-shadow: 0 30px 60px -28px rgba(0,0,0,0.45);">
+          <div style="background: #fff; border-radius: 32px; overflow: hidden;">
+            <div style="padding: 22px 18px 16px;">
+              <div style="font-size: 17px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.1;">Everything in this guide</div>
+              <div style="font-size: 11.5px; color: #8a8885; font-weight: 600; margin-top: 3px;">5 attachments · Summer Sale</div>
+            </div>
+            <div style="display: flex; flex-direction: column;">
+              <sc-for list="{{ products }}" as="p" hint-placeholder-count="5">
+                <div style="display: flex; align-items: center; gap: 11px; padding: 11px 18px; border-top: 1px solid #f1efed;">
+                  <img src="{{ p.img }}" alt="{{ p.name }}" style="width: 42px; height: 42px; object-fit: contain; background: #f4f3f1; border-radius: 8px; flex-shrink: 0;">
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="font-size: 12.5px; font-weight: 700; line-height: 1.2;">{{ p.name }}</div>
+                    <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 2px;">
+                      <span style="font-size: 12.5px; font-weight: 900; color: #d81f2a;">{{ p.now }}</span>
+                      <span style="font-size: 11px; color: #9a9895; text-decoration: line-through;">{{ p.was }}</span>
+                    </div>
+                  </div>
+                  <button onClick="{{ addToCart }}" data-name="{{ p.name }}" style="flex-shrink: 0; background: #111; color: #fff; border: none; width: 30px; height: 30px; border-radius: 7px; font-size: 18px; font-weight: 700; cursor: pointer; line-height: 1; font-family: inherit;" style-hover="background:#d81f2a;">+</button>
+                </div>
+              </sc-for>
+            </div>
+            <a href="#2c" style="display: block; text-align: center; padding: 15px; font-size: 11.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #111; border-top: 1px solid #f1efed;">Shop all attachments →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TURN 1 -->
+  <section style="display: flex; flex-direction: column; gap: 40px;">
+
+    <!-- 1a IN CONTEXT -->
+    <div id="1a" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;">
+        <span style="background: #111; color: #fff; font-weight: 800; font-size: 13px; padding: 4px 11px; border-radius: 7px; letter-spacing: 0.04em;">1a</span>
+        <h2 style="margin: 0; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em;">In context — sticky sidebar on the live article</h2>
+        <span style="font-size: 13.5px; color: #7a7875;">Scroll the frame ↓ the card follows the reader</span>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #d7d5d2; border-radius: 18px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.28);">
+        <!-- fake browser bar -->
+        <div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: #f2f1ef; border-bottom: 1px solid #e2e0dd;">
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #e0605a;"></span>
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #e7b64a;"></span>
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #66b060;"></span>
+          <span style="margin-left: 14px; font-size: 12px; color: #8a8885; background: #fff; border: 1px solid #e2e0dd; border-radius: 6px; padding: 4px 12px;">blkboxfitness.com/blogs/education/home-gym-rack-attachments-buying-guide</span>
+        </div>
+
+        <!-- site header -->
+        <div style="background: #0b0b0b; color: #fff;">
+          <div style="text-align: center; font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 8px; background: #d81f2a;">Summer Sale — Up to 70% off</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 32px;">
+            <img src="https://www.blkboxfitness.com/cdn/shop/files/BLK_BOX_White_Logo.svg?v=1770896323&width=200" alt="BLK BOX" style="height: 26px;">
+            <nav style="display: flex; gap: 26px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #e6e5e3;">
+              <span>Equipment</span><span>Flooring</span><span>Storage</span><span>Gym Design</span>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 20px; font-size: 13px; font-weight: 600;">
+              <span>Search</span>
+              <span style="position: relative;">Cart<span style="position: absolute; top: -9px; right: -16px; background: #d81f2a; color: #fff; font-size: 10px; font-weight: 800; min-width: 17px; height: 17px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; padding: 0 4px;">{{ cartCount }}</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- scroll area -->
+        <div class="art-scroll" style="height: 660px; overflow-y: auto; background: #fff;">
+          <div style="max-width: 1080px; margin: 0 auto; padding: 40px 40px 80px; display: grid; grid-template-columns: 1fr 340px; gap: 48px; align-items: start;">
+            <!-- article body -->
+            <article style="min-width: 0;">
+              <div style="font-size: 12.5px; color: #8a8885; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Home · Blog · Buying Guide</div>
+              <h1 style="font-size: 40px; line-height: 1.05; font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; margin: 14px 0 18px;">Home Gym Rack Attachments Buying Guide</h1>
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 26px;">
+                <img src="https://www.blkboxfitness.com/cdn/shop/files/392-1-2.jpg?v=1764673394&width=64" alt="" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;">
+                <span style="font-size: 13.5px; color: #55534f; font-weight: 600;">Katie McGonigle · July 9, 2026</span>
+              </div>
+              <img src="https://cdn.shopify.com/s/files/1/0728/8355/files/10_e377b7d3-cbea-4d69-abab-c15c57db99dd.png?v=1783591747" alt="" style="width: 100%; border-radius: 12px; margin-bottom: 28px; background: #f2f1ef;">
+              <p style="font-size: 17px; line-height: 1.7; color: #2c2b29; margin: 0 0 18px;">Your rack should do more than hold a barbell. With the right attachments, it becomes the centrepiece of your home gym, adapting to your training as your goals evolve.</p>
+              <h2 style="font-size: 24px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; margin: 32px 0 12px;">Make Your Rack Work Harder</h2>
+              <p style="font-size: 17px; line-height: 1.7; color: #2c2b29; margin: 0 0 18px;">A modular rack gives you the flexibility to train the way you want without filling your gym with standalone machines. Adding attachments lets you increase exercise variety, save floor space and build a complete strength setup over time.</p>
+              <h2 style="font-size: 24px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; margin: 32px 0 12px;">Unlock More Exercises</h2>
+              <h3 style="font-size: 19px; font-weight: 800; margin: 22px 0 10px;">Dip Station</h3>
+              <p style="font-size: 17px; line-height: 1.7; color: #2c2b29; margin: 0 0 16px;">A staple in any strength programme. The Dip Station adds one of the most effective bodyweight movements to your rack, helping develop pressing strength and upper body muscle. Simple, durable and highly effective.</p>
+              <img src="https://cdn.shopify.com/s/files/1/0728/8355/files/16_0657356c-4805-4d71-8612-39e38167c708.png?v=1783591747" alt="" style="width: 100%; border-radius: 12px; margin: 6px 0 22px; background: #f2f1ef;">
+              <h3 style="font-size: 19px; font-weight: 800; margin: 22px 0 10px;">Leg Extension &amp; Leg Curl Attachment</h3>
+              <p style="font-size: 17px; line-height: 1.7; color: #2c2b29; margin: 0 0 16px;">Complete your lower body training without investing in another machine. Isolate the quadriceps and hamstrings, helping build balanced leg strength while supporting your compound lifts.</p>
+              <img src="https://cdn.shopify.com/s/files/1/0728/8355/files/3_1b375fd8-cf52-4d3e-8ce2-1fc38e039962.png?v=1783583922" alt="" style="width: 100%; border-radius: 12px; margin: 6px 0 22px; background: #f2f1ef;">
+              <h3 style="font-size: 19px; font-weight: 800; margin: 22px 0 10px;">Hip Thrust Attachment</h3>
+              <p style="font-size: 17px; line-height: 1.7; color: #2c2b29; margin: 0 0 18px;">Strong glutes support stronger lifts. A stable, comfortable setup for one of the most effective lower body exercises — removing the hassle of balancing benches and barbells.</p>
+              <p style="font-size: 17px; line-height: 1.7; color: #2c2b29; margin: 0 0 18px;">Every athlete trains differently, which is why your rack should be built around your goals. Add storage to stay organised. Add attachments to unlock new movements.</p>
+            </article>
+
+            <!-- sticky sidebar -->
+            <aside style="position: sticky; top: 20px;">
+              <div style="border: 1px solid #e2e0dd; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 18px 40px -24px rgba(0,0,0,0.3);">
+                <div style="background: #0b0b0b; color: #fff; padding: 11px 16px; font-size: 11.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;">Shop this guide</div>
+                <div style="position: relative; background: radial-gradient(circle at 50% 40%, #f4f3f1, #e6e4e1); padding: 22px; display: flex; align-items: center; justify-content: center;">
+                  <span style="position: absolute; top: 14px; left: 14px; background: #d81f2a; color: #fff; font-size: 12px; font-weight: 800; padding: 4px 9px; border-radius: 6px;">-24%</span>
+                  <img src="https://cdn.shopify.com/s/files/1/0728/8355/files/16_0657356c-4805-4d71-8612-39e38167c708.png?v=1783591747" alt="Dip Station" style="max-height: 150px; max-width: 100%; object-fit: contain;">
+                </div>
+                <div style="padding: 18px;">
+                  <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8a8885;">3 Series Attachment</div>
+                  <div style="font-size: 18px; font-weight: 800; margin: 4px 0 10px; line-height: 1.2;">Adjustable Dip Station</div>
+                  <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px;">
+                    <span style="font-size: 22px; font-weight: 900; color: #d81f2a;">£189</span>
+                    <span style="font-size: 15px; color: #9a9895; text-decoration: line-through;">£249</span>
+                  </div>
+                  <button onClick="{{ addToCart }}" data-name="Adjustable Dip Station" style="width: 100%; background: #111; color: #fff; border: none; padding: 13px; border-radius: 9px; font-family: inherit; font-size: 13.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;" style-hover="background:#d81f2a;">Add to cart</button>
+                  <div style="text-align: center; margin-top: 9px;"><a href="#1a" style="font-size: 12.5px; font-weight: 700; color: #55534f; text-decoration: underline;">View full product →</a></div>
+                  <div style="border-top: 1px solid #eeecea; margin-top: 16px; padding-top: 14px;">
+                    <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8a8885; margin-bottom: 10px;">Also featured</div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="https://cdn.shopify.com/s/files/1/0728/8355/files/barbell-holder-2675128.png?v=1762853600" alt="" style="width: 38px; height: 38px; object-fit: contain; background: #f2f1ef; border-radius: 7px;">
+                        <div style="flex: 1; min-width: 0; font-size: 13px; font-weight: 600;">Vertical Barbell Holder</div>
+                        <span style="font-size: 13px; font-weight: 800;">£89</span>
+                      </div>
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="https://cdn.shopify.com/s/files/1/0728/8355/files/2_880c6631-e05f-4af9-b5a7-9009816186de.png?v=1783583922" alt="" style="width: 38px; height: 38px; object-fit: contain; background: #f2f1ef; border-radius: 7px;">
+                        <div style="flex: 1; min-width: 0; font-size: 13px; font-weight: 600;">3 Series Hip Thruster</div>
+                        <span style="font-size: 13px; font-weight: 800;">£319</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION ROW -->
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start;">
+
+      <!-- 1b STICKY SIDEBAR CARD -->
+      <div id="1b" style="display: flex; flex-direction: column; gap: 14px; width: 360px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="background: #111; color: #fff; font-weight: 800; font-size: 13px; padding: 4px 11px; border-radius: 7px;">1b</span>
+          <h2 style="margin: 0; font-size: 17px; font-weight: 800; text-transform: uppercase;">Sticky sidebar card</h2>
+        </div>
+        <p style="margin: 0; font-size: 13.5px; color: #6b6966; line-height: 1.5;">Follows scroll in the right column. Primary recommendation — single hero product + mini list.</p>
+        <div style="border: 1px solid #e2e0dd; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 18px 40px -26px rgba(0,0,0,0.3);">
+          <div style="background: #0b0b0b; color: #fff; padding: 11px 16px; font-size: 11.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;">Shop this guide</div>
+          <div style="position: relative; background: radial-gradient(circle at 50% 40%, #f4f3f1, #e6e4e1); padding: 26px; display: flex; align-items: center; justify-content: center;">
+            <span style="position: absolute; top: 14px; left: 14px; background: #d81f2a; color: #fff; font-size: 12px; font-weight: 800; padding: 4px 9px; border-radius: 6px;">-25%</span>
+            <img src="https://cdn.shopify.com/s/files/1/0728/8355/files/3_1b375fd8-cf52-4d3e-8ce2-1fc38e039962.png?v=1783583922" alt="Leg Extension & Leg Curl" style="max-height: 165px; max-width: 100%; object-fit: contain;">
+          </div>
+          <div style="padding: 20px;">
+            <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8a8885;">3 Series Attachment</div>
+            <div style="font-size: 19px; font-weight: 800; margin: 4px 0 10px; line-height: 1.2;">Leg Extension &amp; Leg Curl</div>
+            <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px;">
+              <span style="font-size: 23px; font-weight: 900; color: #d81f2a;">£445</span>
+              <span style="font-size: 15px; color: #9a9895; text-decoration: line-through;">£595</span>
+            </div>
+            <button onClick="{{ addToCart }}" data-name="Leg Extension & Leg Curl" style="width: 100%; background: #111; color: #fff; border: none; padding: 14px; border-radius: 9px; font-family: inherit; font-size: 13.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;" style-hover="background:#d81f2a;">Add to cart</button>
+            <div style="text-align: center; margin-top: 10px;"><a href="#1b" style="font-size: 12.5px; font-weight: 700; color: #55534f; text-decoration: underline;">View full product →</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1c INLINE CARD -->
+      <div id="1c" style="display: flex; flex-direction: column; gap: 14px; width: 560px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="background: #111; color: #fff; font-weight: 800; font-size: 13px; padding: 4px 11px; border-radius: 7px;">1c</span>
+          <h2 style="margin: 0; font-size: 17px; font-weight: 800; text-transform: uppercase;">Inline product card</h2>
+        </div>
+        <p style="margin: 0; font-size: 13.5px; color: #6b6966; line-height: 1.5;">Drops between paragraphs, right where the product is named. Highest relevance.</p>
+        <div style="background: #fff; border: 1px solid #e2e0dd; border-radius: 16px; padding: 28px;">
+          <p style="font-size: 16px; line-height: 1.7; color: #2c2b29; margin: 0 0 8px;">Store your barbell securely while keeping your training area clear. A vertical holder protects your equipment and frees up valuable floor space.</p>
+          <!-- inline card -->
+          <div style="display: flex; gap: 18px; align-items: center; background: #0b0b0b; color: #fff; border-radius: 14px; padding: 16px; margin: 20px 0;">
+            <div style="width: 108px; height: 108px; flex-shrink: 0; background: radial-gradient(circle at 50% 40%, #262626, #0f0f0f); border-radius: 10px; display: flex; align-items: center; justify-content: center; position: relative;">
+              <span style="position: absolute; top: 7px; left: 7px; background: #d81f2a; color: #fff; font-size: 10.5px; font-weight: 800; padding: 3px 7px; border-radius: 5px;">-23%</span>
+              <img src="https://cdn.shopify.com/s/files/1/0728/8355/files/barbell-holder-2675128.png?v=1762853600" alt="Barbell Holder" style="max-height: 84px; max-width: 84px; object-fit: contain;">
+            </div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #d81f2a;">Featured in this guide</div>
+              <div style="font-size: 18px; font-weight: 800; margin: 3px 0 6px;">Vertical Barbell Holder</div>
+              <div style="display: flex; align-items: baseline; gap: 9px;">
+                <span style="font-size: 19px; font-weight: 900;">£89</span>
+                <span style="font-size: 13.5px; color: #8a8885; text-decoration: line-through;">£115</span>
+              </div>
+            </div>
+            <button onClick="{{ addToCart }}" data-name="Vertical Barbell Holder" style="flex-shrink: 0; background: #fff; color: #111; border: none; padding: 13px 20px; border-radius: 9px; font-family: inherit; font-size: 12.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;" style-hover="background:#d81f2a;color:#fff;">Add to cart</button>
+          </div>
+          <p style="font-size: 16px; line-height: 1.7; color: #2c2b29; margin: 8px 0 0;">Designed to mount directly to your rack, it keeps everything within easy reach and your gym floor clutter-free.</p>
+        </div>
+      </div>
+
+      <!-- 1e MULTI-PRODUCT LIST -->
+      <div id="1e" style="display: flex; flex-direction: column; gap: 14px; width: 400px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="background: #111; color: #fff; font-weight: 800; font-size: 13px; padding: 4px 11px; border-radius: 7px;">1e</span>
+          <h2 style="margin: 0; font-size: 17px; font-weight: 800; text-transform: uppercase;">Featured-in-article list</h2>
+        </div>
+        <p style="margin: 0; font-size: 13.5px; color: #6b6966; line-height: 1.5;">A round-up block near the end — every attachment mentioned, one tap to cart.</p>
+        <div style="background: #fff; border: 1px solid #e2e0dd; border-radius: 16px; overflow: hidden;">
+          <div style="padding: 18px 20px; border-bottom: 1px solid #eeecea;">
+            <div style="font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em;">Everything in this guide</div>
+            <div style="font-size: 12.5px; color: #8a8885; font-weight: 600;">5 attachments · Summer Sale pricing</div>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <sc-for list="{{ products }}" as="p" hint-placeholder-count="5">
+              <div style="display: flex; align-items: center; gap: 13px; padding: 13px 20px; border-bottom: 1px solid #f1efed;">
+                <img src="{{ p.img }}" alt="{{ p.name }}" style="width: 46px; height: 46px; object-fit: contain; background: #f4f3f1; border-radius: 8px; flex-shrink: 0;">
+                <div style="flex: 1; min-width: 0;">
+                  <div style="font-size: 14px; font-weight: 700; line-height: 1.25;">{{ p.name }}</div>
+                  <div style="display: flex; align-items: baseline; gap: 7px; margin-top: 2px;">
+                    <span style="font-size: 14px; font-weight: 900; color: #d81f2a;">{{ p.now }}</span>
+                    <span style="font-size: 12px; color: #9a9895; text-decoration: line-through;">{{ p.was }}</span>
+                  </div>
+                </div>
+                <button onClick="{{ addToCart }}" data-name="{{ p.name }}" style="flex-shrink: 0; background: #111; color: #fff; border: none; width: 34px; height: 34px; border-radius: 8px; font-size: 20px; font-weight: 700; cursor: pointer; line-height: 1; font-family: inherit;" style-hover="background:#d81f2a;">+</button>
+              </div>
+            </sc-for>
+          </div>
+          <a href="#1e" style="display: block; text-align: center; padding: 14px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #111;">Shop all rack attachments →</a>
+        </div>
+      </div>
+
+      <!-- 1d STICKY BOTTOM BANNER -->
+      <div id="1d" style="display: flex; flex-direction: column; gap: 14px; width: 560px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="background: #111; color: #fff; font-weight: 800; font-size: 13px; padding: 4px 11px; border-radius: 7px;">1d</span>
+          <h2 style="margin: 0; font-size: 17px; font-weight: 800; text-transform: uppercase;">Sticky bottom banner</h2>
+        </div>
+        <p style="margin: 0; font-size: 13.5px; color: #6b6966; line-height: 1.5;">Pinned to the viewport, follows the whole read. Best for mobile where sidebars collapse.</p>
+        <div style="position: relative; height: 320px; border: 1px solid #e2e0dd; border-radius: 16px; overflow: hidden; background: #fff;">
+          <div style="padding: 26px 30px;">
+            <div style="height: 13px; width: 55%; background: #ecebe9; border-radius: 4px; margin-bottom: 18px;"></div>
+            <div style="height: 10px; width: 100%; background: #f2f1ef; border-radius: 4px; margin-bottom: 10px;"></div>
+            <div style="height: 10px; width: 96%; background: #f2f1ef; border-radius: 4px; margin-bottom: 10px;"></div>
+            <div style="height: 10px; width: 88%; background: #f2f1ef; border-radius: 4px; margin-bottom: 10px;"></div>
+            <div style="height: 10px; width: 92%; background: #f2f1ef; border-radius: 4px; margin-bottom: 10px;"></div>
+            <div style="height: 10px; width: 70%; background: #f2f1ef; border-radius: 4px;"></div>
+          </div>
+          <!-- banner -->
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; background: #0b0b0b; color: #fff; display: flex; align-items: center; gap: 16px; padding: 14px 20px;">
+            <img src="https://cdn.shopify.com/s/files/1/0728/8355/files/2_880c6631-e05f-4af9-b5a7-9009816186de.png?v=1783583922" alt="Hip Thruster" style="width: 56px; height: 56px; object-fit: contain; background: #1c1c1c; border-radius: 9px; flex-shrink: 0;">
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-size: 15px; font-weight: 800; line-height: 1.2;">3 Series Hip Thruster Attachment</div>
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-top: 2px;">
+                <span style="font-size: 16px; font-weight: 900; color: #ff5a63;">£319</span>
+                <span style="font-size: 12.5px; color: #9a9895; text-decoration: line-through;">£425</span>
+                <span style="font-size: 11px; font-weight: 800; color: #fff; background: #d81f2a; padding: 2px 7px; border-radius: 5px; margin-left: 2px;">SAVE £106</span>
+              </div>
+            </div>
+            <button onClick="{{ addToCart }}" data-name="3 Series Hip Thruster" style="flex-shrink: 0; background: #fff; color: #111; border: none; padding: 13px 22px; border-radius: 9px; font-family: inherit; font-size: 12.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;" style-hover="background:#d81f2a;color:#fff;">Add to cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- toast -->
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); background: #111; color: #fff; padding: 14px 22px; border-radius: 100px; font-size: 14px; font-weight: 700; box-shadow: 0 12px 30px rgba(0,0,0,0.3); z-index: 100; display: flex; align-items: center; gap: 10px; animation: toastIn 0.25s ease;">
+      <span style="width: 20px; height: 20px; border-radius: 50%; background: #2ec26a; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 12px;">✓</span>
+      {{ toast }}
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { toast: "", cartCount: 0 };
+  products = [
+    { name: "Vertical Barbell Holder", now: "£89", was: "£115", img: "https://cdn.shopify.com/s/files/1/0728/8355/files/barbell-holder-2675128.png?v=1762853600" },
+    { name: "Wall-Mounted Collar Bin", now: "£72", was: "£95", img: "https://cdn.shopify.com/s/files/1/0728/8355/files/bin.png?v=1783609451" },
+    { name: "Adjustable Dip Station", now: "£189", was: "£249", img: "https://cdn.shopify.com/s/files/1/0728/8355/files/16_0657356c-4805-4d71-8612-39e38167c708.png?v=1783591747" },
+    { name: "Leg Extension & Leg Curl", now: "£445", was: "£595", img: "https://cdn.shopify.com/s/files/1/0728/8355/files/3_1b375fd8-cf52-4d3e-8ce2-1fc38e039962.png?v=1783583922" },
+    { name: "3 Series Hip Thruster", now: "£319", was: "£425", img: "https://cdn.shopify.com/s/files/1/0728/8355/files/2_880c6631-e05f-4af9-b5a7-9009816186de.png?v=1783583922" },
+  ];
+  addToCart = (e) => {
+    const name = e.currentTarget.getAttribute("data-name") || "Item";
+    clearTimeout(this._t);
+    this.setState(s => ({ toast: name + " added to cart", cartCount: s.cartCount + 1 }));
+    this._t = setTimeout(() => this.setState({ toast: "" }), 1800);
+  };
+  renderVals() {
+    return {
+      products: this.products,
+      toast: this.state.toast,
+      cartCount: this.state.cartCount,
+      addToCart: this.addToCart,
+    };
+  }
+}
+</script>
+</body>
+</html>
