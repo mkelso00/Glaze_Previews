@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Archivo:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<meta name="design_doc_mode" content="canvas">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #E8E8E4; font-family: 'Archivo', system-ui, sans-serif; color: #111214; }
+  a { color: #111214; }
+  a:hover { color: #4a4a44; }
+</style>
+</helmet>
+
+<section style="padding: 56px 56px 40px; display: flex; flex-direction: column; gap: 22px;">
+  <div style="display: flex; flex-direction: column; gap: 6px;">
+    <div style="font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: #6B6B66; font-weight: 600;">BLK BOX · Turn 2 · Product page — select in two columns</div>
+    <div style="font-family: 'Archivo', sans-serif; font-size: 15px; color: #6B6B66; max-width: 640px;">Product section on the left, weight selection across two-thirds of the width in two columns with a stepper beside each, and a running total. Reference this as <a href="#2a">2a</a>.</div>
+  </div>
+
+  <article id="2a" style="position: relative; width: 1200px; background: #F5F5F3; border: 1px solid #D8D8D2; border-radius: 4px; overflow: hidden;">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 12px 20px; background: #111214;">
+      <span style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.12em; color: #C6F135; background: rgba(198,241,53,0.14); border: 1px solid rgba(198,241,53,0.4); border-radius: 3px; padding: 2px 8px;">2A</span>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 12px; color: #B7B7B1; letter-spacing: 0.02em;">Product page — image + details left, two-column weight select right</span>
+    </div>
+
+    <div style="display: flex; align-items: stretch;">
+      <!-- LEFT: product section (~1/3) -->
+      <div style="flex: 0 0 400px; padding: 32px; border-right: 1px solid #E4E4DE; display: flex; flex-direction: column; gap: 18px;">
+        <div style="font-family: 'Archivo', sans-serif; font-size: 11px; color: #9A9A93; letter-spacing: 0.02em;">Dumbbells / Rubber Hex</div>
+        <div style="width: 100%; height: 230px; background: #EDEDE8; border-radius: 4px; overflow: hidden;">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="blkbox-hex-dumbbell" shape="rect" placeholder="Drop product photo" hint-size="100%,100%"></x-import>
+        </div>
+        <div>
+          <div style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 30px; text-transform: uppercase; line-height: 1;">Rubber Hex Dumbbells</div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 10px;">
+            <span style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 15px; color: #C6A600;">★★★★★</span>
+            <span style="font-family: 'Archivo', sans-serif; font-size: 12px; color: #6B6B66;">4.8 · 145 reviews</span>
+          </div>
+        </div>
+        <div style="font-family: 'Archivo', sans-serif; font-size: 14px; line-height: 1.55; color: #4a4a44;">Cast-iron head with a durable rubber coating and a knurled chrome handle. Sold as single dumbbells so you build exactly the rack you need — from 2.5 kg up to 30 kg.</div>
+        <div style="display: flex; gap: 24px; padding-top: 4px;">
+          <div>
+            <div style="font-family: 'Archivo', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: #9A9A93;">From</div>
+            <div style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 22px;">£19.00</div>
+          </div>
+          <div>
+            <div style="font-family: 'Archivo', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: #9A9A93;">Range</div>
+            <div style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 22px;">2.5–30 kg</div>
+          </div>
+        </div>
+        <div style="margin-top: auto; display: flex; align-items: center; gap: 8px; font-family: 'Archivo', sans-serif; font-size: 12px; color: #2E8C52; font-weight: 600;">
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #3FB56B;"></span> Most weights in stock · ships in 3–5 days
+        </div>
+      </div>
+
+      <!-- RIGHT: two-column select (~2/3) -->
+      <div style="flex: 1; padding: 28px 32px 0; display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px;">
+          <div style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 18px; text-transform: uppercase; letter-spacing: 0.02em;">Choose your weights</div>
+          <button onClick="{{ addSetD }}" style="font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; background: #fff; border: 1px solid #111214; border-radius: 3px; padding: 8px 13px; cursor: pointer;" style-hover="background:#111214;color:#fff;">+ Add full set</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px;">
+          <sc-for list="{{ itemsD }}" as="item" hint-placeholder-count="12">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 9px 14px; background: #fff; border: 1px solid {{ item.borderA }}; border-radius: 4px; opacity: {{ item.cardOpacity }};">
+              <div style="flex: 1; min-width: 0;">
+                <div style="display: flex; align-items: baseline; gap: 4px;">
+                  <span style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 19px; line-height: 1;">{{ item.label }}</span>
+                  <span style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 11px; color: #6B6B66;">KG</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px; margin-top: 3px;">
+                  <span style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 13px;">{{ item.price }}</span>
+                  <span style="width: 5px; height: 5px; border-radius: 50%; background: {{ item.dotColor }};"></span>
+                  <span style="font-family: 'Archivo', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; color: {{ item.stockText }};">{{ item.stockLabel }}</span>
+                </div>
+              </div>
+              <sc-if value="{{ item.available }}" hint-placeholder-val="{{ true }}">
+                <div style="display: flex; align-items: center; border: 1px solid #DADAD4; border-radius: 3px; overflow: hidden; height: 34px; flex: 0 0 auto;">
+                  <button onClick="{{ item.dec }}" style="flex: 0 0 34px; height: 100%; border: none; background: #F5F5F3; font-size: 18px; cursor: pointer;" style-hover="background:#EAEAE4;">–</button>
+                  <div style="width: 34px; text-align: center; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 15px; color: {{ item.qtyColor }};">{{ item.qty }}</div>
+                  <button onClick="{{ item.inc }}" style="flex: 0 0 34px; height: 100%; border: none; background: #111214; color: #fff; font-size: 18px; cursor: pointer;" style-hover="background:#000;">+</button>
+                </div>
+              </sc-if>
+              <sc-if value="{{ item.disabled }}" hint-placeholder-val="{{ false }}">
+                <span style="flex: 0 0 auto; width: 104px; text-align: center; font-family: 'Archivo', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; color: #B0342A;">Out of stock</span>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="position: sticky; bottom: 0; margin: 20px -32px 0; background: #111214; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <div style="font-family: 'Archivo', sans-serif; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: #8A8A84;">{{ totalsD.count }} dumbbells selected</div>
+            <div style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; line-height: 1; color: #fff;">{{ totalsD.price }}</div>
+          </div>
+          <button onClick="{{ addCartD }}" style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; background: #C6F135; color: #111214; border: none; border-radius: 3px; padding: 15px 34px; cursor: pointer;" style-hover="background:#d4ff4f;">{{ ctaD }}</button>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1900, &quot;height&quot;: 1200}}">
+class Component extends DCLogic {
+  state = { A: {}, B: {}, C: {}, D: {}, focusB: 15, currentC: 10, flashA: false, flashB: false, flashC: false, flashD: false };
+
+  get data() {
+    return [
+      { w: 2.5, price: 19, stock: 'ok' },
+      { w: 5, price: 29, stock: 'ok' },
+      { w: 7.5, price: 39, stock: 'ok' },
+      { w: 10, price: 49, stock: 'ok' },
+      { w: 12.5, price: 59, stock: 'ok' },
+      { w: 15, price: 69, stock: 'ok' },
+      { w: 17.5, price: 79, stock: 'low5' },
+      { w: 20, price: 89, stock: 'ok' },
+      { w: 22.5, price: 99, stock: 'low3' },
+      { w: 25, price: 109, stock: 'ok' },
+      { w: 27.5, price: 119, stock: 'ok' },
+      { w: 30, price: 129, stock: 'out' },
+    ];
+  }
+
+  money(n) { return '£' + n.toFixed(2); }
+
+  stockMeta(s) {
+    if (s === 'out') return { label: 'Out of stock', dot: '#C2C2BB', text: '#9A9A93', tone: 'out', disabled: true };
+    if (s === 'low3') return { label: 'Low · 3 left', dot: '#E0A63A', text: '#B07A15', tone: 'low', disabled: false };
+    if (s === 'low5') return { label: 'Low · 5 left', dot: '#E0A63A', text: '#B07A15', tone: 'low', disabled: false };
+    return { label: 'In stock', dot: '#3FB56B', text: '#2E8C52', tone: 'ok', disabled: false };
+  }
+
+  setQty(cart, w, v) {
+    this.setState(s => ({ [cart]: { ...s[cart], [w]: Math.max(0, v) } }));
+  }
+  inc(cart, w) { this.setState(s => ({ [cart]: { ...s[cart], [w]: (s[cart][w] || 0) + 1 } })); }
+  dec(cart, w) { this.setState(s => ({ [cart]: { ...s[cart], [w]: Math.max(0, (s[cart][w] || 0) - 1) } })); }
+
+  addPreset(cart, ws) {
+    this.setState(s => {
+      const next = { ...s[cart] };
+      ws.forEach(w => { next[w] = (next[w] || 0) + 1; });
+      return { [cart]: next };
+    });
+  }
+  addFullSet(cart) {
+    this.addPreset(cart, this.data.filter(d => d.stock !== 'out').map(d => d.w));
+  }
+
+  totals(cart) {
+    let count = 0, price = 0;
+    this.data.forEach(d => { const q = this.state[cart][d.w] || 0; count += q; price += q * d.price; });
+    return { count, price: this.money(price) };
+  }
+
+  cta(cart, flash) {
+    const t = this.totals(cart);
+    if (this.state[flash]) return 'Added ✓';
+    return t.count ? 'Add to cart' : 'Select weights';
+  }
+
+  flashAdd(cart, flash) {
+    if (!this.totals(cart).count) return;
+    this.setState({ [flash]: true });
+    setTimeout(() => this.setState({ [flash]: false }), 1600);
+  }
+
+  plateSmall(w) { return Math.round(20 + (w / 30) * 22); }
+
+  buildItems(cart, opts = {}) {
+    return this.data.map(d => {
+      const m = this.stockMeta(d.stock);
+      const qty = this.state[cart][d.w] || 0;
+      return {
+        w: d.w,
+        label: String(d.w),
+        price: this.money(d.price),
+        stockLabel: m.label, dotColor: m.dot, stockText: m.text,
+        available: !m.disabled, disabled: m.disabled,
+        qty,
+        qtyColor: qty > 0 ? '#111214' : '#B0B0A9',
+        plateSize: this.plateSmall(d.w),
+        borderA: qty > 0 ? '#111214' : '#EAEAE4',
+        cardOpacity: m.disabled ? 0.55 : 1,
+        rowBg: opts.focusB === d.w ? '#EEF3D9' : 'transparent',
+        inc: () => this.inc(cart, d.w),
+        dec: () => this.dec(cart, d.w),
+        focus: () => this.setState({ focusB: d.w }),
+      };
+    });
+  }
+
+  renderVals() {
+    const dmap = Object.fromEntries(this.data.map(d => [d.w, d]));
+
+    // hero B
+    const bcart = this.state.B;
+    const inCartB = this.data.filter(d => (bcart[d.w] || 0) > 0).map(d => d.w);
+    const heroW = inCartB.length ? Math.max(...inCartB) : this.state.focusB;
+    const hd = dmap[heroW]; const hm = this.stockMeta(hd.stock);
+    const heroB = {
+      label: String(heroW),
+      price: this.money(hd.price),
+      stockLabel: hm.label,
+      plate: Math.round(40 + (heroW / 30) * 78),
+    };
+
+    // scale C
+    const scaleC = this.data.map(d => {
+      const m = this.stockMeta(d.stock);
+      const active = this.state.currentC === d.w;
+      return {
+        w: d.w, label: String(d.w),
+        select: () => this.setState({ currentC: d.w }),
+        bg: active ? '#111214' : (m.disabled ? '#EDEDE8' : '#fff'),
+        color: active ? '#fff' : (m.disabled ? '#B0B0A9' : '#111214'),
+        border: active ? '#111214' : '#DADAD4',
+        dotColor: m.dot,
+      };
+    });
+    const cd = dmap[this.state.currentC]; const cm = this.stockMeta(cd.stock);
+    const cqty = this.state.C[this.state.currentC] || 0;
+    const currentC = {
+      label: String(this.state.currentC),
+      price: this.money(cd.price),
+      stockLabel: cm.label,
+      available: !cm.disabled, disabled: cm.disabled,
+      qty: cqty,
+      plate: Math.round(46 + (this.state.currentC / 30) * 64),
+      inc: () => this.inc('C', this.state.currentC),
+      dec: () => this.dec('C', this.state.currentC),
+    };
+    const addedC = this.data.filter(d => (this.state.C[d.w] || 0) > 0).map(d => {
+      const q = this.state.C[d.w];
+      return { label: String(d.w), qty: q, line: this.money(q * d.price), remove: () => this.setQty('C', d.w, 0) };
+    });
+
+    return {
+      itemsD: this.buildItems('D'),
+      totalsD: this.totals('D'),
+      ctaD: this.cta('D', 'flashD'),
+      addCartD: () => this.flashAdd('D', 'flashD'),
+      addSetD: () => this.addFullSet('D'),
+      itemsA: this.buildItems('A'),
+      itemsB: this.buildItems('B', { focusB: heroW }),
+      totalsA: this.totals('A'), totalsB: this.totals('B'), totalsC: this.totals('C'),
+      ctaA: this.cta('A', 'flashA'), ctaB: this.cta('B', 'flashB'), ctaC: this.cta('C', 'flashC'),
+      addCartA: () => this.flashAdd('A', 'flashA'),
+      addCartB: () => this.flashAdd('B', 'flashB'),
+      addCartC: () => this.flashAdd('C', 'flashC'),
+      addSetA: () => this.addFullSet('A'),
+      heroB,
+      presetsB: [
+        { label: 'Home starter (5–12.5)', add: () => this.addPreset('B', [5, 7.5, 10, 12.5]) },
+        { label: 'Strength pack (15–25)', add: () => this.addPreset('B', [15, 17.5, 20, 22.5, 25]) },
+        { label: 'Full set', add: () => this.addFullSet('B') },
+      ],
+      scaleC, currentC, addedC,
+      hasAddedC: addedC.length > 0,
+      emptyC: addedC.length === 0,
+    };
+  }
+}
+</script>
+</body>
+</html>
