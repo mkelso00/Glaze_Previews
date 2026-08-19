@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin:0; font-family:'Archivo',system-ui,sans-serif; background:#E9E7E2; -webkit-font-smoothing:antialiased; }
+  a { color:#101010; text-decoration:none; }
+  a:hover { color:#C0281B; }
+  * { box-sizing:border-box; }
+</style>
+</helmet>
+
+<section style="padding:56px 56px 40px; display:flex; flex-direction:column; gap:28px;">
+  <div style="display:flex; align-items:baseline; gap:16px;">
+    <div style="font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#101010;">Turn 2 — One product, five units</div>
+    <div style="font-size:13px; color:#6E6A64;">Built on <a href="#1a">1a</a>. Two brand new units, three used at Excellent, Good and Fair. Click a unit to switch.</div>
+  </div>
+
+  <div id="2a" style="display:flex; flex-direction:column; gap:16px;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:34px; height:22px; background:#101010; color:#fff; font-size:11px; font-weight:700; letter-spacing:0.08em; border-radius:3px;">2a</span>
+      <span style="font-size:15px; font-weight:600; color:#101010;">Unit picker — each listing carries its own condition, price, photos and certificate</span>
+    </div>
+
+    <div style="display:flex; gap:32px; align-items:flex-start;">
+
+      <div style="width:1440px; flex:none; background:#FBFAF8; box-shadow:0 24px 60px rgba(16,16,16,0.14);">
+        <div style="height:38px; background:#101010; display:flex; align-items:center; justify-content:center; gap:48px; color:#fff; font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;">
+          <span>Every unit authenticated and condition-graded in-house</span>
+          <span style="opacity:0.35;">/</span>
+          <span>Free US shipping over $199</span>
+          <span style="opacity:0.35;">/</span>
+          <span>2,500+ five-star reviews</span>
+        </div>
+        <div style="height:76px; background:#EDEBE7; border-bottom:1px solid #E3DFD9; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; letter-spacing:0.24em; color:#8B867F;">HEADER</div>
+
+        <div style="padding:22px 48px 0; display:flex; justify-content:space-between; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8B867F;">
+          <span>Home / Hats / Vertabrae</span>
+          <span>5 units available · 2 brand new, 3 used</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) 496px; gap:64px; padding:26px 48px 72px; align-items:start;">
+
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <sc-if value="{{ isU1 }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <image-slot id="u1-main" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:820px" placeholder="Unit 01 — sealed, front"></image-slot>
+                <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px;">
+                  <image-slot id="u1-d1" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:400px" placeholder="Unit 01 — tags attached"></image-slot>
+                  <image-slot id="u1-d2" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:400px" placeholder="Unit 01 — interior label"></image-slot>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isU2 }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <image-slot id="u2-main" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:820px" placeholder="Unit 02 — front"></image-slot>
+                <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px;">
+                  <image-slot id="u2-d1" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:400px" placeholder="Unit 02 — brim shelf crease"></image-slot>
+                  <image-slot id="u2-d2" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:400px" placeholder="Unit 02 — interior label"></image-slot>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isU3 }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <image-slot id="u3-main" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:820px" placeholder="Unit 03 — front"></image-slot>
+                <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px;">
+                  <image-slot id="u3-d1" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:400px" placeholder="Unit 03 — crown nap"></image-slot>
+                  <image-slot id="u3-d2" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:400px" placeholder="Unit 03 — snap closure"></image-slot>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isU4 }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <image-slot id="u4-main" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:820px" placeholder="Unit 04 — front"></image-slot>
+                <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px;">
+                  <image-slot id="u4-d1" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:400px" placeholder="Unit 04 — flattened crown nap"></image-slot>
+                  <image-slot id="u4-d2" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:400px" placeholder="Unit 04 — eyelet detail"></image-slot>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isU5 }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <image-slot id="u5-main" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:820px" placeholder="Unit 05 — front"></image-slot>
+                <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px;">
+                  <image-slot id="u5-d1" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:400px" placeholder="Unit 05 — brim wear"></image-slot>
+                  <image-slot id="u5-d2" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:400px" placeholder="Unit 05 — mark on left panel"></image-slot>
+                </div>
+              </div>
+            </sc-if>
+            <div style="font-size:12px; color:#8B867F; padding-top:4px;">Every frame is the unit you selected, shot at our NYC studio. Flaws are photographed, not written around.</div>
+          </div>
+
+          <div style="display:flex; flex-direction:column;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8B867F;">
+              <span>Vertabrae</span>
+              <span style="width:1px; height:11px; background:#D5D0C9;"></span>
+              <span>5 units in stock</span>
+            </div>
+            <h1 style="margin:14px 0 0; font-size:38px; line-height:1.12; font-weight:700; letter-spacing:-0.02em; color:#101010; text-wrap:pretty;">Vertabrae 'Heritage' Red Snapback Hat</h1>
+            <div style="font-size:13px; color:#6E6A64; margin-top:12px;">Priced per unit by condition. From €84,95 to €131,95.</div>
+
+            <div style="height:1px; background:#E3DFD9; margin:26px 0;"></div>
+
+            <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#8B867F;">Choose your unit</div>
+
+            <div style="display:flex; flex-direction:column; gap:8px; margin-top:14px;">
+              <div onClick="{{ pick1 }}" style="{{ row1 }}">
+                <div style="width:56px; height:56px; flex:none; background:#EDEBE7 url('uploads/Vertabrae_Heritage_RedSnapbackHat.webp') center/contain no-repeat; border:1px solid #E3DFD9; border-radius:0"></div>
+                <div style="flex:1;">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="font-size:13px; font-weight:700; color:#101010;">Unit 01 — Brand New</span>
+                    <span style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; background:#101010; color:#fff; padding:3px 6px;">Sealed</span>
+                  </div>
+                  <div style="font-size:12px; color:#6E6A64; margin-top:3px;">Unworn, original tags, never handled</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-size:14px; font-weight:700;">€131,95</div>
+                  <div style="font-size:10px; color:#8B867F; letter-spacing:0.06em; text-transform:uppercase; margin-top:3px;">Brand New</div>
+                </div>
+              </div>
+
+              <div onClick="{{ pick2 }}" style="{{ row2 }}">
+                <div style="width:56px; height:56px; flex:none; background:#EDEBE7 url('uploads/Vertabrae_Heritage_RedSnapbackHat.webp') center/contain no-repeat; border:1px solid #E3DFD9; border-radius:0"></div>
+                <div style="flex:1;">
+                  <div style="font-size:13px; font-weight:700; color:#101010;">Unit 02 — Brand New</div>
+                  <div style="font-size:12px; color:#6E6A64; margin-top:3px;">Unworn with tags, light shelf crease on the brim</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-size:14px; font-weight:700;">€129,95</div>
+                  <div style="font-size:10px; color:#8B867F; letter-spacing:0.06em; text-transform:uppercase; margin-top:3px;">Brand New</div>
+                </div>
+              </div>
+
+              <div onClick="{{ pick3 }}" style="{{ row3 }}">
+                <div style="width:56px; height:56px; flex:none; background:#EDEBE7 url('uploads/Vertabrae_Heritage_RedSnapbackHat.webp') center/contain no-repeat; border:1px solid #E3DFD9; border-radius:0"></div>
+                <div style="flex:1;">
+                  <div style="font-size:13px; font-weight:700; color:#101010;">Unit 03 — Used – Excellent</div>
+                  <div style="font-size:12px; color:#6E6A64; margin-top:3px;">Worn once, no visible wear to suede or stitch</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-size:14px; font-weight:700;">€112,95</div>
+                  <div style="font-size:10px; color:#8B867F; letter-spacing:0.06em; text-transform:uppercase; margin-top:3px;">Used – Excellent</div>
+                </div>
+              </div>
+
+              <div onClick="{{ pick4 }}" style="{{ row4 }}">
+                <div style="width:56px; height:56px; flex:none; background:#EDEBE7 url('uploads/Vertabrae_Heritage_RedSnapbackHat.webp') center/contain no-repeat; border:1px solid #E3DFD9; border-radius:0"></div>
+                <div style="flex:1;">
+                  <div style="font-size:13px; font-weight:700; color:#101010;">Unit 04 — Used – Good</div>
+                  <div style="font-size:12px; color:#6E6A64; margin-top:3px;">Light nap flattening on the crown, hardware intact</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-size:14px; font-weight:700;">€98,95</div>
+                  <div style="font-size:10px; color:#8B867F; letter-spacing:0.06em; text-transform:uppercase; margin-top:3px;">Used – Good</div>
+                </div>
+              </div>
+
+              <div onClick="{{ pick5 }}" style="{{ row5 }}">
+                <div style="width:56px; height:56px; flex:none; background:#EDEBE7 url('uploads/Vertabrae_Heritage_RedSnapbackHat.webp') center/contain no-repeat; border:1px solid #E3DFD9; border-radius:0"></div>
+                <div style="flex:1;">
+                  <div style="font-size:13px; font-weight:700; color:#101010;">Unit 05 — Used – Fair</div>
+                  <div style="font-size:12px; color:#6E6A64; margin-top:3px;">Brim wear and a 4 mm mark on the left panel</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-size:14px; font-weight:700;">€84,95</div>
+                  <div style="font-size:10px; color:#8B867F; letter-spacing:0.06em; text-transform:uppercase; margin-top:3px;">Used – Fair</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:26px; border:1px solid #DCD7D0; background:#fff;">
+              <div style="padding:18px 22px; border-bottom:1px solid #EAE6E0; display:flex; align-items:center; gap:12px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C0281B" stroke-width="1.6"><path d="M12 2.5 4.5 5.8v6c0 4.4 3.1 8.1 7.5 9.7 4.4-1.6 7.5-5.3 7.5-9.7v-6L12 2.5Z"/><path d="m8.6 12 2.4 2.4 4.4-4.6"/></svg>
+                <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Condition report — selected unit</div>
+              </div>
+
+              <sc-if value="{{ isU1 }}" hint-placeholder-val="{{ true }}">
+                <div style="padding:22px;">
+                  <div style="display:flex; align-items:baseline; justify-content:space-between;">
+                    <div style="font-size:20px; font-weight:700;">Unit 01 · Brand New</div>
+                    <div style="font-size:12px; color:#6E6A64;">Certificate CH13-VB-40182</div>
+                  </div>
+                  <div style="font-size:13px; line-height:1.65; color:#4A4741; margin-top:10px;">Received sealed from a vetted trade account and opened only for authentication. Tags attached, no handling marks, suede nap uniform across all five panels.</div>
+                  <div style="display:flex; gap:20px; margin-top:16px; padding-top:14px; border-top:1px solid #EFECE7; font-size:12px; color:#6E6A64;"><span>Brand New</span><span>No flaws recorded</span><span>Graded 12 Aug 2026</span></div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ isU2 }}" hint-placeholder-val="{{ false }}">
+                <div style="padding:22px;">
+                  <div style="display:flex; align-items:baseline; justify-content:space-between;">
+                    <div style="font-size:20px; font-weight:700;">Unit 02 · Brand New</div>
+                    <div style="font-size:12px; color:#6E6A64;">Certificate CH13-VB-40183</div>
+                  </div>
+                  <div style="font-size:13px; line-height:1.65; color:#4A4741; margin-top:10px;">Unworn with tags attached. One shelf crease across the brim from storage, visible in the second frame. No wear to the suede, stitch or hardware.</div>
+                  <div style="display:flex; gap:20px; margin-top:16px; padding-top:14px; border-top:1px solid #EFECE7; font-size:12px; color:#6E6A64;"><span>Brand New</span><span>1 flaw recorded</span><span>Graded 12 Aug 2026</span></div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ isU3 }}" hint-placeholder-val="{{ false }}">
+                <div style="padding:22px;">
+                  <div style="display:flex; align-items:baseline; justify-content:space-between;">
+                    <div style="font-size:20px; font-weight:700;">Unit 03 · Used – Excellent</div>
+                    <div style="font-size:12px; color:#6E6A64;">Certificate CH13-VB-40190</div>
+                  </div>
+                  <div style="font-size:13px; line-height:1.65; color:#4A4741; margin-top:10px;">Worn once by the previous owner. No visible wear to the suede or chain-stitch monogram, brim still flat, snap closure tight. Tags removed.</div>
+                  <div style="display:flex; gap:20px; margin-top:16px; padding-top:14px; border-top:1px solid #EFECE7; font-size:12px; color:#6E6A64;"><span>Used – Excellent</span><span>Tags removed</span><span>Graded 14 Aug 2026</span></div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ isU4 }}" hint-placeholder-val="{{ false }}">
+                <div style="padding:22px;">
+                  <div style="display:flex; align-items:baseline; justify-content:space-between;">
+                    <div style="font-size:20px; font-weight:700;">Unit 04 · Used – Good</div>
+                    <div style="font-size:12px; color:#6E6A64;">Certificate CH13-VB-40191</div>
+                  </div>
+                  <div style="font-size:13px; line-height:1.65; color:#4A4741; margin-top:10px;">Regular light wear. Suede nap flattened across the front crown panel and a faint sweat line inside the band. Embroidery, eyelets and snap hardware all intact.</div>
+                  <div style="display:flex; gap:20px; margin-top:16px; padding-top:14px; border-top:1px solid #EFECE7; font-size:12px; color:#6E6A64;"><span>Used – Good</span><span>2 flaws recorded</span><span>Graded 15 Aug 2026</span></div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ isU5 }}" hint-placeholder-val="{{ false }}">
+                <div style="padding:22px;">
+                  <div style="display:flex; align-items:baseline; justify-content:space-between;">
+                    <div style="font-size:20px; font-weight:700;">Unit 05 · Used – Fair</div>
+                    <div style="font-size:12px; color:#6E6A64;">Certificate CH13-VB-40192</div>
+                  </div>
+                  <div style="font-size:13px; line-height:1.65; color:#4A4741; margin-top:10px;">Heavier wear. Brim edge rubbed at both corners, a 4 mm dark mark on the left panel and general nap flattening. Structurally sound, monogram fully intact.</div>
+                  <div style="display:flex; gap:20px; margin-top:16px; padding-top:14px; border-top:1px solid #EFECE7; font-size:12px; color:#6E6A64;"><span>Used – Fair</span><span>3 flaws recorded</span><span>Graded 15 Aug 2026</span></div>
+                </div>
+              </sc-if>
+            </div>
+
+            <div style="margin-top:20px; display:flex; gap:10px; align-items:center;">
+              <div style="width:150px; height:56px; border:1px solid #D5D0C9; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color:#3A3733;">Qty 1</div>
+              <div style="flex:1; height:56px; background:#101010; color:#fff; display:flex; align-items:center; justify-content:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer;" style-hover="background:#C0281B">
+                <span>Add this unit — {{ unitPrice }}</span>
+              </div>
+            </div>
+            <div style="font-size:12px; color:#6E6A64; margin-top:12px;">Each unit is one of one. Adding to bag reserves this exact certificate number for 15 minutes.</div>
+
+            <div style="margin-top:26px; padding:20px 22px; background:#F6F4F0; border:1px solid #E3DFD9;">
+              <div style="font-size:13px; font-weight:600; color:#101010;">Condition scale</div>
+              <div style="display:flex; flex-direction:column; gap:10px; margin-top:12px;">
+                <div><div style="font-size:12px; font-weight:700; color:#101010;">Brand New</div><div style="font-size:12px; line-height:1.65; color:#4A4741; margin-top:3px;">Pieces are deadstock or unworn, with original tags, stickers, dust bags, boxes, or protective films still attached on clothing, footwear, and accessories. Garments have never been washed or worn, sneakers show no try-on creases or outsole wear, and accessories have no signs of handling or storage marks.</div></div>
+                <div style="display:flex; flex-wrap:wrap; gap:8px 18px; font-size:12px; font-weight:700; color:#101010; padding-top:6px; border-top:1px solid #E3DFD9;"><span>Used — Excellent</span><span>Used — Good</span><span>Used — Fair</span><span>Used — Poor</span></div>
+                <div style="font-size:11px; color:#8B867F;">Definitions for the used tiers to come from you — send the copy and I'll drop it in.</div>
+              </div>
+              <div style="font-size:12px; line-height:1.65; color:#4A4741; margin-top:12px; padding-top:10px; border-top:1px solid #E3DFD9;">Conditions are assigned by the same authenticator who signs the certificate, and the authenticity guarantee covers brand new and used units alike.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="width:390px; flex:none; background:#FBFAF8; border-radius:34px; box-shadow:0 24px 60px rgba(16,16,16,0.14); overflow:hidden;">
+        <div style="height:34px; background:#101010; color:#fff; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;">5 units · 2 brand new, 3 used</div>
+        <div style="height:56px; background:#EDEBE7; border-bottom:1px solid #E3DFD9; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; letter-spacing:0.24em; color:#8B867F;">HEADER</div>
+        <image-slot id="m2-hero" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:390px" placeholder="Selected unit — front"></image-slot>
+        <div style="padding:20px 18px 0;">
+          <div style="font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8B867F;">Vertabrae</div>
+          <div style="font-size:22px; font-weight:700; line-height:1.15; margin-top:8px; letter-spacing:-0.01em;">Vertabrae 'Heritage' Red Snapback Hat</div>
+          <div style="font-size:13px; color:#6E6A64; margin-top:10px;">From €84,95 · priced per unit by condition</div>
+
+          <div style="font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#8B867F; margin-top:22px;">Choose your unit</div>
+          <div style="display:flex; flex-direction:column; gap:8px; margin-top:10px;">
+            <div style="border:1.5px solid #101010; padding:12px; display:flex; align-items:center; gap:12px;">
+              <div style="width:44px; height:44px; flex:none; background:#EDEBE7 url('uploads/Vertabrae_Heritage_RedSnapbackHat.webp') center/contain no-repeat; border:1px solid #E3DFD9; border-radius:0"></div>
+              <div style="flex:1;"><div style="font-size:12px; font-weight:700;">Unit 01 — Brand New</div><div style="font-size:11px; color:#8B867F; margin-top:2px;">Brand New</div></div>
+              <div style="font-size:13px; font-weight:700;">€131,95</div>
+            </div>
+            <div style="border:1px solid #E3DFD9; padding:12px; display:flex; align-items:center; gap:12px;">
+              <div style="width:44px; height:44px; flex:none; background:#EDEBE7 url('uploads/Vertabrae_Heritage_RedSnapbackHat.webp') center/contain no-repeat; border:1px solid #E3DFD9; border-radius:0"></div>
+              <div style="flex:1;"><div style="font-size:12px; font-weight:700;">Unit 02 — Brand New</div><div style="font-size:11px; color:#8B867F; margin-top:2px;">Brand New · shelf crease</div></div>
+              <div style="font-size:13px; font-weight:700;">€129,95</div>
+            </div>
+            <div style="border:1px solid #E3DFD9; padding:12px; display:flex; align-items:center; gap:12px;">
+              <div style="width:44px; height:44px; flex:none; background:#EDEBE7 url('uploads/Vertabrae_Heritage_RedSnapbackHat.webp') center/contain no-repeat; border:1px solid #E3DFD9; border-radius:0"></div>
+              <div style="flex:1;"><div style="font-size:12px; font-weight:700;">Unit 03 — Used – Excellent</div><div style="font-size:11px; color:#8B867F; margin-top:2px;">Used – Excellent</div></div>
+              <div style="font-size:13px; font-weight:700;">€112,95</div>
+            </div>
+            <div style="border:1px solid #E3DFD9; padding:12px; display:flex; align-items:center; gap:12px;">
+              <div style="width:44px; height:44px; flex:none; background:#EDEBE7 url('uploads/Vertabrae_Heritage_RedSnapbackHat.webp') center/contain no-repeat; border:1px solid #E3DFD9; border-radius:0"></div>
+              <div style="flex:1;"><div style="font-size:12px; font-weight:700;">Unit 04 — Used – Good</div><div style="font-size:11px; color:#8B867F; margin-top:2px;">Used – Good</div></div>
+              <div style="font-size:13px; font-weight:700;">€98,95</div>
+            </div>
+            <div style="border:1px solid #E3DFD9; padding:12px; display:flex; align-items:center; gap:12px;">
+              <div style="width:44px; height:44px; flex:none; background:#EDEBE7 url('uploads/Vertabrae_Heritage_RedSnapbackHat.webp') center/contain no-repeat; border:1px solid #E3DFD9; border-radius:0"></div>
+              <div style="flex:1;"><div style="font-size:12px; font-weight:700;">Unit 05 — Used – Fair</div><div style="font-size:11px; color:#8B867F; margin-top:2px;">Used – Fair · brim wear</div></div>
+              <div style="font-size:13px; font-weight:700;">€84,95</div>
+            </div>
+          </div>
+
+          <div style="margin-top:20px; border:1px solid #DCD7D0; background:#fff; padding:16px;">
+            <div style="display:flex; align-items:center; gap:9px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C0281B" stroke-width="1.7"><path d="M12 2.5 4.5 5.8v6c0 4.4 3.1 8.1 7.5 9.7 4.4-1.6 7.5-5.3 7.5-9.7v-6L12 2.5Z"/><path d="m8.6 12 2.4 2.4 4.4-4.6"/></svg>
+              <span style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Condition report · Unit 01 — Brand New</span>
+            </div>
+            <div style="font-size:12px; line-height:1.6; color:#4A4741; margin-top:10px;">Brand New, no flaws recorded. Certificate CH13-VB-40182 ships with the unit.</div>
+            <div style="font-size:11px; font-weight:600; text-decoration:underline; margin-top:10px;">See all photos of this unit</div>
+          </div>
+        </div>
+        <div style="padding:18px; margin-top:18px; background:#F6F4F0; border-top:1px solid #E3DFD9; display:flex; gap:12px; align-items:center;">
+          <div style="font-size:15px; font-weight:700;">€131,95</div>
+          <div style="flex:1; height:52px; background:#101010; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;">Add unit 01</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:16px 56px 120px; display:flex; flex-direction:column; gap:28px;">
+  <div style="display:flex; align-items:baseline; gap:16px;">
+    <div style="font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#101010;">Turn 1 — Product page directions</div>
+    <div style="font-size:13px; color:#6E6A64;">Two whole-page takes. Reference them as <a href="#1a">1a</a> / <a href="#1b">1b</a>.</div>
+  </div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:72px; align-items:flex-start;">
+
+    <div id="1a" style="display:flex; flex-direction:column; gap:16px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:34px; height:22px; background:#101010; color:#fff; font-size:11px; font-weight:700; letter-spacing:0.08em; border-radius:3px;">1a</span>
+        <span style="font-size:15px; font-weight:600; color:#101010;">Open dossier — every proof point visible, editorial rhythm</span>
+      </div>
+
+      <div style="display:flex; gap:32px; align-items:flex-start;">
+
+        <div style="width:1440px; flex:none; background:#FBFAF8; box-shadow:0 24px 60px rgba(16,16,16,0.14);">
+          <div style="height:38px; background:#101010; display:flex; align-items:center; justify-content:center; gap:48px; color:#fff; font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;">
+            <span>Every item authenticated in-house</span>
+            <span style="opacity:0.35;">/</span>
+            <span>Free US shipping over $199</span>
+            <span style="opacity:0.35;">/</span>
+            <span>2,500+ five-star reviews</span>
+          </div>
+          <div style="height:76px; background:#EDEBE7; border-bottom:1px solid #E3DFD9; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; letter-spacing:0.24em; color:#8B867F;">HEADER</div>
+
+          <div style="padding:22px 48px 0; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8B867F;">Home / Hats / Vertabrae</div>
+
+          <div style="display:grid; grid-template-columns:minmax(0,1fr) 496px; gap:64px; padding:26px 48px 72px; align-items:start;">
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <image-slot id="a-hero" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:840px" placeholder="Main product shot"></image-slot>
+              <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px;">
+                <image-slot id="a-2" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:420px" placeholder="Detail — front logo stitch"></image-slot>
+                <image-slot id="a-3" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:420px" placeholder="Detail — inner brand tag"></image-slot>
+              </div>
+              <div style="position:relative;">
+                <image-slot id="a-4" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:560px" placeholder="Photo of the exact item you'll receive"></image-slot>
+                <div style="position:absolute; top:14px; left:14px; pointer-events:none; background:#101010; color:#fff; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; padding:7px 10px;">Actual item · shot in-house</div>
+              </div>
+              <div style="font-size:12px; color:#8B867F; padding-top:4px;">Photographed at our NYC studio. No stock imagery — what you see is the unit that ships.</div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:0;">
+              <div style="display:flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8B867F;">
+                <span>Vertabrae</span>
+                <span style="width:1px; height:11px; background:#D5D0C9;"></span>
+                <span style="color:#C0281B;">Brand new</span>
+              </div>
+              <h1 style="margin:14px 0 0; font-size:38px; line-height:1.12; font-weight:700; letter-spacing:-0.02em; color:#101010; text-wrap:pretty;">Vertabrae 'Heritage' Red Snapback Hat</h1>
+              <div style="display:flex; align-items:baseline; gap:14px; margin-top:18px;">
+                <div style="font-size:24px; font-weight:600; color:#101010;">€131,95</div>
+                <div style="font-size:12px; color:#8B867F;">EUR · 4 payments of €32,99 with Afterpay</div>
+              </div>
+
+              <div style="height:1px; background:#E3DFD9; margin:26px 0;"></div>
+
+              <div style="display:flex; flex-direction:column; gap:12px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#8B867F;">Size — one size</div>
+                <div style="display:flex; gap:10px;">
+                  <div style="flex:1; height:52px; border:1.5px solid #101010; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600;">One size</div>
+                  <div style="width:150px; height:52px; border:1px solid #D5D0C9; display:flex; align-items:center; justify-content:space-between; padding:0 16px; color:#3A3733;">
+                    <span onClick="{{ dec }}" style="cursor:pointer; font-size:18px; user-select:none;">−</span>
+                    <span style="font-size:14px; font-weight:600;">{{ qty }}</span>
+                    <span onClick="{{ inc }}" style="cursor:pointer; font-size:18px; user-select:none;">+</span>
+                  </div>
+                </div>
+                <div style="height:56px; background:#101010; color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer;" style-hover="background:#C0281B">Add to bag</div>
+                <div style="display:flex; align-items:center; justify-content:space-between; font-size:12px; color:#6E6A64;">
+                  <span>In stock — ships within 24h</span>
+                  <span style="text-decoration:underline;">More payment options</span>
+                </div>
+              </div>
+
+              <div style="margin-top:34px; border:1px solid #DCD7D0; background:#fff;">
+                <div style="padding:20px 22px; border-bottom:1px solid #EAE6E0; display:flex; align-items:center; gap:12px;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C0281B" stroke-width="1.6"><path d="M12 2.5 4.5 5.8v6c0 4.4 3.1 8.1 7.5 9.7 4.4-1.6 7.5-5.3 7.5-9.7v-6L12 2.5Z"/><path d="m8.6 12 2.4 2.4 4.4-4.6"/></svg>
+                  <div style="font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#101010;">Authentication record</div>
+                  <div style="margin-left:auto; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#6E6A64; border:1px solid #DCD7D0; padding:5px 8px;">Entrupy verified</div>
+                </div>
+
+                <div style="padding:22px; display:flex; flex-direction:column; gap:18px; border-bottom:1px solid #EAE6E0;">
+                  <div style="font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#8B867F;">The four checks this unit passed</div>
+                  <div style="display:flex; gap:14px;">
+                    <div style="font-size:11px; font-weight:700; color:#C0281B; width:16px;">01</div>
+                    <div><div style="font-size:13px; font-weight:600; color:#101010;">Intake &amp; provenance</div><div style="font-size:12px; color:#6E6A64; margin-top:3px;">Seller vetted, invoice or drop receipt logged against the unit.</div></div>
+                  </div>
+                  <div style="display:flex; gap:14px;">
+                    <div style="font-size:11px; font-weight:700; color:#C0281B; width:16px;">02</div>
+                    <div><div style="font-size:13px; font-weight:600; color:#101010;">Construction inspection</div><div style="font-size:12px; color:#6E6A64; margin-top:3px;">Stitch density, panel seams, eyelet finish and snap hardware compared to reference units.</div></div>
+                  </div>
+                  <div style="display:flex; gap:14px;">
+                    <div style="font-size:11px; font-weight:700; color:#C0281B; width:16px;">03</div>
+                    <div><div style="font-size:13px; font-weight:600; color:#101010;">Material &amp; print scan</div><div style="font-size:12px; color:#6E6A64; margin-top:3px;">Suede nap, dye tone and embroidery thread checked under magnification and Entrupy scan.</div></div>
+                  </div>
+                  <div style="display:flex; gap:14px;">
+                    <div style="font-size:11px; font-weight:700; color:#C0281B; width:16px;">04</div>
+                    <div><div style="font-size:13px; font-weight:600; color:#101010;">Tag &amp; label match</div><div style="font-size:12px; color:#6E6A64; margin-top:3px;">Interior label typography, sizing tag and hologram cross-checked with the season's production run.</div></div>
+                  </div>
+                </div>
+
+                <div style="padding:20px 22px; display:flex; gap:14px; align-items:center; border-bottom:1px solid #EAE6E0;">
+                  <div style="width:46px; height:46px; flex:none; background:#EDEBE7; border:1px solid #E3DFD9; border-radius:50%"></div>
+                  <div>
+                    <div style="font-size:13px; font-weight:600; color:#101010;">Signed off by Marcus Reyes</div>
+                    <div style="font-size:12px; color:#6E6A64; margin-top:2px;">Lead authenticator · 9 years · 40,000+ items assessed</div>
+                  </div>
+                </div>
+
+                <div style="padding:20px 22px; display:flex; gap:16px; align-items:center; border-bottom:1px solid #EAE6E0;">
+                  <div style="width:56px; height:56px; background:#101010; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:repeat(4,1fr); gap:2px; padding:7px;">
+                    <div style="background:#fff"></div><div style="background:#101010"></div><div style="background:#fff"></div><div style="background:#fff"></div>
+                    <div style="background:#fff"></div><div style="background:#fff"></div><div style="background:#101010"></div><div style="background:#fff"></div>
+                    <div style="background:#101010"></div><div style="background:#fff"></div><div style="background:#fff"></div><div style="background:#101010"></div>
+                    <div style="background:#fff"></div><div style="background:#101010"></div><div style="background:#fff"></div><div style="background:#fff"></div>
+                  </div>
+                  <div>
+                    <div style="font-size:13px; font-weight:600; color:#101010;">Digital certificate CH13-VB-40182</div>
+                    <div style="font-size:12px; color:#6E6A64; margin-top:2px;">Scannable card ships in the box and lives in your account. Transfers to the next owner on resale.</div>
+                  </div>
+                </div>
+
+                <div style="padding:20px 22px; background:#F6F4F0;">
+                  <div style="font-size:13px; font-weight:600; color:#101010;">If it isn't real, you keep nothing and lose nothing.</div>
+                  <div style="font-size:12px; color:#6E6A64; margin-top:4px;">Full refund plus return shipping on any item an independent authenticator judges inauthentic. No time limit, no restocking fee.</div>
+                </div>
+              </div>
+
+              <div style="margin-top:30px; border-top:1px solid #E3DFD9;">
+                <div onClick="{{ accADesc }}" style="padding:20px 2px; display:flex; justify-content:space-between; cursor:pointer; border-bottom:1px solid #E3DFD9;">
+                  <span style="font-size:13px; font-weight:600; letter-spacing:0.04em;">Description</span><span style="color:#8B867F;">+</span>
+                </div>
+                <sc-if value="{{ openADesc }}" hint-placeholder-val="{{ true }}">
+                  <div style="padding:18px 2px 22px; font-size:13px; line-height:1.65; color:#4A4741; border-bottom:1px solid #E3DFD9;">Faux-suede five-panel with a raised chain-stitch 'Heritage' monogram at the front panel, tonal red on red. Unstructured crown, flat brim, metal snap closure at the rear. Deadstock from the AW24 Vertabrae run.</div>
+                </sc-if>
+                <div onClick="{{ accASpec }}" style="padding:20px 2px; display:flex; justify-content:space-between; cursor:pointer; border-bottom:1px solid #E3DFD9;">
+                  <span style="font-size:13px; font-weight:600; letter-spacing:0.04em;">Measurements</span><span style="color:#8B867F;">+</span>
+                </div>
+                <sc-if value="{{ openASpec }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding:8px 2px 22px; border-bottom:1px solid #E3DFD9;">
+                    <div style="display:flex; justify-content:space-between; padding:10px 0; font-size:13px; color:#4A4741; border-bottom:1px solid #EFECE7;"><span>Circumference</span><span style="font-weight:600;">56–58 cm</span></div>
+                    <div style="display:flex; justify-content:space-between; padding:10px 0; font-size:13px; color:#4A4741; border-bottom:1px solid #EFECE7;"><span>Crown height</span><span style="font-weight:600;">10 cm</span></div>
+                    <div style="display:flex; justify-content:space-between; padding:10px 0; font-size:13px; color:#4A4741; border-bottom:1px solid #EFECE7;"><span>Brim depth</span><span style="font-weight:600;">7 cm</span></div>
+                    <div style="display:flex; justify-content:space-between; padding:10px 0; font-size:13px; color:#4A4741;"><span>Composition</span><span style="font-weight:600;">100% polyester suede</span></div>
+                  </div>
+                </sc-if>
+                <div onClick="{{ accAShip }}" style="padding:20px 2px; display:flex; justify-content:space-between; cursor:pointer; border-bottom:1px solid #E3DFD9;">
+                  <span style="font-size:13px; font-weight:600; letter-spacing:0.04em;">Delivery &amp; returns</span><span style="color:#8B867F;">+</span>
+                </div>
+                <sc-if value="{{ openAShip }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding:18px 2px 22px; font-size:13px; line-height:1.65; color:#4A4741; border-bottom:1px solid #E3DFD9;">Free US shipping over $199, tracked worldwide from New York. 14-day returns on unworn items with the certificate card included.</div>
+                </sc-if>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#101010; color:#fff; padding:64px 48px; display:grid; grid-template-columns:340px minmax(0,1fr); gap:72px;">
+            <div>
+              <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8B867F;">The brand</div>
+              <div style="font-size:30px; font-weight:700; letter-spacing:-0.01em; margin-top:14px;">Vertabrae</div>
+              <div style="font-size:13px; line-height:1.7; color:#B8B3AC; margin-top:14px;">Los Angeles, founded 2021. Gothic monogram work, heavy suede and denim, produced in short runs that sell out at drop. Chamber 13 stocks Vertabrae through vetted trade accounts and the secondary market, and every unit is authenticated on arrival regardless of source.</div>
+            </div>
+            <image-slot id="a-brand" shape="rect" style="width:100%; height:300px" placeholder="Vertabrae campaign or lookbook image"></image-slot>
+          </div>
+
+          <div style="padding:64px 48px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:64px;">
+            <div>
+              <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8B867F;">Authenticity questions</div>
+              <div style="margin-top:22px;">
+                <div style="padding:16px 0; border-top:1px solid #E3DFD9; font-size:14px; font-weight:600;">Who does the authentication?</div>
+                <div style="font-size:13px; line-height:1.65; color:#4A4741; padding-bottom:16px;">Our in-house team, led by Marcus Reyes, with Entrupy machine verification on applicable categories. Nothing is outsourced to a third-party warehouse.</div>
+                <div style="padding:16px 0; border-top:1px solid #E3DFD9; font-size:14px; font-weight:600;">What happens if you get it wrong?</div>
+                <div style="font-size:13px; line-height:1.65; color:#4A4741; padding-bottom:16px;">You're refunded in full including return shipping, with no time limit. We also publish the correction internally so the reference set improves.</div>
+                <div style="padding:16px 0; border-top:1px solid #E3DFD9; font-size:14px; font-weight:600;">Can I re-verify the item myself?</div>
+                <div style="font-size:13px; line-height:1.65; color:#4A4741; padding-bottom:16px; border-bottom:1px solid #E3DFD9;">Yes. The certificate number lets any authenticator pull the intake photos and scan record for this exact unit.</div>
+              </div>
+            </div>
+            <div style="border:1px solid #DCD7D0; padding:36px; display:flex; flex-direction:column; justify-content:center; gap:16px; background:#F6F4F0;">
+              <div style="font-size:24px; font-weight:700; letter-spacing:-0.01em; line-height:1.25;">Have Vertabrae sitting in your closet?</div>
+              <div style="font-size:13px; line-height:1.65; color:#4A4741;">Send it to us for assessment. We quote in 48 hours, pay on acceptance, and handle the authentication and listing.</div>
+              <div style="align-self:flex-start; margin-top:8px; padding:15px 26px; background:#101010; color:#fff; font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;">Sell to us</div>
+            </div>
+          </div>
+
+          <div style="padding:0 48px 72px;">
+            <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8B867F; margin-bottom:20px;">Recently viewed</div>
+            <div style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px;">
+              <div><image-slot id="a-r1" shape="rect" style="width:100%; height:280px" placeholder="Product"></image-slot><div style="font-size:12px; font-weight:600; margin-top:10px;">Vertabrae Denim Shorts</div><div style="font-size:12px; color:#8B867F;">€289,95</div></div>
+              <div><image-slot id="a-r2" shape="rect" style="width:100%; height:280px" placeholder="Product"></image-slot><div style="font-size:12px; font-weight:600; margin-top:10px;">Purple Brand Jeans</div><div style="font-size:12px; color:#8B867F;">€224,95</div></div>
+              <div><image-slot id="a-r3" shape="rect" style="width:100%; height:280px" placeholder="Product"></image-slot><div style="font-size:12px; font-weight:600; margin-top:10px;">Amiri MA Core Tee</div><div style="font-size:12px; color:#8B867F;">€349,95</div></div>
+              <div><image-slot id="a-r4" shape="rect" style="width:100%; height:280px" placeholder="Product"></image-slot><div style="font-size:12px; font-weight:600; margin-top:10px;">Ksubi Chitch Jean</div><div style="font-size:12px; color:#8B867F;">€259,95</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="width:390px; flex:none; background:#FBFAF8; border-radius:34px; box-shadow:0 24px 60px rgba(16,16,16,0.14); overflow:hidden;">
+          <div style="height:34px; background:#101010; color:#fff; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;">Authenticated in-house · free US shipping $199+</div>
+          <div style="height:56px; background:#EDEBE7; border-bottom:1px solid #E3DFD9; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; letter-spacing:0.24em; color:#8B867F;">HEADER</div>
+          <image-slot id="am-hero" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:390px" placeholder="Main shot"></image-slot>
+          <div style="padding:20px 18px 0;">
+            <div style="font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8B867F;">Vertabrae</div>
+            <div style="font-size:22px; font-weight:700; line-height:1.15; margin-top:8px; letter-spacing:-0.01em;">Vertabrae 'Heritage' Red Snapback Hat</div>
+            <div style="font-size:18px; font-weight:600; margin-top:12px;">€131,95</div>
+            <div style="font-size:11px; color:#8B867F; margin-top:4px;">4 payments of €32,99 with Afterpay</div>
+            <div style="margin-top:20px; border:1px solid #DCD7D0; background:#fff; padding:16px;">
+              <div style="display:flex; align-items:center; gap:9px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#C0281B" stroke-width="1.7"><path d="M12 2.5 4.5 5.8v6c0 4.4 3.1 8.1 7.5 9.7 4.4-1.6 7.5-5.3 7.5-9.7v-6L12 2.5Z"/><path d="m8.6 12 2.4 2.4 4.4-4.6"/></svg>
+                <span style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Authentication record</span>
+              </div>
+              <div style="font-size:12px; line-height:1.6; color:#4A4741; margin-top:10px;">Four checks passed, signed off by Marcus Reyes. Certificate CH13-VB-40182 ships in the box.</div>
+              <div style="font-size:11px; font-weight:600; text-decoration:underline; margin-top:12px;">Read the full record</div>
+            </div>
+            <div style="margin-top:20px; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#8B867F;">Size — one size</div>
+            <div style="margin-top:9px; height:50px; border:1.5px solid #101010; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600;">One size</div>
+            <div style="margin-top:22px; border-top:1px solid #E3DFD9; padding:16px 0; display:flex; justify-content:space-between; font-size:13px; font-weight:600;"><span>Description</span><span style="color:#8B867F;">+</span></div>
+            <div style="border-top:1px solid #E3DFD9; padding:16px 0; display:flex; justify-content:space-between; font-size:13px; font-weight:600;"><span>Measurements</span><span style="color:#8B867F;">+</span></div>
+            <div style="border-top:1px solid #E3DFD9; border-bottom:1px solid #E3DFD9; padding:16px 0; display:flex; justify-content:space-between; font-size:13px; font-weight:600;"><span>Delivery &amp; returns</span><span style="color:#8B867F;">+</span></div>
+          </div>
+          <div style="padding:20px 18px; margin-top:18px; background:#F6F4F0; border-top:1px solid #E3DFD9; display:flex; gap:12px; align-items:center;">
+            <div style="flex:1; height:52px; background:#101010; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;">Add to bag</div>
+            <div style="width:52px; height:52px; border:1px solid #D5D0C9; display:flex; align-items:center; justify-content:center; font-size:16px;">♡</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="1b" style="display:flex; flex-direction:column; gap:16px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:34px; height:22px; background:#101010; color:#fff; font-size:11px; font-weight:700; letter-spacing:0.08em; border-radius:3px;">1b</span>
+        <span style="font-size:15px; font-weight:600; color:#101010;">Certificate first — proof compressed into one tabbed credential, shorter page</span>
+      </div>
+
+      <div style="display:flex; gap:32px; align-items:flex-start;">
+
+        <div style="width:1440px; flex:none; background:#fff; box-shadow:0 24px 60px rgba(16,16,16,0.14);">
+          <div style="height:62px; background:#0A0A0A; color:#8B867F; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; letter-spacing:0.24em;">HEADER</div>
+
+          <div style="height:44px; padding:0 40px; display:flex; align-items:center; justify-content:space-between; background:#F2F0EC; border-bottom:1px solid #E3DFD9;">
+            <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8B867F;">Home / Hats / Vertabrae</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#101010;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C0281B" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="m8.4 12.2 2.5 2.5 4.7-4.9"/></svg>
+              <span>Certificate CH13-VB-40182 · verified 12 Aug 2026</span>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:minmax(0,1fr) 520px;">
+            <div style="background:#F2F0EC; padding:0; display:flex; flex-direction:column; gap:2px;">
+              <image-slot id="b-1" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:760px" placeholder="Main product shot"></image-slot>
+              <image-slot id="b-2" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:760px" placeholder="Angle two"></image-slot>
+              <div style="position:relative;">
+                <image-slot id="b-3" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:760px" placeholder="Macro of stitch / tag — evidence shot"></image-slot>
+                <div style="position:absolute; bottom:0; left:0; right:0; pointer-events:none; padding:26px 32px; background:linear-gradient(transparent,rgba(10,10,10,0.72)); color:#fff;">
+                  <div style="font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; opacity:0.75;">Evidence frame 3 of 6</div>
+                  <div style="font-size:15px; font-weight:600; margin-top:6px;">Chain-stitch density at the front panel, matched to the AW24 reference unit.</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="padding:56px 44px; display:flex; flex-direction:column;">
+              <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8B867F;">Vertabrae · Brand new</div>
+              <h1 style="margin:14px 0 0; font-size:36px; line-height:1.14; font-weight:700; letter-spacing:-0.02em; color:#0A0A0A; text-wrap:pretty;">Vertabrae 'Heritage' Red Snapback Hat</h1>
+              <div style="font-size:24px; font-weight:600; margin-top:18px;">€131,95 <span style="font-size:12px; font-weight:400; color:#8B867F;">EUR</span></div>
+              <div style="font-size:12px; color:#8B867F; margin-top:6px;">Or 4 interest-free payments of €32,99 with Afterpay</div>
+
+              <div style="display:flex; gap:10px; margin-top:28px;">
+                <div style="flex:1; height:54px; border:1.5px solid #0A0A0A; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600;">One size</div>
+                <div style="width:132px; height:54px; border:1px solid #D5D0C9; display:flex; align-items:center; justify-content:space-between; padding:0 15px;">
+                  <span onClick="{{ dec }}" style="cursor:pointer; font-size:18px; user-select:none;">−</span>
+                  <span style="font-size:14px; font-weight:600;">{{ qty }}</span>
+                  <span onClick="{{ inc }}" style="cursor:pointer; font-size:18px; user-select:none;">+</span>
+                </div>
+              </div>
+              <div style="height:58px; margin-top:10px; background:#0A0A0A; color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer;" style-hover="background:#C0281B">Add to bag — €131,95</div>
+              <div style="font-size:12px; color:#6E6A64; margin-top:12px; text-align:center;">In stock · ships from New York within 24h</div>
+
+              <div style="margin-top:36px; border:1px solid #E3DFD9;">
+                <div style="padding:22px 24px; background:#0A0A0A; color:#fff; display:flex; gap:16px; align-items:center;">
+                  <div style="width:52px; height:52px; border:1px solid rgba(255,255,255,0.25); display:flex; align-items:center; justify-content:center;">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C0281B" stroke-width="1.5"><path d="M12 2.5 4.5 5.8v6c0 4.4 3.1 8.1 7.5 9.7 4.4-1.6 7.5-5.3 7.5-9.7v-6L12 2.5Z"/><path d="m8.6 12 2.4 2.4 4.4-4.6"/></svg>
+                  </div>
+                  <div>
+                    <div style="font-size:14px; font-weight:700; letter-spacing:0.04em;">Certificate of authenticity included</div>
+                    <div style="font-size:12px; color:#A9A49D; margin-top:3px;">CH13-VB-40182 · in-house authentication · Entrupy scan on file</div>
+                  </div>
+                </div>
+
+                <div style="display:flex; border-bottom:1px solid #E3DFD9;">
+                  <div onClick="{{ tabProcess }}" style="{{ tabProcessStyle }}">Process</div>
+                  <div onClick="{{ tabPerson }}" style="{{ tabPersonStyle }}">Authenticator</div>
+                  <div onClick="{{ tabGuarantee }}" style="{{ tabGuaranteeStyle }}">Guarantee</div>
+                </div>
+
+                <sc-if value="{{ isProcess }}" hint-placeholder-val="{{ true }}">
+                  <div style="padding:24px; display:flex; flex-direction:column; gap:16px;">
+                    <div style="display:flex; gap:13px; align-items:flex-start;"><span style="font-size:11px; font-weight:700; color:#C0281B; width:15px; padding-top:2px;">01</span><div><div style="font-size:13px; font-weight:600;">Provenance logged</div><div style="font-size:12px; color:#6E6A64; margin-top:2px;">Seller vetted; invoice or drop receipt tied to this unit.</div></div></div>
+                    <div style="display:flex; gap:13px; align-items:flex-start;"><span style="font-size:11px; font-weight:700; color:#C0281B; width:15px; padding-top:2px;">02</span><div><div style="font-size:13px; font-weight:600;">Construction inspected</div><div style="font-size:12px; color:#6E6A64; margin-top:2px;">Stitch density, seams, eyelets and snap hardware against reference units.</div></div></div>
+                    <div style="display:flex; gap:13px; align-items:flex-start;"><span style="font-size:11px; font-weight:700; color:#C0281B; width:15px; padding-top:2px;">03</span><div><div style="font-size:13px; font-weight:600;">Material scanned</div><div style="font-size:12px; color:#6E6A64; margin-top:2px;">Suede nap, dye tone and thread verified under magnification plus Entrupy.</div></div></div>
+                    <div style="display:flex; gap:13px; align-items:flex-start;"><span style="font-size:11px; font-weight:700; color:#C0281B; width:15px; padding-top:2px;">04</span><div><div style="font-size:13px; font-weight:600;">Labels matched</div><div style="font-size:12px; color:#6E6A64; margin-top:2px;">Interior label typography and sizing tag cross-checked with the AW24 run.</div></div></div>
+                    <div style="font-size:12px; color:#8B867F; border-top:1px solid #EFECE7; padding-top:14px;">Six evidence frames from this inspection are in the gallery on the left.</div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ isPerson }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding:24px; display:flex; flex-direction:column; gap:16px;">
+                    <div style="display:flex; gap:14px; align-items:center;">
+                      <div style="width:52px; height:52px; flex:none; background:#EDEBE7; border:1px solid #E3DFD9; border-radius:50%"></div>
+                      <div><div style="font-size:14px; font-weight:600;">Marcus Reyes</div><div style="font-size:12px; color:#6E6A64; margin-top:2px;">Lead authenticator, Chamber 13 New York</div></div>
+                    </div>
+                    <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:14px;">
+                      <div style="border:1px solid #E3DFD9; padding:14px;"><div style="font-size:19px; font-weight:700;">9 yrs</div><div style="font-size:11px; color:#8B867F; margin-top:2px;">Authenticating streetwear</div></div>
+                      <div style="border:1px solid #E3DFD9; padding:14px;"><div style="font-size:19px; font-weight:700;">40,000+</div><div style="font-size:11px; color:#8B867F; margin-top:2px;">Items assessed</div></div>
+                    </div>
+                    <div style="font-size:12px; line-height:1.65; color:#4A4741;">Trained on luxury intake at auction before joining Chamber 13 in 2019. Signs off every hat, tee and denim unit personally; contested calls go to a second reviewer plus machine scan.</div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ isGuarantee }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding:24px; display:flex; flex-direction:column; gap:14px;">
+                    <div style="font-size:15px; font-weight:600; line-height:1.4;">If any item we sell is judged inauthentic, you get every euro back.</div>
+                    <div style="font-size:12px; line-height:1.7; color:#4A4741;">Send us an independent authenticator's assessment and we refund the full purchase price plus return and assessment shipping. No time limit from the purchase date, no restocking fee, and no requirement to accept store credit.</div>
+                    <div style="display:flex; gap:22px; border-top:1px solid #EFECE7; padding-top:14px; font-size:11px; color:#8B867F;">
+                      <span>Full refund</span><span>Return shipping covered</span><span>No time limit</span>
+                    </div>
+                  </div>
+                </sc-if>
+              </div>
+
+              <div style="margin-top:32px; border-top:1px solid #E3DFD9;">
+                <div onClick="{{ accBDesc }}" style="padding:19px 2px; display:flex; justify-content:space-between; cursor:pointer; border-bottom:1px solid #E3DFD9;"><span style="font-size:13px; font-weight:600;">Description &amp; measurements</span><span style="color:#8B867F;">+</span></div>
+                <sc-if value="{{ openBDesc }}" hint-placeholder-val="{{ true }}">
+                  <div style="padding:16px 2px 20px; border-bottom:1px solid #E3DFD9;">
+                    <div style="font-size:13px; line-height:1.65; color:#4A4741;">Faux-suede five-panel with a raised chain-stitch 'Heritage' monogram, tonal red on red. Unstructured crown, flat brim, metal snap closure. Deadstock from the AW24 run.</div>
+                    <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:0 24px; margin-top:16px;">
+                      <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:12.5px; border-bottom:1px solid #EFECE7;"><span style="color:#6E6A64;">Circumference</span><span style="font-weight:600;">56–58 cm</span></div>
+                      <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:12.5px; border-bottom:1px solid #EFECE7;"><span style="color:#6E6A64;">Crown</span><span style="font-weight:600;">10 cm</span></div>
+                      <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:12.5px; border-bottom:1px solid #EFECE7;"><span style="color:#6E6A64;">Brim</span><span style="font-weight:600;">7 cm</span></div>
+                      <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:12.5px; border-bottom:1px solid #EFECE7;"><span style="color:#6E6A64;">Material</span><span style="font-weight:600;">Polyester suede</span></div>
+                    </div>
+                  </div>
+                </sc-if>
+                <div onClick="{{ accBShip }}" style="padding:19px 2px; display:flex; justify-content:space-between; cursor:pointer; border-bottom:1px solid #E3DFD9;"><span style="font-size:13px; font-weight:600;">Delivery &amp; returns</span><span style="color:#8B867F;">+</span></div>
+                <sc-if value="{{ openBShip }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding:16px 2px 20px; font-size:13px; line-height:1.65; color:#4A4741; border-bottom:1px solid #E3DFD9;">Free US shipping over $199, tracked worldwide from New York. 14-day returns on unworn items with the certificate card included.</div>
+                </sc-if>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:70px 40px; display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:80px; background:#F2F0EC;">
+            <div>
+              <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8B867F;">Authenticity questions</div>
+              <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:36px; margin-top:24px;">
+                <div><div style="font-size:14px; font-weight:600;">Who authenticates?</div><div style="font-size:13px; line-height:1.65; color:#4A4741; margin-top:8px;">Our New York team, led by Marcus Reyes, with Entrupy machine verification on applicable categories.</div></div>
+                <div><div style="font-size:14px; font-weight:600;">What if you're wrong?</div><div style="font-size:13px; line-height:1.65; color:#4A4741; margin-top:8px;">Full refund plus return shipping, no time limit, and the case feeds back into our reference set.</div></div>
+                <div><div style="font-size:14px; font-weight:600;">Can I re-verify it?</div><div style="font-size:13px; line-height:1.65; color:#4A4741; margin-top:8px;">Yes — the certificate number lets any authenticator pull the intake photos and scan record for this unit.</div></div>
+                <div><div style="font-size:14px; font-weight:600;">Where does stock come from?</div><div style="font-size:13px; line-height:1.65; color:#4A4741; margin-top:8px;">Vetted trade accounts and the secondary market. Both routes go through the same four checks.</div></div>
+              </div>
+            </div>
+            <div style="border-left:1px solid #DCD7D0; padding-left:40px; display:flex; flex-direction:column; justify-content:center; gap:14px;">
+              <div style="font-size:22px; font-weight:700; line-height:1.25; letter-spacing:-0.01em;">Selling Vertabrae?</div>
+              <div style="font-size:13px; line-height:1.65; color:#4A4741;">Quote in 48 hours, paid on acceptance. We handle authentication and listing.</div>
+              <div style="align-self:flex-start; margin-top:6px; padding:14px 24px; border:1.5px solid #0A0A0A; font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;">Sell to us</div>
+            </div>
+          </div>
+
+          <div style="padding:60px 40px 76px;">
+            <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:20px;">
+              <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8B867F;">Recently viewed</div>
+              <div style="font-size:12px; text-decoration:underline;">All Vertabrae</div>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px;">
+              <div><image-slot id="b-r1" shape="rect" style="width:100%; height:300px" placeholder="Product"></image-slot><div style="font-size:12px; font-weight:600; margin-top:10px;">Vertabrae Denim Shorts</div><div style="font-size:12px; color:#8B867F;">€289,95</div></div>
+              <div><image-slot id="b-r2" shape="rect" style="width:100%; height:300px" placeholder="Product"></image-slot><div style="font-size:12px; font-weight:600; margin-top:10px;">Purple Brand Jeans</div><div style="font-size:12px; color:#8B867F;">€224,95</div></div>
+              <div><image-slot id="b-r3" shape="rect" style="width:100%; height:300px" placeholder="Product"></image-slot><div style="font-size:12px; font-weight:600; margin-top:10px;">Amiri MA Core Tee</div><div style="font-size:12px; color:#8B867F;">€349,95</div></div>
+              <div><image-slot id="b-r4" shape="rect" style="width:100%; height:300px" placeholder="Product"></image-slot><div style="font-size:12px; font-weight:600; margin-top:10px;">Ksubi Chitch Jean</div><div style="font-size:12px; color:#8B867F;">€259,95</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="width:390px; flex:none; background:#fff; border-radius:34px; box-shadow:0 24px 60px rgba(16,16,16,0.14); overflow:hidden;">
+          <div style="height:56px; background:#0A0A0A; color:#8B867F; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; letter-spacing:0.24em;">HEADER</div>
+          <div style="height:38px; padding:0 18px; background:#F2F0EC; border-bottom:1px solid #E3DFD9; display:flex; align-items:center; gap:8px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C0281B" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m8.4 12.2 2.5 2.5 4.7-4.9"/></svg>
+            <span style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Certificate CH13-VB-40182</span>
+          </div>
+          <div style="position:relative;">
+            <image-slot id="bm-hero" src="uploads/Vertabrae_Heritage_RedSnapbackHat.webp" fit="contain" shape="rect" style="width:100%; height:420px" placeholder="Main shot"></image-slot>
+            <div style="position:absolute; bottom:14px; left:14px; pointer-events:none; background:rgba(10,10,10,0.82); color:#fff; font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:6px 9px;">1 / 6 evidence frames</div>
+          </div>
+          <div style="padding:20px 18px 0;">
+            <div style="font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#8B867F;">Vertabrae · Brand new</div>
+            <div style="font-size:22px; font-weight:700; line-height:1.15; margin-top:8px; letter-spacing:-0.01em;">Vertabrae 'Heritage' Red Snapback Hat</div>
+            <div style="font-size:18px; font-weight:600; margin-top:12px;">€131,95</div>
+            <div style="margin-top:20px; height:48px; border:1.5px solid #0A0A0A; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600;">One size</div>
+            <div style="margin-top:22px; border:1px solid #E3DFD9;">
+              <div style="padding:14px 16px; background:#0A0A0A; color:#fff; display:flex; align-items:center; gap:10px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C0281B" stroke-width="1.6"><path d="M12 2.5 4.5 5.8v6c0 4.4 3.1 8.1 7.5 9.7 4.4-1.6 7.5-5.3 7.5-9.7v-6L12 2.5Z"/><path d="m8.6 12 2.4 2.4 4.4-4.6"/></svg>
+                <span style="font-size:12px; font-weight:700;">Certificate of authenticity included</span>
+              </div>
+              <div style="display:flex; border-bottom:1px solid #E3DFD9; font-size:11px; font-weight:600;">
+                <div style="flex:1; padding:12px 0; text-align:center; border-bottom:2px solid #C0281B;">Process</div>
+                <div style="flex:1; padding:12px 0; text-align:center; color:#8B867F;">Authenticator</div>
+                <div style="flex:1; padding:12px 0; text-align:center; color:#8B867F;">Guarantee</div>
+              </div>
+              <div style="padding:16px; display:flex; flex-direction:column; gap:12px;">
+                <div style="display:flex; gap:11px;"><span style="font-size:10px; font-weight:700; color:#C0281B;">01</span><span style="font-size:12px; color:#4A4741;">Provenance logged against this unit</span></div>
+                <div style="display:flex; gap:11px;"><span style="font-size:10px; font-weight:700; color:#C0281B;">02</span><span style="font-size:12px; color:#4A4741;">Construction inspected against reference</span></div>
+                <div style="display:flex; gap:11px;"><span style="font-size:10px; font-weight:700; color:#C0281B;">03</span><span style="font-size:12px; color:#4A4741;">Material and print scanned</span></div>
+                <div style="display:flex; gap:11px;"><span style="font-size:10px; font-weight:700; color:#C0281B;">04</span><span style="font-size:12px; color:#4A4741;">Interior labels matched to the AW24 run</span></div>
+              </div>
+            </div>
+            <div style="margin-top:22px; border-top:1px solid #E3DFD9; padding:16px 0; display:flex; justify-content:space-between; font-size:13px; font-weight:600;"><span>Description &amp; measurements</span><span style="color:#8B867F;">+</span></div>
+            <div style="border-top:1px solid #E3DFD9; border-bottom:1px solid #E3DFD9; padding:16px 0; display:flex; justify-content:space-between; font-size:13px; font-weight:600;"><span>Delivery &amp; returns</span><span style="color:#8B867F;">+</span></div>
+          </div>
+          <div style="margin-top:20px; padding:16px 18px; border-top:1px solid #E3DFD9; background:#fff; display:flex; align-items:center; gap:14px;">
+            <div style="font-size:15px; font-weight:600;">€131,95</div>
+            <div style="flex:1; height:52px; background:#0A0A0A; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;">Add to bag</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;}}">
+class Component extends DCLogic {
+  state = { qty: 1, openA: 'desc', openB: 'desc', tab: 'process' };
+
+  tabStyle(name) {
+    const on = this.state.tab === name;
+    return 'flex:1; padding:15px 0; text-align:center; font-size:12px; font-weight:600; letter-spacing:0.04em; cursor:pointer; color:' +
+      (on ? '#0A0A0A' : '#8B867F') + '; border-bottom:2px solid ' + (on ? '#C0281B' : 'transparent') + ';';
+  }
+
+  toggle(key, val) {
+    this.setState(s => ({ [key]: s[key] === val ? null : val }));
+  }
+
+  rowStyle(n) {
+    const on = (this.state.unit || 1) === n;
+    return 'display:flex; align-items:center; gap:14px; padding:12px 14px; cursor:pointer; background:' +
+      (on ? '#fff' : 'transparent') + '; border:' + (on ? '1.5px solid #101010' : '1px solid #E3DFD9') + ';';
+  }
+
+  renderVals() {
+    const s = this.state;
+    const u = s.unit || 1;
+    const prices = { 1: '€131,95', 2: '€129,95', 3: '€112,95', 4: '€98,95', 5: '€84,95' };
+    return {
+      isU1: u === 1, isU2: u === 2, isU3: u === 3, isU4: u === 4, isU5: u === 5,
+      pick1: () => this.setState({ unit: 1 }),
+      pick2: () => this.setState({ unit: 2 }),
+      pick3: () => this.setState({ unit: 3 }),
+      pick4: () => this.setState({ unit: 4 }),
+      pick5: () => this.setState({ unit: 5 }),
+      row1: this.rowStyle(1), row2: this.rowStyle(2), row3: this.rowStyle(3),
+      row4: this.rowStyle(4), row5: this.rowStyle(5),
+      unitPrice: prices[u],
+      qty: s.qty,
+      inc: () => this.setState(p => ({ qty: p.qty + 1 })),
+      dec: () => this.setState(p => ({ qty: Math.max(1, p.qty - 1) })),
+      openADesc: s.openA === 'desc',
+      openASpec: s.openA === 'spec',
+      openAShip: s.openA === 'ship',
+      accADesc: () => this.toggle('openA', 'desc'),
+      accASpec: () => this.toggle('openA', 'spec'),
+      accAShip: () => this.toggle('openA', 'ship'),
+      openBDesc: s.openB === 'desc',
+      openBShip: s.openB === 'ship',
+      accBDesc: () => this.toggle('openB', 'desc'),
+      accBShip: () => this.toggle('openB', 'ship'),
+      isProcess: s.tab === 'process',
+      isPerson: s.tab === 'person',
+      isGuarantee: s.tab === 'guarantee',
+      tabProcess: () => this.setState({ tab: 'process' }),
+      tabPerson: () => this.setState({ tab: 'person' }),
+      tabGuarantee: () => this.setState({ tab: 'guarantee' }),
+      tabProcessStyle: this.tabStyle('process'),
+      tabPersonStyle: this.tabStyle('person'),
+      tabGuaranteeStyle: this.tabStyle('guarantee')
+    };
+  }
+}
+
+</script>
+</body>
+</html>
