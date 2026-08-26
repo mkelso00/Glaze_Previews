@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Joppa Q4 Readiness | House of Joppa audit | Glaze Digital</title>
+<meta name="description" content="CRO, UX, SEO and retention audit of houseofjoppa.com, built on 90 days of live Shopify data and two page-speed tests. Prepared by Glaze Digital, August 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  /* minimal reset, the artifact host normally supplies this */
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; }
+  img { max-width: 100%; height: auto; }
+  table { border-collapse: collapse; }
+</style>
+</head>
+<body>
+<style>
+  /* ===================================================================
+     GLAZE BRAND BLOCK
+     To re-skin this whole report, change only these four values.
+     Everything below derives from them.
+     =================================================================== */
+  :root {
+    --brand-primary:   #1F3D7A;   /* Glaze primary */
+    --brand-accent:    #9A6C34;   /* Glaze accent  */
+    --brand-ink:       #131A2B;   /* headings, body */
+    --brand-ground:    #F5F6F8;   /* page ground   */
+  }
+
+  :root {
+    --ground:      var(--brand-ground);
+    --surface:     #FFFFFF;
+    --surface-2:   #ECEEF3;
+    --line:        #D6DAE3;
+    --line-soft:   #E5E8EE;
+    --ink:         var(--brand-ink);
+    --ink-2:       #3D465C;
+    --ink-3:       #6B7488;
+    --marian:      var(--brand-primary);
+    --marian-soft: #E8EDF7;
+    --brass:       var(--brand-accent);
+    --brass-soft:  #F3EADC;
+    --crit:        #9C2B31;
+    --crit-soft:   #F7E7E7;
+    --warn:        #8A6212;
+    --warn-soft:   #FAF0DA;
+    --good:        #2C6349;
+    --good-soft:   #E4EFE9;
+    --shadow:      0 1px 2px rgba(19,26,43,.05), 0 8px 24px -12px rgba(19,26,43,.14);
+    --nav-bg:      rgba(245,246,248,.92);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #0E1320;
+      --surface:     #161D2E;
+      --surface-2:   #1E2637;
+      --line:        #2C3547;
+      --line-soft:   #232B3C;
+      --ink:         #E9ECF3;
+      --ink-2:       #B4BCCD;
+      --ink-3:       #8891A5;
+      --marian:      #8FA9E0;
+      --marian-soft: #1B2540;
+      --brass:       #D2A369;
+      --brass-soft:  #2A2214;
+      --crit:        #E88B8F;
+      --crit-soft:   #2E1A1B;
+      --warn:        #D9AC4E;
+      --warn-soft:   #2A2214;
+      --good:        #7FC0A2;
+      --good-soft:   #16281F;
+      --shadow:      0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+      --nav-bg:      rgba(14,19,32,.92);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #0E1320;
+    --surface:     #161D2E;
+    --surface-2:   #1E2637;
+    --line:        #2C3547;
+    --line-soft:   #232B3C;
+    --ink:         #E9ECF3;
+    --ink-2:       #B4BCCD;
+    --ink-3:       #8891A5;
+    --marian:      #8FA9E0;
+    --marian-soft: #1B2540;
+    --brass:       #D2A369;
+    --brass-soft:  #2A2214;
+    --crit:        #E88B8F;
+    --crit-soft:   #2E1A1B;
+    --warn:        #D9AC4E;
+    --warn-soft:   #2A2214;
+    --good:        #7FC0A2;
+    --good-soft:   #16281F;
+    --shadow:      0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+    --nav-bg:      rgba(14,19,32,.92);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Source Sans 3", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-size: 17px; line-height: 1.62; font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    margin: 0; padding: 0 20px 96px;
+  }
+  .wrap { max-width: 1020px; margin: 0 auto; }
+
+  h1, h2, h3 {
+    font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+    font-weight: 500; text-wrap: balance; line-height: 1.16; margin: 0;
+    letter-spacing: -.005em;
+  }
+  h1 { font-size: clamp(2.5rem, 5.6vw, 3.7rem); }
+  h2 { font-size: clamp(1.7rem, 3.3vw, 2.2rem); }
+  h3 { font-size: 1.3rem; }
+  h4 { font-size: 1.05rem; font-weight: 700; margin: 0; font-family: "Source Sans 3", sans-serif; }
+  p { margin: 0; max-width: 68ch; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .7rem; font-weight: 500; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--ink-3);
+  }
+  .num { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+  .lede { font-size: 1.18rem; color: var(--ink-2); max-width: 64ch; }
+  .lede strong { color: var(--ink); font-weight: 600; }
+  em.q { font-style: italic; color: var(--ink-2); }
+
+  /* ---- brand lockup ---- */
+  .lockup { display: flex; align-items: center; gap: 13px; }
+  .lockup .mark {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: var(--brand-primary); color: #FFFFFF;
+    display: flex; align-items: center; justify-content: center;
+    font-family: "EB Garamond", Georgia, serif; font-size: 1.32rem; font-weight: 600;
+    line-height: 1; padding-bottom: 2px; flex-shrink: 0;
+  }
+  .lockup .word {
+    font-family: "Source Sans 3", sans-serif; font-weight: 700;
+    letter-spacing: .22em; text-transform: uppercase; font-size: .935rem; color: var(--ink);
+  }
+  .lockup .word span { font-weight: 300; letter-spacing: .16em; color: var(--ink-3); }
+
+  /* ---- nav ---- */
+  nav.toc {
+    position: sticky; top: 0; z-index: 20;
+    background: var(--nav-bg); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    margin: 0 -20px 0; padding: 11px 20px;
+    overflow-x: auto;
+  }
+  nav.toc ol {
+    display: flex; gap: 22px; margin: 0 auto; padding: 0; list-style: none;
+    max-width: 1020px; white-space: nowrap;
+  }
+  nav.toc a {
+    font-family: "IBM Plex Mono", monospace; font-size: .69rem;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-3); text-decoration: none;
+  }
+  nav.toc a:hover { color: var(--marian); }
+
+  header.masthead {
+    padding: 60px 0 40px; border-bottom: 1px solid var(--line);
+    display: flex; flex-direction: column; gap: 22px;
+  }
+  .masthead-meta { display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: baseline; }
+
+  section { padding-top: 66px; display: flex; flex-direction: column; gap: 24px; scroll-margin-top: 60px; }
+  .sec-head { display: flex; flex-direction: column; gap: 10px; }
+
+  .cards { display: grid; gap: 16px; }
+  .g2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--line-soft);
+    border-radius: 10px; padding: 22px 24px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 9px;
+  }
+
+  .kpi { gap: 4px; }
+  .kpi .v {
+    font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums;
+    font-size: 1.8rem; font-weight: 500; letter-spacing: -.02em;
+  }
+  .kpi .k { font-size: .85rem; color: var(--ink-3); }
+  .kpi .note { font-size: .795rem; color: var(--ink-3); }
+  .kpi .note.dn { color: var(--crit); }
+  .kpi .note.up { color: var(--good); }
+
+  /* ---- funnel ---- */
+  .funnel { display: flex; flex-direction: column; gap: 19px; }
+  .frow { display: grid; grid-template-columns: 150px 1fr; gap: 18px; align-items: center; }
+  .flabel { font-size: .87rem; color: var(--ink-2); line-height: 1.3; }
+  .fbars { display: flex; flex-direction: column; gap: 7px; }
+  .fbar { display: flex; align-items: center; gap: 10px; }
+  .ftrack { flex: 1; height: 21px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+  .ffill { height: 100%; border-radius: 3px; }
+  .ffill.m { background: var(--marian); }
+  .ffill.d { background: var(--brass); }
+  .fval { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums;
+          font-size: .795rem; width: 112px; color: var(--ink-2); flex-shrink: 0; }
+  .fdev { font-family: "IBM Plex Mono", monospace; font-size: .655rem; letter-spacing: .08em;
+          text-transform: uppercase; width: 30px; color: var(--ink-3); flex-shrink: 0; }
+  .legend { display: flex; gap: 20px; font-size: .82rem; color: var(--ink-3); flex-wrap: wrap; }
+  .swatch { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 7px; }
+
+  /* ---- tables ---- */
+  .tscroll { overflow-x: auto; border: 1px solid var(--line-soft); border-radius: 10px;
+             background: var(--surface); box-shadow: var(--shadow); }
+  table { width: 100%; border-collapse: collapse; font-size: .885rem; min-width: 580px; }
+  th, td { text-align: left; padding: 11px 15px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+  thead th {
+    font-family: "IBM Plex Mono", monospace; font-size: .665rem; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-3); font-weight: 500;
+    background: var(--surface-2); border-bottom: 1px solid var(--line);
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.n, th.n { text-align: right; font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+  tbody tr:hover { background: var(--surface-2); }
+  caption { text-align: left; padding: 14px 15px 2px; caption-side: top; }
+  td .flag { color: var(--crit); font-weight: 600; }
+  td .ok { color: var(--good); font-weight: 600; }
+
+  /* ---- ranked items ---- */
+  .item {
+    background: var(--surface); border: 1px solid var(--line-soft);
+    border-left: 3px solid var(--marian); border-radius: 10px;
+    padding: 26px 28px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .item.crit { border-left-color: var(--crit); }
+  .item.brass { border-left-color: var(--brass); }
+  .item-top { display: flex; gap: 16px; align-items: flex-start; }
+  .rank { font-family: "IBM Plex Mono", monospace; font-size: 1.5rem; font-weight: 500;
+          color: var(--ink-3); line-height: 1; padding-top: 3px; flex-shrink: 0;
+          font-variant-numeric: tabular-nums; }
+  .item h3 { margin-bottom: 6px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tag { font-family: "IBM Plex Mono", monospace; font-size: .645rem; letter-spacing: .08em;
+         text-transform: uppercase; padding: 4px 9px; border-radius: 3px;
+         background: var(--surface-2); color: var(--ink-2); white-space: nowrap; }
+  .tag.crit { background: var(--crit-soft); color: var(--crit); }
+  .tag.good { background: var(--good-soft); color: var(--good); }
+  .tag.warn { background: var(--warn-soft); color: var(--warn); }
+  .tag.mar  { background: var(--marian-soft); color: var(--marian); }
+  .tag.bra  { background: var(--brass-soft); color: var(--brass); }
+
+  .block { display: flex; flex-direction: column; gap: 7px; }
+  .block-h { font-family: "IBM Plex Mono", monospace; font-size: .66rem; letter-spacing: .12em;
+             text-transform: uppercase; color: var(--ink-3); }
+  .block p, .block li { font-size: .94rem; }
+
+  ul.tight { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+  ul.tight li { max-width: 68ch; }
+
+  .evidence { background: var(--surface-2); border-radius: 8px; padding: 14px 17px;
+              font-size: .89rem; display: flex; flex-direction: column; gap: 6px; }
+  .evidence .row { display: flex; gap: 10px; align-items: baseline; }
+  .evidence .fig { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums;
+                   color: var(--ink); font-weight: 500; flex-shrink: 0; min-width: 106px; }
+  .evidence .txt { color: var(--ink-2); }
+
+  .worth { display: flex; flex-wrap: wrap; gap: 6px 22px; align-items: baseline;
+           padding-top: 14px; border-top: 1px solid var(--line-soft); }
+  .worth .amt { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums;
+                font-size: 1.1rem; font-weight: 600; color: var(--brass); }
+  .worth .cav { font-size: .835rem; color: var(--ink-3); max-width: 62ch; }
+
+  .callout { background: var(--crit-soft); border: 1px solid var(--crit); border-radius: 10px;
+             padding: 24px 26px; display: flex; flex-direction: column; gap: 12px; }
+  .callout h3 { color: var(--crit); }
+  .callout p, .callout li { color: var(--ink-2); font-size: .94rem; }
+
+  .note-box { background: var(--warn-soft); border: 1px solid var(--warn); border-radius: 10px;
+              padding: 18px 22px; display: flex; flex-direction: column; gap: 8px; }
+  .note-box p { font-size: .9rem; color: var(--ink-2); }
+  .note-box h4 { color: var(--warn); }
+
+  .method { background: var(--surface-2); border-radius: 10px; padding: 24px 26px;
+            display: flex; flex-direction: column; gap: 14px; font-size: .895rem; color: var(--ink-2); }
+  .method strong { color: var(--ink); }
+
+  footer { margin-top: 72px; padding-top: 26px; border-top: 1px solid var(--line);
+           font-size: .84rem; color: var(--ink-3);
+           display: flex; flex-direction: column; gap: 14px; }
+  .footer-lines { display: flex; flex-direction: column; gap: 5px; }
+  a { color: var(--marian); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, :focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; border-radius: 2px; }
+
+  @media (max-width: 620px) {
+    body { font-size: 16px; padding: 0 16px 64px; }
+    .frow { grid-template-columns: 1fr; gap: 8px; }
+    .item { padding: 22px 20px; }
+    .fval { width: 94px; font-size: .74rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<nav class="toc">
+  <ol>
+    <li><a href="#baseline">Baseline</a></li>
+    <li><a href="#leaks">Five leaks</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#cro">CRO backlog</a></li>
+    <li><a href="#seo">SEO</a></li>
+    <li><a href="#speed">Site speed</a></li>
+    <li><a href="#brand">Brand risk</a></li>
+    <li><a href="#plan">The plan</a></li>
+    <li><a href="#method">Method</a></li>
+  </ol>
+</nav>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="lockup">
+      <span class="mark" aria-hidden="true">G</span>
+      <span class="word">Glaze <span>Digital</span></span>
+    </div>
+    <div class="masthead-meta">
+      <span class="eyebrow">House of Joppa &middot; Shopify Plus</span>
+      <span class="eyebrow">CRO, UX, SEO and retention audit</span>
+      <span class="eyebrow">26 August 2026</span>
+    </div>
+    <h1>Where the money is leaking, and what to fix before Q4</h1>
+    <p class="lede">
+      The brand is working. Traffic is strong at <span class="num">335,420</span> sessions a quarter,
+      the returning customer rate is <span class="num">43.2%</span>, average product ratings sit between
+      <span class="num">4.75</span> and <span class="num">5.0</span>, and the blog ranks well enough to be
+      six of the top twenty entry points. The problem is the shop itself:
+      <strong>80% of visits are on mobile, and mobile is where the funnel breaks.</strong>
+      Nov and Dec were <span class="num">25.3%</span> of last year's revenue, so the window to land this
+      work is roughly ten weeks.
+    </p>
+  </header>
+
+  <!-- ================= BASELINE ================= -->
+  <section id="baseline">
+    <div class="sec-head">
+      <span class="eyebrow">01 &nbsp;/&nbsp; Baseline</span>
+      <h2>The last 90 days, from your Shopify data</h2>
+      <p>Pulled live from the store, 29 May to 26 August 2026. This is the yardstick every recommendation is measured against.</p>
+    </div>
+
+    <div class="cards g3">
+      <div class="card kpi"><span class="v">335,420</span><span class="k">Sessions</span><span class="note">80.0% mobile, 18.7% desktop</span></div>
+      <div class="card kpi"><span class="v">1.63%</span><span class="k">Conversion rate</span><span class="note">mobile 1.56%, desktop 1.97%</span></div>
+      <div class="card kpi"><span class="v">$84.26</span><span class="k">Average order value</span><span class="note dn">free shipping starts at $125</span></div>
+      <div class="card kpi"><span class="v">6,333</span><span class="k">Orders</span><span class="note">5,662 customers</span></div>
+      <div class="card kpi"><span class="v">$575,462</span><span class="k">Total sales</span><span class="note">$3.08m trailing twelve months</span></div>
+      <div class="card kpi"><span class="v">43.2%</span><span class="k">Returning customer rate</span><span class="note up">strong for the category</span></div>
+      <div class="card kpi"><span class="v">1,078</span><span class="k">Active products</span><span class="note">across 64 collections</span></div>
+      <div class="card kpi"><span class="v">3.8%</span><span class="k">Of gross sales discounted</span><span class="note up">healthy, not discount dependent</span></div>
+    </div>
+
+    <div class="card">
+      <h4>Mobile and desktop take very different journeys</h4>
+      <p style="font-size:.93rem; color:var(--ink-2)">
+        Mobile shoppers add to cart slightly <em>more</em> often than desktop shoppers. They then fall away
+        at the cart. That single step is the largest identified leak on the site.
+      </p>
+      <div class="funnel" style="margin-top:14px">
+        <div class="frow">
+          <div class="flabel">Sessions</div>
+          <div class="fbars">
+            <div class="fbar"><span class="fdev">Mob</span><div class="ftrack"><div class="ffill m" style="width:100%"></div></div><span class="fval">268,211</span></div>
+            <div class="fbar"><span class="fdev">Dsk</span><div class="ftrack"><div class="ffill d" style="width:100%"></div></div><span class="fval">62,624</span></div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="flabel">Added to cart<br><span class="eyebrow">% of sessions</span></div>
+          <div class="fbars">
+            <div class="fbar"><span class="fdev">Mob</span><div class="ftrack"><div class="ffill m" style="width:5.79%"></div></div><span class="fval">5.79%</span></div>
+            <div class="fbar"><span class="fdev">Dsk</span><div class="ftrack"><div class="ffill d" style="width:5.50%"></div></div><span class="fval">5.50%</span></div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="flabel">Cart to checkout<br><span class="eyebrow">% of cart adds</span></div>
+          <div class="fbars">
+            <div class="fbar"><span class="fdev">Mob</span><div class="ftrack"><div class="ffill m" style="width:45.8%"></div></div><span class="fval">45.8%</span></div>
+            <div class="fbar"><span class="fdev">Dsk</span><div class="ftrack"><div class="ffill d" style="width:58.0%"></div></div><span class="fval">58.0%</span></div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="flabel">Checkout to order<br><span class="eyebrow">% of checkouts</span></div>
+          <div class="fbars">
+            <div class="fbar"><span class="fdev">Mob</span><div class="ftrack"><div class="ffill m" style="width:58.9%"></div></div><span class="fval">58.9%</span></div>
+            <div class="fbar"><span class="fdev">Dsk</span><div class="ftrack"><div class="ffill d" style="width:61.7%"></div></div><span class="fval">61.7%</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="legend" style="margin-top:6px">
+        <span><span class="swatch" style="background:var(--marian)"></span>Mobile</span>
+        <span><span class="swatch" style="background:var(--brass)"></span>Desktop</span>
+      </div>
+    </div>
+
+    <div class="tscroll">
+      <table>
+        <caption class="eyebrow">Traffic by source, 90 days</caption>
+        <thead><tr><th>Source</th><th class="n">Sessions</th><th class="n">Share</th><th class="n">Conv. rate</th><th>Read</th></tr></thead>
+        <tbody>
+          <tr><td>Direct</td><td class="n">165,979</td><td class="n">49.5%</td><td class="n">1.71%</td><td>Suspiciously high. Almost certainly untagged email, SMS and social traffic hiding in here.</td></tr>
+          <tr><td>Search</td><td class="n">97,918</td><td class="n">29.2%</td><td class="n">1.79%</td><td>Healthy. The blog and collection copy are doing real work.</td></tr>
+          <tr><td>Social</td><td class="n">64,402</td><td class="n">19.2%</td><td class="n">0.98%</td><td><span class="flag">A fifth of your traffic converting at 60% of site average.</span></td></tr>
+          <tr><td>Email</td><td class="n">2,528</td><td class="n">0.75%</td><td class="n">2.49%</td><td>Your best converting channel and your smallest. See leak 04.</td></tr>
+          <tr><td>Paid</td><td class="n">17</td><td class="n">0.01%</td><td class="n">0.00%</td><td>Effectively no paid activity, and branded search is undefended. See brand risk.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= LEAKS ================= -->
+  <section id="leaks">
+    <div class="sec-head">
+      <span class="eyebrow">02 &nbsp;/&nbsp; Ranked opportunities</span>
+      <h2>Five leaks, biggest first</h2>
+      <p>Ranked by money at stake against effort to fix. Every figure traces back to store data or a page test, and every estimate carries its assumption in plain sight.</p>
+    </div>
+
+    <div class="item crit">
+      <div class="item-top"><span class="rank">01</span><div>
+        <h3>Mobile shoppers fill a cart, then do not reach checkout</h3>
+        <div class="tags"><span class="tag crit">Biggest leak</span><span class="tag mar">CRO</span><span class="tag good">Low effort</span><span class="tag">Theme edit</span></div>
+      </div></div>
+      <div class="evidence">
+        <div class="row"><span class="fig">45.8%</span><span class="txt">of mobile cart adds reach checkout, against 58.0% on desktop. A 12.2 point gap.</span></div>
+        <div class="row"><span class="fig">0</span><span class="txt">express checkout buttons on the cart page. No Shop Pay, Apple Pay, Google Pay or PayPal.</span></div>
+        <div class="row"><span class="fig">HOJ10</span><span class="txt">a 10% discount code is advertised on the cart page, sending people off to hunt for a code at the exact moment they should be paying.</span></div>
+        <div class="row"><span class="fig">1,211 ms</span><span class="txt">total blocking time on a mobile product page. Over a second where taps do nothing.</span></div>
+      </div>
+      <div class="block"><span class="block-h">What to do</span>
+        <ul class="tight">
+          <li>Put Apple Pay, Google Pay and Shop Pay express buttons at the top of the cart and in the cart drawer. On an 80% mobile store this is the highest return change on the list.</li>
+          <li>Remove the HOJ10 banner from the cart. Move the offer to the entry popup and the blog. If someone already has a code, the field at checkout is enough.</li>
+          <li>Add a free shipping progress bar in the cart. There is no threshold message in the cart at all today, only a site-wide banner.</li>
+          <li>Test the cart drawer on a real mid-range Android, not a simulator. With 1.2 seconds of blocking time, taps on the checkout button are being swallowed.</li>
+        </ul>
+      </div>
+      <div class="worth"><span class="amt">$190k to $375k a year</span>
+        <span class="cav">Lower figure closes half the mobile gap, upper closes all of it. Full parity with desktop is unusual, so plan on the lower half.</span></div>
+    </div>
+
+    <div class="item brass">
+      <div class="item-top"><span class="rank">02</span><div>
+        <h3>Average order value sits 48% below the free shipping threshold</h3>
+        <div class="tags"><span class="tag bra">Largest single lever</span><span class="tag mar">AOV</span><span class="tag good">Low effort</span></div>
+      </div></div>
+      <div class="evidence">
+        <div class="row"><span class="fig">$84.26</span><span class="txt">average order value against a $125 free shipping threshold. Most customers never get close.</span></div>
+        <div class="row"><span class="fig">$94.50</span><span class="txt">AOV in November 2025, your best month. Gifting season proves the basket can stretch.</span></div>
+        <div class="row"><span class="fig">None</span><span class="txt">no bundle, no frequently bought together, and no post-purchase upsell on the hero product page.</span></div>
+        <div class="row"><span class="fig">$126,660</span><span class="txt">a year from a $5 AOV lift at current order volume. The maths is that blunt.</span></div>
+      </div>
+      <div class="block"><span class="block-h">What to do</span>
+        <ul class="tight">
+          <li>Either drop the threshold to around $95, close enough to be reachable, or keep $125 and earn it with a cart progress bar plus a curated list of items that close the gap. Test it, do not guess.</li>
+          <li>Build real bundles. Adore Him Necklace and Adore Him Stud Earrings are both top fifteen sellers and are not sold together anywhere.</li>
+          <li>Add a proper cross-sell block to product pages. The hero product currently offers three category tiles near the footer, which is navigation, not an upsell.</li>
+          <li>Add gift wrap as a paid option. You already offer gift ready packaging and a gift message field, so demand is proven and the margin is easy.</li>
+          <li>Build an occasion-led gift finder. You already have baptism, first communion, confirmation, marriage, Lent, Easter, Mother's Day and Father's Day collections sitting there unused as a journey.</li>
+        </ul>
+      </div>
+      <div class="worth"><span class="amt">$60k to $125k a year</span>
+        <span class="cav">Lower figure is a $2.50 AOV lift, upper is $5. Both are ordinary results for bundles plus a threshold bar on a gifting catalogue.</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-top"><span class="rank">03</span><div>
+        <h3>The blog brings 22,000 readers a quarter and sells nothing</h3>
+        <div class="tags"><span class="tag mar">SEO to revenue</span><span class="tag mar">Content</span><span class="tag good">Low effort</span></div>
+      </div></div>
+      <div class="evidence">
+        <div class="row"><span class="fig">22,461</span><span class="txt">sessions landing on the top six blog posts in 90 days, 6.7% of all site traffic.</span></div>
+        <div class="row"><span class="fig">16</span><span class="txt">cart adds from all six combined. An add to cart rate of 0.071%.</span></div>
+        <div class="row"><span class="fig">7.03%</span><span class="txt">add to cart rate for homepage sessions, for comparison. The blog runs at one hundredth of it.</span></div>
+        <div class="row"><span class="fig">0</span><span class="txt">buyable products on the page. The one commerce block links to three collections, and there is no author byline or date.</span></div>
+      </div>
+      <div class="block"><span class="block-h">What to do</span>
+        <ul class="tight">
+          <li>Replace the category tiles with three to five real product cards, each with image, price and add to cart, matched to the post. A saint post shows that saint's medal, not <em class="q">Explore Jewelry</em>.</li>
+          <li>Treat these posts as list building first, selling second. Ninety thousand relevant readers a year is a far better source of subscribers than of impulse buyers, and email is your best converting channel.</li>
+          <li>Add author bylines, dates and an author bio block. This is Google's experience and authority territory, and these posts are one update away from losing the traffic that makes them valuable.</li>
+          <li>Put an inline email capture mid-article rather than relying on a popup, and offer content, not a discount. A Catholic home blessing printable will out-pull 10% off on this audience.</li>
+        </ul>
+      </div>
+      <div class="worth"><span class="amt">$20k to $31k a year direct</span>
+        <span class="cav">Assumes the blog reaches a 1.0% to 1.5% add to cart rate, still only a fifth of the homepage. The larger prize is the email list it should be feeding, counted in leak 04.</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-top"><span class="rank">04</span><div>
+        <h3>Your best converting channel is 0.75% of your traffic</h3>
+        <div class="tags"><span class="tag mar">Retention</span><span class="tag warn">Medium effort</span><span class="tag crit">Also an attribution problem</span></div>
+      </div></div>
+      <div class="evidence">
+        <div class="row"><span class="fig">2,528</span><span class="txt">email sessions in 90 days. That is 0.75% of all traffic.</span></div>
+        <div class="row"><span class="fig">2.49%</span><span class="txt">email conversion rate against a 1.63% site average. Best of any channel.</span></div>
+        <div class="row"><span class="fig">43.2%</span><span class="txt">returning customer rate. The loyalty is already there and is not being worked.</span></div>
+        <div class="row"><span class="fig">49.5%</span><span class="txt">of sessions logged as direct, high enough that some email and SMS traffic is almost certainly landing in the wrong bucket.</span></div>
+      </div>
+      <div class="block"><span class="block-h">What to do</span>
+        <ul class="tight">
+          <li>Start with attribution. Check UTM tagging on every email and SMS send. Until that is clean nobody can tell whether the channel is small or just invisible, and both answers change the plan.</li>
+          <li>Assuming it is genuinely small, the flows come first: welcome, browse abandonment, cart abandonment, post purchase, replenishment and winback. A 43% returning rate with almost no email traffic says the flows are missing or switched off.</li>
+          <li>Segment on devotion, not just purchase history. Marian, Sacred Heart, saints, baby and baptism gifting are distinct interests in this catalogue and each supports its own calendar.</li>
+          <li>Use the liturgical calendar as the campaign spine. Advent, Lent, feast days, and First Communion season in April and May. Your March and April sales peak proves the audience buys on that rhythm.</li>
+          <li>Add SMS for the Q4 window only if the list is consented and clean. Do not build a new channel three weeks before Black Friday.</li>
+        </ul>
+      </div>
+      <div class="worth"><span class="amt">$63k to $120k a year</span>
+        <span class="cav">Assumes email grows to 3% to 5% of sessions at the current 2.49% rate. Per session rates usually soften as a list grows, so treat this as an upper bracket.</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-top"><span class="rank">05</span><div>
+        <h3>Your number one product has no size option, and it shows</h3>
+        <div class="tags"><span class="tag mar">PDP</span><span class="tag good">Low effort</span><span class="tag bra">Merchandising</span></div>
+      </div></div>
+      <div class="evidence">
+        <div class="row"><span class="fig">$39,022</span><span class="txt">from the Miraculous Medal &amp; Two-Toned Crucifix Necklace in 90 days. Your top product by revenue.</span></div>
+        <div class="row"><span class="fig">10,724</span><span class="txt">sessions land directly on it, second only to the homepage.</span></div>
+        <div class="row"><span class="fig">0.96%</span><span class="txt">conversion rate for those sessions. Comparable product pages run at 2.21% to 2.29%.</span></div>
+        <div class="row"><span class="fig">18&quot; only</span><span class="txt">one chain length, no size guide, and a review on the page saying the chain was <em class="q">way too short</em>.</span></div>
+        <div class="row"><span class="fig">234 units</span><span class="txt">actually in stock, while the page carries <em class="q">Inventory on the way</em> and talk of restocking every four to six weeks.</span></div>
+      </div>
+      <div class="block"><span class="block-h">What to do</span>
+        <ul class="tight">
+          <li>Add 20&quot; and 24&quot; chain variants. A $179 necklace sold in one length turns away buyers who want it, and the objection is sitting in your own reviews.</li>
+          <li>Fix the stock messaging. With 234 units on hand, scarcity language reads as <em class="q">you might not get this</em> and costs orders rather than creating urgency.</li>
+          <li>Add a sticky add to cart on mobile. With sixteen images and reviews halfway down, the buy button scrolls out of reach and never comes back.</li>
+          <li>Put the returns window on the page. The one year jewellery guarantee is excellent, but there is no return period anywhere except a footer link.</li>
+          <li>Add care instructions for the vermeil finish and surface Shop Pay instalments. A review already mentions plating wear, and instalments on a $179 item against an $84 AOV is an obvious unlock.</li>
+        </ul>
+      </div>
+      <div class="worth"><span class="amt">$20k to $45k a year</span>
+        <span class="cav">Upper figure assumes this page reaches the 2.21% its peers manage. It is a higher priced item so some gap is natural, which is why the lower figure halves it.</span></div>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section id="reviews">
+    <div class="sec-head">
+      <span class="eyebrow">03 &nbsp;/&nbsp; Reviews and social proof</span>
+      <h2>Customers love the products. You are barely collecting the proof</h2>
+      <p>
+        The store runs Judge.me. Average ratings sit between 4.75 and 5.0 across your best sellers, which is
+        excellent. The problem is volume and placement: some products collect reviews at ten times the rate
+        of others, and the ones with the thinnest proof are often the ones selling hardest.
+      </p>
+    </div>
+
+    <div class="tscroll">
+      <table>
+        <caption class="eyebrow">Top sellers: orders in the last 90 days against reviews collected all time</caption>
+        <thead><tr><th>Product</th><th class="n">Orders, 90d</th><th class="n">Reviews</th><th class="n">Rating</th><th class="n">Reviews per order</th></tr></thead>
+        <tbody>
+          <tr><td>Vintage Sacred Heart Medallion</td><td class="n">183</td><td class="n">255</td><td class="n">4.94</td><td class="n"><span class="ok">1.39</span></td></tr>
+          <tr><td>Adore Him Necklace</td><td class="n">68</td><td class="n">61</td><td class="n">4.87</td><td class="n"><span class="ok">0.90</span></td></tr>
+          <tr><td>Hearts of the Holy Family</td><td class="n">188</td><td class="n">94</td><td class="n">4.95</td><td class="n">0.50</td></tr>
+          <tr><td>Miraculous Medal &amp; Two-Toned Crucifix</td><td class="n">217</td><td class="n">70</td><td class="n">4.87</td><td class="n">0.32</td></tr>
+          <tr><td>The Last Supper Plaque, White</td><td class="n">68</td><td class="n">16</td><td class="n">4.75</td><td class="n">0.24</td></tr>
+          <tr><td>St. Michael the Archangel Plaque, Gold</td><td class="n">142</td><td class="n">23</td><td class="n">4.96</td><td class="n"><span class="flag">0.16</span></td></tr>
+          <tr><td>Adore Him Stud Earrings</td><td class="n">116</td><td class="n">14</td><td class="n">4.79</td><td class="n"><span class="flag">0.12</span></td></tr>
+          <tr><td>Italian Wooden Crucifix</td><td class="n">114</td><td class="n">9</td><td class="n">4.78</td><td class="n"><span class="flag">0.08</span></td></tr>
+          <tr><td>Lilac Dainty Wrap Rosary Bracelet</td><td class="n">167</td><td class="n">7</td><td class="n">5.00</td><td class="n"><span class="flag">0.04</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box">
+      <h4>The clearest example</h4>
+      <p>
+        The Lilac Dainty Wrap Rosary Bracelet sold 167 times in the last 90 days and holds a perfect 5.0
+        rating from just 7 reviews. Every one of those buyers loved it and almost none of them were
+        successfully asked. That is not a product problem, it is a request flow problem.
+      </p>
+    </div>
+
+    <div class="cards g2">
+      <div class="card">
+        <h4>Fix the collection engine</h4>
+        <ul class="tight" style="font-size:.93rem">
+          <li>Set review request timing by product type. Jewellery needs a week of wear before anyone has an opinion. A wall plaque is judged the day it is hung. One global delay serves neither.</li>
+          <li>Turn on second and third reminders. Most stores collect over half their reviews on reminder two.</li>
+          <li>Add SMS review requests for customers who have opted in. Response rates run well above email.</li>
+          <li>Incentivise photos specifically, not reviews generally. Your existing photo reviews are the best asset on the site.</li>
+          <li>Import any reviews sitting in the old Shopify Product Reviews app before it is fully retired.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Then use what you collect</h4>
+        <ul class="tight" style="font-size:.93rem">
+          <li>Move the rating summary next to the price. Reviews currently start about halfway down the product page, which on mobile is a long way past the buy decision.</li>
+          <li>Surface customer photos on collection pages and in email. Devotional purchases are settled by seeing the piece in a real home.</li>
+          <li>Turn on Judge.me Q&amp;A. Buyers of a $179 necklace ask about chain length, plating and provenance, and answering publicly once saves the support ticket every time.</li>
+          <li>Put the rating into meta titles for your strongest products and into paid ad copy. A 4.94 from 255 reviews is worth showing before the click.</li>
+          <li>Pull review language into product copy. Your customers describe these pieces better than a copywriter will.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <h4>One technical thing to clean up</h4>
+      <p>
+        Your products carry both Judge.me metafields and the legacy <span class="num">reviews.rating</span>
+        metafields from the old Shopify Product Reviews app. Two sources of truth for the same star rating is
+        how stores end up with mismatched counts, or empty stars rendering on pages with no reviews. Decide
+        which is authoritative, migrate the rest, and remove the orphaned metafields.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= CRO BACKLOG ================= -->
+  <section id="cro">
+    <div class="sec-head">
+      <span class="eyebrow">04 &nbsp;/&nbsp; CRO backlog</span>
+      <h2>The rest of the conversion work, sized</h2>
+      <p>
+        Everything below is beyond the five headline leaks. Impact is my judgement against the data in this
+        report, not a promise. Effort assumes your current theme and no replatforming.
+      </p>
+    </div>
+
+    <div class="tscroll">
+      <table>
+        <caption class="eyebrow">Collection pages: same site, very different results</caption>
+        <thead><tr><th>Collection</th><th class="n">Sessions</th><th class="n">Add to cart</th><th class="n">Conv. rate</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>/collections/sale</td><td class="n">2,449</td><td class="n">7.76%</td><td class="n">1.47%</td><td>Best add to cart rate on the site.</td></tr>
+          <tr><td>/collections/home-decor</td><td class="n">3,769</td><td class="n">6.50%</td><td class="n">1.41%</td><td>The benchmark to copy.</td></tr>
+          <tr><td>/collections/jewelry</td><td class="n">4,990</td><td class="n">5.65%</td><td class="n">1.56%</td><td>Working well.</td></tr>
+          <tr><td>/collections/statues</td><td class="n">2,801</td><td class="n">5.18%</td><td class="n">1.04%</td><td>Adds to cart, does not close.</td></tr>
+          <tr><td>/collections/crosses-crucifixes</td><td class="n">4,463</td><td class="n">5.02%</td><td class="n">1.28%</td><td>Best on-page copy of any collection.</td></tr>
+          <tr><td>/collections/rosaries</td><td class="n">3,838</td><td class="n">3.88%</td><td class="n">1.15%</td><td>Underperforming its traffic.</td></tr>
+          <tr><td>/collections/wall-decor</td><td class="n">2,981</td><td class="n">3.86%</td><td class="n">0.87%</td><td><span class="flag">Half the add to cart rate of home-decor.</span></td></tr>
+          <tr><td>/collections/necklaces</td><td class="n">3,950</td><td class="n">2.66%</td><td class="n">0.71%</td><td><span class="flag">Worst on the list, and jewelry does twice as well.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:.94rem; color:var(--ink-2)">
+      Necklaces and wall decor take real traffic and convert at roughly half the rate of their sibling
+      collections. Same catalogue, same theme, same customer. That points at merchandising order, filtering,
+      or the first four products on the page rather than anything structural, which makes it cheap to test.
+    </p>
+
+    <div class="tscroll">
+      <table>
+        <caption class="eyebrow">Prioritised backlog</caption>
+        <thead><tr><th>Change</th><th>Where</th><th class="n">Impact</th><th class="n">Effort</th></tr></thead>
+        <tbody>
+          <tr><td>Express checkout buttons on cart and drawer</td><td>Cart</td><td class="n">High</td><td class="n">Low</td></tr>
+          <tr><td>Free shipping progress bar with gap-closing suggestions</td><td>Cart, drawer</td><td class="n">High</td><td class="n">Low</td></tr>
+          <tr><td>Remove the discount code prompt from the cart</td><td>Cart</td><td class="n">Med</td><td class="n">Low</td></tr>
+          <tr><td>Sticky add to cart on mobile product pages</td><td>PDP</td><td class="n">High</td><td class="n">Low</td></tr>
+          <tr><td>Rating summary moved up beside the price</td><td>PDP</td><td class="n">Med</td><td class="n">Low</td></tr>
+          <tr><td>Returns window and delivery estimate above the fold</td><td>PDP</td><td class="n">Med</td><td class="n">Low</td></tr>
+          <tr><td>Shop Pay instalments messaging on items over $100</td><td>PDP</td><td class="n">Med</td><td class="n">Low</td></tr>
+          <tr><td>Chain length variants and a jewellery size guide</td><td>PDP</td><td class="n">High</td><td class="n">Med</td></tr>
+          <tr><td>Merge colour variants sold as separate products</td><td>Catalogue</td><td class="n">High</td><td class="n">Med</td></tr>
+          <tr><td>Frequently bought together and real bundles</td><td>PDP, cart</td><td class="n">High</td><td class="n">Med</td></tr>
+          <tr><td>Gift wrap as a paid add-on</td><td>Cart</td><td class="n">Med</td><td class="n">Low</td></tr>
+          <tr><td>Occasion-led gift finder using existing collections</td><td>Navigation</td><td class="n">Med</td><td class="n">Med</td></tr>
+          <tr><td>Re-merchandise necklaces and wall-decor, first row first</td><td>Collections</td><td class="n">Med</td><td class="n">Low</td></tr>
+          <tr><td>Dedicated landing pages for social traffic</td><td>New pages</td><td class="n">High</td><td class="n">Med</td></tr>
+          <tr><td>Predictive search with product images and prices</td><td>Header</td><td class="n">Med</td><td class="n">Med</td></tr>
+          <tr><td>Post-purchase one-click upsell on the thank you page</td><td>Checkout</td><td class="n">Med</td><td class="n">Low</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cards g2">
+      <div class="card">
+        <h4>Social traffic deserves its own pages</h4>
+        <p style="font-size:.93rem; color:var(--ink-2)">
+          64,402 sessions a quarter arrive from social and convert at 0.98%, well under the 1.63% site
+          average. That is a message match problem, not an audience problem. Traffic from a reel about a
+          home blessing should land on a page about home blessings with the pieces on it, not on the
+          homepage or a bare product page. One product supports a dozen pages if you vary the angle rather
+          than the product.
+        </p>
+      </div>
+      <div class="card">
+        <h4>Colour variants are being sold as separate products</h4>
+        <p style="font-size:.93rem; color:var(--ink-2)">
+          The Regina Caeli range exists as six separate products, ring, earrings and necklace in two
+          colourways. The Sacred Heart and St. Benedict tassels are split the same way, as are the boy and
+          girl baptism shells. Each split divides the reviews, the ranking signals and the customer's
+          attention across near-identical pages. Consolidating into variants gives you fewer, stronger
+          pages with pooled social proof.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SEO ================= -->
+  <section id="seo">
+    <div class="sec-head">
+      <span class="eyebrow">05 &nbsp;/&nbsp; SEO</span>
+      <h2>The foundations are good. The gaps are mechanical</h2>
+      <p>
+        Search is already 29.2% of your traffic and converts above site average, so this is a strong base
+        rather than a rescue job. What I found is a set of specific, countable gaps that can be closed in
+        bulk rather than a strategy problem.
+      </p>
+    </div>
+
+    <div class="cards g3">
+      <div class="card kpi"><span class="v">0 / 50</span><span class="k">Sampled products with a custom SEO title</span><span class="note dn">affects up to 1,078 products</span></div>
+      <div class="card kpi"><span class="v">49 / 50</span><span class="k">Sampled products with a good meta description</span><span class="note up">this part is genuinely well done</span></div>
+      <div class="card kpi"><span class="v">20 / 64</span><span class="k">Collections with no SEO title</span><span class="note dn">31% of collection pages</span></div>
+      <div class="card kpi"><span class="v">16 / 64</span><span class="k">Collections with no meta description</span><span class="note dn">25% of collection pages</span></div>
+      <div class="card kpi"><span class="v">8 / 50</span><span class="k">Collections with no on-page copy at all</span><span class="note dn">including baby-kids at 2,313 sessions</span></div>
+      <div class="card kpi"><span class="v">1,035</span><span class="k">Words on your best collection page</span><span class="note up">the playbook already exists</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-top"><span class="rank">A</span><div>
+        <h3>Every product page is running the theme's default title tag</h3>
+        <div class="tags"><span class="tag crit">Biggest SEO gap</span><span class="tag good">Bulk fixable</span><span class="tag">1,078 products</span></div>
+      </div></div>
+      <div class="evidence">
+        <div class="row"><span class="fig">0 of 50</span><span class="txt">sampled products have a custom SEO title. Every title tag falls back to <em class="q">Product Name, House of Joppa</em>.</span></div>
+        <div class="row"><span class="fig">Compare</span><span class="txt">your best collections do this properly: <em class="q">St. Michael Statue | Archangel Michael Catholic Statues | House of Joppa</em>.</span></div>
+        <div class="row"><span class="fig">Hero page</span><span class="txt">titled <em class="q">Miraculous Medal &amp; Two-Toned Crucifix Necklace, House of Joppa</em>, with no material, no category and no intent term.</span></div>
+      </div>
+      <div class="block"><span class="block-h">What to do</span>
+        <ul class="tight">
+          <li>Write a title pattern per product type and apply it in bulk. Something like <em class="q">Product | Material or Key Attribute | Category | House of Joppa</em>, trimmed to fit.</li>
+          <li>Do the top 100 products by revenue and by landing sessions first. That covers most of the value in a fraction of the work.</li>
+          <li>Do not touch the meta descriptions. They are specific, well written and already doing their job. Fill only the one that is empty.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-top"><span class="rank">B</span><div>
+        <h3>A quarter of your collection pages have no metadata and eight have no copy</h3>
+        <div class="tags"><span class="tag mar">Collections</span><span class="tag good">Low effort</span></div>
+      </div></div>
+      <div class="evidence">
+        <div class="row"><span class="fig">No copy</span><span class="txt">accessories, apparel, aprons, baby-kids, bags, kitchen-bath, new-products, special-collection.</span></div>
+        <div class="row"><span class="fig">2,313</span><span class="txt">sessions landed on baby-kids in 90 days, on a page with no descriptive copy at all.</span></div>
+        <div class="row"><span class="fig">No SEO title</span><span class="txt">includes necklaces, which is also your worst converting collection at 0.71%.</span></div>
+      </div>
+      <div class="block"><span class="block-h">What to do</span>
+        <ul class="tight">
+          <li>Copy the pattern from crosses-crucifixes, which carries over a thousand words and ranks accordingly. You do not need a new approach, you need the existing one applied to the other 30 pages.</li>
+          <li>Put the copy below the product grid, not above it. Shoppers want products first, search engines do not mind where the text sits.</li>
+          <li>Prioritise by landing sessions: baby-kids, apparel and accessories first.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-top"><span class="rank">C</span><div>
+        <h3>Duplicate and internal collections are indexable</h3>
+        <div class="tags"><span class="tag warn">Housekeeping</span><span class="tag good">Quick</span></div>
+      </div></div>
+      <div class="evidence">
+        <div class="row"><span class="fig">Duplicates</span><span class="txt">virgin-mary-statues-1 alongside its original, and tabithas-picks alongside tabithas-favorites.</span></div>
+        <div class="row"><span class="fig">Internal</span><span class="txt">email-featured-products-copy and ct-free-printables look like working collections, not shop pages.</span></div>
+        <div class="row"><span class="fig">Duplicate meta</span><span class="txt">the two Sacred Heart tassel colourways share an identical meta description word for word.</span></div>
+      </div>
+      <div class="block"><span class="block-h">What to do</span>
+        <ul class="tight">
+          <li>Merge or redirect the duplicate collections. Two pages competing for the same term is two pages ranking worse than one.</li>
+          <li>Exclude the internal collections from the sitemap and search results, or unpublish them from the online store channel.</li>
+          <li>Rewrite the duplicated meta descriptions once the colourways are merged into variants.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cards g2">
+      <div class="card">
+        <h4>Credit where it is due</h4>
+        <ul class="tight" style="font-size:.93rem">
+          <li>Product meta descriptions are specific, human and keyword aware. That is unusual on a 1,000 product catalogue.</li>
+          <li>Shopify category metafields are populated: jewellery type, material, colour, age group, target gender. Your Google Shopping feed will be better for it than most competitors'.</li>
+          <li>Judge.me is emitting review structured data, so rich result eligibility is already in place.</li>
+          <li>Collection copy, where it exists, is long and genuinely useful.</li>
+          <li>Server response is 142 ms. Crawl budget is not the problem.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Where to grow next</h4>
+        <ul class="tight" style="font-size:.93rem">
+          <li>Build topic clusters. You have strong individual posts on saints, medals and home blessings but no hub pages tying them together and passing authority to collections.</li>
+          <li>Link from every blog post to the collection it should feed. Right now those links are generic.</li>
+          <li>Devotion-led collection pages are an open goal: Miraculous Medal, Sacred Heart, St. Benedict, Our Lady of Guadalupe. People search the devotion, not the product type.</li>
+          <li>Occasion pages have seasonal search demand you already have collections for: baptism, first communion, confirmation, marriage.</li>
+          <li>Verify rich results are actually showing in Search Console rather than assuming the markup is enough.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SPEED ================= -->
+  <section id="speed">
+    <div class="sec-head">
+      <span class="eyebrow">06 &nbsp;/&nbsp; Technical</span>
+      <h2>The site is carrying far too much JavaScript</h2>
+      <p>
+        Both pages I tested paint quickly and then sit there unresponsive. That is app sprawl, not hosting:
+        your server responds in 142 ms on desktop, which is excellent. The weight is all front end.
+      </p>
+    </div>
+
+    <div class="tscroll">
+      <table>
+        <thead><tr><th>Measure</th><th class="n">Homepage, desktop</th><th class="n">Product page, mobile</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td>GTmetrix grade</td><td class="n">D</td><td class="n">E</td><td>B or better</td></tr>
+          <tr><td>Largest contentful paint</td><td class="n">3.92 s</td><td class="n">4.54 s</td><td>under 2.5 s</td></tr>
+          <tr><td>Total blocking time</td><td class="n">690 ms</td><td class="n">1,211 ms</td><td>under 200 ms</td></tr>
+          <tr><td>Cumulative layout shift</td><td class="n">0.009</td><td class="n">0.001</td><td>under 0.1, already good</td></tr>
+          <tr><td>Requests</td><td class="n">369</td><td class="n">515</td><td>under 150</td></tr>
+          <tr><td>Page weight</td><td class="n">5.00 MB</td><td class="n">5.64 MB</td><td>under 2 MB</td></tr>
+          <tr><td>JavaScript files</td><td class="n">110</td><td class="n">212</td><td>under 30</td></tr>
+          <tr><td>JavaScript, uncompressed</td><td class="n">8.30 MB</td><td class="n">9.42 MB</td><td>under 1 MB</td></tr>
+          <tr><td>CSS files</td><td class="n">23</td><td class="n">58</td><td>under 10</td></tr>
+          <tr><td>Font files</td><td class="n">5, 328 KB</td><td class="n">9, 502 KB</td><td>2 to 3 files</td></tr>
+          <tr><td>Fully loaded</td><td class="n">8.37 s</td><td class="n">22.37 s</td><td>under 5 s</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cards g2">
+      <div class="card">
+        <h4>What is actually wrong</h4>
+        <ul class="tight" style="font-size:.93rem">
+          <li>212 separate JavaScript files on one product page, 9.42 MB uncompressed. That is an app audit waiting to happen.</li>
+          <li>3.2 seconds of JavaScript execution and 20 long main thread tasks on mobile.</li>
+          <li>A 2,448 element DOM on the product page.</li>
+          <li>31 images with no width and height set. Your layout shift score is fine today, which means you are lucky, not safe.</li>
+          <li>Nine font files. Two weights of two families is plenty.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>How to fix it without a rebuild</h4>
+        <ul class="tight" style="font-size:.93rem">
+          <li>Export the app list and put a revenue number next to every one. On Plus, most stores carry three or four apps nobody has opened in a year.</li>
+          <li>Check for orphaned scripts from uninstalled apps still loading from the theme and from Custom Pixels.</li>
+          <li>Defer everything not needed for first render: reviews, chat, and any personalisation widget.</li>
+          <li>Set explicit width and height on images, and preload the hero image so LCP stops waiting.</li>
+          <li>Fix the cache policy, worth 206 KB on repeat visits, and self host the fonts you keep.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BRAND ================= -->
+  <section id="brand">
+    <div class="sec-head">
+      <span class="eyebrow">07 &nbsp;/&nbsp; Urgent, separate from the funnel</span>
+      <h2>Someone is running a copy of your store</h2>
+    </div>
+    <div class="callout">
+      <h3>A clone site is ranking on your brand name</h3>
+      <p>
+        Searching your brand returns <strong>houseofjoppacollection.shop</strong>, which uses your exact
+        title tag, <em class="q">House of Joppa: #1 Rated Catholic &amp; Religious Store in the USA</em>. It
+        sells what look like your products at 70% off, roughly $9 to $26, with no company details, no
+        contact address and no policies. A second lookalike, houseofjoppa.shop, appears in search results
+        but no longer resolves.
+      </p>
+      <p>
+        Meanwhile you are running effectively no paid search, 17 sessions in 90 days, so your brand name is
+        undefended in the one place this site is competing with you.
+      </p>
+      <ul class="tight">
+        <li>File a trademark and copyright complaint with the registrar and the host today. Your product photography is your strongest lever.</li>
+        <li>Submit a Google removal request and report the site through Search Console.</li>
+        <li>Turn on a small brand defence campaign on Google Ads. At your traffic levels the cost is trivial and it puts you above the imposter.</li>
+        <li>Add a short buying-from-us note to your FAQ so customers who get burned can tell the difference and come back to you rather than assume it was you.</li>
+      </ul>
+      <p style="font-size:.87rem">
+        I have not test-purchased from that site, so I cannot say whether it ships counterfeit goods or
+        nothing at all. The chargeback and brand damage risk is the same either way.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= PLAN ================= -->
+  <section id="plan">
+    <div class="sec-head">
+      <span class="eyebrow">08 &nbsp;/&nbsp; Sequence</span>
+      <h2>Ten weeks to peak trading</h2>
+      <p>
+        November and December were $779,225 last year, 25.3% of the annual total. A 10% conversion
+        improvement applied to those two months alone is worth about $78,000. That is why the order below is
+        what it is.
+      </p>
+    </div>
+    <div class="tscroll">
+      <table>
+        <thead><tr><th>When</th><th>Do this</th><th>Why now</th></tr></thead>
+        <tbody>
+          <tr><td><strong>This week</strong></td>
+            <td>Express checkout buttons on cart and drawer. Remove the HOJ10 banner from the cart. File the clone site takedown. Export the app list. Fix the hero product's stock messaging.</td>
+            <td>All theme or admin level. Nothing needs a developer sprint, and the cart change addresses the single biggest leak.</td></tr>
+          <tr><td><strong>Weeks 2 to 3</strong></td>
+            <td>Free shipping progress bar. Sticky mobile add to cart. Chain length variants and size guide. Returns window on all product pages. Rating summary beside the price. Judge.me request timing and reminders.</td>
+            <td>Small changes on the pages that already take the most traffic, live well before Q4 volume arrives. Reviews need weeks of lead time to accumulate.</td></tr>
+          <tr><td><strong>Weeks 3 to 5</strong></td>
+            <td>Email attribution audit, then rebuild the core flows. Shoppable blocks and inline capture on the top ten blog posts. Bylines and dates. Product title tags for the top 100 products.</td>
+            <td>The list you build in September is the list you sell to in November. Title tag changes need time to be recrawled.</td></tr>
+          <tr><td><strong>Weeks 5 to 8</strong></td>
+            <td>App cull and script deferral. Image dimensions and hero preload. Bundles and cross-sell. Gift wrap. Collection copy and metadata backfill. Re-merchandise necklaces and wall-decor. Merge colour variants.</td>
+            <td>Speed work and merchandising both want testing time before the traffic peak, not during it.</td></tr>
+          <tr><td><strong>Freeze from mid October</strong></td>
+            <td>No theme changes. Monitor, and hold a rollback plan for anything shipped in September.</td>
+            <td>Do not be debugging a checkout on Black Friday.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= METHOD ================= -->
+  <section id="method">
+    <div class="sec-head">
+      <span class="eyebrow">09 &nbsp;/&nbsp; Method and gaps</span>
+      <h2>How I got here, and what I could not see</h2>
+    </div>
+    <div class="method">
+      <p>
+        <strong>Data sources.</strong> Store analytics, catalogue and metadata came from the House of Joppa
+        Shopify admin, covering 29 May to 26 August 2026. Performance came from two GTmetrix tests run from
+        San Antonio in Chrome: the homepage on desktop with no throttling, and the hero product page on a
+        simulated Pixel 8 at 10.24 Mbps with 50 ms latency. Those two tests are <strong>not like for
+        like</strong>, so read each against its own target rather than against each other. Page content came
+        from fetching the live pages. SEO metadata figures come from a full audit of all 64 collections and a
+        50 product sample.
+      </p>
+      <p>
+        <strong>Where the estimates are soft.</strong> Every money figure is a modelled range, not a
+        forecast. They assume traffic holds and that a fixed step performs like the benchmark named beside
+        it. They also overlap: a conversion fix and an AOV fix touch the same orders, so <strong>do not add
+        the ranges together</strong>. A fair combined expectation for the whole programme, landed well, is
+        somewhere in the region of $250,000 to $500,000 of additional annual revenue.
+      </p>
+      <p>
+        <strong>What I could not check.</strong> No access to Google Analytics or Search Console, so there is
+        no keyword, ranking, impression or bounce data beyond what Shopify records. No app list, because the
+        connection lacks that permission, which is why the app cull is a recommendation rather than a named
+        list. I could not see a populated cart, so a free shipping bar may appear once items are added. I did
+        not test the checkout itself, and on Plus that deserves its own pass. Email platform configuration
+        and Judge.me settings were inferred from the storefront and metafields, not inspected directly.
+      </p>
+      <p>
+        <strong>One thing worth watching.</strong> August 2026 is tracking at $6,354 a day against $6,708 a
+        day in August 2025, down about 5%. One partial month is not a trend and the comparison is crude, but
+        it deserves a proper year on year look before Q4 planning is signed off.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="lockup">
+      <span class="mark" aria-hidden="true">G</span>
+      <span class="word">Glaze <span>Digital</span></span>
+    </div>
+    <div class="footer-lines">
+      <span>Prepared for House of Joppa &middot; 26 August 2026 &middot; glazedigital.com</span>
+      <span>Store figures pulled live from the House of Joppa Shopify admin. Performance data from GTmetrix reports TCw1jJ72 and aLUmhKFk.</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
