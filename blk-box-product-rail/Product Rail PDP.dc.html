@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #fff; font-family: Inter, sans-serif; color: #000; -webkit-font-smoothing: antialiased; }
+  a { color: #000; text-decoration: none; }
+  a:hover { opacity: 0.6; }
+  .blk-rail { scrollbar-width: none; -ms-overflow-style: none; }
+  .blk-rail::-webkit-scrollbar { display: none; }
+</style>
+</helmet>
+
+<div style="min-height: 100vh; background: #fff">
+
+  <div style="height: 68px; background: #000; color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 32px">
+    <img src="assets/blkbox-wordmark.svg" alt="BLK BOX" style="height: 18px; filter: invert(1)" />
+    <div style="font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #727272">Header — demo placeholder</div>
+  </div>
+
+  <sc-if value="{{ railOpen }}" hint-placeholder-val="{{ true }}">
+  <section style="border-bottom: 1px solid #ebebeb; background: #fff">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 20px 32px 14px">
+      <div style="display: flex; align-items: baseline; gap: 14px">
+        <div style="font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase">MORE IN RIGS + RACKS</div>
+        <div style="font-family: Inter, sans-serif; font-size: 11px; color: #a1a1a1; letter-spacing: 0.04em">{{ countLabel }}</div>
+      </div>
+      <button onClick="{{ closeRail }}" style="background: transparent; border: 0; padding: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #727272" style-hover="color: #000">
+        Hide
+        <span class="material-symbols-outlined" style="font-size: 18px">close</span>
+      </button>
+    </div>
+
+    <div style="position: relative">
+      <div class="blk-rail" ref="{{ railRef }}" style="display: flex; gap: 1px; overflow-x: auto; scroll-behavior: smooth; padding: 0 32px 24px">
+        <sc-for list="{{ items }}" as="p" hint-placeholder-count="9">
+          <button onClick="{{ p.select }}" style="{{ p.cardStyle }}" style-hover="background: #fafafa">
+            <div style="position: relative; width: 100%; aspect-ratio: 1/1; background: #e9e9e9; overflow: hidden">
+              <div style="{{ p.imgStyle }}"></div>
+              <sc-if value="{{ p.discount }}" hint-placeholder-val="{{ false }}">
+                <span style="position: absolute; bottom: 10px; left: 10px; background: #000; color: #fff; font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; padding: 4px 7px">{{ p.discount }}</span>
+              </sc-if>
+              <sc-if value="{{ p.isCurrent }}" hint-placeholder-val="{{ false }}">
+                <span style="position: absolute; top: 10px; left: 10px; background: #f7da43; color: #000; font-family: 'Roboto Mono', monospace; font-size: 9px; letter-spacing: 0.14em; padding: 4px 7px; text-transform: uppercase">Viewing</span>
+              </sc-if>
+            </div>
+            <div style="padding: 12px 12px 0">
+              <div style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; line-height: 1.35; height: 33px; overflow: hidden">{{ p.title }}</div>
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-top: 8px; font-family: Inter, sans-serif; font-size: 12px">
+                <sc-if value="{{ p.wasPrice }}" hint-placeholder-val="{{ false }}">
+                  <span style="color: #a1a1a1; text-decoration: line-through">{{ p.wasPrice }}</span>
+                </sc-if>
+                <span style="{{ p.priceStyle }}">{{ p.price }}</span>
+              </div>
+            </div>
+          </button>
+        </sc-for>
+      </div>
+
+      <button onClick="{{ scrollLeft }}" style="position: absolute; left: 12px; top: 34%; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #ebebeb; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.10); transition: background-color 200ms cubic-bezier(0.2,0.7,0.2,1)" style-hover="background: #000; color: #fff">
+        <span class="material-symbols-outlined" style="font-size: 22px">arrow_back</span>
+      </button>
+      <button onClick="{{ scrollRight }}" style="position: absolute; right: 12px; top: 34%; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #ebebeb; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.10); transition: background-color 200ms cubic-bezier(0.2,0.7,0.2,1)" style-hover="background: #000; color: #fff">
+        <span class="material-symbols-outlined" style="font-size: 22px">arrow_forward</span>
+      </button>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ railClosed }}" hint-placeholder-val="{{ false }}">
+    <div style="padding: 16px 32px; border-bottom: 1px solid #ebebeb">
+      <button onClick="{{ openRail }}" style="background: transparent; border: 1px solid #000; border-radius: 4px; padding: 11px 20px; cursor: pointer; font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; transition: background-color 200ms" style-hover="background: #727272; color: #fff; border-color: #727272">Show more in Rigs + Racks</button>
+    </div>
+  </sc-if>
+
+  <section style="display: grid; grid-template-columns: 1.15fr 1fr; align-items: start">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #ebebeb">
+      <div style="{{ heroA }}"></div>
+      <div style="{{ heroB }}"></div>
+    </div>
+
+    <div style="padding: 40px 48px 80px">
+      <div style="font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #727272">Rigs + Racks / Half Racks</div>
+      <h1 style="margin: 14px 0 6px; font-family: Inter, sans-serif; font-size: 34px; font-weight: 500; line-height: 1.08; letter-spacing: -0.015em; text-transform: uppercase; text-wrap: pretty">{{ currentTitle }}</h1>
+      <div style="font-family: 'Roboto Mono', monospace; font-size: 12px; color: #a1a1a1; letter-spacing: 0.1em">{{ currentSku }}</div>
+
+      <div style="display: flex; align-items: center; gap: 24px; margin-top: 26px">
+        <div style="font-family: Inter, sans-serif; font-size: 26px; font-weight: 500">{{ currentPrice }}</div>
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-family: Inter, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #34a853">
+          <span style="width: 9px; height: 9px; border-radius: 999px; background: #34a853; box-shadow: 0 0 0 3px rgba(52,168,83,0.25)"></span>
+          In stock — ships in 3–5 days
+        </div>
+      </div>
+      <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px">
+        <span style="color: #FFD700; font-size: 15px; letter-spacing: 2px">★★★★★</span>
+        <span style="font-family: Inter, sans-serif; font-size: 12px; color: #727272">{{ currentReviews }} reviews</span>
+      </div>
+      <div style="font-family: Inter, sans-serif; font-size: 12px; color: #727272; margin-top: 10px">Tax included. Installation available on request.</div>
+
+      <div style="margin-top: 34px">
+        <div style="font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 10px">Storage</div>
+        <div style="display: flex; gap: 8px">
+          <sc-for list="{{ storageOptions }}" as="o" hint-placeholder-count="2">
+            <button onClick="{{ o.select }}" style="{{ o.style }}">{{ o.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="margin-top: 30px">
+        <div style="font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 10px">Quantity</div>
+        <div style="display: inline-flex; align-items: center; border: 1px solid #000; border-radius: 4px">
+          <button onClick="{{ dec }}" style="background: transparent; border: 0; padding: 11px 16px; cursor: pointer; font-size: 16px">−</button>
+          <span style="padding: 0 14px; font-family: Inter, sans-serif; font-size: 14px; min-width: 34px; text-align: center">{{ qty }}</span>
+          <button onClick="{{ inc }}" style="background: transparent; border: 0; padding: 11px 16px; cursor: pointer; font-size: 16px">+</button>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 30px">
+        <button style="background: #000; color: #fff; border: 1px solid #000; border-radius: 4px; padding: 17px 24px; cursor: pointer; font-family: 'Roboto Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; transition: background-color 200ms" style-hover="background: #727272; border-color: #727272">Add To Cart</button>
+        <button style="background: transparent; color: #000; border: 1px solid #000; border-radius: 4px; padding: 17px 24px; cursor: pointer; font-family: 'Roboto Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; transition: background-color 200ms" style-hover="background: #727272; color: #fff; border-color: #727272">Add To Quote</button>
+      </div>
+
+      <div style="margin-top: 36px; border-top: 1px solid #ebebeb">
+        <sc-for list="{{ sections }}" as="s" hint-placeholder-count="4">
+          <div style="border-bottom: 1px solid #ebebeb">
+            <button onClick="{{ s.toggle }}" style="width: 100%; text-align: left; background: none; border: 0; padding: 17px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em">
+              {{ s.title }}
+              <span class="material-symbols-outlined" style="{{ s.chevronStyle }}">expand_more</span>
+            </button>
+            <sc-if value="{{ s.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding: 0 0 18px; font-family: Roboto, sans-serif; font-size: 14px; color: #444; line-height: 1.7; max-width: 52ch">{{ s.body }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const CATALOGUE = [
+  { title: 'BLK BOX Blackout Half Rack', sku: '21-0711', price: 2145, image: 'assets/blackout-half-rack.jpg', reviews: 48 },
+  { title: 'BLK BOX Binary Folding Rack', sku: '21-0344', price: 1295, was: 1495, image: 'assets/binary-folding-rack.jpg', reviews: 31 },
+  { title: 'BLK BOX Blackout Power Rack', sku: '21-0715', price: 2685, image: 'assets/blackout-half-rack-2.jpg', reviews: 22 },
+  { title: 'BLK BOX Olympic Weight Plates', sku: '30-0102', price: 735, image: 'assets/category-bars-plates.png', reviews: 96 },
+  { title: 'BLK BOX Urethane Dumbbell Set', sku: '32-0810', price: 3450, was: 3990, image: 'assets/category-dumbbells.jpg', reviews: 14 },
+  { title: 'BLK BOX Modular Rig — 4 Bay', sku: '21-0920', price: 5065, image: 'assets/category-rigs-racks.jpg', reviews: 8 },
+  { title: 'BLK BOX Strength Bench Series', sku: '24-0455', price: 615, image: 'assets/category-strength.png', reviews: 57 },
+  { title: 'BLK BOX Conditioning Package', sku: '40-0130', price: 1180, was: 1475, image: 'assets/category-conditioning.png', reviews: 19 },
+  { title: 'BLK BOX Wall Mounted Squat Rack', sku: '21-0210', price: 985, image: 'assets/binary-folding-rack.jpg', reviews: 42 },
+  { title: 'BLK BOX Blackout Rack Storage Kit', sku: '21-0788', price: 340, image: 'assets/blackout-half-rack.jpg', reviews: 11 },
+  { title: 'BLK BOX Competition Bumper Plates', sku: '30-0440', price: 1290, image: 'assets/category-bars-plates.png', reviews: 63 },
+  { title: 'BLK BOX Kettlebell Set 8–32kg', sku: '32-0221', price: 720, was: 800, image: 'assets/category-dumbbells.jpg', reviews: 27 },
+];
+
+const gbp = (n) => '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2 });
+
+class Component extends DCLogic {
+  state = { railOpen: true, current: 0, storage: 'Not Included', qty: 1, open: { description: true } };
+
+  railRef = React.createRef();
+
+  scrollBy(dir) {
+    const el = this.railRef.current;
+    if (el) el.scrollBy({ left: dir * Math.round(el.clientWidth * 0.7), behavior: 'smooth' });
+  }
+
+  renderVals() {
+    const cur = CATALOGUE[this.state.current];
+    const secs = [
+      { id: 'description', title: 'Description', body: 'A blacked-out half rack built from 2.5×2.5" 11-gauge steel, powder-coated and finished in-house in Belfast. Westside hole pattern through the bench and pressing zone, laser-cut numbering, and a 20mm bolt-down footprint.' },
+      { id: 'specs', title: 'Product Specifications', body: 'Uprights: 2.5×2.5" 11-gauge. Height: 2320mm. Depth: 1200mm. Hole pattern: Westside. Finish: matte black powder coat. Includes pair of J-cups and pull-up bar.' },
+      { id: 'shipping', title: 'Shipping Information', body: 'UK mainland delivery 3–5 working days. Custom builds 4–6 weeks. Installation available on request.' },
+      { id: 'faqs', title: 'FAQs', body: 'Does this need bolting down? Yes — for full safety on heavy lifts we recommend bolting through all four feet.' },
+    ];
+
+    return {
+      railOpen: this.state.railOpen,
+      railClosed: !this.state.railOpen,
+      closeRail: () => this.setState({ railOpen: false }),
+      openRail: () => this.setState({ railOpen: true }),
+      countLabel: CATALOGUE.length + ' products',
+      railRef: this.railRef,
+      scrollLeft: () => this.scrollBy(-1),
+      scrollRight: () => this.scrollBy(1),
+
+      items: CATALOGUE.map((p, i) => ({
+        title: p.title,
+        price: gbp(p.price),
+        wasPrice: p.was ? gbp(p.was) : null,
+        discount: p.was ? '−' + Math.round((1 - p.price / p.was) * 100) + '%' : null,
+        isCurrent: i === this.state.current,
+        select: () => this.setState({ current: i, qty: 1 }),
+        cardStyle: {
+          flex: '0 0 176px', padding: '0 0 4px', background: 'transparent', cursor: 'pointer',
+          textAlign: 'left', border: 0, borderBottom: i === this.state.current ? '2px solid #000' : '2px solid transparent',
+          transition: 'background-color 200ms cubic-bezier(0.2,0.7,0.2,1)',
+        },
+        imgStyle: {
+          position: 'absolute', inset: 0,
+          background: "url('" + p.image + "') center/cover no-repeat",
+          opacity: i === this.state.current ? 1 : 0.94,
+        },
+        priceStyle: { color: p.was ? '#e85e16' : '#000', fontWeight: 500 },
+      })),
+
+      heroA: { aspectRatio: '3/4', background: "#f2f2f2 url('" + cur.image + "') center/cover no-repeat" },
+      heroB: { aspectRatio: '3/4', background: "#f2f2f2 url('assets/blackout-half-rack-2.jpg') center/cover no-repeat" },
+
+      currentTitle: cur.title,
+      currentSku: cur.sku,
+      currentPrice: gbp(cur.price),
+      currentReviews: cur.reviews,
+
+      storageOptions: ['Not Included', 'Included'].map((label) => ({
+        label,
+        select: () => this.setState({ storage: label }),
+        style: {
+          border: '1px solid #000', borderRadius: 4, padding: '11px 20px', cursor: 'pointer',
+          fontFamily: '"Roboto Mono", monospace', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase',
+          background: this.state.storage === label ? '#000' : 'transparent',
+          color: this.state.storage === label ? '#fff' : '#000',
+          transition: 'background-color 200ms',
+        },
+      })),
+
+      qty: this.state.qty,
+      inc: () => this.setState((s) => ({ qty: s.qty + 1 })),
+      dec: () => this.setState((s) => ({ qty: Math.max(1, s.qty - 1) })),
+
+      sections: secs.map((s) => ({
+        title: s.title,
+        body: s.body,
+        open: !!this.state.open[s.id],
+        toggle: () => this.setState((st) => ({ open: { ...st.open, [s.id]: !st.open[s.id] } })),
+        chevronStyle: { fontSize: 18, transform: this.state.open[s.id] ? 'rotate(180deg)' : 'none', transition: 'transform 200ms' },
+      })),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
