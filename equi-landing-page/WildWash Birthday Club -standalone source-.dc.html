@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<meta name="ext-resource-dependency" content="./.image-slots.state.json" data-resource-id="slotState" />
+<template id="__bundler_thumbnail" data-bg-color="#143D2B">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#143D2B"/>
+    <circle cx="600" cy="400" r="230" fill="#F7F3EA"/>
+    <text x="600" y="440" text-anchor="middle" font-family="Georgia, serif" font-size="150" fill="#C08A2E">15%</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="./image-slot-standalone.js"></script>
+<style>
+  body { margin: 0; background: #F7F3EA; -webkit-font-smoothing: antialiased; }
+  a { color: #2E6B4A; }
+  a:hover { color: #143D2B; }
+  * { box-sizing: border-box; }
+</style>
+</helmet>
+<div style="font-family: 'Hanken Grotesk', system-ui, sans-serif; color: #143D2B; background: #F7F3EA;">
+
+  <div style="background: #E7E2D6; color: #6B7A70; text-align: center; padding: 34px 20px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; border-bottom: 1px dashed rgba(20,61,43,0.25);">Header</div>
+
+  <section style="position: relative; background: #143D2B; min-height: clamp(520px, 68vh, 720px); display: flex; align-items: flex-end; overflow: hidden;">
+    <div style="position: absolute; inset: 0;">
+      <image-slot id="ww-hero" shape="rect" placeholder="Hero image — horse with birthday hat, or collab lifestyle shot"></image-slot>
+    </div>
+    <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top, rgba(11,38,26,0.94) 0%, rgba(11,38,26,0.78) 38%, rgba(11,38,26,0.28) 72%, rgba(11,38,26,0.15) 100%);"></div>
+
+    <div style="position: relative; width: 100%; max-width: 1080px; margin: 0 auto; padding: clamp(40px, 7vw, 84px) 24px clamp(36px, 5vw, 60px); color: #F7F3EA;">
+      <p style="margin: 0 0 16px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; color: #E4B65C;">Horse Birthday Club · Members only</p>
+      <h1 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(40px, 7vw, 78px); line-height: 1.02; margin: 0 0 20px; max-width: 17ch; text-wrap: pretty; color: #FFFFFF;">It's their birthday. Spoil them properly.</h1>
+      <p style="margin: 0 0 32px; max-width: 50ch; font-size: clamp(18px, 2vw, 21px); line-height: 1.55; color: #EAF0EA;">Carrots are lovely. A gut that behaves, joints that move and a coat that gleams is a better present. Birthday Club members get {{ discountLabel }} off the whole Equinutritive range.</p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
+        <a href="#unlock" style="display: inline-flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; padding: 17px 34px; border-radius: 999px; background: #C08A2E; color: #FFFFFF; text-decoration: none;" style-hover="background: #A9761F; color: #FFFFFF;">Unlock the offer<span style="font-size: 18px; line-height: 1;">→</span></a>
+        <span style="font-size: 15px; font-weight: 600; color: #C8D8CB;">Password's in your WildWash email</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1080px; margin: 0 auto; padding: 22px 24px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+      <div style="background: #FFFFFF; border: 1px solid rgba(20,61,43,0.12); border-radius: 14px; padding: 16px 18px; font-size: 15px; font-weight: 600; line-height: 1.4;">100% money-back guarantee</div>
+      <div style="background: #FFFFFF; border: 1px solid rgba(20,61,43,0.12); border-radius: 14px; padding: 16px 18px; font-size: 15px; font-weight: 600; line-height: 1.4;">Free UK &amp; Ireland shipping</div>
+      <div style="background: #FFFFFF; border: 1px solid rgba(20,61,43,0.12); border-radius: 14px; padding: 16px 18px; font-size: 15px; font-weight: 600; line-height: 1.4;">100% natural, no fillers</div>
+      <div style="background: #FFFFFF; border: 1px solid rgba(20,61,43,0.12); border-radius: 14px; padding: 16px 18px; font-size: 15px; font-weight: 600; line-height: 1.4;">50,000+ happy customers</div>
+    </div>
+  </section>
+
+  <section id="unlock" style="max-width: 1080px; margin: 0 auto; padding: 50px 24px 60px;">
+    <div style="background: #143D2B; color: #F7F3EA; border-radius: 24px; padding: clamp(32px, 5vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; align-items: center;">
+      <div>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1; margin: 0 0 14px;">Members' door. Password, please.</h2>
+        <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.6; color: #D9E5DC;">This offer is just for the WildWash Horse Birthday Club, so it lives behind a password rather than a code that wanders off round the internet.</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #D9E5DC;">Enter it once and your {{ discountLabel }} follows you through to checkout. Nothing to type, nothing to forget.</p>
+      </div>
+      <div style="background: #FFFFFF; color: #143D2B; border-radius: 18px; padding: 26px;">
+        <label for="ww-pw" style="display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px;">Password</label>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <input id="ww-pw" type="text" value="{{ entry }}" onChange="{{ onEntry }}" onKeyDown="{{ onKey }}" placeholder="From your WildWash email" style="flex: 1 1 140px; min-width: 0; font-family: inherit; font-size: 16px; padding: 14px; border: 1px solid rgba(20,61,43,0.25); border-radius: 10px; background: #F7F3EA; color: #143D2B;" />
+          <button type="button" onClick="{{ onUnlock }}" style="flex: 0 0 auto; font-family: inherit; font-size: 15px; font-weight: 700; padding: 14px 24px; border: none; border-radius: 10px; background: #143D2B; color: #F7F3EA; cursor: pointer;" style-hover="background: #2E6B4A;">Unlock</button>
+        </div>
+        <p style="margin: 14px 0 0; font-size: 15px; line-height: 1.5; min-height: 22px; color: {{ noteColor }};">{{ note }}</p>
+        <sc-if value="{{ unlocked }}" hint-placeholder-val="{{ false }}">
+          <a href="https://equinutritive.com/collections/all" style="display: block; text-align: center; margin-top: 16px; font-size: 16px; font-weight: 700; padding: 15px; border-radius: 999px; background: #C08A2E; color: #FFFFFF; text-decoration: none;" style-hover="background: #A9761F; color: #FFFFFF;">Shop the range</a>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #FFFFFF; border-top: 1px solid rgba(20,61,43,0.1); border-bottom: 1px solid rgba(20,61,43,0.1);">
+    <div style="max-width: 1080px; margin: 0 auto; padding: clamp(48px, 6vw, 80px) 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; align-items: center;">
+      <div>
+        <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: #C08A2E;">The collaboration</p>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.12; margin: 0 0 18px;">Outside in, inside out</h2>
+        <p style="margin: 0 0 14px; font-size: 17px; line-height: 1.65; color: #3C5C4B;">WildWash look after horses from the outside in — natural grooming that's kind to skin and smells rather good on a yard. We look after them from the inside out, with 100% natural supplements built around gut health.</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #3C5C4B;">Same principles, different end of the horse. No molasses, no soy, no grains, no fillers, no shellfish — and a 100% money-back guarantee, because we'd rather you told us than gave up.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px;">
+        <div style="height: 200px; min-width: 0;"><image-slot id="ww-collab-1" shape="rounded" radius="16" placeholder="WildWash product"></image-slot></div>
+        <div style="height: 200px; min-width: 0;"><image-slot id="ww-collab-2" shape="rounded" radius="16" placeholder="Equinutritive product"></image-slot></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1080px; margin: 0 auto; padding: clamp(48px, 6vw, 80px) 24px;">
+    <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.12; margin: 0 0 8px; text-align: center;">How the discount works</h2>
+    <p style="margin: 0 auto 40px; max-width: 44ch; text-align: center; font-size: 17px; line-height: 1.6; color: #3C5C4B;">Three steps, and one of them is shopping.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+      <div style="background: #FFFFFF; border: 1px solid rgba(20,61,43,0.12); border-radius: 18px; padding: 26px;">
+        <span style="font-family: 'Newsreader', serif; font-size: 30px; color: #C08A2E; display: block; line-height: 1; margin-bottom: 12px;">01</span>
+        <h3 style="font-size: 19px; font-weight: 700; margin: 0 0 8px;">Enter the password</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3C5C4B;">The one from your Birthday Club email. It only works on this page.</p>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid rgba(20,61,43,0.12); border-radius: 18px; padding: 26px;">
+        <span style="font-family: 'Newsreader', serif; font-size: 30px; color: #C08A2E; display: block; line-height: 1; margin-bottom: 12px;">02</span>
+        <h3 style="font-size: 19px; font-weight: 700; margin: 0 0 8px;">Shop the range</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3C5C4B;">One product per need, so there's very little to work out. The quiz takes two minutes if you'd rather be pointed.</p>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid rgba(20,61,43,0.12); border-radius: 18px; padding: 26px;">
+        <span style="font-family: 'Newsreader', serif; font-size: 30px; color: #C08A2E; display: block; line-height: 1; margin-bottom: 12px;">03</span>
+        <h3 style="font-size: 19px; font-weight: 700; margin: 0 0 8px;">{{ discountLabel }} comes off at checkout</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3C5C4B;">Applied automatically. No code to copy, paste or lose.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #143D2B; color: #F7F3EA;">
+    <div style="max-width: 1080px; margin: 0 auto; padding: clamp(48px, 6vw, 80px) 24px;">
+      <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.6vw, 40px); margin: 0 0 8px; text-align: center;">Real people, real results</h2>
+      <p style="margin: 0 auto 40px; max-width: 46ch; text-align: center; font-size: 17px; line-height: 1.6; color: #D9E5DC;">A snippet of what lands in our inbox most weeks.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+        <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+          <figure style="margin: 0; background: rgba(247,243,234,0.06); border: 1px solid rgba(247,243,234,0.16); border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="color: #E4B65C; font-size: 16px; letter-spacing: 0.16em;">{{ r.stars }}</span>
+            <blockquote style="margin: 0; font-family: 'Newsreader', serif; font-size: 20px; line-height: 1.45;">{{ r.quote }}</blockquote>
+            <figcaption style="font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #B9CDBF;">{{ r.name }}</figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1080px; margin: 0 auto; padding: clamp(48px, 6vw, 80px) 24px;">
+    <div style="background: #FFFFFF; border: 1px solid rgba(20,61,43,0.14); border-radius: 24px; padding: clamp(32px, 5vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; align-items: center;">
+      <div>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(26px, 3.2vw, 36px); line-height: 1.14; margin: 0 0 14px;">Hear about the next one first</h2>
+        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #3C5C4B;">Join our mailing list for future offers, seasonal advice and the odd bit of nutrition nerdery. Unsubscribe whenever you like.</p>
+      </div>
+      <form onSubmit="{{ onSignup }}">
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <input type="email" value="{{ email }}" onChange="{{ onEmail }}" placeholder="you@example.com" style="flex: 1 1 180px; min-width: 0; font-family: inherit; font-size: 16px; padding: 14px; border: 1px solid rgba(20,61,43,0.25); border-radius: 10px; background: #F7F3EA; color: #143D2B;" />
+          <button type="submit" style="flex: 0 0 auto; font-family: inherit; font-size: 15px; font-weight: 700; padding: 14px 24px; border: none; border-radius: 10px; background: #143D2B; color: #F7F3EA; cursor: pointer;" style-hover="background: #2E6B4A;">Sign me up</button>
+        </div>
+        <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.5; min-height: 22px; color: #2E6B4A;">{{ signupNote }}</p>
+      </form>
+    </div>
+  </section>
+
+  <div style="background: #E7E2D6; color: #6B7A70; text-align: center; padding: 46px 20px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; border-top: 1px dashed rgba(20,61,43,0.25);">Footer</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;discountPercent&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:15,&quot;min&quot;:5,&quot;max&quot;:50,&quot;step&quot;:5,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Offer&quot;},&quot;password&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;wildwash&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Offer&quot;}}">
+class Component extends DCLogic {
+  state = { entry: "", unlocked: false, error: false, email: "", signupNote: "" };
+
+  get pw() { return (this.props.password ?? "wildwash").trim().toLowerCase(); }
+
+  componentDidMount() {
+    try {
+      if (localStorage.getItem("ww-birthday-unlocked") === "1") this.setState({ unlocked: true });
+    } catch (e) {}
+  }
+
+  unlock = () => {
+    const ok = this.state.entry.trim().toLowerCase() === this.pw;
+    this.setState({ unlocked: ok, error: !ok });
+    if (ok) { try { localStorage.setItem("ww-birthday-unlocked", "1"); } catch (e) {} }
+  };
+
+  renderVals() {
+    const pct = this.props.discountPercent ?? 15;
+    const { unlocked, error } = this.state;
+    return {
+      discountLabel: pct + "%",
+      entry: this.state.entry,
+      unlocked,
+      note: unlocked
+        ? "You're in. Your " + pct + "% is live for this visit — shop away."
+        : error
+          ? "That's not the one. Check your Birthday Club email."
+          : "Case doesn't matter.",
+      noteColor: unlocked ? "#2E6B4A" : error ? "#B4441F" : "#5F7A6B",
+      onEntry: (e) => this.setState({ entry: e.target.value, error: false }),
+      onKey: (e) => { if (e.key === "Enter") this.unlock(); },
+      onUnlock: this.unlock,
+      email: this.state.email,
+      signupNote: this.state.signupNote,
+      onEmail: (e) => this.setState({ email: e.target.value }),
+      onSignup: (e) => {
+        e.preventDefault();
+        this.setState({ signupNote: this.state.email ? "Thanks — you're on the list." : "" });
+      },
+      reviews: [
+        { stars: "★★★★★", quote: "Three weeks in and her coat looks like someone else's horse.", name: "Hannah, Co. Down" },
+        { stars: "★★★★★", quote: "He's calm enough to hack out alone again. I'd given up on that.", name: "Sophie, Cheshire" },
+        { stars: "★★★★★", quote: "Simple to feed, he eats it without sulking, and the difference is obvious.", name: "Rachel, Perthshire" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
