@@ -720,6 +720,451 @@
     </div>
 
 </div>
+
+<div style="display:flex;flex-direction:column;gap:6px;padding:96px 0 40px;margin-top:64px;border-top:2px solid #0B2730">
+  <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · See calculation</div>
+  <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Calculation block options</div>
+  <div style="font-size:15px;color:#3E5560;max-width:760px;line-height:1.5">What opens from "See calculation". bonkers.ie uses a separate plan page with a summary, then sections for plan features, time bands, electricity charges and payment information. These three options show the same content in a panel, an in-card drawer and a chart. All figures use the SSE Airtricity sample at 3,200 kWh a year.</div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:flex-start">
+
+<div class="dv-opt" id="6h"><div class="dv-olabel"><a class="dv-oid" href="#6h">6h</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Full plan details + comparison</div><div>Combines the Energy Switch and bonkers.ie layouts in Power to Switch style, in four sections:<br><br><strong>1. Pricing breakdown:</strong> promotions, fixed fees and rates.<br><strong>2. Daily usage:</strong> a chart of the typical daily profile.<br><strong>3. More details:</strong> plan features, fuel mix and payment.<br><strong>4. Comparison:</strong> the current tariff next to this plan, with the usage-cost working shown.<br><br>A single VAT toggle (5%) updates every price. Try it. The usage profile and fuel mix are sample data and need the Utility Regulator or supplier figures.</div></div>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#F3F2EA;border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:14px">
+
+          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:6px 6px 0">
+            <div style="display:flex;align-items:center;gap:12px;min-width:0">
+              <div style="width:80px;height:38px;flex:none;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;padding:5px;box-sizing:border-box"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+              <div style="display:flex;flex-direction:column;gap:1px;min-width:0"><div style="font-size:12.5px;color:#5A6B80">Plan details</div><div style="font-size:16px;font-weight:700;line-height:1.25">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div></div>
+            </div>
+            <div onClick="{{ toggleVat }}" style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-weight:600">Include VAT (5%)<span style="width:40px;height:22px;border-radius:11px;background:{{ vatTrack }};position:relative;display:block"><span style="position:absolute;top:3px;left:{{ vatKnob }};width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25)"></span></span></div>
+          </div>
+
+          <div style="background:#fff;border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700;padding-bottom:6px"><span style="width:24px;height:24px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;display:flex;align-items:center;justify-content:center">1</span>Pricing breakdown</div>
+            <sc-for list="{{ breakdown }}" as="g" hint-placeholder-count="3">
+              <div style="display:flex;flex-wrap:wrap;gap:4px 20px;padding:10px 0;border-top:1px solid #EEF1F5">
+                <div style="flex:0 0 160px;font-size:13.5px;font-weight:700;padding-top:7px">{{ g.title }}</div>
+                <div style="flex:1 1 260px;min-width:0;display:flex;flex-direction:column">
+                  <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="3">
+                    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px solid #F3F4F6;font-size:13.5px"><span style="color:#3E5560">{{ r.label }}</span><span><strong style="font-variant-numeric:tabular-nums">{{ r.value }}</strong> <span style="font-size:12px;color:#7A8899">{{ r.unit }}</span></span></div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="background:#fff;border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700"><span style="width:24px;height:24px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;display:flex;align-items:center;justify-content:center">2</span>Your estimated daily usage</div>
+            <div style="font-size:13px;color:#5A6B80;line-height:1.4">About 8.8 kWh a day ({{ dayCost }} a day), based on a typical household profile. This is a 24-hour tariff, so every hour costs the same rate. Time-of-use tariffs would colour the bars by band.</div>
+            <div style="display:flex;gap:8px">
+              <div style="display:flex;flex-direction:column;justify-content:space-between;height:150px;font-size:10px;color:#9AA7B8;text-align:right;width:26px"><span>0.8</span><span>0.4</span><span>0</span></div>
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px">
+                <div style="height:150px;display:flex;align-items:flex-end;gap:2px;border-bottom:1px solid #0B2730">
+                  <sc-for list="{{ profile }}" as="p" hint-placeholder-count="24"><div style="flex:1;height:{{ p.h }};background:{{ p.c }};border-radius:3px 3px 0 0"></div></sc-for>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:10px;color:#7A8899"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>23:00</span></div>
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:#3E5560"><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:#B78DD4"></span>24-hour rate · {{ unitNow }}</span><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:2px;background:#5B2F7A"></span>Your busiest hours</span><span style="color:#7A8899">kWh per hour · sample profile</span></div>
+          </div>
+
+          <div style="background:#fff;border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700"><span style="width:24px;height:24px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;display:flex;align-items:center;justify-content:center">3</span>More details</div>
+            <div style="display:flex;flex-wrap:wrap;gap:18px 28px">
+              <div style="flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:8px">
+                <div style="font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#5B2F7A">Plan features</div>
+                <div style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;line-height:1.4">
+                  <div>✓ 10.5% off standard keypad unit rates for 12 months</div>
+                  <div>✓ £30 welcome credit after you switch</div>
+                  <div>✓ SSE Rewards</div>
+                  <div style="color:#B5500F">! Variable-price tariff</div>
+                  <div>· 12 month contract, no exit fee</div>
+                  <div>· New SSE Airtricity customers only</div>
+                  <a href="#" style="font-weight:600">Terms &amp; Conditions</a>
+                </div>
+              </div>
+              <div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:8px">
+                <div style="font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#5B2F7A">Fuel mix <span style="font-weight:500;color:#7A8899;text-transform:none;letter-spacing:0">sample</span></div>
+                <div style="display:flex;align-items:center;gap:16px">
+                  <div style="width:96px;height:96px;flex:none;border-radius:50%;background:conic-gradient(#0B2730 0 48%,#B78DD4 48% 90%,#E87722 90% 94%,#E3E000 94% 100%);position:relative"><div style="position:absolute;inset:24px;border-radius:50%;background:#fff"></div></div>
+                  <div style="display:flex;flex-direction:column;gap:4px;font-size:12.5px">
+                    <span style="display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:2px;background:#0B2730"></span>Renewables 48%</span>
+                    <span style="display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:2px;background:#B78DD4"></span>Gas 42%</span>
+                    <span style="display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:2px;background:#E87722"></span>Coal 4%</span>
+                    <span style="display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:2px;background:#E3E000"></span>Other 6%</span>
+                  </div>
+                </div>
+                <div style="font-size:11.5px;color:#7A8899">Source: supplier fuel mix disclosure</div>
+              </div>
+              <div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:8px">
+                <div style="font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#5B2F7A">Payment information</div>
+                <div style="display:flex;flex-direction:column;font-size:13.5px">
+                  <div style="display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid #EEF1F5"><span style="color:#5A6B80">Payment</span><strong>Pay as you go</strong></div>
+                  <div style="display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid #EEF1F5"><span style="color:#5A6B80">Billing</span><strong>Keypad top-up</strong></div>
+                  <div style="display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid #EEF1F5"><span style="color:#5A6B80">Security deposit</span><strong>None</strong></div>
+                </div>
+                <div style="font-size:12.5px;color:#5A6B80;line-height:1.4">Top up in shops, online or in the app. No bills.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#fff;border-radius:14px;padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700"><span style="width:24px;height:24px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;display:flex;align-items:center;justify-content:center">4</span>Your current tariff vs this plan</div>
+            <div style="overflow-x:auto">
+              <div style="min-width:330px;display:grid;grid-template-columns:minmax(90px,.8fr) minmax(0,1fr) minmax(0,1fr)">
+                <div></div>
+                <div style="padding:8px 12px;font-size:12.5px;font-weight:600;color:#5A6B80">Your current plan</div>
+                <div style="padding:8px 12px;font-size:12.5px;font-weight:700;background:#F1E7F8;border:1px solid #C9A3E0;border-bottom:0;border-radius:12px 12px 0 0">This plan</div>
+                <sc-for list="{{ cmpRows }}" as="r" hint-placeholder-count="9">
+                  <div style="padding:11px 12px 11px 0;border-top:1px solid #EEF1F5;font-size:13px;color:#3E5560;font-weight:600">{{ r.label }}<div style="font-size:11.5px;font-weight:500;color:#7A8899">{{ r.sub }}</div></div>
+                  <div style="padding:11px 12px;border-top:1px solid #EEF1F5;font-size:13.5px;display:flex;flex-direction:column;gap:2px">
+                    <sc-if value="{{ r.isLogo }}" hint-placeholder-val="{{ false }}"><div style="width:84px;height:34px;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div></sc-if>
+                    <strong style="font-variant-numeric:tabular-nums">{{ r.cur }}</strong><span style="font-size:12px;color:#5A6B80">{{ r.curNote }}</span><span style="font-size:11.5px;font-weight:600;color:#7A8899">{{ r.curTag }}</span>
+                  </div>
+                  <div style="padding:11px 12px;border-top:1px solid #E6D6F0;background:#F8F2FC;border-left:1px solid #C9A3E0;border-right:1px solid #C9A3E0;border-bottom:{{ r.lastBorder }};border-radius:{{ r.lastRadius }};font-size:13.5px;display:flex;flex-direction:column;gap:2px">
+                    <sc-if value="{{ r.isLogo }}" hint-placeholder-val="{{ false }}"><div style="width:84px;height:34px;display:flex;align-items:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div></sc-if>
+                    <strong style="font-variant-numeric:tabular-nums">{{ r.now }}</strong><span style="font-size:12px;color:#5A6B80">{{ r.nowNote }}</span><span style="font-size:11.5px;font-weight:600;color:#5B2F7A">{{ r.nowTag }}</span>
+                    <sc-if value="{{ r.isTotal }}" hint-placeholder-val="{{ false }}"><span style="margin-top:4px;align-self:flex-start;font-size:13px;font-weight:800;padding:4px 9px;border-radius:6px;background:#E3E000">Savings of {{ saveVat }}</span></sc-if>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding-top:10px">
+              <div style="font-size:12.5px;color:#5A6B80">Based on 3,200 kWh a year. <a href="#" style="font-weight:600">Change usage</a></div>
+              <button style="flex:0 1 240px;height:48px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="6d"><div class="dv-olabel"><a class="dv-oid" href="#6d">6d</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Our concept: your numbers, both years</div><div>Competitors show a fixed calculation for one year. This version adds two things they don't have:<br><br><strong>1. A usage slider.</strong> Most people guess their usage, so they can see how the saving changes if the guess is wrong.<br><br><strong>2. What happens after month 12.</strong> The discount ends and this tariff can become dearer than the current one. Power to Switch offers a reminder, so the calculation leads to a reason to come back.<br><br>Drag the slider to try it. The reminder is a proposed feature. Current rate is assumed to be 39.98p/kWh.</div></div>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #0B2730;border-radius:18px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="background:#0B2730;color:#fff;padding:22px 24px;display:flex;flex-direction:column;gap:16px">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:84px;height:40px;flex:none;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;padding:5px;box-sizing:border-box"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+              <div style="display:flex;flex-direction:column;gap:1px;min-width:0"><div style="font-size:12.5px;color:#A9C0C6">Your saving, worked out</div><div style="font-size:15.5px;font-weight:700;line-height:1.3">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div></div>
+            </div>
+            <div style="font-size:24px;font-weight:700;line-height:1.3;text-wrap:pretty;max-width:720px">At <span style="color:#E3E000">{{ kwhText }} kWh</span> a year you'd pay <span style="color:#E3E000">{{ y1Text }}</span> in year one. That's <span style="color:#E3E000">{{ y1DiffText }}</span> than you pay now.</div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <input type="range" min="1500" max="6000" step="100" value="{{ kwh }}" onChange="{{ setKwh }}" style="width:100%;accent-color:#E3E000;cursor:pointer">
+              <div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#A9C0C6"><span>1,500 kWh</span><span>Your estimate: 3,200 kWh</span><span>6,000 kWh</span></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap">
+            <div style="flex:1 1 300px;min-width:0;padding:20px 24px;display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Year one · months 1–12</div><div style="font-size:12px;color:#5A6B80">36.51p/kWh</div></div>
+              <div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-variant-numeric:tabular-nums">
+                <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:#3E5560">{{ kwhText }} kWh × 36.51p</span><span>{{ y1GrossText }}</span></div>
+                <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:#3E5560">Standing charge</span><span>£0.00</span></div>
+                <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:#3E5560">£30 welcome credit</span><span>−£30.00</span></div>
+                <div style="display:flex;justify-content:space-between;gap:10px;padding-top:6px;border-top:1px solid #E6EAF0;font-weight:700"><span>This tariff</span><span>{{ y1Text }}</span></div>
+                <div style="display:flex;justify-content:space-between;gap:10px;color:#5A6B80"><span>Your current tariff</span><span>{{ curText }}</span></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 12px;border-radius:10px;background:{{ y1Bg }}"><span style="font-size:13.5px;font-weight:700">{{ y1Label }}</span><span style="font-size:24px;font-weight:800">{{ y1Abs }}</span></div>
+            </div>
+            <div style="flex:1 1 300px;min-width:0;padding:20px 24px;background:#FBFAE6;border-left:1px solid #E6EAF0;display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#B5500F">After month 12</div><div style="font-size:12px;color:#5A6B80">40.79p/kWh standard</div></div>
+              <div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-variant-numeric:tabular-nums">
+                <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:#3E5560">{{ kwhText }} kWh × 40.79p</span><span style="font-weight:700">{{ y2Text }}</span></div>
+                <div style="display:flex;justify-content:space-between;gap:10px;color:#5A6B80"><span>Your current tariff</span><span>{{ curText }}</span></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 12px;border-radius:10px;background:{{ y2Bg }}"><span style="font-size:13.5px;font-weight:700">{{ y2Label }}</span><span style="font-size:24px;font-weight:800">{{ y2Abs }}</span></div>
+              <div style="font-size:13px;color:#3E5560;line-height:1.45">The discount ends after 12 months. We'll check the market in month 11 and tell you if there's a better deal.</div>
+              <button style="height:44px;border:1.5px solid #0B2730;border-radius:12px;background:transparent;color:#0B2730;font:700 14.5px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#fff">Remind me in month 11</button>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:14px 24px;border-top:1px solid #E6EAF0">
+            <div style="font-size:12.5px;color:#5A6B80;line-height:1.4">Prices incl. VAT · Keypad, 24 hour · Pay as you go · No exit fee · New customers · <a href="#" style="font-weight:600">Company &amp; tariff info</a></div>
+            <button style="flex:0 1 220px;height:48px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="6e"><div class="dv-olabel"><a class="dv-oid" href="#6e">6e</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Savings over time</div><div>An area chart of total money saved, month by month, over two years. It climbs to £141 at month 12. Once the discount ends it slowly falls, which shows the customer when to switch again. Hover over a month to see its figure. Month 1 includes the £30 credit.</div></div>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden">
+          <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding:18px 22px">
+            <div style="display:flex;align-items:center;gap:12px;min-width:0">
+              <div style="width:72px;height:34px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+              <div style="display:flex;flex-direction:column;gap:1px"><div style="font-size:15.5px;font-weight:700">Money saved by switching</div><div style="font-size:12.5px;color:#5A6B80">vs staying on Budget Energy Q1 Fixed Keypad</div></div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end"><div style="font-size:12px;color:#5A6B80">{{ hoverLabel }}</div><div style="font-size:30px;font-weight:800;line-height:1.05;font-variant-numeric:tabular-nums">{{ hoverValue }}</div></div>
+          </div>
+          <div style="padding:0 22px 8px">
+            <div style="position:relative;height:200px">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none">
+                <sc-for list="{{ gridY }}" as="g" hint-placeholder-count="5"><div style="display:flex;align-items:center;gap:6px;font-size:10.5px;color:#9AA7B8"><span style="width:30px;text-align:right">{{ g }}</span><span style="flex:1;border-top:1px dashed #E6EAF0"></span></div></sc-for>
+              </div>
+              <svg viewBox="0 0 240 100" preserveAspectRatio="none" style="position:absolute;left:36px;right:0;top:0;bottom:0;width:calc(100% - 36px);height:100%;overflow:visible">
+                <path d="{{ areaY1 }}" fill="#EAD9F4"></path>
+                <path d="{{ areaY2 }}" fill="#FBE3D3"></path>
+                <path d="{{ lineY1 }}" fill="none" stroke="#5B2F7A" stroke-width="2.5" vector-effect="non-scaling-stroke"></path>
+                <path d="{{ lineY2 }}" fill="none" stroke="#E87722" stroke-width="2.5" stroke-dasharray="5 4" vector-effect="non-scaling-stroke"></path>
+                <line x1="120" y1="0" x2="120" y2="100" stroke="#0B2730" stroke-width="1" vector-effect="non-scaling-stroke"></line>
+              </svg>
+              <div style="position:absolute;left:36px;right:0;top:0;bottom:0;display:flex">
+                <sc-for list="{{ monthHits }}" as="m" hint-placeholder-count="24"><div onMouseEnter="{{ m.enter }}" style="flex:1;height:100%;cursor:crosshair;background:{{ m.bg }}"></div></sc-for>
+              </div>
+              <div style="position:absolute;left:calc(36px + (100% - 36px) * .5 + 8px);top:6px;font-size:11.5px;font-weight:700;color:#0B2730;background:#fff;padding:2px 6px;border-radius:4px;border:1px solid #E6EAF0">Discount ends</div>
+            </div>
+            <div style="display:flex;padding-left:36px;margin-top:6px;font-size:10.5px;color:#7A8899"><span style="flex:1">Month 1</span><span style="flex:1;text-align:center">12</span><span style="flex:1;text-align:right">24</span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid #E6EAF0">
+            <div style="padding:12px 22px;display:flex;flex-direction:column;gap:2px;border-right:1px solid #EEF1F5"><div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#5A6B80"><span style="width:10px;height:10px;border-radius:2px;background:#5B2F7A"></span>Months 1–12</div><div style="font-size:15px;font-weight:700">+£141.18 saved</div><div style="font-size:12px;color:#5A6B80">36.51p/kWh with discount</div></div>
+            <div style="padding:12px 22px;display:flex;flex-direction:column;gap:2px;border-right:1px solid #EEF1F5"><div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#5A6B80"><span style="width:10px;height:10px;border-radius:2px;background:#E87722"></span>Months 13–24</div><div style="font-size:15px;font-weight:700">−£25.88 if you stay</div><div style="font-size:12px;color:#5A6B80">40.79p/kWh standard rate</div></div>
+            <div style="padding:12px 22px;display:flex;align-items:center"><button style="width:100%;height:46px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 15.5px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button></div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="6f"><div class="dv-olabel"><a class="dv-oid" href="#6f">6f</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Where this rate sits</div><div>A strip plot of every keypad tariff's unit rate on one scale, with this tariff and the customer's current tariff marked. Customers can see how good the deal is compared with the whole market, not just their current tariff, and that "we compare every tariff" is true. The other 16 rates are sample data.</div></div>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;padding:18px 22px">
+            <div style="display:flex;align-items:center;gap:12px;min-width:0">
+              <div style="width:72px;height:34px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+              <div style="display:flex;flex-direction:column;gap:1px"><div style="font-size:15.5px;font-weight:700">Lowest unit rate of 18 keypad tariffs</div><div style="font-size:12.5px;color:#5A6B80">Unit rate, p/kWh incl. VAT</div></div>
+            </div>
+            <span style="font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:999px;background:#0B2730;color:#E3E000">1st of 18</span>
+          </div>
+          <div style="padding:26px 30px 10px">
+            <div style="position:relative;height:96px">
+              <div style="position:absolute;left:0;right:0;top:48px;height:6px;border-radius:3px;background:linear-gradient(90deg,#EFEC8C,#F1E7F8 55%,#FBE3D3)"></div>
+              <sc-for list="{{ market }}" as="d" hint-placeholder-count="18">
+                <div style="position:absolute;left:{{ d.left }};top:{{ d.top }};width:{{ d.size }};height:{{ d.size }};margin-left:{{ d.off }};border-radius:50%;background:{{ d.c }};border:2px solid #fff;box-sizing:border-box;box-shadow:0 0 0 1px {{ d.ring }}"></div>
+              </sc-for>
+              <div style="position:absolute;left:{{ mThis }};top:0;transform:translateX(-50%);font-size:11.5px;font-weight:800;color:#0B2730;white-space:nowrap;background:#E3E000;padding:2px 7px;border-radius:4px">This · 36.51p</div>
+              <div style="position:absolute;left:{{ mCur }};bottom:0;transform:translateX(-50%);font-size:11.5px;font-weight:700;color:#fff;white-space:nowrap;background:#0B2730;padding:2px 7px;border-radius:4px">Yours now · 39.98p</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:#7A8899;margin-top:6px"><span>34p cheaper</span><span>40p</span><span>46p dearer</span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));border-top:1px solid #E6EAF0;margin-top:12px">
+            <div style="padding:11px 22px;border-right:1px solid #EEF1F5"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">Cheapest</div><div style="font-size:14px;font-weight:700">36.51p</div></div>
+            <div style="padding:11px 22px;border-right:1px solid #EEF1F5"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">Middle</div><div style="font-size:14px;font-weight:700">40.55p</div></div>
+            <div style="padding:11px 22px;border-right:1px solid #EEF1F5"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">Dearest</div><div style="font-size:14px;font-weight:700">45.30p</div></div>
+            <div style="padding:11px 22px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">Standing charge</div><div style="font-size:14px;font-weight:700">None</div></div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="6g"><div class="dv-olabel"><a class="dv-oid" href="#6g">6g</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Top-up planner</div><div>Keypad customers budget by top-up rather than annual bill, so this version converts the cost into a day, week, month or year amount, set with a toggle. Two bars compare the new top-up with what they pay now. Click the toggle to switch periods.</div></div>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;padding:18px 22px;border-bottom:1px solid #E6EAF0">
+            <div style="display:flex;align-items:center;gap:12px;min-width:0">
+              <div style="width:72px;height:34px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+              <div style="font-size:15.5px;font-weight:700">What you'd top up</div>
+            </div>
+            <div style="display:flex;padding:3px;border-radius:10px;background:#F0F3F7;gap:2px">
+              <sc-for list="{{ periods }}" as="p" hint-placeholder-count="4"><div onClick="{{ p.go }}" style="padding:7px 12px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;background:{{ p.bg }};color:#0B2730;box-shadow:{{ p.shadow }}">{{ p.label }}</div></sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:20px 32px;padding:22px">
+            <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:14px">
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <div style="display:flex;justify-content:space-between;font-size:13px"><strong>SSE Airtricity</strong><strong style="font-variant-numeric:tabular-nums">{{ pThis }}</strong></div>
+                <div style="height:28px;background:#F0F3F7;border-radius:8px;overflow:hidden"><div style="height:100%;width:89%;background:#B78DD4;border-radius:8px"></div></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <div style="display:flex;justify-content:space-between;font-size:13px;color:#5A6B80"><span>Budget Energy (now)</span><span style="font-variant-numeric:tabular-nums">{{ pCur }}</span></div>
+                <div style="height:28px;background:#F0F3F7;border-radius:8px;overflow:hidden"><div style="height:100%;width:100%;background:#9AA7B8;border-radius:8px"></div></div>
+              </div>
+              <div style="font-size:12.5px;color:#5A6B80;line-height:1.4">Year-one average incl. £30 credit and VAT, at 3,200 kWh. No standing charge, so every top-up goes on electricity.</div>
+            </div>
+            <div style="flex:0 1 220px;min-width:0;display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:14px;background:#0B2730;color:#fff">
+              <div style="font-size:12.5px;color:#A9C0C6">You keep</div>
+              <div style="font-size:40px;font-weight:800;line-height:1;color:#E3E000;font-variant-numeric:tabular-nums">{{ pSave }}</div>
+              <div style="font-size:12.5px;color:#A9C0C6">{{ pPer }}</div>
+              <button style="height:44px;border:0;border-radius:10px;background:#C9A3E0;color:#0B2730;font:700 15px 'Figtree',sans-serif;cursor:pointer;margin-top:4px" style-hover="background:#D8BCEA">{{ cta }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="6a"><div class="dv-olabel"><a class="dv-oid" href="#6a">6a</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Plan details panel</div><div>Based on the bonkers.ie plan page, but opens as a panel over the results so customers don't lose their place. A plan summary sits at the top, then numbered sections: your cost, electricity charges, plan features and payment information. On mobile it becomes a full-height sheet. The switch button stays at the bottom.</div></div>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames2 }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:rgba(11,39,48,.55);border-radius:16px;padding:18px">
+          <div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 32px rgba(11,39,48,.3)">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid #E6EAF0">
+              <div style="font-size:15px;font-weight:700">Plan details</div>
+              <div style="width:32px;height:32px;border-radius:8px;background:#F0F3F7;display:flex;align-items:center;justify-content:center;font-size:14px">✕</div>
+            </div>
+            <div style="padding:18px 20px;display:flex;flex-direction:column;gap:14px;background:#FBFAE6">
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:84px;height:40px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+                <div style="display:flex;flex-direction:column;gap:1px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">SSE Airtricity</div><div style="font-size:17px;font-weight:700;line-height:1.25;text-wrap:pretty">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div></div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden">
+                <sc-for list="{{ ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for>
+              </div>
+            </div>
+            <div style="padding:4px 20px 8px;display:flex;flex-direction:column">
+              <div style="display:flex;flex-direction:column;gap:10px;padding:16px 0;border-bottom:1px solid #EEF1F5">
+                <div style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700"><span style="width:22px;height:22px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11.5px;display:flex;align-items:center;justify-content:center">1</span>Your estimated cost</div>
+                <div style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-variant-numeric:tabular-nums">
+                  <sc-for list="{{ calcLines }}" as="c" hint-placeholder-count="8"><div style="display:flex;justify-content:space-between;gap:10px;font-weight:{{ c.w }};border-top:{{ c.rule }};padding-top:{{ c.pad }}"><span>{{ c.label }}</span><span>{{ c.value }}</span></div></sc-for>
+                </div>
+                <div style="font-size:12.5px;color:#5A6B80;line-height:1.4">Based on 3,200 kWh a year, from the usage you entered. <a href="#" style="font-weight:600">Change usage</a></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px;padding:16px 0;border-bottom:1px solid #EEF1F5">
+                <div style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700"><span style="width:22px;height:22px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11.5px;display:flex;align-items:center;justify-content:center">2</span>Electricity charges <span style="font-size:12px;font-weight:500;color:#7A8899">incl. VAT</span></div>
+                <div style="display:flex;flex-direction:column;font-size:13.5px">
+                  <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:8px;padding:0 0 6px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7A8899"><div>Charge</div><div>Standard</div><div>With discount</div></div>
+                  <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:8px;padding:7px 0;border-top:1px solid #EEF1F5"><div style="color:#5A6B80">Unit rate</div><div>40.79p/kWh</div><div style="font-weight:700">36.51p/kWh</div></div>
+                  <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:8px;padding:7px 0;border-top:1px solid #EEF1F5"><div style="color:#5A6B80">Standing charge</div><div>None</div><div style="font-weight:700">None</div></div>
+                  <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:8px;padding:7px 0;border-top:1px solid #EEF1F5"><div style="color:#5A6B80">Time bands</div><div>24 hour</div><div style="font-weight:700">24 hour</div></div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px;padding:16px 0;border-bottom:1px solid #EEF1F5">
+                <div style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700"><span style="width:22px;height:22px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11.5px;display:flex;align-items:center;justify-content:center">3</span>Plan features</div>
+                <div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.4">
+                  <div>✓ 10.5% off SSE Airtricity standard keypad unit rates for 12 months</div>
+                  <div>✓ £30 welcome credit, added after you switch</div>
+                  <div>✓ SSE Rewards</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px;padding:16px 0">
+                <div style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700"><span style="width:22px;height:22px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11.5px;display:flex;align-items:center;justify-content:center">4</span>Payment information</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0 20px;font-size:13.5px">
+                  <div style="display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-bottom:1px solid #EEF1F5"><span style="color:#5A6B80">Payment</span><strong>Pay as you go</strong></div>
+                  <div style="display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-bottom:1px solid #EEF1F5"><span style="color:#5A6B80">Billing</span><strong>Keypad top-up</strong></div>
+                  <div style="display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-bottom:1px solid #EEF1F5"><span style="color:#5A6B80">Exit fee</span><strong>None</strong></div>
+                  <div style="display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-bottom:1px solid #EEF1F5"><span style="color:#5A6B80">Who can switch</span><strong>New customers</strong></div>
+                </div>
+                <a href="#" style="font-size:13px;font-weight:600">Full T&amp;Cs and company info</a>
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:14px 20px;border-top:1px solid #E6EAF0;background:#fff">
+              <div style="display:flex;flex-direction:column"><div style="font-size:12px;color:#5A6B80">You save in year one</div><div style="font-size:24px;font-weight:800">£141.18</div></div>
+              <button style="flex:1 1 180px;max-width:260px;height:48px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="6b"><div class="dv-olabel"><a class="dv-oid" href="#6b">6b</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">In-card drawer, step by step</div><div>"See calculation" opens a drawer inside the result card. The calculation is set out in four plain steps, each showing its figure, from usage to saving. Customers can check the maths without leaving the list. Click the link on the card to open and close it.</div></div>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;padding:18px 22px">
+            <div style="flex:1 1 280px;min-width:0;display:flex;align-items:center;gap:12px">
+              <div style="width:84px;height:40px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+              <div style="display:flex;flex-direction:column;gap:1px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">SSE Airtricity</div><div style="font-size:16px;font-weight:700;line-height:1.25;text-wrap:pretty">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div></div>
+            </div>
+            <div style="flex:0 0 auto;display:flex;flex-direction:column"><div style="font-size:12.5px;font-weight:600">Save in year one</div><div style="font-size:30px;font-weight:800;line-height:1.05">£141.18</div></div>
+            <div style="flex:0 1 190px;min-width:160px"><button style="width:100%;height:46px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 15.5px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button></div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 18px;padding:10px 22px;border-top:1px solid #EEF1F5;font-size:13px">
+            <a href="#" onClick="{{ toggleCalc2 }}" style="font-weight:700">{{ calc2Label }}</a><a href="#" style="font-weight:600">Company &amp; tariff info</a>
+          </div>
+          <sc-if value="{{ calc2Open }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:18px 22px 20px;background:#FBFAE6;border-top:1px solid #E6EAF0;display:flex;flex-direction:column;gap:12px">
+              <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+                <div style="display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:12px;align-items:start;padding:12px 14px;background:#fff;border:1px solid #E1DFB8;border-radius:12px">
+                  <span style="width:26px;height:26px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ st.n }}</span>
+                  <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><div style="font-size:14.5px;font-weight:700">{{ st.title }}</div><div style="font-size:13px;color:#5A6B80;line-height:1.4">{{ st.how }}</div></div>
+                  <div style="font-size:16px;font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums">{{ st.value }}</div>
+                </div>
+              </sc-for>
+              <div style="font-size:12.5px;color:#5A6B80;line-height:1.4">All prices include VAT. No standing charge on this tariff. Based on 3,200 kWh a year. <a href="#" style="font-weight:600">Change usage</a></div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="6c"><div class="dv-olabel"><a class="dv-oid" href="#6c">6c</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Cost waterfall</div><div>A chart shows how the price is built: standard cost, minus the discount, minus the welcome credit, ending at the year-one cost next to the current bill. The written figures sit beside it, along with the assumptions (usage, meter, current tariff) and a link to change them. The chart axis starts at £1,000 so the smaller amounts are visible.</div></div>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;padding:16px 22px;border-bottom:1px solid #E6EAF0">
+            <div style="display:flex;align-items:center;gap:12px;min-width:0">
+              <div style="width:72px;height:34px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+              <div style="font-size:15px;font-weight:700;line-height:1.3">How we worked out your saving</div>
+            </div>
+            <div style="font-size:12.5px;color:#5A6B80">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap">
+            <div style="flex:3 1 440px;min-width:0;padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+              <div style="height:210px;display:flex;align-items:stretch;gap:10px;border-bottom:1px solid #0B2730">
+                <sc-for list="{{ falls }}" as="w" hint-placeholder-count="5">
+                  <div style="flex:1;position:relative">
+                    <div style="position:absolute;left:0;right:0;bottom:{{ w.bottom }};height:{{ w.h }};background:{{ w.c }};border-radius:4px"></div>
+                    <div style="position:absolute;left:-6px;right:-6px;bottom:{{ w.top }};padding-bottom:4px;text-align:center;font-size:12px;font-weight:800;color:#0B2730;white-space:nowrap">{{ w.value }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="display:flex;gap:10px">
+                <sc-for list="{{ falls }}" as="w" hint-placeholder-count="5"><div style="flex:1;text-align:center;font-size:11.5px;line-height:1.3;color:#3E5560">{{ w.label }}</div></sc-for>
+              </div>
+              <div style="font-size:11.5px;color:#7A8899">Axis starts at £1,000</div>
+            </div>
+            <div style="flex:2 1 260px;min-width:0;padding:20px 22px;background:#FBFAE6;border-left:1px solid #E6EAF0;display:flex;flex-direction:column;gap:14px">
+              <div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-variant-numeric:tabular-nums">
+                <sc-for list="{{ calcLines }}" as="c" hint-placeholder-count="8"><div style="display:flex;justify-content:space-between;gap:10px;font-weight:{{ c.w }};border-top:{{ c.rule }};padding-top:{{ c.pad }}"><span>{{ c.label }}</span><span>{{ c.value }}</span></div></sc-for>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;padding:12px 14px;background:#fff;border:1px solid #E1DFB8;border-radius:10px;font-size:13px">
+                <div style="font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#7A8899">Based on</div>
+                <div style="display:flex;justify-content:space-between;gap:8px"><span style="color:#5A6B80">Usage</span><strong>3,200 kWh a year</strong></div>
+                <div style="display:flex;justify-content:space-between;gap:8px"><span style="color:#5A6B80">Meter</span><strong>Keypad, 24 hour</strong></div>
+                <div style="display:flex;justify-content:space-between;gap:8px"><span style="color:#5A6B80">Current tariff</span><strong style="text-align:right">Budget Energy Q1 Fixed Keypad</strong></div>
+                <a href="#" style="font-weight:600;margin-top:2px">Change these details</a>
+              </div>
+              <button style="height:48px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+</div>
 </main></x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;switchRoute&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Switch online&quot;,&quot;Supplier site&quot;,&quot;By phone&quot;],&quot;default&quot;:&quot;Switch online&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;cashbackInSaving&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;result&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Saves money&quot;,&quot;Costs more&quot;],&quot;default&quot;:&quot;Saves money&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
@@ -890,7 +1335,82 @@ class Component extends DCLogic {
       { ...warn, title: 'Discount lasts 12 months.', note: 'Then the standard keypad rate applies.' },
       { ...info, title: 'New customers only.', note: 'Not available if you’re already with SSE Airtricity.' }
     ];
+    const steps = [
+      { n: 1, title: 'Your usage at the standard rate', how: '3,200 kWh a year × 40.79p/kWh', value: '£1,305.33' },
+      { n: 2, title: 'Take off the 10.5% discount', how: 'Brings the unit rate to 36.51p/kWh. No standing charge.', value: '£1,168.27' },
+      { n: 3, title: 'Take off the £30 welcome credit', how: 'Added to your account after you switch', value: '£1,138.27' },
+      { n: 4, title: 'Compare with your current tariff', how: 'Budget Energy Q1 Fixed Keypad: £1,279.45 a year', value: 'Save £141.18' }
+    ];
+    const base = 1000, span = 320, pct = v => ((v - base) / span * 100).toFixed(1) + '%';
+    const F = (label, lo, hi, c, value) => ({ label, bottom: pct(lo), h: ((hi - lo) / span * 100).toFixed(1) + '%', top: pct(hi), c, value });
+    const falls = [
+      F('Standard cost', base, 1305.33, '#9AA7B8', '£1,305'),
+      F('10.5% discount', 1168.27, 1305.33, '#E3E000', '−£137'),
+      F('Welcome credit', 1138.27, 1168.27, '#E3E000', '−£30'),
+      F('Year one cost', base, 1138.27, '#B78DD4', '£1,138'),
+      F('Your current', base, 1279.45, '#0B2730', '£1,279')
+    ];
+    const kwh = this.state.kwh || 3200;
+    const y1g = kwh * 1168.27 / 3200, y1 = y1g - 30, curY = kwh * 1279.45 / 3200, y2 = kwh * 1305.33 / 3200;
+    const d1 = curY - y1, d2 = curY - y2;
+    const kwhVals = {
+      kwh, kwhText: kwh.toLocaleString('en-GB'), setKwh: e => this.setState({ kwh: +e.target.value }),
+      y1Text: gbp(y1), y1GrossText: gbp(y1g), curText: gbp(curY), y2Text: gbp(y2),
+      y1DiffText: d1 >= 0 ? gbp(d1) + ' less' : gbp(d1) + ' more',
+      y1Label: d1 >= 0 ? 'You save' : 'You pay more', y1Abs: gbp(d1), y1Bg: d1 >= 0 ? '#EFEC8C' : '#FBE3D3',
+      y2Label: d2 >= 0 ? 'Still cheaper by' : 'Dearer than now by', y2Abs: gbp(d2) + ' a year', y2Bg: d2 >= 0 ? '#EFEC8C' : '#FBE3D3'
+    };
+    const curMo = 1279.45 / 12, y1Mo = 1168.27 / 12, y2Mo = 1305.33 / 12;
+    const cum = []; let acc = 0;
+    for (let m = 1; m <= 24; m++) { acc += curMo - (m <= 12 ? y1Mo : y2Mo) + (m === 1 ? 30 : 0); cum.push(acc); }
+    const X = m => m * 10, Yv = v => (100 - v / 160 * 100).toFixed(2);
+    const pts1 = [[0, 0], ...cum.slice(0, 12).map((v, i) => [i + 1, v])], pts2 = cum.slice(11).map((v, i) => [i + 12, v]);
+    const line = p => 'M' + p.map(([m, v]) => X(m) + ' ' + Yv(v)).join(' L');
+    const area = p => line(p) + ' L' + X(p[p.length - 1][0]) + ' 100 L' + X(p[0][0]) + ' 100 Z';
+    const hm = this.state.hm ?? 12;
+    const monthHits = cum.map((v, i) => ({ enter: () => this.setState({ hm: i + 1 }), bg: hm === i + 1 ? 'rgba(11,39,48,.06)' : 'transparent' }));
+    const rates = [36.51, 37.45, 38.02, 38.4, 38.9, 39.2, 39.98, 40.3, 40.55, 40.79, 41.2, 41.6, 42.1, 42.5, 43.45, 44.1, 44.8, 45.3];
+    const L2 = r => ((r - 34) / 12 * 100).toFixed(1) + '%';
+    const market = rates.map((r, i) => { const me = r === 36.51, cu = r === 39.98; const s = me || cu ? 18 : 12; return { left: L2(r), size: s + 'px', off: -s / 2 + 'px', top: (51 - s / 2 + (me || cu ? 0 : (i % 2 ? -9 : 9))) + 'px', c: me ? '#E3E000' : cu ? '#0B2730' : '#C9A3E0', ring: me ? '#0B2730' : cu ? '#0B2730' : '#B78DD4' }; });
+    const per = this.state.per || 'Week';
+    const div = { Day: 365, Week: 52, Month: 12, Year: 1 }[per];
+    const periods = ['Day', 'Week', 'Month', 'Year'].map(k => ({ label: k, go: () => this.setState({ per: k }), bg: per === k ? '#fff' : 'transparent', shadow: per === k ? '0 1px 2px rgba(11,39,48,.15)' : 'none' }));
+    const perText = { Day: 'a day', Week: 'a week', Month: 'a month', Year: 'a year' }[per];
+    const vat = this.state.vat !== false, vf = vat ? 1 : 1 / 1.05;
+    const gv = v => gbp(v * vf), p = v => (v * vf).toFixed(2) + 'p';
+    const breakdown = [
+      { title: 'Promotions', rows: [{ label: 'Discount', value: '10.5% off', unit: 'for 12 months' }, { label: 'Welcome credit', value: '£30', unit: 'after switching' }] },
+      { title: 'Fixed fees', rows: [{ label: 'Exit fee', value: 'None', unit: '' }, { label: 'Standing charge', value: 'None', unit: 'per year' }, { label: 'Security deposit', value: 'None', unit: '' }] },
+      { title: 'Rates', rows: [{ label: '24-hour rate, discounted', value: p(36.51), unit: 'per kWh' }, { label: '24-hour rate, standard', value: p(40.79), unit: 'per kWh' }] }
+    ];
+    const raw = [0.26, 0.22, 0.2, 0.19, 0.19, 0.21, 0.3, 0.45, 0.42, 0.34, 0.31, 0.3, 0.33, 0.3, 0.29, 0.31, 0.4, 0.58, 0.66, 0.62, 0.55, 0.47, 0.38, 0.3];
+    const sc = (3200 / 365) / raw.reduce((a, b) => a + b, 0);
+    const profile = raw.map(v => ({ h: (v * sc / 0.8 * 100).toFixed(1) + '%', c: v >= 0.55 ? '#5B2F7A' : '#B78DD4' }));
+    const cmpRows = [
+      { label: 'Supplier', cur: 'Budget Energy', now: 'SSE Airtricity', isLogo: true },
+      { label: 'Plan name', cur: 'Q1 Fixed Keypad', now: '1 Year Keypad Electricity 10.5% + £30 Welcome Credit' },
+      { label: 'Plan type', cur: 'Keypad · 24 hour · Fixed', now: 'Keypad · 24 hour · Variable' },
+      { label: 'Usage costs', sub: '3,200 kWh', cur: gv(1279.45), curNote: '100% @ ' + p(39.98) + ' × 3,200 kWh', curTag: 'Your current rate', now: gv(1168.27), nowNote: '100% @ ' + p(36.51) + ' × 3,200 kWh', nowTag: 'Discounted rate' },
+      { label: 'Standing charge', cur: 'None', now: 'None' },
+      { label: 'Welcome credit', cur: '—', now: '−' + gv(30) },
+      { label: 'Exit fee', cur: 'None', now: 'None' },
+      { label: 'Estimated total', sub: 'year one', cur: gv(1279.45), now: gv(1138.27), isTotal: true }
+    ].map((r, i, a) => ({ curNote: '', curTag: '', nowNote: '', nowTag: '', sub: '', isLogo: false, isTotal: false, ...r, lastBorder: i === a.length - 1 ? '1px solid #C9A3E0' : '0', lastRadius: i === a.length - 1 ? '0 0 12px 12px' : '0' }));
     return {
+      breakdown, profile, cmpRows,
+      toggleVat: () => this.setState(s => ({ vat: s.vat === false })),
+      vatTrack: vat ? '#5B2F7A' : '#C4CCD8', vatKnob: vat ? '21px' : '3px',
+      saveVat: gv(141.18), dayCost: gv(1168.27 / 365), unitNow: p(36.51),
+      gridY: ['£160', '£120', '£80', '£40', '£0'],
+      areaY1: area(pts1), lineY1: line(pts1), areaY2: area(pts2), lineY2: line(pts2), monthHits,
+      hoverLabel: 'Saved by month ' + hm, hoverValue: gbp(cum[hm - 1]),
+      market, mThis: L2(36.51), mCur: L2(39.98),
+      periods, pThis: gbp(1138.27 / div) + ' ' + perText, pCur: gbp(1279.45 / div) + ' ' + perText, pSave: gbp(141.18 / div), pPer: perText + ' compared with now',
+      ...kwhVals,
+      steps, falls,
+      calc2Open: this.state.calc2 !== false,
+      calc2Label: this.state.calc2 !== false ? 'Hide calculation ▴' : 'See calculation ▾',
+      toggleCalc2: e => { e.preventDefault(); this.setState(s => ({ calc2: s.calc2 === false })); },
       vsRows, fitChecks,
       tabs, tabIs, ovFacts, rateFacts, calcLines, specGroups, nextSteps, months, facts9, curLine: (curM / mMax * 100).toFixed(1) + '%',
       bList,
