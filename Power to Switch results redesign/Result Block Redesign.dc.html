@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;background:#EEF1F5;font-family:'Figtree',system-ui,sans-serif;color:#0B2730;-webkit-font-smoothing:antialiased}a{color:#0B2730}a:hover{color:#0B2730}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-direction:column;gap:56px}.dv-opt{display:flex;flex-direction:column;gap:12px;scroll-margin-top:16px;max-width:100%}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 13px/1.45 system-ui,sans-serif;color:rgba(0,0,0,.62);max-width:900px}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:32px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style></helmet>
+<section class="dv-turn" id="t3">
+  <div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname">More examples of <a class="dv-oid" href="#1b">1b</a> in brand colours</span></div>
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="3a">
+      <div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a><a class="dv-oid" href="#1b">1b</a> as a results list of four tariffs, including one that costs more than the current tariff. The bars share one scale, so bar length compares across cards. Every item from the inventory is included.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+        <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+          <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:12px">
+            <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+            <sc-for list="{{ bList }}" as="t" hint-placeholder-count="4">
+              <div style="background:#fff;border:1px solid {{ t.border }};border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+                <sc-if value="{{ t.hasBadge }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 22px;background:#0B2730;color:#fff;flex-wrap:wrap">
+                    <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:50%;background:#E3E000"></span>{{ t.badge }}</div>
+                    <div style="font-size:12px;color:#A9C0C6">{{ t.rank }}</div>
+                  </div>
+                </sc-if>
+                <div style="display:flex;flex-wrap:wrap;gap:22px 32px;padding:20px 22px 16px">
+                  <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:14px">
+                    <div style="display:flex;align-items:center;gap:12px">
+                      <div style="width:72px;height:40px;flex:none;border:1px dashed #C4CCD8;border-radius:8px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div>
+                      <div style="display:flex;flex-direction:column;gap:1px;min-width:0">
+                        <div style="font-size:12.5px;font-weight:600;color:#5A6B80">{{ t.supplier }}</div>
+                        <div style="font-size:17px;font-weight:700;line-height:1.25;text-wrap:pretty">{{ t.name }}</div>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:9px">
+                      <div style="display:grid;grid-template-columns:92px minmax(0,1fr) auto;align-items:center;gap:10px">
+                        <div style="font-size:12.5px;color:#5A6B80">Your current</div>
+                        <div style="height:12px;background:#EEF1F5;border-radius:6px;overflow:hidden"><div style="height:100%;width:{{ t.curPct }};background:#9AA7B8;border-radius:6px"></div></div>
+                        <div style="font-size:13.5px;font-weight:600;color:#5A6B80">£1,279.45</div>
+                      </div>
+                      <div style="display:grid;grid-template-columns:92px minmax(0,1fr) auto;align-items:center;gap:10px">
+                        <div style="font-size:12.5px;font-weight:700">This tariff</div>
+                        <div style="height:12px;background:#EEF1F5;border-radius:6px;overflow:hidden"><div style="height:100%;width:{{ t.newPct }};background:{{ t.barColor }};border-radius:6px"></div></div>
+                        <div style="font-size:13.5px;font-weight:700">{{ t.netText }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="flex:0 1 230px;min-width:0;display:flex;flex-direction:column;gap:9px">
+                    <div style="display:flex;flex-direction:column">
+                      <div style="font-size:13px;font-weight:600;color:{{ t.labelColor }}">{{ t.saveLabel }}</div>
+                      <div style="font-size:40px;font-weight:800;line-height:1.05;color:#0B2730;letter-spacing:-.015em">{{ t.saveText }}</div>
+                      <div style="font-size:12.5px;color:#5A6B80">{{ t.saveSub }}</div>
+                    </div>
+                    <button style="height:48px;border:0;border-radius:12px;background:{{ t.ctaBg }};color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer">{{ t.cta }}</button>
+                    <div style="font-size:12px;color:#5A6B80;line-height:1.35">{{ t.ctaNote }}</div>
+                  </div>
+                </div>
+                <div style="margin:0 22px;padding:12px 0;border-top:1px solid #E6EAF0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px 20px;font-size:13px">
+                  <sc-for list="{{ t.facts }}" as="f" hint-placeholder-count="8">
+                    <div style="display:flex;justify-content:space-between;gap:8px"><span style="color:#5A6B80">{{ f.label }}</span><strong style="text-align:right">{{ f.value }}</strong></div>
+                  </sc-for>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;padding:11px 22px;background:#FBFAE6;border-top:1px solid #E6EAF0">
+                  <div style="display:flex;flex-wrap:wrap;gap:6px">
+                    <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E3E000;color:#0B2730">{{ t.cash }}</span></sc-if>
+                    <sc-for list="{{ t.perks }}" as="p" hint-placeholder-count="2"><span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #E1DFB8;color:#0B2730">{{ p }}</span></sc-for>
+                    <span style="font-size:12px;color:#5A6B80;align-self:center">Incl. VAT</span>
+                  </div>
+                  <div style="display:flex;gap:16px;font-size:13px"><a href="#" style="font-weight:600">See calculation</a><a href="#" style="font-weight:600">Company &amp; tariff info</a></div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="3b">
+      <div class="dv-olabel"><a class="dv-oid" href="#3b">3b</a>Condensed <a class="dv-oid" href="#1b">1b</a>. The two bars become one track with a marker for the current bill, so each result takes about half the height. The fact strip and perks stay.</div>
+      <div style="width:1040px;max-width:100%;display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ bList }}" as="t" hint-placeholder-count="4">
+          <div style="background:#fff;border:1px solid {{ t.border }};border-radius:14px;overflow:hidden">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;padding:16px 20px">
+              <div style="display:flex;align-items:center;gap:12px;flex:1 1 280px;min-width:0">
+                <div style="width:64px;height:36px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div>
+                <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px"><span style="font-size:12.5px;font-weight:600;color:#5A6B80">{{ t.supplier }}</span><sc-if value="{{ t.hasBadge }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;background:#0B2730;color:#E3E000">{{ t.badge }}</span></sc-if></div>
+                  <div style="font-size:15.5px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ t.name }}</div>
+                </div>
+              </div>
+              <div style="flex:1 1 220px;min-width:0;display:flex;flex-direction:column;gap:5px">
+                <div style="position:relative;height:12px;background:#EEF1F5;border-radius:6px">
+                  <div style="position:absolute;left:0;top:0;bottom:0;width:{{ t.newPct }};background:{{ t.barColor }};border-radius:6px"></div>
+                  <div style="position:absolute;top:-4px;bottom:-4px;left:{{ t.curPct }};width:2px;margin-left:-1px;background:#0B2730"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#5A6B80"><span><strong style="color:#0B2730">{{ t.netText }}</strong> year one</span><span>Current £1,279.45 ┃</span></div>
+              </div>
+              <div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;min-width:110px">
+                <div style="font-size:12px;font-weight:600;color:{{ t.labelColor }}">{{ t.saveShort }}</div>
+                <div style="font-size:26px;font-weight:800;line-height:1.1">{{ t.saveText }}</div>
+              </div>
+              <div style="flex:0 0 170px;display:flex;flex-direction:column;gap:3px">
+                <button style="height:44px;border:0;border-radius:10px;background:{{ t.ctaBg }};color:#0B2730;font:700 15px 'Figtree',sans-serif;cursor:pointer">{{ t.cta }}</button>
+                <div style="font-size:11.5px;color:#5A6B80;text-align:center">{{ t.route }}</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;padding:10px 20px;border-top:1px solid #EEF1F5;background:#FBFAE6;font-size:12.5px">
+              <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000">{{ t.cash }}</span></sc-if>
+              <span style="color:#3E5560">{{ t.factLine }}</span>
+              <span style="color:#0B2730;font-weight:600">{{ t.perkLine }}</span>
+              <span style="flex:1"></span>
+              <a href="#" style="font-weight:600">See calculation</a><a href="#" style="font-weight:600">Tariff info</a>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">Try next: "use the <a class="dv-oid" href="#3b">3b</a> track on mobile" · "add a filter bar above <a class="dv-oid" href="#3a">3a</a>" · "put the <a class="dv-oid" href="#2d">2d</a> calculation inside <a class="dv-oid" href="#3a">3a</a>"</p>
+</section>
+<section class="dv-turn" id="t2">
+  <div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Further options, every item included</span></div>
+
+  <div style="max-width:1240px;background:#fff;border:1px solid #E1E6ED;border-radius:12px;overflow:hidden;margin:0 0 48px">
+    <div style="padding:20px 24px 14px;display:flex;flex-direction:column;gap:4px">
+      <div style="font-size:18px;font-weight:700">Content inventory</div>
+      <div style="font-size:13.5px;color:#5A6B80;line-height:1.45;max-width:760px">Everything in the current PTS block, plus the items competitors show that PTS doesn't. Each new option includes every row. "Panel" means it appears one tap away, in the expandable section.</div>
+    </div>
+    <div style="overflow-x:auto">
+      <div style="min-width:820px">
+        <div style="display:grid;grid-template-columns:minmax(220px,2.2fr) minmax(160px,1.6fr) repeat(5,minmax(70px,.7fr));background:#FBFAE6;border-top:1px solid #E6EAF0;border-bottom:1px solid #E6EAF0;font-size:12px;font-weight:700;color:#5A6B80">
+          <div style="padding:10px 24px">Item</div><div style="padding:10px 12px">Source</div><div style="padding:10px 12px;text-align:center">Current</div><div style="padding:10px 12px;text-align:center"><a class="dv-oid" href="#2a">2a</a></div><div style="padding:10px 12px;text-align:center"><a class="dv-oid" href="#2b">2b</a></div><div style="padding:10px 12px;text-align:center"><a class="dv-oid" href="#2c">2c</a></div><div style="padding:10px 12px;text-align:center"><a class="dv-oid" href="#2d">2d</a></div>
+        </div>
+        <sc-for list="{{ inventory }}" as="it" hint-placeholder-count="22">
+          <div style="display:grid;grid-template-columns:minmax(220px,2.2fr) minmax(160px,1.6fr) repeat(5,minmax(70px,.7fr));border-bottom:1px solid #EEF1F5;font-size:13.5px;align-items:center">
+            <div style="padding:9px 24px;font-weight:600">{{ it.item }}</div>
+            <div style="padding:9px 12px;color:#5A6B80;font-size:12.5px">{{ it.src }}</div>
+            <div style="padding:9px 12px;text-align:center;color:{{ it.curColor }};font-weight:600">{{ it.cur }}</div>
+            <div style="padding:9px 12px;text-align:center;color:#0B2730;font-weight:700">{{ it.a }}</div>
+            <div style="padding:9px 12px;text-align:center;color:#0B2730;font-weight:700">{{ it.b }}</div>
+            <div style="padding:9px 12px;text-align:center;color:#0B2730;font-weight:700">{{ it.c }}</div>
+            <div style="padding:9px 12px;text-align:center;color:#0B2730;font-weight:700">{{ it.d }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="2a">
+      <div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Spec sheet. <a class="dv-oid" href="#1a">1a</a> extended to hold everything. Two labelled fact rows (charges; contract and payment) mean nothing is hidden, and the route to switch has its own line under the button.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+        <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+          <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+            <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+            <div style="background:#fff;border:1px solid #D9DFE8;border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+              <div style="display:flex;flex-wrap:wrap">
+                <div style="flex:999 1 440px;min-width:0;padding:20px 22px;display:flex;flex-direction:column;gap:14px">
+                  <div style="display:flex;align-items:center;gap:14px">
+                    <div style="width:84px;height:44px;flex:none;border:1px dashed #C4CCD8;border-radius:8px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div>
+                    <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+                      <div style="font-size:13px;font-weight:600;color:#5A6B80">SSE Airtricity</div>
+                      <div style="font-size:19px;font-weight:700;line-height:1.25;text-wrap:pretty">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div>
+                    </div>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:#2B3D55">
+                    <div style="display:flex;align-items:center;gap:6px"><span style="width:18px;height:18px;border-radius:50%;background:#EFEC8C;color:#0B2730;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800">✓</span>10.5% discount</div>
+                    <div style="display:flex;align-items:center;gap:6px"><span style="width:18px;height:18px;border-radius:50%;background:#EFEC8C;color:#0B2730;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800">✓</span>£30 welcome credit</div>
+                    <div style="display:flex;align-items:center;gap:6px"><span style="width:18px;height:18px;border-radius:50%;background:#EFEC8C;color:#0B2730;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800">✓</span>SSE Rewards</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:6px">
+                    <div style="font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#7A8899">Charges · incl. VAT</div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:#E6EAF0;border:1px solid #E6EAF0;border-radius:10px;overflow:hidden">
+                      <div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:12px;color:#5A6B80">Unit rate</div><div style="font-size:15px;font-weight:700">36.51p/kWh</div></div>
+                      <div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:12px;color:#5A6B80">Standing charge</div><div style="font-size:15px;font-weight:700">None</div></div>
+                      <div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:12px;color:#5A6B80">Exit fee</div><div style="font-size:15px;font-weight:700">None</div></div>
+                    </div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:6px">
+                    <div style="font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#7A8899">Contract &amp; payment</div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:#E6EAF0;border:1px solid #E6EAF0;border-radius:10px;overflow:hidden">
+                      <div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:12px;color:#5A6B80">Contract term</div><div style="font-size:15px;font-weight:700">12 months</div></div>
+                      <div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:12px;color:#5A6B80">Rate type</div><div style="font-size:15px;font-weight:700">Variable</div></div>
+                      <div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:12px;color:#5A6B80">Payment</div><div style="font-size:15px;font-weight:700">Pay as you go</div></div>
+                      <div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:12px;color:#5A6B80">Billing</div><div style="font-size:15px;font-weight:700">Keypad top-up</div></div>
+                      <div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:12px;color:#5A6B80">Who can switch</div><div style="font-size:15px;font-weight:700">New customers</div></div>
+                    </div>
+                  </div>
+                </div>
+                <div style="flex:1 1 260px;min-width:0;padding:20px 22px;background:#FBFAE6;border-left:1px solid #E6EAF0;display:flex;flex-direction:column;gap:12px">
+                  <div style="display:flex;flex-direction:column;gap:2px">
+                    <div style="font-size:13px;font-weight:600;color:{{ saveColor }}">{{ saveLabel }}</div>
+                    <div style="font-size:38px;font-weight:800;line-height:1.05;color:{{ saveColor }};letter-spacing:-.01em">{{ savingText }}</div>
+                    <div style="font-size:12.5px;color:#5A6B80">{{ savingSub }}</div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:#EFEC8C;border-radius:8px;font-size:13px;font-weight:700;color:#0B2730">£30 cashback<span style="font-weight:500;color:#3E5560">paid as bill credit</span></div>
+                  <div style="display:flex;flex-direction:column;gap:2px;padding:10px 0 0;border-top:1px solid #E1E6ED">
+                    <div style="display:flex;align-items:baseline;gap:6px"><div style="font-size:20px;font-weight:700">{{ annual }}</div><div style="font-size:13px;color:#5A6B80">estimated a year</div></div>
+                    <div style="font-size:13px;color:#5A6B80">{{ monthly }} a month · incl. VAT</div>
+                  </div>
+                  <button style="height:48px;border:0;border-radius:10px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
+                  <div style="display:flex;gap:8px;align-items:flex-start;font-size:12px;color:#5A6B80;line-height:1.35"><span style="flex:none;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;background:#E6EAF0;color:#0B2730">{{ routeTag }}</span>{{ ctaNote }}</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px 20px;padding:12px 22px;border-top:1px solid #E6EAF0;font-size:13px">
+                <a href="#" style="font-weight:600">See calculation</a>
+                <a href="#" style="font-weight:600">Company &amp; tariff info</a>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="2b">
+      <div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>Mobile-first stack. The price and saving lead the card, followed by the most important tags and two labelled drawers: "Rates &amp; charges" and "Contract &amp; payment". The layout is the same on desktop and phone. Tap a drawer to open it.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+        <sc-for list="{{ frames2 }}" as="frame" hint-placeholder-count="2">
+          <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+            <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+            <div style="background:#fff;border:1px solid #D9DFE8;border-radius:18px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+              <div style="padding:18px 18px 0;display:flex;align-items:center;gap:12px">
+                <div style="width:64px;height:36px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div>
+                <div style="display:flex;flex-direction:column;gap:1px;min-width:0">
+                  <div style="font-size:12.5px;font-weight:600;color:#5A6B80">SSE Airtricity</div>
+                  <div style="font-size:16px;font-weight:700;line-height:1.3;text-wrap:pretty">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div>
+                </div>
+              </div>
+              <div style="margin:16px 18px 0;padding:16px;border-radius:14px;background:#0B2730;color:#fff;display:flex;flex-wrap:wrap;gap:14px 20px;align-items:flex-end;justify-content:space-between">
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <div style="font-size:12.5px;color:#A9C0C6">{{ saveLabel }}</div>
+                  <div style="font-size:36px;font-weight:800;line-height:1.05;color:{{ saveColorDark }}">{{ savingText }}</div>
+                  <div style="font-size:12px;color:#A9C0C6">{{ savingSub }}</div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:1px;align-items:flex-end">
+                  <div style="font-size:20px;font-weight:700">{{ monthly }}<span style="font-size:13px;font-weight:500;color:#A9C0C6"> /mo</span></div>
+                  <div style="font-size:12.5px;color:#A9C0C6">{{ annual }} a year · incl. VAT</div>
+                </div>
+              </div>
+              <div style="padding:14px 18px 4px;display:flex;flex-wrap:wrap;gap:6px">
+                <span style="font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:999px;background:#E3E000;color:#0B2730">£30 cashback</span>
+                <span style="font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:#EFEC8C;color:#0B2730">10.5% discount</span>
+                <span style="font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:#EFEC8C;color:#0B2730">£30 welcome credit</span>
+                <span style="font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:#EFEC8C;color:#0B2730">SSE Rewards</span>
+                <span style="font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:#F1E7F8;color:#5B2F7A">New customers</span>
+              </div>
+              <div style="padding:10px 18px 0;display:flex;flex-direction:column">
+                <sc-for list="{{ drawers }}" as="d" hint-placeholder-count="2">
+                  <div style="border-top:1px solid #E6EAF0">
+                    <div onClick="{{ d.toggle }}" style="display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;cursor:pointer">
+                      <div style="display:flex;flex-direction:column;gap:1px"><div style="font-size:14.5px;font-weight:700">{{ d.title }}</div><div style="font-size:12.5px;color:#5A6B80">{{ d.summary }}</div></div>
+                      <div style="font-size:13px;transform:{{ d.rot }}">▾</div>
+                    </div>
+                    <sc-if value="{{ d.open }}" hint-placeholder-val="{{ false }}">
+                      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px 16px;padding:0 0 14px">
+                        <sc-for list="{{ d.items }}" as="f" hint-placeholder-count="3">
+                          <div style="display:flex;flex-direction:column;gap:1px"><div style="font-size:12px;color:#5A6B80">{{ f.label }}</div><div style="font-size:14.5px;font-weight:700">{{ f.value }}</div></div>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="padding:14px 18px 18px;border-top:1px solid #E6EAF0;display:flex;flex-direction:column;gap:8px">
+                <button style="height:50px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
+                <div style="font-size:12px;color:#5A6B80;text-align:center;line-height:1.35">{{ ctaNote }}</div>
+                <div style="display:flex;justify-content:center;gap:18px;font-size:13px"><a href="#" style="font-weight:600">See calculation</a><a href="#" style="font-weight:600">Company &amp; tariff info</a></div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="2c">
+      <div class="dv-olabel"><a class="dv-oid" href="#2c">2c</a>Aligned table. Shown in a results-page context: one header row labels the columns, so each card drops its own labels and the numbers line up down the page. Secondary items sit on a second line of each row. Best for customers who compare on price. On mobile it falls back to <a class="dv-oid" href="#2b">2b</a>.</div>
+      <div style="width:1100px;max-width:100%;background:#fff;border:1px solid #D9DFE8;border-radius:14px;overflow:hidden">
+        <div style="padding:18px 22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #E6EAF0">
+          <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:20px;font-weight:800">18 electricity tariffs</div><div style="font-size:13px;color:#5A6B80">Keypad · 3,200 kWh a year · compared with Budget Energy Q1 Fixed Keypad (£1,279.45)</div></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span style="font-size:13px;font-weight:700;padding:7px 12px;border-radius:8px;background:#0B2730;color:#fff">Biggest saving</span>
+            <span style="font-size:13px;font-weight:600;padding:7px 12px;border-radius:8px;background:#F0F3F7">Lowest unit rate</span>
+            <span style="font-size:13px;font-weight:600;padding:7px 12px;border-radius:8px;background:#F0F3F7">No exit fee</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,2.4fr) repeat(4,minmax(0,.8fr)) minmax(0,1fr) 160px;gap:0 14px;padding:10px 22px;background:#FBFAE6;border-bottom:1px solid #E6EAF0;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7A8899">
+          <div>Tariff</div><div>Unit rate</div><div>Standing</div><div>Term</div><div>Exit fee</div><div>Year one</div><div></div>
+        </div>
+        <sc-for list="{{ tableRows }}" as="r" hint-placeholder-count="3">
+          <div style="padding:16px 22px;border-bottom:1px solid #EEF1F5;display:flex;flex-direction:column;gap:10px">
+            <div style="display:grid;grid-template-columns:minmax(0,2.4fr) repeat(4,minmax(0,.8fr)) minmax(0,1fr) 160px;gap:0 14px;align-items:center">
+              <div style="display:flex;align-items:center;gap:12px;min-width:0">
+                <div style="width:60px;height:34px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div>
+                <div style="display:flex;flex-direction:column;gap:1px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">{{ r.supplier }}</div><div style="font-size:15px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ r.name }}</div></div>
+              </div>
+              <div style="font-size:15px;font-weight:700">{{ r.unit }}</div>
+              <div style="font-size:15px;font-weight:700">{{ r.standing }}</div>
+              <div style="font-size:15px;font-weight:700">{{ r.term }}</div>
+              <div style="font-size:15px;font-weight:700">{{ r.exit }}</div>
+              <div style="display:flex;flex-direction:column;gap:1px"><div style="font-size:18px;font-weight:800;color:#0B2730">{{ r.save }}</div><div style="font-size:12px;color:#5A6B80">{{ r.annual }}/yr · {{ r.monthly }}/mo</div></div>
+              <div style="display:flex;flex-direction:column;gap:4px"><button style="height:42px;border:0;border-radius:10px;background:#C9A3E0;color:#0B2730;font:700 14.5px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ r.cta }}</button><div style="font-size:11.5px;color:#5A6B80;text-align:center">{{ r.route }}</div></div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding-left:72px;font-size:12.5px;color:#2B3D55">
+              <sc-if value="{{ r.hasCash }}" hint-placeholder-val="{{ true }}"><span style="font-weight:700;padding:3px 8px;border-radius:6px;background:#E3E000;color:#0B2730">{{ r.cash }}</span></sc-if>
+              <span>{{ r.perks }}</span>
+              <span style="color:#7A8899">{{ r.meta }}</span>
+              <a href="#" style="font-weight:600">See calculation</a>
+              <a href="#" style="font-weight:600">Company &amp; tariff info</a>
+            </div>
+          </div>
+        </sc-for>
+        <div style="padding:10px 22px;font-size:12px;color:#7A8899">All prices include VAT. Year-one figures include cashback and welcome credit.</div>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="2d">
+      <div class="dv-olabel"><a class="dv-oid" href="#2d">2d</a>Receipt. Three lines explain the saving: annual bill, minus cashback, compared with the current tariff. The full breakdown opens in the card from "See calculation".</div>
+      <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+        <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+          <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+            <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+            <div style="background:#fff;border:1px solid #D9DFE8;border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05);display:flex;flex-wrap:wrap">
+              <div style="flex:1 1 380px;min-width:0;padding:20px 22px;display:flex;flex-direction:column;gap:14px">
+                <div style="display:flex;align-items:center;gap:12px">
+                  <div style="width:72px;height:40px;flex:none;border:1px dashed #C4CCD8;border-radius:8px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div>
+                  <div style="display:flex;flex-direction:column;gap:1px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">SSE Airtricity</div><div style="font-size:17px;font-weight:700;line-height:1.3;text-wrap:pretty">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div></div>
+                </div>
+                <div style="font-size:13.5px;color:#3E5560;line-height:1.5">Pay as you go · 12 months · Variable · New customers<br>✓ 10.5% discount &nbsp; ✓ SSE Rewards</div>
+                <div style="display:flex;gap:18px;font-size:13px"><a href="#" onClick="{{ toggleCalc }}" style="font-weight:600">{{ calcLabel }}</a><a href="#" style="font-weight:600">Company &amp; tariff info</a></div>
+                <sc-if value="{{ calcOpen }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:10px;background:#F6F7F4;font-size:13px;font-variant-numeric:tabular-nums">
+                    <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:#3E5560">3,200 kWh × 40.79p</span><span>£1,305.33</span></div>
+                    <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:#3E5560">10.5% discount (36.51p/kWh)</span><span>−£137.06</span></div>
+                    <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:#3E5560">Standing charge · Exit fee</span><span>None · None</span></div>
+                    <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:#3E5560">Billing</span><span>Keypad top-up</span></div>
+                  </div>
+                </sc-if>
+              </div>
+              <div style="flex:1 1 300px;min-width:0;padding:20px 22px;background:#FBFAF6;border-left:1px dashed #D9DFE8;display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-variant-numeric:tabular-nums">
+                  <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:#3E5560">Annual bill · incl. VAT</span><span style="font-weight:700">£1,168.27</span></div>
+                  <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:#3E5560">£30 cashback</span><span style="font-weight:700">−£30.00</span></div>
+                  <div style="display:flex;justify-content:space-between;gap:10px;padding-top:7px;border-top:1px solid #E6EAF0;color:#5A6B80"><span>Your current tariff</span><span>£1,279.45</span></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 12px;border-radius:10px;background:#EFEC8C">
+                  <span style="font-size:14px;font-weight:700;color:#0B2730">You save</span><span style="font-size:28px;font-weight:800;color:#0B2730">£141.18</span>
+                </div>
+                <button style="height:48px;border:0;border-radius:10px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
+                <div style="font-size:12px;color:#5A6B80;text-align:center;line-height:1.35">{{ ctaNote }}</div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">Try next: "use the drawers from <a class="dv-oid" href="#2b">2b</a> on <a class="dv-oid" href="#2a">2a</a>" · "make the receipt in <a class="dv-oid" href="#2d">2d</a> an expandable panel" · "show <a class="dv-oid" href="#2c">2c</a> with 10 results"</p>
+</section>
+<section class="dv-turn" id="t1">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Individual result block: three directions</span></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1400px;margin:0 0 48px">
+    <div style="background:#fff;border-radius:12px;padding:22px 26px;border:1px solid #E1E6ED">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#B5500F;margin:0 0 12px">Current PTS block</div>
+      <ul style="margin:0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:7px;font-size:14px;line-height:1.45;color:#2B3D55">
+        <li>Tariff name is light grey, the weakest text in the card.</li>
+        <li>No saving shown. The user has to do the maths against their current bill.</li>
+        <li>The right column, where the eye lands for price and action, holds a bill in body-size text and "Not available through 'Power to Switch'".</li>
+        <li>No button, so no obvious next step.</li>
+        <li>Pay As You Go, 12 Month Term, Variable Rate and New Customers are styled as buttons but aren't clickable.</li>
+        <li>No monthly cost, standing charge or exit fee.</li>
+      </ul>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:22px 26px;border:1px solid #E1E6ED">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A;margin:0 0 12px">Worth taking from competitors</div>
+      <ul style="margin:0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:7px;font-size:14px;line-height:1.45;color:#2B3D55">
+        <li>bonkers.ie: the saving is the biggest number, with one strong CTA directly under it.</li>
+        <li>bonkers.ie and Switcher: a fixed fact grid (term, payment, billing, rate type) with label over value, so cards scan in columns.</li>
+        <li>Switcher: the exit fee sits in the main grid, not in the T&amp;Cs.</li>
+        <li>bonkers.ie: rates are behind a "Show rates" toggle, which keeps the card short.</li>
+        <li>Their gap: none show a monthly figure or say what happens when you press the button.</li>
+      </ul>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:22px 26px;border:1px solid #E1E6ED">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0B2730;margin:0 0 12px">Principles</div>
+      <ul style="margin:0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:7px;font-size:14px;line-height:1.45;color:#2B3D55">
+        <li>Price, saving and action are grouped on the right and show once each.</li>
+        <li>The saving is compared against the user's current tariff and includes cashback, with a label saying so.</li>
+        <li>Fixed fact slots that always appear, showing "None" when a fee is zero.</li>
+        <li>Perks read as ticks. Only tags that change the price or eligibility stay as chips.</li>
+        <li>The CTA names the destination, and a line under it explains the route.</li>
+      </ul>
+      <div style="margin:14px 0 0;font-size:12.5px;color:#5A6B80;line-height:1.45">Sample: SSE Airtricity 1 Year Keypad Electricity 10.5% + £30 Welcome Credit vs a current bill of £1,279.45. The Tweaks panel switches the CTA route, cashback handling and a "costs more" result.</div>
+    </div>
+  </div>
+
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="1a">
+      <div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Clear ledger. Follows the bonkers.ie layout: identity and perks on the left, price and CTA on the right, fact strip along the bottom. Easiest to build from the current block.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+        <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+          <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+            <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+            <div style="background:#fff;border:1px solid #D9DFE8;border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+              <div style="display:flex;flex-wrap:wrap">
+                <div style="flex:999 1 420px;min-width:0;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+                  <div style="display:flex;align-items:center;gap:14px">
+                    <div style="width:84px;height:44px;flex:none;border:1px dashed #C4CCD8;border-radius:8px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div>
+                    <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+                      <div style="font-size:13px;font-weight:600;color:#5A6B80">SSE Airtricity</div>
+                      <div style="font-size:19px;font-weight:700;line-height:1.25;text-wrap:pretty">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div>
+                    </div>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:#2B3D55">
+                    <div style="display:flex;align-items:center;gap:6px"><span style="width:18px;height:18px;border-radius:50%;background:#EFEC8C;color:#0B2730;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800">✓</span>10.5% discount</div>
+                    <div style="display:flex;align-items:center;gap:6px"><span style="width:18px;height:18px;border-radius:50%;background:#EFEC8C;color:#0B2730;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800">✓</span>£30 welcome credit</div>
+                    <div style="display:flex;align-items:center;gap:6px"><span style="width:18px;height:18px;border-radius:50%;background:#EFEC8C;color:#0B2730;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800">✓</span>SSE Rewards</div>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:6px">
+                    <span style="font-size:12px;font-weight:600;padding:4px 9px;border-radius:6px;background:#F1E7F8;color:#5B2F7A">Keypad meter</span>
+                    <span style="font-size:12px;font-weight:600;padding:4px 9px;border-radius:6px;background:#F1E7F8;color:#5B2F7A">New customers only</span>
+                  </div>
+                </div>
+                <div style="flex:1 1 250px;min-width:0;padding:22px 24px;background:#FBFAE6;border-left:1px solid #E6EAF0;display:flex;flex-direction:column;gap:12px">
+                  <sc-if value="{{ isSaving }}" hint-placeholder-val="{{ true }}">
+                    <div style="display:flex;flex-direction:column;gap:2px">
+                      <div style="font-size:13px;font-weight:600;color:#0B2730">You save in year one</div>
+                      <div style="font-size:38px;font-weight:800;line-height:1.05;color:#0B2730;letter-spacing:-.01em">{{ savingText }}</div>
+                      <div style="font-size:12.5px;color:#5A6B80">{{ savingSub }}</div>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ notSaving }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex;flex-direction:column;gap:2px">
+                      <div style="font-size:13px;font-weight:600;color:#B5500F">Costs more than your current tariff</div>
+                      <div style="font-size:30px;font-weight:800;line-height:1.1;color:#0B2730">{{ savingText }}</div>
+                      <div style="font-size:12.5px;color:#5A6B80">{{ savingSub }}</div>
+                    </div>
+                  </sc-if>
+                  <div style="display:flex;align-items:baseline;gap:8px;padding:10px 0 0;border-top:1px solid #E1E6ED">
+                    <div style="font-size:20px;font-weight:700">{{ annual }}</div><div style="font-size:13px;color:#5A6B80">a year · {{ monthly }} a month</div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:6px">
+                    <button style="height:48px;border:0;border-radius:10px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
+                    <div style="font-size:12px;color:#5A6B80;text-align:center;line-height:1.35">{{ ctaNote }}</div>
+                  </div>
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));border-top:1px solid #E6EAF0">
+                <sc-for list="{{ facts }}" as="f" hint-placeholder-count="5">
+                  <div style="padding:14px 18px;border-right:1px solid #EEF1F5;border-bottom:1px solid #EEF1F5;display:flex;flex-direction:column;gap:3px">
+                    <div style="font-size:12px;color:#5A6B80">{{ f.label }}</div>
+                    <div style="font-size:15px;font-weight:700">{{ f.value }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px 20px;padding:12px 24px;border-top:1px solid #E6EAF0;font-size:13px">
+                <a href="#" style="font-weight:600">See how we calculated this</a>
+                <a href="#" style="font-weight:600">Tariff details &amp; T&amp;Cs</a>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="1b">
+      <div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Saving-first. The card opens on the gap between the user's current bill and this tariff, drawn as two bars. Uses the current-tariff data PTS already collects, which none of the competitors show in the card.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+        <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+          <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+            <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+            <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 22px;background:#0B2730;color:#fff;flex-wrap:wrap">
+                <div style="font-size:13px;font-weight:700">Cheapest for you</div>
+                <div style="font-size:12px;color:#A9C0C6">1 of 18 tariffs</div>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:24px 32px;padding:22px 22px 18px">
+                <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:16px">
+                  <div style="display:flex;align-items:center;gap:12px">
+                    <div style="width:72px;height:40px;flex:none;border:1px dashed #C4CCD8;border-radius:8px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div>
+                    <div style="display:flex;flex-direction:column;gap:1px;min-width:0">
+                      <div style="font-size:17px;font-weight:700;line-height:1.25;text-wrap:pretty">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div>
+                      <div style="font-size:13px;color:#5A6B80">SSE Airtricity · Keypad · 12 months</div>
+                    </div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:10px">
+                    <div style="display:grid;grid-template-columns:96px minmax(0,1fr) auto;align-items:center;gap:10px">
+                      <div style="font-size:12.5px;color:#5A6B80">Your current</div>
+                      <div style="height:14px;background:#EEF1F5;border-radius:7px;overflow:hidden"><div style="height:100%;width:{{ curPct }};background:#9AA7B8;border-radius:7px"></div></div>
+                      <div style="font-size:14px;font-weight:600;color:#5A6B80">£1,279.45</div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:96px minmax(0,1fr) auto;align-items:center;gap:10px">
+                      <div style="font-size:12.5px;font-weight:700">This tariff</div>
+                      <div style="height:14px;background:#EEF1F5;border-radius:7px;overflow:hidden"><div style="height:100%;width:{{ newPct }};background:{{ barColor }};border-radius:7px"></div></div>
+                      <div style="font-size:14px;font-weight:700">{{ netCost }}</div>
+                    </div>
+                  </div>
+                </div>
+                <div style="flex:0 1 240px;min-width:0;display:flex;flex-direction:column;gap:10px">
+                  <div style="display:flex;flex-direction:column;gap:0">
+                    <div style="font-size:13px;font-weight:600;color:{{ saveColor }}">{{ saveLabel }}</div>
+                    <div style="font-size:44px;font-weight:800;line-height:1.05;color:{{ saveColor }};letter-spacing:-.015em">{{ savingText }}</div>
+                    <div style="font-size:13px;color:#5A6B80">{{ monthlySave }}</div>
+                  </div>
+                  <button style="height:50px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
+                  <div style="font-size:12px;color:#5A6B80;line-height:1.35">{{ ctaNote }}</div>
+                </div>
+              </div>
+              <div style="margin:0 22px;padding:14px 0;border-top:1px solid #E6EAF0;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:13.5px">
+                <div style="display:flex;gap:6px"><span style="color:#5A6B80">Unit rate</span><strong>36.51p/kWh</strong></div>
+                <div style="display:flex;gap:6px"><span style="color:#5A6B80">Standing charge</span><strong>None</strong></div>
+                <div style="display:flex;gap:6px"><span style="color:#5A6B80">Exit fee</span><strong>None</strong></div>
+                <div style="display:flex;gap:6px"><span style="color:#5A6B80">Rate</span><strong>Variable</strong></div>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;padding:12px 22px;background:#FBFAE6;border-top:1px solid #E6EAF0">
+                <div style="display:flex;flex-wrap:wrap;gap:6px">
+                  <span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#EFEC8C;color:#0B2730">£30 welcome credit</span>
+                  <span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#EFEC8C;color:#0B2730">10.5% off unit rate</span>
+                  <span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#EFEC8C;color:#0B2730">SSE Rewards</span>
+                </div>
+                <div style="display:flex;gap:16px;font-size:13px"><a href="#" style="font-weight:600">Calculation</a><a href="#" style="font-weight:600">T&amp;Cs</a></div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="1c">
+      <div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Compact row that expands. Collapsed rows show only name, saving and CTA, so about three times as many results fit on screen. Details open in place, like bonkers.ie's "Show rates", but the panel also covers watch-outs. Click a row to try it.</div>
+      <div style="width:1000px;max-width:100%;display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="3">
+          <div style="background:#fff;border:1px solid {{ r.border }};border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+            <div onClick="{{ r.toggle }}" style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:16px 18px;cursor:pointer" style-hover="background:#FAFBFD">
+              <div style="width:64px;height:36px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div>
+              <div style="flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:3px">
+                <div style="font-size:16px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ r.name }}</div>
+                <div style="font-size:13px;color:#5A6B80">{{ r.meta }}</div>
+              </div>
+              <div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:1px;min-width:120px">
+                <div style="font-size:22px;font-weight:800;color:{{ r.saveColor }}">{{ r.save }}</div>
+                <div style="font-size:12.5px;color:#5A6B80">{{ r.annual }}/yr · {{ r.monthly }}/mo</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;flex:0 0 auto">
+                <button style="height:44px;padding:0 18px;border:0;border-radius:10px;background:#C9A3E0;color:#0B2730;font:700 15px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Switch</button>
+                <div style="width:32px;height:32px;border-radius:8px;background:#F0F3F7;display:flex;align-items:center;justify-content:center;font-size:13px;color:#0B2730;transform:{{ r.rot }}">▾</div>
+              </div>
+            </div>
+            <sc-if value="{{ r.open }}" hint-placeholder-val="{{ false }}">
+              <div style="border-top:1px solid #E6EAF0;display:flex;flex-wrap:wrap">
+                <div style="flex:2 1 380px;min-width:0;padding:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px 18px">
+                  <sc-for list="{{ r.facts }}" as="f" hint-placeholder-count="6">
+                    <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:12px;color:#5A6B80">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div></div>
+                  </sc-for>
+                </div>
+                <div style="flex:1 1 260px;min-width:0;padding:18px;background:#FBFAE6;display:flex;flex-direction:column;gap:8px">
+                  <div style="font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#8A5200">Worth knowing</div>
+                  <sc-for list="{{ r.notes }}" as="n" hint-placeholder-count="2">
+                    <div style="font-size:13.5px;line-height:1.4;color:#3A2A10">{{ n }}</div>
+                  </sc-for>
+                  <div style="display:flex;gap:16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Calculation</a><a href="#" style="font-weight:600">T&amp;Cs</a></div>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">Try next: "combine the bars from <a class="dv-oid" href="#1b">1b</a> with the fact strip from <a class="dv-oid" href="#1a">1a</a>" · "show <a class="dv-oid" href="#1a">1a</a> in a full results list" · "design the expanded calculation panel"</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;switchRoute&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Switch online&quot;,&quot;Supplier site&quot;,&quot;By phone&quot;],&quot;default&quot;:&quot;Switch online&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;cashbackInSaving&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;result&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Saves money&quot;,&quot;Costs more&quot;],&quot;default&quot;:&quot;Saves money&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { open: 0 };
+  renderVals() {
+    const route = this.props.switchRoute ?? 'Switch online';
+    const withCash = this.props.cashbackInSaving ?? true;
+    const worse = (this.props.result ?? 'Saves money') === 'Costs more';
+    const cur = 1279.45, cash = 30;
+    const annualN = worse ? 1390.35 : 1168.27;
+    const net = annualN - (withCash ? cash : 0);
+    const diff = cur - net;
+    const gbp = n => '£' + Math.abs(n).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const routes = {
+      'Switch online': ['Switch online', 'Takes about 5 minutes. SSE Airtricity handles the move.'],
+      'Supplier site': ['Go to SSE Airtricity', "You'll finish switching on SSE Airtricity's website."],
+      'By phone': ['Call to switch', 'Shows SSE Airtricity’s switching number.']
+    };
+    const [cta, ctaNote] = routes[route] || routes['Switch online'];
+    const isSaving = diff > 0;
+    const max = Math.max(cur, net);
+    const facts = [
+      { label: 'Unit rate', value: '36.51p/kWh' },
+      { label: 'Standing charge', value: 'None' },
+      { label: 'Contract', value: '12 months' },
+      { label: 'Exit fee', value: 'None' },
+      { label: 'Payment', value: 'Pay as you go' }
+    ];
+    const rowsData = [
+      { name: '1 Year Keypad Electricity 10.5% + £30 Welcome Credit', meta: 'SSE Airtricity · Keypad · 12 months · Variable', save: isSaving ? 'Save ' + gbp(diff) : '+' + gbp(diff), saveColor: isSaving ? '#0B2730' : '#B5500F', annual: gbp(annualN), monthly: gbp(annualN / 12),
+        facts: [...facts, { label: 'Welcome credit', value: '£30' }],
+        notes: ['The 10.5% discount lasts 12 months. After that you move to the standard keypad rate.', 'Only for new SSE Airtricity customers.'] },
+      { name: 'Keypad Saver 8%', meta: 'Power NI · Keypad · No fixed term', save: 'Save £87.20', saveColor: '#0B2730', annual: '£1,192.25', monthly: '£99.35',
+        facts: [{ label: 'Unit rate', value: '37.45p/kWh' }, { label: 'Standing charge', value: 'None' }, { label: 'Contract', value: 'None' }, { label: 'Exit fee', value: 'None' }, { label: 'Payment', value: 'Pay as you go' }],
+        notes: ['No contract, so you can leave at any time.'] },
+      { name: 'Click Keypad 12 Month', meta: 'Click Energy · Keypad · 12 months', save: 'Save £64.10', saveColor: '#0B2730', annual: '£1,215.35', monthly: '£101.28',
+        facts: [{ label: 'Unit rate', value: '38.02p/kWh' }, { label: 'Standing charge', value: 'None' }, { label: 'Contract', value: '12 months' }, { label: 'Exit fee', value: '£25' }, { label: 'Payment', value: 'Pay as you go' }],
+        notes: ['A £25 fee applies if you leave in the first 12 months.'] }
+    ];
+    const rows = rowsData.map((r, i) => ({ ...r, open: this.state.open === i, rot: this.state.open === i ? 'rotate(180deg)' : 'none', border: this.state.open === i ? '#C9A3E0' : '#D9DFE8', toggle: () => this.setState(s => ({ open: s.open === i ? -1 : i })) }));
+    const Y = '✓', P = 'Panel';
+    const inv = [
+      ['Supplier logo', 'Current PTS', 'Yes', Y, Y, Y, Y],
+      ['Supplier name', 'Current PTS (logo only)', 'Logo only', Y, Y, Y, Y],
+      ['Tariff name', 'Current PTS', 'Low contrast', Y, Y, Y, Y],
+      ['Unit rate (p/kWh)', 'Current PTS', 'Yes', Y, P, Y, Y],
+      ['Prices include VAT', 'Current PTS', 'Yes', Y, Y, Y, Y],
+      ['Estimated annual bill', 'Current PTS', 'Yes', Y, Y, Y, Y],
+      ['Cashback (£30)', 'Current PTS', 'Yes', Y, Y, Y, Y],
+      ['Pay As You Go', 'Current PTS tag', 'Yes', Y, P, Y, Y],
+      ['12 Month Term', 'Current PTS tag', 'Yes', Y, P, Y, Y],
+      ['Variable Rate', 'Current PTS tag', 'Yes', Y, P, Y, Y],
+      ['New Customers', 'Current PTS tag', 'Yes', Y, Y, Y, Y],
+      ['10.5% Discount', 'Current PTS perk', 'Yes', Y, Y, Y, Y],
+      ['£30 Welcome Credit', 'Current PTS perk', 'Yes', Y, Y, Y, Y],
+      ['SSE Rewards', 'Current PTS perk', 'Yes', Y, Y, Y, Y],
+      ['See Calculation', 'Current PTS link', 'Yes', Y, Y, Y, 'Inline'],
+      ['Company & Tariff Info', 'Current PTS link', 'Yes', Y, Y, Y, Y],
+      ['Availability / switch route', 'Current PTS', 'Text only', Y, Y, Y, Y],
+      ['Saving vs current tariff', 'bonkers.ie, Switcher', 'No', Y, Y, Y, Y],
+      ['Switch button', 'bonkers.ie', 'No', Y, Y, Y, Y],
+      ['Monthly cost', 'New', 'No', Y, Y, Y, Y],
+      ['Standing charge', 'Tariff data', 'No', Y, P, Y, Y],
+      ['Exit fee', 'Switcher', 'No', Y, P, Y, Y],
+      ['Billing method', 'bonkers.ie, Switcher', 'No', Y, P, Y, Y]
+    ];
+    const inventory = inv.map(([item, src, cur, a, b, c, d]) => ({ item, src, cur, a, b, c, d, curColor: cur === 'Yes' ? '#0B2730' : '#B0461E' }));
+    const routeTag = { 'Switch online': 'VIA PTS', 'Supplier site': 'SUPPLIER SITE', 'By phone': 'PHONE' }[route] || 'VIA PTS';
+    const dOpen = this.state.drawer ?? 0;
+    const drawers = [
+      { title: 'Rates & charges', summary: '36.51p/kWh · no standing charge · no exit fee', items: [{ label: 'Unit rate', value: '36.51p/kWh' }, { label: 'Standing charge', value: 'None' }, { label: 'Exit fee', value: 'None' }] },
+      { title: 'Contract & payment', summary: '12 months · variable · pay as you go', items: [{ label: 'Contract term', value: '12 months' }, { label: 'Rate type', value: 'Variable' }, { label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Who can switch', value: 'New customers' }] }
+    ].map((d, i) => ({ ...d, open: dOpen === i, rot: dOpen === i ? 'rotate(180deg)' : 'none', toggle: () => this.setState(s => ({ drawer: (s.drawer ?? 0) === i ? -1 : i })) }));
+    const tableRows = [
+      { supplier: 'SSE Airtricity', name: '1 Year Keypad Electricity 10.5% + £30 Welcome Credit', unit: '36.51p', standing: 'None', term: '12 mo', exit: 'None', save: 'Save £141.18', annual: '£1,168.27', monthly: '£97.36', cta: cta, route: routeTag === 'VIA PTS' ? 'Via Power to Switch' : routeTag === 'PHONE' ? 'By phone' : 'On supplier site', hasCash: true, cash: '£30 cashback', perks: '✓ 10.5% discount  ✓ £30 welcome credit  ✓ SSE Rewards', meta: 'Pay as you go · Variable · Keypad top-up · New customers' },
+      { supplier: 'Power NI', name: 'Keypad Saver 8%', unit: '37.45p', standing: 'None', term: 'None', exit: 'None', save: 'Save £87.20', annual: '£1,192.25', monthly: '£99.35', cta: 'Go to Power NI', route: 'On supplier site', hasCash: false, cash: '', perks: '✓ 8% discount', meta: 'Pay as you go · Variable · Keypad top-up · All customers' },
+      { supplier: 'Click Energy', name: 'Click Keypad 12 Month', unit: '38.02p', standing: 'None', term: '12 mo', exit: '£25', save: 'Save £64.10', annual: '£1,215.35', monthly: '£101.28', cta: 'Switch online', route: 'Via Power to Switch', hasCash: false, cash: '', perks: '✓ Online account', meta: 'Pay as you go · Variable · Keypad top-up · New customers' }
+    ];
+    const bRaw = [
+      { supplier: 'SSE Airtricity', name: '1 Year Keypad Electricity 10.5% + £30 Welcome Credit', annual: 1168.27, cash: 30, unit: '36.51p/kWh', term: '12 months', exit: 'None', elig: 'New customers', perks: ['10.5% discount', '£30 welcome credit', 'SSE Rewards'], badge: 'Cheapest for you', cta, ctaNote, route: routeTag === 'VIA PTS' ? 'Via Power to Switch' : routeTag === 'PHONE' ? 'By phone' : 'On supplier site' },
+      { supplier: 'Power NI', name: 'Keypad Saver 8%', annual: 1192.25, cash: 0, unit: '37.45p/kWh', term: 'No contract', exit: 'None', elig: 'All customers', perks: ['8% discount'], badge: 'No contract', cta: 'Go to Power NI', ctaNote: "You'll finish switching on Power NI's website.", route: 'On supplier site' },
+      { supplier: 'Click Energy', name: 'Click Keypad 12 Month', annual: 1215.35, cash: 0, unit: '38.02p/kWh', term: '12 months', exit: '£25', elig: 'New customers', perks: ['Online account'], badge: '', cta: 'Switch online', ctaNote: 'Takes about 5 minutes. Click Energy handles the move.', route: 'Via Power to Switch' },
+      { supplier: 'Electric Ireland', name: 'Keypad Standard', annual: 1390.35, cash: 0, unit: '43.45p/kWh', term: 'No contract', exit: 'None', elig: 'All customers', perks: [], badge: '', cta: 'Go to Electric Ireland', ctaNote: "You'll finish switching on Electric Ireland's website.", route: 'On supplier site' }
+    ];
+    const bMax = Math.max(cur, ...bRaw.map(r => r.annual - r.cash));
+    const bList = bRaw.map((r, i) => {
+      const n = r.annual - r.cash, d = cur - n, good = d > 0;
+      return { ...r, hasBadge: !!r.badge, rank: (i + 1) + ' of 18 tariffs', hasCash: r.cash > 0, cash: '£' + r.cash + ' cashback',
+        netText: gbp(n), curPct: (cur / bMax * 100).toFixed(1) + '%', newPct: (n / bMax * 100).toFixed(1) + '%',
+        barColor: good ? '#B78DD4' : '#E87722', border: i === 0 ? '#0B2730' : '#D9DFE8',
+        saveLabel: good ? 'You save in year one' : 'Costs more a year', saveShort: good ? 'Save a year' : 'Costs more',
+        labelColor: good ? '#0B2730' : '#B5500F', saveText: gbp(d),
+        saveSub: good ? 'about ' + gbp(d / 12) + ' a month less' + (r.cash ? ', incl. £' + r.cash + ' cashback' : '') : 'about ' + gbp(d / 12) + ' a month more',
+        ctaBg: good ? '#C9A3E0' : '#E6E1EC',
+        facts: [{ label: 'Unit rate', value: r.unit }, { label: 'Standing charge', value: 'None' }, { label: 'Exit fee', value: r.exit }, { label: 'Contract', value: r.term }, { label: 'Rate type', value: 'Variable' }, { label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Who can switch', value: r.elig }, { label: 'Annual bill', value: gbp(r.annual) + ' · ' + gbp(r.annual / 12) + '/mo' }],
+        factLine: r.unit + ' · No standing charge · Exit fee ' + r.exit + ' · ' + r.term + ' · Variable · Pay as you go · Keypad top-up · ' + r.elig + ' · ' + gbp(r.annual) + '/yr incl. VAT',
+        perkLine: r.perks.map(p => '✓ ' + p).join('  ')
+      };
+    });
+    return {
+      bList,
+      calcOpen: !!this.state.calc,
+      calcLabel: this.state.calc ? 'Hide calculation' : 'See calculation',
+      toggleCalc: e => { e.preventDefault(); this.setState(s => ({ calc: !s.calc })); },
+      inventory, routeTag, drawers, tableRows,
+      frames2: [{ label: 'Desktop · 720', w: '720px' }, { label: 'Mobile · 375', w: '375px' }],
+      saveColorDark: isSaving ? '#E3E000' : '#F2B45A',
+      frames: [{ label: 'Desktop · 1040', w: '1040px' }, { label: 'Mobile · 375', w: '375px' }],
+      isSaving, notSaving: !isSaving,
+      savingText: gbp(diff),
+      savingSub: isSaving ? (withCash ? 'vs your current tariff, incl. £30 welcome credit' : 'vs your current tariff. £30 welcome credit on top.') : 'more a year than your current tariff',
+      saveLabel: isSaving ? 'You save in year one' : 'Costs more a year',
+      saveColor: isSaving ? '#0B2730' : '#B5500F',
+      monthlySave: isSaving ? 'about ' + gbp(diff / 12) + ' a month less' : 'about ' + gbp(diff / 12) + ' a month more',
+      annual: gbp(annualN), monthly: gbp(annualN / 12), netCost: gbp(net),
+      curPct: (cur / max * 100).toFixed(1) + '%', newPct: (net / max * 100).toFixed(1) + '%',
+      barColor: isSaving ? '#B78DD4' : '#E87722',
+      cta, ctaNote, facts, rows
+    };
+  }
+}
+</script>
+</body>
+</html>
