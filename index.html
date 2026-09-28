@@ -24,8 +24,8 @@
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 56px 24px 80px; }
-    header { margin-bottom: 40px; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 56px 24px 80px; }
+    header { margin-bottom: 36px; }
     .brand {
       font-size: 13px;
       letter-spacing: 0.14em;
@@ -36,18 +36,24 @@
     }
     h1 { font-size: 30px; margin: 0 0 8px; font-weight: 650; }
     .sub { color: var(--muted); margin: 0; font-size: 15px; }
-    .grid { display: grid; gap: 14px; margin-top: 8px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
     .card {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
+      min-height: 118px;
       text-decoration: none;
       color: inherit;
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 20px 22px;
+      padding: 18px 20px;
       transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
     }
     .card:hover {
@@ -55,8 +61,22 @@
       border-color: #34506e;
       transform: translateY(-1px);
     }
-    .card-title { font-size: 18px; margin: 0; font-weight: 600; }
-    .card-desc { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+    .card-title {
+      font-size: 16px;
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
+    .card-desc {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13.5px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
     .card-meta {
       display: flex;
       align-items: center;
@@ -64,7 +84,6 @@
       font-size: 13px;
       color: var(--muted);
     }
-    .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
     .view { margin-left: auto; color: var(--accent); font-weight: 600; }
     .empty {
       text-align: center;
@@ -76,7 +95,6 @@
     .empty-sub { font-size: 14px; }
     code { background: #20242e; padding: 2px 6px; border-radius: 5px; font-size: 13px; }
     footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
-    a.footlink { color: var(--accent); text-decoration: none; }
   </style>
 </head>
 <body>
@@ -84,9 +102,169 @@
     <header>
       <p class="brand">Glaze Digital</p>
       <h1>Client Previews</h1>
-      <p class="sub">1 preview</p>
+      <p class="sub">17 previews</p>
     </header>
     <main class="grid">
+      <a class="card" href="Power%20to%20Switch%20-%20Full%20Redesign/index.html">
+        <div class="card-body">
+          <h2 class="card-title">Power to Switch Full Redesign</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Sep 28, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="Power%20to%20Switch%20results%20redesign/Result%20Block%20Redesign.dc.html">
+        <div class="card-body">
+          <h2 class="card-title">Power to Switch Results Redesign</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Sep 23, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="equi-landing-page/WildWash%20Birthday%20Club.html">
+        <div class="card-body">
+          <h2 class="card-title">Equi Landing Page</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Sep 11, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="Skingredients-Christmas-Landing-Page/index.html">
+        <div class="card-body">
+          <h2 class="card-title">Skingredients Christmas Landing Page</h2>
+          <p class="card-desc">Explore all six Skingredients Christmas gift sets and find your skincare routine.</p>
+        </div>
+        <div class="card-meta">
+          <span>Sep 10, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="irelands-eye-passport/Irelands-Eye-Passport.dc.html">
+        <div class="card-body">
+          <h2 class="card-title">Irelands Eye Passport</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Sep 8, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="blk-box-product-rail/Product%20Rail%20PDP.dc.html">
+        <div class="card-body">
+          <h2 class="card-title">BLK BOX Product Rail</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Sep 4, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="house-of-joppa-audit/index.html">
+        <div class="card-body">
+          <h2 class="card-title">House of Joppa Audit</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Aug 26, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="blk-box-updates/blk-box-Flooring-Home%20Gym.dc.html">
+        <div class="card-body">
+          <h2 class="card-title">BLK BOX Updates</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Aug 24, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="chamber13-pdp/chamber13-pdp.dc.html">
+        <div class="card-body">
+          <h2 class="card-title">Chamber13 PDP</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Aug 19, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="Drinkallabout%20-%20Long%20Description%20Options/Collection%20Description%20Options.dc.html">
+        <div class="card-body">
+          <h2 class="card-title">Drinkallabout Long Description Options</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Aug 18, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="skin-nerd-calendar/Advent%20Calendar.dc.html">
+        <div class="card-body">
+          <h2 class="card-title">Skin Nerd Calendar</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Jul 29, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="Dumbell-selection/DumbbellSelector.dc.html">
+        <div class="card-body">
+          <h2 class="card-title">Dumbell Selection</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Jul 16, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="blog-product-integration/BLK%20BOX%20Blog%20Product%20Blocks.dc.html">
+        <div class="card-body">
+          <h2 class="card-title">Blog Product Integration</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Jul 16, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="highbury-vintners/Highbury%20Vintners%20Theme.html">
+        <div class="card-body">
+          <h2 class="card-title">Highbury Vintners</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Jul 16, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="drink-landing-page/Kombucha%20Landing%20Pages.dc.html">
+        <div class="card-body">
+          <h2 class="card-title">Drink Landing Page</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Jul 15, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="BLK_BOX_Gym_Designer_Standalone_.html">
+        <div class="card-body">
+          <h2 class="card-title">BLK BOX Gym Designer</h2>
+          
+        </div>
+        <div class="card-meta">
+          <span>Jun 29, 2026</span>
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
       <a class="card" href="Backyard-movie-nights.html">
         <div class="card-body">
           <h2 class="card-title">Backyard Movie Nights</h2>
@@ -94,8 +272,6 @@
         </div>
         <div class="card-meta">
           <span>Jun 29, 2026</span>
-          <span class="dot"></span>
-          <span>22 MB</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
