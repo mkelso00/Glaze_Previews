@@ -32,87 +32,6 @@
     </sc-for>
   </div>
   <div style="display:flex;flex-direction:row;align-items:flex-start">
-<div class="dv-opt" id="5a"><div class="dv-olabel"><a class="dv-oid" href="#5a">5a</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Detailed, you vs this tariff</div><div>Each detail is a row comparing the customer's current tariff with this one, with the difference beside it. Changes for the worse are flagged, such as fixed to variable. The customer's current-tariff details here are sample data.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
-          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;padding:20px 22px">
-            <div style="flex:1 1 300px;min-width:0;display:flex;align-items:center;gap:12px">
-              <div style="width:84px;height:40px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
-              <div style="display:flex;flex-direction:column;gap:1px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">SSE Airtricity</div><div style="font-size:17px;font-weight:700;line-height:1.25;text-wrap:pretty">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div></div>
-            </div>
-            <div style="flex:0 0 auto;display:flex;flex-direction:column"><div style="font-size:12.5px;font-weight:600">You save in year one</div><div style="font-size:34px;font-weight:800;line-height:1.05">£141.18</div><div style="font-size:12px;color:#5A6B80">incl. £30 cashback</div></div>
-            <div style="flex:0 1 210px;min-width:170px;display:flex;flex-direction:column;gap:4px"><button style="height:48px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button><div style="font-size:11.5px;color:#5A6B80;text-align:center">{{ ctaNote }}</div></div>
-          </div>
-          <div style="overflow-x:auto;border-top:1px solid #E6EAF0">
-            <div style="min-width:340px">
-              <div style="display:grid;grid-template-columns:minmax(110px,1.2fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr);background:#FBFAE6;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5A6B80">
-                <div style="padding:9px 14px 9px 22px"></div><div style="padding:9px 10px">Your current</div><div style="padding:9px 10px;color:#0B2730">This tariff</div><div style="padding:9px 22px 9px 10px">Difference</div>
-              </div>
-              <sc-for list="{{ vsRows }}" as="v" hint-placeholder-count="13">
-                <div style="display:grid;grid-template-columns:minmax(110px,1.2fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr);border-top:1px solid #EEF1F5;font-size:13.5px;background:{{ v.bg }}">
-                  <div style="padding:9px 14px 9px 22px;color:#5A6B80">{{ v.label }}</div>
-                  <div style="padding:9px 10px;color:#3E5560">{{ v.cur }}</div>
-                  <div style="padding:9px 10px;font-weight:700;color:#0B2730">{{ v.now }}</div>
-                  <div style="padding:9px 22px 9px 10px;font-weight:700;color:{{ v.dc }}">{{ v.diff }}</div>
-                </div>
-              </sc-for>
-            </div>
-          </div>
-          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;padding:10px 22px;border-top:1px solid #E6EAF0;font-size:12.5px">
-            <span style="color:#7A8899">Current: Budget Energy Q1 Fixed Keypad · Prices incl. VAT</span><span style="flex:1"></span><a href="#" style="font-weight:600">See calculation</a><a href="#" style="font-weight:600">Company &amp; tariff info</a>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="5b"><div class="dv-olabel"><a class="dv-oid" href="#5b">5b</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Detailed, fit check</div><div>A checklist of the tariff against what the customer told us: meter type, fees, and terms that could catch them out. Each item shows a tick or a warning. The full fact grid, perks and pricing stay underneath, so no detail is lost.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
-          <div style="display:flex;flex-wrap:wrap">
-            <div style="flex:999 1 440px;min-width:0;padding:20px 22px;display:flex;flex-direction:column;gap:16px">
-              <div style="display:flex;align-items:center;gap:12px">
-                <div style="width:84px;height:40px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
-                <div style="display:flex;flex-direction:column;gap:1px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">SSE Airtricity</div><div style="font-size:17px;font-weight:700;line-height:1.25;text-wrap:pretty">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div></div>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:6px">
-                <div style="font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">How it fits you</div>
-                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 20px">
-                  <sc-for list="{{ fitChecks }}" as="c" hint-placeholder-count="7">
-                    <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.4;padding:5px 0">
-                      <span style="flex:none;width:20px;height:20px;border-radius:50%;background:{{ c.bg }};color:{{ c.fg }};font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ c.icon }}</span>
-                      <span><strong>{{ c.title }}</strong> <span style="color:#5A6B80">{{ c.note }}</span></span>
-                    </div>
-                  </sc-for>
-                </div>
-              </div>
-            </div>
-            <div style="flex:1 1 260px;min-width:0;padding:20px 22px;background:#FBFAE6;border-left:1px solid #E6EAF0;display:flex;flex-direction:column;gap:11px">
-              <div style="display:flex;flex-direction:column"><div style="font-size:13px;font-weight:600">You save in year one</div><div style="font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-.015em">£141.18</div><div style="font-size:12.5px;color:#5A6B80">vs £1,279.45 now · incl. £30 cashback</div></div>
-              <div style="display:flex;align-items:baseline;gap:6px;padding-top:10px;border-top:1px solid #E1DFB8"><span style="font-size:20px;font-weight:700">£97.36</span><span style="font-size:13px;color:#5A6B80">a month · £1,168.27 a year</span></div>
-              <button style="height:48px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
-              <div style="font-size:12px;color:#5A6B80;line-height:1.35">{{ ctaNote }}</div>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));border-top:1px solid #E6EAF0">
-            <sc-for list="{{ facts9 }}" as="f" hint-placeholder-count="9"><div style="padding:9px 14px;border-right:1px solid #EEF1F5;border-bottom:1px solid #EEF1F5;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:13.5px;font-weight:700">{{ f.value }}</div></div></sc-for>
-          </div>
-          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;padding:10px 22px;font-size:12.5px">
-            <span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000">£30 cashback</span><span style="font-weight:600">✓ 10.5% discount  ✓ £30 welcome credit  ✓ SSE Rewards</span><span style="color:#7A8899">Prices incl. VAT</span><span style="flex:1"></span><a href="#" style="font-weight:600">See calculation</a><a href="#" style="font-weight:600">Company &amp; tariff info</a>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
 <div class="dv-opt" id="5c"><div class="dv-olabel"><a class="dv-oid" href="#5c">5c</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Detailed, featured dark card</div><div>A dark-teal version for the top result only, matching the homepage hero. The saving is in yellow and the full labelled fact grid, perks and bars sit on the dark background. The results below would use a light card such as <a class="dv-oid" href="#4a">4a</a> or <a class="dv-oid" href="#3a">3a</a>.</div></div>
   <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
     <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
@@ -1939,7 +1858,7 @@
 <div id="results" style="display:flex;flex-direction:column;gap:6px;padding:96px 0 40px;margin-top:64px;border-top:2px solid #0B2730">
   <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Results page</div>
   <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Results page and filters</div>
-  <div style="font-size:15px;color:#3E5560;max-width:780px;line-height:1.5">The page customers land on after the comparison form. It brings together a summary of the form answers (<a href="#7a">7a</a>), the result block (<a href="#3b">3b</a>), the calculation (<a href="#6b">6b</a>) and a switch button that leads to the switch form (<a href="#8a">8a</a>). Below: the filters it offers, then five ways to lay them out. Filters work in every option. Tariffs other than the SSE Airtricity 10.5% one are sample data.</div>
+  <div style="font-size:15px;color:#3E5560;max-width:780px;line-height:1.5">The page customers land on after the comparison form. It brings together a summary of the form answers (<a href="#7a">7a</a>), the result block (<a href="#3b">3b</a>), the calculation (<a href="#6b">6b</a>) and a switch button that leads to the switch form (<a href="#8a">8a</a>). Below: the filters it offers, then the chosen layout, 9a. Options 9b to 9e are in the <a href="Switch Form Archive.dc.html#9b" style="font-weight:700">archive</a>. Filters work in every option. Tariffs other than the SSE Airtricity 10.5% one are sample data.</div>
 </div>
 <div style="width:1100px;background:#fff;border:1px solid #D9DFE8;border-radius:14px;overflow:hidden;margin:0 0 56px">
   <div style="padding:20px 24px 14px;display:flex;flex-direction:column;gap:4px">
@@ -2003,38 +1922,38 @@
                 </div>
               </sc-if>
               <sc-for list="{{ rpA.items }}" as="t" hint-placeholder-count="4">
-                <div style="background:#fff;border:1px solid {{ t.border }};border-radius:14px;overflow:hidden">
+                <div style="background:{{ t.cBg }};color:{{ t.cInk }};border:1px solid {{ t.border }};border-radius:14px;overflow:hidden">
                   <sc-if value="{{ t.isTop }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:8px;padding:8px 18px;background:#0B2730;color:#fff;font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:50%;background:#E3E000"></span>Cheapest for you</div></sc-if>
                   <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:16px 18px 12px">
                     <div style="display:flex;align-items:center;gap:12px;flex:1 1 240px;min-width:0">
-                      <sc-if value="{{ t.hasLogo }}" hint-placeholder-val="{{ false }}"><div style="width:64px;height:36px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div></sc-if><sc-if value="{{ t.noLogo }}" hint-placeholder-val="{{ true }}"><div style="width:64px;height:36px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div></sc-if>
-                      <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">{{ t.supplier }}</div><div style="font-size:15.5px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ t.name }}</div></div>
+                      <sc-if value="{{ t.hasLogo }}" hint-placeholder-val="{{ false }}"><div style="width:64px;height:36px;flex:none;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:8px;padding:4px 6px;box-sizing:border-box"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div></sc-if><sc-if value="{{ t.noLogo }}" hint-placeholder-val="{{ true }}"><div style="width:64px;height:36px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div></sc-if>
+                      <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:{{ t.cMuted }}">{{ t.supplier }}</div><div style="font-size:15.5px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ t.name }}</div></div>
                     </div>
                     <div style="flex:0 0 auto;display:flex;flex-direction:column;min-width:110px">
-                      <div style="font-size:12px;font-weight:600;color:{{ t.saveColor }}">{{ t.saveLabel }}</div>
-                      <div style="font-size:26px;font-weight:800;line-height:1.1">{{ t.saveText }}</div>
-                      <div style="font-size:12px;color:#5A6B80">{{ t.monthly }}</div>
+                      <div style="font-size:12px;font-weight:600;color:{{ t.cSaveLabel }}">{{ t.saveLabel }}</div>
+                      <div style="font-size:26px;font-weight:800;line-height:1.1;color:{{ t.cSave }}">{{ t.saveText }}</div>
+                      <div style="font-size:12px;color:{{ t.cMuted }}">{{ t.monthly }}</div>
                     </div>
                     <div style="flex:1 1 150px;max-width:190px;display:flex;flex-direction:column;gap:3px">
                       <a href="{{ t.href }}" style="height:44px;border-radius:10px;background:{{ t.ctaBg }};color:#0B2730;font:700 15px 'Figtree',sans-serif;text-decoration:none;display:flex;align-items:center;justify-content:center">{{ t.cta }}</a>
-                      <div style="font-size:11.5px;color:#5A6B80;text-align:center">{{ t.route }}</div>
+                      <div style="font-size:11.5px;color:{{ t.cMuted }};text-align:center">{{ t.route }}</div>
                     </div>
                   </div>
                   <div style="padding:0 18px 12px;display:flex;flex-direction:column;gap:5px">
-                    <div style="position:relative;height:10px;background:#EEF1F5;border-radius:5px"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ t.newPct }};background:{{ t.barColor }};border-radius:5px"></div><div style="position:absolute;top:-4px;bottom:-4px;left:{{ t.curPct }};width:2px;margin-left:-1px;background:#0B2730"></div></div>
-                    <div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#5A6B80"><span><strong style="color:#0B2730">{{ t.netText }}</strong> year one</span><span>Current £1,279.45 ┃</span></div>
+                    <div style="position:relative;height:10px;background:{{ t.cTrack }};border-radius:5px"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ t.newPct }};background:{{ t.barColor }};border-radius:5px"></div><div style="position:absolute;top:-4px;bottom:-4px;left:{{ t.curPct }};width:2px;margin-left:-1px;background:{{ t.cInk }}"></div></div>
+                    <div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;color:{{ t.cMuted }}"><span><strong style="color:{{ t.cInk }}">{{ t.netText }}</strong> year one</span><span>Current £1,279.45 ┃</span></div>
                   </div>
-                  <div style="padding:9px 18px;border-top:1px solid #EEF1F5;font-size:12.5px;color:#3E5560">{{ t.factLine }}</div>
+                  <div style="padding:9px 18px;border-top:1px solid {{ t.cRule }};font-size:12.5px;color:{{ t.cBody }}">{{ t.factLine }}</div>
                   <sc-if value="{{ t.hasRise }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:10px;align-items:flex-start;padding:10px 18px;border-top:1px solid #F6D9C2;background:#FFF6EE;font-size:12.5px;line-height:1.45"><span style="flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#F2B45A;color:#0B2730;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">!</span><span><strong style="color:#B5500F">{{ t.riseTitle }}.</strong> <span style="color:#3E5560">{{ t.riseText }}</span></span></div></sc-if>
                   <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px 18px 0;font-size:12.5px">
-                    <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000">{{ t.cashText }}</span></sc-if>
+                    <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000;color:#0B2730">{{ t.cashText }}</span></sc-if>
                     <span style="font-weight:600">{{ t.perkLine }}</span>
                   </div>
-                  <div style="display:flex;gap:4px;padding:0 10px;margin-top:6px;border-top:1px solid #E6EAF0;overflow-x:auto">
-                    <sc-for list="{{ t.tabs }}" as="tb" hint-placeholder-count="4"><div onClick="{{ tb.go }}" style="flex:none;padding:11px 8px;font-size:13.5px;font-weight:{{ tb.weight }};color:#0B2730;border-bottom:3px solid {{ tb.line }};cursor:pointer;white-space:nowrap">{{ tb.label }}</div></sc-for>
+                  <div style="display:flex;gap:4px;padding:0 10px;margin-top:6px;border-top:1px solid {{ t.cRule }};overflow-x:auto">
+                    <sc-for list="{{ t.tabs }}" as="tb" hint-placeholder-count="4"><div onClick="{{ tb.go }}" style="flex:none;padding:11px 8px;font-size:13.5px;font-weight:{{ tb.weight }};color:{{ t.cInk }};border-bottom:3px solid {{ tb.line }};cursor:pointer;white-space:nowrap">{{ tb.label }}</div></sc-for>
                   </div>
                   <sc-if value="{{ t.tabAny }}" hint-placeholder-val="{{ false }}">
-                    <div style="padding:14px 18px 16px;background:#FBFAE6;border-top:1px solid #E6EAF0">
+                    <div style="padding:14px 18px 16px;background:#FBFAE6;color:#0B2730;border-top:1px solid #E6EAF0">
                       <sc-if value="{{ t.tabOv }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for></div></sc-if>
                       <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
                       <sc-if value="{{ t.tabCalc }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;max-width:560px">
@@ -2080,286 +1999,6 @@
   </div>
 </div>
 
-<div class="dv-opt" id="9b"><div class="dv-olabel"><a class="dv-oid" href="#9b">9b</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Filter chips above the results</div><div>The filters sit in a row of chips above the list, so results get the full width. On mobile the row scrolls sideways. If the filters hide the cheapest tariff, a note says which filter did it and offers to show it. Try "Price fixed".</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ rpFrames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#F7F9FB;border:1px solid #D9DFE8;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
-          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px">
-            <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:20px;font-weight:800">{{ rpB.countText }}</div><div style="font-size:13px;color:#5A6B80">Keypad · 3,200 kWh · vs £1,279.45 now · <a href="#7a" style="font-weight:700">Edit</a></div></div>
-            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px">
-              <div style="display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600">Count cashback<button onClick="{{ rpB.cashToggle }}" style="position:relative;width:44px;height:26px;border:0;border-radius:13px;background:{{ rpB.cashTrack }};cursor:pointer"><span style="position:absolute;top:3px;left:{{ rpB.cashKnob }};width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s"></span></button></div>
-              <select value="{{ rpB.sort }}" onChange="{{ rpB.setSort }}" style="height:40px;padding:0 10px;border:1.5px solid #C4CCD8;border-radius:10px;font:600 14px 'Figtree',sans-serif;color:#0B2730;background:#fff"><option value="saving">Sort: Biggest saving</option><option value="unit">Sort: Lowest unit rate</option><option value="term">Sort: Shortest contract</option></select>
-            </div>
-          </div>
-          <div style="display:flex;flex-wrap:{{ frame.wrap }};gap:8px;overflow-x:auto;margin:0 -20px;padding:0 20px 2px">
-            <div style="display:flex;flex:none;padding:3px;background:#E6EAF0;border-radius:999px">
-              <sc-for list="{{ rpB.contracts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:38px;padding:0 12px;border:0;border-radius:999px;background:{{ o.segBg }};box-shadow:{{ o.segShadow }};color:#0B2730;font:600 13.5px 'Figtree',sans-serif;white-space:nowrap;cursor:pointer">{{ o.label }}</button></sc-for>
-            </div>
-            <sc-for list="{{ rpB.togs }}" as="o" hint-placeholder-count="6">
-              <button onClick="{{ o.pick }}" style="flex:none;height:44px;padding:0 14px;border-radius:999px;border:{{ o.chipBorder }};background:{{ o.chipBg }};color:{{ o.chipFg }};opacity:{{ o.dim }};font:600 13.5px 'Figtree',sans-serif;white-space:nowrap;cursor:pointer;display:flex;align-items:center;gap:6px">{{ o.label }}<span style="font-size:12px;font-weight:700;opacity:.65">{{ o.count }}</span></button>
-            </sc-for>
-            <button onClick="{{ rpB.supToggle }}" style="flex:none;height:44px;padding:0 14px;border-radius:999px;border:{{ rpB.supChip.chipBorder }};background:{{ rpB.supChip.chipBg }};color:{{ rpB.supChip.chipFg }};font:600 13.5px 'Figtree',sans-serif;white-space:nowrap;cursor:pointer">{{ rpB.supLabel }}</button>
-          </div>
-          <sc-if value="{{ rpB.supOpen }}" hint-placeholder-val="{{ false }}">
-            <div style="display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:#fff;border:1px solid #D9DFE8;border-radius:12px">
-              <sc-for list="{{ rpB.sups }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.pick }}" style="height:40px;padding:0 12px;border-radius:10px;border:{{ o.chipBorder }};background:{{ o.chipBg }};color:{{ o.chipFg }};font:600 13.5px 'Figtree',sans-serif;cursor:pointer;display:flex;align-items:center;gap:6px">{{ o.label }}<span style="font-size:12px;opacity:.65">{{ o.count }}</span></button></sc-for>
-            </div>
-          </sc-if>
-          <sc-if value="{{ rpB.hasHidden }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:#5A6B80">{{ rpB.hiddenText }}<a href="#" onClick="{{ rpB.clear }}" style="font-weight:700">Clear all</a></div></sc-if>
-          <sc-if value="{{ rpB.nudge }}" hint-placeholder-val="{{ false }}">
-            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:12px 16px;border-radius:12px;background:#FBFAE6;border:1px solid #E1DFB8">
-              <div style="flex:1 1 220px;font-size:13.5px;line-height:1.45"><strong>The cheapest tariff is hidden.</strong> {{ rpB.nudgeText }}</div>
-              <button onClick="{{ rpB.nudgeShow }}" style="height:38px;padding:0 14px;border:1.5px solid #0B2730;border-radius:10px;background:#fff;color:#0B2730;font:700 13.5px 'Figtree',sans-serif;cursor:pointer">Show it</button>
-            </div>
-          </sc-if>
-          <sc-for list="{{ rpB.items }}" as="t" hint-placeholder-count="4">
-                <div style="background:#fff;border:1px solid {{ t.border }};border-radius:14px;overflow:hidden">
-                  <sc-if value="{{ t.isTop }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:8px;padding:8px 18px;background:#0B2730;color:#fff;font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:50%;background:#E3E000"></span>Cheapest for you</div></sc-if>
-                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:16px 18px 12px">
-                    <div style="display:flex;align-items:center;gap:12px;flex:1 1 240px;min-width:0">
-                      <sc-if value="{{ t.hasLogo }}" hint-placeholder-val="{{ false }}"><div style="width:64px;height:36px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div></sc-if><sc-if value="{{ t.noLogo }}" hint-placeholder-val="{{ true }}"><div style="width:64px;height:36px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div></sc-if>
-                      <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">{{ t.supplier }}</div><div style="font-size:15.5px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ t.name }}</div></div>
-                    </div>
-                    <div style="flex:0 0 auto;display:flex;flex-direction:column;min-width:110px">
-                      <div style="font-size:12px;font-weight:600;color:{{ t.saveColor }}">{{ t.saveLabel }}</div>
-                      <div style="font-size:26px;font-weight:800;line-height:1.1">{{ t.saveText }}</div>
-                      <div style="font-size:12px;color:#5A6B80">{{ t.monthly }}</div>
-                    </div>
-                    <div style="flex:1 1 150px;max-width:190px;display:flex;flex-direction:column;gap:3px">
-                      <a href="{{ t.href }}" style="height:44px;border-radius:10px;background:{{ t.ctaBg }};color:#0B2730;font:700 15px 'Figtree',sans-serif;text-decoration:none;display:flex;align-items:center;justify-content:center">{{ t.cta }}</a>
-                      <div style="font-size:11.5px;color:#5A6B80;text-align:center">{{ t.route }}</div>
-                    </div>
-                  </div>
-                  <div style="padding:0 18px 12px;display:flex;flex-direction:column;gap:5px">
-                    <div style="position:relative;height:10px;background:#EEF1F5;border-radius:5px"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ t.newPct }};background:{{ t.barColor }};border-radius:5px"></div><div style="position:absolute;top:-4px;bottom:-4px;left:{{ t.curPct }};width:2px;margin-left:-1px;background:#0B2730"></div></div>
-                    <div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#5A6B80"><span><strong style="color:#0B2730">{{ t.netText }}</strong> year one</span><span>Current £1,279.45 ┃</span></div>
-                  </div>
-                  <div style="padding:9px 18px;border-top:1px solid #EEF1F5;font-size:12.5px;color:#3E5560">{{ t.factLine }}</div>
-                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px 18px 0;font-size:12.5px">
-                    <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000">{{ t.cashText }}</span></sc-if>
-                    <span style="font-weight:600">{{ t.perkLine }}</span>
-                  </div>
-                  <div style="display:flex;gap:4px;padding:0 10px;margin-top:6px;border-top:1px solid #E6EAF0;overflow-x:auto">
-                    <sc-for list="{{ t.tabs }}" as="tb" hint-placeholder-count="4"><div onClick="{{ tb.go }}" style="flex:none;padding:11px 8px;font-size:13.5px;font-weight:{{ tb.weight }};color:#0B2730;border-bottom:3px solid {{ tb.line }};cursor:pointer;white-space:nowrap">{{ tb.label }}</div></sc-for>
-                  </div>
-                  <sc-if value="{{ t.tabAny }}" hint-placeholder-val="{{ false }}">
-                    <div style="padding:14px 18px 16px;background:#FBFAE6;border-top:1px solid #E6EAF0">
-                      <sc-if value="{{ t.tabOv }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for></div></sc-if>
-                      <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
-                      <sc-if value="{{ t.tabCalc }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;max-width:560px">
-                        <sc-for list="{{ t.calc }}" as="c" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;gap:12px;padding-top:6px;border-top:{{ c.top }};font-size:13.5px;font-weight:{{ c.w }}"><div style="display:flex;flex-direction:column"><span>{{ c.label }}</span><span style="font-size:12px;font-weight:400;color:#5A6B80">{{ c.sub }}</span></div><span>{{ c.value }}</span></div></sc-for>
-                        <div style="font-size:12.5px;color:#3E5560;padding-top:4px">{{ t.calcNote }}</div>
-                      </div></sc-if>
-                      <sc-if value="{{ t.tabInfo }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.45;max-width:620px"><sc-for list="{{ t.infoLines }}" as="l" hint-placeholder-count="3"><div>{{ l }}</div></sc-for><div style="display:flex;gap:16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" style="font-weight:600">Full T&amp;Cs</a></div></div></sc-if>
-                    </div>
-                  </sc-if>
-                </div>
-              </sc-for>
-          <sc-if value="{{ rpB.empty }}" hint-placeholder-val="{{ false }}"><div style="padding:32px 20px;text-align:center;background:#fff;border:1px dashed #C4CCD8;border-radius:14px;display:flex;flex-direction:column;gap:10px;align-items:center"><div style="font-size:17px;font-weight:700">No tariffs match all your filters</div><button onClick="{{ rpB.clear }}" style="height:42px;padding:0 16px;border:0;border-radius:10px;background:#C9A3E0;color:#0B2730;font:700 14px 'Figtree',sans-serif;cursor:pointer">Clear all filters</button></div></sc-if>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="9c"><div class="dv-olabel"><a class="dv-oid" href="#9c">9c</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Best-for shortcuts</div><div>Five cards across the top each show the cheapest tariff for one need: overall, no contract, fixed price, no exit fee, green. Clicking one applies that filter to the list below. Most customers get their answer from the cards without touching a filter.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ rpFrames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#F7F9FB;border:1px solid #D9DFE8;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
-          <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:20px;font-weight:800">Best for you</div><div style="font-size:13px;color:#5A6B80">Keypad · 3,200 kWh · vs £1,279.45 now · <a href="#7a" style="font-weight:700">Edit</a></div></div>
-          <div style="display:flex;flex-wrap:{{ frame.wrap }};gap:10px;overflow-x:auto;margin:0 -20px;padding:0 20px 2px">
-            <sc-for list="{{ rpC.lenses }}" as="l" hint-placeholder-count="5">
-              <div onClick="{{ l.pick }}" style="flex:1 0 170px;max-width:220px;box-sizing:border-box;display:flex;flex-direction:column;gap:6px;padding:14px;border:{{ l.border }};background:{{ l.bg }};border-radius:14px;cursor:pointer">
-                <div style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#5B2F7A"><span style="width:8px;height:8px;border-radius:50%;background:{{ l.dot }};border:1px solid #0B2730"></span>{{ l.title }}</div>
-                <div style="font-size:12.5px;font-weight:600;color:#5A6B80">{{ l.sup }}</div>
-                <div style="font-size:14px;font-weight:700;line-height:1.3;text-wrap:pretty;flex:1">{{ l.name }}</div>
-                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span style="font-size:18px;font-weight:800">{{ l.save }}</span><span style="font-size:12px;color:#5A6B80">{{ l.count }}</span></div>
-              </div>
-            </sc-for>
-          </div>
-          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding-top:4px">
-            <div style="font-size:16px;font-weight:800">{{ rpC.countText }}</div>
-            <select value="{{ rpC.sort }}" onChange="{{ rpC.setSort }}" style="height:40px;padding:0 10px;border:1.5px solid #C4CCD8;border-radius:10px;font:600 14px 'Figtree',sans-serif;color:#0B2730;background:#fff"><option value="saving">Sort: Biggest saving</option><option value="unit">Sort: Lowest unit rate</option><option value="term">Sort: Shortest contract</option></select>
-          </div>
-          <sc-for list="{{ rpC.items }}" as="t" hint-placeholder-count="4">
-                <div style="background:#fff;border:1px solid {{ t.border }};border-radius:14px;overflow:hidden">
-                  <sc-if value="{{ t.isTop }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:8px;padding:8px 18px;background:#0B2730;color:#fff;font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:50%;background:#E3E000"></span>Cheapest for you</div></sc-if>
-                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:16px 18px 12px">
-                    <div style="display:flex;align-items:center;gap:12px;flex:1 1 240px;min-width:0">
-                      <sc-if value="{{ t.hasLogo }}" hint-placeholder-val="{{ false }}"><div style="width:64px;height:36px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div></sc-if><sc-if value="{{ t.noLogo }}" hint-placeholder-val="{{ true }}"><div style="width:64px;height:36px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div></sc-if>
-                      <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">{{ t.supplier }}</div><div style="font-size:15.5px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ t.name }}</div></div>
-                    </div>
-                    <div style="flex:0 0 auto;display:flex;flex-direction:column;min-width:110px">
-                      <div style="font-size:12px;font-weight:600;color:{{ t.saveColor }}">{{ t.saveLabel }}</div>
-                      <div style="font-size:26px;font-weight:800;line-height:1.1">{{ t.saveText }}</div>
-                      <div style="font-size:12px;color:#5A6B80">{{ t.monthly }}</div>
-                    </div>
-                    <div style="flex:1 1 150px;max-width:190px;display:flex;flex-direction:column;gap:3px">
-                      <a href="{{ t.href }}" style="height:44px;border-radius:10px;background:{{ t.ctaBg }};color:#0B2730;font:700 15px 'Figtree',sans-serif;text-decoration:none;display:flex;align-items:center;justify-content:center">{{ t.cta }}</a>
-                      <div style="font-size:11.5px;color:#5A6B80;text-align:center">{{ t.route }}</div>
-                    </div>
-                  </div>
-                  <div style="padding:0 18px 12px;display:flex;flex-direction:column;gap:5px">
-                    <div style="position:relative;height:10px;background:#EEF1F5;border-radius:5px"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ t.newPct }};background:{{ t.barColor }};border-radius:5px"></div><div style="position:absolute;top:-4px;bottom:-4px;left:{{ t.curPct }};width:2px;margin-left:-1px;background:#0B2730"></div></div>
-                    <div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#5A6B80"><span><strong style="color:#0B2730">{{ t.netText }}</strong> year one</span><span>Current £1,279.45 ┃</span></div>
-                  </div>
-                  <div style="padding:9px 18px;border-top:1px solid #EEF1F5;font-size:12.5px;color:#3E5560">{{ t.factLine }}</div>
-                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px 18px 0;font-size:12.5px">
-                    <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000">{{ t.cashText }}</span></sc-if>
-                    <span style="font-weight:600">{{ t.perkLine }}</span>
-                  </div>
-                  <div style="display:flex;gap:4px;padding:0 10px;margin-top:6px;border-top:1px solid #E6EAF0;overflow-x:auto">
-                    <sc-for list="{{ t.tabs }}" as="tb" hint-placeholder-count="4"><div onClick="{{ tb.go }}" style="flex:none;padding:11px 8px;font-size:13.5px;font-weight:{{ tb.weight }};color:#0B2730;border-bottom:3px solid {{ tb.line }};cursor:pointer;white-space:nowrap">{{ tb.label }}</div></sc-for>
-                  </div>
-                  <sc-if value="{{ t.tabAny }}" hint-placeholder-val="{{ false }}">
-                    <div style="padding:14px 18px 16px;background:#FBFAE6;border-top:1px solid #E6EAF0">
-                      <sc-if value="{{ t.tabOv }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for></div></sc-if>
-                      <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
-                      <sc-if value="{{ t.tabCalc }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;max-width:560px">
-                        <sc-for list="{{ t.calc }}" as="c" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;gap:12px;padding-top:6px;border-top:{{ c.top }};font-size:13.5px;font-weight:{{ c.w }}"><div style="display:flex;flex-direction:column"><span>{{ c.label }}</span><span style="font-size:12px;font-weight:400;color:#5A6B80">{{ c.sub }}</span></div><span>{{ c.value }}</span></div></sc-for>
-                        <div style="font-size:12.5px;color:#3E5560;padding-top:4px">{{ t.calcNote }}</div>
-                      </div></sc-if>
-                      <sc-if value="{{ t.tabInfo }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.45;max-width:620px"><sc-for list="{{ t.infoLines }}" as="l" hint-placeholder-count="3"><div>{{ l }}</div></sc-for><div style="display:flex;gap:16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" style="font-weight:600">Full T&amp;Cs</a></div></div></sc-if>
-                    </div>
-                  </sc-if>
-                </div>
-              </sc-for>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="9d"><div class="dv-olabel"><a class="dv-oid" href="#9d">9d</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Table view</div><div>One row per tariff with the key figures in columns. Click Unit rate, Contract or Year one to sort. Chips above filter the table. Suits customers who want to scan every option at once. Each row keeps the cashback, perks and the four detail tabs underneath, so nothing from the card is lost. On mobile the table scrolls sideways with the tariff name pinned.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ rpFrames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#F7F9FB;border:1px solid #D9DFE8;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
-          <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px"><div style="font-size:20px;font-weight:800">{{ rpD.countText }}</div><sc-if value="{{ rpD.hasHidden }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:10px;font-size:13px;color:#5A6B80">{{ rpD.hiddenText }}<a href="#" onClick="{{ rpD.clear }}" style="font-weight:700">Clear</a></div></sc-if></div>
-          <div style="display:flex;flex-wrap:{{ frame.wrap }};gap:8px;overflow-x:auto;margin:0 -20px;padding:0 20px 2px">
-            <div style="display:flex;flex:none;padding:3px;background:#E6EAF0;border-radius:999px">
-              <sc-for list="{{ rpD.contracts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:38px;padding:0 12px;border:0;border-radius:999px;background:{{ o.segBg }};box-shadow:{{ o.segShadow }};color:#0B2730;font:600 13.5px 'Figtree',sans-serif;white-space:nowrap;cursor:pointer">{{ o.label }}</button></sc-for>
-            </div>
-            <sc-for list="{{ rpD.togs }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.pick }}" style="flex:none;height:44px;padding:0 14px;border-radius:999px;border:{{ o.chipBorder }};background:{{ o.chipBg }};color:{{ o.chipFg }};opacity:{{ o.dim }};font:600 13.5px 'Figtree',sans-serif;white-space:nowrap;cursor:pointer">{{ o.label }}</button></sc-for>
-          </div>
-          <div style="background:#fff;border:1px solid #D9DFE8;border-radius:14px;overflow-x:auto">
-            <div style="min-width:860px">
-              <div style="display:grid;grid-template-columns:minmax(220px,2.4fr) 90px 100px 80px 100px 110px 150px;background:#FBFAE6;border-bottom:1px solid #E6EAF0">
-                <sc-for list="{{ rpD.hdrs }}" as="c" hint-placeholder-count="7"><div onClick="{{ c.go }}" style="padding:11px 12px;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:{{ c.color }};cursor:{{ c.cursor }};white-space:nowrap">{{ c.label }}{{ c.arrow }}</div></sc-for>
-              </div>
-              <sc-for list="{{ rpD.items }}" as="t" hint-placeholder-count="8">
-                <div style="border-bottom:1px solid #D9DFE8">
-<div style="display:grid;grid-template-columns:minmax(220px,2.4fr) 90px 100px 80px 100px 110px 150px;align-items:center;font-size:13.5px">
-                  <div style="position:sticky;left:0;background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:1px;min-width:0"><span style="font-size:12px;font-weight:600;color:#5A6B80">{{ t.supplier }}</span><span style="font-weight:700;line-height:1.3;text-wrap:pretty">{{ t.name }}</span></div>
-                  <div style="padding:10px 12px;font-weight:600">{{ t.unitText }}</div>
-                  <div style="padding:10px 12px">{{ t.termText }}</div>
-                  <div style="padding:10px 12px">{{ t.exitText }}</div>
-                  <div style="padding:10px 12px;font-weight:600">{{ t.netText }}</div>
-                  <div style="padding:10px 12px;font-weight:800;color:{{ t.saveColor }}">{{ t.saveText }}</div>
-                  <div style="padding:8px 12px"><a href="{{ t.href }}" style="height:38px;border-radius:9px;background:{{ t.ctaBg }};color:#0B2730;font:700 13px 'Figtree',sans-serif;text-decoration:none;display:flex;align-items:center;justify-content:center;white-space:nowrap">{{ t.cta }}</a></div>
-                </div>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:0 12px 8px;font-size:12.5px"><sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000">{{ t.cashText }}</span></sc-if><span style="font-weight:600">{{ t.perkLine }}</span><span style="color:#5A6B80">{{ t.rateText }} · {{ t.route }}</span></div>
-                  <div style="display:flex;gap:4px;padding:0 10px;margin-top:6px;border-top:1px solid #E6EAF0;overflow-x:auto">
-                    <sc-for list="{{ t.tabs }}" as="tb" hint-placeholder-count="4"><div onClick="{{ tb.go }}" style="flex:none;padding:11px 8px;font-size:13.5px;font-weight:{{ tb.weight }};color:#0B2730;border-bottom:3px solid {{ tb.line }};cursor:pointer;white-space:nowrap">{{ tb.label }}</div></sc-for>
-                  </div>
-                  <sc-if value="{{ t.tabAny }}" hint-placeholder-val="{{ false }}">
-                    <div style="padding:14px 18px 16px;background:#FBFAE6;border-top:1px solid #E6EAF0">
-                      <sc-if value="{{ t.tabOv }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for></div></sc-if>
-                      <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
-                      <sc-if value="{{ t.tabCalc }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;max-width:560px">
-                        <sc-for list="{{ t.calc }}" as="c" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;gap:12px;padding-top:6px;border-top:{{ c.top }};font-size:13.5px;font-weight:{{ c.w }}"><div style="display:flex;flex-direction:column"><span>{{ c.label }}</span><span style="font-size:12px;font-weight:400;color:#5A6B80">{{ c.sub }}</span></div><span>{{ c.value }}</span></div></sc-for>
-                        <div style="font-size:12.5px;color:#3E5560;padding-top:4px">{{ t.calcNote }}</div>
-                      </div></sc-if>
-                      <sc-if value="{{ t.tabInfo }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.45;max-width:620px"><sc-for list="{{ t.infoLines }}" as="l" hint-placeholder-count="3"><div>{{ l }}</div></sc-for><div style="display:flex;gap:16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" style="font-weight:600">Full T&amp;Cs</a></div></div></sc-if>
-                    </div>
-                  </sc-if>
-</div>
-              </sc-for>
-            </div>
-          </div>
-          <div style="font-size:12px;color:#5A6B80">Year one includes cashback. Prices include VAT. No standing charge on any keypad tariff shown.</div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="9e"><div class="dv-olabel"><a class="dv-oid" href="#9e">9e</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Filters as a sentence</div><div>The filters read as one sentence with dropdowns in it, so the current settings are always stated in plain English. Each card lists what the tariff has going for it and what to watch out for.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ rpFrames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#F7F9FB;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;display:flex;flex-direction:column">
-          <div style="background:#0B2730;color:#fff;padding:22px 20px;font-size:20px;font-weight:700;line-height:2.1">
-            Show me tariffs with <select value="{{ rpE.contractVal }}" onChange="{{ rpE.setContract }}" style="font:700 18px 'Figtree',sans-serif;color:#0B2730;background:#E3E000;border:0;border-radius:8px;padding:4px 8px;cursor:pointer"><option value="Any">any contract</option><option value="No contract">no contract</option><option value="Up to 12 months">up to 12 months</option></select>, a price that's <select value="{{ rpE.priceVal }}" onChange="{{ rpE.setPrice }}" style="font:700 18px 'Figtree',sans-serif;color:#0B2730;background:#E3E000;border:0;border-radius:8px;padding:4px 8px;cursor:pointer"><option value="any">fixed or variable</option><option value="fixed">fixed</option></select>, <select value="{{ rpE.exitVal }}" onChange="{{ rpE.setExit }}" style="font:700 18px 'Figtree',sans-serif;color:#0B2730;background:#E3E000;border:0;border-radius:8px;padding:4px 8px;cursor:pointer"><option value="any">with or without</option><option value="none">without</option></select> an exit fee, from <select value="{{ rpE.greenVal }}" onChange="{{ rpE.setGreen }}" style="font:700 18px 'Figtree',sans-serif;color:#0B2730;background:#E3E000;border:0;border-radius:8px;padding:4px 8px;cursor:pointer"><option value="any">any source</option><option value="green">renewable sources</option></select>, sorted by <select value="{{ rpE.sort }}" onChange="{{ rpE.setSort }}" style="font:700 18px 'Figtree',sans-serif;color:#0B2730;background:#E3E000;border:0;border-radius:8px;padding:4px 8px;cursor:pointer"><option value="saving">biggest saving</option><option value="unit">lowest unit rate</option><option value="term">shortest contract</option></select>.
-          </div>
-          <div style="padding:20px;display:flex;flex-direction:column;gap:12px">
-            <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 12px"><div style="font-size:18px;font-weight:800">{{ rpE.countText }}</div><sc-if value="{{ rpE.hasHidden }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#5A6B80">{{ rpE.hiddenText }}</div></sc-if></div>
-            <sc-if value="{{ rpE.nudge }}" hint-placeholder-val="{{ false }}">
-              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:12px 16px;border-radius:12px;background:#FBFAE6;border:1px solid #E1DFB8">
-                <div style="flex:1 1 220px;font-size:13.5px;line-height:1.45"><strong>Cheapest tariff left out.</strong> {{ rpE.nudgeText }}</div>
-                <button onClick="{{ rpE.nudgeShow }}" style="height:38px;padding:0 14px;border:1.5px solid #0B2730;border-radius:10px;background:#fff;color:#0B2730;font:700 13.5px 'Figtree',sans-serif;cursor:pointer">Show it</button>
-              </div>
-            </sc-if>
-            <sc-for list="{{ rpE.items }}" as="t" hint-placeholder-count="4">
-                <div style="background:#fff;border:1px solid {{ t.border }};border-radius:14px;overflow:hidden">
-                  <sc-if value="{{ t.isTop }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:8px;padding:8px 18px;background:#0B2730;color:#fff;font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:50%;background:#E3E000"></span>Cheapest for you</div></sc-if>
-                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:16px 18px 12px">
-                    <div style="display:flex;align-items:center;gap:12px;flex:1 1 240px;min-width:0">
-                      <sc-if value="{{ t.hasLogo }}" hint-placeholder-val="{{ false }}"><div style="width:64px;height:36px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div></sc-if><sc-if value="{{ t.noLogo }}" hint-placeholder-val="{{ true }}"><div style="width:64px;height:36px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div></sc-if>
-                      <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">{{ t.supplier }}</div><div style="font-size:15.5px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ t.name }}</div></div>
-                    </div>
-                    <div style="flex:0 0 auto;display:flex;flex-direction:column;min-width:110px">
-                      <div style="font-size:12px;font-weight:600;color:{{ t.saveColor }}">{{ t.saveLabel }}</div>
-                      <div style="font-size:26px;font-weight:800;line-height:1.1">{{ t.saveText }}</div>
-                      <div style="font-size:12px;color:#5A6B80">{{ t.monthly }}</div>
-                    </div>
-                    <div style="flex:1 1 150px;max-width:190px;display:flex;flex-direction:column;gap:3px">
-                      <a href="{{ t.href }}" style="height:44px;border-radius:10px;background:{{ t.ctaBg }};color:#0B2730;font:700 15px 'Figtree',sans-serif;text-decoration:none;display:flex;align-items:center;justify-content:center">{{ t.cta }}</a>
-                      <div style="font-size:11.5px;color:#5A6B80;text-align:center">{{ t.route }}</div>
-                    </div>
-                  </div>
-                  <div style="padding:0 18px 12px;display:flex;flex-direction:column;gap:5px">
-                    <div style="position:relative;height:10px;background:#EEF1F5;border-radius:5px"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ t.newPct }};background:{{ t.barColor }};border-radius:5px"></div><div style="position:absolute;top:-4px;bottom:-4px;left:{{ t.curPct }};width:2px;margin-left:-1px;background:#0B2730"></div></div>
-                    <div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#5A6B80"><span><strong style="color:#0B2730">{{ t.netText }}</strong> year one</span><span>Current £1,279.45 ┃</span></div>
-                  </div>
-                  <div style="padding:9px 18px;border-top:1px solid #EEF1F5;font-size:12.5px;color:#3E5560">{{ t.factLine }}</div>
-                  <div style="display:flex;flex-direction:column;gap:4px;padding:10px 18px;border-top:1px solid #EEF1F5;font-size:13px;line-height:1.45">
-                    <div style="font-weight:600;color:#0B2730">{{ t.pros }}</div>
-                    <sc-if value="{{ t.hasCons }}" hint-placeholder-val="{{ false }}"><div style="font-weight:600;color:#B5500F">{{ t.cons }}</div></sc-if>
-                  </div>
-                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px 18px 0;font-size:12.5px">
-                    <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000">{{ t.cashText }}</span></sc-if>
-                    <span style="font-weight:600">{{ t.perkLine }}</span>
-                  </div>
-                  <div style="display:flex;gap:4px;padding:0 10px;margin-top:6px;border-top:1px solid #E6EAF0;overflow-x:auto">
-                    <sc-for list="{{ t.tabs }}" as="tb" hint-placeholder-count="4"><div onClick="{{ tb.go }}" style="flex:none;padding:11px 8px;font-size:13.5px;font-weight:{{ tb.weight }};color:#0B2730;border-bottom:3px solid {{ tb.line }};cursor:pointer;white-space:nowrap">{{ tb.label }}</div></sc-for>
-                  </div>
-                  <sc-if value="{{ t.tabAny }}" hint-placeholder-val="{{ false }}">
-                    <div style="padding:14px 18px 16px;background:#FBFAE6;border-top:1px solid #E6EAF0">
-                      <sc-if value="{{ t.tabOv }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for></div></sc-if>
-                      <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
-                      <sc-if value="{{ t.tabCalc }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;max-width:560px">
-                        <sc-for list="{{ t.calc }}" as="c" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;gap:12px;padding-top:6px;border-top:{{ c.top }};font-size:13.5px;font-weight:{{ c.w }}"><div style="display:flex;flex-direction:column"><span>{{ c.label }}</span><span style="font-size:12px;font-weight:400;color:#5A6B80">{{ c.sub }}</span></div><span>{{ c.value }}</span></div></sc-for>
-                        <div style="font-size:12.5px;color:#3E5560;padding-top:4px">{{ t.calcNote }}</div>
-                      </div></sc-if>
-                      <sc-if value="{{ t.tabInfo }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.45;max-width:620px"><sc-for list="{{ t.infoLines }}" as="l" hint-placeholder-count="3"><div>{{ l }}</div></sc-for><div style="display:flex;gap:16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" style="font-weight:600">Full T&amp;Cs</a></div></div></sc-if>
-                    </div>
-                  </sc-if>
-                </div>
-              </sc-for>
-            <sc-if value="{{ rpE.empty }}" hint-placeholder-val="{{ false }}"><div style="padding:32px 20px;text-align:center;background:#fff;border:1px dashed #C4CCD8;border-radius:14px;font-size:15px;font-weight:700">Nothing matches that sentence. Change one of the yellow words.</div></sc-if>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
 
 </div>
 <div id="account" style="display:flex;flex-direction:column;gap:6px;padding:96px 0 40px;margin-top:64px;border-top:2px solid #0B2730">
@@ -3244,9 +2883,10 @@ class Component extends DCLogic {
           ...(() => { const after = { 0: 40.79, 2: 40.30, 3: 40.30, 5: 40.55 }[t.id]; if (!after || !t.term) return { hasRise: false, riseTitle: '', riseText: '' };
             const m1 = t.annual / 12, m2 = after * 3200 / 100 / 12;
             return { hasRise: true, riseTitle: 'Dearer from month ' + (t.term + 1), riseText: 'About ' + gbp(m2) + ' a month at ' + after.toFixed(2) + 'p/kWh, ' + gbp(m2 - m1) + ' more than months 1 to ' + t.term + '. Create an account and we’ll remind you in month ' + (t.term - 1) + '.' }; })(),
+          cBg: top ? '#0B2730' : '#fff', cInk: top ? '#fff' : '#0B2730', cMuted: top ? '#A9C0C6' : '#5A6B80', cBody: top ? '#C9D3D8' : '#3E5560', cRule: top ? '#1E4550' : '#EEF1F5', cTrack: top ? '#1E4550' : '#EEF1F5', cSave: top ? '#E3E000' : '#0B2730', cSaveLabel: top ? '#E3E000' : (good ? '#0B2730' : '#B5500F'),
           unitText: t.unit.toFixed(2) + 'p', termText: t.term ? t.term + ' months' : 'None', exitText: t.exit, rateText: t.rate,
           tabs: [['overview', 'Overview'], ['rates', 'Rates & charges'], ['calc', 'Calculation'], ['info', 'Tariff terms']].map(([key, label]) => { const cur = (f.tabs[t.id] !== undefined ? f.tabs[t.id] : (top ? 'overview' : null)) === key;
-            return { label, weight: cur ? 700 : 500, line: cur ? '#0B2730' : 'transparent', go: () => set(c => { const was = c.tabs[t.id] !== undefined ? c.tabs[t.id] : (top ? 'overview' : null); return { tabs: { ...c.tabs, [t.id]: was === key ? null : key } }; }) }; }),
+            return { label, weight: cur ? 700 : 500, line: cur ? (top ? '#E3E000' : '#0B2730') : 'transparent', go: () => set(c => { const was = c.tabs[t.id] !== undefined ? c.tabs[t.id] : (top ? 'overview' : null); return { tabs: { ...c.tabs, [t.id]: was === key ? null : key } }; }) }; }),
           ...(() => { const tb = f.tabs[t.id] !== undefined ? f.tabs[t.id] : (top ? 'overview' : null); return { tabAny: !!tb, tabOv: tb === 'overview', tabRates: tb === 'rates', tabCalc: tb === 'calc', tabInfo: tb === 'info' }; })(),
           ovFacts: [{ label: 'Contract', value: t.term ? t.term + ' months' : 'None' }, { label: 'Rate type', value: t.rate }, { label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Exit fee', value: t.exit }, { label: 'Switch', value: t.online ? 'Via Power to Switch' : 'Supplier site' }],
           rateFacts: [{ label: 'Unit rate', value: t.unit.toFixed(2) + 'p/kWh', note: 'Incl. VAT' }, { label: 'Standing charge', value: 'None', note: 'Keypad tariff' }, { label: 'Annual bill', value: gbp(t.annual), note: '3,200 kWh a year' }, { label: 'Monthly', value: gbp(t.annual / 12), note: 'Average' }],
@@ -3361,8 +3001,8 @@ class Component extends DCLogic {
       profile: ['Profile', 'Four cards: about you, property, meter and priority services. Each says how many details are missing, so a new account knows what to add before switching.'],
       settings: ['Settings', 'A switch for each type of notification and for marketing, then password and delete account.']
     };
-    const acNavFor = pk => [['dash', 'Dashboard', ''], ['bills', 'My bills', acNew ? '' : '2'], ['comps', 'My comparisons', acNew ? '' : '3'], ['sw', 'My switches', ''], ['price', 'Price tracker', ''], ['profile', 'Profile', acNew ? '25%' : ''], ['settings', 'Settings', '']]
-      .map(([k, label, badge]) => ({ label, badge, hasBadge: !!badge, bg: pk === k ? '#E3E000' : 'transparent', fg: pk === k ? '#0B2730' : '#E2E8EA', w: pk === k ? 800 : 600, pillBg: pk === k ? '#0B2730' : '#fff', pillFg: pk === k ? '#fff' : '#0B2730', pillBorder: pk === k ? '1.5px solid #0B2730' : '1.5px solid #D9DFE8', badgeBg: pk === k ? '#0B2730' : '#2A4650', badgeFg: pk === k ? '#E3E000' : '#fff', go: acGo(k) }));
+    const acNavFor = pk => [['dash', 'Dashboard', ''], ['bills', 'My bills', acNew ? '' : '2'], ['comps', 'My comparisons', acNew ? '' : '3'], ['sw', 'My switches', ''], ['price', 'Price tracker', acNew ? '' : '+' + gbp(cum[5])], ['profile', 'Profile', acNew ? '25%' : ''], ['settings', 'Settings', '']]
+      .map(([k, label, badge]) => { const save = k === 'price'; return { label, badge, hasBadge: !!badge, bg: pk === k ? '#E3E000' : 'transparent', fg: pk === k ? '#0B2730' : '#E2E8EA', w: pk === k ? 800 : 600, pillBg: pk === k ? '#0B2730' : '#fff', pillFg: pk === k ? '#fff' : '#0B2730', pillBorder: pk === k ? '1.5px solid #0B2730' : '1.5px solid #D9DFE8', badgeBg: save ? (pk === k ? '#0B2730' : '#E3E000') : pk === k ? '#0B2730' : '#2A4650', badgeFg: save ? (pk === k ? '#E3E000' : '#0B2730') : pk === k ? '#E3E000' : '#fff', go: acGo(k) }; });
     const acPages = Object.keys(acIds).map(pk => { const is = {}; Object.keys(acIds).forEach(k => { is[k] = k === pk; });
       return { id: acIds[pk], href: '#' + acIds[pk], name: acNotes[pk][0], note: acNotes[pk][1], title: acTitles[pk][0], sub: acTitles[pk][1], nav: acNavFor(pk), is }; });
     const acVals = {
