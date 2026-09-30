@@ -2021,6 +2021,7 @@
                 <span style="width:38px;height:38px;flex:none;border-radius:50%;background:#C9A3E0;color:#0B2730;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center">MK</span>
                 <div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:14px;font-weight:700">Mark Kelso</span><span style="font-size:12px;color:#A9C0C6">m@glze.me</span></div>
               </div>
+              <sc-if value="{{ acOld }}" hint-placeholder-val="{{ true }}"><div style="margin-top:-12px;padding:12px 14px;border-radius:14px;background:#E3E000;color:#0B2730;display:flex;flex-direction:column;gap:1px"><span style="font-size:12px;font-weight:700">Saved with Power to Switch</span><span style="font-size:26px;font-weight:800;line-height:1.1">{{ acLife }}</span><span style="font-size:12px;font-weight:600">Since Jan 2024 · 3 switches</span></div></sc-if>
               <div style="display:flex;flex-direction:column;gap:4px">
                 <sc-for list="{{ pg.nav }}" as="n" hint-placeholder-count="7">
                   <div onClick="{{ n.go }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding:0 12px;border-radius:12px;background:{{ n.bg }};color:{{ n.fg }};font-size:14.5px;font-weight:{{ n.w }};cursor:pointer" style-hover="background:rgba(255,255,255,.06)">
@@ -2108,6 +2109,7 @@
                         </div>
                       </div>
                       <div style="flex:1 1 260px;min-width:0;background:#fff;border:1px solid #E6EAF0;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:12px">
+                        <div style="display:flex;flex-direction:column;gap:1px;padding:14px;border-radius:14px;background:#E3E000"><span style="font-size:12px;font-weight:700">Total saved with Power to Switch</span><span style="font-size:28px;font-weight:800;line-height:1.1">{{ acLife }}</span><span style="font-size:12px;font-weight:600;color:#3E5560">3 switches since Jan 2024</span></div>
                         <div style="font-size:16px;font-weight:800">Your energy</div>
                         <sc-for list="{{ acGlance }}" as="g" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:1px;padding-top:10px;border-top:1px solid #EEF1F5"><span style="font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7A8899">{{ g.l }}</span><span style="font-size:14.5px;font-weight:700">{{ g.v }}</span></div></sc-for>
                         <a href="#" onClick="{{ acGoProfile }}" style="font-size:13.5px;font-weight:700;color:#5B2F7A">Edit details</a>
@@ -2202,6 +2204,14 @@
               <sc-if value="{{ pg.is.sw }}" hint-placeholder-val="{{ false }}">
                 <div style="display:flex;flex-direction:column;gap:18px">
                   <sc-if value="{{ acOld }}" hint-placeholder-val="{{ true }}">
+                    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;padding:20px 22px;border-radius:18px;background:#E3E000;color:#0B2730;margin-bottom:18px">
+                      <div style="display:flex;flex-direction:column"><span style="font-size:13px;font-weight:700">Total saved with Power to Switch</span><span style="font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-.015em">{{ acLife }}</span></div>
+                      <div style="display:flex;flex-wrap:wrap;gap:10px 24px;font-size:13.5px">
+                        <div style="display:flex;flex-direction:column"><span style="font-size:12px;color:#3E5560">Switches</span><strong style="font-size:17px">3 since Jan 2024</strong></div>
+                        <div style="display:flex;flex-direction:column"><span style="font-size:12px;color:#3E5560">Current switch so far</span><strong style="font-size:17px">{{ acSoFar }}</strong></div>
+                        <div style="display:flex;flex-direction:column"><span style="font-size:12px;color:#3E5560">Previous switches</span><strong style="font-size:17px">£176.90</strong></div>
+                      </div>
+                    </div>
                     <div style="display:flex;flex-wrap:wrap;gap:18px">
                       <div style="flex:2 1 440px;min-width:0;background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:18px">
                         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">
@@ -2228,6 +2238,23 @@
                           <div style="display:flex;justify-content:space-between;gap:10px;font-size:13.5px;padding-top:8px;border-top:1px solid #EEF1F5"><span>Tariff terms</span><a href="#" style="font-weight:700;color:#5B2F7A">View</a></div>
                         </div>
                       </div>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ acOld }}" hint-placeholder-val="{{ true }}">
+                    <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:4px">
+                      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;padding-bottom:8px"><div style="font-size:17px;font-weight:800">Previous switches</div><div style="font-size:13.5px;color:#5A6B80"><strong style="color:#0B2730">£176.90</strong> saved through Power to Switch before this one</div></div>
+                      <sc-for list="{{ acPast }}" as="p" hint-placeholder-count="2">
+                        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;padding:14px 0;border-top:1px solid #EEF1F5">
+                          <div style="width:56px;height:32px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div>
+                          <div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:2px">
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px"><span style="font-size:14.5px;font-weight:800">{{ p.sup }} {{ p.name }}</span><span style="font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;background:#EEF1F5;color:#5A6B80">{{ p.status }}</span></div>
+                            <span style="font-size:12.5px;color:#5A6B80">{{ p.dates }} · from {{ p.from }} · Ref {{ p.ref }}</span>
+                            <span style="font-size:12.5px;color:#3E5560">{{ p.note }}</span>
+                          </div>
+                          <div style="display:flex;flex-direction:column;min-width:96px"><span style="font-size:11.5px;color:#7A8899">Saved</span><span style="font-size:18px;font-weight:800">{{ p.saved }}</span></div>
+                          <a href="#" style="font-size:13.5px;font-weight:700;color:#5B2F7A">Details</a>
+                        </div>
+                      </sc-for>
                     </div>
                   </sc-if>
                   <sc-if value="{{ acNew }}" hint-placeholder-val="{{ false }}">
@@ -2317,8 +2344,608 @@
 </div>
 </sc-for>
 </div>
+<div id="switchplus" style="display:flex;flex-direction:column;gap:6px;padding:96px 0 40px;margin-top:64px;border-top:2px solid #0B2730">
+  <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Switch Plus</div>
+  <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Switch Plus</div>
+  <div style="font-size:15px;color:#3E5560;max-width:780px;line-height:1.5">A paid service: customers pay a yearly fee and Power to Switch moves them to the cheapest tariff every year. A landing page, then the account dashboard with Switch Plus added and a page explaining it. Use the "switchPlus" tweak to see the member version, or click Join on 11c.</div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:flex-start">
+<div class="dv-opt" id="11a"><div class="dv-olabel"><a class="dv-oid" href="#11a">11a</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Landing page</div><div>A public page for Switch Plus. The hero says what it does in one line, a comparison shows the month-13 price jump it avoids, then how it works, what customers control, the price and common questions. The £24 fee and the savings figures are sample data based on the SSE Airtricity tariff used throughout.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ spFrames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};flex:none;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:18px;overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;background:#0B2730;color:#fff;border-bottom:1px solid #1E4550"><span style="font-size:17px;font-weight:800">Power to Switch</span><div style="display:flex;align-items:center;gap:18px;font-size:14px;font-weight:700"><span style="color:#E3E000">Switch Plus</span><span>Log in</span></div></div>
+          <div style="background:#0B2730;color:#fff;padding:{{ frame.pad }};display:flex;flex-wrap:wrap;gap:36px 48px;align-items:center">
+            <div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:18px">
+              <span style="align-self:flex-start;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:#E3E000;color:#0B2730">Switch Plus</span>
+              <span style="font-size:48px;font-weight:800;line-height:1.05;letter-spacing:-.02em;text-wrap:balance">We switch you to the cheapest tariff. Every year.</span>
+              <span style="font-size:17px;line-height:1.55;color:#C9D3D8;max-width:520px">Pay one yearly fee. Before your deal ends, we find the cheapest tariff that suits you and move you, so you never drift onto a dearer standard rate.</span>
+              <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:4px"><a href="#11c" style="height:54px;padding:0 24px;border-radius:14px;background:#C9A3E0;color:#0B2730;font-size:16px;font-weight:800;text-decoration:none;display:flex;align-items:center">Join for £24 a year</a><a href="#spHow" style="height:54px;padding:0 22px;border-radius:14px;border:1.5px solid #4A6570;color:#fff;font-size:16px;font-weight:700;text-decoration:none;display:flex;align-items:center">How it works</a></div>
+              <span style="font-size:13px;color:#A9C0C6">Cancel any time. We never switch you into a contract with an exit fee you’d have to pay.</span>
+            </div>
+            <div style="flex:1 1 360px;min-width:0;background:#163843;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px">
+              <span style="font-size:15px;font-weight:800">What happens when a deal ends</span>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#C9D3D8">Year 1, your deal</span><strong>£97.36/mo</strong></div><div style="height:12px;border-radius:6px;background:#1E4550"><div style="height:100%;width:72%;border-radius:6px;background:#C9A3E0"></div></div></div>
+                <div style="display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#C9D3D8">Year 2, if you do nothing</span><strong style="color:#F2B45A">£108.78/mo</strong></div><div style="height:12px;border-radius:6px;background:#1E4550"><div style="height:100%;width:80%;border-radius:6px;background:#F2B45A"></div></div></div>
+                <div style="display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#C9D3D8">Year 2, with Switch Plus</span><strong style="color:#E3E000">about £97/mo</strong></div><div style="height:12px;border-radius:6px;background:#1E4550"><div style="height:100%;width:72%;border-radius:6px;background:#E3E000"></div></div></div>
+              </div>
+              <div style="padding:14px;border-radius:14px;background:#0B2730;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;color:#C9D3D8">Better off in year 2, after the fee</span><span style="font-size:30px;font-weight:800;color:#E3E000;line-height:1.1">about £113</span></div>
+              <span style="font-size:11.5px;color:#A9C0C6">Example keypad customer using 3,200 kWh a year, at today’s prices.</span>
+            </div>
+          </div>
+          <div id="spHow" style="padding:{{ frame.pad }};display:flex;flex-direction:column;gap:24px">
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">How it works</span><span style="font-size:32px;font-weight:800;letter-spacing:-.01em;line-height:1.15">Set it up once. We do the rest every year.</span></div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+              <sc-for list="{{ spSteps }}" as="s" hint-placeholder-count="4"><div style="padding:20px;border-radius:18px;background:#F4F5F8;display:flex;flex-direction:column;gap:8px"><span style="width:36px;height:36px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ s.n }}</span><span style="font-size:18px;font-weight:800">{{ s.t }}</span><span style="font-size:14px;color:#3E5560;line-height:1.5">{{ s.d }}</span></div></sc-for>
+            </div>
+          </div>
+          <div style="padding:{{ frame.pad }};background:#FBFAE6;display:flex;flex-wrap:wrap;gap:28px 48px;align-items:flex-start">
+            <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:12px"><span style="font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">You stay in control</span><span style="font-size:28px;font-weight:800;line-height:1.2">Tell us what counts as best. We only switch you to tariffs that match.</span><span style="font-size:15px;color:#3E5560;line-height:1.5">We tell you what we’ve picked before every switch, and you can say no. Change your preferences or cancel any time from your account.</span></div>
+            <div style="flex:1 1 320px;min-width:0;display:flex;flex-wrap:wrap;gap:10px"><sc-for list="{{ spPrefs }}" as="p" hint-placeholder-count="4"><button onClick="{{ p.pick }}" style="height:48px;padding:0 18px;border-radius:999px;border:{{ p.border }};background:{{ p.bg }};color:{{ p.fg }};font:700 15px 'Figtree',sans-serif;cursor:pointer">{{ p.tick }}{{ p.label }}</button></sc-for></div>
+          </div>
+          <div style="padding:{{ frame.pad }};display:flex;flex-wrap:wrap;gap:28px 48px;align-items:flex-start">
+            <div style="flex:1 1 320px;min-width:0;background:#0B2730;color:#fff;border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:14px">
+              <span style="font-size:15px;font-weight:800;color:#E3E000">Switch Plus</span>
+              <div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:56px;font-weight:800;line-height:1">£24</span><span style="font-size:16px;color:#C9D3D8">a year</span></div>
+              <div style="display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:#E2E8EA"><span>✓ Moved to the cheapest tariff every year</span><span>✓ No forms. We handle every switch</span><span>✓ Your preferences, always respected</span><span>✓ Price alerts and reminders included</span></div>
+              <a href="#11c" style="margin-top:6px;height:52px;border-radius:14px;background:#C9A3E0;color:#0B2730;font-size:16px;font-weight:800;text-decoration:none;display:flex;align-items:center;justify-content:center">Join Switch Plus</a>
+            </div>
+            <div style="flex:1.4 1 380px;min-width:0;display:flex;flex-direction:column">
+              <span style="font-size:24px;font-weight:800;padding-bottom:8px">Questions</span>
+              <sc-for list="{{ spFaq }}" as="f" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:4px;padding:16px 0;border-top:1px solid #E6EAF0"><span style="font-size:16px;font-weight:800">{{ f.q }}</span><span style="font-size:14.5px;color:#3E5560;line-height:1.5">{{ f.a }}</span></div></sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<sc-for list="{{ acPlusPages }}" as="pg" hint-placeholder-count="2">
+<div class="dv-opt" id="{{ pg.id }}"><div class="dv-olabel"><a class="dv-oid" href="{{ pg.href }}">{{ pg.id }}</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">{{ pg.name }}</div><div>{{ pg.note }}</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ acFrames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};flex:none;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="display:flex;background:#F4F5F8;border:1px solid #D9DFE8;border-radius:18px;overflow:hidden;min-height:960px">
+          <sc-if value="{{ frame.desk }}" hint-placeholder-val="{{ true }}">
+            <div style="flex:0 0 250px;background:#0B2730;color:#fff;padding:26px 16px;display:flex;flex-direction:column;gap:26px;box-sizing:border-box">
+              <div style="padding:0 10px;font-size:18px;font-weight:800;letter-spacing:-.01em">Power to Switch</div>
+              <div style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:14px;background:#163843">
+                <span style="width:38px;height:38px;flex:none;border-radius:50%;background:#C9A3E0;color:#0B2730;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center">MK</span>
+                <div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:14px;font-weight:700">Mark Kelso</span><span style="font-size:12px;color:#A9C0C6">m@glze.me</span></div>
+              </div>
+              <sc-if value="{{ acOld }}" hint-placeholder-val="{{ true }}"><div style="margin-top:-12px;padding:12px 14px;border-radius:14px;background:#E3E000;color:#0B2730;display:flex;flex-direction:column;gap:1px"><span style="font-size:12px;font-weight:700">Saved with Power to Switch</span><span style="font-size:26px;font-weight:800;line-height:1.1">{{ acLife }}</span><span style="font-size:12px;font-weight:600">Since Jan 2024 · 3 switches</span></div></sc-if>
+              <div style="display:flex;flex-direction:column;gap:4px">
+                <sc-for list="{{ pg.nav }}" as="n" hint-placeholder-count="7">
+                  <div onClick="{{ n.go }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding:0 12px;border-radius:12px;background:{{ n.bg }};color:{{ n.fg }};font-size:14.5px;font-weight:{{ n.w }};cursor:pointer" style-hover="background:rgba(255,255,255,.06)">
+                    <span>{{ n.label }}</span>
+                    <sc-if value="{{ n.hasBadge }}" hint-placeholder-val="{{ false }}"><span style="font-size:11.5px;font-weight:800;padding:2px 8px;border-radius:999px;background:{{ n.badgeBg }};color:{{ n.badgeFg }}">{{ n.badge }}</span></sc-if>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="flex:1"></div>
+              <div style="display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;background:#163843;font-size:13px;line-height:1.45;color:#C9D3D8"><strong style="color:#fff;font-size:14px">Stuck on something?</strong>Our team can talk you through a comparison or switch.<a href="#7m" style="color:#E3E000;font-weight:700">Get help</a></div>
+              <div style="padding:0 12px;font-size:14.5px;font-weight:700;color:#F2B45A;cursor:pointer">Log out</div>
+            </div>
+          </sc-if>
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+            <sc-if value="{{ frame.mob }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#0B2730;color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:16px;font-weight:800">Power to Switch</span><span style="width:34px;height:34px;border-radius:50%;background:#C9A3E0;color:#0B2730;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">MK</span></div>
+              <div style="display:flex;gap:6px;overflow-x:auto;padding:12px 16px;background:#fff;border-bottom:1px solid #E6EAF0">
+                <sc-for list="{{ pg.nav }}" as="n" hint-placeholder-count="7"><button onClick="{{ n.go }}" style="flex:none;height:40px;padding:0 14px;border-radius:999px;border:{{ n.pillBorder }};background:{{ n.pillBg }};color:{{ n.pillFg }};font:700 13.5px 'Figtree',sans-serif;white-space:nowrap;cursor:pointer">{{ n.label }}</button></sc-for>
+              </div>
+            </sc-if>
+            <div style="padding:{{ frame.pad }};display:flex;flex-direction:column;gap:20px">
+              <div style="display:flex;flex-direction:column;gap:3px;padding-bottom:4px"><div style="font-size:30px;font-weight:800;letter-spacing:-.015em">{{ pg.title }}</div><div style="font-size:14px;color:#5A6B80">{{ pg.sub }}</div></div>
+
+              <sc-if value="{{ pg.is.dash }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;flex-direction:column;gap:18px">
+                  <sc-if value="{{ spNot }}" hint-placeholder-val="{{ true }}">
+                    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;padding:18px 22px;border-radius:18px;background:#F1E7F8;border:1.5px solid #C9A3E0">
+                      <span style="font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:999px;background:#5B2F7A;color:#fff">New · Switch Plus</span>
+                      <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:2px"><span style="font-size:16px;font-weight:800">Your discount ends in 6 months. Let us do the next switch.</span><span style="font-size:13.5px;color:#3E5560;line-height:1.45">We’ll move you to the cheapest tariff every year, automatically. £24 a year.</span></div>
+                      <a href="#11c" style="height:44px;padding:0 18px;border-radius:12px;background:#0B2730;color:#fff;font-size:14px;font-weight:800;text-decoration:none;display:flex;align-items:center">How it works</a>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ spMember }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;padding:18px 22px;border-radius:18px;background:#F1E7F8;border:1.5px solid #C9A3E0">
+                      <span style="font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:999px;background:#5B2F7A;color:#fff">✓ Switch Plus on</span>
+                      <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:2px"><span style="font-size:16px;font-weight:800">Your next switch is handled.</span><span style="font-size:13.5px;color:#3E5560;line-height:1.45">We’ll compare prices in September 2027 and move you before your discount ends. Nothing for you to do.</span></div>
+                      <a href="#11c" style="height:44px;padding:0 18px;border-radius:12px;border:1.5px solid #0B2730;color:#0B2730;font-size:14px;font-weight:800;text-decoration:none;display:flex;align-items:center">Manage</a>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ acNew }}" hint-placeholder-val="{{ false }}">
+                    <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:16px">
+                      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px"><div style="font-size:17px;font-weight:800">Finish your profile to switch faster</div><span style="font-size:12.5px;font-weight:800;padding:4px 10px;border-radius:999px;background:#F1E7F8;color:#5B2F7A">25% complete</span></div>
+                      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px">
+                        <sc-for list="{{ acSteps }}" as="s" hint-placeholder-count="4">
+                          <div onClick="{{ s.go }}" style="display:flex;flex-direction:column;gap:8px;cursor:pointer">
+                            <div style="height:6px;border-radius:3px;background:{{ s.bar }}"></div>
+                            <div style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:26px;flex:none;box-sizing:border-box;border-radius:50%;border:{{ s.border }};background:{{ s.bg }};color:{{ s.fg }};font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ s.n }}</span><span style="font-size:13.5px;font-weight:700;color:{{ s.tc }}">{{ s.t }}</span></div>
+                          </div>
+                        </sc-for>
+                      </div>
+                    </div>
+                    <div style="background:#0B2730;color:#fff;border-radius:20px;padding:26px 24px;display:flex;flex-direction:column;gap:18px">
+                      <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#E3E000">No switch yet</div><div style="font-size:26px;font-weight:800;line-height:1.15;max-width:560px">Most keypad customers we compare could pay less. Find out in two minutes.</div></div>
+                      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+                        <div onClick="{{ acGoBills }}" style="display:flex;flex-direction:column;gap:6px;padding:16px;border-radius:14px;background:#E3E000;color:#0B2730;cursor:pointer"><span style="font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase">Fastest</span><span style="font-size:16px;font-weight:800">Upload a bill</span><span style="font-size:13px;line-height:1.4">We read your supplier, tariff and usage from it.</span></div>
+                        <a href="#7a" style="display:flex;flex-direction:column;gap:6px;padding:16px;border-radius:14px;background:#163843;color:#fff;text-decoration:none"><span style="font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#C9A3E0">2 minutes</span><span style="font-size:16px;font-weight:800">Answer six questions</span><span style="font-size:13px;line-height:1.4;color:#C9D3D8">No bill to hand? Estimate it instead.</span></a>
+                        <div style="display:flex;flex-direction:column;gap:6px;padding:16px;border-radius:14px;background:#163843"><span style="font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#C9A3E0">Hands-free</span><span style="font-size:16px;font-weight:800">Forward your bill</span><span style="font-size:13px;line-height:1.4;color:#C9D3D8">Email it to mybill@powertoswitch.co.uk</span></div>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-wrap:wrap;gap:18px">
+                      <div style="flex:1 1 300px;background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:10px"><div style="font-size:17px;font-weight:800">Latest comparisons</div><div style="font-size:14px;color:#5A6B80;line-height:1.45">Your comparisons are saved here, so you can check the prices again later without starting over.</div><a href="#7a" style="align-self:flex-start;font-size:14px;font-weight:700;color:#5B2F7A">Start a comparison →</a></div>
+                      <div style="flex:1 1 300px;background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:10px"><div style="font-size:17px;font-weight:800">Price tracker</div><div style="font-size:14px;color:#5A6B80;line-height:1.45">The cheapest keypad rate is 36.51p/kWh today. Add your tariff and we’ll tell you when you could save.</div><a href="#" onClick="{{ acGoPrice }}" style="align-self:flex-start;font-size:14px;font-weight:700;color:#5B2F7A">Set up an alert →</a></div>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ acOld }}" hint-placeholder-val="{{ true }}">
+                    <div style="display:flex;flex-wrap:wrap;gap:18px">
+                      <div style="flex:2 1 480px;min-width:0;background:#0B2730;color:#fff;border-radius:20px;padding:26px 24px;display:flex;flex-direction:column;gap:18px">
+                        <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:12px">
+                          <div style="display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#E3E000"><span style="width:8px;height:8px;border-radius:50%;background:#E3E000"></span>Month 6 of 12</div><div style="font-size:15px;color:#C9D3D8">SSE Airtricity 1 Year Keypad 10.5%</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:flex-end"><span style="font-size:12px;color:#A9C0C6">{{ acHoverLabel }}</span><span style="font-size:22px;font-weight:800;color:{{ acHoverColor }}">{{ acHoverVal }}</span></div>
+                        </div>
+                        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px 28px">
+                          <div style="display:flex;flex-direction:column"><span style="font-size:14px;color:#C9D3D8">Saved so far</span><span style="font-size:52px;font-weight:800;line-height:1;letter-spacing:-.02em;color:#E3E000">{{ acSoFar }}</span></div>
+                          <div style="display:flex;flex-direction:column;padding-bottom:4px"><span style="font-size:13px;color:#C9D3D8">On track for</span><span style="font-size:20px;font-weight:800">{{ acYear }} by month 12</span></div>
+                        </div>
+                        <div style="position:relative;height:170px;margin-top:22px">
+                          <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none"><div style="border-top:1px solid #1E4550"></div><div style="border-top:1px solid #1E4550"></div><div style="border-top:1px solid #1E4550"></div><div style="border-top:1px solid #2A4650"></div></div>
+                          <svg viewBox="0 0 240 100" preserveAspectRatio="none" style="position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible">
+                            <path d="{{ acAreaA }}" fill="#C9A3E0" fill-opacity=".38"></path>
+                            <path d="{{ acAreaB }}" fill="#C9A3E0" fill-opacity=".12"></path>
+                            <path d="{{ acAreaC }}" fill="#F2B45A" fill-opacity=".14"></path>
+                            <path d="{{ acLineA }}" fill="none" stroke="#C9A3E0" stroke-width="3" vector-effect="non-scaling-stroke"></path>
+                            <path d="{{ acLineB }}" fill="none" stroke="#C9A3E0" stroke-width="2" stroke-dasharray="5 4" vector-effect="non-scaling-stroke"></path>
+                            <path d="{{ acLineC }}" fill="none" stroke="#F2B45A" stroke-width="2" stroke-dasharray="5 4" vector-effect="non-scaling-stroke"></path>
+                            <line x1="110" y1="0" x2="110" y2="100" stroke="#E3E000" stroke-width="1" stroke-dasharray="2 3" vector-effect="non-scaling-stroke"></line>
+                            <line x1="120" y1="0" x2="120" y2="100" stroke="#F2B45A" stroke-width="1" vector-effect="non-scaling-stroke"></line>
+                          </svg>
+                          <div style="position:absolute;left:25%;top:{{ acDotTop }};width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#E3E000;border:3px solid #0B2730;box-sizing:border-box"></div>
+                          <div style="position:absolute;left:25%;top:-20px;transform:translateX(-50%);font-size:11.5px;font-weight:800;color:#0B2730;background:#E3E000;padding:2px 7px;border-radius:4px;white-space:nowrap">You are here</div>
+                          <div style="position:absolute;left:calc(45.8% - 6px);bottom:6px;transform:translateX(-100%);font-size:11px;font-weight:700;color:#E3E000;white-space:nowrap">Month 11 · we remind you</div>
+                          <div style="position:absolute;left:calc(50% + 6px);top:4px;font-size:11px;font-weight:700;color:#F2B45A;white-space:nowrap">Discount ends · saving starts to shrink</div>
+                          <div style="position:absolute;inset:0;display:flex"><sc-for list="{{ acHits }}" as="m" hint-placeholder-count="24"><div onMouseEnter="{{ m.enter }}" style="flex:1;height:100%;cursor:crosshair;background:{{ m.bg }}"></div></sc-for></div>
+                        </div>
+                        <div style="position:relative;height:14px;font-size:11px;font-weight:600;color:#A9C0C6"><span style="position:absolute;left:0">Switched</span><span style="position:absolute;left:25%;transform:translateX(-50%)">Month 6</span><span style="position:absolute;left:50%;transform:translateX(-50%)">Month 12</span><span style="position:absolute;left:75%;transform:translateX(-50%)">Month 18</span><span style="position:absolute;right:0">Month 24</span></div>
+                        <div style="display:flex;flex-wrap:wrap;gap:10px 16px;font-size:12px;font-weight:600;color:#C9D3D8"><span style="display:flex;align-items:center;gap:6px"><span style="width:16px;border-top:3px solid #C9A3E0"></span>Saved</span><span style="display:flex;align-items:center;gap:6px"><span style="width:16px;border-top:2px dashed #C9A3E0"></span>Projected</span><span style="display:flex;align-items:center;gap:6px"><span style="width:16px;border-top:2px dashed #F2B45A"></span>If you stay after month 12</span></div>
+                        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:14px 16px;border-radius:14px;background:#163843">
+                          <div style="flex:1 1 240px;font-size:13.5px;line-height:1.45;color:#E2E8EA"><strong style="color:#fff">Your 10.5% discount ends in 6 months.</strong> After that you move to the standard rate and pay a little more each month. We’ll email you in month 11 to compare again.</div>
+                          <button onClick="{{ acGoPrice }}" style="height:42px;padding:0 16px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 14px 'Figtree',sans-serif;cursor:pointer">See prices now</button>
+                        </div>
+                      </div>
+                      <div style="flex:1 1 260px;min-width:0;background:#fff;border:1px solid #E6EAF0;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:12px">
+                        <div style="display:flex;flex-direction:column;gap:1px;padding:14px;border-radius:14px;background:#E3E000"><span style="font-size:12px;font-weight:700">Total saved with Power to Switch</span><span style="font-size:28px;font-weight:800;line-height:1.1">{{ acLife }}</span><span style="font-size:12px;font-weight:600;color:#3E5560">3 switches since Jan 2024</span></div>
+                        <div style="font-size:16px;font-weight:800">Your energy</div>
+                        <sc-for list="{{ acGlance }}" as="g" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:1px;padding-top:10px;border-top:1px solid #EEF1F5"><span style="font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7A8899">{{ g.l }}</span><span style="font-size:14.5px;font-weight:700">{{ g.v }}</span></div></sc-for>
+                        <a href="#" onClick="{{ acGoProfile }}" style="font-size:13.5px;font-weight:700;color:#5B2F7A">Edit details</a>
+                      </div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+                      <div onClick="{{ acGoBills }}" style="display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:16px;background:#F1E7F8;cursor:pointer"><span style="font-size:15px;font-weight:800">Upload a bill</span><span style="font-size:13px;color:#3E5560">Keeps your usage up to date</span></div>
+                      <a href="#7a" style="display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:16px;background:#FBFAE6;color:#0B2730;text-decoration:none"><span style="font-size:15px;font-weight:800">Run a new comparison</span><span style="font-size:13px;color:#3E5560">Your answers are filled in</span></a>
+                      <div style="display:flex;flex-direction:column;gap:8px;padding:14px 18px;border-radius:16px;background:#E6F0EA">
+                        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font-size:15px;font-weight:800">Price alert</span><button onClick="{{ acAlert.flip }}" aria-label="Price alert on or off" style="position:relative;width:44px;height:26px;flex:none;border:0;border-radius:13px;background:{{ acAlert.track }};cursor:pointer"><span style="position:absolute;top:3px;left:{{ acAlert.knob }};width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s"></span></button></div>
+                        <span style="font-size:13px;color:#3E5560">Email me if I could save <strong style="color:#0B2730">{{ acAlertAmt }}+</strong> a year</span>
+                        <input type="range" min="25" max="200" step="25" value="{{ acAmtVal }}" onChange="{{ acSetAmt }}" style="width:100%;accent-color:#5B2F7A">
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-wrap:wrap;gap:18px">
+                      <div style="flex:2 1 460px;min-width:0;background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:4px">
+                        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:6px"><div style="font-size:17px;font-weight:800">Latest comparisons</div><a href="#" onClick="{{ acGoComps }}" style="font-size:13.5px;font-weight:700;color:#5B2F7A">View all</a></div>
+                        <sc-for list="{{ acComps }}" as="c" hint-placeholder-count="3">
+                          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;padding:12px 0;border-top:1px solid #EEF1F5">
+                            <div style="flex:0 0 96px;font-size:13px;font-weight:700;color:#5A6B80">{{ c.date }}</div>
+                            <div style="flex:1 1 200px;min-width:0;display:flex;flex-direction:column"><span style="font-size:14px;font-weight:700">{{ c.best }}</span><span style="font-size:12.5px;color:#5A6B80">Best of {{ c.n }}</span></div>
+                            <div style="font-size:16px;font-weight:800">Save {{ c.save }}</div>
+                          </div>
+                        </sc-for>
+                      </div>
+                      <div style="flex:1 1 260px;min-width:0;background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:12px">
+                        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><div style="font-size:17px;font-weight:800">Keypad prices</div><a href="#" onClick="{{ acGoPrice }}" style="font-size:13.5px;font-weight:700;color:#5B2F7A">Tracker</a></div>
+                        <div style="display:flex;align-items:flex-end;gap:4px;height:70px">
+                          <sc-for list="{{ acBars }}" as="b" hint-placeholder-count="12"><div style="flex:1;height:{{ b.cheap }};background:#C9A3E0;border-radius:3px 3px 0 0"></div></sc-for>
+                        </div>
+                        <div style="font-size:13.5px;line-height:1.45;color:#3E5560">The cheapest keypad rate has fallen from 41.2p to <strong style="color:#0B2730">36.51p</strong> in a year. Your new tariff is the cheapest today.</div>
+                      </div>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ pg.is.bills }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:18px">
+                  <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:16px">
+                    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:14px 16px;border-radius:14px;background:#0B2730;color:#fff">
+                      <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:2px"><span style="font-size:14.5px;font-weight:800">Skip the upload. Forward your bills to us.</span><span style="font-size:13px;color:#C9D3D8">Send digital bills to <strong style="color:#E3E000">mybill@powertoswitch.co.uk</strong> and they appear here.</span></div>
+                      <button onClick="{{ acCopy }}" style="height:40px;padding:0 14px;border:0;border-radius:10px;background:#E3E000;color:#0B2730;font:800 13.5px 'Figtree',sans-serif;cursor:pointer">{{ acCopyLabel }}</button>
+                    </div>
+                    <div style="display:flex;gap:18px;border-bottom:1px solid #E6EAF0">
+                      <sc-for list="{{ acBillTabs }}" as="t" hint-placeholder-count="2"><div onClick="{{ t.go }}" style="padding:8px 2px 10px;font-size:14.5px;font-weight:{{ t.w }};border-bottom:3px solid {{ t.line }};cursor:pointer">{{ t.l }}</div></sc-for>
+                    </div>
+                    <div style="border:2px dashed #C9A3E0;border-radius:18px;background:#FAF6FC;padding:36px 20px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+                      <div style="font-size:24px;font-weight:800;line-height:1.2">Upload your {{ acBillLabel }} bill</div>
+                      <div style="font-size:14px;color:#3E5560">Drop a PDF or photo here, or choose a file. A keypad statement works too.</div>
+                      <button style="height:48px;padding:0 22px;border:0;border-radius:999px;background:#C9A3E0;color:#0B2730;font:800 15px 'Figtree',sans-serif;cursor:pointer;margin-top:6px">Choose your bill</button>
+                      <div style="font-size:12px;color:#5A6B80;margin-top:4px">We only use your bill to compare prices.</div>
+                    </div>
+                  </div>
+                  <sc-if value="{{ acOld }}" hint-placeholder-val="{{ true }}">
+                    <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:4px">
+                      <div style="font-size:17px;font-weight:800;padding-bottom:8px">Saved bills</div>
+                      <sc-for list="{{ acBills }}" as="b" hint-placeholder-count="2">
+                        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:14px 0;border-top:1px solid #EEF1F5">
+                          <div style="width:44px;height:54px;flex:none;border-radius:8px;background:#F1E7F8;border:1px solid #E1D2EC;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#5B2F7A">PDF</div>
+                          <div style="flex:1 1 180px;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:14.5px;font-weight:800">{{ b.sup }} · {{ b.period }}</span><span style="font-size:12.5px;color:#5A6B80">{{ b.type }} · {{ b.used }}</span></div>
+                          <div style="display:flex;gap:18px;font-size:13.5px"><div style="display:flex;flex-direction:column"><span style="font-size:11.5px;color:#7A8899">Usage</span><strong>{{ b.kwh }}</strong></div><div style="display:flex;flex-direction:column"><span style="font-size:11.5px;color:#7A8899">Spent</span><strong>{{ b.amt }}</strong></div></div>
+                          <a href="#7c" style="height:40px;padding:0 14px;border-radius:10px;border:1.5px solid #0B2730;color:#0B2730;font-size:13.5px;font-weight:700;text-decoration:none;display:flex;align-items:center">Compare with this bill</a>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ pg.is.comps }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:12px">
+                  <sc-if value="{{ acOld }}" hint-placeholder-val="{{ true }}">
+                    <sc-for list="{{ acComps }}" as="c" hint-placeholder-count="3">
+                      <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:18px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px">
+                        <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:4px">
+                          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px"><span style="font-size:13px;font-weight:700;color:#5A6B80">{{ c.date }}</span><sc-if value="{{ c.hasTag }}" hint-placeholder-val="{{ false }}"><span style="font-size:11.5px;font-weight:800;padding:2px 8px;border-radius:999px;background:#E3E000">{{ c.tag }}</span></sc-if><sc-if value="{{ c.old }}" hint-placeholder-val="{{ false }}"><span style="font-size:11.5px;font-weight:800;padding:2px 8px;border-radius:999px;background:#FBE3D3;color:#B5500F">Prices have changed since</span></sc-if></div>
+                          <div style="font-size:15.5px;font-weight:800;line-height:1.3">Best: {{ c.best }}</div>
+                          <div style="font-size:13px;color:#5A6B80">Against {{ c.from }} · {{ c.n }} compared</div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;min-width:110px"><span style="font-size:12px;font-weight:600">Saving then</span><span style="font-size:24px;font-weight:800">{{ c.save }}</span></div>
+                        <div style="display:flex;gap:8px"><a href="#9a" style="height:42px;padding:0 14px;border-radius:10px;border:1.5px solid #0B2730;color:#0B2730;font-size:13.5px;font-weight:700;text-decoration:none;display:flex;align-items:center">View results</a><a href="#9a" style="height:42px;padding:0 14px;border-radius:10px;background:#C9A3E0;color:#0B2730;font-size:13.5px;font-weight:800;text-decoration:none;display:flex;align-items:center">Rerun today</a></div>
+                      </div>
+                    </sc-for>
+                  </sc-if>
+                  <sc-if value="{{ acNew }}" hint-placeholder-val="{{ false }}">
+                    <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:36px 24px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center"><div style="font-size:20px;font-weight:800">No comparisons yet</div><div style="font-size:14px;color:#3E5560;max-width:420px;line-height:1.45">When you compare, we save the results here with the date, so you can see how prices have moved and rerun it in one click.</div><a href="#7a" style="margin-top:6px;height:46px;padding:0 20px;border-radius:12px;background:#0B2730;color:#fff;font-size:14.5px;font-weight:800;text-decoration:none;display:flex;align-items:center">Start a comparison</a></div>
+                  </sc-if>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ pg.is.sw }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:18px">
+                  <sc-if value="{{ acOld }}" hint-placeholder-val="{{ true }}">
+                    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;padding:20px 22px;border-radius:18px;background:#E3E000;color:#0B2730;margin-bottom:18px">
+                      <div style="display:flex;flex-direction:column"><span style="font-size:13px;font-weight:700">Total saved with Power to Switch</span><span style="font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-.015em">{{ acLife }}</span></div>
+                      <div style="display:flex;flex-wrap:wrap;gap:10px 24px;font-size:13.5px">
+                        <div style="display:flex;flex-direction:column"><span style="font-size:12px;color:#3E5560">Switches</span><strong style="font-size:17px">3 since Jan 2024</strong></div>
+                        <div style="display:flex;flex-direction:column"><span style="font-size:12px;color:#3E5560">Current switch so far</span><strong style="font-size:17px">{{ acSoFar }}</strong></div>
+                        <div style="display:flex;flex-direction:column"><span style="font-size:12px;color:#3E5560">Previous switches</span><strong style="font-size:17px">£176.90</strong></div>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-wrap:wrap;gap:18px">
+                      <div style="flex:2 1 440px;min-width:0;background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:18px">
+                        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+                          <div style="width:74px;height:36px;flex:none;display:flex;align-items:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+                          <div style="flex:1 1 200px;min-width:0;display:flex;flex-direction:column"><span style="font-size:15.5px;font-weight:800;line-height:1.3">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</span><span style="font-size:12.5px;color:#5A6B80">From Budget Energy · Ref PTS-48213</span></div>
+                          <span style="font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;background:#E3E000">In progress</span>
+                        </div>
+                        <div style="display:flex;flex-direction:column">
+                          <sc-for list="{{ acSwSteps }}" as="s" hint-placeholder-count="4">
+                            <div style="display:flex;gap:14px">
+                              <div style="flex:none;display:flex;flex-direction:column;align-items:center"><span style="width:28px;height:28px;box-sizing:border-box;border-radius:50%;border:{{ s.border }};background:{{ s.bg }};color:{{ s.fg }};font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ s.mark }}</span><span style="flex:1;width:2px;background:{{ s.lineC }};opacity:{{ s.line }}"></span></div>
+                              <div style="display:flex;flex-direction:column;gap:2px;padding:3px 0 18px"><span style="font-size:14.5px;font-weight:{{ s.tw }}">{{ s.t }}</span><span style="font-size:13px;color:#5A6B80;line-height:1.4">{{ s.d }}</span></div>
+                            </div>
+                          </sc-for>
+                        </div>
+                        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:14px 16px;border-radius:14px;background:#FBFAE6;border:1px solid #E1DFB8"><div style="flex:1 1 220px;font-size:13.5px;line-height:1.45"><strong>Changed your mind?</strong> You can cancel for free until 10 October 2026.</div><a href="#" style="font-size:13.5px;font-weight:700;color:#B5500F">Cancel this switch</a></div>
+                      </div>
+                      <div style="flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:18px">
+                        <div style="background:#0B2730;color:#fff;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;color:#C9D3D8">Saving in year one</span><span style="font-size:36px;font-weight:800;line-height:1.05;color:#E3E000">£141.18</span><span style="font-size:12.5px;color:#C9D3D8">£1,138.27 vs £1,279.45 now</span></div>
+                        <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+                          <div style="font-size:15px;font-weight:800">Documents</div>
+                          <div style="display:flex;justify-content:space-between;gap:10px;font-size:13.5px;padding-top:8px;border-top:1px solid #EEF1F5"><span>Switch confirmation</span><a href="#8f" style="font-weight:700;color:#5B2F7A">View</a></div>
+                          <div style="display:flex;justify-content:space-between;gap:10px;font-size:13.5px;padding-top:8px;border-top:1px solid #EEF1F5"><span>Welcome pack and contract</span><span style="color:#5A6B80">Within 2 working days</span></div>
+                          <div style="display:flex;justify-content:space-between;gap:10px;font-size:13.5px;padding-top:8px;border-top:1px solid #EEF1F5"><span>Tariff terms</span><a href="#" style="font-weight:700;color:#5B2F7A">View</a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ acOld }}" hint-placeholder-val="{{ true }}">
+                    <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:4px">
+                      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;padding-bottom:8px"><div style="font-size:17px;font-weight:800">Previous switches</div><div style="font-size:13.5px;color:#5A6B80"><strong style="color:#0B2730">£176.90</strong> saved through Power to Switch before this one</div></div>
+                      <sc-for list="{{ acPast }}" as="p" hint-placeholder-count="2">
+                        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;padding:14px 0;border-top:1px solid #EEF1F5">
+                          <div style="width:56px;height:32px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div>
+                          <div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:2px">
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px"><span style="font-size:14.5px;font-weight:800">{{ p.sup }} {{ p.name }}</span><span style="font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;background:#EEF1F5;color:#5A6B80">{{ p.status }}</span></div>
+                            <span style="font-size:12.5px;color:#5A6B80">{{ p.dates }} · from {{ p.from }} · Ref {{ p.ref }}</span>
+                            <span style="font-size:12.5px;color:#3E5560">{{ p.note }}</span>
+                          </div>
+                          <div style="display:flex;flex-direction:column;min-width:96px"><span style="font-size:11.5px;color:#7A8899">Saved</span><span style="font-size:18px;font-weight:800">{{ p.saved }}</span></div>
+                          <a href="#" style="font-size:13.5px;font-weight:700;color:#5B2F7A">Details</a>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ acNew }}" hint-placeholder-val="{{ false }}">
+                    <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:18px">
+                      <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:20px;font-weight:800">No switches yet</div><div style="font-size:14px;color:#3E5560">When you switch through Power to Switch, you can follow every step here.</div></div>
+                      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
+                        <div style="padding:16px;border-radius:14px;background:#F4F5F8;display:flex;flex-direction:column;gap:4px"><span style="font-size:22px;font-weight:800;color:#5B2F7A">1</span><span style="font-size:14.5px;font-weight:800">Compare</span><span style="font-size:13px;color:#3E5560">Two minutes, or upload a bill.</span></div>
+                        <div style="padding:16px;border-radius:14px;background:#F4F5F8;display:flex;flex-direction:column;gap:4px"><span style="font-size:22px;font-weight:800;color:#5B2F7A">2</span><span style="font-size:14.5px;font-weight:800">Switch online</span><span style="font-size:13px;color:#3E5560">About 5 minutes. We fill in what we know.</span></div>
+                        <div style="padding:16px;border-radius:14px;background:#F4F5F8;display:flex;flex-direction:column;gap:4px"><span style="font-size:22px;font-weight:800;color:#5B2F7A">3</span><span style="font-size:14.5px;font-weight:800">Track it here</span><span style="font-size:13px;color:#3E5560">Usually done in about 3 weeks.</span></div>
+                      </div>
+                      <a href="#7a" style="align-self:flex-start;height:46px;padding:0 20px;border-radius:12px;background:#0B2730;color:#fff;font-size:14.5px;font-weight:800;text-decoration:none;display:flex;align-items:center">Start a comparison</a>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ pg.is.price }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:18px">
+                  <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:16px">
+                    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 20px">
+                      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:700;color:#5A6B80">Cheapest keypad rate today</span><span style="font-size:36px;font-weight:800;line-height:1.05">36.51p<span style="font-size:16px;color:#5A6B80">/kWh</span></span></div>
+                      <div style="display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;font-weight:700"><span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:3px;background:#C9A3E0"></span>Cheapest available</span><span style="display:flex;align-items:center;gap:6px"><span style="width:14px;height:0;border-top:2px dashed #0B2730"></span>Budget Energy Q1 Fixed, 39.98p</span></div>
+                    </div>
+                    <div style="position:relative;height:190px;display:flex;align-items:flex-end;gap:6px;padding-top:10px;border-bottom:1px solid #D9DFE8">
+                      <sc-for list="{{ acBars }}" as="b" hint-placeholder-count="12">
+                        <div style="flex:1;height:{{ b.cheap }};background:#C9A3E0;border-radius:4px 4px 0 0;position:relative"><span style="position:absolute;top:-17px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;color:#5A6B80;white-space:nowrap">{{ b.v }}</span></div>
+                      </sc-for>
+                      <div style="position:absolute;left:0;right:0;bottom:{{ acMineLine }};border-top:2px dashed #0B2730"></div>
+                    </div>
+                    <div style="display:flex;gap:6px;margin-top:-8px"><sc-for list="{{ acBars }}" as="b" hint-placeholder-count="12"><div style="flex:1;text-align:center;font-size:11px;font-weight:600;color:#7A8899">{{ b.m }}</div></sc-for></div>
+                    <div style="font-size:12px;color:#5A6B80">Oct 2025 to Sep 2026. Prices include VAT. Scale starts at 30p.</div>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:18px">
+                    <div style="flex:1 1 300px;min-width:0;background:#0B2730;color:#fff;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px">
+                      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:16px;font-weight:800">Price alert</span><button onClick="{{ acAlert.flip }}" style="position:relative;width:44px;height:26px;border:0;border-radius:13px;background:{{ acAlert.track }};cursor:pointer"><span style="position:absolute;top:3px;left:{{ acAlert.knob }};width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s"></span></button></div>
+                      <div style="font-size:14px;color:#C9D3D8;line-height:1.45">Email me when I could save more than</div>
+                      <div style="font-size:36px;font-weight:800;color:#E3E000;line-height:1">{{ acAlertAmt }}<span style="font-size:15px;color:#C9D3D8"> a year</span></div>
+                      <input type="range" min="25" max="200" step="25" value="{{ acAmtVal }}" onChange="{{ acSetAmt }}" style="width:100%;accent-color:#E3E000">
+                    </div>
+                    <div style="flex:1 1 320px;min-width:0;background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:4px">
+                      <div style="font-size:16px;font-weight:800;padding-bottom:6px">Cheaper than Budget Energy Q1 Fixed today</div>
+                      <sc-for list="{{ acCheaper }}" as="c" hint-placeholder-count="3">
+                        <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #EEF1F5"><div style="flex:1;min-width:0;display:flex;flex-direction:column"><span style="font-size:12px;font-weight:600;color:#5A6B80">{{ c.s }} · {{ c.r }}</span><span style="font-size:13.5px;font-weight:700;line-height:1.3">{{ c.n }}</span></div><span style="font-size:15px;font-weight:800">Save {{ c.save }}</span></div>
+                      </sc-for>
+                      <a href="#9a" style="padding-top:8px;font-size:13.5px;font-weight:700;color:#5B2F7A">See all results</a>
+                    </div>
+                  </div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ pg.is.profile }}" hint-placeholder-val="{{ false }}">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px">
+                  <sc-for list="{{ acProfile }}" as="p" hint-placeholder-count="4">
+                    <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:10px">
+                      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font-size:16px;font-weight:800">{{ p.title }}</span><span style="font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:999px;background:{{ p.badgeBg }};color:{{ p.badgeFg }}">{{ p.badge }}</span></div>
+                      <sc-for list="{{ p.rows }}" as="r" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:1px;padding-top:9px;border-top:1px solid #EEF1F5"><span style="font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7A8899">{{ r.l }}</span><span style="font-size:14.5px;font-weight:{{ r.w }};color:{{ r.c }}">{{ r.v }}</span></div></sc-for>
+                      <button style="align-self:flex-start;margin-top:4px;height:40px;padding:0 14px;border:1.5px solid #0B2730;border-radius:10px;background:#fff;color:#0B2730;font:700 13.5px 'Figtree',sans-serif;cursor:pointer">{{ p.btn }}</button>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ pg.is.plus }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:18px">
+                  <sc-if value="{{ spNot }}" hint-placeholder-val="{{ true }}">
+                    <div style="background:#0B2730;color:#fff;border-radius:20px;padding:28px 26px;display:flex;flex-wrap:wrap;gap:20px 32px;align-items:flex-end">
+                      <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:10px"><span style="font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#E3E000">Switch Plus</span><span style="font-size:30px;font-weight:800;line-height:1.12;letter-spacing:-.01em">We switch you to the cheapest tariff. Every year.</span><span style="font-size:14.5px;color:#C9D3D8;line-height:1.5">Pay one yearly fee. Before your deal ends, we find the cheapest tariff that suits you and move you, so you never drift onto a dearer standard rate.</span></div>
+                      <div style="flex:0 1 240px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:baseline;gap:6px"><span style="font-size:40px;font-weight:800;color:#E3E000;line-height:1">£24</span><span style="font-size:14px;color:#C9D3D8">a year</span></div><button onClick="{{ spJoin }}" style="height:50px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer">Join Switch Plus</button><span style="font-size:12px;color:#A9C0C6">Cancel any time from your account.</span></div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+                      <sc-for list="{{ spSteps }}" as="s" hint-placeholder-count="4"><div style="background:#fff;border:1px solid #E6EAF0;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px"><span style="width:30px;height:30px;border-radius:50%;background:#E3E000;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ s.n }}</span><span style="font-size:15.5px;font-weight:800">{{ s.t }}</span><span style="font-size:13px;color:#3E5560;line-height:1.45">{{ s.d }}</span></div></sc-for>
+                    </div>
+                    <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px">
+                      <div style="font-size:17px;font-weight:800">What it means for you at month 13</div>
+                      <div style="display:flex;flex-wrap:wrap;gap:12px">
+                        <div style="flex:1 1 220px;padding:16px;border-radius:14px;background:#FFF6EE;border:1.5px solid #F2B45A;display:flex;flex-direction:column;gap:2px"><span style="font-size:12.5px;font-weight:700;color:#B5500F">Without Switch Plus</span><span style="font-size:26px;font-weight:800">£108.78<span style="font-size:13px;color:#5A6B80"> a month</span></span><span style="font-size:12.5px;color:#3E5560">SSE Airtricity standard keypad rate, unless you remember to switch.</span></div>
+                        <div style="flex:1 1 220px;padding:16px;border-radius:14px;background:#FBFAE6;border:1.5px solid #E3E000;display:flex;flex-direction:column;gap:2px"><span style="font-size:12.5px;font-weight:700">With Switch Plus</span><span style="font-size:26px;font-weight:800">About £97<span style="font-size:13px;color:#5A6B80"> a month</span></span><span style="font-size:12.5px;color:#3E5560">Moved to the cheapest tariff, at today’s prices, plus £2 a month fee.</span></div>
+                      </div>
+                      <div style="font-size:13.5px;line-height:1.45"><strong>About £113 a year better off after the fee</strong>, based on today’s cheapest keypad tariff. Prices change, so the real figure will too.</div>
+                    </div>
+                    <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px">
+                      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:17px;font-weight:800">You choose what counts as best</span><span style="font-size:13.5px;color:#5A6B80">We only switch you to tariffs that match. Change these any time.</span></div>
+                      <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ spPrefs }}" as="p" hint-placeholder-count="4"><button onClick="{{ p.pick }}" style="height:42px;padding:0 14px;border-radius:999px;border:{{ p.border }};background:{{ p.bg }};color:{{ p.fg }};font:700 13.5px 'Figtree',sans-serif;cursor:pointer">{{ p.tick }}{{ p.label }}</button></sc-for></div>
+                    </div>
+                    <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:8px 22px">
+                      <sc-for list="{{ spFaq }}" as="f" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid #EEF1F5"><span style="font-size:14.5px;font-weight:800">{{ f.q }}</span><span style="font-size:13.5px;color:#3E5560;line-height:1.45">{{ f.a }}</span></div></sc-for>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ spMember }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex;flex-wrap:wrap;gap:18px">
+                      <div style="flex:2 1 420px;min-width:0;background:#0B2730;color:#fff;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:18px">
+                        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px"><span style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#E3E000"><span style="width:8px;height:8px;border-radius:50%;background:#E3E000"></span>Switch Plus is on</span><span style="font-size:12.5px;color:#A9C0C6">Renews Apr 2028 · £24</span></div>
+                        <span style="font-size:24px;font-weight:800;line-height:1.2">Your next switch is handled. Here’s what happens.</span>
+                        <div style="display:flex;flex-direction:column">
+                          <sc-for list="{{ spTimeline }}" as="t" hint-placeholder-count="4"><div style="display:flex;gap:14px"><div style="flex:none;display:flex;flex-direction:column;align-items:center"><span style="width:14px;height:14px;box-sizing:border-box;border-radius:50%;background:{{ t.dot }};border:2px solid {{ t.ring }};margin-top:3px"></span><span style="flex:1;width:2px;background:#2A4650;opacity:{{ t.line }}"></span></div><div style="display:flex;flex-direction:column;gap:2px;padding-bottom:16px"><span style="font-size:13px;font-weight:800;color:#E3E000">{{ t.w }}</span><span style="font-size:14px;color:#E2E8EA;line-height:1.45">{{ t.d }}</span></div></div></sc-for>
+                        </div>
+                      </div>
+                      <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:18px">
+                        <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px">
+                          <span style="font-size:16px;font-weight:800">Your preferences</span>
+                          <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ spPrefs }}" as="p" hint-placeholder-count="4"><button onClick="{{ p.pick }}" style="height:40px;padding:0 12px;border-radius:999px;border:{{ p.border }};background:{{ p.bg }};color:{{ p.fg }};font:700 13px 'Figtree',sans-serif;cursor:pointer">{{ p.tick }}{{ p.label }}</button></sc-for></div>
+                          <div style="display:flex;align-items:center;gap:12px;padding-top:12px;border-top:1px solid #EEF1F5"><div style="flex:1;display:flex;flex-direction:column"><span style="font-size:14px;font-weight:700">Ask me before each switch</span><span style="font-size:12.5px;color:#5A6B80">Off means we switch without asking.</span></div><button onClick="{{ spAsk.flip }}" style="position:relative;width:44px;height:26px;flex:none;border:0;border-radius:13px;background:{{ spAsk.track }};cursor:pointer"><span style="position:absolute;top:3px;left:{{ spAsk.knob }};width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s"></span></button></div>
+                        </div>
+                        <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;font-size:13.5px">
+                          <span style="font-size:16px;font-weight:800">Membership</span>
+                          <div style="display:flex;justify-content:space-between;gap:10px;padding-top:8px;border-top:1px solid #EEF1F5"><span style="color:#5A6B80">Fee</span><strong>£24 a year</strong></div>
+                          <div style="display:flex;justify-content:space-between;gap:10px;padding-top:8px;border-top:1px solid #EEF1F5"><span style="color:#5A6B80">Paid with</span><strong>Visa ending 3012</strong></div>
+                          <div style="display:flex;justify-content:space-between;gap:10px;padding-top:8px;border-top:1px solid #EEF1F5"><span style="color:#5A6B80">Automatic switches</span><strong>First one Oct 2027</strong></div>
+                          <a href="#" onClick="{{ spLeave }}" style="padding-top:6px;font-weight:700;color:#B5500F">Cancel Switch Plus</a>
+                        </div>
+                      </div>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ pg.is.settings }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:18px">
+                  <sc-for list="{{ acSettings }}" as="g" hint-placeholder-count="2">
+                    <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:4px">
+                      <div style="font-size:16px;font-weight:800;padding-bottom:6px">{{ g.title }}</div>
+                      <sc-for list="{{ g.items }}" as="i" hint-placeholder-count="4">
+                        <div style="display:flex;align-items:center;gap:16px;padding:12px 0;border-top:1px solid #EEF1F5"><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:14.5px;font-weight:700">{{ i.t }}</span><span style="font-size:13px;color:#5A6B80;line-height:1.4">{{ i.d }}</span></div><button onClick="{{ i.flip }}" style="position:relative;width:44px;height:26px;flex:none;border:0;border-radius:13px;background:{{ i.track }};cursor:pointer"><span style="position:absolute;top:3px;left:{{ i.knob }};width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s"></span></button></div>
+                      </sc-for>
+                    </div>
+                  </sc-for>
+                  <div style="background:#fff;border:1px solid #E6EAF0;border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:4px">
+                    <div style="font-size:16px;font-weight:800;padding-bottom:6px">Security</div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid #EEF1F5"><div style="display:flex;flex-direction:column"><span style="font-size:14.5px;font-weight:700">Password</span><span style="font-size:13px;color:#5A6B80">Last changed March 2026</span></div><a href="#" style="font-size:13.5px;font-weight:700;color:#5B2F7A">Change</a></div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid #EEF1F5"><div style="display:flex;flex-direction:column"><span style="font-size:14.5px;font-weight:700">Delete account</span><span style="font-size:13px;color:#5A6B80">Removes your bills, comparisons and details</span></div><a href="#" style="font-size:13.5px;font-weight:700;color:#B5500F">Delete</a></div>
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+            <sc-if value="{{ frame.mob }}" hint-placeholder-val="{{ false }}"><div style="padding:0 16px 28px;font-size:14.5px;font-weight:700;color:#B5500F">Log out</div></sc-if>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</sc-for>
+<div class="dv-opt" id="11d"><div class="dv-olabel"><a class="dv-oid" href="#11d">11d</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Offered at the switch</div><div>The last step of the switch form, with Switch Plus offered at the moment the customer is thinking about price. It opens on the month-13 price rise, then asks what should happen next year. Choosing Switch Plus shows the preferences and a third agreement box, and the sidebar shows £24 to pay today. Pick "Just this switch" to see the free route.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden">
+          <div style="background:#0B2730;color:#fff;padding:24px 26px;display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;color:#E3E000">Step 3 of 4 · Switch</div><div style="font-size:26px;font-weight:800;line-height:1.15">Switch to SSE Airtricity</div><div style="font-size:14px;color:#C9D3D8">Last step. Check your details and choose what happens next year.</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:24px;padding:24px;background:#F7F8FA">
+            <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:16px">
+              <div style="background:#fff;border:1px solid #E6EAF0;border-radius:14px;padding:6px 20px">
+                <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #EEF1F5"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span><div style="flex:1;min-width:0;display:flex;flex-direction:column"><span style="font-size:14.5px;font-weight:800">About you</span><span style="font-size:12.5px;color:#5A6B80">Ms Ciara McAllister · ciara.mcallister@email.com</span></div><a href="#8a" style="font-size:13px;font-weight:700;color:#5B2F7A">Edit</a></div>
+                <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #EEF1F5"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span><div style="flex:1;min-width:0;display:flex;flex-direction:column"><span style="font-size:14.5px;font-weight:800">Meter and address</span><span style="font-size:12.5px;color:#5A6B80">MPRN 81 1234 5678 9 · 14 Malone Avenue, Belfast BT9 6AA</span></div><a href="#8a" style="font-size:13px;font-weight:700;color:#5B2F7A">Edit</a></div>
+                <div style="display:flex;align-items:center;gap:12px;padding:12px 0"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span><div style="flex:1;min-width:0;display:flex;flex-direction:column"><span style="font-size:14.5px;font-weight:800">Home, priority services and payment</span><span style="font-size:12.5px;color:#5A6B80">Owner · No special requirements · Keypad top-up</span></div><a href="#8a" style="font-size:13px;font-weight:700;color:#5B2F7A">Edit</a></div>
+              </div>
+              <div style="background:#fff;border:2px solid #C9A3E0;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:16px">
+                <div style="display:flex;flex-direction:column;gap:6px"><span style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#B5500F"><span style="width:8px;height:8px;border-radius:50%;background:#F2B45A"></span>In 12 months</span><span style="font-size:21px;font-weight:800;line-height:1.2">What should happen when your discount ends?</span><span style="font-size:14px;color:#3E5560;line-height:1.45">From month 13 this tariff moves to the standard rate: about <strong style="color:#0B2730">£108.78 a month</strong>, £11.42 more than now.</span></div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px">
+                  <sc-for list="{{ spPickTiles }}" as="o" hint-placeholder-count="2">
+                    <div onClick="{{ o.pick }}" style="display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:14px;border:{{ o.border }};background:{{ o.bg }};cursor:pointer">
+                      <span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:50%;border:{{ o.dot }};background:#fff;margin-top:2px"></span>
+                      <div style="flex:1;display:flex;flex-direction:column;gap:4px"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px"><span style="font-size:16px;font-weight:800">{{ o.t }}</span><sc-if value="{{ o.hasTag }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;background:#5B2F7A;color:#fff">{{ o.tag }}</span></sc-if></div><span style="font-size:13px;color:#3E5560;line-height:1.45">{{ o.d }}</span><span style="font-size:15px;font-weight:800;margin-top:2px">{{ o.price }}</span></div>
+                    </div>
+                  </sc-for>
+                </div>
+                <sc-if value="{{ spPlusPick }}" hint-placeholder-val="{{ true }}">
+                  <div style="display:flex;flex-direction:column;gap:14px;padding:16px;border-radius:14px;background:#F1E7F8">
+                    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:14.5px;font-weight:800">Only switch me to tariffs with</span><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ spPrefs }}" as="p" hint-placeholder-count="4"><button onClick="{{ p.pick }}" style="height:40px;padding:0 12px;border-radius:999px;border:{{ p.border }};background:{{ p.bg }};color:{{ p.fg }};font:700 13px 'Figtree',sans-serif;cursor:pointer">{{ p.tick }}{{ p.label }}</button></sc-for></div></div>
+                    <div style="display:flex;align-items:center;gap:12px"><div style="flex:1;display:flex;flex-direction:column"><span style="font-size:14px;font-weight:700">Ask me before each switch</span><span style="font-size:12.5px;color:#5A6B80">We’ll email our pick first. Say no and you stay put.</span></div><button onClick="{{ spAsk.flip }}" style="position:relative;width:44px;height:26px;flex:none;border:0;border-radius:13px;background:{{ spAsk.track }};cursor:pointer"><span style="position:absolute;top:3px;left:{{ spAsk.knob }};width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s"></span></button></div>
+                    <div style="display:flex;flex-wrap:wrap;gap:12px"><div style="flex:1 1 220px;display:flex;flex-direction:column;gap:6px"><span style="font-size:14px;font-weight:700">Card for the £24 fee</span><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;background:#fff;display:flex;align-items:center;padding:0 14px;font-size:14.5px;color:#9AA7B8">Card number</div></div><div style="flex:0 1 120px;display:flex;flex-direction:column;gap:6px"><span style="font-size:14px;font-weight:700">Expiry</span><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;background:#fff;display:flex;align-items:center;padding:0 14px;font-size:14.5px;color:#9AA7B8">MM / YY</div></div></div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ spOncePick }}" hint-placeholder-val="{{ false }}"><div style="padding:14px 16px;border-radius:12px;background:#F4F5F8;font-size:13.5px;line-height:1.45;color:#3E5560">No problem. Create an account below and we’ll remind you in month 11. You can add Switch Plus from your account at any time.</div></sc-if>
+              </div>
+              <div style="background:#fff;border:1px solid #E6EAF0;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
+                <span style="font-size:18px;font-weight:800">Confirm</span>
+                <button onClick="{{ swAgreeToggle }}" style="display:flex;gap:12px;align-items:flex-start;text-align:left;background:none;border:0;padding:0;cursor:pointer;font-family:inherit;color:#0B2730"><span style="flex:none;width:24px;height:24px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ swAgreeBg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800">{{ swAgreeTick }}</span><span style="font-size:14px;line-height:1.45">I have read and accept the SSE Airtricity <a href="#8a" style="font-weight:700">Terms &amp; Conditions</a>.</span></button>
+                <button onClick="{{ swCoolToggle }}" style="display:flex;gap:12px;align-items:flex-start;text-align:left;background:none;border:0;padding:0;cursor:pointer;font-family:inherit;color:#0B2730"><span style="flex:none;width:24px;height:24px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ swCoolBg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800">{{ swCoolTick }}</span><span style="font-size:14px;line-height:1.45">I understand that if I change my mind I can cancel my switch up to 10 working days from my date of sign up.</span></button>
+                <sc-if value="{{ spPlusPick }}" hint-placeholder-val="{{ true }}"><button onClick="{{ spTermsToggle }}" style="display:flex;gap:12px;align-items:flex-start;text-align:left;background:none;border:0;padding:0;cursor:pointer;font-family:inherit;color:#0B2730"><span style="flex:none;width:24px;height:24px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ spTermsBg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800">{{ spTermsTick }}</span><span style="font-size:14px;line-height:1.45">I agree to the <a href="#11a" style="font-weight:700">Switch Plus terms</a> and to Power to Switch switching my electricity on my behalf each year. £24 a year, cancel any time.</span></button></sc-if>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px;padding:4px 4px 0"><a href="#11e" style="height:56px;border-radius:12px;background:{{ spCtaBg }};color:{{ spCtaFg }};font:800 17px 'Figtree',sans-serif;text-decoration:none;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 12px">{{ spCta }}</a></div>
+            </div>
+            <div style="flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:16px">
+              <div style="background:#fff;border:1px solid #E6EAF0;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px">
+                <div style="font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#7A8899">You're switching to</div>
+                <div style="display:flex;align-items:center;gap:10px"><div style="width:70px;height:34px;flex:none;display:flex;align-items:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div><div style="font-size:14.5px;font-weight:700;line-height:1.3">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div></div>
+                <div style="padding:12px 14px;border-radius:12px;background:#0B2730;color:#fff;display:flex;flex-direction:column;gap:2px"><div style="font-size:12.5px;color:#C9D3D8">You save in year one</div><div style="font-size:28px;font-weight:800;line-height:1.1;color:#E3E000">£141.18</div></div>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:10px;border-top:1px solid #EEF1F5"><div style="display:flex;flex-direction:column"><span style="font-size:13.5px;font-weight:700">To pay today</span><span style="font-size:12px;color:#5A6B80">{{ spTodayNote }}</span></div><span style="font-size:20px;font-weight:800">{{ spToday }}</span></div>
+              </div>
+              <sc-if value="{{ spPlusPick }}" hint-placeholder-val="{{ true }}">
+                <div style="background:#0B2730;color:#fff;border-radius:14px;padding:20px 18px;display:flex;flex-direction:column;gap:14px">
+                  <div style="font-size:16px;font-weight:800">Your next two years</div>
+                  <sc-for list="{{ spTimeline2 }}" as="t" hint-placeholder-count="4"><div style="display:flex;gap:12px"><div style="flex:none;display:flex;flex-direction:column;align-items:center"><span style="width:12px;height:12px;box-sizing:border-box;border-radius:50%;background:{{ t.dot }};border:2px solid {{ t.ring }};margin-top:3px"></span><span style="flex:1;width:2px;background:#2A4650;opacity:{{ t.line }}"></span></div><div style="display:flex;flex-direction:column;gap:2px;padding-bottom:12px"><span style="font-size:12.5px;font-weight:800;color:#E3E000">{{ t.w }}</span><span style="font-size:13px;color:#E2E8EA;line-height:1.4">{{ t.d }}</span></div></div></sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="11e"><div class="dv-olabel"><a class="dv-oid" href="#11e">11e</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Confirmation with Switch Plus</div><div>The screen after 11d when Switch Plus was chosen. It confirms both the switch and the membership, then shows the two timelines side by side: this switch, and next year's.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames2 }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden">
+          <div style="background:#0B2730;color:#fff;padding:28px 24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px">
+            <span style="width:48px;height:48px;border-radius:50%;background:#E3E000;color:#0B2730;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span>
+            <div style="font-size:28px;font-weight:800;line-height:1.15">Your switch is on its way, and next year’s is sorted</div>
+            <div style="font-size:14.5px;color:#C9D3D8;line-height:1.45">We’ve sent your details to SSE Airtricity and started your Switch Plus membership. A copy is on its way to ciara.mcallister@email.com.</div>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:4px">
+              <div style="padding:10px 14px;border-radius:12px;background:#163843;display:flex;flex-direction:column"><span style="font-size:12px;color:#C9D3D8">Reference</span><span style="font-size:17px;font-weight:800;letter-spacing:.04em">PTS-48213</span></div>
+              <div style="padding:10px 14px;border-radius:12px;background:#163843;display:flex;flex-direction:column"><span style="font-size:12px;color:#C9D3D8">You save in year one</span><span style="font-size:17px;font-weight:800;color:#E3E000">£141.18</span></div>
+              <div style="padding:10px 14px;border-radius:12px;background:#163843;display:flex;flex-direction:column"><span style="font-size:12px;color:#C9D3D8">Switch Plus</span><span style="font-size:17px;font-weight:800">✓ On · £24 paid</span></div>
+            </div>
+          </div>
+          <div style="padding:22px 24px 24px;display:flex;flex-wrap:wrap;gap:20px">
+            <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px"><div style="font-size:17px;font-weight:800">This switch</div>
+              <sc-for list="{{ cfSteps }}" as="s" hint-placeholder-count="3"><div style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;width:26px;height:26px;border-radius:50%;background:#EEF1F5;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ s.n }}</span><div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:14.5px;font-weight:700">{{ s.t }}</div><div style="font-size:13.5px;color:#3E5560;line-height:1.45">{{ s.d }}</div></div></div></sc-for>
+            </div>
+            <div style="flex:1 1 280px;min-width:0;background:#F1E7F8;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px"><div style="font-size:17px;font-weight:800">Next year, with Switch Plus</div>
+              <sc-for list="{{ spTimeline2 }}" as="t" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:2px;padding-top:8px;border-top:1px solid #E1D2EC"><span style="font-size:12.5px;font-weight:800;color:#5B2F7A">{{ t.w }}</span><span style="font-size:13.5px;line-height:1.4">{{ t.d }}</span></div></sc-for>
+              <a href="#11c" style="font-size:13.5px;font-weight:700;color:#5B2F7A">Manage Switch Plus in your account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="11f"><div class="dv-olabel"><a class="dv-oid" href="#11f">11f</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Confirmation, Switch Plus offered</div><div>The screen after 11d when the customer chose "Just this switch". The switch is confirmed first. Below it, Switch Plus is offered once more, using this customer's own numbers: the month-13 price, what it costs if they forget, and what they'd keep after the fee. One button adds it; a quiet link turns it down.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames2 }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden">
+          <div style="background:#0B2730;color:#fff;padding:28px 24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px">
+            <span style="width:48px;height:48px;border-radius:50%;background:#E3E000;color:#0B2730;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span>
+            <div style="font-size:28px;font-weight:800;line-height:1.15">Your switch is on its way</div>
+            <div style="font-size:14.5px;color:#C9D3D8;line-height:1.45">We’ve sent your details to SSE Airtricity and emailed a copy to ciara.mcallister@email.com.</div>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:4px">
+              <div style="padding:10px 14px;border-radius:12px;background:#163843;display:flex;flex-direction:column"><span style="font-size:12px;color:#C9D3D8">Reference</span><span style="font-size:17px;font-weight:800;letter-spacing:.04em">PTS-48213</span></div>
+              <div style="padding:10px 14px;border-radius:12px;background:#163843;display:flex;flex-direction:column"><span style="font-size:12px;color:#C9D3D8">You save in year one</span><span style="font-size:17px;font-weight:800;color:#E3E000">£141.18</span></div>
+            </div>
+          </div>
+          <div style="padding:22px 24px 24px;display:flex;flex-direction:column;gap:20px">
+            <div style="display:flex;flex-direction:column;gap:12px"><div style="font-size:17px;font-weight:800">Next steps</div>
+              <sc-for list="{{ cfSteps }}" as="s" hint-placeholder-count="3"><div style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;width:26px;height:26px;border-radius:50%;background:#EEF1F5;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ s.n }}</span><div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:14.5px;font-weight:700">{{ s.t }}</div><div style="font-size:13.5px;color:#3E5560;line-height:1.45">{{ s.d }}</div></div></div></sc-for>
+            </div>
+            <div style="border-radius:18px;background:#F1E7F8;border:1.5px solid #C9A3E0;padding:22px;display:flex;flex-direction:column;gap:16px">
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="align-self:flex-start;font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:999px;background:#5B2F7A;color:#fff">Switch Plus</span><span style="font-size:22px;font-weight:800;line-height:1.2">Your saving ends in month 13. Keep it going.</span><span style="font-size:14px;color:#3E5560;line-height:1.45">Most people mean to switch again, then miss the date. For £24 a year we’ll do it for you, every year.</span></div>
+              <div style="display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:14px;background:#fff">
+                <div style="display:flex;flex-direction:column;gap:5px"><div style="display:flex;justify-content:space-between;gap:10px;font-size:13px"><span style="color:#3E5560">Months 1 to 12, this tariff</span><strong>£97.36/mo</strong></div><div style="height:10px;border-radius:5px;background:#EEF1F5"><div style="height:100%;width:72%;border-radius:5px;background:#C9A3E0"></div></div></div>
+                <div style="display:flex;flex-direction:column;gap:5px"><div style="display:flex;justify-content:space-between;gap:10px;font-size:13px"><span style="color:#3E5560">Month 13 on, if you forget</span><strong style="color:#B5500F">£108.78/mo</strong></div><div style="height:10px;border-radius:5px;background:#EEF1F5"><div style="height:100%;width:80%;border-radius:5px;background:#F2B45A"></div></div></div>
+                <div style="display:flex;flex-direction:column;gap:5px"><div style="display:flex;justify-content:space-between;gap:10px;font-size:13px"><span style="color:#3E5560">Month 13 on, with Switch Plus</span><strong>about £97/mo</strong></div><div style="height:10px;border-radius:5px;background:#EEF1F5"><div style="height:100%;width:72%;border-radius:5px;background:#0B2730"></div></div></div>
+                <div style="font-size:13.5px;line-height:1.45;padding-top:4px"><strong>About £113 a year better off after the fee</strong>, at today’s prices.</div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px">
+                <div style="display:flex;flex-direction:column;gap:2px;font-size:13px;line-height:1.4"><strong style="font-size:14px">No dates to remember</strong><span style="color:#3E5560">We watch your contract and act before it ends.</span></div>
+                <div style="display:flex;flex-direction:column;gap:2px;font-size:13px;line-height:1.4"><strong style="font-size:14px">No forms next time</strong><span style="color:#3E5560">Your details from today are used again.</span></div>
+                <div style="display:flex;flex-direction:column;gap:2px;font-size:13px;line-height:1.4"><strong style="font-size:14px">You stay in charge</strong><span style="color:#3E5560">We tell you our pick first. Say no any time.</span></div>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px"><a href="#11e" style="height:52px;padding:0 22px;border-radius:12px;background:#0B2730;color:#fff;font-size:15.5px;font-weight:800;text-decoration:none;display:flex;align-items:center">Add Switch Plus for £24 a year</a><a href="#" style="font-size:13.5px;font-weight:600;color:#5A6B80">No thanks</a></div>
+              <div style="font-size:12px;color:#5A6B80">Cancel any time. You can also add it later from your account.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+</div>
 </main></x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;switchRoute&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Switch online&quot;,&quot;Supplier site&quot;,&quot;By phone&quot;],&quot;default&quot;:&quot;Switch online&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;cashbackInSaving&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;result&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Saves money&quot;,&quot;Costs more&quot;],&quot;default&quot;:&quot;Saves money&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;switchPayment&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Keypad&quot;,&quot;Direct Debit&quot;],&quot;default&quot;:&quot;Keypad&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;accountState&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Switched customer&quot;,&quot;New account&quot;],&quot;default&quot;:&quot;Switched customer&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;switchRoute&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Switch online&quot;,&quot;Supplier site&quot;,&quot;By phone&quot;],&quot;default&quot;:&quot;Switch online&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;cashbackInSaving&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;result&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Saves money&quot;,&quot;Costs more&quot;],&quot;default&quot;:&quot;Saves money&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;switchPayment&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Keypad&quot;,&quot;Direct Debit&quot;],&quot;default&quot;:&quot;Keypad&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;accountState&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Switched customer&quot;,&quot;New account&quot;],&quot;default&quot;:&quot;Switched customer&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;switchPlus&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Not a member&quot;,&quot;Member&quot;],&quot;default&quot;:&quot;Not a member&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   state = { open: 0 };
   renderVals() {
@@ -2981,7 +3608,8 @@ class Component extends DCLogic {
     const acNew = (this.props.accountState ?? 'Switched customer') === 'New account';
     const acPage = this.state.acPage ?? 'dash';
     const acIds = { dash: '10a', bills: '10b', comps: '10c', sw: '10d', price: '10e', profile: '10f', settings: '10g' };
-    const acGo = k => () => { window.location.hash = '#' + acIds[k]; };
+    const acGo = k => () => { window.location.hash = '#' + (k === 'plus' ? '11c' : acIds[k]); };
+    const spMember = (this.props.switchPlus ?? 'Not a member') === 'Member' || !!this.state.spJoined;
     const acNav = [['dash', 'Dashboard', ''], ['bills', 'My bills', acNew ? '' : '2'], ['comps', 'My comparisons', acNew ? '' : '3'], ['sw', 'My switches', ''], ['price', 'Price tracker', ''], ['profile', 'Profile', acNew ? '25%' : ''], ['settings', 'Settings', '']]
       .map(([k, label, badge]) => ({ label, badge, hasBadge: !!badge, bg: acPage === k ? '#E3E000' : 'transparent', fg: acPage === k ? '#0B2730' : '#E2E8EA', w: acPage === k ? 800 : 600, pillBg: acPage === k ? '#0B2730' : '#fff', pillFg: acPage === k ? '#fff' : '#0B2730', pillBorder: acPage === k ? '1.5px solid #0B2730' : '1.5px solid #D9DFE8', badgeBg: acPage === k ? '#0B2730' : '#2A4650', badgeFg: acPage === k ? '#E3E000' : '#fff', go: acGo(k) }));
     const acTitles = { dash: ['Hi Mark', 'Last login 28 Sep 2026, 09:51'], bills: ['My bills', 'Store your bills so every comparison fills itself in.'], comps: ['My comparisons', 'Every comparison you’ve run, with the prices from that day.'], sw: ['My switches', 'Track a switch from sign-up to your first bill.'], price: ['Price tracker', 'How your rate compares with the cheapest keypad tariff, month by month.'], profile: ['Profile', 'Your details, address and meter. Used to fill in switch forms.'], settings: ['Settings', 'Notifications, privacy and security.'] };
@@ -3001,12 +3629,33 @@ class Component extends DCLogic {
       profile: ['Profile', 'Four cards: about you, property, meter and priority services. Each says how many details are missing, so a new account knows what to add before switching.'],
       settings: ['Settings', 'A switch for each type of notification and for marketing, then password and delete account.']
     };
-    const acNavFor = pk => [['dash', 'Dashboard', ''], ['bills', 'My bills', acNew ? '' : '2'], ['comps', 'My comparisons', acNew ? '' : '3'], ['sw', 'My switches', ''], ['price', 'Price tracker', acNew ? '' : '+' + gbp(cum[5])], ['profile', 'Profile', acNew ? '25%' : ''], ['settings', 'Settings', '']]
+    const acNavFor = pk => [['dash', 'Dashboard', ''], ['bills', 'My bills', acNew ? '' : '2'], ['comps', 'My comparisons', acNew ? '' : '3'], ['sw', 'My switches', ''], ['price', 'Price tracker', acNew ? '' : '+' + gbp(cum[5])], ['plus', 'Switch Plus', spMember ? 'On' : 'New'], ['profile', 'Profile', acNew ? '25%' : ''], ['settings', 'Settings', '']]
       .map(([k, label, badge]) => { const save = k === 'price'; return { label, badge, hasBadge: !!badge, bg: pk === k ? '#E3E000' : 'transparent', fg: pk === k ? '#0B2730' : '#E2E8EA', w: pk === k ? 800 : 600, pillBg: pk === k ? '#0B2730' : '#fff', pillFg: pk === k ? '#fff' : '#0B2730', pillBorder: pk === k ? '1.5px solid #0B2730' : '1.5px solid #D9DFE8', badgeBg: save ? (pk === k ? '#0B2730' : '#E3E000') : pk === k ? '#0B2730' : '#2A4650', badgeFg: save ? (pk === k ? '#E3E000' : '#0B2730') : pk === k ? '#E3E000' : '#fff', go: acGo(k) }; });
     const acPages = Object.keys(acIds).map(pk => { const is = {}; Object.keys(acIds).forEach(k => { is[k] = k === pk; });
       return { id: acIds[pk], href: '#' + acIds[pk], name: acNotes[pk][0], note: acNotes[pk][1], title: acTitles[pk][0], sub: acTitles[pk][1], nav: acNavFor(pk), is }; });
     const acVals = {
-      acPages,
+      acPlusPages: [['dash', '11b', 'Dashboard with Switch Plus', 'The 10a dashboard with Switch Plus added. Non-members see a prompt tied to their own discount ending. Members see that the next switch is handled. Switch Plus also joins the sidebar on every account page.'], ['plus', '11c', 'Switch Plus page', 'What Switch Plus is and how it works, inside the account. Non-members get the explanation, what it saves at month 13 and a join button (try it). Members get their next automatic switch, their preferences and their membership.']]
+        .map(([pk, id, name, note]) => { const is = {}; ['dash', 'bills', 'comps', 'sw', 'price', 'profile', 'settings', 'plus'].forEach(k => { is[k] = k === pk; }); return { id, href: '#' + id, name, note, title: pk === 'plus' ? 'Switch Plus' : acTitles.dash[0], sub: pk === 'plus' ? 'We switch you to the cheapest tariff every year.' : acTitles.dash[1], nav: acNavFor(pk), is }; }),
+      ...(() => { const pk = this.state.spPick ?? 'plus', plus = pk === 'plus', tm = !!this.state.spTerms, ok = !!this.state.swAgree && !!this.state.swCool && (!plus || tm);
+        return { spPlusPick: plus, spOncePick: !plus,
+          spPickTiles: [['plus', 'Switch Plus', 'Recommended', 'We move you to the cheapest tariff before this discount ends, and every year after.', '£24 a year'], ['once', 'Just this switch', '', 'You’ll need to compare and switch again yourself before month 13.', 'Free']].map(([k, t, tag, d, price]) => { const on = pk === k; return { t, tag, hasTag: !!tag, d, price, border: on ? '2px solid #0B2730' : '1.5px solid #D9DFE8', bg: on ? '#FBFAE6' : '#fff', dot: on ? '6px solid #0B2730' : '2px solid #C4CCD8', pick: () => this.setState({ spPick: k }) }; }),
+          spTermsBg: tm ? '#0B2730' : '#fff', spTermsTick: tm ? '✓' : '', spTermsToggle: () => this.setState(s => ({ spTerms: !s.spTerms })),
+          spToday: plus ? '£24.00' : '£0.00', spTodayNote: plus ? 'Switch Plus, first year' : 'Nothing to pay today',
+          spCta: ok ? (plus ? 'Complete switch and join Switch Plus →' : 'Complete switch →') : (plus ? 'Tick the three boxes to continue' : 'Tick both boxes to continue'),
+          spCtaBg: ok ? '#C9A3E0' : '#E6EAF0', spCtaFg: ok ? '#0B2730' : '#7A8899' }; })(),
+      spMember, spNot: !spMember, spJoin: () => this.setState({ spJoined: true }), spLeave: e => { e.preventDefault(); this.setState({ spJoined: false }); },
+      spSteps: [['Tell us once', 'Your details, meter and what matters to you. Most of it is already in your account.'], ['We watch prices', 'All year, across every NI supplier we compare.'], ['We pick the cheapest', 'Before your deal ends, we find the cheapest tariff that fits your preferences and tell you what we’ve picked.'], ['We switch you', 'No forms. We handle the switch, then do it all again next year.']].map(([t, d], i) => ({ n: String(i + 1), t, d })),
+      spPrefs: [['No exit fee', true], ['Fixed price only', false], ['Green energy only', false], ['NI-based supplier', false]].map(([label, def]) => { const key = 'spP_' + label; const on = this.state[key] ?? def; return { label, bg: on ? '#0B2730' : '#fff', fg: on ? '#fff' : '#0B2730', border: on ? '1.5px solid #0B2730' : '1.5px solid #C4CCD8', tick: on ? '✓ ' : '', pick: () => this.setState(s => ({ [key]: !(s[key] ?? def) })) }; }),
+      spAsk: acTog('spAsk', true),
+      spFaq: [['Do I have to accept every switch?', 'No. We tell you what we’ve picked before we switch. Say no and you stay where you are.'], ['What if I’m in a contract with an exit fee?', 'We only switch you when your deal is ending, so you don’t pay to leave.'], ['Can I cancel?', 'Yes, any time from your account. Your current tariff isn’t affected.'], ['What does it cost?', '£24 a year, taken when you join and each year after.']].map(([q, a]) => ({ q, a })),
+      spTimeline: [['Now · month 6', 'Switch Plus is on. Nothing to do.', 'done'], ['Sep 2027 · month 11', 'We compare every keypad tariff against your preferences.', 'next'], ['Early Oct 2027', 'We email you our pick. You can say no.', 'todo'], ['Oct 2027 · month 13', 'Your new tariff starts before the standard rate kicks in.', 'todo']].map(([w, d, s], i, a) => ({ w, d, dot: s === 'done' ? '#E3E000' : s === 'next' ? '#fff' : 'transparent', ring: s === 'todo' ? '#4A6570' : '#E3E000', line: i === a.length - 1 ? 0 : 1 })),
+      spTimeline2: [['Today', 'You switch to SSE Airtricity and join Switch Plus.', 'done'], ['Month 11 · Sep 2027', 'We compare every keypad tariff against your preferences.', 'next'], ['Early Oct 2027', 'We email you our pick. You can say no.', 'todo'], ['Month 13 · Oct 2027', 'Your next tariff starts before the standard rate kicks in.', 'todo']].map(([w, d, s], i, a) => ({ w, d, dot: s === 'done' ? '#E3E000' : s === 'next' ? '#fff' : 'transparent', ring: s === 'todo' ? '#4A6570' : '#E3E000', line: i === a.length - 1 ? 0 : 1 })),
+      spFrames: [{ label: 'Desktop · 1240', w: '1240px', pad: '64px 56px' }, { label: 'Mobile · 375', w: '375px', pad: '36px 20px' }],
+      acPages, acLife: gbp(176.90 + cum[5]),
+      acPast: [
+        ['Budget Energy', 'Q1 Fixed Keypad', 'Mar 2025 – Mar 2026', 'Power NI', 'PTS-31877', '£104.60', 'Contract ended', 'Fixed rate ended in March. Replaced by your current switch.'],
+        ['Power NI', 'Keypad Saver 8%', 'Jan 2024 – Jan 2025', 'SSE Airtricity', 'PTS-22410', '£72.30', 'Expired', 'Discount ended after 12 months. You switched again in March 2025.']
+      ].map(([sup, name, dates, from, ref, saved, status, note]) => ({ sup, name, dates, from, ref, saved, status, note })),
       acAreaA: area(acPA), acLineA: line(acPA), acLineB: line(acPB), acAreaB: area(acPB), acLineC: line(acPC), acAreaC: area(acPC),
       acDotTop: Yv(cum[5]) + '%', acSoFar: gbp(cum[5]), acYear: gbp(cum[11]),
       acHits: cum.map((v, i) => ({ enter: () => this.setState({ acHm: i + 1 }), bg: acHm === i + 1 ? 'rgba(255,255,255,.07)' : 'transparent' })),
