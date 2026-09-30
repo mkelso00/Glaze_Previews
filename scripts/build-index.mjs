@@ -219,9 +219,6 @@ function renderCard(p) {
         <div class="card-body">
           <h2 class="card-title">${escapeHtml(p.title)}</h2>
         </div>
-        <div class="card-meta">
-          <span class="view">View &rarr;</span>
-        </div>
       </a>`;
 }
 
@@ -315,20 +312,13 @@ function renderPage(previews) {
       transform-origin: top left;
       background: #fff;
     }
-    .card-body { padding: 14px 16px 4px; }
+    .card-body { padding: 13px 16px 15px; }
     .card-title {
       font-size: 15px;
       margin: 0;
       font-weight: 600;
       line-height: 1.3;
       overflow-wrap: anywhere;
-    }
-    .card-meta {
-      display: flex;
-      align-items: center;
-      padding: 6px 16px 14px;
-      font-size: 13px;
-      color: var(--muted);
     }
     .view { margin-left: auto; color: var(--accent); font-weight: 600; }
     .empty {

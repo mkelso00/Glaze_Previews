@@ -32,6 +32,7 @@ try {
 const LOGO_SRC = ["brand/glaze-logo.svg", "brand/glaze-logo.png"].find((p) =>
   existsSync(join(ROOT, p))
 );
+const YEAR = new Date().getFullYear();
 
 function escapeHtml(s) {
   return String(s)
@@ -73,8 +74,7 @@ function bannerWrapper(project) {
   .gz-logo { height: 20px; width: auto; display: block; }
   .gz-word { font-size: 15px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #6ea8fe; }
   .gz-title { color: #9aa3b2; font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .gz-note { color: #c7ccd6; font-size: 12px; font-weight: 600; letter-spacing: .01em; white-space: nowrap; }
-  .gz-note .dot { color: #6ea8fe; margin: 0 6px; }
+  .gz-note { color: #9aa3b2; font-size: 12px; font-weight: 400; letter-spacing: .01em; white-space: nowrap; }
   .gz-frame { position: fixed; top: 40px; left: 0; width: 100%; height: calc(100% - 40px); border: 0; background: #fff; }
   @media (max-width: 640px) { .gz-title { display: none; } .gz-note { font-size: 11px; } }
 </style>
@@ -85,7 +85,7 @@ function bannerWrapper(project) {
       ${logo}
       <span class="gz-title">${escapeHtml(project.title)}</span>
     </div>
-    <div class="gz-note">Copyright &amp; Confidential<span class="dot">•</span>Glaze Digital</div>
+    <div class="gz-note">© ${YEAR} Glaze Digital — confidential; not for distribution or reproduction.</div>
   </div>
   <iframe class="gz-frame" src="${escapeHtml(rawUrl(project.primary))}"></iframe>
 </body>
