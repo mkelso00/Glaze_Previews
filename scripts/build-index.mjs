@@ -1,19 +1,20 @@
 #!/usr/bin/env node
-// Generates index.html — the gallery of client previews.
-// Runs at server start (see package.json) and can be run locally:
-//   node scripts/build-index.mjs
+// Generates index.html (the gallery) and previews.json (the slug manifest the
+// server uses for clean URLs). Runs at server start (see package.json) and can
+// be run locally:  node scripts/build-index.mjs
 //
 // One card per PROJECT: each top-level .html file, and each top-level folder
-// that contains HTML (linked to that folder's primary page). Variant/working
-// files inside a folder (print or source versions, alternate .dc.html cuts,
-// uploads/assets) are not listed separately.
+// that contains HTML (linked to that folder's primary page). Each project gets
+// a clean slug, served by server.js at /<slug>/ .
 
 import { readdir, stat, readFile, writeFile } from "node:fs/promises";
+import { readFileSync, existsSync } from "node:fs";
 import { join, relative, sep, basename } from "node:path";
 import { execSync } from "node:child_process";
 
 const ROOT = process.cwd();
 const OUTPUT = "index.html";
+const MANIFEST = "previews.json";
 // Directories that never hold a listable preview on their own.
 const IGNORE_DIRS = new Set([
   ".git",
@@ -27,8 +28,8 @@ const IGNORE_DIRS = new Set([
 ]);
 
 // Per-project display overrides. Key = the project's path (a root-level .html
-// file, or a top-level folder name). Example:
-//   "highbury-vintners": { title: "Highbury Vintners", description: "..." }
+// file, or a top-level folder name). Set an exact title and/or slug here:
+//   "chamber13-pdp": { title: "Chamber 13 — PDP", slug: "chamber-13" }
 const META_OVERRIDES = {};
 
 // ---- naming --------------------------------------------------------------
@@ -50,13 +51,17 @@ function cleanBase(name) {
 
 // Turn a folder or file name into a clean, consistent display title.
 function prettify(rawName) {
-  const tokens = cleanBase(rawName).split(/[-_\s]+/).filter(Boolean);
+  let tokens = cleanBase(rawName).split(/[-_\s]+/).filter(Boolean);
   while (
     tokens.length > 1 &&
     NOISE_WORDS.has(tokens[tokens.length - 1].toLowerCase())
   ) {
     tokens.pop();
   }
+  // Split letter+digit runs so "chamber13" reads as "Chamber 13".
+  tokens = tokens.flatMap((t) =>
+    /^[A-Za-z]+\d+$/.test(t) ? t.match(/[A-Za-z]+|\d+/g) : [t]
+  );
   return tokens
     .map((t, i) => {
       const upper = t.toUpperCase();
@@ -69,6 +74,15 @@ function prettify(rawName) {
       return lower.charAt(0).toUpperCase() + lower.slice(1);
     })
     .join(" ");
+}
+
+function slugify(s) {
+  return s
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 // ---- project discovery ---------------------------------------------------
@@ -130,39 +144,16 @@ async function collectProjects() {
     if (e.isFile()) {
       if (!e.name.toLowerCase().endsWith(".html")) continue;
       if (e.name === OUTPUT) continue;
-      projects.push({ key: e.name, primary: full });
+      projects.push({ key: e.name, primary: full, isFolder: false, base: "" });
     } else if (e.isDirectory()) {
       const primary = await pickPrimary(full);
-      if (primary) projects.push({ key: e.name, primary });
+      if (primary) projects.push({ key: e.name, primary, isFolder: true, base: e.name });
     }
   }
   return projects;
 }
 
 // ---- metadata ------------------------------------------------------------
-
-function gitDate(relPath) {
-  try {
-    const ts = execSync(`git log -1 --format=%cI -- "${relPath}"`, {
-      cwd: ROOT,
-      stdio: ["ignore", "pipe", "ignore"],
-    })
-      .toString()
-      .trim();
-    if (ts) return new Date(ts);
-  } catch {
-    /* not a git repo or file untracked — fall back to mtime */
-  }
-  return null;
-}
-
-function formatDate(d) {
-  return d.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-}
 
 function escapeHtml(s) {
   return String(s)
@@ -172,50 +163,63 @@ function escapeHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
-// Encode each path segment so spaces/specials in folder names make a valid URL.
-function hrefFor(absPath) {
-  return relative(ROOT, absPath).split(sep).map(encodeURIComponent).join("/");
+async function readDescription(project) {
+  const override = META_OVERRIDES[project.key] || {};
+  if (override.description) return override.description;
+  const fh = await readFile(project.primary, { encoding: "utf8", flag: "r" }).catch(
+    () => ""
+  );
+  const m = fh
+    .slice(0, 4000)
+    .match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i);
+  return m ? m[1] : "";
 }
 
-async function describe(project) {
-  const override = META_OVERRIDES[project.key] || {};
-  const relPrimary = relative(ROOT, project.primary).split(sep).join("/");
-  const st = await stat(project.primary);
-  const date = gitDate(relPrimary) || st.mtime;
-
-  let description = override.description || "";
-  if (!description) {
-    const fh = await readFile(project.primary, { encoding: "utf8", flag: "r" }).catch(
-      () => ""
-    );
-    const m = fh
-      .slice(0, 4000)
-      .match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i);
-    if (m) description = m[1];
+// When the project (folder or root file) was first committed — its upload time.
+// Requires git history; empty when unavailable (e.g. runtime container).
+function gitAddedDate(project) {
+  const target = project.isFolder ? project.base : project.key;
+  try {
+    const out = execSync(
+      `git log --diff-filter=A --format=%cI -- "${target}"`,
+      { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }
+    )
+      .toString()
+      .trim()
+      .split("\n")
+      .filter(Boolean);
+    if (out.length) return out[out.length - 1]; // earliest add
+  } catch {
+    /* no git history available */
   }
+  return "";
+}
 
-  return {
-    href: hrefFor(project.primary),
-    title: override.title || prettify(project.key),
-    description,
-    date,
-    dateLabel: formatDate(date),
-  };
+// Previous manifest, so committed upload dates survive runtime rebuilds where
+// git history is absent (keyed by primary path, which is stable).
+function previousDates() {
+  const map = new Map();
+  try {
+    const prev = JSON.parse(readFileSync(join(ROOT, MANIFEST), "utf8"));
+    for (const p of prev) if (p.primary && p.added) map.set(p.primary, p.added);
+  } catch {
+    /* no previous manifest */
+  }
+  return map;
 }
 
 // ---- render --------------------------------------------------------------
 
 function renderCard(p) {
-  const desc = p.description
-    ? `<p class="card-desc">${escapeHtml(p.description)}</p>`
-    : "";
-  return `      <a class="card" href="${escapeHtml(p.href)}">
+  const thumb = p.thumb
+    ? `<img class="shot" src="${escapeHtml(p.thumb)}" alt="" loading="lazy" />`
+    : `<iframe class="shot live" src="/${escapeHtml(p.slug)}/" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>`;
+  return `      <a class="card" href="/${escapeHtml(p.slug)}/">
+        <div class="thumb">${thumb}</div>
         <div class="card-body">
           <h2 class="card-title">${escapeHtml(p.title)}</h2>
-          ${desc}
         </div>
         <div class="card-meta">
-          <span>${escapeHtml(p.dateLabel)}</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>`;
@@ -269,22 +273,19 @@ function renderPage(previews) {
     .sub { color: var(--muted); margin: 0; font-size: 15px; }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
       margin-top: 8px;
     }
     .card {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 14px;
-      min-height: 118px;
       text-decoration: none;
       color: inherit;
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 18px 20px;
+      overflow: hidden;
       transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
     }
     .card:hover {
@@ -292,26 +293,40 @@ function renderPage(previews) {
       border-color: #34506e;
       transform: translateY(-1px);
     }
+    .thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #0b0d11;
+      border-bottom: 1px solid var(--border);
+    }
+    .shot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 0;
+      pointer-events: none;
+    }
+    img.shot { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    iframe.shot.live {
+      width: 1280px;
+      height: 800px;
+      transform-origin: top left;
+      background: #fff;
+    }
+    .card-body { padding: 14px 16px 4px; }
     .card-title {
-      font-size: 16px;
+      font-size: 15px;
       margin: 0;
       font-weight: 600;
       line-height: 1.3;
       overflow-wrap: anywhere;
     }
-    .card-desc {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 13.5px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
     .card-meta {
       display: flex;
       align-items: center;
-      gap: 10px;
+      padding: 6px 16px 14px;
       font-size: 13px;
       color: var(--muted);
     }
@@ -342,6 +357,18 @@ ${count ? cards : empty}
       Updated automatically on each push.
     </footer>
   </div>
+  <script>
+    // Scale each live-iframe thumbnail to its card width (1280px design width).
+    function fitThumbs() {
+      document.querySelectorAll("iframe.shot.live").forEach(function (f) {
+        var w = f.parentElement.clientWidth;
+        f.style.transform = "scale(" + w / 1280 + ")";
+      });
+    }
+    window.addEventListener("resize", fitThumbs);
+    window.addEventListener("load", fitThumbs);
+    fitThumbs();
+  </script>
 </body>
 </html>
 `;
@@ -349,14 +376,73 @@ ${count ? cards : empty}
 
 async function main() {
   const projects = await collectProjects();
-  const previews = (await Promise.all(projects.map(describe))).sort(
-    (a, b) => b.date - a.date
-  );
+  const prevDates = previousDates();
+
+  const used = new Set();
+  const previews = [];
+  for (const project of projects) {
+    const override = META_OVERRIDES[project.key] || {};
+    const title = override.title || prettify(project.key);
+    let slug = slugify(override.slug || title) || "preview";
+    if (used.has(slug)) {
+      let n = 2;
+      while (used.has(`${slug}-${n}`)) n++;
+      slug = `${slug}-${n}`;
+    }
+    used.add(slug);
+
+    const primary = relative(ROOT, project.primary).split(sep).join("/");
+    const added =
+      gitAddedDate(project) ||
+      prevDates.get(primary) ||
+      (await stat(project.primary)).mtime.toISOString();
+    const thumbPath = `thumbnails/${slug}.jpg`;
+    const thumb = existsSync(join(ROOT, thumbPath)) ? thumbPath : null;
+
+    previews.push({
+      slug,
+      title,
+      description: await readDescription(project),
+      primary,
+      base: project.base,
+      isFolder: project.isFolder,
+      added,
+      thumb,
+    });
+  }
+
+  // Latest uploaded first.
+  previews.sort((a, b) => (a.added < b.added ? 1 : a.added > b.added ? -1 : 0));
+
   await writeFile(join(ROOT, OUTPUT), renderPage(previews), "utf8");
+  await writeFile(
+    join(ROOT, MANIFEST),
+    JSON.stringify(
+      previews.map(({ slug, title, primary, base, isFolder, added, thumb }) => ({
+        slug,
+        title,
+        primary,
+        base,
+        isFolder,
+        added,
+        thumb,
+      })),
+      null,
+      2
+    ) + "\n",
+    "utf8"
+  );
+
   console.log(
-    `Generated ${OUTPUT} with ${previews.length} preview(s):` +
+    `Generated ${OUTPUT} + ${MANIFEST} with ${previews.length} preview(s):` +
       (previews.length
-        ? "\n  - " + previews.map((p) => `${p.title}  ->  ${p.href}`).join("\n  - ")
+        ? "\n  - " +
+          previews
+            .map(
+              (p) =>
+                `/${p.slug}/  (${p.added.slice(0, 10)}, ${p.thumb ? "shot" : "live"})`
+            )
+            .join("\n  - ")
         : " (none)")
   );
 }

@@ -38,22 +38,19 @@
     .sub { color: var(--muted); margin: 0; font-size: 15px; }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
       margin-top: 8px;
     }
     .card {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 14px;
-      min-height: 118px;
       text-decoration: none;
       color: inherit;
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 18px 20px;
+      overflow: hidden;
       transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
     }
     .card:hover {
@@ -61,26 +58,40 @@
       border-color: #34506e;
       transform: translateY(-1px);
     }
+    .thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #0b0d11;
+      border-bottom: 1px solid var(--border);
+    }
+    .shot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 0;
+      pointer-events: none;
+    }
+    img.shot { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    iframe.shot.live {
+      width: 1280px;
+      height: 800px;
+      transform-origin: top left;
+      background: #fff;
+    }
+    .card-body { padding: 14px 16px 4px; }
     .card-title {
-      font-size: 16px;
+      font-size: 15px;
       margin: 0;
       font-weight: 600;
       line-height: 1.3;
       overflow-wrap: anywhere;
     }
-    .card-desc {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 13.5px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
     .card-meta {
       display: flex;
       align-items: center;
-      gap: 10px;
+      padding: 6px 16px 14px;
       font-size: 13px;
       color: var(--muted);
     }
@@ -102,176 +113,177 @@
     <header>
       <p class="brand">Glaze Digital</p>
       <h1>Client Previews</h1>
-      <p class="sub">17 previews</p>
+      <p class="sub">19 previews</p>
     </header>
     <main class="grid">
-      <a class="card" href="Power%20to%20Switch%20-%20Full%20Redesign/index.html">
+      <a class="card" href="/power-to-switch-new-visual-design/">
+        <div class="thumb"><img class="shot" src="thumbnails/power-to-switch-new-visual-design.jpg" alt="" loading="lazy" /></div>
+        <div class="card-body">
+          <h2 class="card-title">Power to Switch New Visual Design</h2>
+        </div>
+        <div class="card-meta">
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="/kombucha-lp/">
+        <div class="thumb"><img class="shot" src="thumbnails/kombucha-lp.jpg" alt="" loading="lazy" /></div>
+        <div class="card-body">
+          <h2 class="card-title">Kombucha Lp</h2>
+        </div>
+        <div class="card-meta">
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="/power-to-switch-full-redesign/">
+        <div class="thumb"><iframe class="shot live" src="/power-to-switch-full-redesign/" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
         <div class="card-body">
           <h2 class="card-title">Power to Switch Full Redesign</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Sep 28, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="Power%20to%20Switch%20results%20redesign/Result%20Block%20Redesign.dc.html">
+      <a class="card" href="/power-to-switch-results-redesign/">
+        <div class="thumb"><img class="shot" src="thumbnails/power-to-switch-results-redesign.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">Power to Switch Results Redesign</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Sep 23, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="equi-landing-page/WildWash%20Birthday%20Club.html">
-        <div class="card-body">
-          <h2 class="card-title">Equi Landing Page</h2>
-          
-        </div>
-        <div class="card-meta">
-          <span>Sep 11, 2026</span>
-          <span class="view">View &rarr;</span>
-        </div>
-      </a>
-      <a class="card" href="Skingredients-Christmas-Landing-Page/index.html">
+      <a class="card" href="/skingredients-christmas-landing-page/">
+        <div class="thumb"><img class="shot" src="thumbnails/skingredients-christmas-landing-page.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">Skingredients Christmas Landing Page</h2>
-          <p class="card-desc">Explore all six Skingredients Christmas gift sets and find your skincare routine.</p>
         </div>
         <div class="card-meta">
-          <span>Sep 10, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="irelands-eye-passport/Irelands-Eye-Passport.dc.html">
+      <a class="card" href="/irelands-eye-passport/">
+        <div class="thumb"><img class="shot" src="thumbnails/irelands-eye-passport.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">Irelands Eye Passport</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Sep 8, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="blk-box-product-rail/Product%20Rail%20PDP.dc.html">
+      <a class="card" href="/equi-landing-page/">
+        <div class="thumb"><img class="shot" src="thumbnails/equi-landing-page.jpg" alt="" loading="lazy" /></div>
+        <div class="card-body">
+          <h2 class="card-title">Equi Landing Page</h2>
+        </div>
+        <div class="card-meta">
+          <span class="view">View &rarr;</span>
+        </div>
+      </a>
+      <a class="card" href="/blk-box-product-rail/">
+        <div class="thumb"><img class="shot" src="thumbnails/blk-box-product-rail.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">BLK BOX Product Rail</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Sep 4, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="house-of-joppa-audit/index.html">
+      <a class="card" href="/house-of-joppa-audit/">
+        <div class="thumb"><img class="shot" src="thumbnails/house-of-joppa-audit.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">House of Joppa Audit</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Aug 26, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="blk-box-updates/blk-box-Flooring-Home%20Gym.dc.html">
+      <a class="card" href="/blk-box-updates/">
+        <div class="thumb"><img class="shot" src="thumbnails/blk-box-updates.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">BLK BOX Updates</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Aug 24, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="chamber13-pdp/chamber13-pdp.dc.html">
+      <a class="card" href="/chamber-13-pdp/">
+        <div class="thumb"><img class="shot" src="thumbnails/chamber-13-pdp.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
-          <h2 class="card-title">Chamber13 PDP</h2>
-          
+          <h2 class="card-title">Chamber 13 PDP</h2>
         </div>
         <div class="card-meta">
-          <span>Aug 19, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="Drinkallabout%20-%20Long%20Description%20Options/Collection%20Description%20Options.dc.html">
+      <a class="card" href="/drinkallabout-long-description-options/">
+        <div class="thumb"><img class="shot" src="thumbnails/drinkallabout-long-description-options.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">Drinkallabout Long Description Options</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Aug 18, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="skin-nerd-calendar/Advent%20Calendar.dc.html">
+      <a class="card" href="/skin-nerd-calendar/">
+        <div class="thumb"><img class="shot" src="thumbnails/skin-nerd-calendar.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">Skin Nerd Calendar</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Jul 29, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="Dumbell-selection/DumbbellSelector.dc.html">
+      <a class="card" href="/dumbell-selection/">
+        <div class="thumb"><img class="shot" src="thumbnails/dumbell-selection.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">Dumbell Selection</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Jul 16, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="blog-product-integration/BLK%20BOX%20Blog%20Product%20Blocks.dc.html">
+      <a class="card" href="/blog-product-integration/">
+        <div class="thumb"><img class="shot" src="thumbnails/blog-product-integration.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">Blog Product Integration</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Jul 16, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="highbury-vintners/Highbury%20Vintners%20Theme.html">
+      <a class="card" href="/highbury-vintners/">
+        <div class="thumb"><img class="shot" src="thumbnails/highbury-vintners.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">Highbury Vintners</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Jul 16, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="drink-landing-page/Kombucha%20Landing%20Pages.dc.html">
+      <a class="card" href="/drink-landing-page/">
+        <div class="thumb"><img class="shot" src="thumbnails/drink-landing-page.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">Drink Landing Page</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Jul 15, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="BLK_BOX_Gym_Designer_Standalone_.html">
+      <a class="card" href="/blk-box-gym-designer/">
+        <div class="thumb"><img class="shot" src="thumbnails/blk-box-gym-designer.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">BLK BOX Gym Designer</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Jun 29, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
-      <a class="card" href="Backyard-movie-nights.html">
+      <a class="card" href="/backyard-movie-nights/">
+        <div class="thumb"><img class="shot" src="thumbnails/backyard-movie-nights.jpg" alt="" loading="lazy" /></div>
         <div class="card-body">
           <h2 class="card-title">Backyard Movie Nights</h2>
-          
         </div>
         <div class="card-meta">
-          <span>Jun 29, 2026</span>
           <span class="view">View &rarr;</span>
         </div>
       </a>
@@ -280,5 +292,17 @@
       Updated automatically on each push.
     </footer>
   </div>
+  <script>
+    // Scale each live-iframe thumbnail to its card width (1280px design width).
+    function fitThumbs() {
+      document.querySelectorAll("iframe.shot.live").forEach(function (f) {
+        var w = f.parentElement.clientWidth;
+        f.style.transform = "scale(" + w / 1280 + ")";
+      });
+    }
+    window.addEventListener("resize", fitThumbs);
+    window.addEventListener("load", fitThumbs);
+    fitThumbs();
+  </script>
 </body>
 </html>
