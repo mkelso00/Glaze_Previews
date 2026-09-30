@@ -1,12 +1,21 @@
 [
   {
-    "slug": "power-to-switch-new-visual-design",
-    "title": "Power to Switch New Visual Design",
-    "primary": "power-to-switch - New Visual Design/Result Block Redesign.dc.html",
-    "base": "power-to-switch - New Visual Design",
+    "slug": "p2s-design",
+    "title": "P2S Design",
+    "primary": "p2s-design/Result Block Redesign.dc.html",
+    "base": "p2s-design",
     "isFolder": true,
-    "added": "2026-09-30T11:56:23+02:00",
-    "thumb": "thumbnails/power-to-switch-new-visual-design.jpg"
+    "added": "2026-09-30T12:01:34+02:00",
+    "thumb": null
+  },
+  {
+    "slug": "blk-box-gym-designer",
+    "title": "BLK BOX Gym Designer",
+    "primary": "blk-box-gym-designer/BLK_BOX_Gym_Designer_Standalone_.html",
+    "base": "blk-box-gym-designer",
+    "isFolder": true,
+    "added": "2026-09-30T11:59:04+02:00",
+    "thumb": "thumbnails/blk-box-gym-designer.jpg"
   },
   {
     "slug": "kombucha-lp",
@@ -16,24 +25,6 @@
     "isFolder": true,
     "added": "2026-09-29T14:43:39+02:00",
     "thumb": "thumbnails/kombucha-lp.jpg"
-  },
-  {
-    "slug": "power-to-switch-full-redesign",
-    "title": "Power to Switch Full Redesign",
-    "primary": "Power to Switch - Full Redesign/index.html",
-    "base": "Power to Switch - Full Redesign",
-    "isFolder": true,
-    "added": "2026-09-28T14:04:35+02:00",
-    "thumb": null
-  },
-  {
-    "slug": "power-to-switch-results-redesign",
-    "title": "Power to Switch Results Redesign",
-    "primary": "Power to Switch results redesign/Result Block Redesign.dc.html",
-    "base": "Power to Switch results redesign",
-    "isFolder": true,
-    "added": "2026-09-23T14:17:20+02:00",
-    "thumb": "thumbnails/power-to-switch-results-redesign.jpg"
   },
   {
     "slug": "skingredients-christmas-landing-page",
@@ -151,23 +142,5 @@
     "isFolder": true,
     "added": "2026-07-15T20:02:00+02:00",
     "thumb": "thumbnails/drink-landing-page.jpg"
-  },
-  {
-    "slug": "blk-box-gym-designer",
-    "title": "BLK BOX Gym Designer",
-    "primary": "BLK_BOX_Gym_Designer_Standalone_.html",
-    "base": "",
-    "isFolder": false,
-    "added": "2026-06-29T15:34:06+02:00",
-    "thumb": "thumbnails/blk-box-gym-designer.jpg"
-  },
-  {
-    "slug": "backyard-movie-nights",
-    "title": "Backyard Movie Nights",
-    "primary": "Backyard-movie-nights.html",
-    "base": "",
-    "isFolder": false,
-    "added": "2026-06-29T08:59:03+02:00",
-    "thumb": "thumbnails/backyard-movie-nights.jpg"
   }
 ]
