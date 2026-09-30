@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;background:#EEF1F5;font-family:'Figtree',system-ui,sans-serif;color:#0B2730;-webkit-font-smoothing:antialiased}a{color:#0B2730}a:hover{color:#0B2730}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opt{flex:none;display:grid;grid-template-columns:260px max-content;gap:40px;align-items:start;padding:0 64px;border-left:1px solid #D9DFE8;scroll-margin-top:16px}.dv-opt:first-child{border-left:0;padding-left:0}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{position:sticky;top:24px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;font:400 14.5px/1.55 'Figtree',system-ui,sans-serif;color:#3E5560;text-wrap:pretty}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:32px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style></helmet>
+<main style="width:max-content;padding:48px 56px 80px;box-sizing:border-box">
+  <div style="display:flex;flex-direction:column;gap:6px;padding:0 0 40px">
+    <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Archive</div>
+    <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Archive</div>
+    <div style="font-size:15px;color:#3E5560;max-width:760px;line-height:1.5">Earlier switch form directions 8b to 8f, moved off the main page. 8a and its logged-in version 8g are on <a href="Result Block Options.dc.html#8a" style="font-weight:700">Result Block Options</a>. Use the "switchPayment" tweak to see the Direct Debit version.</div>
+  </div>
+<div style="display:flex;flex-direction:row;align-items:flex-start">
+<div class="dv-opt" id="8b"><div class="dv-olabel"><a class="dv-oid" href="#8b">8b</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Four short steps</div><div>The same fields split into four screens: about you, address, meter and payment, then a review. A slim bar at the top keeps the tariff and saving in view. The review screen lists every answer with an Edit link back to its step. Click Continue to step through.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames2 }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 20px;background:#0B2730;color:#fff"><div style="width:56px;height:28px;flex:none;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:center;padding:3px;box-sizing:border-box"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div><div style="flex:1;min-width:0;font-size:13px;font-weight:600;line-height:1.3;color:#C9D3D8">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div><div style="flex:none;font-size:15px;font-weight:800;color:{{ saveColorDark }}">Save {{ savingText }}</div></div>
+          <div style="padding:22px 24px 0;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;gap:6px"><sc-for list="{{ swSteps }}" as="s" hint-placeholder-count="4"><div style="flex:1 1 0;height:6px;border-radius:999px;background:{{ s.bar }}"></div></sc-for></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700"><span style="color:#5B2F7A">{{ swStepNum }}</span><span style="color:#5A6B80">{{ swStepNext }}</span></div>
+          </div>
+          <div style="padding:14px 24px 24px;display:flex;flex-direction:column;gap:16px">
+            <div style="font-size:24px;font-weight:800;line-height:1.2">{{ swStepTitle }}</div>
+            <sc-if value="{{ swS0 }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <div style="display:flex;flex-wrap:wrap;gap:12px"><div style="flex:1 1 180px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">First name</div><div style="height:50px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:15px;font-weight:600">Ciara</div></div><div style="flex:1 1 180px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Last name</div><div style="height:50px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:15px;font-weight:600">McAllister</div></div></div>
+                <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Date of birth</div><div style="height:50px;max-width:240px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:15px;font-weight:600;letter-spacing:.04em">14 / 06 / 1986</div></div>
+                <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Email</div><div style="height:50px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:15px;font-weight:600;overflow:hidden">ciara.mcallister@email.com</div><div style="font-size:12px;color:#5A6B80">Your confirmation and contract go here.</div></div>
+                <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Mobile</div><div style="height:50px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:15px;font-weight:600">07700 900123</div></div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ swS1 }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Postcode</div><div style="display:flex;gap:8px"><div style="flex:1;height:50px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:15px;font-weight:600">BT9 6AA</div><button style="height:50px;padding:0 16px;border:0;border-radius:10px;background:#0B2730;color:#fff;font:700 14px 'Figtree',sans-serif;cursor:pointer">Find</button></div></div>
+                <div style="display:flex;flex-direction:column;border:1px solid #E6EAF0;border-radius:12px;overflow:hidden;font-size:14.5px"><div style="padding:12px 14px;border-bottom:1px solid #EEF1F5">12 Malone Avenue</div><div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#FBFAE6;font-weight:700;box-shadow:inset 3px 0 0 #0B2730">14 Malone Avenue<span style="margin-left:auto;width:22px;height:22px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span></div><div style="padding:12px 14px;border-top:1px solid #EEF1F5">16 Malone Avenue</div><div style="padding:12px 14px;border-top:1px solid #EEF1F5;color:#5B2F7A;font-weight:700">My address isn't listed</div></div>
+                <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">Moved in during the last 3 months?</div><div style="display:flex;gap:8px"><span style="flex:1;height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">Yes</span><span style="flex:1;height:46px;border:2px solid #0B2730;background:#FBFAE6;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">No</span></div></div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ swS2 }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Meter point number (MPRN)</div><div style="height:50px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:16px;font-weight:700;letter-spacing:.04em">81 1234 5678 9</div><div style="font-size:12px;color:#5A6B80">11 digits starting with 81, on your bill or top-up receipt.</div></div>
+                <a href="#8e" style="font-size:13.5px;font-weight:700;color:#5B2F7A">Can't find it? We can look it up from your address</a>
+                <sc-if value="{{ swKeypad }}" hint-placeholder-val="{{ true }}"><div style="display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:12px;background:#F1E7F8;font-size:14px;line-height:1.45"><strong>No payment details needed</strong><span style="color:#3E5560">You're on keypad. SSE Airtricity post a new top-up card before your switch date.</span></div></sc-if>
+                <sc-if value="{{ swDD }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-wrap:wrap;gap:12px"><div style="flex:1 1 130px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Sort code</div><div style="height:50px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:15px;font-weight:600">95-00-00</div></div><div style="flex:1 1 170px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Account number</div><div style="height:50px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:15px;font-weight:600">12344821</div></div></div></sc-if>
+              </div>
+            </sc-if>
+            <sc-if value="{{ swS3 }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <div style="display:flex;flex-direction:column;border:1px solid #E6EAF0;border-radius:12px;overflow:hidden">
+                  <sc-for list="{{ swReview }}" as="r" hint-placeholder-count="7"><div style="display:flex;align-items:flex-start;gap:12px;padding:11px 14px;border-top:1px solid #EEF1F5;font-size:14px"><span style="flex:0 0 110px;color:#5A6B80">{{ r.label }}</span><span style="flex:1;min-width:0;font-weight:700;overflow-wrap:anywhere">{{ r.value }}</span><a href="#8b" onClick="{{ r.edit }}" style="flex:none;font-size:13px;font-weight:700;color:#5B2F7A">Edit</a></div></sc-for>
+                </div>
+                <div style="display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.45"><span style="flex:none;width:24px;height:24px;border-radius:6px;background:#0B2730;color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800">✓</span>I agree to SSE Airtricity's terms and conditions.</div>
+              </div>
+            </sc-if>
+            <div style="display:flex;gap:10px;margin-top:4px">
+              <button onClick="{{ swBack }}" style="flex:0 0 auto;height:54px;padding:0 20px;border:1px solid #C4CCD8;border-radius:12px;background:#fff;color:#0B2730;font:700 15px 'Figtree',sans-serif;cursor:pointer;opacity:{{ swBackOp }}">Back</button>
+              <button onClick="{{ swNext }}" style="flex:1;height:54px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ swNextLabel }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="8c"><div class="dv-olabel"><a class="dv-oid" href="#8c">8c</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Only what's left</div><div>Opens with what the comparison already told us, so the customer sees how little is left. Three cards remain. Saving one collapses it into a single line with an Edit link and ticks off the counter. The button unlocks when all three are done. Click Save on each card.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames2 }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#F7F8FA;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="background:#0B2730;color:#fff;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:24px;font-weight:800;line-height:1.15">Almost there, Ciara</div><div style="font-size:14px;color:#C9D3D8">Switching to SSE Airtricity saves you <strong style="color:{{ saveColorDark }}">{{ savingText }}</strong> in year one.</div></div>
+            <div style="display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-radius:12px;background:#163843">
+              <div style="font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#E3E000">Already done</div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px"><sc-for list="{{ pfKnown }}" as="k" hint-placeholder-count="4"><span style="display:flex;align-items:center;gap:6px"><span style="color:#E3E000;font-weight:800">✓</span>{{ k.t }}</span></sc-for></div>
+            </div>
+          </div>
+          <div style="padding:20px 24px 24px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px"><div style="font-size:18px;font-weight:800">{{ pfLeft }}</div><div style="font-size:13px;font-weight:700;color:#5B2F7A">{{ pfCount }}</div></div>
+            <div style="background:#fff;border:{{ pf.you.border }};border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;align-items:center;gap:10px"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:{{ pf.you.dot }};color:#E3E000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ pf.you.mark }}</span><span style="flex:1;font-size:16px;font-weight:800">Your name and contact</span><sc-if value="{{ pf.you.done }}" hint-placeholder-val="{{ false }}"><a href="#8c" onClick="{{ pf.you.edit }}" style="font-size:13px;font-weight:700;color:#5B2F7A">Edit</a></sc-if></div>
+              <sc-if value="{{ pf.you.done }}" hint-placeholder-val="{{ false }}"><div style="font-size:14px;color:#3E5560;padding-left:34px">Ms Ciara McAllister · 14/06/1986 · 07700 900123</div></sc-if>
+              <sc-if value="{{ pf.you.open }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;flex-wrap:wrap;gap:10px"><div style="flex:1 1 150px;height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:14.5px;font-weight:600">Ciara</div><div style="flex:1 1 150px;height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:14.5px;font-weight:600">McAllister</div><div style="flex:1 1 150px;height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:14.5px;font-weight:600">14 / 06 / 1986</div><div style="flex:1 1 150px;height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:14.5px;font-weight:600">07700 900123</div><div style="flex:1 1 100%;height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:14.5px;font-weight:600;overflow:hidden">ciara.mcallister@email.com</div></div>
+                <button onClick="{{ pf.you.save }}" style="align-self:flex-start;height:44px;padding:0 20px;border:0;border-radius:10px;background:#0B2730;color:#fff;font:700 14px 'Figtree',sans-serif;cursor:pointer">Save</button>
+              </sc-if>
+            </div>
+            <div style="background:#fff;border:{{ pf.addr.border }};border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;align-items:center;gap:10px"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:{{ pf.addr.dot }};color:#E3E000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ pf.addr.mark }}</span><span style="flex:1;font-size:16px;font-weight:800">Supply address</span><sc-if value="{{ pf.addr.done }}" hint-placeholder-val="{{ false }}"><a href="#8c" onClick="{{ pf.addr.edit }}" style="font-size:13px;font-weight:700;color:#5B2F7A">Edit</a></sc-if></div>
+              <sc-if value="{{ pf.addr.done }}" hint-placeholder-val="{{ false }}"><div style="font-size:14px;color:#3E5560;padding-left:34px">14 Malone Avenue, Belfast BT9 6AA · Bills sent here</div></sc-if>
+              <sc-if value="{{ pf.addr.open }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;gap:8px"><div style="flex:1;height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:14.5px;font-weight:600">BT9 6AA</div><div style="flex:2;height:46px;border:2px solid #0B2730;background:#FBFAE6;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14px;font-weight:700;overflow:hidden">14 Malone Avenue<span style="color:#5A6B80">▾</span></div></div>
+                <button onClick="{{ pf.addr.save }}" style="align-self:flex-start;height:44px;padding:0 20px;border:0;border-radius:10px;background:#0B2730;color:#fff;font:700 14px 'Figtree',sans-serif;cursor:pointer">Save</button>
+              </sc-if>
+            </div>
+            <div style="background:#fff;border:{{ pf.mprn.border }};border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;align-items:center;gap:10px"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:{{ pf.mprn.dot }};color:#E3E000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ pf.mprn.mark }}</span><span style="flex:1;font-size:16px;font-weight:800">Meter point number</span><sc-if value="{{ pf.mprn.done }}" hint-placeholder-val="{{ false }}"><a href="#8c" onClick="{{ pf.mprn.edit }}" style="font-size:13px;font-weight:700;color:#5B2F7A">Edit</a></sc-if></div>
+              <sc-if value="{{ pf.mprn.done }}" hint-placeholder-val="{{ false }}"><div style="font-size:14px;color:#3E5560;padding-left:34px">MPRN 81 1234 5678 9</div></sc-if>
+              <sc-if value="{{ pf.mprn.open }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;flex-direction:column;gap:6px"><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:15px;font-weight:700;letter-spacing:.04em">81 1234 5678 9</div><div style="font-size:12px;color:#5A6B80">11 digits starting with 81. Not sure? Skip it and we'll look it up.</div></div>
+                <button onClick="{{ pf.mprn.save }}" style="align-self:flex-start;height:44px;padding:0 20px;border:0;border-radius:10px;background:#0B2730;color:#fff;font:700 14px 'Figtree',sans-serif;cursor:pointer">Save</button>
+              </sc-if>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:13.5px;line-height:1.45;padding:4px 2px"><span style="flex:none;width:22px;height:22px;border-radius:6px;background:#0B2730;color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">✓</span>I agree to SSE Airtricity's terms and conditions.</div>
+            <button onClick="{{ pfReset }}" style="height:56px;border:0;border-radius:12px;background:{{ pfCtaBg }};color:{{ pfCtaFg }};font:800 17px 'Figtree',sans-serif;cursor:pointer">{{ pfCta }}</button>
+            <div style="font-size:12.5px;color:#5A6B80;text-align:center">{{ pfNote }}</div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="8d"><div class="dv-olabel"><a class="dv-oid" href="#8d">8d</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">What happens next, alongside</div><div>A compact form on the left and a timeline of the switch on the right, answering "what happens after I click?" before it's asked. Aimed at first-time switchers worried about losing supply. Timings are placeholders to confirm with each supplier. The timeline changes with the payment tweak.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05);display:flex;flex-wrap:wrap">
+          <div style="flex:999 1 520px;min-width:0;padding:26px 26px 24px;display:flex;flex-direction:column;gap:18px">
+            <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;color:#5B2F7A">Step 4 of 4</div><div style="font-size:26px;font-weight:800;line-height:1.15">Your details</div><div style="font-size:14px;color:#3E5560">For SSE Airtricity 1 Year Keypad Electricity 10.5% + £30 Welcome Credit · Save {{ savingText }}</div></div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+              <sc-for list="{{ sdFields }}" as="f" hint-placeholder-count="7"><div style="grid-column:{{ f.span }};display:flex;flex-direction:column;gap:6px;min-width:0"><div style="font-size:14px;font-weight:700">{{ f.label }}</div><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;padding:0 14px;font-size:14.5px;font-weight:600;overflow:hidden;white-space:nowrap">{{ f.value }}</div></div></sc-for>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.45"><span style="flex:none;width:24px;height:24px;border-radius:6px;background:#0B2730;color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800">✓</span>I agree to SSE Airtricity's terms and conditions.</div>
+            <button style="height:56px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 17px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Confirm switch →</button>
+          </div>
+          <div style="flex:1 1 300px;min-width:0;background:#0B2730;color:#fff;padding:26px 24px;display:flex;flex-direction:column;gap:18px">
+            <div style="font-size:18px;font-weight:800">What happens after you confirm</div>
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ sdTimeline }}" as="t" hint-placeholder-count="4">
+                <div style="display:flex;gap:14px">
+                  <div style="flex:none;display:flex;flex-direction:column;align-items:center"><span style="width:14px;height:14px;border-radius:50%;background:{{ t.dot }};border:2px solid #E3E000;box-sizing:border-box;margin-top:3px"></span><span style="flex:1;width:2px;background:#2A4650;opacity:{{ t.line }}"></span></div>
+                  <div style="display:flex;flex-direction:column;gap:3px;padding-bottom:18px"><div style="font-size:13px;font-weight:700;color:#E3E000">{{ t.when }}</div><div style="font-size:14px;line-height:1.45;color:#E2E8EA">{{ t.what }}</div></div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="padding:14px 16px;border-radius:12px;background:#163843;font-size:13.5px;line-height:1.45;color:#E2E8EA"><strong style="color:#fff">Your supply isn't interrupted.</strong> Same wires, same meter. Only the company that bills you changes.</div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="8e"><div class="dv-olabel"><a class="dv-oid" href="#8e">8e</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Meter number help</div><div>The field most likely to stop a switch. A bill sketch shows where the MPRN sits, the field checks the number as it's typed, and a common mistake (typing the account number) gets its own message. Customers who can't find it can ask for it to be looked up from their address. Type in the box, or try the sample buttons. The bill layout needs checking against real NI bills.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames2 }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05);padding:24px;display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;font-weight:700;color:#5B2F7A">Your meter</div><div style="font-size:24px;font-weight:800;line-height:1.2">What's your meter point number?</div><div style="font-size:14px;color:#3E5560;line-height:1.45">It tells NIE Networks which meter is yours, so the switch goes to the right home.</div></div>
+          <sc-if value="{{ mpManual }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:18px">
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="font-size:14px;font-weight:700">MPRN</div>
+                <input value="{{ mpVal }}" onChange="{{ mpChange }}" inputMode="numeric" placeholder="81 _ _ _ _ _ _ _ _ _" style="height:54px;border:2px solid {{ mpBorder }};border-radius:12px;padding:0 16px;font:700 19px 'Figtree',sans-serif;letter-spacing:.08em;color:#0B2730;outline:none;box-sizing:border-box;width:100%">
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:{{ mpMsgColor }}">{{ mpMsg }}</div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:2px"><button onClick="{{ mpTryGood }}" style="height:30px;padding:0 10px;border:1px solid #C4CCD8;border-radius:999px;background:#fff;font:600 12px 'Figtree',sans-serif;color:#3E5560;cursor:pointer">Sample: valid</button><button onClick="{{ mpTryBad }}" style="height:30px;padding:0 10px;border:1px solid #C4CCD8;border-radius:999px;background:#fff;font:600 12px 'Figtree',sans-serif;color:#3E5560;cursor:pointer">Sample: account number</button></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="font-size:13px;font-weight:700;color:#5A6B80">Where to find it on your bill</div>
+                <div style="border:1px solid #E6EAF0;border-radius:12px;padding:16px;background:#FBFBFC;display:flex;flex-direction:column;gap:10px;font-size:12px;color:#7A8899">
+                  <div style="display:flex;justify-content:space-between;gap:10px"><span style="width:90px;height:14px;border-radius:3px;background:#DDE2E9"></span><span style="width:60px;height:10px;border-radius:3px;background:#E6EAF0"></span></div>
+                  <div style="display:flex;justify-content:space-between;gap:8px;padding:8px 10px;border-radius:8px;background:#F1F3F6"><span>Account number</span><span style="font-weight:700;color:#3E5560">1002 3344 55</span></div>
+                  <div style="display:flex;justify-content:space-between;gap:8px;padding:8px 10px;border-radius:8px;background:#E3E000;color:#0B2730;box-shadow:0 0 0 2px #0B2730"><span style="font-weight:700">MPRN</span><span style="font-weight:800;letter-spacing:.04em">81 1234 5678 9</span></div>
+                  <div style="display:flex;flex-direction:column;gap:6px"><span style="width:100%;height:8px;border-radius:3px;background:#E6EAF0"></span><span style="width:70%;height:8px;border-radius:3px;background:#E6EAF0"></span></div>
+                </div>
+                <div style="font-size:12.5px;color:#5A6B80;line-height:1.45">Keypad customers: it's also on your top-up receipt.</div>
+              </div>
+              <button onClick="{{ mpLookOn }}" style="align-self:flex-start;background:none;border:0;padding:0;font:700 14px 'Figtree',sans-serif;color:#5B2F7A;cursor:pointer;text-align:left">Can't find it? Look it up from my address</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{ mpLookup }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:12px;background:#F1E7F8">
+              <div style="display:flex;align-items:center;gap:10px"><span style="width:26px;height:26px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span><span style="font-size:15px;font-weight:800">We'll find it for you</span></div>
+              <div style="font-size:14px;color:#3E5560;line-height:1.45">We'll match your meter to 14 Malone Avenue, Belfast BT9 6AA and add the number before your switch goes to SSE Airtricity. Nothing else for you to do.</div>
+              <button onClick="{{ mpLookOff }}" style="align-self:flex-start;background:none;border:0;padding:0;font:700 13px 'Figtree',sans-serif;color:#5B2F7A;cursor:pointer">I'll enter it myself</button>
+            </div>
+          </sc-if>
+          <button style="height:54px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Continue</button>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="8f"><div class="dv-olabel"><a class="dv-oid" href="#8f">8f</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Confirmation</div><div>The screen after any of 8a–8e. It confirms the switch was sent, gives a reference to quote, restates the saving and lists the next steps. A renewal reminder brings the customer back before the 12-month discount ends. The reference, dates and email are sample data. Toggle the reminder to see its states.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames2 }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="background:#0B2730;color:#fff;padding:28px 24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px">
+            <span style="width:48px;height:48px;border-radius:50%;background:#E3E000;color:#0B2730;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span>
+            <div style="font-size:28px;font-weight:800;line-height:1.15">Your switch is on its way</div>
+            <div style="font-size:14.5px;color:#C9D3D8;line-height:1.45">We've sent your details to SSE Airtricity and emailed a copy to ciara.mcallister@email.com.</div>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:4px">
+              <div style="padding:10px 14px;border-radius:12px;background:#163843;display:flex;flex-direction:column"><span style="font-size:12px;color:#C9D3D8">Reference</span><span style="font-size:17px;font-weight:800;letter-spacing:.04em">PTS-48213</span></div>
+              <div style="padding:10px 14px;border-radius:12px;background:#163843;display:flex;flex-direction:column"><span style="font-size:12px;color:#C9D3D8">{{ saveLabel }}</span><span style="font-size:17px;font-weight:800;color:{{ saveColorDark }}">{{ savingText }}</span></div>
+            </div>
+          </div>
+          <div style="padding:22px 24px 24px;display:flex;flex-direction:column;gap:18px">
+            <div style="display:flex;flex-direction:column;gap:12px"><div style="font-size:17px;font-weight:800">Next steps</div>
+              <sc-for list="{{ cfSteps }}" as="s" hint-placeholder-count="3"><div style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;width:26px;height:26px;border-radius:50%;background:#EEF1F5;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ s.n }}</span><div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:14.5px;font-weight:700">{{ s.t }}</div><div style="font-size:13.5px;color:#3E5560;line-height:1.45">{{ s.d }}</div></div></div></sc-for>
+            </div>
+            <div style="display:flex;align-items:center;gap:14px;padding:16px;border-radius:14px;background:#FBFAE6;border:1px solid #E1DFB8">
+              <div style="flex:1;display:flex;flex-direction:column;gap:2px"><div style="font-size:15px;font-weight:800">Remind me before my discount ends</div><div style="font-size:13px;color:#3E5560;line-height:1.4">{{ rmText }}</div></div>
+              <button onClick="{{ rmToggle }}" style="flex:none;width:48px;height:28px;border:0;border-radius:999px;background:{{ rmTrack }};position:relative;cursor:pointer;padding:0"><span style="position:absolute;top:3px;left:{{ rmKnob }};width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)"></span></button>
+            </div>
+            <div style="font-size:13px;color:#5A6B80;line-height:1.45">Changed your mind? You can cancel free within 14 days. Call SSE Airtricity or reply to our email with your reference.</div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+</div>
+<div id="results" style="display:flex;flex-direction:column;gap:6px;padding:96px 0 40px;margin-top:64px;border-top:2px solid #0B2730">
+  <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Archive</div>
+  <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Results page options, archived</div>
+  <div style="font-size:15px;color:#3E5560;max-width:760px;line-height:1.5">Options 9b to 9e. The chosen layout, 9a, is on <a href="Result Block Options.dc.html#9a" style="font-weight:700">Result Block Options</a>.</div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:flex-start">
+<div class="dv-opt" id="9b"><div class="dv-olabel"><a class="dv-oid" href="#9b">9b</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Filter chips above the results</div><div>The filters sit in a row of chips above the list, so results get the full width. On mobile the row scrolls sideways. If the filters hide the cheapest tariff, a note says which filter did it and offers to show it. Try "Price fixed".</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ rpFrames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#F7F9FB;border:1px solid #D9DFE8;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px">
+            <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:20px;font-weight:800">{{ rpB.countText }}</div><div style="font-size:13px;color:#5A6B80">Keypad · 3,200 kWh · vs £1,279.45 now · <a href="#7a" style="font-weight:700">Edit</a></div></div>
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px">
+              <div style="display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600">Count cashback<button onClick="{{ rpB.cashToggle }}" style="position:relative;width:44px;height:26px;border:0;border-radius:13px;background:{{ rpB.cashTrack }};cursor:pointer"><span style="position:absolute;top:3px;left:{{ rpB.cashKnob }};width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s"></span></button></div>
+              <select value="{{ rpB.sort }}" onChange="{{ rpB.setSort }}" style="height:40px;padding:0 10px;border:1.5px solid #C4CCD8;border-radius:10px;font:600 14px 'Figtree',sans-serif;color:#0B2730;background:#fff"><option value="saving">Sort: Biggest saving</option><option value="unit">Sort: Lowest unit rate</option><option value="term">Sort: Shortest contract</option></select>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:{{ frame.wrap }};gap:8px;overflow-x:auto;margin:0 -20px;padding:0 20px 2px">
+            <div style="display:flex;flex:none;padding:3px;background:#E6EAF0;border-radius:999px">
+              <sc-for list="{{ rpB.contracts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:38px;padding:0 12px;border:0;border-radius:999px;background:{{ o.segBg }};box-shadow:{{ o.segShadow }};color:#0B2730;font:600 13.5px 'Figtree',sans-serif;white-space:nowrap;cursor:pointer">{{ o.label }}</button></sc-for>
+            </div>
+            <sc-for list="{{ rpB.togs }}" as="o" hint-placeholder-count="6">
+              <button onClick="{{ o.pick }}" style="flex:none;height:44px;padding:0 14px;border-radius:999px;border:{{ o.chipBorder }};background:{{ o.chipBg }};color:{{ o.chipFg }};opacity:{{ o.dim }};font:600 13.5px 'Figtree',sans-serif;white-space:nowrap;cursor:pointer;display:flex;align-items:center;gap:6px">{{ o.label }}<span style="font-size:12px;font-weight:700;opacity:.65">{{ o.count }}</span></button>
+            </sc-for>
+            <button onClick="{{ rpB.supToggle }}" style="flex:none;height:44px;padding:0 14px;border-radius:999px;border:{{ rpB.supChip.chipBorder }};background:{{ rpB.supChip.chipBg }};color:{{ rpB.supChip.chipFg }};font:600 13.5px 'Figtree',sans-serif;white-space:nowrap;cursor:pointer">{{ rpB.supLabel }}</button>
+          </div>
+          <sc-if value="{{ rpB.supOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:#fff;border:1px solid #D9DFE8;border-radius:12px">
+              <sc-for list="{{ rpB.sups }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.pick }}" style="height:40px;padding:0 12px;border-radius:10px;border:{{ o.chipBorder }};background:{{ o.chipBg }};color:{{ o.chipFg }};font:600 13.5px 'Figtree',sans-serif;cursor:pointer;display:flex;align-items:center;gap:6px">{{ o.label }}<span style="font-size:12px;opacity:.65">{{ o.count }}</span></button></sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ rpB.hasHidden }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:#5A6B80">{{ rpB.hiddenText }}<a href="#" onClick="{{ rpB.clear }}" style="font-weight:700">Clear all</a></div></sc-if>
+          <sc-if value="{{ rpB.nudge }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:12px 16px;border-radius:12px;background:#FBFAE6;border:1px solid #E1DFB8">
+              <div style="flex:1 1 220px;font-size:13.5px;line-height:1.45"><strong>The cheapest tariff is hidden.</strong> {{ rpB.nudgeText }}</div>
+              <button onClick="{{ rpB.nudgeShow }}" style="height:38px;padding:0 14px;border:1.5px solid #0B2730;border-radius:10px;background:#fff;color:#0B2730;font:700 13.5px 'Figtree',sans-serif;cursor:pointer">Show it</button>
+            </div>
+          </sc-if>
+          <sc-for list="{{ rpB.items }}" as="t" hint-placeholder-count="4">
+                <div style="background:#fff;border:1px solid {{ t.border }};border-radius:14px;overflow:hidden">
+                  <sc-if value="{{ t.isTop }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:8px;padding:8px 18px;background:#0B2730;color:#fff;font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:50%;background:#E3E000"></span>Cheapest for you</div></sc-if>
+                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:16px 18px 12px">
+                    <div style="display:flex;align-items:center;gap:12px;flex:1 1 240px;min-width:0">
+                      <sc-if value="{{ t.hasLogo }}" hint-placeholder-val="{{ false }}"><div style="width:64px;height:36px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div></sc-if><sc-if value="{{ t.noLogo }}" hint-placeholder-val="{{ true }}"><div style="width:64px;height:36px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div></sc-if>
+                      <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">{{ t.supplier }}</div><div style="font-size:15.5px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ t.name }}</div></div>
+                    </div>
+                    <div style="flex:0 0 auto;display:flex;flex-direction:column;min-width:110px">
+                      <div style="font-size:12px;font-weight:600;color:{{ t.saveColor }}">{{ t.saveLabel }}</div>
+                      <div style="font-size:26px;font-weight:800;line-height:1.1">{{ t.saveText }}</div>
+                      <div style="font-size:12px;color:#5A6B80">{{ t.monthly }}</div>
+                    </div>
+                    <div style="flex:1 1 150px;max-width:190px;display:flex;flex-direction:column;gap:3px">
+                      <a href="{{ t.href }}" style="height:44px;border-radius:10px;background:{{ t.ctaBg }};color:#0B2730;font:700 15px 'Figtree',sans-serif;text-decoration:none;display:flex;align-items:center;justify-content:center">{{ t.cta }}</a>
+                      <div style="font-size:11.5px;color:#5A6B80;text-align:center">{{ t.route }}</div>
+                    </div>
+                  </div>
+                  <div style="padding:0 18px 12px;display:flex;flex-direction:column;gap:5px">
+                    <div style="position:relative;height:10px;background:#EEF1F5;border-radius:5px"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ t.newPct }};background:{{ t.barColor }};border-radius:5px"></div><div style="position:absolute;top:-4px;bottom:-4px;left:{{ t.curPct }};width:2px;margin-left:-1px;background:#0B2730"></div></div>
+                    <div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#5A6B80"><span><strong style="color:#0B2730">{{ t.netText }}</strong> year one</span><span>Current £1,279.45 ┃</span></div>
+                  </div>
+                  <div style="padding:9px 18px;border-top:1px solid #EEF1F5;font-size:12.5px;color:#3E5560">{{ t.factLine }}</div>
+                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px 18px 0;font-size:12.5px">
+                    <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000">{{ t.cashText }}</span></sc-if>
+                    <span style="font-weight:600">{{ t.perkLine }}</span>
+                  </div>
+                  <div style="display:flex;gap:4px;padding:0 10px;margin-top:6px;border-top:1px solid #E6EAF0;overflow-x:auto">
+                    <sc-for list="{{ t.tabs }}" as="tb" hint-placeholder-count="4"><div onClick="{{ tb.go }}" style="flex:none;padding:11px 8px;font-size:13.5px;font-weight:{{ tb.weight }};color:#0B2730;border-bottom:3px solid {{ tb.line }};cursor:pointer;white-space:nowrap">{{ tb.label }}</div></sc-for>
+                  </div>
+                  <sc-if value="{{ t.tabAny }}" hint-placeholder-val="{{ false }}">
+                    <div style="padding:14px 18px 16px;background:#FBFAE6;border-top:1px solid #E6EAF0">
+                      <sc-if value="{{ t.tabOv }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for></div></sc-if>
+                      <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
+                      <sc-if value="{{ t.tabCalc }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;max-width:560px">
+                        <sc-for list="{{ t.calc }}" as="c" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;gap:12px;padding-top:6px;border-top:{{ c.top }};font-size:13.5px;font-weight:{{ c.w }}"><div style="display:flex;flex-direction:column"><span>{{ c.label }}</span><span style="font-size:12px;font-weight:400;color:#5A6B80">{{ c.sub }}</span></div><span>{{ c.value }}</span></div></sc-for>
+                        <div style="font-size:12.5px;color:#3E5560;padding-top:4px">{{ t.calcNote }}</div>
+                      </div></sc-if>
+                      <sc-if value="{{ t.tabInfo }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.45;max-width:620px"><sc-for list="{{ t.infoLines }}" as="l" hint-placeholder-count="3"><div>{{ l }}</div></sc-for><div style="display:flex;gap:16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" style="font-weight:600">Full T&amp;Cs</a></div></div></sc-if>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+          <sc-if value="{{ rpB.empty }}" hint-placeholder-val="{{ false }}"><div style="padding:32px 20px;text-align:center;background:#fff;border:1px dashed #C4CCD8;border-radius:14px;display:flex;flex-direction:column;gap:10px;align-items:center"><div style="font-size:17px;font-weight:700">No tariffs match all your filters</div><button onClick="{{ rpB.clear }}" style="height:42px;padding:0 16px;border:0;border-radius:10px;background:#C9A3E0;color:#0B2730;font:700 14px 'Figtree',sans-serif;cursor:pointer">Clear all filters</button></div></sc-if>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="9c"><div class="dv-olabel"><a class="dv-oid" href="#9c">9c</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Best-for shortcuts</div><div>Five cards across the top each show the cheapest tariff for one need: overall, no contract, fixed price, no exit fee, green. Clicking one applies that filter to the list below. Most customers get their answer from the cards without touching a filter.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ rpFrames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#F7F9FB;border:1px solid #D9DFE8;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
+          <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:20px;font-weight:800">Best for you</div><div style="font-size:13px;color:#5A6B80">Keypad · 3,200 kWh · vs £1,279.45 now · <a href="#7a" style="font-weight:700">Edit</a></div></div>
+          <div style="display:flex;flex-wrap:{{ frame.wrap }};gap:10px;overflow-x:auto;margin:0 -20px;padding:0 20px 2px">
+            <sc-for list="{{ rpC.lenses }}" as="l" hint-placeholder-count="5">
+              <div onClick="{{ l.pick }}" style="flex:1 0 170px;max-width:220px;box-sizing:border-box;display:flex;flex-direction:column;gap:6px;padding:14px;border:{{ l.border }};background:{{ l.bg }};border-radius:14px;cursor:pointer">
+                <div style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#5B2F7A"><span style="width:8px;height:8px;border-radius:50%;background:{{ l.dot }};border:1px solid #0B2730"></span>{{ l.title }}</div>
+                <div style="font-size:12.5px;font-weight:600;color:#5A6B80">{{ l.sup }}</div>
+                <div style="font-size:14px;font-weight:700;line-height:1.3;text-wrap:pretty;flex:1">{{ l.name }}</div>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span style="font-size:18px;font-weight:800">{{ l.save }}</span><span style="font-size:12px;color:#5A6B80">{{ l.count }}</span></div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding-top:4px">
+            <div style="font-size:16px;font-weight:800">{{ rpC.countText }}</div>
+            <select value="{{ rpC.sort }}" onChange="{{ rpC.setSort }}" style="height:40px;padding:0 10px;border:1.5px solid #C4CCD8;border-radius:10px;font:600 14px 'Figtree',sans-serif;color:#0B2730;background:#fff"><option value="saving">Sort: Biggest saving</option><option value="unit">Sort: Lowest unit rate</option><option value="term">Sort: Shortest contract</option></select>
+          </div>
+          <sc-for list="{{ rpC.items }}" as="t" hint-placeholder-count="4">
+                <div style="background:#fff;border:1px solid {{ t.border }};border-radius:14px;overflow:hidden">
+                  <sc-if value="{{ t.isTop }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:8px;padding:8px 18px;background:#0B2730;color:#fff;font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:50%;background:#E3E000"></span>Cheapest for you</div></sc-if>
+                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:16px 18px 12px">
+                    <div style="display:flex;align-items:center;gap:12px;flex:1 1 240px;min-width:0">
+                      <sc-if value="{{ t.hasLogo }}" hint-placeholder-val="{{ false }}"><div style="width:64px;height:36px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div></sc-if><sc-if value="{{ t.noLogo }}" hint-placeholder-val="{{ true }}"><div style="width:64px;height:36px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div></sc-if>
+                      <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">{{ t.supplier }}</div><div style="font-size:15.5px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ t.name }}</div></div>
+                    </div>
+                    <div style="flex:0 0 auto;display:flex;flex-direction:column;min-width:110px">
+                      <div style="font-size:12px;font-weight:600;color:{{ t.saveColor }}">{{ t.saveLabel }}</div>
+                      <div style="font-size:26px;font-weight:800;line-height:1.1">{{ t.saveText }}</div>
+                      <div style="font-size:12px;color:#5A6B80">{{ t.monthly }}</div>
+                    </div>
+                    <div style="flex:1 1 150px;max-width:190px;display:flex;flex-direction:column;gap:3px">
+                      <a href="{{ t.href }}" style="height:44px;border-radius:10px;background:{{ t.ctaBg }};color:#0B2730;font:700 15px 'Figtree',sans-serif;text-decoration:none;display:flex;align-items:center;justify-content:center">{{ t.cta }}</a>
+                      <div style="font-size:11.5px;color:#5A6B80;text-align:center">{{ t.route }}</div>
+                    </div>
+                  </div>
+                  <div style="padding:0 18px 12px;display:flex;flex-direction:column;gap:5px">
+                    <div style="position:relative;height:10px;background:#EEF1F5;border-radius:5px"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ t.newPct }};background:{{ t.barColor }};border-radius:5px"></div><div style="position:absolute;top:-4px;bottom:-4px;left:{{ t.curPct }};width:2px;margin-left:-1px;background:#0B2730"></div></div>
+                    <div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#5A6B80"><span><strong style="color:#0B2730">{{ t.netText }}</strong> year one</span><span>Current £1,279.45 ┃</span></div>
+                  </div>
+                  <div style="padding:9px 18px;border-top:1px solid #EEF1F5;font-size:12.5px;color:#3E5560">{{ t.factLine }}</div>
+                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px 18px 0;font-size:12.5px">
+                    <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000">{{ t.cashText }}</span></sc-if>
+                    <span style="font-weight:600">{{ t.perkLine }}</span>
+                  </div>
+                  <div style="display:flex;gap:4px;padding:0 10px;margin-top:6px;border-top:1px solid #E6EAF0;overflow-x:auto">
+                    <sc-for list="{{ t.tabs }}" as="tb" hint-placeholder-count="4"><div onClick="{{ tb.go }}" style="flex:none;padding:11px 8px;font-size:13.5px;font-weight:{{ tb.weight }};color:#0B2730;border-bottom:3px solid {{ tb.line }};cursor:pointer;white-space:nowrap">{{ tb.label }}</div></sc-for>
+                  </div>
+                  <sc-if value="{{ t.tabAny }}" hint-placeholder-val="{{ false }}">
+                    <div style="padding:14px 18px 16px;background:#FBFAE6;border-top:1px solid #E6EAF0">
+                      <sc-if value="{{ t.tabOv }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for></div></sc-if>
+                      <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
+                      <sc-if value="{{ t.tabCalc }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;max-width:560px">
+                        <sc-for list="{{ t.calc }}" as="c" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;gap:12px;padding-top:6px;border-top:{{ c.top }};font-size:13.5px;font-weight:{{ c.w }}"><div style="display:flex;flex-direction:column"><span>{{ c.label }}</span><span style="font-size:12px;font-weight:400;color:#5A6B80">{{ c.sub }}</span></div><span>{{ c.value }}</span></div></sc-for>
+                        <div style="font-size:12.5px;color:#3E5560;padding-top:4px">{{ t.calcNote }}</div>
+                      </div></sc-if>
+                      <sc-if value="{{ t.tabInfo }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.45;max-width:620px"><sc-for list="{{ t.infoLines }}" as="l" hint-placeholder-count="3"><div>{{ l }}</div></sc-for><div style="display:flex;gap:16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" style="font-weight:600">Full T&amp;Cs</a></div></div></sc-if>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="9d"><div class="dv-olabel"><a class="dv-oid" href="#9d">9d</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Table view</div><div>One row per tariff with the key figures in columns. Click Unit rate, Contract or Year one to sort. Chips above filter the table. Suits customers who want to scan every option at once. Each row keeps the cashback, perks and the four detail tabs underneath, so nothing from the card is lost. On mobile the table scrolls sideways with the tariff name pinned.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ rpFrames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#F7F9FB;border:1px solid #D9DFE8;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px"><div style="font-size:20px;font-weight:800">{{ rpD.countText }}</div><sc-if value="{{ rpD.hasHidden }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:10px;font-size:13px;color:#5A6B80">{{ rpD.hiddenText }}<a href="#" onClick="{{ rpD.clear }}" style="font-weight:700">Clear</a></div></sc-if></div>
+          <div style="display:flex;flex-wrap:{{ frame.wrap }};gap:8px;overflow-x:auto;margin:0 -20px;padding:0 20px 2px">
+            <div style="display:flex;flex:none;padding:3px;background:#E6EAF0;border-radius:999px">
+              <sc-for list="{{ rpD.contracts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:38px;padding:0 12px;border:0;border-radius:999px;background:{{ o.segBg }};box-shadow:{{ o.segShadow }};color:#0B2730;font:600 13.5px 'Figtree',sans-serif;white-space:nowrap;cursor:pointer">{{ o.label }}</button></sc-for>
+            </div>
+            <sc-for list="{{ rpD.togs }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.pick }}" style="flex:none;height:44px;padding:0 14px;border-radius:999px;border:{{ o.chipBorder }};background:{{ o.chipBg }};color:{{ o.chipFg }};opacity:{{ o.dim }};font:600 13.5px 'Figtree',sans-serif;white-space:nowrap;cursor:pointer">{{ o.label }}</button></sc-for>
+          </div>
+          <div style="background:#fff;border:1px solid #D9DFE8;border-radius:14px;overflow-x:auto">
+            <div style="min-width:860px">
+              <div style="display:grid;grid-template-columns:minmax(220px,2.4fr) 90px 100px 80px 100px 110px 150px;background:#FBFAE6;border-bottom:1px solid #E6EAF0">
+                <sc-for list="{{ rpD.hdrs }}" as="c" hint-placeholder-count="7"><div onClick="{{ c.go }}" style="padding:11px 12px;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:{{ c.color }};cursor:{{ c.cursor }};white-space:nowrap">{{ c.label }}{{ c.arrow }}</div></sc-for>
+              </div>
+              <sc-for list="{{ rpD.items }}" as="t" hint-placeholder-count="8">
+                <div style="border-bottom:1px solid #D9DFE8">
+<div style="display:grid;grid-template-columns:minmax(220px,2.4fr) 90px 100px 80px 100px 110px 150px;align-items:center;font-size:13.5px">
+                  <div style="position:sticky;left:0;background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:1px;min-width:0"><span style="font-size:12px;font-weight:600;color:#5A6B80">{{ t.supplier }}</span><span style="font-weight:700;line-height:1.3;text-wrap:pretty">{{ t.name }}</span></div>
+                  <div style="padding:10px 12px;font-weight:600">{{ t.unitText }}</div>
+                  <div style="padding:10px 12px">{{ t.termText }}</div>
+                  <div style="padding:10px 12px">{{ t.exitText }}</div>
+                  <div style="padding:10px 12px;font-weight:600">{{ t.netText }}</div>
+                  <div style="padding:10px 12px;font-weight:800;color:{{ t.saveColor }}">{{ t.saveText }}</div>
+                  <div style="padding:8px 12px"><a href="{{ t.href }}" style="height:38px;border-radius:9px;background:{{ t.ctaBg }};color:#0B2730;font:700 13px 'Figtree',sans-serif;text-decoration:none;display:flex;align-items:center;justify-content:center;white-space:nowrap">{{ t.cta }}</a></div>
+                </div>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:0 12px 8px;font-size:12.5px"><sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000">{{ t.cashText }}</span></sc-if><span style="font-weight:600">{{ t.perkLine }}</span><span style="color:#5A6B80">{{ t.rateText }} · {{ t.route }}</span></div>
+                  <div style="display:flex;gap:4px;padding:0 10px;margin-top:6px;border-top:1px solid #E6EAF0;overflow-x:auto">
+                    <sc-for list="{{ t.tabs }}" as="tb" hint-placeholder-count="4"><div onClick="{{ tb.go }}" style="flex:none;padding:11px 8px;font-size:13.5px;font-weight:{{ tb.weight }};color:#0B2730;border-bottom:3px solid {{ tb.line }};cursor:pointer;white-space:nowrap">{{ tb.label }}</div></sc-for>
+                  </div>
+                  <sc-if value="{{ t.tabAny }}" hint-placeholder-val="{{ false }}">
+                    <div style="padding:14px 18px 16px;background:#FBFAE6;border-top:1px solid #E6EAF0">
+                      <sc-if value="{{ t.tabOv }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for></div></sc-if>
+                      <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
+                      <sc-if value="{{ t.tabCalc }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;max-width:560px">
+                        <sc-for list="{{ t.calc }}" as="c" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;gap:12px;padding-top:6px;border-top:{{ c.top }};font-size:13.5px;font-weight:{{ c.w }}"><div style="display:flex;flex-direction:column"><span>{{ c.label }}</span><span style="font-size:12px;font-weight:400;color:#5A6B80">{{ c.sub }}</span></div><span>{{ c.value }}</span></div></sc-for>
+                        <div style="font-size:12.5px;color:#3E5560;padding-top:4px">{{ t.calcNote }}</div>
+                      </div></sc-if>
+                      <sc-if value="{{ t.tabInfo }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.45;max-width:620px"><sc-for list="{{ t.infoLines }}" as="l" hint-placeholder-count="3"><div>{{ l }}</div></sc-for><div style="display:flex;gap:16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" style="font-weight:600">Full T&amp;Cs</a></div></div></sc-if>
+                    </div>
+                  </sc-if>
+</div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="font-size:12px;color:#5A6B80">Year one includes cashback. Prices include VAT. No standing charge on any keypad tariff shown.</div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="9e"><div class="dv-olabel"><a class="dv-oid" href="#9e">9e</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Filters as a sentence</div><div>The filters read as one sentence with dropdowns in it, so the current settings are always stated in plain English. Each card lists what the tariff has going for it and what to watch out for.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ rpFrames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#F7F9FB;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="background:#0B2730;color:#fff;padding:22px 20px;font-size:20px;font-weight:700;line-height:2.1">
+            Show me tariffs with <select value="{{ rpE.contractVal }}" onChange="{{ rpE.setContract }}" style="font:700 18px 'Figtree',sans-serif;color:#0B2730;background:#E3E000;border:0;border-radius:8px;padding:4px 8px;cursor:pointer"><option value="Any">any contract</option><option value="No contract">no contract</option><option value="Up to 12 months">up to 12 months</option></select>, a price that's <select value="{{ rpE.priceVal }}" onChange="{{ rpE.setPrice }}" style="font:700 18px 'Figtree',sans-serif;color:#0B2730;background:#E3E000;border:0;border-radius:8px;padding:4px 8px;cursor:pointer"><option value="any">fixed or variable</option><option value="fixed">fixed</option></select>, <select value="{{ rpE.exitVal }}" onChange="{{ rpE.setExit }}" style="font:700 18px 'Figtree',sans-serif;color:#0B2730;background:#E3E000;border:0;border-radius:8px;padding:4px 8px;cursor:pointer"><option value="any">with or without</option><option value="none">without</option></select> an exit fee, from <select value="{{ rpE.greenVal }}" onChange="{{ rpE.setGreen }}" style="font:700 18px 'Figtree',sans-serif;color:#0B2730;background:#E3E000;border:0;border-radius:8px;padding:4px 8px;cursor:pointer"><option value="any">any source</option><option value="green">renewable sources</option></select>, sorted by <select value="{{ rpE.sort }}" onChange="{{ rpE.setSort }}" style="font:700 18px 'Figtree',sans-serif;color:#0B2730;background:#E3E000;border:0;border-radius:8px;padding:4px 8px;cursor:pointer"><option value="saving">biggest saving</option><option value="unit">lowest unit rate</option><option value="term">shortest contract</option></select>.
+          </div>
+          <div style="padding:20px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 12px"><div style="font-size:18px;font-weight:800">{{ rpE.countText }}</div><sc-if value="{{ rpE.hasHidden }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#5A6B80">{{ rpE.hiddenText }}</div></sc-if></div>
+            <sc-if value="{{ rpE.nudge }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:12px 16px;border-radius:12px;background:#FBFAE6;border:1px solid #E1DFB8">
+                <div style="flex:1 1 220px;font-size:13.5px;line-height:1.45"><strong>Cheapest tariff left out.</strong> {{ rpE.nudgeText }}</div>
+                <button onClick="{{ rpE.nudgeShow }}" style="height:38px;padding:0 14px;border:1.5px solid #0B2730;border-radius:10px;background:#fff;color:#0B2730;font:700 13.5px 'Figtree',sans-serif;cursor:pointer">Show it</button>
+              </div>
+            </sc-if>
+            <sc-for list="{{ rpE.items }}" as="t" hint-placeholder-count="4">
+                <div style="background:#fff;border:1px solid {{ t.border }};border-radius:14px;overflow:hidden">
+                  <sc-if value="{{ t.isTop }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:8px;padding:8px 18px;background:#0B2730;color:#fff;font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:50%;background:#E3E000"></span>Cheapest for you</div></sc-if>
+                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:16px 18px 12px">
+                    <div style="display:flex;align-items:center;gap:12px;flex:1 1 240px;min-width:0">
+                      <sc-if value="{{ t.hasLogo }}" hint-placeholder-val="{{ false }}"><div style="width:64px;height:36px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div></sc-if><sc-if value="{{ t.noLogo }}" hint-placeholder-val="{{ true }}"><div style="width:64px;height:36px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div></sc-if>
+                      <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">{{ t.supplier }}</div><div style="font-size:15.5px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ t.name }}</div></div>
+                    </div>
+                    <div style="flex:0 0 auto;display:flex;flex-direction:column;min-width:110px">
+                      <div style="font-size:12px;font-weight:600;color:{{ t.saveColor }}">{{ t.saveLabel }}</div>
+                      <div style="font-size:26px;font-weight:800;line-height:1.1">{{ t.saveText }}</div>
+                      <div style="font-size:12px;color:#5A6B80">{{ t.monthly }}</div>
+                    </div>
+                    <div style="flex:1 1 150px;max-width:190px;display:flex;flex-direction:column;gap:3px">
+                      <a href="{{ t.href }}" style="height:44px;border-radius:10px;background:{{ t.ctaBg }};color:#0B2730;font:700 15px 'Figtree',sans-serif;text-decoration:none;display:flex;align-items:center;justify-content:center">{{ t.cta }}</a>
+                      <div style="font-size:11.5px;color:#5A6B80;text-align:center">{{ t.route }}</div>
+                    </div>
+                  </div>
+                  <div style="padding:0 18px 12px;display:flex;flex-direction:column;gap:5px">
+                    <div style="position:relative;height:10px;background:#EEF1F5;border-radius:5px"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ t.newPct }};background:{{ t.barColor }};border-radius:5px"></div><div style="position:absolute;top:-4px;bottom:-4px;left:{{ t.curPct }};width:2px;margin-left:-1px;background:#0B2730"></div></div>
+                    <div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#5A6B80"><span><strong style="color:#0B2730">{{ t.netText }}</strong> year one</span><span>Current £1,279.45 ┃</span></div>
+                  </div>
+                  <div style="padding:9px 18px;border-top:1px solid #EEF1F5;font-size:12.5px;color:#3E5560">{{ t.factLine }}</div>
+                  <div style="display:flex;flex-direction:column;gap:4px;padding:10px 18px;border-top:1px solid #EEF1F5;font-size:13px;line-height:1.45">
+                    <div style="font-weight:600;color:#0B2730">{{ t.pros }}</div>
+                    <sc-if value="{{ t.hasCons }}" hint-placeholder-val="{{ false }}"><div style="font-weight:600;color:#B5500F">{{ t.cons }}</div></sc-if>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px 18px 0;font-size:12.5px">
+                    <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000">{{ t.cashText }}</span></sc-if>
+                    <span style="font-weight:600">{{ t.perkLine }}</span>
+                  </div>
+                  <div style="display:flex;gap:4px;padding:0 10px;margin-top:6px;border-top:1px solid #E6EAF0;overflow-x:auto">
+                    <sc-for list="{{ t.tabs }}" as="tb" hint-placeholder-count="4"><div onClick="{{ tb.go }}" style="flex:none;padding:11px 8px;font-size:13.5px;font-weight:{{ tb.weight }};color:#0B2730;border-bottom:3px solid {{ tb.line }};cursor:pointer;white-space:nowrap">{{ tb.label }}</div></sc-for>
+                  </div>
+                  <sc-if value="{{ t.tabAny }}" hint-placeholder-val="{{ false }}">
+                    <div style="padding:14px 18px 16px;background:#FBFAE6;border-top:1px solid #E6EAF0">
+                      <sc-if value="{{ t.tabOv }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for></div></sc-if>
+                      <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
+                      <sc-if value="{{ t.tabCalc }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;max-width:560px">
+                        <sc-for list="{{ t.calc }}" as="c" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;gap:12px;padding-top:6px;border-top:{{ c.top }};font-size:13.5px;font-weight:{{ c.w }}"><div style="display:flex;flex-direction:column"><span>{{ c.label }}</span><span style="font-size:12px;font-weight:400;color:#5A6B80">{{ c.sub }}</span></div><span>{{ c.value }}</span></div></sc-for>
+                        <div style="font-size:12.5px;color:#3E5560;padding-top:4px">{{ t.calcNote }}</div>
+                      </div></sc-if>
+                      <sc-if value="{{ t.tabInfo }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.45;max-width:620px"><sc-for list="{{ t.infoLines }}" as="l" hint-placeholder-count="3"><div>{{ l }}</div></sc-for><div style="display:flex;gap:16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" style="font-weight:600">Full T&amp;Cs</a></div></div></sc-if>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+            <sc-if value="{{ rpE.empty }}" hint-placeholder-val="{{ false }}"><div style="padding:32px 20px;text-align:center;background:#fff;border:1px dashed #C4CCD8;border-radius:14px;font-size:15px;font-weight:700">Nothing matches that sentence. Change one of the yellow words.</div></sc-if>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+</div>
+<div id="blocks" style="display:flex;flex-direction:column;gap:6px;padding:96px 0 40px;margin-top:64px;border-top:2px solid #0B2730">
+  <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Archive</div>
+  <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Result block options, archived</div>
+  <div style="font-size:15px;color:#3E5560;max-width:760px;line-height:1.5">Options 5a and 5b. The other result blocks are on <a href="Result Block Options.dc.html" style="font-weight:700">Result Block Options</a>.</div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:flex-start">
+<div class="dv-opt" id="5a"><div class="dv-olabel"><a class="dv-oid" href="#5a">5a</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Detailed, you vs this tariff</div><div>Each detail is a row comparing the customer's current tariff with this one, with the difference beside it. Changes for the worse are flagged, such as fixed to variable. The customer's current-tariff details here are sample data.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;padding:20px 22px">
+            <div style="flex:1 1 300px;min-width:0;display:flex;align-items:center;gap:12px">
+              <div style="width:84px;height:40px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+              <div style="display:flex;flex-direction:column;gap:1px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">SSE Airtricity</div><div style="font-size:17px;font-weight:700;line-height:1.25;text-wrap:pretty">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div></div>
+            </div>
+            <div style="flex:0 0 auto;display:flex;flex-direction:column"><div style="font-size:12.5px;font-weight:600">You save in year one</div><div style="font-size:34px;font-weight:800;line-height:1.05">£141.18</div><div style="font-size:12px;color:#5A6B80">incl. £30 cashback</div></div>
+            <div style="flex:0 1 210px;min-width:170px;display:flex;flex-direction:column;gap:4px"><button style="height:48px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button><div style="font-size:11.5px;color:#5A6B80;text-align:center">{{ ctaNote }}</div></div>
+          </div>
+          <div style="overflow-x:auto;border-top:1px solid #E6EAF0">
+            <div style="min-width:340px">
+              <div style="display:grid;grid-template-columns:minmax(110px,1.2fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr);background:#FBFAE6;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5A6B80">
+                <div style="padding:9px 14px 9px 22px"></div><div style="padding:9px 10px">Your current</div><div style="padding:9px 10px;color:#0B2730">This tariff</div><div style="padding:9px 22px 9px 10px">Difference</div>
+              </div>
+              <sc-for list="{{ vsRows }}" as="v" hint-placeholder-count="13">
+                <div style="display:grid;grid-template-columns:minmax(110px,1.2fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr);border-top:1px solid #EEF1F5;font-size:13.5px;background:{{ v.bg }}">
+                  <div style="padding:9px 14px 9px 22px;color:#5A6B80">{{ v.label }}</div>
+                  <div style="padding:9px 10px;color:#3E5560">{{ v.cur }}</div>
+                  <div style="padding:9px 10px;font-weight:700;color:#0B2730">{{ v.now }}</div>
+                  <div style="padding:9px 22px 9px 10px;font-weight:700;color:{{ v.dc }}">{{ v.diff }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;padding:10px 22px;border-top:1px solid #E6EAF0;font-size:12.5px">
+            <span style="color:#7A8899">Current: Budget Energy Q1 Fixed Keypad · Prices incl. VAT</span><span style="flex:1"></span><a href="#" style="font-weight:600">See calculation</a><a href="#" style="font-weight:600">Company &amp; tariff info</a>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="5b"><div class="dv-olabel"><a class="dv-oid" href="#5b">5b</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Detailed, fit check</div><div>A checklist of the tariff against what the customer told us: meter type, fees, and terms that could catch them out. Each item shows a tick or a warning. The full fact grid, perks and pricing stay underneath, so no detail is lost.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="display:flex;flex-wrap:wrap">
+            <div style="flex:999 1 440px;min-width:0;padding:20px 22px;display:flex;flex-direction:column;gap:16px">
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:84px;height:40px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+                <div style="display:flex;flex-direction:column;gap:1px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">SSE Airtricity</div><div style="font-size:17px;font-weight:700;line-height:1.25;text-wrap:pretty">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">How it fits you</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 20px">
+                  <sc-for list="{{ fitChecks }}" as="c" hint-placeholder-count="7">
+                    <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.4;padding:5px 0">
+                      <span style="flex:none;width:20px;height:20px;border-radius:50%;background:{{ c.bg }};color:{{ c.fg }};font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ c.icon }}</span>
+                      <span><strong>{{ c.title }}</strong> <span style="color:#5A6B80">{{ c.note }}</span></span>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+            <div style="flex:1 1 260px;min-width:0;padding:20px 22px;background:#FBFAE6;border-left:1px solid #E6EAF0;display:flex;flex-direction:column;gap:11px">
+              <div style="display:flex;flex-direction:column"><div style="font-size:13px;font-weight:600">You save in year one</div><div style="font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-.015em">£141.18</div><div style="font-size:12.5px;color:#5A6B80">vs £1,279.45 now · incl. £30 cashback</div></div>
+              <div style="display:flex;align-items:baseline;gap:6px;padding-top:10px;border-top:1px solid #E1DFB8"><span style="font-size:20px;font-weight:700">£97.36</span><span style="font-size:13px;color:#5A6B80">a month · £1,168.27 a year</span></div>
+              <button style="height:48px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
+              <div style="font-size:12px;color:#5A6B80;line-height:1.35">{{ ctaNote }}</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));border-top:1px solid #E6EAF0">
+            <sc-for list="{{ facts9 }}" as="f" hint-placeholder-count="9"><div style="padding:9px 14px;border-right:1px solid #EEF1F5;border-bottom:1px solid #EEF1F5;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:13.5px;font-weight:700">{{ f.value }}</div></div></sc-for>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;padding:10px 22px;font-size:12.5px">
+            <span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000">£30 cashback</span><span style="font-weight:600">✓ 10.5% discount  ✓ £30 welcome credit  ✓ SSE Rewards</span><span style="color:#7A8899">Prices incl. VAT</span><span style="flex:1"></span><a href="#" style="font-weight:600">See calculation</a><a href="#" style="font-weight:600">Company &amp; tariff info</a>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+
+</div>
+</main></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;switchRoute&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Switch online&quot;,&quot;Supplier site&quot;,&quot;By phone&quot;],&quot;default&quot;:&quot;Switch online&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;cashbackInSaving&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;result&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Saves money&quot;,&quot;Costs more&quot;],&quot;default&quot;:&quot;Saves money&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;switchPayment&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Keypad&quot;,&quot;Direct Debit&quot;],&quot;default&quot;:&quot;Keypad&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;accountState&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Switched customer&quot;,&quot;New account&quot;],&quot;default&quot;:&quot;Switched customer&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { open: 0 };
+  renderVals() {
+    const route = this.props.switchRoute ?? 'Switch online';
+    const withCash = this.props.cashbackInSaving ?? true;
+    const worse = (this.props.result ?? 'Saves money') === 'Costs more';
+    const cur = 1279.45, cash = 30;
+    const annualN = worse ? 1390.35 : 1168.27;
+    const net = annualN - (withCash ? cash : 0);
+    const diff = cur - net;
+    const gbp = n => '£' + Math.abs(n).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const routes = {
+      'Switch online': ['Switch online', 'Takes about 5 minutes. SSE Airtricity handles the move.'],
+      'Supplier site': ['Go to SSE Airtricity', "You'll finish switching on SSE Airtricity's website."],
+      'By phone': ['Call to switch', 'Shows SSE Airtricity’s switching number.']
+    };
+    const [cta, ctaNote] = routes[route] || routes['Switch online'];
+    const isSaving = diff > 0;
+    const max = Math.max(cur, net);
+    const facts = [
+      { label: 'Unit rate', value: '36.51p/kWh' },
+      { label: 'Standing charge', value: 'None' },
+      { label: 'Contract', value: '12 months' },
+      { label: 'Exit fee', value: 'None' },
+      { label: 'Payment', value: 'Pay as you go' }
+    ];
+    const rowsData = [
+      { name: '1 Year Keypad Electricity 10.5% + £30 Welcome Credit', meta: 'SSE Airtricity · Keypad · 12 months · Variable', save: isSaving ? 'Save ' + gbp(diff) : '+' + gbp(diff), saveColor: isSaving ? '#0B2730' : '#B5500F', annual: gbp(annualN), monthly: gbp(annualN / 12),
+        facts: [...facts, { label: 'Welcome credit', value: '£30' }],
+        notes: ['The 10.5% discount lasts 12 months. After that you move to the standard keypad rate.', 'Only for new SSE Airtricity customers.'] },
+      { name: 'Keypad Saver 8%', meta: 'Power NI · Keypad · No fixed term', save: 'Save £87.20', saveColor: '#0B2730', annual: '£1,192.25', monthly: '£99.35',
+        facts: [{ label: 'Unit rate', value: '37.45p/kWh' }, { label: 'Standing charge', value: 'None' }, { label: 'Contract', value: 'None' }, { label: 'Exit fee', value: 'None' }, { label: 'Payment', value: 'Pay as you go' }],
+        notes: ['No contract, so you can leave at any time.'] },
+      { name: 'Click Keypad 12 Month', meta: 'Click Energy · Keypad · 12 months', save: 'Save £64.10', saveColor: '#0B2730', annual: '£1,215.35', monthly: '£101.28',
+        facts: [{ label: 'Unit rate', value: '38.02p/kWh' }, { label: 'Standing charge', value: 'None' }, { label: 'Contract', value: '12 months' }, { label: 'Exit fee', value: '£25' }, { label: 'Payment', value: 'Pay as you go' }],
+        notes: ['A £25 fee applies if you leave in the first 12 months.'] }
+    ];
+    const rows = rowsData.map((r, i) => ({ ...r, hasLogo: i === 0, noLogo: i !== 0, open: this.state.open === i, rot: this.state.open === i ? 'rotate(180deg)' : 'none', border: this.state.open === i ? '#C9A3E0' : '#D9DFE8', toggle: () => this.setState(s => ({ open: s.open === i ? -1 : i })) }));
+    const Y = '✓', P = 'Panel';
+    const inv = [
+      ['Supplier logo', 'Current PTS', 'Yes', Y, Y, Y, Y],
+      ['Supplier name', 'Current PTS (logo only)', 'Logo only', Y, Y, Y, Y],
+      ['Tariff name', 'Current PTS', 'Low contrast', Y, Y, Y, Y],
+      ['Unit rate (p/kWh)', 'Current PTS', 'Yes', Y, P, Y, Y],
+      ['Prices include VAT', 'Current PTS', 'Yes', Y, Y, Y, Y],
+      ['Estimated annual bill', 'Current PTS', 'Yes', Y, Y, Y, Y],
+      ['Cashback (£30)', 'Current PTS', 'Yes', Y, Y, Y, Y],
+      ['Pay As You Go', 'Current PTS tag', 'Yes', Y, P, Y, Y],
+      ['12 Month Term', 'Current PTS tag', 'Yes', Y, P, Y, Y],
+      ['Variable Rate', 'Current PTS tag', 'Yes', Y, P, Y, Y],
+      ['New Customers', 'Current PTS tag', 'Yes', Y, Y, Y, Y],
+      ['10.5% Discount', 'Current PTS perk', 'Yes', Y, Y, Y, Y],
+      ['£30 Welcome Credit', 'Current PTS perk', 'Yes', Y, Y, Y, Y],
+      ['SSE Rewards', 'Current PTS perk', 'Yes', Y, Y, Y, Y],
+      ['See Calculation', 'Current PTS link', 'Yes', Y, Y, Y, 'Inline'],
+      ['Company & Tariff Info', 'Current PTS link', 'Yes', Y, Y, Y, Y],
+      ['Availability / switch route', 'Current PTS', 'Text only', Y, Y, Y, Y],
+      ['Saving vs current tariff', 'bonkers.ie, Switcher', 'No', Y, Y, Y, Y],
+      ['Switch button', 'bonkers.ie', 'No', Y, Y, Y, Y],
+      ['Monthly cost', 'New', 'No', Y, Y, Y, Y],
+      ['Standing charge', 'Tariff data', 'No', Y, P, Y, Y],
+      ['Exit fee', 'Switcher', 'No', Y, P, Y, Y],
+      ['Billing method', 'bonkers.ie, Switcher', 'No', Y, P, Y, Y]
+    ];
+    const why = {
+      'Supplier logo': 'Fastest way to recognise a supplier when scanning.',
+      'Supplier name': 'The logo alone doesn’t work for screen readers or lesser-known suppliers.',
+      'Tariff name': 'Customers check it on the supplier site and their bill. Needs full contrast.',
+      'Unit rate (p/kWh)': 'The main figure people use to compare tariffs.',
+      'Prices include VAT': 'Tells customers the figures are what they will actually pay.',
+      'Estimated annual bill': 'Total cost for the year at the customer’s usage.',
+      'Cashback (£30)': 'Real value to the customer. Should count towards the saving.',
+      'Pay As You Go': 'Payment type. Has to match the customer’s meter.',
+      '12 Month Term': 'How long the customer is committed.',
+      'Variable Rate': 'Tells customers whether the price can change.',
+      'New Customers': 'Rules out existing customers before they click.',
+      '10.5% Discount': 'Explains why the price is lower.',
+      '£30 Welcome Credit': 'Adds to the value of the tariff.',
+      'SSE Rewards': 'An extra benefit. Secondary.',
+      'See Calculation': 'Lets customers check how the saving was worked out.',
+      'Company & Tariff Info': 'Full T&Cs for customers who want them.',
+      'Availability / switch route': 'Says where customers finish switching, not only that it isn’t through PTS.',
+      'Saving vs current tariff': 'The number that makes people act. Both competitors lead with it.',
+      'Switch button': 'A clear next step on every result.',
+      'Monthly cost': 'Most people budget monthly.',
+      'Standing charge': 'Can outweigh a lower unit rate. Show "None" when it’s zero.',
+      'Exit fee': 'The main hidden cost. Switcher shows it on the card.',
+      'Billing method': 'Online, paper or keypad top-up. Matters to some customers.'
+    };
+    const inventory = inv.map(([item, src, cur]) => ({ item, src, cur, why: why[item] || '', curBg: cur === 'Yes' ? '#E6F0EA' : cur === 'No' ? '#FBE3D3' : '#FFF1C2' }));
+    const routeTag = { 'Switch online': 'VIA PTS', 'Supplier site': 'SUPPLIER SITE', 'By phone': 'PHONE' }[route] || 'VIA PTS';
+    const dOpen = this.state.drawer ?? 0;
+    const drawers = [
+      { title: 'Rates & charges', summary: '36.51p/kWh · no standing charge · no exit fee', items: [{ label: 'Unit rate', value: '36.51p/kWh' }, { label: 'Standing charge', value: 'None' }, { label: 'Exit fee', value: 'None' }] },
+      { title: 'Contract & payment', summary: '12 months · variable · pay as you go', items: [{ label: 'Contract term', value: '12 months' }, { label: 'Rate type', value: 'Variable' }, { label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Who can switch', value: 'New customers' }] }
+    ].map((d, i) => ({ ...d, open: dOpen === i, rot: dOpen === i ? 'rotate(180deg)' : 'none', toggle: () => this.setState(s => ({ drawer: (s.drawer ?? 0) === i ? -1 : i })) }));
+    const tableRows = [
+      { supplier: 'SSE Airtricity', name: '1 Year Keypad Electricity 10.5% + £30 Welcome Credit', unit: '36.51p', standing: 'None', term: '12 mo', exit: 'None', save: 'Save £141.18', annual: '£1,168.27', monthly: '£97.36', cta: cta, route: routeTag === 'VIA PTS' ? 'Via Power to Switch' : routeTag === 'PHONE' ? 'By phone' : 'On supplier site', hasCash: true, cash: '£30 cashback', perks: '✓ 10.5% discount  ✓ £30 welcome credit  ✓ SSE Rewards', meta: 'Pay as you go · Variable · Keypad top-up · New customers' },
+      { supplier: 'Power NI', name: 'Keypad Saver 8%', unit: '37.45p', standing: 'None', term: 'None', exit: 'None', save: 'Save £87.20', annual: '£1,192.25', monthly: '£99.35', cta: 'Go to Power NI', route: 'On supplier site', hasCash: false, cash: '', perks: '✓ 8% discount', meta: 'Pay as you go · Variable · Keypad top-up · All customers' },
+      { supplier: 'Click Energy', name: 'Click Keypad 12 Month', unit: '38.02p', standing: 'None', term: '12 mo', exit: '£25', save: 'Save £64.10', annual: '£1,215.35', monthly: '£101.28', cta: 'Switch online', route: 'Via Power to Switch', hasCash: false, cash: '', perks: '✓ Online account', meta: 'Pay as you go · Variable · Keypad top-up · New customers' }
+    ];
+    const bRaw = [
+      { supplier: 'SSE Airtricity', name: '1 Year Keypad Electricity 10.5% + £30 Welcome Credit', annual: 1168.27, cash: 30, unit: '36.51p/kWh', term: '12 months', exit: 'None', elig: 'New customers', perks: ['10.5% discount', '£30 welcome credit', 'SSE Rewards'], badge: 'Cheapest for you', cta, ctaNote, route: routeTag === 'VIA PTS' ? 'Via Power to Switch' : routeTag === 'PHONE' ? 'By phone' : 'On supplier site' },
+      { supplier: 'Power NI', name: 'Keypad Saver 8%', annual: 1192.25, cash: 0, unit: '37.45p/kWh', term: 'No contract', exit: 'None', elig: 'All customers', perks: ['8% discount'], badge: 'No contract', cta: 'Go to Power NI', ctaNote: "You'll finish switching on Power NI's website.", route: 'On supplier site' },
+      { supplier: 'Click Energy', name: 'Click Keypad 12 Month', annual: 1215.35, cash: 0, unit: '38.02p/kWh', term: '12 months', exit: '£25', elig: 'New customers', perks: ['Online account'], badge: '', cta: 'Switch online', ctaNote: 'Takes about 5 minutes. Click Energy handles the move.', route: 'Via Power to Switch' },
+      { supplier: 'Electric Ireland', name: 'Keypad Standard', annual: 1390.35, cash: 0, unit: '43.45p/kWh', term: 'No contract', exit: 'None', elig: 'All customers', perks: [], badge: '', cta: 'Go to Electric Ireland', ctaNote: "You'll finish switching on Electric Ireland's website.", route: 'On supplier site' }
+    ];
+    const bMax = Math.max(cur, ...bRaw.map(r => r.annual - r.cash));
+    const bList = bRaw.map((r, i) => {
+      const n = r.annual - r.cash, d = cur - n, good = d > 0;
+      return { ...r, hasLogo: r.supplier === 'SSE Airtricity', noLogo: r.supplier !== 'SSE Airtricity', hasBadge: !!r.badge, rank: (i + 1) + ' of 18 tariffs', hasCash: r.cash > 0, cash: '£' + r.cash + ' cashback',
+        netText: gbp(n), curPct: (cur / bMax * 100).toFixed(1) + '%', newPct: (n / bMax * 100).toFixed(1) + '%',
+        barColor: good ? '#B78DD4' : '#E87722', border: i === 0 ? '#0B2730' : '#D9DFE8',
+        saveLabel: good ? 'You save in year one' : 'Costs more a year', saveShort: good ? 'Save a year' : 'Costs more',
+        labelColor: good ? '#0B2730' : '#B5500F', saveText: gbp(d),
+        saveSub: good ? 'about ' + gbp(d / 12) + ' a month less' + (r.cash ? ', incl. £' + r.cash + ' cashback' : '') : 'about ' + gbp(d / 12) + ' a month more',
+        ctaBg: good ? '#C9A3E0' : '#E6E1EC',
+        facts: [{ label: 'Unit rate', value: r.unit }, { label: 'Standing charge', value: 'None' }, { label: 'Exit fee', value: r.exit }, { label: 'Contract', value: r.term }, { label: 'Rate type', value: 'Variable' }, { label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Who can switch', value: r.elig }, { label: 'Annual bill', value: gbp(r.annual) + ' · ' + gbp(r.annual / 12) + '/mo' }],
+        factLine: r.unit + ' · No standing charge · Exit fee ' + r.exit + ' · ' + r.term + ' · Variable · Pay as you go · Keypad top-up · ' + r.elig + ' · ' + gbp(r.annual) + '/yr incl. VAT',
+        perkLine: r.perks.map(p => '✓ ' + p).join('  ')
+      };
+    });
+    const tab = this.state.tab || 'overview';
+    const tabs = [['overview', 'Overview'], ['rates', 'Rates & charges'], ['calc', 'Calculation'], ['info', 'Tariff terms']].map(([k, l]) => ({ label: l, weight: tab === k ? 700 : 500, line: tab === k ? '#0B2730' : 'transparent', go: () => this.setState({ tab: k }) }));
+    const tabIs = { overview: tab === 'overview', rates: tab === 'rates', calc: tab === 'calc', info: tab === 'info' };
+    const ovFacts = [{ label: 'Contract', value: '12 months' }, { label: 'Rate type', value: 'Variable' }, { label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Exit fee', value: 'None' }, { label: 'Who can switch', value: 'New customers' }];
+    const rateFacts = [{ label: 'Unit rate', value: '36.51p/kWh', note: 'With 10.5% discount' }, { label: 'Standard unit rate', value: '40.79p/kWh', note: 'After 12 months' }, { label: 'Standing charge', value: 'None', note: 'Keypad tariff' }, { label: 'VAT', value: 'Included', note: 'All prices shown' }];
+    const L = (label, value, bold) => ({ label, value, w: bold ? 700 : 400, rule: bold ? '1px solid #E1DFB8' : '0', pad: bold ? '7px' : '0' });
+    const calcLines = [L('3,200 kWh × 40.79p', '£1,305.33'), L('10.5% discount', '−£137.06'), L('Standing charge', '£0.00'), L('Estimated annual bill', '£1,168.27', 1), L('£30 cashback / welcome credit', '−£30.00'), L('Year one cost', '£1,138.27', 1), L('Your current tariff', '£1,279.45'), L('You save', '£141.18', 1)];
+    const specGroups = [
+      { title: 'Price · incl. VAT', rows: [{ label: 'Unit rate', value: '36.51p/kWh' }, { label: 'Standing charge', value: 'None' }, { label: 'Annual bill', value: '£1,168.27' }, { label: 'Monthly', value: '£97.36' }] },
+      { title: 'Contract', rows: [{ label: 'Term', value: '12 months' }, { label: 'Rate type', value: 'Variable' }, { label: 'Exit fee', value: 'None' }, { label: 'Who can switch', value: 'New customers' }] },
+      { title: 'Payment & extras', rows: [{ label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Discount', value: '10.5%' }, { label: 'Cashback', value: '£30' }, { label: 'Welcome credit', value: '£30' }, { label: 'Rewards', value: 'SSE Rewards' }] }
+    ];
+    const nextSteps = [{ n: 1, text: 'Confirm your details. Takes about 5 minutes.' }, { n: 2, text: 'SSE Airtricity sets up your account and contacts you.' }, { n: 3, text: 'Your £30 credit is added once you have switched.' }];
+    const mMax = 125, curM = 1279.45 / 12;
+    const months = Array.from({ length: 13 }, (_, i) => {
+      const v = i === 0 ? 97.36 - 30 : i === 12 ? 108.78 : 97.36;
+      return { label: i === 12 ? '13+' : String(i + 1), h: (v / mMax * 100).toFixed(1) + '%', c: i === 12 ? '#E87722' : '#B78DD4', tag: i === 0 ? '£67' : i === 12 ? '£109' : i === 1 ? '£97' : '' };
+    });
+    const facts9 = [{ label: 'Unit rate', value: '36.51p/kWh' }, { label: 'Standing charge', value: 'None' }, { label: 'Exit fee', value: 'None' }, { label: 'Contract', value: '12 months' }, { label: 'Rate type', value: 'Variable' }, { label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Who can switch', value: 'New customers' }, { label: 'Annual bill', value: '£1,168.27' }];
+    const G = '#0B2730', W = '#B5500F', N = '#7A8899';
+    const V = (label, cur, now, diff, dc, bold) => ({ label, cur, now, diff, dc, bg: bold ? '#FBFAE6' : '#fff' });
+    const vsRows = [
+      V('Unit rate', '39.98p/kWh', '36.51p/kWh', '−3.47p', G),
+      V('Standing charge', 'None', 'None', 'Same', N),
+      V('Annual bill', '£1,279.45', '£1,168.27', '−£111.18', G),
+      V('Cashback', 'None', '£30', '+£30', G),
+      V('Year one cost', '£1,279.45', '£1,138.27', '−£141.18', G, 1),
+      V('Monthly', '£106.62', '£97.36', '−£9.26', G),
+      V('Rate type', 'Fixed', 'Variable', '⚠ Can change', W),
+      V('Contract', '12 months', '12 months', 'Same', N),
+      V('Exit fee', 'None', 'None', 'Same', N),
+      V('Payment', 'Pay as you go', 'Pay as you go', 'Same', N),
+      V('Billing', 'Keypad top-up', 'Keypad top-up', 'Same', N),
+      V('Perks', 'None', '10.5% discount, £30 credit, SSE Rewards', '+3', G),
+      V('Who can switch', '—', 'New customers', 'Check', W)
+    ];
+    const ok = { icon: '✓', bg: '#EFEC8C', fg: '#0B2730' }, warn = { icon: '!', bg: '#FBE3D3', fg: '#B5500F' }, info = { icon: 'i', bg: '#F1E7F8', fg: '#5B2F7A' };
+    const fitChecks = [
+      { ...ok, title: 'Works with your keypad meter.', note: 'Pay as you go, top up as usual.' },
+      { ...ok, title: 'No exit fee.', note: 'Leave any time without a charge.' },
+      { ...ok, title: 'No standing charge.', note: 'You only pay for what you use.' },
+      { ...ok, title: '£30 cashback counted.', note: 'Already included in your saving.' },
+      { ...warn, title: 'Variable rate.', note: 'SSE Airtricity can change the price.' },
+      { ...warn, title: 'Discount lasts 12 months.', note: 'Then the standard keypad rate applies.' },
+      { ...info, title: 'New customers only.', note: 'Not available if you’re already with SSE Airtricity.' }
+    ];
+    const steps = [
+      { n: 1, title: 'Your usage at the standard rate', how: '3,200 kWh a year × 40.79p/kWh', value: '£1,305.33' },
+      { n: 2, title: 'Take off the 10.5% discount', how: 'Brings the unit rate to 36.51p/kWh. No standing charge.', value: '£1,168.27' },
+      { n: 3, title: 'Take off the £30 welcome credit', how: 'Added to your account after you switch', value: '£1,138.27' },
+      { n: 4, title: 'Compare with your current tariff', how: 'Budget Energy Q1 Fixed Keypad: £1,279.45 a year', value: 'Save £141.18' }
+    ];
+    const base = 1000, span = 320, pct = v => ((v - base) / span * 100).toFixed(1) + '%';
+    const F = (label, lo, hi, c, value) => ({ label, bottom: pct(lo), h: ((hi - lo) / span * 100).toFixed(1) + '%', top: pct(hi), c, value });
+    const falls = [
+      F('Standard cost', base, 1305.33, '#9AA7B8', '£1,305'),
+      F('10.5% discount', 1168.27, 1305.33, '#E3E000', '−£137'),
+      F('Welcome credit', 1138.27, 1168.27, '#E3E000', '−£30'),
+      F('Year one cost', base, 1138.27, '#B78DD4', '£1,138'),
+      F('Your current', base, 1279.45, '#0B2730', '£1,279')
+    ];
+    const kwh = this.state.kwh || 3200;
+    const y1g = kwh * 1168.27 / 3200, y1 = y1g - 30, curY = kwh * 1279.45 / 3200, y2 = kwh * 1305.33 / 3200;
+    const d1 = curY - y1, d2 = curY - y2;
+    const kwhVals = {
+      kwh, kwhText: kwh.toLocaleString('en-GB'), setKwh: e => this.setState({ kwh: +e.target.value }),
+      y1Text: gbp(y1), y1GrossText: gbp(y1g), curText: gbp(curY), y2Text: gbp(y2),
+      y1DiffText: d1 >= 0 ? gbp(d1) + ' less' : gbp(d1) + ' more',
+      y1Label: d1 >= 0 ? 'You save' : 'You pay more', y1Abs: gbp(d1), y1Bg: d1 >= 0 ? '#EFEC8C' : '#FBE3D3',
+      y2Label: d2 >= 0 ? 'Still cheaper by' : 'Dearer than now by', y2Abs: gbp(d2) + ' a year', y2Bg: d2 >= 0 ? '#EFEC8C' : '#FBE3D3'
+    };
+    const curMo = 1279.45 / 12, y1Mo = 1168.27 / 12, y2Mo = 1305.33 / 12;
+    const cum = []; let acc = 0;
+    for (let m = 1; m <= 24; m++) { acc += curMo - (m <= 12 ? y1Mo : y2Mo) + (m === 1 ? 30 : 0); cum.push(acc); }
+    const X = m => m * 10, Yv = v => (100 - v / 160 * 100).toFixed(2);
+    const pts1 = [[0, 0], ...cum.slice(0, 12).map((v, i) => [i + 1, v])], pts2 = cum.slice(11).map((v, i) => [i + 12, v]);
+    const line = p => 'M' + p.map(([m, v]) => X(m) + ' ' + Yv(v)).join(' L');
+    const area = p => line(p) + ' L' + X(p[p.length - 1][0]) + ' 100 L' + X(p[0][0]) + ' 100 Z';
+    const hm = this.state.hm ?? 12;
+    const monthHits = cum.map((v, i) => ({ enter: () => this.setState({ hm: i + 1 }), bg: hm === i + 1 ? 'rgba(11,39,48,.06)' : 'transparent' }));
+    const rates = [36.51, 37.45, 38.02, 38.4, 38.9, 39.2, 39.98, 40.3, 40.55, 40.79, 41.2, 41.6, 42.1, 42.5, 43.45, 44.1, 44.8, 45.3];
+    const L2 = r => ((r - 34) / 12 * 100).toFixed(1) + '%';
+    const market = rates.map((r, i) => { const me = r === 36.51, cu = r === 39.98; const s = me || cu ? 18 : 12; return { left: L2(r), size: s + 'px', off: -s / 2 + 'px', top: (51 - s / 2 + (me || cu ? 0 : (i % 2 ? -9 : 9))) + 'px', c: me ? '#E3E000' : cu ? '#0B2730' : '#C9A3E0', ring: me ? '#0B2730' : cu ? '#0B2730' : '#B78DD4' }; });
+    const per = this.state.per || 'Week';
+    const div = { Day: 365, Week: 52, Month: 12, Year: 1 }[per];
+    const periods = ['Day', 'Week', 'Month', 'Year'].map(k => ({ label: k, go: () => this.setState({ per: k }), bg: per === k ? '#fff' : 'transparent', shadow: per === k ? '0 1px 2px rgba(11,39,48,.15)' : 'none' }));
+    const perText = { Day: 'a day', Week: 'a week', Month: 'a month', Year: 'a year' }[per];
+    const vat = this.state.vat !== false, vf = vat ? 1 : 1 / 1.05;
+    const gv = v => gbp(v * vf), p = v => (v * vf).toFixed(2) + 'p';
+    const breakdown = [
+      { title: 'Promotions', rows: [{ label: 'Discount', value: '10.5% off', unit: 'for 12 months' }, { label: 'Welcome credit', value: '£30', unit: 'after switching' }] },
+      { title: 'Fixed fees', rows: [{ label: 'Exit fee', value: 'None', unit: '' }, { label: 'Standing charge', value: 'None', unit: 'per year' }, { label: 'Security deposit', value: 'None', unit: '' }] },
+      { title: 'Rates', rows: [{ label: '24-hour rate, discounted', value: p(36.51), unit: 'per kWh' }, { label: '24-hour rate, standard', value: p(40.79), unit: 'per kWh' }] }
+    ];
+    const raw = [0.26, 0.22, 0.2, 0.19, 0.19, 0.21, 0.3, 0.45, 0.42, 0.34, 0.31, 0.3, 0.33, 0.3, 0.29, 0.31, 0.4, 0.58, 0.66, 0.62, 0.55, 0.47, 0.38, 0.3];
+    const sc = (3200 / 365) / raw.reduce((a, b) => a + b, 0);
+    const profile = raw.map(v => ({ h: (v * sc / 0.8 * 100).toFixed(1) + '%', c: v >= 0.55 ? '#5B2F7A' : '#B78DD4' }));
+    const cmpRows = [
+      { label: 'Supplier', cur: 'Budget Energy', now: 'SSE Airtricity', isLogo: true },
+      { label: 'Plan name', cur: 'Q1 Fixed Keypad', now: '1 Year Keypad Electricity 10.5% + £30 Welcome Credit' },
+      { label: 'Plan type', cur: 'Keypad · 24 hour · Fixed', now: 'Keypad · 24 hour · Variable' },
+      { label: 'Usage costs', sub: '3,200 kWh', cur: gv(1279.45), curNote: '100% @ ' + p(39.98) + ' × 3,200 kWh', curTag: 'Your current rate', now: gv(1168.27), nowNote: '100% @ ' + p(36.51) + ' × 3,200 kWh', nowTag: 'Discounted rate' },
+      { label: 'Standing charge', cur: 'None', now: 'None' },
+      { label: 'Welcome credit', cur: '—', now: '−' + gv(30) },
+      { label: 'Exit fee', cur: 'None', now: 'None' },
+      { label: 'Estimated total', sub: 'year one', cur: gv(1279.45), now: gv(1138.27), isTotal: true }
+    ].map((r, i, a) => ({ curNote: '', curTag: '', nowNote: '', nowTag: '', sub: '', isLogo: false, isTotal: false, ...r, lastBorder: i === a.length - 1 ? '1px solid #C9A3E0' : '0', lastRadius: i === a.length - 1 ? '0 0 12px 12px' : '0' }));
+    const onB = '2px solid #0B2730', offB = '2px solid #E6EAF0';
+    const tile = (on, pick) => ({ on, border: on ? onB : offB, bg: on ? '#FBFAE6' : '#fff', pick });
+    const supNames = ['Budget Energy', 'Click Energy', 'Electric Ireland', 'Power NI', 'Share Energy', 'SSE Airtricity'];
+    const cSup = this.state.cSup ?? 'Budget Energy', cPay = this.state.cPay ?? 'Pay as you go', cE7 = this.state.cE7 ?? 'No';
+    const cUse = this.state.cUse ?? 'est', cHouse = this.state.cHouse ?? 1;
+    const cSups = supNames.map(n => ({ name: n, hasLogo: n === 'SSE Airtricity', noLogo: n !== 'SSE Airtricity', ...tile(cSup === n, () => this.setState({ cSup: n })) }));
+    const cPays = ['Direct Debit', 'Pay as you go', 'Cash, card, cheque'].map(l => ({ label: l, ...tile(cPay === l, () => this.setState({ cPay: l })) }));
+    const cE7s = ['Yes', 'No', 'Not sure'].map(l => ({ label: l, ...tile(cE7 === l, () => this.setState({ cE7: l })) }));
+    const houseData = [{ t: '1–2 people', s: 'Flat or small house', k: '2,200 kWh' }, { t: '3–4 people', s: 'Average home', k: '3,200 kWh' }, { t: '5+ people', s: 'Large home', k: '4,200 kWh' }];
+    const cHouses = houseData.map((h, i) => ({ ...h, ...tile(cHouse === i, () => this.setState({ cHouse: i })) }));
+    const cUseModes = [['est', 'Estimate it for me'], ['kwh', 'I know my kWh']].map(([k, l]) => ({ label: l, bg: cUse === k ? '#fff' : 'transparent', shadow: cUse === k ? '0 1px 2px rgba(11,39,48,.15)' : 'none', pick: () => this.setState({ cUse: k }) }));
+    const cSummary = [
+      { label: 'Supplier', value: cSup }, { label: 'Payment', value: cPay }, { label: 'Economy 7', value: cE7 },
+      { label: 'Tariff', value: 'Q1 Fixed Keypad' }, { label: 'Joined', value: 'March 2025' },
+      { label: 'Usage', value: cUse === 'est' ? houseData[cHouse].k + ' (est.)' : '3,200 kWh' }
+    ];
+    const cIssues = [
+      { area: 'Step bar', issue: 'All three steps look the same. The current step is only a faint tint.', fix: 'Fill the current step and number each one.' },
+      { area: 'Supplier tiles', issue: 'Five per row leaves SSE Airtricity alone on a second row. Unselected logos look disabled.', fix: 'Three per row on desktop, two on mobile. Full-colour logos.' },
+      { area: 'Selected state', issue: 'Shown by a yellow fill only.', fix: 'Add a tick and a dark border so the choice is clear without colour.' },
+      { area: 'Tariff name', issue: 'One long dropdown for every tariff.', fix: 'Filter by the supplier and payment type already chosen, with a count.' },
+      { area: 'Sign-up date', issue: 'No reason given for asking.', fix: 'Say it is used to check for an exit fee. Ask month and year.' },
+      { area: 'Usage', issue: 'Most people don’t know their kWh. Only a dropdown is offered.', fix: 'Let customers pick a household size or enter kWh.' },
+      { area: 'Cashback question', issue: 'Asked before results. It changes how results are sorted, not what is compared.', fix: 'Move it to the results page as a toggle.' },
+      { area: 'Email and account', issue: 'Account sign-up box competes with the main task.', fix: 'Offer it on the results page, once there is something to save.' },
+      { area: 'Bill upload', issue: 'The quickest route is hidden in a small tab marked New.', fix: 'Make upload a main option. See 7c.' },
+      { area: 'Sidebar', issue: 'FAQs and reviews leave most of the column empty.', fix: 'Use it for a live summary of answers, with trust and FAQs below.' }
+    ];
+    const wz = this.state.wz ?? 0, wa = this.state.wa ?? {};
+    const Q = [
+      { key: 'Supplier', title: 'Who supplies your electricity now?', help: 'It’s on the top of your bill or keypad top-up receipt.', opts: supNames.map(n => ({ label: n, logo: n === 'SSE Airtricity' })) },
+      { key: 'Payment', title: 'How do you pay for it?', help: 'Pay as you go means you top up a keypad meter.', opts: [{ label: 'Direct Debit', sub: 'Monthly from your bank' }, { label: 'Pay as you go', sub: 'Keypad top-up' }, { label: 'Cash, card, cheque', sub: 'Paying bills as they come' }] },
+      { key: 'Economy 7', title: 'Do you have an Economy 7 meter?', help: 'It shows two readings, a day rate and a cheaper night rate.', opts: [{ label: 'Yes' }, { label: 'No' }, { label: 'Not sure', sub: 'We’ll assume no' }] },
+      { key: 'Tariff', title: 'Which ' + (Q0 => Q0)(wa[0] != null ? supNames[wa[0]] : 'Budget Energy') + ' tariff are you on?', help: 'Showing keypad tariffs only. The name is on your bill.', opts: [{ label: 'Q1 Fixed Keypad' }, { label: 'Keypad Standard' }, { label: 'Keypad Saver' }, { label: 'Not sure', sub: 'We’ll use the standard rate' }] },
+      { key: 'Joined', title: 'When did you join this tariff?', help: 'We use this to check if you’d pay an exit fee to leave.', opts: [{ label: 'In the last 12 months' }, { label: '1 to 2 years ago' }, { label: 'Over 2 years ago' }, { label: 'Not sure' }] },
+      { key: 'Usage', title: 'How many people live in your home?', help: 'We’ll estimate your usage. You can enter exact kWh on the results page.', opts: houseData.map(h => ({ label: h.t, sub: h.k + ' a year' })) }
+    ];
+    const q = Q[wz], sel = wa[wz];
+    const wzTiles = q.opts.map((o, i) => ({ label: o.label, sub: o.sub || '', hasSub: !!o.sub, hasLogo: !!o.logo, noLogo: !o.logo, ...tile(sel === i, () => this.setState(s => ({ wa: { ...(s.wa ?? {}), [wz]: i } }))) }));
+    const wzSoFar = Q.map((qq, i) => ({ i, label: qq.key, value: wa[i] != null ? qq.opts[wa[i]].label : null, go: e => { e.preventDefault(); this.setState({ wz: i }); } })).filter(a => a.value && a.i !== wz);
+    const upDone = !!this.state.upDone;
+    const R = (label, value, ok) => ({ label, value, tag: ok ? 'Read from bill' : 'Please check', tagBg: ok ? '#E6F0EA' : '#FBE3D3', tagFg: ok ? '#0B2730' : '#B5500F', bg: ok ? '#fff' : '#FFF8F2' });
+    const upRows = [R('Supplier', 'Budget Energy', 1), R('Tariff', 'Q1 Fixed Keypad', 1), R('Payment', 'Pay as you go (keypad)', 1), R('Economy 7', 'No, single rate', 1), R('Joined tariff', 'March 2025', 0), R('Usage', '3,200 kWh a year (est.)', 0)];
+    const chA = this.state.chA ?? [];
+    const chStep = chA.length, chDoneB = chStep >= Q.length;
+    const chMsgs = [{ isBot: true, isMe: false, justify: 'flex-start', text: 'Hi. Six quick questions and we’ll show you what you could save.', help: '', hasHelp: false }];
+    Q.forEach((qq, i) => {
+      if (i > chStep) return;
+      chMsgs.push({ isBot: true, isMe: false, justify: 'flex-start', text: qq.title, help: qq.help, hasHelp: i === chStep });
+      if (i < chStep) chMsgs.push({ isBot: false, isMe: true, justify: 'flex-end', text: qq.opts[chA[i]].label, go: () => this.setState({ chA: chA.slice(0, i) }) });
+    });
+    if (chDoneB) chMsgs.push({ isBot: true, isMe: false, justify: 'flex-start', text: 'Thanks. We’ve found 18 tariffs that fit.', help: '', hasHelp: false });
+    const chOpts = chDoneB ? [] : Q[chStep].opts.map((o, i) => ({ label: o.label, pick: () => this.setState({ chA: [...chA, i] }) }));
+    const pill = (on, pick, label) => ({ label, pick, border: on ? '2px solid #0B2730' : '2px solid #E6EAF0', bg: on ? '#FBFAE6' : '#fff' });
+    const leSup = this.state.leSup ?? 'Budget Energy', lePay = this.state.lePay ?? 'Pay as you go', leMeter = this.state.leMeter ?? 'Standard';
+    const leKwh = this.state.leKwh ?? 3200;
+    const leCountN = { 'Direct Debit': 24, 'Pay as you go': 18, 'Cash, card, cheque': 9 }[lePay] - (leMeter === 'Economy 7' ? 8 : 0) - (leSup === 'SSE Airtricity' ? 3 : 0);
+    const leCurN = leKwh * 1279.45 / 3200, leBestN = leKwh * 1168.27 / 3200 - 30, leSaveN = Math.max(0, leCurN - leBestN);
+    const cmpVals2 = {
+      chMsgs, chOpts, chAsking: !chDoneB, chDone: chDoneB, chCount: chDoneB ? 'All done' : (chStep + 1) + ' of ' + Q.length,
+      chReset: e => { e.preventDefault(); this.setState({ chA: [] }); },
+      leSups: supNames.map(n => pill(leSup === n, () => this.setState({ leSup: n }), n)),
+      lePays: ['Direct Debit', 'Pay as you go', 'Cash, card, cheque'].map(n => pill(lePay === n, () => this.setState({ lePay: n }), n)),
+      leMeters: ['Standard', 'Economy 7'].map(n => pill(leMeter === n, () => this.setState({ leMeter: n }), n)),
+      leKwh, leKwhText: leKwh.toLocaleString('en-GB'), setLeKwh: e => this.setState({ leKwh: +e.target.value }),
+      leSave: gbp(leSaveN), leSaveMo: gbp(leSaveN / 12), leCur: gbp(leCurN) + ' a year', leBest: gbp(leBestN) + ' a year', leCount: String(leCountN),
+      qfOpen: this.state.qfOpen !== false, qfRot: this.state.qfOpen !== false ? 'rotate(180deg)' : 'none',
+      qfToggle: () => this.setState(s => ({ qfOpen: s.qfOpen === false })),
+      qfRows: [
+        { label: 'Tariff name', ph: 'Choose your tariff', assume: 'If blank, we use ' + cSup + '’s standard rate for your payment type.' },
+        { label: 'When you joined', ph: 'Month and year', assume: 'If blank, we can’t tell you whether an exit fee applies.' },
+        { label: 'Economy 7 meter', ph: 'Not sure', assume: 'If blank, we assume a standard single-rate meter.' },
+        { label: 'Exact yearly usage', ph: 'kWh a year', assume: 'If blank, we use ' + houseData[cHouse].k + ' for ' + houseData[cHouse].t + '.' }
+      ]
+    };
+    const bgF = this.state.bgF ?? 1, bgT = this.state.bgT ?? 'dd';
+    const bgFieldData = [
+      ['Current supplier', 'Budget Energy', 'Supplier', 'Logo at the top of the bill.', 'Logo at the top of the receipt.'],
+      ['Tariff name', 'Choose your tariff', 'Your tariff', 'Under "Your tariff" on page 1, next to your account number.', 'Printed under "Tariff" near the top of your keypad statement.'],
+      ['How you pay', 'Choose payment type', 'Payment method', 'Shown as "Paid by Direct Debit" in the payment box.', 'A keypad receipt means you pay as you go.'],
+      ['When you joined', 'Month and year', 'Contract start', 'Listed as "Contract start date" in the tariff box.', 'On your welcome letter or annual keypad statement.'],
+      ['Yearly usage', 'kWh a year', 'Annual usage', 'Most bills show "Estimated annual usage" in kWh.', 'Your annual statement lists total kWh for the year.']
+    ];
+    const bgFields = bgFieldData.map(([label, value], i) => ({ n: i + 1, label, value, border: bgF === i ? '2px solid #0B2730' : '2px solid #E6EAF0', bg: bgF === i ? '#FBFAE6' : '#fff', numBg: bgF === i ? '#0B2730' : '#EEF1F5', numFg: bgF === i ? '#E3E000' : '#0B2730', pick: () => this.setState({ bgF: i }) }));
+    const zw = [['60%', '40%'], ['75%', '50%'], ['55%', '35%'], ['45%', '65%'], ['70%', '45%']];
+    const bgZones = bgFieldData.map((d, i) => ({ n: i + 1, title: d[2], w1: zw[i][0], w2: zw[i][1], border: bgF === i ? '2px solid #5B2F7A' : '2px solid transparent', bg: bgF === i ? '#F1E7F8' : '#fff', numBg: bgF === i ? '#5B2F7A' : '#E6EAF0', numFg: bgF === i ? '#fff' : '#5A6B80' }));
+    const thH = this.state.thH ?? null;
+    const thScale = thH == null ? 1 : [2200, 3200, 4200][thH] / 3200;
+    const thData = [['SSE Airtricity', '1 Year Keypad Electricity 10.5% + £30 Welcome Credit', '36.51p/kWh · 12 months · No exit fee', 141.18], ['Power NI', 'Keypad Saver 8%', '37.45p/kWh · No contract', 87.2], ['Click Energy', 'Click Keypad 12 Month', '38.02p/kWh · 12 months · £25 exit fee', 64.1]];
+    const siOpen = this.state.siOpen ?? null;
+    const siVals = { sup: this.state.siSup ?? 'Budget Energy', pay: this.state.siPay ?? 'Pay as you go', home: this.state.siHome ?? '3–4 people' };
+    const siDefs = [['sup', 'Current supplier', supNames], ['pay', 'How you pay', ['Direct Debit', 'Pay as you go', 'Cash, card, cheque']], ['home', 'Home size', ['1–2 people', '3–4 people', '5+ people']]];
+    const siKey = { sup: 'siSup', pay: 'siPay', home: 'siHome' };
+    const siFields = siDefs.map(([k, label, opts]) => ({ label, value: siVals[k], open: siOpen === k, bg: siOpen === k ? '#FBFAE6' : '#fff', toggle: () => this.setState({ siOpen: siOpen === k ? null : k }),
+      opts: opts.map(o => ({ label: o, tick: siVals[k] === o ? '✓' : '', bg: siVals[k] === o ? '#FBFAE6' : '#fff', pick: () => this.setState({ [siKey[k]]: o, siOpen: null }) })) }));
+    const cmpVals3 = {
+      bgFields, bgZones, bgTipTitle: bgFieldData[bgF][0] + ':', bgTip: bgFieldData[bgF][bgT === 'dd' ? 3 : 4],
+      bgTypes: [['dd', 'Direct Debit bill'], ['kp', 'Keypad receipt']].map(([k, l]) => ({ label: l, bg: bgT === k ? '#fff' : 'transparent', shadow: bgT === k ? '0 1px 2px rgba(11,39,48,.15)' : 'none', pick: () => this.setState({ bgT: k }) })),
+      thHouses: houseData.map((h, i) => ({ t: h.t, border: thH === i ? '2px solid #0B2730' : '2px solid #E6EAF0', bg: thH === i ? '#FBFAE6' : '#fff', pick: () => this.setState({ thH: i }) })),
+      thRows: thData.map(([supplier, name, meta, s]) => ({ supplier, name, meta, hasLogo: supplier === 'SSE Airtricity', noLogo: supplier !== 'SSE Airtricity', save: thH == null ? '£000' : gbp(s * thScale), blur: thH == null ? 'blur(7px)' : 'none' })),
+      thNote: thH == null ? 'Add your household size to see savings' : 'Estimated for ' + houseData[thH].k + ' a year',
+      thCta: thH == null ? 'Answer one more question to see savings' : 'See all 18 tariffs →', thCtaBg: thH == null ? '#E6E1EC' : '#C9A3E0',
+      siFields,
+      siShort: [['Keypad, small home', { siPay: 'Pay as you go', siHome: '1–2 people' }], ['Direct Debit, family', { siPay: 'Direct Debit', siHome: '3–4 people' }], ['With Power NI', { siSup: 'Power NI' }]].map(([label, st]) => ({ label, pick: () => this.setState({ ...st, siOpen: null }) }))
+    };
+    const gl = this.state.gl ?? ['Lowest price'];
+    const glData = [['Lowest price', 'Cheapest over the first year'], ['No exit fee', 'Free to leave any time'], ['Price stays fixed', 'Rate can’t change mid-contract'], ['Cashback and credit', 'Money back when you join'], ['Green energy', 'Renewable electricity'], ['Local supplier', 'Based in Northern Ireland']];
+    const glOpts = glData.map(([label, note]) => { const idx = gl.indexOf(label), on = idx >= 0, full = gl.length >= 3 && !on;
+      return { label, note, on, rank: String(idx + 1), border: on ? '2px solid #E3E000' : '2px solid #2A4650', bg: on ? '#E3E000' : 'transparent', fg: on ? '#0B2730' : '#fff', sub: on ? '#3E5560' : '#9FB0B7', op: full ? 0.5 : 1,
+        pick: () => this.setState(s => { const c = s.gl ?? ['Lowest price']; return { gl: c.includes(label) ? c.filter(x => x !== label) : c.length >= 3 ? c : [...c, label] }; }) }; });
+    const glSort = gl.length ? gl.map((t, i) => ({ text: (i + 1) + '. ' + t })) : [{ text: 'Lowest price' }];
+    const kc = this.state.kc ?? {};
+    const kcSet = (k, v) => () => this.setState(s => ({ kc: { ...(s.kc ?? {}), [k]: v } }));
+    const kcPill = (k, v) => ({ label: v, border: kc[k] === v ? '2px solid #0B2730' : '2px solid #E6EAF0', bg: kc[k] === v ? '#FBFAE6' : '#fff', pick: kcSet(k, v) });
+    const kcN = ['sup', 'pay', 'tar', 'house'].filter(k => kc[k]).length;
+    const dash = '1.5px dashed #C4CCD8', solid = '1px solid #D9DFE8';
+    const kcKwh = { '1–2 people': 2200, '3–4 people': 3200, '5+ people': 4200 }[kc.house];
+    const kcReady = kcN === 4;
+    const sp = this.state.sp ?? null, spS = this.state.spS ?? {};
+    const spSet = (k, v) => () => this.setState(s => ({ spS: { ...(s.spS ?? {}), [k]: v } }));
+    const spPill = (k, v) => ({ label: v, border: spS[k] === v ? '2px solid #0B2730' : '2px solid #E6EAF0', bg: spS[k] === v ? '#FBFAE6' : '#fff', pick: spSet(k, v) });
+    const spAmtData = sp === 'kp' ? [['£15', 'a week'], ['£20', 'a week'], ['£25', 'a week'], ['£30+', 'a week']] : [['£60', 'a month'], ['£80', 'a month'], ['£100', 'a month'], ['£120+', 'a month']];
+    const cbSlotData = [['Today', '2pm to 4pm'], ['Today', '4pm to 5pm'], ['Tomorrow', '9am to 12pm'], ['Tomorrow', '12pm to 5pm']];
+    const cbS = this.state.cbS ?? null, cbDoneB = !!this.state.cbDone;
+    const cmpVals4 = {
+      glOpts, glSort,
+      kcSups: supNames.map(n => kcPill('sup', n)), kcPays: ['Direct Debit', 'Pay as you go', 'Cash, card, cheque'].map(n => kcPill('pay', n)),
+      kcTariffs: ['Standard', 'Fixed 12 month', 'Discount tariff'].map(n => kcPill('tar', n)), kcHouses: houseData.map(h => kcPill('house', h.t)),
+      kcProgress: kcN + ' of 4 details', kcLogoBorder: kc.sup ? solid : dash, kcSupShort: kc.sup ? kc.sup.split(' ')[0] : '?',
+      kcSupText: kc.sup || 'Supplier', kcSupColor: kc.sup ? '#5A6B80' : '#9AA7B8', kcTarText: kc.tar || 'Tariff name', kcTarColor: kc.tar ? '#0B2730' : '#9AA7B8',
+      kcPayText: kc.pay || 'Payment type', kcPayBorder: kc.pay ? '1px solid #0B2730' : dash, kcPayBg: kc.pay ? '#EFEC8C' : '#fff', kcPayColor: kc.pay ? '#0B2730' : '#9AA7B8',
+      kcUseText: kcKwh ? kcKwh.toLocaleString('en-GB') + ' kWh a year' : 'Usage', kcUseBorder: kcKwh ? '1px solid #0B2730' : dash, kcUseBg: kcKwh ? '#EFEC8C' : '#fff', kcUseColor: kcKwh ? '#0B2730' : '#9AA7B8',
+      kcBill: kcKwh ? gbp(kcKwh * 0.3998) + ' a year' : '£—', kcBillColor: kcKwh ? '#0B2730' : '#C4CCD8', kcBillBg: kcReady ? '#FBFAE6' : '#fff',
+      kcBillSub: kcKwh ? 'about ' + gbp(kcKwh * 0.3998 / 12) + ' a month at 39.98p/kWh' : 'Add your home size to see this',
+      kcCta: kcReady ? 'Find me something cheaper →' : (4 - kcN) + ' more to go', kcCtaBg: kcReady ? '#C9A3E0' : '#E6E1EC',
+      spNone: !sp, spChosen: !!sp, spKp: () => this.setState({ sp: 'kp' }), spDd: () => this.setState({ sp: 'dd' }), spReset: e => { e.preventDefault(); this.setState({ sp: null, spS: {} }); },
+      spPathLabel: sp === 'kp' ? 'Keypad, pay as you go' : 'Bill payer',
+      spSups: supNames.map(n => spPill('sup', n)),
+      spQ2: sp === 'kp' ? '2. How much do you usually top up?' : '2. How much is your monthly bill?',
+      spQ2Help: sp === 'kp' ? 'A rough weekly figure is fine. We work out your usage from it.' : 'Your Direct Debit amount, or a typical bill divided by the months it covers.',
+      spAmts: spAmtData.map(([l, sub]) => ({ label: l, sub, ...spPill('amt', l) })),
+      spQ3: sp === 'kp' ? '3. Do you get a cheaper night rate?' : '3. How do you pay the bill?',
+      spQ3Opts: (sp === 'kp' ? ['Yes, Economy 7', 'No', 'Not sure'] : ['Direct Debit', 'Cash, card, cheque']).map(v => spPill('q3', v)),
+      spCta: sp === 'kp' ? 'Show keypad tariffs →' : 'Show bill tariffs →',
+      hpFields: [['Current supplier', 'Budget Energy'], ['How you pay', 'Pay as you go'], ['Economy 7 meter', 'No'], ['Tariff name', 'Not sure'], ['Home size', '3–4 people']].map(([label, value]) => ({ label, value, color: value === 'Not sure' ? '#B5500F' : '#0B2730' })),
+      cbSlots: cbSlotData.map(([day, time], i) => ({ day, time, border: cbS === i ? '2px solid #0B2730' : '2px solid transparent', bg: cbS === i ? '#FBFAE6' : '#fff', pick: () => this.setState({ cbS: i }) })),
+      cbPending: !cbDoneB, cbDone: cbDoneB, cbCta: cbS == null ? 'Choose a time' : 'Book callback',
+      cbBook: () => { if (this.state.cbS != null) this.setState({ cbDone: true }); },
+      cbConfirm: cbS == null ? '' : 'We’ll call you ' + cbSlotData[cbS][0].toLowerCase() + ', ' + cbSlotData[cbS][1] + '.',
+      cbReset: e => { e.preventDefault(); this.setState({ cbDone: false }); }
+    };
+    const cmpVals = {
+      ...cmpVals2, ...cmpVals3, ...cmpVals4,
+      cSups, cPays, cE7s, cHouses, cUseModes, cSummary, cIssues, cUseEst: cUse === 'est', cUseKwh: cUse === 'kwh',
+      cTariffNote: 'Showing 4 ' + cSup + ' ' + (cPay === 'Pay as you go' ? 'keypad' : cPay.toLowerCase()) + ' tariffs',
+      wzTiles, wzSoFar, wzNone: wzSoFar.length === 0, wzNum: 'Question ' + (wz + 1) + ' of ' + Q.length, wzTitle: q.title, wzHelp: q.help,
+      wzPct: ((wz + (sel != null ? 1 : 0)) / Q.length * 100).toFixed(0) + '%', wzBackOp: wz === 0 ? 0.4 : 1,
+      wzBack: () => this.setState({ wz: Math.max(0, wz - 1) }),
+      wzNext: () => this.setState({ wz: wz < Q.length - 1 ? wz + 1 : 0, ...(wz === Q.length - 1 ? { wa: {} } : {}) }),
+      wzNextLabel: wz === Q.length - 1 ? 'Show my savings →' : 'Continue',
+      upDone, upPending: !upDone, upRows,
+      upTry: () => this.setState({ upDone: true }), upReset: e => { e.preventDefault(); this.setState({ upDone: false }); }
+    };
+    const kp = (this.props.switchPayment ?? 'Keypad') === 'Keypad';
+    const agree = !!this.state.swAgree, psr = !!this.state.swPsr, psrSel = this.state.swPsrSel ?? [];
+    const box = on => ({ bg: on ? '#0B2730' : '#fff', tick: on ? '✓' : '' });
+    const stepNames = ['About you', 'Your address', kp ? 'Your meter' : 'Meter and payment', 'Check your details'];
+    const st = this.state.swStep ?? 0;
+    const pfD = this.state.pfD ?? {};
+    const pfKeys = ['you', 'addr', 'mprn'];
+    const pfFirstOpen = pfKeys.find(k => !pfD[k]);
+    const pf = {};
+    pfKeys.forEach(k => { const done = !!pfD[k], open = !done && k === pfFirstOpen;
+      pf[k] = { done, open, mark: done ? '✓' : String(pfKeys.indexOf(k) + 1), dot: done ? '#0B2730' : open ? '#5B2F7A' : '#C4CCD8', border: open ? '2px solid #C9A3E0' : '1px solid #E6EAF0',
+        save: () => this.setState(s => ({ pfD: { ...(s.pfD ?? {}), [k]: true } })),
+        edit: e => { e.preventDefault(); this.setState(s => ({ pfD: { ...(s.pfD ?? {}), [k]: false } })); } }; });
+    const pfN = pfKeys.filter(k => pfD[k]).length, pfAll = pfN === 3;
+    const mpRaw = this.state.mp ?? '', mpDig = mpRaw.replace(/\D/g, '');
+    const mpOk = mpDig.length === 11 && mpDig.startsWith('81');
+    const mpBadPre = mpDig.length >= 2 && !mpDig.startsWith('81');
+    const [mpMsg, mpMsgColor, mpBorder] = !mpDig ? ['11 digits, starting with 81', '#5A6B80', '#C4CCD8']
+      : mpOk ? ['✓ That looks right', '#1F7A3A', '#0B2730']
+      : mpBadPre ? ["NI meter numbers start with 81. This might be your account number.", '#B5500F', '#E87722']
+      : mpDig.length > 11 ? ['That’s too long. The MPRN is 11 digits.', '#B5500F', '#E87722']
+      : [mpDig.length + ' of 11 digits', '#5A6B80', '#C9A3E0'];
+    const mpFmt = d => [d.slice(0, 2), d.slice(2, 6), d.slice(6, 10), d.slice(10)].filter(Boolean).join(' ');
+    const rm = this.state.rm !== false;
+    const yn = v => v === 'Yes' ? '#E3E000' : v === 'No' ? '#EEF1F5' : '#F1E7F8';
+    const swVals = {
+      sfReq: [
+        ['Title, first name, surname', 'Name on the new account', 'Yes', 'Yes'],
+        ['Date of birth', 'Identity check', 'Yes', 'Yes'],
+        ['Email', 'Confirmation and contract documents', 'Yes', 'Yes'],
+        ['Mobile number', 'Supplier contact about the switch', 'Yes', 'Yes'],
+        ['Home phone number', 'Second contact number', 'Optional', 'Optional'],
+        ['MPRN', 'Identifies the meter to NIE Networks', 'Yes', 'Yes'],
+        ['Postcode', 'Checked against the MPRN', 'Yes', 'Yes'],
+        ['Meter read', 'Opening reading for the first bill', 'Optional', 'Optional'],
+        ['Meter serial number', 'Confirms the physical meter', 'Yes', 'Yes'],
+        ['House number, address lines, city, county', 'Supply address. Line 1 and city required.', 'Yes', 'Yes'],
+        ['Own the property', 'Owner or tenant', 'Yes', 'Yes'],
+        ['Time at address', 'Less than 1 year and longer', 'Optional', 'Optional'],
+        ['Meter read reminders', 'Email or text', 'Yes', 'Yes'],
+        ['Life support equipment', 'Priority services. Yes or no.', 'Yes', 'Yes'],
+        ['Special Services Register', '12 tick boxes for special requirements', 'Optional', 'Optional'],
+        ['Direct Debit agreement and terms', 'Agree to pay by Direct Debit, accept DD terms', 'No', 'Yes'],
+        ['Bank name, name on account, account number, sort code', 'IBAN offered instead', 'No', 'Yes'],
+        ['Billing address same as supply', 'Yes or no. Asks for an address if no.', 'Yes', 'Yes'],
+        ['Terms & Conditions', 'SSE Airtricity terms, with link to tariff terms', 'Yes', 'Yes'],
+        ['Cooling off', 'Can cancel up to 10 working days from sign-up', 'Yes', 'Yes'],
+        ['Marketing channels', 'Email, text, mobile, post, landline. All unticked.', 'Optional', 'Optional']
+      ].map(([f, why, k, b]) => ({ f, why, k, b, kBg: yn(k), bBg: yn(b) })),
+      swKeypad: kp, swDD: !kp,
+      swAgreeToggle: () => this.setState(s => ({ swAgree: !s.swAgree })),
+      swAgreeBg: box(agree).bg, swAgreeTick: box(agree).tick,
+      swCoolToggle: () => this.setState(s => ({ swCool: !s.swCool })), swCoolBg: box(!!this.state.swCool).bg, swCoolTick: box(!!this.state.swCool).tick,
+      swComplete: () => {},
+      swSaved: [
+        ['About you', 'Ms Ciara McAllister · 14/06/1986 · ciara.mcallister@email.com · 07700 900123', 'From your profile'],
+        ['Your meter', 'Serial S12A 345678 · Keypad, 24 hour', 'From your profile'],
+        ['Supply address', '14 Malone Avenue, Belfast BT9 6AA · County Antrim · Also your billing address', 'From your profile'],
+        ['Your home', 'You own this property · Lived here less than 1 year · Meter read reminders by email', 'From your profile'],
+        ['Priority services', 'No life support equipment · Not on the Special Services Register', 'From your profile'],
+        ['Contact preferences', 'No marketing from SSE Airtricity', 'From your settings']
+      ].map(([title, sum, src], i, a) => ({ title, sum, src, isMeter: i === 1, rule: i === a.length - 1 ? '0' : '1px solid #EEF1F5' })),
+      c7Acc: !!this.state.c7Acc, c7AccToggle: () => this.setState(s => ({ c7Acc: !s.c7Acc })), c7AccBg: this.state.c7Acc ? '#0B2730' : '#fff', c7AccTick: this.state.c7Acc ? '✓' : '',
+      swAcc: !!this.state.swAcc, swAccToggle: () => this.setState(s => ({ swAcc: !s.swAcc })), swAccBg: this.state.swAcc ? '#E3E000' : 'transparent', swAccTick: this.state.swAcc ? '✓' : '',
+      swAccWa: (this.state.swAccCh ?? 'Email') === 'WhatsApp',
+      swAccChs: ['Email', 'WhatsApp'].map(label => { const on = (this.state.swAccCh ?? 'Email') === label; return { label, border: on ? '2px solid #E3E000' : '2px solid #4A6570', bg: on ? '#E3E000' : 'transparent', fg: on ? '#0B2730' : '#fff', pick: () => this.setState({ swAccCh: label }) }; }),
+      swCtaBg: agree && this.state.swCool ? '#C9A3E0' : '#E6EAF0', swCtaFg: agree && this.state.swCool ? '#0B2730' : '#7A8899',
+      swCtaLabel: agree && this.state.swCool ? 'Complete switch →' : 'Tick both boxes above to continue',
+      swSsr: ['Advancing age', 'Vision impaired', 'Hearing impaired', 'Mobility impaired', 'Mental health', 'Speech impaired', 'Language difficulty', 'Learning difficulty', 'Dexterity impaired', 'Terminally ill', 'Chronically ill', 'Customer Support Register'].map(label => { const on = (this.state.swSsr ?? []).includes(label);
+        return { label, boxBg: on ? '#0B2730' : '#fff', boxBorder: on ? '1.5px solid #0B2730' : '1.5px solid #C4CCD8', tick: on ? '✓' : '', pick: () => this.setState(s => { const c = s.swSsr ?? []; return { swSsr: c.includes(label) ? c.filter(x => x !== label) : [...c, label] }; }) }; }),
+      swMk: ['Email', 'Text (SMS)', 'Mobile phone', 'Post', 'Landline', 'All of the above'].map(label => { const c = this.state.swMk ?? [], all = ['Email', 'Text (SMS)', 'Mobile phone', 'Post', 'Landline'], on = label === 'All of the above' ? all.every(x => c.includes(x)) : c.includes(label);
+        return { label, boxBg: on ? '#0B2730' : '#fff', boxBorder: on ? '1.5px solid #0B2730' : '1.5px solid #C4CCD8', tick: on ? '✓' : '', pick: () => this.setState(s => { const cc = s.swMk ?? []; if (label === 'All of the above') return { swMk: on ? [] : all }; return { swMk: cc.includes(label) ? cc.filter(x => x !== label) : [...cc, label] }; }) }; }),
+      swPsr: psr, swPsrToggle: () => this.setState(s => ({ swPsr: !s.swPsr })),
+      swPsrBg: box(psr).bg, swPsrTick: box(psr).tick,
+      swPsrOpts: ['Over 65', 'Medical equipment', 'Sight or hearing', 'Young children', 'Password scheme'].map(label => { const on = psrSel.includes(label);
+        return { label, border: on ? '2px solid #0B2730' : '1px solid #C4CCD8', bg: on ? '#FBFAE6' : '#fff', pick: () => this.setState(s => { const c = s.swPsrSel ?? []; return { swPsrSel: c.includes(label) ? c.filter(x => x !== label) : [...c, label] }; }) }; }),
+      swRecap: [{ label: 'Payment', value: kp ? 'Pay as you go' : 'Direct Debit' }, { label: 'Contract', value: '12 months' }, { label: 'Exit fee', value: 'None' }, { label: 'Leaving', value: 'Budget Energy Q1 Fixed Keypad' }],
+      swSteps: stepNames.map((t, i) => ({ bar: i <= st ? '#5B2F7A' : '#E6EAF0' })),
+      swStepNum: 'Step ' + (st + 1) + ' of 4', swStepNext: st < 3 ? 'Next: ' + stepNames[st + 1] : 'Last step',
+      swStepTitle: stepNames[st], swS0: st === 0, swS1: st === 1, swS2: st === 2, swS3: st === 3,
+      swBackOp: st === 0 ? 0.4 : 1,
+      swBack: () => this.setState({ swStep: Math.max(0, st - 1) }),
+      swNext: () => this.setState({ swStep: st < 3 ? st + 1 : 0 }),
+      swNextLabel: st === 3 ? 'Confirm switch →' : 'Continue',
+      swReview: [['Name', 'Ms Ciara McAllister', 0], ['Date of birth', '14/06/1986', 0], ['Email', 'ciara.mcallister@email.com', 0], ['Mobile', '07700 900123', 0], ['Address', '14 Malone Avenue, Belfast BT9 6AA', 1], ['MPRN', '81 1234 5678 9', 2], ['Payment', kp ? 'Keypad top-up' : 'Direct Debit, account ending 4821', 2]]
+        .map(([label, value, s]) => ({ label, value, edit: e => { e.preventDefault(); this.setState({ swStep: s }); } })),
+      pf, pfCount: pfN + ' of 3 done', pfLeft: pfAll ? 'All done' : (3 - pfN) + (3 - pfN === 1 ? ' thing left' : ' things left'),
+      pfKnown: [{ t: 'Leaving Budget Energy' }, { t: 'Q1 Fixed Keypad, no exit fee' }, { t: 'Keypad meter, 24 hour' }, { t: 'Usage 3,200 kWh a year' }],
+      pfCtaBg: pfAll ? '#C9A3E0' : '#E6EAF0', pfCtaFg: pfAll ? '#0B2730' : '#7A8899',
+      pfCta: pfAll ? 'Confirm switch →' : 'Confirm switch', pfNote: pfAll ? 'Click to reset the demo.' : 'Finish the cards above to continue.',
+      pfReset: () => { if (pfAll) this.setState({ pfD: {} }); },
+      sdFields: [['First name', 'Ciara'], ['Last name', 'McAllister'], ['Date of birth', '14 / 06 / 1986'], ['Mobile', '07700 900123'], ['Email', 'ciara.mcallister@email.com', '1 / -1'], ['Supply address', '14 Malone Avenue, Belfast BT9 6AA', '1 / -1'], ['MPRN', '81 1234 5678 9'], kp ? ['Payment', 'Keypad, nothing to pay'] : ['Bank account', '95-00-00 · 12344821']]
+        .map(([label, value, span]) => ({ label, value, span: span || 'auto' })),
+      sdTimeline: [
+        ['Today', 'SSE Airtricity get your details. You get a confirmation email from us.'],
+        ['Next 10 working days', 'Cooling-off period. You can cancel for free.'],
+        ['About 3 weeks', kp ? 'Your switch date. Your new top-up card arrives by post before this.' : 'Your switch date. Take a meter reading that day.'],
+        ['After the switch', kp ? 'Top up with the new card. Budget Energy refund any credit left on your meter.' : 'Budget Energy send a final bill. Your first Direct Debit is taken about a month later.']
+      ].map(([when, what], i, a) => ({ when, what, dot: i === 0 ? '#E3E000' : 'transparent', line: i === a.length - 1 ? 0 : 1 })),
+      mpManual: !this.state.mpLook, mpLookup: !!this.state.mpLook,
+      mpLookOn: () => this.setState({ mpLook: true }), mpLookOff: () => this.setState({ mpLook: false }),
+      mpVal: mpRaw, mpChange: e => this.setState({ mp: e.target.value }),
+      mpMsg, mpMsgColor, mpBorder,
+      mpTryGood: () => this.setState({ mp: mpFmt('81123456789') }), mpTryBad: () => this.setState({ mp: '1002 3344 55' }),
+      cfSteps: [
+        { n: '1', t: 'Check your email', d: 'SSE Airtricity will send your welcome pack and contract within 2 working days.' },
+        { n: '2', t: kp ? 'Watch for your new top-up card' : 'Take a meter reading on switch day', d: kp ? 'It arrives by post before your switch date, around 20 October. Keep using your current card until then.' : 'Your switch date is around 20 October. SSE Airtricity will ask for a reading.' },
+        { n: '3', t: 'Nothing else to do', d: "SSE Airtricity tell Budget Energy you're leaving. Your supply isn't interrupted." }
+      ],
+      rmText: rm ? 'We’ll email you in August 2027, a month before the 10.5% discount ends.' : 'Off. You won’t hear from us about renewing.',
+      rmToggle: () => this.setState({ rm: !rm }), rmTrack: rm ? '#5B2F7A' : '#C4CCD8', rmKnob: rm ? '23px' : '3px'
+    };
+    const rpT = [
+      ['SSE Airtricity', '1 Year Keypad Electricity 10.5% + £30 Welcome Credit', 1168.27, 30, 36.51, 12, 'None', 'Variable', true, false, false, ['10.5% discount', 'SSE Rewards']],
+      ['Power NI', 'Keypad Saver 8%', 1192.25, 0, 37.45, 0, 'None', 'Variable', false, false, true, ['8% discount']],
+      ['Click Energy', 'Click Keypad 12 Month', 1215.35, 0, 38.02, 12, '£25', 'Variable', true, false, true, ['Online account']],
+      ['Budget Energy', 'Fixed Keypad 24 Month', 1228.80, 0, 38.40, 24, '£50', 'Fixed', true, false, true, ['Price fixed for 2 years']],
+      ['Share Energy', 'Community Keypad', 1244.16, 0, 38.88, 0, 'None', 'Variable', false, true, true, ['100% renewable']],
+      ['Click Energy', 'Green Fixed Keypad 12', 1254.40, 25, 39.20, 12, '£25', 'Fixed', true, true, true, ['100% renewable']],
+      ['SSE Airtricity', 'Keypad Standard', 1305.33, 0, 40.79, 0, 'None', 'Variable', true, false, false, []],
+      ['Electric Ireland', 'Keypad Standard', 1390.35, 0, 43.45, 0, 'None', 'Variable', false, false, false, []]
+    ].map(([supplier, name, annual, cash, unit, term, exit, rate, online, green, local, perks], id) => ({ id, supplier, name, annual, cash, unit, term, exit, rate, online, green, local, perks }));
+    const rpDef = { cash: true, contract: 'Any', noExit: false, fixed: false, cashOnly: false, online: false, green: false, local: false, sup: [], sort: 'saving', open: null, sheet: false, sel: [0, 1], cmp: true, supOpen: false, tabs: {} };
+    const rpSet = (k, fn) => this.setState(s => { const c = { ...rpDef, ...(s['rp' + k] || {}) }; return { ['rp' + k]: { ...c, ...fn(c) } }; });
+    const rpTogs = [['noExit', 'No exit fee'], ['fixed', 'Price fixed'], ['cashOnly', 'Has cashback'], ['online', 'Switch through Power to Switch'], ['green', 'Green energy'], ['local', 'NI-based supplier']];
+    const rpFails = (f, t) => { const r = [];
+      if (f.contract === 'No contract' && t.term > 0) r.push('No contract');
+      if (f.contract === 'Up to 12 months' && t.term > 12) r.push('Up to 12 months');
+      rpTogs.forEach(([key, l]) => { if (f[key] && !({ noExit: t.exit === 'None', fixed: t.rate === 'Fixed', cashOnly: t.cash > 0, online: t.online, green: t.green, local: t.local })[key]) r.push(l); });
+      if (f.sup.length && !f.sup.includes(t.supplier)) r.push('Supplier');
+      return r; };
+    const rpPass = (f, t) => rpFails(f, t).length === 0;
+    const rpSups = [...new Set(rpT.map(t => t.supplier))].sort();
+    const clearAll = { contract: 'Any', noExit: false, fixed: false, cashOnly: false, online: false, green: false, local: false, sup: [] };
+    const chk = on => ({ boxBg: on ? '#0B2730' : '#fff', boxBorder: on ? '1.5px solid #0B2730' : '1.5px solid #C4CCD8', tick: on ? '✓' : '', chipBg: on ? '#0B2730' : '#fff', chipFg: on ? '#fff' : '#0B2730', chipBorder: on ? '1.5px solid #0B2730' : '1.5px solid #C4CCD8' });
+    const rpBuild = k => {
+      const f = { ...rpDef, ...(this.state['rp' + k] || {}) }, set = fn => rpSet(k, fn);
+      const netOf = t => t.annual - (f.cash ? t.cash : 0);
+      const sorter = { saving: (a, b) => netOf(a) - netOf(b), unit: (a, b) => a.unit - b.unit, term: (a, b) => a.term - b.term || netOf(a) - netOf(b) }[f.sort];
+      const shown = rpT.filter(t => rpPass(f, t)).sort(sorter);
+      const best = [...rpT].sort((a, b) => netOf(a) - netOf(b))[0];
+      const blockers = rpFails(f, best);
+      const maxN = Math.max(cur, ...rpT.map(netOf));
+      const CL = (label, sub, value, bold) => ({ label, sub, value, w: bold ? 700 : 400, top: bold ? '1px solid #E1DFB8' : '0' });
+      const items = shown.map((t, i) => {
+        const n = netOf(t), d = cur - n, good = d > 0, open = f.open === t.id, sel = f.sel.includes(t.id), top = i === 0 && f.sort === 'saving' && good;
+        const pros = [], cons = [];
+        if (!t.term) pros.push('No contract'); else if (t.term === 24) cons.push('24-month contract');
+        if (t.exit === 'None') pros.push('No exit fee'); else cons.push(t.exit + ' exit fee');
+        if (t.rate === 'Fixed') pros.push('Price fixed'); else cons.push('Price can change');
+        if (t.cash) pros.push('£' + t.cash + ' cashback');
+        if (t.green) pros.push('Green energy');
+        return { supplier: t.supplier, name: t.name, hasLogo: t.supplier === 'SSE Airtricity', noLogo: t.supplier !== 'SSE Airtricity',
+          isTop: top, border: top ? '#0B2730' : '#D9DFE8',
+          saveLabel: good ? 'Save a year' : 'Costs more a year', saveColor: good ? '#0B2730' : '#B5500F', saveText: gbp(d),
+          netText: gbp(n), monthly: gbp(n / 12) + ' a month',
+          curPct: (cur / maxN * 100).toFixed(1) + '%', newPct: (n / maxN * 100).toFixed(1) + '%', barColor: good ? '#B78DD4' : '#E87722',
+          factLine: t.unit.toFixed(2) + 'p/kWh · No standing charge · ' + (t.term ? t.term + ' months' : 'No contract') + ' · ' + t.rate + ' · Exit fee ' + t.exit,
+          hasCash: t.cash > 0, cashText: '£' + t.cash + ' cashback' + (f.cash ? '' : ', not counted'),
+          perkLine: t.perks.map(p => '✓ ' + p).join('  '),
+          pros: pros.map(p => '✓ ' + p).join('   '), cons: cons.map(p => '⚠ ' + p).join('   '), hasCons: cons.length > 0,
+          cta: t.online ? 'Switch online' : 'Go to ' + t.supplier, href: t.online ? '#8a' : '#', route: t.online ? 'Via Power to Switch, about 5 min' : 'Finish on ' + t.supplier + '’s site',
+          ctaBg: good ? '#C9A3E0' : '#E6E1EC',
+          calcOpen: open, calcLabel: open ? 'Hide calculation ▴' : 'See calculation ▾',
+          toggleCalc: e => { e.preventDefault(); set(c => ({ open: c.open === t.id ? null : t.id })); },
+          calc: [CL('Estimated annual bill', '3,200 kWh at ' + t.unit.toFixed(2) + 'p/kWh, incl. VAT', gbp(t.annual)), CL('Standing charge', 'None on this tariff', '£0.00'),
+            ...(t.cash ? [CL('Cashback', f.cash ? 'Paid after you switch' : 'Not counted. Turn on "Count cashback" to include it.', f.cash ? '−' + gbp(t.cash) : '£0.00')] : []),
+            CL('Year one cost', '', gbp(n), 1), CL('Your current tariff', 'Budget Energy Q1 Fixed Keypad', gbp(cur)), CL(good ? 'You save' : 'You pay more', '', gbp(d), 1)],
+          calcNote: t.term ? 'After ' + t.term + ' months you move to ' + t.supplier + '’s standard rate unless you switch again.' : 'No contract. You can leave at any time without a fee.',
+          ...(() => { const after = { 0: 40.79, 2: 40.30, 3: 40.30, 5: 40.55 }[t.id]; if (!after || !t.term) return { hasRise: false, riseTitle: '', riseText: '' };
+            const m1 = t.annual / 12, m2 = after * 3200 / 100 / 12;
+            return { hasRise: true, riseTitle: 'Dearer from month ' + (t.term + 1), riseText: 'About ' + gbp(m2) + ' a month at ' + after.toFixed(2) + 'p/kWh, ' + gbp(m2 - m1) + ' more than months 1 to ' + t.term + '. Create an account and we’ll remind you in month ' + (t.term - 1) + '.' }; })(),
+          unitText: t.unit.toFixed(2) + 'p', termText: t.term ? t.term + ' months' : 'None', exitText: t.exit, rateText: t.rate,
+          tabs: [['overview', 'Overview'], ['rates', 'Rates & charges'], ['calc', 'Calculation'], ['info', 'Tariff terms']].map(([key, label]) => { const cur = (f.tabs[t.id] !== undefined ? f.tabs[t.id] : (top ? 'overview' : null)) === key;
+            return { label, weight: cur ? 700 : 500, line: cur ? '#0B2730' : 'transparent', go: () => set(c => { const was = c.tabs[t.id] !== undefined ? c.tabs[t.id] : (top ? 'overview' : null); return { tabs: { ...c.tabs, [t.id]: was === key ? null : key } }; }) }; }),
+          ...(() => { const tb = f.tabs[t.id] !== undefined ? f.tabs[t.id] : (top ? 'overview' : null); return { tabAny: !!tb, tabOv: tb === 'overview', tabRates: tb === 'rates', tabCalc: tb === 'calc', tabInfo: tb === 'info' }; })(),
+          ovFacts: [{ label: 'Contract', value: t.term ? t.term + ' months' : 'None' }, { label: 'Rate type', value: t.rate }, { label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Exit fee', value: t.exit }, { label: 'Switch', value: t.online ? 'Via Power to Switch' : 'Supplier site' }],
+          rateFacts: [{ label: 'Unit rate', value: t.unit.toFixed(2) + 'p/kWh', note: 'Incl. VAT' }, { label: 'Standing charge', value: 'None', note: 'Keypad tariff' }, { label: 'Annual bill', value: gbp(t.annual), note: '3,200 kWh a year' }, { label: 'Monthly', value: gbp(t.annual / 12), note: 'Average' }],
+          infoLines: [t.term ? 'This tariff lasts ' + t.term + ' months. After that you move to ' + t.supplier + '’s standard keypad rate.' : 'No fixed term. You can leave at any time.', t.exit === 'None' ? 'No exit fee.' : 'A ' + t.exit + ' exit fee applies if you leave before the end of the contract.', t.rate === 'Fixed' ? 'The unit rate is fixed for the contract.' : 'Variable rate. ' + t.supplier + ' can change the price with notice.', ...(t.cash ? ['£' + t.cash + ' cashback is added to your account after you switch.'] : [])],
+          selBg: sel ? '#0B2730' : '#fff', selBorder: sel ? '1.5px solid #0B2730' : '1.5px solid #C4CCD8', selTick: sel ? '✓' : '', selOp: !sel && f.sel.length >= 3 ? 0.45 : 1,
+          toggleSel: () => set(c => ({ sel: c.sel.includes(t.id) ? c.sel.filter(x => x !== t.id) : c.sel.length >= 3 ? c.sel : [...c.sel, t.id] }))
+        };
+      });
+      const active = [];
+      if (f.contract !== 'Any') active.push([f.contract, { contract: 'Any' }]);
+      rpTogs.forEach(([key, l]) => { if (f[key]) active.push([l, { [key]: false }]); });
+      f.sup.forEach(s => active.push([s, { sup: f.sup.filter(x => x !== s) }]));
+      const selT = f.sel.map(id => rpT[id]);
+      const bestOf = (vals, lowIsBest) => { const b = lowIsBest ? Math.min(...vals) : Math.max(...vals); return vals.map(v => v === b && selT.length > 1); };
+      const nets = selT.map(netOf), saves = nets.map(n => cur - n), units = selT.map(t => t.unit);
+      const row = (label, vals, flags) => ({ label, cells: vals.map((v, i) => ({ v, w: flags && flags[i] ? 800 : 500, bg: flags && flags[i] ? '#FBFAE6' : '#fff' })) });
+      return {
+        items, sort: f.sort, setSort: e => set(() => ({ sort: e.target.value })),
+        togs: rpTogs.map(([key, label]) => { const on = f[key], cnt = rpT.filter(t => rpPass({ ...f, [key]: true }, t)).length;
+          return { label, ...chk(on), count: String(cnt), dim: !on && cnt === 0 ? 0.45 : 1, pick: () => set(c => ({ [key]: !c[key] })) }; }),
+        contracts: ['Any', 'No contract', 'Up to 12 months'].map(l => { const on = f.contract === l;
+          return { label: l, ...chk(on), dot: on ? '5px solid #0B2730' : '2px solid #C4CCD8', segBg: on ? '#fff' : 'transparent', segShadow: on ? '0 1px 2px rgba(11,39,48,.15)' : 'none', count: String(rpT.filter(t => rpPass({ ...f, contract: l }, t)).length), pick: () => set(() => ({ contract: l })) }; }),
+        get quickTogs() { return this.togs.slice(0, 3); },
+        sups: rpSups.map(s => { const on = f.sup.includes(s);
+          return { label: s, ...chk(on), count: String(rpT.filter(t => t.supplier === s && rpPass({ ...f, sup: [] }, t)).length), pick: () => set(c => ({ sup: c.sup.includes(s) ? c.sup.filter(x => x !== s) : [...c.sup, s] })) }; }),
+        supOpen: f.supOpen, supToggle: () => set(c => ({ supOpen: !c.supOpen })), supLabel: (f.sup.length ? 'Supplier · ' + f.sup.length : 'Supplier') + (f.supOpen ? ' ▴' : ' ▾'), supChip: chk(f.sup.length > 0),
+        qs: [
+          ['Happy to sign up for a fixed term?', [['Yes', { contract: 'Any' }, f.contract === 'Any'], ['Up to a year', { contract: 'Up to 12 months' }, f.contract === 'Up to 12 months'], ['No', { contract: 'No contract' }, f.contract === 'No contract']]],
+          ['Want a price that can’t go up?', [['Yes', { fixed: true }, f.fixed], ['Don’t mind', { fixed: false }, !f.fixed]]],
+          ['OK to pay a fee if you leave early?', [['No', { noExit: true }, f.noExit], ['Don’t mind', { noExit: false }, !f.noExit]]],
+          ['Does green energy matter to you?', [['Yes', { green: true }, f.green], ['Don’t mind', { green: false }, !f.green]]]
+        ].map(([q, opts]) => ({ q, opts: opts.map(([label, patch, on]) => ({ label, bg: on ? '#E3E000' : 'transparent', fg: on ? '#0B2730' : '#fff', border: on ? '2px solid #E3E000' : '2px solid #2A4650', pick: () => set(() => patch) })) })),
+        countText: shown.length + ' of ' + rpT.length + ' tariffs', hasHidden: shown.length < rpT.length, hiddenText: (rpT.length - shown.length) + ' hidden by your filters',
+        active: active.map(([label, patch]) => ({ label, remove: () => set(() => patch) })), hasActive: active.length > 0,
+        filterBtn: active.length ? 'Filters · ' + active.length : 'Filters',
+        clear: e => { if (e && e.preventDefault) e.preventDefault(); set(() => clearAll); },
+        nudge: blockers.length > 0, nudgeText: best.supplier + ' ' + best.name + ' would save you ' + gbp(cur - netOf(best)) + ' a year. Hidden by: ' + blockers.join(', ') + '.',
+        nudgeShow: () => set(c => { const p = {}, fl = rpFails(c, best);
+          if (fl.includes('No contract') || fl.includes('Up to 12 months')) p.contract = 'Any';
+          rpTogs.forEach(([key, l]) => { if (fl.includes(l)) p[key] = false; });
+          if (fl.includes('Supplier')) p.sup = [...c.sup, best.supplier];
+          return p; }),
+        empty: shown.length === 0,
+        lenses: [['Cheapest overall', {}], ['Cheapest, no contract', { contract: 'No contract' }], ['Cheapest fixed price', { fixed: true }], ['Cheapest, no exit fee', { noExit: true }], ['Cheapest green', { green: true }]].map(([title, patch]) => {
+          const target = { ...f, ...clearAll, ...patch }, list = rpT.filter(t => rpPass(target, t)).sort((a, b) => netOf(a) - netOf(b)), b0 = list[0];
+          const on = ['contract', 'noExit', 'fixed', 'cashOnly', 'online', 'green', 'local'].every(key => f[key] === target[key]) && !f.sup.length;
+          const d0 = b0 ? cur - netOf(b0) : 0;
+          return { title, sup: b0 ? b0.supplier : '—', name: b0 ? b0.name : 'None available', save: b0 ? (d0 > 0 ? 'Save ' : '+') + gbp(d0) : '', count: list.length + ' tariffs', border: on ? '2px solid #0B2730' : '1px solid #D9DFE8', bg: on ? '#FBFAE6' : '#fff', dot: on ? '#E3E000' : 'transparent', pick: () => set(() => ({ ...clearAll, ...patch })) }; }),
+        hdrs: [['Tariff', null], ['Unit rate', 'unit'], ['Contract', 'term'], ['Exit fee', null], ['Year one', 'saving'], ['Saving', 'saving'], ['', null]].map(([label, key]) => ({ label, arrow: key ? (f.sort === key ? ' ▲' : ' ↕') : '', cursor: key ? 'pointer' : 'default', color: key && f.sort === key ? '#0B2730' : '#5A6B80', go: () => { if (key) set(() => ({ sort: key })); } })),
+        contractVal: f.contract, setContract: e => set(() => ({ contract: e.target.value })),
+        priceVal: f.fixed ? 'fixed' : 'any', setPrice: e => set(() => ({ fixed: e.target.value === 'fixed' })),
+        exitVal: f.noExit ? 'none' : 'any', setExit: e => set(() => ({ noExit: e.target.value === 'none' })),
+        greenVal: f.green ? 'green' : 'any', setGreen: e => set(() => ({ green: e.target.value === 'green' })),
+        cashTrack: f.cash ? '#5B2F7A' : '#C4CCD8', cashKnob: f.cash ? '21px' : '3px', cashToggle: () => set(c => ({ cash: !c.cash })),
+        sheetOpen: f.sheet, openSheet: () => set(() => ({ sheet: true })), closeSheet: () => set(() => ({ sheet: false })), showBtn: 'Show ' + shown.length + ' tariffs',
+        selText: f.sel.length + ' of 3 picked', cmpOpen: f.cmp && selT.length >= 2,
+        cmpBtn: selT.length < 2 ? 'Pick at least 2' : f.cmp ? 'Hide comparison' : 'Compare ' + selT.length + ' tariffs', cmpBtnBg: selT.length >= 2 ? '#C9A3E0' : '#E6E1EC',
+        cmpToggle: () => set(c => ({ cmp: !c.cmp })),
+        cmpCols: 'minmax(90px,150px) repeat(' + Math.max(selT.length, 1) + ', minmax(0,1fr))',
+        cmpHead: selT.map(t => ({ supplier: t.supplier, name: t.name, cta: t.online ? 'Switch online' : 'Go to site', href: t.online ? '#8a' : '#', remove: () => set(c => ({ sel: c.sel.filter(x => x !== t.id) })) })),
+        cmpRows: [
+          row('Year one cost', nets.map(gbp), bestOf(nets, true)),
+          row('Saving', saves.map(s => (s > 0 ? 'Save ' : '+') + gbp(s)), bestOf(saves, false)),
+          row('Monthly', nets.map(n => gbp(n / 12))),
+          row('Unit rate', units.map(u => u.toFixed(2) + 'p'), bestOf(units, true)),
+          row('Contract', selT.map(t => t.term ? t.term + ' months' : 'None')),
+          row('Price', selT.map(t => t.rate)),
+          row('Exit fee', selT.map(t => t.exit)),
+          row('Cashback', selT.map(t => t.cash ? '£' + t.cash : 'None')),
+          row('Switch', selT.map(t => t.online ? 'Via Power to Switch' : 'Supplier site'))
+        ]
+      };
+    };
+    const rpVals = {
+      rpA: rpBuild('A'), rpB: rpBuild('B'), rpC: rpBuild('C'), rpD: rpBuild('D'), rpE: rpBuild('E'),
+      rpFrames: [{ label: 'Desktop · 1040', w: '1040px', desk: true, mob: false, wrap: 'wrap', btnFlex: '0 0 auto', sheetDir: 'row', sheetTop: '0', sheetFlex: '0 0 auto', sheetW: '340px', sheetRadius: '0 20px 20px 0' }, { label: 'Mobile · 375', w: '375px', desk: false, mob: true, wrap: 'nowrap', btnFlex: '1 1 100%', sheetDir: 'column', sheetTop: '90px', sheetFlex: '1', sheetW: 'auto', sheetRadius: '20px 20px 0 0' }],
+      rpReq: [
+        ['Count cashback in saving', 'Adds cashback and welcome credit to the year-one saving and the sort order', 'On'],
+        ['Sort', 'Biggest saving, lowest unit rate or shortest contract', 'Biggest saving'],
+        ['Contract length', 'Any, no contract, or up to 12 months', 'Any'],
+        ['No exit fee', 'Hides tariffs that charge to leave early', 'Off'],
+        ['Price fixed', 'Hides variable-rate tariffs', 'Off'],
+        ['Has cashback', 'Only tariffs with cashback or welcome credit', 'Off'],
+        ['Switch through Power to Switch', 'Only tariffs the customer can switch to without leaving the site', 'Off'],
+        ['Green energy', 'Only 100% renewable tariffs', 'Off'],
+        ['NI-based supplier', 'Only suppliers based in Northern Ireland', 'Off'],
+        ['Supplier', 'One or more suppliers', 'All'],
+        ['Payment type and meter', 'Not a filter. Set by the comparison form. Changing it reruns the comparison.', 'From answers'],
+        ['Hidden results', 'Says how many tariffs the filters hide, and flags it when the cheapest one is hidden', 'Always shown']
+      ].map(([f, what, def]) => ({ f, what, def }))
+    };
+    const acNew = (this.props.accountState ?? 'Switched customer') === 'New account';
+    const acPage = this.state.acPage ?? 'dash';
+    const acIds = { dash: '10a', bills: '10b', comps: '10c', sw: '10d', price: '10e', profile: '10f', settings: '10g' };
+    const acGo = k => () => { window.location.hash = '#' + acIds[k]; };
+    const acNav = [['dash', 'Dashboard', ''], ['bills', 'My bills', acNew ? '' : '2'], ['comps', 'My comparisons', acNew ? '' : '3'], ['sw', 'My switches', ''], ['price', 'Price tracker', ''], ['profile', 'Profile', acNew ? '25%' : ''], ['settings', 'Settings', '']]
+      .map(([k, label, badge]) => ({ label, badge, hasBadge: !!badge, bg: acPage === k ? '#E3E000' : 'transparent', fg: acPage === k ? '#0B2730' : '#E2E8EA', w: acPage === k ? 800 : 600, pillBg: acPage === k ? '#0B2730' : '#fff', pillFg: acPage === k ? '#fff' : '#0B2730', pillBorder: acPage === k ? '1.5px solid #0B2730' : '1.5px solid #D9DFE8', badgeBg: acPage === k ? '#0B2730' : '#2A4650', badgeFg: acPage === k ? '#E3E000' : '#fff', go: acGo(k) }));
+    const acTitles = { dash: ['Hi Mark', 'Last login 28 Sep 2026, 09:51'], bills: ['My bills', 'Store your bills so every comparison fills itself in.'], comps: ['My comparisons', 'Every comparison you’ve run, with the prices from that day.'], sw: ['My switches', 'Track a switch from sign-up to your first bill.'], price: ['Price tracker', 'How your rate compares with the cheapest keypad tariff, month by month.'], profile: ['Profile', 'Your details, address and meter. Used to fill in switch forms.'], settings: ['Settings', 'Notifications, privacy and security.'] };
+    const acIs = {}; Object.keys(acTitles).forEach(k => { acIs[k] = acPage === k; });
+    const acTog = (key, def) => { const on = this.state[key] ?? def; return { track: on ? '#5B2F7A' : '#C4CCD8', knob: on ? '21px' : '3px', flip: () => this.setState(s => ({ [key]: !(s[key] ?? def) })) }; };
+    const acAlertAmt = this.state.acAmt ?? 75;
+    const acRates = [['Oct', 41.2], ['Nov', 40.8], ['Dec', 40.1], ['Jan', 39.6], ['Feb', 39.1], ['Mar', 38.7], ['Apr', 38.2], ['May', 37.9], ['Jun', 37.5], ['Jul', 37.2], ['Aug', 36.8], ['Sep', 36.51]];
+    const acH = v => ((v - 30) / 15 * 100).toFixed(1) + '%';
+    const acHm = this.state.acHm ?? 6;
+    const acPA = [[0, 0], ...cum.slice(0, 6).map((v, i) => [i + 1, v])], acPB = cum.slice(5, 12).map((v, i) => [i + 6, v]), acPC = cum.slice(11).map((v, i) => [i + 12, v]);
+    const acNotes = {
+      dash: ['Dashboard', 'Leads with whatever matters most right now. A switched customer, six months in, sees the saving so far and how it changes after the discount ends, with the price alert editable in place. A new account sees a slim profile strip and three ways to start.'],
+      bills: ['My bills', 'The forwarding address comes first with a copy button, since it saves uploading at all. Electricity and gas tabs, a large upload area, then saved bills with the usage and spend read from each and a button to compare with it.'],
+      comps: ['My comparisons', 'Each saved comparison shows its date, best tariff and saving on the day. Older ones are flagged when prices have changed since, with a one-click rerun. New accounts get an empty state explaining what will appear here.'],
+      sw: ['My switches', 'A step-by-step tracker with dates, the free-cancellation deadline, the year-one saving and the switch documents. New accounts see how switching works in three steps.'],
+      price: ['Price tracker', 'Twelve months of the cheapest keypad rate against the customer’s own rate, a price alert with an adjustable amount, and the tariffs cheaper than theirs today.'],
+      profile: ['Profile', 'Four cards: about you, property, meter and priority services. Each says how many details are missing, so a new account knows what to add before switching.'],
+      settings: ['Settings', 'A switch for each type of notification and for marketing, then password and delete account.']
+    };
+    const acNavFor = pk => [['dash', 'Dashboard', ''], ['bills', 'My bills', acNew ? '' : '2'], ['comps', 'My comparisons', acNew ? '' : '3'], ['sw', 'My switches', ''], ['price', 'Price tracker', ''], ['profile', 'Profile', acNew ? '25%' : ''], ['settings', 'Settings', '']]
+      .map(([k, label, badge]) => ({ label, badge, hasBadge: !!badge, bg: pk === k ? '#E3E000' : 'transparent', fg: pk === k ? '#0B2730' : '#E2E8EA', w: pk === k ? 800 : 600, pillBg: pk === k ? '#0B2730' : '#fff', pillFg: pk === k ? '#fff' : '#0B2730', pillBorder: pk === k ? '1.5px solid #0B2730' : '1.5px solid #D9DFE8', badgeBg: pk === k ? '#0B2730' : '#2A4650', badgeFg: pk === k ? '#E3E000' : '#fff', go: acGo(k) }));
+    const acPages = Object.keys(acIds).map(pk => { const is = {}; Object.keys(acIds).forEach(k => { is[k] = k === pk; });
+      return { id: acIds[pk], href: '#' + acIds[pk], name: acNotes[pk][0], note: acNotes[pk][1], title: acTitles[pk][0], sub: acTitles[pk][1], nav: acNavFor(pk), is }; });
+    const acVals = {
+      acPages,
+      acAreaA: area(acPA), acLineA: line(acPA), acLineB: line(acPB), acAreaB: area(acPB), acLineC: line(acPC), acAreaC: area(acPC),
+      acDotTop: Yv(cum[5]) + '%', acSoFar: gbp(cum[5]), acYear: gbp(cum[11]),
+      acHits: cum.map((v, i) => ({ enter: () => this.setState({ acHm: i + 1 }), bg: acHm === i + 1 ? 'rgba(255,255,255,.07)' : 'transparent' })),
+      acHoverLabel: 'Month ' + acHm + (acHm <= 6 ? ' · saved' : acHm <= 12 ? ' · on track for' : ' · if you stay'), acHoverVal: gbp(cum[acHm - 1]), acHoverColor: acHm <= 12 ? '#E3E000' : '#F2B45A',
+      acNew, acOld: !acNew, acNav, acIs, acTitle: acTitles[acPage][0], acSub: acTitles[acPage][1],
+      acFrames: [{ label: 'Desktop · 1240', w: '1240px', desk: true, mob: false, pad: '28px 32px 36px' }, { label: 'Mobile · 375', w: '375px', desk: false, mob: true, pad: '20px 16px 28px' }],
+      acGoBills: acGo('bills'), acGoComps: acGo('comps'), acGoSw: acGo('sw'), acGoPrice: acGo('price'), acGoProfile: acGo('profile'),
+      acSteps: [['Create account', 'done'], ['Profile details', acNew ? 'now' : 'done'], ['Property address', acNew ? 'todo' : 'done'], ['Compare energy', acNew ? 'todo' : 'done']].map(([t, s], i) => ({ t, n: s === 'done' ? '✓' : String(i + 1), bg: s === 'done' ? '#0B2730' : s === 'now' ? '#E3E000' : '#fff', fg: s === 'done' ? '#E3E000' : '#0B2730', border: s === 'todo' ? '2px solid #D9DFE8' : '2px solid #0B2730', tc: s === 'todo' ? '#5A6B80' : '#0B2730', bar: s === 'done' ? '#0B2730' : '#E6EAF0', go: i === 3 ? acGo('comps') : acGo('profile') })),
+      acSwSteps: [['Sent to SSE Airtricity', '26 Sep 2026', 'done'], ['Cooling-off period', 'Until 10 Oct 2026. You can cancel for free.', 'now'], ['Switch date', 'Around 20 Oct 2026. New top-up card arrives before this.', 'todo'], ['Switch complete', 'Budget Energy refund any credit left on your meter.', 'todo']]
+        .map(([t, d, s], i, a) => ({ t, d, mark: s === 'done' ? '✓' : String(i + 1), bg: s === 'done' ? '#0B2730' : s === 'now' ? '#E3E000' : '#fff', fg: s === 'done' ? '#E3E000' : '#0B2730', border: s === 'todo' ? '2px solid #C4CCD8' : '2px solid #0B2730', line: i === a.length - 1 ? 0 : 1, lineC: s === 'done' ? '#0B2730' : '#D9DFE8', tw: s === 'now' ? 800 : 700 })),
+      acHeroSteps: [['Sent', '26 Sep', '#E3E000', '#0B2730', '✓'], ['Cooling off', 'to 10 Oct', '#fff', '#0B2730', '2'], ['Switch date', '~20 Oct', 'transparent', '#fff', '3'], ['Complete', '', 'transparent', '#fff', '4']].map(([t, d, bg, fg, n], i) => ({ t, d, bg, fg, n, border: i < 2 ? '2px solid ' + (i === 0 ? '#E3E000' : '#fff') : '2px solid #4A6570', bar: i < 1 ? '#E3E000' : '#2A4650' })),
+      acGlance: [['Supplier', 'Budget Energy → SSE Airtricity'], ['Meter', 'Keypad, 24 hour'], ['Usage', '3,200 kWh a year'], ['MPRN', '81 1234 5678 9']].map(([l, v]) => ({ l, v })),
+      acComps: [['26 Sep 2026', 'Budget Energy Q1 Fixed Keypad', 'SSE Airtricity 1 Year Keypad 10.5%', '£141.18', '18 tariffs', false, 'You switched'], ['12 Aug 2026', 'Budget Energy Q1 Fixed Keypad', 'Power NI Keypad Saver 8%', '£118.40', '17 tariffs', true, ''], ['3 Mar 2026', 'Budget Energy Q1 Fixed Keypad', 'Click Energy Click Keypad 12 Month', '£96.10', '15 tariffs', true, '']]
+        .map(([date, from, best, save, n, old, tag]) => ({ date, from, best, save, n, old, tag, hasTag: !!tag })),
+      acBillTab: this.state.acBillTab ?? 'e', acBillTabs: [['e', 'Electricity'], ['g', 'Gas']].map(([k, l]) => ({ l, w: (this.state.acBillTab ?? 'e') === k ? 800 : 500, line: (this.state.acBillTab ?? 'e') === k ? '#5B2F7A' : 'transparent', go: () => this.setState({ acBillTab: k }) })),
+      acBillLabel: (this.state.acBillTab ?? 'e') === 'e' ? 'electricity' : 'gas',
+      acCopied: !!this.state.acCopied, acCopyLabel: this.state.acCopied ? '✓ Copied' : 'Copy address', acCopy: () => this.setState({ acCopied: true }),
+      acBills: [['Keypad statement', 'Budget Energy', 'Jun–Aug 2026', '812 kWh', '£324.60', 'Used in 2 comparisons'], ['Keypad statement', 'Budget Energy', 'Mar–May 2026', '798 kWh', '£319.05', 'Used in 1 comparison']].map(([type, sup, period, kwh, amt, used]) => ({ type, sup, period, kwh, amt, used })),
+      acBars: acRates.map(([m, v]) => ({ m, cheap: acH(v), mine: acH(39.98), v: v.toFixed(1) })),
+      acMineLine: acH(39.98),
+      acAlert: acTog('acAlertOn', true), acAlertAmt: '£' + acAlertAmt, acAmtVal: acAlertAmt, acSetAmt: e => this.setState({ acAmt: +e.target.value }),
+      acCheaper: [['SSE Airtricity', '1 Year Keypad 10.5% + £30 Welcome Credit', '36.51p', '£141.18'], ['Power NI', 'Keypad Saver 8%', '37.45p', '£87.20'], ['Click Energy', 'Click Keypad 12 Month', '38.02p', '£64.10']].map(([s, n, r, save]) => ({ s, n, r, save })),
+      acProfile: [
+        { title: 'About you', rows: [['Name', 'Mr Mark Kelso'], ['Date of birth', '14/09/1955'], ['Email', 'm@glze.me'], ['Mobile', '07800 508451'], ['Home phone', acNew ? '' : 'Not given']] },
+        { title: 'Property', rows: [['Supply address', acNew ? '' : '14 Malone Avenue, Belfast BT9 6AA'], ['Own the property', acNew ? '' : 'Yes'], ['Lived here', acNew ? '' : 'Less than 1 year']] },
+        { title: 'Meter', rows: [['MPRN', acNew ? '' : '81 1234 5678 9'], ['Meter serial number', acNew ? '' : 'S12A 345678'], ['Meter type', acNew ? '' : 'Keypad, 24 hour']] },
+        { title: 'Priority services', rows: [['Life support equipment', acNew ? '' : 'No'], ['Special Services Register', acNew ? '' : 'None']] }
+      ].map(sec => { const missing = sec.rows.filter(r => !r[1]).length; return { title: sec.title, badge: missing ? missing + ' to add' : 'Complete', badgeBg: missing ? '#FBE3D3' : '#E6F0EA', badgeFg: missing ? '#B5500F' : '#0B2730', btn: missing ? 'Add details' : 'Edit', rows: sec.rows.map(([l, v]) => ({ l, v: v || 'Not added yet', c: v ? '#0B2730' : '#9AA7B8', w: v ? 700 : 500 })) }; }),
+      acSettings: [
+        { title: 'Notifications', items: [['Price alerts', 'Email when a cheaper tariff beats yours by your alert amount', 'acS1', true], ['Switch updates', 'Text messages as your switch moves through each stage', 'acS2', true], ['Renewal reminder', 'Email a month before your discount or contract ends', 'acS3', true], ['Meter read reminders', 'For more accurate bills', 'acS4', false]] },
+        { title: 'Marketing', items: [['Offers from Power to Switch', 'Energy-saving tips and offers. Never shared with suppliers.', 'acS5', false]] }
+      ].map(g => ({ title: g.title, items: g.items.map(([t, d, key, def]) => ({ t, d, ...acTog(key, def) })) }))
+    };
+    return {
+      ...cmpVals, ...swVals, ...rpVals, ...acVals,
+      breakdown, profile, cmpRows,
+      toggleVat: () => this.setState(s => ({ vat: s.vat === false })),
+      vatTrack: vat ? '#5B2F7A' : '#C4CCD8', vatKnob: vat ? '21px' : '3px',
+      saveVat: gv(141.18), dayCost: gv(1168.27 / 365), unitNow: p(36.51),
+      gridY: ['£160', '£120', '£80', '£40', '£0'],
+      areaY1: area(pts1), lineY1: line(pts1), areaY2: area(pts2), lineY2: line(pts2), monthHits,
+      hoverLabel: 'Saved by month ' + hm, hoverValue: gbp(cum[hm - 1]),
+      market, mThis: L2(36.51), mCur: L2(39.98),
+      periods, pThis: gbp(1138.27 / div) + ' ' + perText, pCur: gbp(1279.45 / div) + ' ' + perText, pSave: gbp(141.18 / div), pPer: perText + ' compared with now',
+      ...kwhVals,
+      steps, falls,
+      calc2Open: this.state.calc2 !== false,
+      calc2Label: this.state.calc2 !== false ? 'Hide calculation ▴' : 'See calculation ▾',
+      toggleCalc2: e => { e.preventDefault(); this.setState(s => ({ calc2: s.calc2 === false })); },
+      vsRows, fitChecks,
+      tabs, tabIs, ovFacts, rateFacts, calcLines, specGroups, nextSteps, months, facts9, curLine: (curM / mMax * 100).toFixed(1) + '%',
+      bList,
+      calcOpen: !!this.state.calc,
+      calcLabel: this.state.calc ? 'Hide calculation' : 'See calculation',
+      toggleCalc: e => { e.preventDefault(); this.setState(s => ({ calc: !s.calc })); },
+      inventory, routeTag, drawers, tableRows,
+      frames2: [{ label: 'Desktop · 720', w: '720px' }, { label: 'Mobile · 375', w: '375px' }],
+      saveColorDark: isSaving ? '#E3E000' : '#F2B45A',
+      frames: [{ label: 'Desktop · 1040', w: '1040px' }, { label: 'Mobile · 375', w: '375px' }],
+      isSaving, notSaving: !isSaving,
+      savingText: gbp(diff),
+      savingSub: isSaving ? (withCash ? 'vs your current tariff, incl. £30 welcome credit' : 'vs your current tariff. £30 welcome credit on top.') : 'more a year than your current tariff',
+      saveLabel: isSaving ? 'You save in year one' : 'Costs more a year',
+      saveColor: isSaving ? '#0B2730' : '#B5500F',
+      monthlySave: isSaving ? 'about ' + gbp(diff / 12) + ' a month less' : 'about ' + gbp(diff / 12) + ' a month more',
+      annual: gbp(annualN), monthly: gbp(annualN / 12), netCost: gbp(net),
+      curPct: (cur / max * 100).toFixed(1) + '%', newPct: (net / max * 100).toFixed(1) + '%',
+      barColor: isSaving ? '#B78DD4' : '#E87722',
+      cta, ctaNote, facts, rows
+    };
+  }
+}
+</script>
+</body>
+</html>
