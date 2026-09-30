@@ -1,19 +1,33 @@
 [
   {
-    "slug": "p2s-design",
-    "title": "P2S Design",
+    "slug": "p2s-design-result-block-options",
+    "title": "P2S Design — Result Block Options",
+    "primary": "p2s-design/Result Block Options.dc.html",
+    "base": "p2s-design",
+    "added": "2026-09-30T12:01:34+02:00",
+    "thumb": "thumbnails/p2s-design-result-block-options.jpg"
+  },
+  {
+    "slug": "p2s-design-result-block-redesign",
+    "title": "P2S Design — Result Block Redesign",
     "primary": "p2s-design/Result Block Redesign.dc.html",
     "base": "p2s-design",
-    "isFolder": true,
     "added": "2026-09-30T12:01:34+02:00",
-    "thumb": null
+    "thumb": "thumbnails/p2s-design-result-block-redesign.jpg"
+  },
+  {
+    "slug": "p2s-design-switch-form-archive",
+    "title": "P2S Design — Switch Form Archive",
+    "primary": "p2s-design/Switch Form Archive.dc.html",
+    "base": "p2s-design",
+    "added": "2026-09-30T12:01:34+02:00",
+    "thumb": "thumbnails/p2s-design-switch-form-archive.jpg"
   },
   {
     "slug": "blk-box-gym-designer",
     "title": "BLK BOX Gym Designer",
     "primary": "blk-box-gym-designer/BLK_BOX_Gym_Designer_Standalone_.html",
     "base": "blk-box-gym-designer",
-    "isFolder": true,
     "added": "2026-09-30T11:59:04+02:00",
     "thumb": "thumbnails/blk-box-gym-designer.jpg"
   },
@@ -22,17 +36,31 @@
     "title": "Kombucha Lp",
     "primary": "kombucha-lp/index.html",
     "base": "kombucha-lp",
-    "isFolder": true,
-    "added": "2026-09-29T14:43:39+02:00",
+    "added": "2026-09-29T14:55:05+02:00",
     "thumb": "thumbnails/kombucha-lp.jpg"
+  },
+  {
+    "slug": "kombucha-lp-kombucha-landing-pages",
+    "title": "Kombucha Lp — Kombucha Landing Pages",
+    "primary": "kombucha-lp/Kombucha Landing Pages.dc.html",
+    "base": "kombucha-lp",
+    "added": "2026-09-29T14:43:39+02:00",
+    "thumb": "thumbnails/kombucha-lp-kombucha-landing-pages.jpg"
+  },
+  {
+    "slug": "equi-landing-page",
+    "title": "Equi Landing Page",
+    "primary": "equi-landing-page/WildWash Birthday Club.html",
+    "base": "equi-landing-page",
+    "added": "2026-09-11T10:23:03+02:00",
+    "thumb": "thumbnails/equi-landing-page.jpg"
   },
   {
     "slug": "skingredients-christmas-landing-page",
     "title": "Skingredients Christmas Landing Page",
     "primary": "Skingredients-Christmas-Landing-Page/index.html",
     "base": "Skingredients-Christmas-Landing-Page",
-    "isFolder": true,
-    "added": "2026-09-10T14:47:45+02:00",
+    "added": "2026-09-10T14:58:36+02:00",
     "thumb": "thumbnails/skingredients-christmas-landing-page.jpg"
   },
   {
@@ -40,25 +68,14 @@
     "title": "Irelands Eye Passport",
     "primary": "irelands-eye-passport/Irelands-Eye-Passport.dc.html",
     "base": "irelands-eye-passport",
-    "isFolder": true,
     "added": "2026-09-08T08:04:39+02:00",
     "thumb": "thumbnails/irelands-eye-passport.jpg"
-  },
-  {
-    "slug": "equi-landing-page",
-    "title": "Equi Landing Page",
-    "primary": "equi-landing-page/WildWash Birthday Club.html",
-    "base": "equi-landing-page",
-    "isFolder": true,
-    "added": "2026-09-07T17:34:12+02:00",
-    "thumb": "thumbnails/equi-landing-page.jpg"
   },
   {
     "slug": "blk-box-product-rail",
     "title": "BLK BOX Product Rail",
     "primary": "blk-box-product-rail/Product Rail PDP.dc.html",
     "base": "blk-box-product-rail",
-    "isFolder": true,
     "added": "2026-09-04T08:25:14+02:00",
     "thumb": "thumbnails/blk-box-product-rail.jpg"
   },
@@ -67,7 +84,6 @@
     "title": "House of Joppa Audit",
     "primary": "house-of-joppa-audit/index.html",
     "base": "house-of-joppa-audit",
-    "isFolder": true,
     "added": "2026-08-26T14:25:37+02:00",
     "thumb": "thumbnails/house-of-joppa-audit.jpg"
   },
@@ -76,16 +92,22 @@
     "title": "BLK BOX Updates",
     "primary": "blk-box-updates/blk-box-Flooring-Home Gym.dc.html",
     "base": "blk-box-updates",
-    "isFolder": true,
     "added": "2026-08-24T12:00:24+02:00",
     "thumb": "thumbnails/blk-box-updates.jpg"
+  },
+  {
+    "slug": "chamber-13-pdp-chamber-13-product-page",
+    "title": "Chamber 13 PDP — Chamber 13 Product Page",
+    "primary": "chamber13-pdp/Chamber 13 Product Page.dc.html",
+    "base": "chamber13-pdp",
+    "added": "2026-08-19T07:14:55+02:00",
+    "thumb": "thumbnails/chamber-13-pdp-chamber-13-product-page.jpg"
   },
   {
     "slug": "chamber-13-pdp",
     "title": "Chamber 13 PDP",
     "primary": "chamber13-pdp/chamber13-pdp.dc.html",
     "base": "chamber13-pdp",
-    "isFolder": true,
     "added": "2026-08-19T07:08:47+02:00",
     "thumb": "thumbnails/chamber-13-pdp.jpg"
   },
@@ -94,7 +116,6 @@
     "title": "Drinkallabout Long Description Options",
     "primary": "Drinkallabout - Long Description Options/Collection Description Options.dc.html",
     "base": "Drinkallabout - Long Description Options",
-    "isFolder": true,
     "added": "2026-08-18T15:54:17+02:00",
     "thumb": "thumbnails/drinkallabout-long-description-options.jpg"
   },
@@ -103,7 +124,6 @@
     "title": "Skin Nerd Calendar",
     "primary": "skin-nerd-calendar/Advent Calendar.dc.html",
     "base": "skin-nerd-calendar",
-    "isFolder": true,
     "added": "2026-07-29T16:43:01+08:00",
     "thumb": "thumbnails/skin-nerd-calendar.jpg"
   },
@@ -112,7 +132,6 @@
     "title": "Dumbell Selection",
     "primary": "Dumbell-selection/DumbbellSelector.dc.html",
     "base": "Dumbell-selection",
-    "isFolder": true,
     "added": "2026-07-16T14:59:15+02:00",
     "thumb": "thumbnails/dumbell-selection.jpg"
   },
@@ -121,7 +140,6 @@
     "title": "Blog Product Integration",
     "primary": "blog-product-integration/BLK BOX Blog Product Blocks.dc.html",
     "base": "blog-product-integration",
-    "isFolder": true,
     "added": "2026-07-16T14:32:42+02:00",
     "thumb": "thumbnails/blog-product-integration.jpg"
   },
@@ -130,7 +148,6 @@
     "title": "Highbury Vintners",
     "primary": "highbury-vintners/Highbury Vintners Theme.html",
     "base": "highbury-vintners",
-    "isFolder": true,
     "added": "2026-07-16T10:31:54+02:00",
     "thumb": "thumbnails/highbury-vintners.jpg"
   },
@@ -139,7 +156,6 @@
     "title": "Drink Landing Page",
     "primary": "drink-landing-page/Kombucha Landing Pages.dc.html",
     "base": "drink-landing-page",
-    "isFolder": true,
     "added": "2026-07-15T20:02:00+02:00",
     "thumb": "thumbnails/drink-landing-page.jpg"
   }

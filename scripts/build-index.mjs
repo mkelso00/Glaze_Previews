@@ -87,21 +87,6 @@ function slugify(s) {
 
 // ---- project discovery ---------------------------------------------------
 
-// Rank candidate pages within a folder; the primary page is the highest score.
-function scoreCandidate(absPath, isTopLevel) {
-  const b = basename(absPath).toLowerCase();
-  let score = isTopLevel ? 10 : 0;
-  if (b === "index.html") score += 100;
-  else if (b.endsWith(".dc.html")) score += 30;
-  else if (b.endsWith(".html")) score += 50;
-  // Working / variant files are poor choices to show a client.
-  if (/print/.test(b)) score -= 60;
-  if (/standalone source|-source-|\bsource\b/.test(b)) score -= 40;
-  if (/archive/.test(b)) score -= 30;
-  if (/\boptions\b/.test(b)) score -= 10;
-  return score;
-}
-
 async function htmlFilesIn(dir) {
   const out = [];
   async function rec(d, depth) {
@@ -124,19 +109,52 @@ async function htmlFilesIn(dir) {
   return out;
 }
 
-async function pickPrimary(dir) {
-  const files = await htmlFilesIn(dir);
-  if (!files.length) return null;
-  files.sort(
-    (a, b) =>
-      scoreCandidate(a.full, a.depth === 0) -
-      scoreCandidate(b.full, b.depth === 0)
-  );
-  return files[files.length - 1].full;
+// The distinct, client-facing pages in a folder: top-level .html files, minus
+// print/source variants, minus the .dc.html twin when a rendered .html exists.
+async function meaningfulPages(dir) {
+  let entries;
+  try {
+    entries = await readdir(dir, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+  let names = entries
+    .filter(
+      (e) =>
+        e.isFile() &&
+        !e.name.startsWith(".") &&
+        e.name.toLowerCase().endsWith(".html")
+    )
+    .map((e) => e.name)
+    .filter(
+      (n) => !/print/i.test(n) && !/standalone source|-source-/i.test(n)
+    );
+
+  // Prefer a rendered X.html over its X.dc.html twin.
+  const byBase = new Map();
+  for (const n of names) {
+    const base = cleanBase(n).toLowerCase();
+    const isDc = /\.dc\.html$/i.test(n);
+    const cur = byBase.get(base);
+    if (!cur || (/\.dc\.html$/i.test(cur) && !isDc)) byBase.set(base, n);
+  }
+  let pages = [...byBase.values()]
+    .sort((a, b) => a.localeCompare(b))
+    .map((n) => join(dir, n));
+
+  // Nothing at the top level — fall back to the single best page anywhere.
+  if (!pages.length) {
+    const rec = await htmlFilesIn(dir);
+    if (rec.length) pages = [rec[0].full];
+  }
+  return pages;
 }
 
-async function collectProjects() {
-  const projects = [];
+// One entry per client-facing page. A folder with several pages yields several
+// entries (each carrying the project + page title); a single-page folder or a
+// root-level file yields one.
+async function collectPreviews() {
+  const out = [];
   for (const e of await readdir(ROOT, { withFileTypes: true })) {
     if (e.name.startsWith(".")) continue;
     if (IGNORE_DIRS.has(e.name)) continue;
@@ -144,13 +162,24 @@ async function collectProjects() {
     if (e.isFile()) {
       if (!e.name.toLowerCase().endsWith(".html")) continue;
       if (e.name === OUTPUT) continue;
-      projects.push({ key: e.name, primary: full, isFolder: false, base: "" });
+      out.push({ base: "", primary: full, projectTitle: prettify(e.name), pageTitle: null });
     } else if (e.isDirectory()) {
-      const primary = await pickPrimary(full);
-      if (primary) projects.push({ key: e.name, primary, isFolder: true, base: e.name });
+      const pages = await meaningfulPages(full);
+      const multi = pages.length > 1;
+      for (const pg of pages) {
+        // In a multi-page folder, index.html is the project's main page (no
+        // "— Page" suffix); other pages carry their own name.
+        const isIndex = basename(pg).toLowerCase() === "index.html";
+        out.push({
+          base: e.name,
+          primary: pg,
+          projectTitle: prettify(e.name),
+          pageTitle: multi && !isIndex ? prettify(basename(pg)) : null,
+        });
+      }
     }
   }
-  return projects;
+  return out;
 }
 
 // ---- metadata ------------------------------------------------------------
@@ -163,10 +192,9 @@ function escapeHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
-async function readDescription(project) {
-  const override = META_OVERRIDES[project.key] || {};
+async function readDescription(primary, override) {
   if (override.description) return override.description;
-  const fh = await readFile(project.primary, { encoding: "utf8", flag: "r" }).catch(
+  const fh = await readFile(primary, { encoding: "utf8", flag: "r" }).catch(
     () => ""
   );
   const m = fh
@@ -175,13 +203,12 @@ async function readDescription(project) {
   return m ? m[1] : "";
 }
 
-// When the project (folder or root file) was first committed — its upload time.
-// Requires git history; empty when unavailable (e.g. runtime container).
-function gitAddedDate(project) {
-  const target = project.isFolder ? project.base : project.key;
+// When a page was first committed — its upload time. Requires git history;
+// empty when unavailable (e.g. the runtime container).
+function gitAddedDate(relPath) {
   try {
     const out = execSync(
-      `git log --diff-filter=A --format=%cI -- "${target}"`,
+      `git log --diff-filter=A --format=%cI -- "${relPath}"`,
       { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }
     )
       .toString()
@@ -365,15 +392,26 @@ ${count ? cards : empty}
 }
 
 async function main() {
-  const projects = await collectProjects();
+  const items = await collectPreviews();
   const prevDates = previousDates();
 
   const used = new Set();
   const previews = [];
-  for (const project of projects) {
-    const override = META_OVERRIDES[project.key] || {};
-    const title = override.title || prettify(project.key);
-    let slug = slugify(override.slug || title) || "preview";
+  for (const it of items) {
+    const primary = relative(ROOT, it.primary).split(sep).join("/");
+    const override = META_OVERRIDES[primary] || META_OVERRIDES[it.base] || {};
+
+    // Title: "Project — Page" for multi-page folders, unless the page name
+    // just repeats the project name.
+    let title = it.projectTitle;
+    let slugBase = it.projectTitle;
+    if (it.pageTitle && slugify(it.pageTitle) !== slugify(it.projectTitle)) {
+      title = `${it.projectTitle} — ${it.pageTitle}`;
+      slugBase = `${it.projectTitle} ${it.pageTitle}`;
+    }
+    if (override.title) title = override.title;
+
+    let slug = slugify(override.slug || slugBase) || "preview";
     if (used.has(slug)) {
       let n = 2;
       while (used.has(`${slug}-${n}`)) n++;
@@ -381,21 +419,19 @@ async function main() {
     }
     used.add(slug);
 
-    const primary = relative(ROOT, project.primary).split(sep).join("/");
     const added =
-      gitAddedDate(project) ||
+      gitAddedDate(primary) ||
       prevDates.get(primary) ||
-      (await stat(project.primary)).mtime.toISOString();
+      (await stat(it.primary)).mtime.toISOString();
     const thumbPath = `thumbnails/${slug}.jpg`;
     const thumb = existsSync(join(ROOT, thumbPath)) ? thumbPath : null;
 
     previews.push({
       slug,
       title,
-      description: await readDescription(project),
+      description: await readDescription(it.primary, override),
       primary,
-      base: project.base,
-      isFolder: project.isFolder,
+      base: it.base,
       added,
       thumb,
     });
@@ -408,12 +444,11 @@ async function main() {
   await writeFile(
     join(ROOT, MANIFEST),
     JSON.stringify(
-      previews.map(({ slug, title, primary, base, isFolder, added, thumb }) => ({
+      previews.map(({ slug, title, primary, base, added, thumb }) => ({
         slug,
         title,
         primary,
         base,
-        isFolder,
         added,
         thumb,
       })),
