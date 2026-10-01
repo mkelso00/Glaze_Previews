@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#e9e6e1;font-family:'Figtree',sans-serif;color:#141414}
+a{color:#1d3f8f}a:hover{color:#141414}
+@media print{body{background:#fff}}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-wrap:nowrap;align-items:flex-start;gap:48px;padding:48px;box-sizing:border-box;width:max-content">
+<sc-for list="{{ slips }}" as="s" hint-placeholder-count="6">
+<div id="{{ s.id }}" style="display:flex;flex-direction:column;gap:14px">
+  <div style="display:flex;gap:10px;align-items:center">
+    <span style="background:#141414;color:#fff;font-size:15px;font-weight:700;padding:4px 10px">{{ s.id }}</span>
+    <span style="font-size:18px;font-weight:600">{{ s.label }}</span>
+  </div>
+  <div data-screen-label="Packing slip" style="width:794px;min-height:1123px;background:#fff;box-sizing:border-box;padding:40px 52px 32px;display:flex;flex-direction:column;gap:18px;box-shadow:0 2px 18px rgba(0,0,0,.08)">
+
+    <header style="display:flex;justify-content:space-between;align-items:center;gap:20px">
+      <img src="https://dougiesgoodies.com/cdn/shop/files/Dougies_Goodies_blue.png?width=400" alt="Dougies Goodies" style="height:44px;width:auto;display:block">
+      <div style="text-align:right;display:flex;flex-direction:column;gap:2px">
+        <span style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5a5a5a">Order</span>
+        <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.01em">{{ s.number }}</span>
+      </div>
+    </header>
+
+    <section style="border-top:3px solid #141414;border-bottom:1px solid #d6d3ce;padding:18px 0;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-.015em;text-transform:capitalize">{{ s.customer }}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px 22px;font-size:18px;font-weight:500;color:#3d3d3d">
+          <span>{{ s.phone }}</span>
+          <span>{{ s.email }}</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:200px 1fr;row-gap:8px;align-items:baseline">
+        <span style="font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#5a5a5a">Pick up date</span>
+        <span style="font-size:26px;font-weight:700">{{ s.pickupDay }} {{ s.pickupDate }}</span>
+        <span style="font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#5a5a5a">Pick up location</span>
+        <span style="font-size:26px;font-weight:700">{{ s.location }}</span>
+      </div>
+    </section>
+
+    <sc-if value="{{ s.hasNote }}" hint-placeholder-val="{{ false }}">
+      <section style="border:1.5px solid #141414;padding:12px 16px;display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#5a5a5a">Order note</span>
+        <span style="font-size:19px;font-weight:600;line-height:1.35;text-wrap:pretty">{{ s.note }}</span>
+      </section>
+    </sc-if>
+
+    <section style="display:flex;flex-direction:column">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:8px;border-bottom:1.5px solid #141414">
+        <span style="font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#5a5a5a">Items</span>
+        <span style="font-size:15px;font-weight:600;color:#5a5a5a">{{ s.itemCount }}</span>
+      </div>
+      <sc-for list="{{ s.items }}" as="it" hint-placeholder-count="2">
+        <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #d6d3ce;align-items:start">
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:800;line-height:1.2">{{ it.qty }}×</span>
+          <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+            <span style="font-size:21px;font-weight:700;line-height:1.25;text-wrap:pretty">{{ it.title }}</span>
+            <sc-if value="{{ it.hasOptions }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ it.options }}" as="opt" hint-placeholder-count="3">
+                  <div style="border:1.5px solid #141414;padding:4px 12px;display:flex;gap:8px;align-items:baseline">
+                    <span style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#5a5a5a">{{ opt.label }}</span>
+                    <span style="font-size:18px;font-weight:700">{{ opt.value }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ it.picture }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#141414;color:#fff;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px">
+                <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;letter-spacing:.04em;text-transform:uppercase">Picture required</span>
+                <span style="font-size:17px;font-weight:600">{{ it.pictureDetail }}</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ it.hasDetails }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;border-top:1px solid #e6e3de">
+                <sc-for list="{{ it.details }}" as="d" hint-placeholder-count="2">
+                  <div style="display:grid;grid-template-columns:160px minmax(0,1fr);gap:14px;padding:8px 0;border-bottom:1px solid #e6e3de;align-items:baseline">
+                    <span style="font-size:16px;font-weight:600;color:#3d3d3d">{{ d.label }}</span>
+                    <span style="font-size:{{ d.size }};font-weight:700;line-height:1.3;text-wrap:pretty">{{ d.value }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+
+    <div style="flex:1"></div>
+
+    <section style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:center;border:1.5px solid #141414;padding:18px 20px">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&amp;margin=0&amp;data=https%3A%2F%2Fjudge.me%2Freviews%2Fstores%2Fdougiesgoodies.com" alt="Review QR code" style="width:104px;height:104px;display:block">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:800;line-height:1.1">Loved your cake?</div>
+        <div style="font-size:19px;font-weight:500">Scan here to leave us a review.</div>
+      </div>
+    </section>
+
+    <footer style="display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.45;color:#3d3d3d">
+      <p style="margin:0"><strong style="color:#141414">Allergy Advice:</strong> May contain traces of gluten, egg, milk, soya, sulphites and nuts. We cannot guarantee our products are free from traces of these allergens.</p>
+      <p style="margin:0"><strong style="color:#141414">Caution:</strong> Some cakes may contain support dowels throughout! Please remove before digging in!</p>
+    </footer>
+  </div>
+</div>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const ORDERS = [
+  { label:'Custom cake + photo', number:'DG618214', customer:'nabeela jan', phone:'07700 900123', email:'nabeela.jan@example.com', pickup:'2026-10-07', location:'Ballymena', note:'',
+    items:[{qty:1,title:'Create your custom cake',variant:'Square / Small / Victoria Sponge',picture:'Small Photo',extras:['Photo'],wording:'Happy Birthday Mum',customItem:'NO JELLY'}] },
+  { label:'Pre-designed cake', number:'DG618188', customer:'Joe Belch', phone:'07700 900456', email:'joe.belch@example.com', pickup:'2026-10-03', location:'Belfast', note:'',
+    items:[{qty:1,title:'Birthday Pre-Designed Cakes',variant:'Square / Medium / Lemon Sponge',extras:['Fresh Cream','Sprinkle - Multicoloured'],wording:'Happy Birthday Jessica'}] },
+  { label:'Two custom cakes', number:'DG618402', customer:'Claire Robinson', phone:'07700 900789', email:'claire.robinson@example.com', pickup:'2026-10-10', location:'Ballymena', note:'Twins’ party, please box separately and label each with the name.',
+    items:[
+      {qty:1,title:'Create your custom cake',variant:'Round / Medium / Chocolate Sponge',extras:['Figure','Sprinkle - Multicoloured'],figure:'Football',gender:'Boy',wording:'Happy 7th Birthday Jack'},
+      {qty:1,title:'Create your custom cake',variant:'Round / Medium / Victoria Sponge',picture:'Small Photo',extras:['Photo','Fresh Cream'],gender:'Girl',wording:'Happy 7th Birthday Ella'}] },
+  { label:'Mix & match + cake', number:'DG618415', customer:'Ryan McKeown', phone:'07700 900321', email:'ryan.mckeown@example.com', pickup:'2026-10-17', location:'Belfast', note:'',
+    items:[
+      {qty:1,title:'Mix & Match Cupcakes 12 Pack',selection:['4 × Biscoff','4 × Oreo','4 × Red Velvet']},
+      {qty:1,title:'Celebration Cake',variant:'Square / Small / Lemon Sponge',wording:'Congratulations Sarah'},
+      {qty:1,title:'Halloween Iced Diamonds (4 Pack)'}] },
+  { label:'Halloween packs + note', number:'DG618338', customer:'Oonagh Oneill', phone:'07700 900654', email:'oonagh.oneill@example.com', pickup:'2026-10-30', location:'Ballymena', note:'Collecting after 4pm. My sister Aine may collect instead.',
+    items:[{qty:2,title:'Halloween Iced Diamonds (4 Pack)'},{qty:1,title:'Halloween Dougies Chocolate Bites 9 Pack'},{qty:1,title:'Halloween Themed Mini Cupcakes 9 Pack'}] },
+  { label:'Mixed bakery', number:'DG618109', customer:'Dawn Shields-Pettitt', phone:'07700 900987', email:'dawn.sp@example.com', pickup:'2026-10-31', location:'Ballymena', note:'',
+    items:[{qty:1,title:'Halloween Themed Muffins 4 Pack'},{qty:1,title:'9 Inch Apple Tart'},{qty:1,title:'Halloween Iced Diamonds (4 Pack)'},{qty:1,title:'Halloween Dougies Chocolate Bites 9 Pack'}] }
+];
+const OPT_LABELS = ['Shape','Size','Flavour'];
+class Component extends DCLogic {
+  item(i) {
+    const parts = i.variant ? i.variant.split(' / ') : [];
+    const options = parts.map((v, n) => ({ label: parts.length === 3 ? OPT_LABELS[n] : 'Option', value: v }));
+    const rows = [
+      {label:'Selection', value:(i.selection || []).join(', ')},
+      {label:'Extras', value:(i.extras || []).join(', ')},
+      {label:'Figure', value:i.figure},
+      {label:'Custom wording', value:i.wording ? '“' + i.wording + '”' : '', big:true},
+      {label:'Gender', value:i.gender},
+      {label:'Notes', value:i.customItem}
+    ].filter(r => r.value).map(r => ({ label:r.label, value:r.value, size:r.big ? '24px' : '18px' }));
+    return { qty:i.qty, title:i.title, options, hasOptions:options.length > 0,
+      picture:!!i.picture, pictureDetail:i.picture || '', details:rows, hasDetails:rows.length > 0 };
+  }
+  renderVals() {
+    return { slips: ORDERS.map((o, n) => {
+      const [y,m,d] = o.pickup.split('-').map(Number);
+      const dt = new Date(y, m-1, d);
+      const qty = o.items.reduce((s, i) => s + i.qty, 0);
+      return { id:'1' + 'abcdefgh'[n], label:o.label, number:o.number, customer:o.customer, phone:o.phone, email:o.email,
+        location:o.location, note:o.note, hasNote:!!o.note,
+        pickupDay:dt.toLocaleDateString('en-GB', { weekday:'short' }), pickupDate:dt.toLocaleDateString('en-GB'),
+        itemCount: qty + (qty === 1 ? ' item' : ' items'), items:o.items.map(i => this.item(i)) };
+    }) };
+  }
+}
+</script>
+</body>
+</html>

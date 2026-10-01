@@ -1,0 +1,99 @@
+{%- comment -%}
+  Dougies Goodies – packing slip. Works for any order: cakes, packs, tarts, multi-item.
+  Order-level fields (Pickup Date, Location, Extras, Figure, Custom Wording/Lettering, Gender, Custom Item)
+  are collected from order attributes AND line item properties – confirm the exact names on a real order.
+  If they live in order metafields instead, swap in e.g. order.metafields.custom.pickup_date.
+{%- endcomment -%}
+{%- assign review_url = 'https://judge.me/reviews/stores/dougiesgoodies.com' -%}
+{%- assign pickup = '' -%}{%- assign location = '' -%}{%- assign extras = '' -%}{%- assign figure = '' -%}
+{%- assign wording = '' -%}{%- assign gender = '' -%}{%- assign notes = '' -%}{%- assign picture = '' -%}
+
+{%- capture all_props -%}{%- for a in order.attributes -%}{{ a.first }}§{{ a.last }}¶{%- endfor -%}{%- for li in line_items_in_shipment -%}{%- for p in li.properties -%}{{ p.first }}§{{ p.last | join: '|' }}¶{%- endfor -%}{%- endfor -%}{%- endcapture -%}
+{%- assign pairs = all_props | split: '¶' -%}
+{%- for pair in pairs -%}
+  {%- assign kv = pair | split: '§' -%}{%- assign k = kv[0] | downcase -%}{%- assign v = kv[1] | strip -%}
+  {%- if v == blank -%}{%- continue -%}{%- endif -%}
+  {%- if k contains 'pickup' or k contains 'pick up' -%}{%- assign pickup = v -%}
+  {%- elsif k contains 'location' -%}{%- assign location = v -%}
+  {%- elsif k contains 'extra' -%}{%- assign extras = v | replace: '|', ', ' -%}
+  {%- elsif k contains 'figure' -%}{%- assign figure = v -%}
+  {%- elsif k contains 'wording' or k contains 'lettering' -%}{%- assign wording = v -%}
+  {%- elsif k contains 'gender' -%}{%- assign gender = v -%}
+  {%- elsif k contains 'custom item' -%}{%- assign notes = v -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- comment -%} Strip "[ £5.00 ]" price tags from extras {%- endcomment -%}
+{%- assign extras_clean = '' -%}
+{%- assign ex_parts = extras | split: ', ' -%}
+{%- for e in ex_parts -%}{%- assign e1 = e | split: ' [' | first | strip -%}{%- assign extras_clean = extras_clean | append: e1 -%}{%- unless forloop.last -%}{%- assign extras_clean = extras_clean | append: ', ' -%}{%- endunless -%}{%- endfor -%}
+{%- if extras_clean contains 'Photo' -%}{%- assign picture = 'Photo' -%}{%- endif -%}
+{%- for li in line_items_in_shipment -%}{%- if li.title contains 'Picture' -%}{%- assign picture = li.variant_title | default: li.title -%}{%- endif -%}{%- endfor -%}
+
+<div style="font-family:Helvetica,Arial,sans-serif;color:#141414;font-size:16px;line-height:1.35;max-width:720px;margin:0 auto">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <img src="https://dougiesgoodies.com/cdn/shop/files/Dougies_Goodies_blue.png?width=400" alt="{{ shop.name }}" style="height:44px;width:auto">
+    <div style="text-align:right"><div style="font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#5a5a5a">Order</div><div style="font-size:24px;font-weight:800">{{ order.name }}</div></div>
+  </div>
+
+  <div style="border-top:3px solid #141414;border-bottom:1px solid #d6d3ce;padding:16px 0;margin-top:18px">
+    <div style="font-size:36px;font-weight:800;text-transform:capitalize">{{ order.customer.name | default: order.billing_address.name }}</div>
+    <div style="font-size:17px;color:#3d3d3d;margin-top:4px">{{ order.customer.phone | default: order.billing_address.phone | default: order.shipping_address.phone }}{% if order.email != blank %} &nbsp;·&nbsp; {{ order.email }}{% endif %}</div>
+    {%- if pickup != blank -%}<div style="font-size:24px;font-weight:700;margin-top:10px"><span style="font-size:13px;color:#5a5a5a;text-transform:uppercase;letter-spacing:.06em;display:inline-block;width:190px">Pick up date</span>{{ pickup | date: '%a %d/%m/%Y' }}</div>{%- endif -%}
+    {%- if location != blank -%}<div style="font-size:24px;font-weight:700;margin-top:6px"><span style="font-size:13px;color:#5a5a5a;text-transform:uppercase;letter-spacing:.06em;display:inline-block;width:190px">Pick up location</span>{{ location }}</div>{%- endif -%}
+  </div>
+
+  {%- if order.note != blank -%}
+  <div style="border:1.5px solid #141414;padding:12px 16px;margin-top:16px"><div style="font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#5a5a5a">Order note</div><div style="font-size:18px;font-weight:600;margin-top:4px">{{ order.note }}</div></div>
+  {%- endif -%}
+
+  <div style="margin-top:16px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:#5a5a5a;border-bottom:1.5px solid #141414;padding-bottom:6px">Items</div>
+  {%- assign row = 'padding:7px 0;border-bottom:1px solid #e6e3de' -%}
+  {%- for li in line_items_in_shipment -%}
+    {%- if li.title contains 'Picture' and extras_clean contains 'Photo' -%}{%- continue -%}{%- endif -%}
+    {%- assign i_extras = '' -%}{%- assign i_figure = '' -%}{%- assign i_wording = '' -%}{%- assign i_gender = '' -%}{%- assign i_notes = '' -%}{%- assign i_sel = '' -%}
+    {%- for p in li.properties -%}
+      {%- assign k = p.first | downcase -%}{%- assign v = p.last | join: ', ' | strip -%}
+      {%- if v == blank or k contains 'pickup' or k contains 'pick up' or k contains 'location' -%}{%- continue -%}{%- endif -%}
+      {%- if k contains 'extra' -%}{%- assign i_extras = v -%}
+      {%- elsif k contains 'figure' -%}{%- assign i_figure = v -%}
+      {%- elsif k contains 'wording' or k contains 'lettering' -%}{%- assign i_wording = v -%}
+      {%- elsif k contains 'gender' -%}{%- assign i_gender = v -%}
+      {%- elsif k contains 'custom item' -%}{%- assign i_notes = v -%}
+      {%- elsif k contains 'flavour' or k contains 'selection' or k contains 'choice' -%}{%- capture i_sel -%}{{ i_sel }}{% if i_sel != blank %}, {% endif %}{{ v }}{%- endcapture -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- comment -%} Fall back to order-level fields when the order has a single item {%- endcomment -%}
+    {%- if line_items_in_shipment.size == 1 or forloop.first -%}
+      {%- if i_extras == blank -%}{%- assign i_extras = extras_clean -%}{%- endif -%}
+      {%- if i_figure == blank -%}{%- assign i_figure = figure -%}{%- endif -%}
+      {%- if i_wording == blank -%}{%- assign i_wording = wording -%}{%- endif -%}
+      {%- if i_gender == blank -%}{%- assign i_gender = gender -%}{%- endif -%}
+      {%- if i_notes == blank -%}{%- assign i_notes = notes -%}{%- endif -%}
+    {%- endif -%}
+    {%- assign i_extras = i_extras | split: ' [' | first -%}
+    <table style="width:100%;border-collapse:collapse;border-bottom:1px solid #d6d3ce"><tr>
+      <td style="padding:12px 0;width:52px;font-size:22px;font-weight:800;vertical-align:top">{{ li.quantity }}×</td>
+      <td style="padding:12px 0">
+        <div style="font-size:20px;font-weight:700">{{ li.product.title | default: li.title }}</div>
+        {%- if li.variant_title != blank -%}<div style="font-size:17px;font-weight:600;margin-top:4px">{{ li.variant_title | replace: ' / ', ' · ' }}</div>{%- endif -%}
+        {%- if i_extras contains 'Photo' -%}<div style="background:#141414;color:#fff;padding:9px 14px;margin-top:10px;font-size:20px;font-weight:800;text-transform:uppercase;letter-spacing:.04em">Picture required{% if picture != blank and picture != 'Photo' %} <span style="font-size:15px;font-weight:600;text-transform:none;float:right">{{ picture }}</span>{% endif %}</div>{%- endif -%}
+        <table style="width:100%;border-collapse:collapse;font-size:17px;margin-top:8px">
+          {%- if i_sel != blank -%}<tr><td style="{{ row }};width:160px;color:#3d3d3d">Selection</td><td style="{{ row }};font-weight:700">{{ i_sel }}</td></tr>{%- endif -%}
+          {%- if i_extras != blank -%}<tr><td style="{{ row }};width:160px;color:#3d3d3d">Extras</td><td style="{{ row }};font-weight:700">{{ i_extras }}</td></tr>{%- endif -%}
+          {%- if i_figure != blank -%}<tr><td style="{{ row }};color:#3d3d3d">Figure</td><td style="{{ row }};font-weight:700">{{ i_figure }}</td></tr>{%- endif -%}
+          {%- if i_wording != blank -%}<tr><td style="{{ row }};color:#3d3d3d">Custom wording</td><td style="{{ row }};font-weight:700;font-size:22px">“{{ i_wording }}”</td></tr>{%- endif -%}
+          {%- if i_gender != blank -%}<tr><td style="{{ row }};color:#3d3d3d">Gender</td><td style="{{ row }};font-weight:700">{{ i_gender }}</td></tr>{%- endif -%}
+          {%- if i_notes != blank -%}<tr><td style="{{ row }};color:#3d3d3d">Notes</td><td style="{{ row }};font-weight:700">{{ i_notes }}</td></tr>{%- endif -%}
+        </table>
+      </td>
+    </tr></table>
+  {%- endfor -%}
+
+  <div style="border:1.5px solid #141414;padding:16px 18px;margin-top:26px;display:flex;gap:20px;align-items:center">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data={{ review_url | url_encode }}" alt="Review QR code" style="width:104px;height:104px">
+    <div><div style="font-size:24px;font-weight:800">Loved your cake?</div><div style="font-size:18px">Scan here to leave us a review.</div></div>
+  </div>
+
+  <p style="font-size:12px;color:#3d3d3d;margin-top:16px"><strong>Allergy Advice:</strong> May contain traces of gluten, egg, milk, soya, sulphites and nuts. We cannot guarantee our products are free from traces of these allergens.</p>
+  <p style="font-size:12px;color:#3d3d3d"><strong>Caution:</strong> Some cakes may contain support dowels throughout! Please remove before digging in!</p>
+</div>
