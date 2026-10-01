@@ -32,7 +32,7 @@
     </sc-for>
   </div>
   <div style="display:flex;flex-direction:row;align-items:flex-start">
-<div class="dv-opt" id="5c"><div class="dv-olabel"><a class="dv-oid" href="#5c">5c</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Detailed, featured dark card</div><div>A dark-teal version for the top result only, matching the homepage hero. The saving is in yellow and the full labelled fact grid, perks and bars sit on the dark background. The results below would use a light card such as <a class="dv-oid" href="#4a">4a</a> or <a class="dv-oid" href="#3a">3a</a>.</div></div>
+<div class="dv-opt" id="5c"><div class="dv-olabel"><a class="dv-oid" href="#5c">5c</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Detailed, featured dark card</div><div>A dark-teal version for the top result only, matching the homepage hero. The saving is in yellow. It has the same content as <a class="dv-oid" href="#4a">4a</a>: perks under the bars, the price-change and discount-end notes, and the five tabs. The results below would use a light card such as <a class="dv-oid" href="#4a">4a</a> or <a class="dv-oid" href="#3a">3a</a>.</div></div>
   <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
     <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
       <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
@@ -49,23 +49,79 @@
                 <div style="display:grid;grid-template-columns:92px minmax(0,1fr) auto;align-items:center;gap:10px"><div style="font-size:12.5px;color:#A9C0C6">Your current</div><div style="height:12px;background:#163A45;border-radius:6px;overflow:hidden"><div style="height:100%;width:100%;background:#5E7880;border-radius:6px"></div></div><div style="font-size:13.5px;color:#A9C0C6">£1,279.45</div></div>
                 <div style="display:grid;grid-template-columns:92px minmax(0,1fr) auto;align-items:center;gap:10px"><div style="font-size:12.5px;font-weight:700">This tariff</div><div style="height:12px;background:#163A45;border-radius:6px;overflow:hidden"><div style="height:100%;width:89%;background:#C9A3E0;border-radius:6px"></div></div><div style="font-size:13.5px;font-weight:700">£1,138.27</div></div>
               </div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px"><span style="font-weight:700;padding:4px 10px;border-radius:999px;background:#E3E000;color:#0B2730">£30 cashback</span><span style="font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid #3C6470">✓ 10.5% discount</span><span style="font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid #3C6470">✓ £30 welcome credit</span><span style="font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid #3C6470">✓ SSE Rewards</span></div>
             </div>
             <div style="flex:0 1 240px;min-width:0;display:flex;flex-direction:column;gap:9px">
-              <div style="display:flex;flex-direction:column"><div style="font-size:13px;font-weight:600;color:#A9C0C6">You save in year one</div><div style="font-size:44px;font-weight:800;line-height:1.05;letter-spacing:-.015em;color:#E3E000">£141.18</div><div style="font-size:12.5px;color:#A9C0C6">£1,168.27 a year · £97.36 a month</div></div>
+              <div style="display:flex;flex-direction:column"><div style="font-size:13px;font-weight:600;color:#A9C0C6">You save in year one</div><div style="font-size:44px;font-weight:800;line-height:1.05;letter-spacing:-.015em;color:#E3E000">£141.18</div><div style="font-size:12.5px;color:#A9C0C6">£1,168.27 a year</div></div>
               <button style="height:50px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#D8BCEA">{{ cta }}</button>
               <div style="font-size:12px;color:#A9C0C6;line-height:1.35">{{ ctaNote }}</div>
             </div>
           </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));border-top:1px solid #1E4652">
-            <sc-for list="{{ facts9 }}" as="f" hint-placeholder-count="9"><div style="padding:10px 14px;border-right:1px solid #1E4652;border-bottom:1px solid #1E4652;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#A9C0C6">{{ f.label }}</div><div style="font-size:13.5px;font-weight:700">{{ f.value }}</div></div></sc-for>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 22px;border-top:1px solid #E3D3EE;background:#F7F1FB;font-size:12.5px;line-height:1.45"><span style="flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#5B2F7A;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">i</span><span><strong style="color:#5B2F7A">Price change from 1 December 2026.</strong> <span style="color:#3E5560">SSE Airtricity is raising its keypad unit rate from 35.80p to 36.51p/kWh. The costs above already include the new rate.</span></span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 22px;border-top:1px solid #F6D9C2;background:#FFF6EE;font-size:12.5px;line-height:1.45"><span style="flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#F2B45A;color:#0B2730;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">!</span><span><strong style="color:#B5500F">Discount ends after 12 months.</strong> <span style="color:#3E5560">From month 13 you pay the standard rate of 40.79p/kWh, about £108.78 a month. That’s £11.42 a month more than months 1 to 12.</span></span></div>
+          <div style="display:flex;gap:4px;padding:0 16px;border-top:1px solid #1E4652;overflow-x:auto">
+            <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="4">
+              <div onClick="{{ tb.go }}" style="flex:none;padding:12px 10px;font-size:14px;font-weight:{{ tb.weight }};color:#fff;border-bottom:3px solid {{ tb.lineDark }};cursor:pointer">{{ tb.label }}</div>
+            </sc-for>
           </div>
-          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:12px 22px;font-size:12.5px">
-            <span style="font-weight:700;padding:3px 9px;border-radius:999px;background:#E3E000;color:#0B2730">£30 cashback</span>
-            <span style="font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid #3C6470">✓ 10.5% discount</span>
-            <span style="font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid #3C6470">✓ £30 welcome credit</span>
-            <span style="font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid #3C6470">✓ SSE Rewards</span>
-            <span style="color:#A9C0C6">Prices incl. VAT</span><span style="flex:1"></span>
-            <a href="#" style="font-weight:600;color:#E3E000">See calculation</a><a href="#" style="font-weight:600;color:#E3E000">Company &amp; tariff info</a>
+          <div style="padding:16px 22px;background:#FBFAE6;color:#0B2730;border-top:1px solid #E6EAF0">
+            <sc-if value="{{ tabIs.overview }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden">
+                  <sc-for list="{{ ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ tabIs.rates }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden">
+                <sc-for list="{{ rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ tabIs.monthly }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+              <div style="flex:1.4 1 340px;min-width:0;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;font-size:12.5px">
+                  <span style="font-weight:700">Your monthly cost</span>
+                  <span style="display:flex;flex-wrap:wrap;gap:12px;color:#3E5560"><span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#B78DD4"></span>This tariff</span><span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#E87722"></span>After discount ends</span><span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:0;border-top:2px dashed #0B2730"></span>Current £106.62</span></span>
+                </div>
+                <div style="position:relative;height:130px;display:flex;align-items:flex-end;gap:4px">
+                  <div style="position:absolute;left:0;right:0;bottom:{{ curLine }};border-top:2px dashed #0B2730;z-index:1"></div>
+                  <sc-for list="{{ months }}" as="m" hint-placeholder-count="13">
+                    <div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px">
+                      <div style="font-size:9.5px;font-weight:700;color:#0B2730;white-space:nowrap">{{ m.tag }}</div>
+                      <div style="width:100%;height:{{ m.h }};background:{{ m.c }};border-radius:4px 4px 0 0"></div>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="display:flex;gap:4px">
+                  <sc-for list="{{ months }}" as="m" hint-placeholder-count="13"><div style="flex:1;text-align:center;font-size:10px;color:#7A8899">{{ m.label }}</div></sc-for>
+                </div>
+                <div style="font-size:12.5px;color:#3E5560;line-height:1.4">Month 1 includes the £30 welcome credit. From month 13 the discount ends and the bill rises to about £108.78 a month.</div>
+              </div>
+                <div style="flex:1 1 260px;min-width:0;background:#0B2730;color:#fff;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px">
+                  <div style="display:flex;flex-direction:column;gap:4px"><div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#F2B45A"><span style="width:8px;height:8px;border-radius:50%;background:#F2B45A"></span>Worth knowing</div><div style="font-size:17px;font-weight:800">This tariff gets dearer after month 12</div><div style="font-size:13px;line-height:1.45;color:#C9D3D8">The 10.5% discount lasts 12 months. From month 13 you move to SSE Airtricity’s standard keypad rate unless you switch again.</div></div>
+                  <div style="display:flex;flex-wrap:wrap;gap:8px">
+                    <div style="flex:1 1 120px;padding:10px 12px;border-radius:12px;background:#163843;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#A9C0C6">Months 1 to 12</span><span style="font-size:18px;font-weight:800;color:#E3E000">£97.36<span style="font-size:12px;color:#C9D3D8"> a month</span></span><span style="font-size:12px;color:#C9D3D8">36.51p/kWh</span></div>
+                    <div style="flex:1 1 120px;padding:10px 12px;border-radius:12px;background:#163843;border:1.5px solid #F2B45A;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#A9C0C6">From month 13</span><span style="font-size:18px;font-weight:800;color:#F2B45A">£108.78<span style="font-size:12px;color:#C9D3D8"> a month</span></span><span style="font-size:12px;color:#C9D3D8">40.79p/kWh · £11.42 more</span></div>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ tabIs.calc }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button>
+              <div style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-variant-numeric:tabular-nums;max-width:520px">
+                <sc-for list="{{ calcLines }}" as="c" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;gap:10px;font-weight:{{ c.w }};border-top:{{ c.rule }};padding-top:{{ c.pad }}"><span>{{ c.label }}</span><span>{{ c.value }}</span></div></sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ tabIs.info }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.45;max-width:620px">
+                <div>The 10.5% discount applies for 12 months. After that you move to SSE Airtricity's standard keypad rate.</div>
+                <div>The £30 welcome credit is added to your account after you switch.</div>
+                <div>For new SSE Airtricity customers only. No exit fee.</div>
+                <div style="display:flex;gap:16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" style="font-weight:600">Full T&amp;Cs</a></div>
+              </div>
+            </sc-if>
           </div>
         </div>
       </div>
@@ -93,33 +149,170 @@
                 <div style="display:grid;grid-template-columns:92px minmax(0,1fr) auto;align-items:center;gap:10px"><div style="font-size:12.5px;color:#5A6B80">Your current</div><div style="height:12px;background:#EEF1F5;border-radius:6px;overflow:hidden"><div style="height:100%;width:100%;background:#9AA7B8;border-radius:6px"></div></div><div style="font-size:13.5px;font-weight:600;color:#5A6B80">£1,279.45</div></div>
                 <div style="display:grid;grid-template-columns:92px minmax(0,1fr) auto;align-items:center;gap:10px"><div style="font-size:12.5px;font-weight:700">This tariff</div><div style="height:12px;background:#EEF1F5;border-radius:6px;overflow:hidden"><div style="height:100%;width:89%;background:#B78DD4;border-radius:6px"></div></div><div style="font-size:13.5px;font-weight:700">£1,138.27</div></div>
               </div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px"><span style="font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E3E000">£30 cashback</span><span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #E1DFB8">✓ 10.5% discount</span><span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #E1DFB8">✓ £30 welcome credit</span><span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #E1DFB8">✓ SSE Rewards</span></div>
             </div>
             <div style="flex:0 1 240px;min-width:0;display:flex;flex-direction:column;gap:9px">
-              <div style="display:flex;flex-direction:column"><div style="font-size:13px;font-weight:600">You save in year one</div><div style="font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-.015em">£141.18</div><div style="font-size:12.5px;color:#5A6B80">£1,168.27 a year · £97.36 a month</div></div>
+              <div style="display:flex;flex-direction:column"><div style="font-size:13px;font-weight:600">You save in year one</div><div style="font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-.015em">£141.18</div><div style="font-size:12.5px;color:#5A6B80">£1,168.27 a year</div></div>
               <button style="height:48px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
               <div style="font-size:12px;color:#5A6B80;line-height:1.35">{{ ctaNote }}</div>
             </div>
           </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 22px;border-top:1px solid #E3D3EE;background:#F7F1FB;font-size:12.5px;line-height:1.45"><span style="flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#5B2F7A;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">i</span><span><strong style="color:#5B2F7A">Price change from 1 December 2026.</strong> <span style="color:#3E5560">SSE Airtricity is raising its keypad unit rate from 35.80p to 36.51p/kWh. The costs above already include the new rate.</span></span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 22px;border-top:1px solid #F6D9C2;background:#FFF6EE;font-size:12.5px;line-height:1.45"><span style="flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#F2B45A;color:#0B2730;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">!</span><span><strong style="color:#B5500F">Discount ends after 12 months.</strong> <span style="color:#3E5560">From month 13 you pay the standard rate of 40.79p/kWh, about £108.78 a month. That’s £11.42 a month more than months 1 to 12.</span></span></div>
           <div style="display:flex;gap:4px;padding:0 16px;border-top:1px solid #E6EAF0;overflow-x:auto">
             <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="4">
               <div onClick="{{ tb.go }}" style="flex:none;padding:12px 10px;font-size:14px;font-weight:{{ tb.weight }};color:#0B2730;border-bottom:3px solid {{ tb.line }};cursor:pointer">{{ tb.label }}</div>
             </sc-for>
           </div>
-          <div style="padding:18px 22px 20px;background:#FBFAE6;border-top:1px solid #E6EAF0;min-height:150px">
+          <div style="padding:16px 22px;background:#FBFAE6;color:#0B2730;border-top:1px solid #E6EAF0">
             <sc-if value="{{ tabIs.overview }}" hint-placeholder-val="{{ true }}">
               <div style="display:flex;flex-direction:column;gap:14px">
-                <div style="display:flex;flex-wrap:wrap;gap:6px"><span style="font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E3E000">£30 cashback</span><span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #E1DFB8">✓ 10.5% discount</span><span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #E1DFB8">✓ £30 welcome credit</span><span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #E1DFB8">✓ SSE Rewards</span></div>
                 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden">
                   <sc-for list="{{ ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for>
                 </div>
               </div>
             </sc-if>
             <sc-if value="{{ tabIs.rates }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button>
               <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden">
                 <sc-for list="{{ rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for>
               </div>
             </sc-if>
+            <sc-if value="{{ tabIs.monthly }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+              <div style="flex:1.4 1 340px;min-width:0;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;font-size:12.5px">
+                  <span style="font-weight:700">Your monthly cost</span>
+                  <span style="display:flex;flex-wrap:wrap;gap:12px;color:#3E5560"><span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#B78DD4"></span>This tariff</span><span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#E87722"></span>After discount ends</span><span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:0;border-top:2px dashed #0B2730"></span>Current £106.62</span></span>
+                </div>
+                <div style="position:relative;height:130px;display:flex;align-items:flex-end;gap:4px">
+                  <div style="position:absolute;left:0;right:0;bottom:{{ curLine }};border-top:2px dashed #0B2730;z-index:1"></div>
+                  <sc-for list="{{ months }}" as="m" hint-placeholder-count="13">
+                    <div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px">
+                      <div style="font-size:9.5px;font-weight:700;color:#0B2730;white-space:nowrap">{{ m.tag }}</div>
+                      <div style="width:100%;height:{{ m.h }};background:{{ m.c }};border-radius:4px 4px 0 0"></div>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="display:flex;gap:4px">
+                  <sc-for list="{{ months }}" as="m" hint-placeholder-count="13"><div style="flex:1;text-align:center;font-size:10px;color:#7A8899">{{ m.label }}</div></sc-for>
+                </div>
+                <div style="font-size:12.5px;color:#3E5560;line-height:1.4">Month 1 includes the £30 welcome credit. From month 13 the discount ends and the bill rises to about £108.78 a month.</div>
+              </div>
+                <div style="flex:1 1 260px;min-width:0;background:#0B2730;color:#fff;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px">
+                  <div style="display:flex;flex-direction:column;gap:4px"><div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#F2B45A"><span style="width:8px;height:8px;border-radius:50%;background:#F2B45A"></span>Worth knowing</div><div style="font-size:17px;font-weight:800">This tariff gets dearer after month 12</div><div style="font-size:13px;line-height:1.45;color:#C9D3D8">The 10.5% discount lasts 12 months. From month 13 you move to SSE Airtricity’s standard keypad rate unless you switch again.</div></div>
+                  <div style="display:flex;flex-wrap:wrap;gap:8px">
+                    <div style="flex:1 1 120px;padding:10px 12px;border-radius:12px;background:#163843;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#A9C0C6">Months 1 to 12</span><span style="font-size:18px;font-weight:800;color:#E3E000">£97.36<span style="font-size:12px;color:#C9D3D8"> a month</span></span><span style="font-size:12px;color:#C9D3D8">36.51p/kWh</span></div>
+                    <div style="flex:1 1 120px;padding:10px 12px;border-radius:12px;background:#163843;border:1.5px solid #F2B45A;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#A9C0C6">From month 13</span><span style="font-size:18px;font-weight:800;color:#F2B45A">£108.78<span style="font-size:12px;color:#C9D3D8"> a month</span></span><span style="font-size:12px;color:#C9D3D8">40.79p/kWh · £11.42 more</span></div>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
             <sc-if value="{{ tabIs.calc }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button>
+              <div style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-variant-numeric:tabular-nums;max-width:520px">
+                <sc-for list="{{ calcLines }}" as="c" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;gap:10px;font-weight:{{ c.w }};border-top:{{ c.rule }};padding-top:{{ c.pad }}"><span>{{ c.label }}</span><span>{{ c.value }}</span></div></sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ tabIs.info }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.45;max-width:620px">
+                <div>The 10.5% discount applies for 12 months. After that you move to SSE Airtricity's standard keypad rate.</div>
+                <div>The £30 welcome credit is added to your account after you switch.</div>
+                <div>For new SSE Airtricity customers only. No exit fee.</div>
+                <div style="display:flex;gap:16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" style="font-weight:600">Full T&amp;Cs</a></div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="4a.1"><div class="dv-olabel"><a class="dv-oid" href="#4a.1">4a.1</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Detailed, tabbed, single bar</div><div><a class="dv-oid" href="#4a">4a</a> with the two cost bars replaced by the single year-one track from <a class="dv-oid" href="#3b">3b</a>. The marker shows the current bill.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #0B2730;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 22px;background:#0B2730;color:#fff;flex-wrap:wrap">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:50%;background:#E3E000"></span>Cheapest for you</div>
+            <div style="font-size:12px;color:#A9C0C6">1 of 18 tariffs</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:20px 32px;padding:20px 22px">
+            <div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:16px">
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:84px;height:40px;flex:none;display:flex;align-items:center;justify-content:center"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div>
+                <div style="display:flex;flex-direction:column;gap:1px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:#5A6B80">SSE Airtricity</div><div style="font-size:17px;font-weight:700;line-height:1.25;text-wrap:pretty">1 Year Keypad Electricity 10.5% + £30 Welcome Credit</div></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="position:relative;height:12px;background:#EEF1F5;border-radius:6px">
+                  <div style="position:absolute;left:0;top:0;bottom:0;width:80%;background:#B78DD4;border-radius:6px"></div>
+                  <div style="position:absolute;top:-4px;bottom:-4px;left:90%;width:2px;margin-left:-1px;background:#0B2730"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:#5A6B80"><span><strong style="color:#0B2730">£1,138.27</strong> year one</span><span>Current £1,279.45 ┃</span></div>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px"><span style="font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E3E000">£30 cashback</span><span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #E1DFB8">✓ 10.5% discount</span><span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #E1DFB8">✓ £30 welcome credit</span><span style="font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #E1DFB8">✓ SSE Rewards</span></div>
+            </div>
+            <div style="flex:0 1 240px;min-width:0;display:flex;flex-direction:column;gap:9px">
+              <div style="display:flex;flex-direction:column"><div style="font-size:13px;font-weight:600">You save in year one</div><div style="font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-.015em">£141.18</div><div style="font-size:12.5px;color:#5A6B80">£1,168.27 a year</div></div>
+              <button style="height:48px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:700 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ cta }}</button>
+              <div style="font-size:12px;color:#5A6B80;line-height:1.35">{{ ctaNote }}</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 22px;border-top:1px solid #E3D3EE;background:#F7F1FB;font-size:12.5px;line-height:1.45"><span style="flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#5B2F7A;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">i</span><span><strong style="color:#5B2F7A">Price change from 1 December 2026.</strong> <span style="color:#3E5560">SSE Airtricity is raising its keypad unit rate from 35.80p to 36.51p/kWh. The costs above already include the new rate.</span></span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 22px;border-top:1px solid #F6D9C2;background:#FFF6EE;font-size:12.5px;line-height:1.45"><span style="flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#F2B45A;color:#0B2730;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">!</span><span><strong style="color:#B5500F">Discount ends after 12 months.</strong> <span style="color:#3E5560">From month 13 you pay the standard rate of 40.79p/kWh, about £108.78 a month. That’s £11.42 a month more than months 1 to 12.</span></span></div>
+          <div style="display:flex;gap:4px;padding:0 16px;border-top:1px solid #E6EAF0;overflow-x:auto">
+            <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="4">
+              <div onClick="{{ tb.go }}" style="flex:none;padding:12px 10px;font-size:14px;font-weight:{{ tb.weight }};color:#0B2730;border-bottom:3px solid {{ tb.line }};cursor:pointer">{{ tb.label }}</div>
+            </sc-for>
+          </div>
+          <div style="padding:16px 22px;background:#FBFAE6;color:#0B2730;border-top:1px solid #E6EAF0">
+            <sc-if value="{{ tabIs.overview }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden">
+                  <sc-for list="{{ ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ tabIs.rates }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden">
+                <sc-for list="{{ rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ tabIs.monthly }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+              <div style="flex:1.4 1 340px;min-width:0;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;font-size:12.5px">
+                  <span style="font-weight:700">Your monthly cost</span>
+                  <span style="display:flex;flex-wrap:wrap;gap:12px;color:#3E5560"><span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#B78DD4"></span>This tariff</span><span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#E87722"></span>After discount ends</span><span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:0;border-top:2px dashed #0B2730"></span>Current £106.62</span></span>
+                </div>
+                <div style="position:relative;height:130px;display:flex;align-items:flex-end;gap:4px">
+                  <div style="position:absolute;left:0;right:0;bottom:{{ curLine }};border-top:2px dashed #0B2730;z-index:1"></div>
+                  <sc-for list="{{ months }}" as="m" hint-placeholder-count="13">
+                    <div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px">
+                      <div style="font-size:9.5px;font-weight:700;color:#0B2730;white-space:nowrap">{{ m.tag }}</div>
+                      <div style="width:100%;height:{{ m.h }};background:{{ m.c }};border-radius:4px 4px 0 0"></div>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="display:flex;gap:4px">
+                  <sc-for list="{{ months }}" as="m" hint-placeholder-count="13"><div style="flex:1;text-align:center;font-size:10px;color:#7A8899">{{ m.label }}</div></sc-for>
+                </div>
+                <div style="font-size:12.5px;color:#3E5560;line-height:1.4">Month 1 includes the £30 welcome credit. From month 13 the discount ends and the bill rises to about £108.78 a month.</div>
+              </div>
+                <div style="flex:1 1 260px;min-width:0;background:#0B2730;color:#fff;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px">
+                  <div style="display:flex;flex-direction:column;gap:4px"><div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#F2B45A"><span style="width:8px;height:8px;border-radius:50%;background:#F2B45A"></span>Worth knowing</div><div style="font-size:17px;font-weight:800">This tariff gets dearer after month 12</div><div style="font-size:13px;line-height:1.45;color:#C9D3D8">The 10.5% discount lasts 12 months. From month 13 you move to SSE Airtricity’s standard keypad rate unless you switch again.</div></div>
+                  <div style="display:flex;flex-wrap:wrap;gap:8px">
+                    <div style="flex:1 1 120px;padding:10px 12px;border-radius:12px;background:#163843;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#A9C0C6">Months 1 to 12</span><span style="font-size:18px;font-weight:800;color:#E3E000">£97.36<span style="font-size:12px;color:#C9D3D8"> a month</span></span><span style="font-size:12px;color:#C9D3D8">36.51p/kWh</span></div>
+                    <div style="flex:1 1 120px;padding:10px 12px;border-radius:12px;background:#163843;border:1.5px solid #F2B45A;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#A9C0C6">From month 13</span><span style="font-size:18px;font-weight:800;color:#F2B45A">£108.78<span style="font-size:12px;color:#C9D3D8"> a month</span></span><span style="font-size:12px;color:#C9D3D8">40.79p/kWh · £11.42 more</span></div>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ tabIs.calc }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button>
               <div style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-variant-numeric:tabular-nums;max-width:520px">
                 <sc-for list="{{ calcLines }}" as="c" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;gap:10px;font-weight:{{ c.w }};border-top:{{ c.rule }};padding-top:{{ c.pad }}"><span>{{ c.label }}</span><span>{{ c.value }}</span></div></sc-for>
               </div>
@@ -1925,39 +2118,55 @@
               <sc-for list="{{ rpA.items }}" as="t" hint-placeholder-count="4">
                 <div style="background:{{ t.cBg }};color:{{ t.cInk }};border:1px solid {{ t.border }};border-radius:14px;overflow:hidden">
                   <sc-if value="{{ t.isTop }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:8px;padding:8px 18px;background:#0B2730;color:#fff;font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:50%;background:#E3E000"></span>Cheapest for you</div></sc-if>
-                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:16px 18px 12px">
-                    <div style="display:flex;align-items:center;gap:12px;flex:1 1 240px;min-width:0">
-                      <sc-if value="{{ t.hasLogo }}" hint-placeholder-val="{{ false }}"><div style="width:64px;height:36px;flex:none;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:8px;padding:4px 6px;box-sizing:border-box"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div></sc-if><sc-if value="{{ t.noLogo }}" hint-placeholder-val="{{ true }}"><div style="width:64px;height:36px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div></sc-if>
-                      <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:{{ t.cMuted }}">{{ t.supplier }}</div><div style="font-size:15.5px;font-weight:700;line-height:1.3;text-wrap:pretty">{{ t.name }}</div></div>
+                  <div style="display:flex;flex-wrap:wrap;gap:18px 28px;padding:18px 18px 16px">
+                    <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:14px">
+                      <div style="display:flex;align-items:center;gap:12px">
+                        <sc-if value="{{ t.hasLogo }}" hint-placeholder-val="{{ false }}"><div style="width:72px;height:38px;flex:none;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:8px;padding:4px 6px;box-sizing:border-box"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></div></sc-if><sc-if value="{{ t.noLogo }}" hint-placeholder-val="{{ true }}"><div style="width:72px;height:38px;flex:none;border:1px dashed #C4CCD8;border-radius:7px;display:flex;align-items:center;justify-content:center;font:500 10px ui-monospace,Menlo,monospace;color:#8593A6;background:#F7F9FB">logo</div></sc-if>
+                        <div style="display:flex;flex-direction:column;gap:1px;min-width:0"><div style="font-size:12.5px;font-weight:600;color:{{ t.cMuted }}">{{ t.supplier }}</div><div style="font-size:16.5px;font-weight:700;line-height:1.25;text-wrap:pretty">{{ t.name }}</div></div>
+                      </div>
+                      <div style="display:flex;flex-direction:column;gap:9px">
+                        <div style="display:grid;grid-template-columns:92px minmax(0,1fr) auto;align-items:center;gap:10px"><div style="font-size:12.5px;color:{{ t.cMuted }}">Your current</div><div style="height:12px;background:{{ t.cTrack }};border-radius:6px;overflow:hidden"><div style="height:100%;width:{{ t.curPct }};background:{{ t.cCurBar }};border-radius:6px"></div></div><div style="font-size:13.5px;font-weight:600;color:{{ t.cMuted }}">£1,279.45</div></div>
+                        <div style="display:grid;grid-template-columns:92px minmax(0,1fr) auto;align-items:center;gap:10px"><div style="font-size:12.5px;font-weight:700">This tariff</div><div style="height:12px;background:{{ t.cTrack }};border-radius:6px;overflow:hidden"><div style="height:100%;width:{{ t.newPct }};background:{{ t.cNewBar }};border-radius:6px"></div></div><div style="font-size:13.5px;font-weight:700">{{ t.netText }}</div></div>
+                      </div>
+                      <div style="display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px">
+                        <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:4px 10px;border-radius:999px;background:#E3E000;color:#0B2730">{{ t.cashText }}</span></sc-if>
+                        <sc-for list="{{ t.perkChips }}" as="p" hint-placeholder-count="2"><span style="font-weight:600;padding:4px 10px;border-radius:999px;background:{{ t.cChipBg }};border:1px solid {{ t.cChipBorder }}">{{ p }}</span></sc-for>
+                      </div>
                     </div>
-                    <div style="flex:0 0 auto;display:flex;flex-direction:column;min-width:110px">
-                      <div style="font-size:12px;font-weight:600;color:{{ t.cSaveLabel }}">{{ t.saveLabel }}</div>
-                      <div style="font-size:26px;font-weight:800;line-height:1.1;color:{{ t.cSave }}">{{ t.saveText }}</div>
-                      <div style="font-size:12px;color:{{ t.cMuted }}">{{ t.monthly }}</div>
-                    </div>
-                    <div style="flex:1 1 150px;max-width:190px;display:flex;flex-direction:column;gap:3px">
-                      <a href="{{ t.href }}" style="height:44px;border-radius:10px;background:{{ t.ctaBg }};color:#0B2730;font:700 15px 'Figtree',sans-serif;text-decoration:none;display:flex;align-items:center;justify-content:center">{{ t.cta }}</a>
-                      <div style="font-size:11.5px;color:{{ t.cMuted }};text-align:center">{{ t.route }}</div>
+                    <div style="flex:0 1 220px;min-width:0;display:flex;flex-direction:column;gap:9px">
+                      <div style="display:flex;flex-direction:column"><div style="font-size:13px;font-weight:600;color:{{ t.cSaveLabel }}">{{ t.saveLabel }}</div><div style="font-size:36px;font-weight:800;line-height:1.05;letter-spacing:-.015em;color:{{ t.cSave }}">{{ t.saveText }}</div><div style="font-size:12.5px;color:{{ t.cMuted }}">{{ t.annualText }}</div></div>
+                      <a href="{{ t.href }}" style="height:48px;border-radius:12px;background:{{ t.ctaBg }};color:#0B2730;font:700 16px 'Figtree',sans-serif;text-decoration:none;display:flex;align-items:center;justify-content:center">{{ t.cta }}</a>
+                      <div style="font-size:12px;color:{{ t.cMuted }};line-height:1.35">{{ t.route }}</div>
                     </div>
                   </div>
-                  <div style="padding:0 18px 12px;display:flex;flex-direction:column;gap:5px">
-                    <div style="position:relative;height:10px;background:{{ t.cTrack }};border-radius:5px"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ t.newPct }};background:{{ t.barColor }};border-radius:5px"></div><div style="position:absolute;top:-4px;bottom:-4px;left:{{ t.curPct }};width:2px;margin-left:-1px;background:{{ t.cInk }}"></div></div>
-                    <div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;color:{{ t.cMuted }}"><span><strong style="color:{{ t.cInk }}">{{ t.netText }}</strong> year one</span><span>Current £1,279.45 ┃</span></div>
-                  </div>
-                  <div style="padding:9px 18px;border-top:1px solid {{ t.cRule }};font-size:12.5px;color:{{ t.cBody }}">{{ t.factLine }}</div>
+                  <sc-if value="{{ t.hasChange }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:10px;align-items:flex-start;padding:10px 18px;border-top:1px solid #E3D3EE;background:#F7F1FB;font-size:12.5px;line-height:1.45"><span style="flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#5B2F7A;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">i</span><span><strong style="color:#5B2F7A">Price change from 1 December 2026.</strong> <span style="color:#3E5560">SSE Airtricity is raising its keypad unit rate from 35.80p to 36.51p/kWh. The costs above already include the new rate.</span></span></div></sc-if>
                   <sc-if value="{{ t.hasRise }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:10px;align-items:flex-start;padding:10px 18px;border-top:1px solid #F6D9C2;background:#FFF6EE;font-size:12.5px;line-height:1.45"><span style="flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#F2B45A;color:#0B2730;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">!</span><span><strong style="color:#B5500F">{{ t.riseTitle }}.</strong> <span style="color:#3E5560">{{ t.riseText }}</span></span></div></sc-if>
-                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px 18px 0;font-size:12.5px">
-                    <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;padding:3px 8px;border-radius:999px;background:#E3E000;color:#0B2730">{{ t.cashText }}</span></sc-if>
-                    <span style="font-weight:600">{{ t.perkLine }}</span>
-                  </div>
-                  <div style="display:flex;gap:4px;padding:0 10px;margin-top:6px;border-top:1px solid {{ t.cRule }};overflow-x:auto">
+                  <div style="display:flex;gap:4px;padding:0 10px;border-top:1px solid {{ t.cRule }};overflow-x:auto">
                     <sc-for list="{{ t.tabs }}" as="tb" hint-placeholder-count="4"><div onClick="{{ tb.go }}" style="flex:none;padding:11px 8px;font-size:13.5px;font-weight:{{ tb.weight }};color:{{ t.cInk }};border-bottom:3px solid {{ tb.line }};cursor:pointer;white-space:nowrap">{{ tb.label }}</div></sc-for>
                   </div>
                   <sc-if value="{{ t.tabAny }}" hint-placeholder-val="{{ false }}">
                     <div style="padding:14px 18px 16px;background:#FBFAE6;color:#0B2730;border-top:1px solid #E6EAF0">
                       <sc-if value="{{ t.tabOv }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for></div></sc-if>
-                      <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
-                      <sc-if value="{{ t.tabCalc }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;max-width:560px">
+                      <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
+                      <sc-if value="{{ t.tabMonthly }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+                        <div style="flex:1.4 1 340px;min-width:0;display:flex;flex-direction:column;gap:10px">
+                          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;font-size:12.5px"><span style="font-weight:700">Your monthly cost</span><span style="display:flex;flex-wrap:wrap;gap:12px;color:#3E5560"><span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#B78DD4"></span>This tariff</span><span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#E87722"></span>After discount ends</span><span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:0;border-top:2px dashed #0B2730"></span>{{ t.mCurText }}</span></span></div>
+                          <div style="position:relative;height:130px;display:flex;align-items:flex-end;gap:4px">
+                            <div style="position:absolute;left:0;right:0;bottom:{{ t.mCurLine }};border-top:2px dashed #0B2730;z-index:1"></div>
+                            <sc-for list="{{ t.mBars }}" as="m" hint-placeholder-count="13"><div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px"><div style="font-size:9.5px;font-weight:700;color:#0B2730;white-space:nowrap">{{ m.tag }}</div><div style="width:100%;height:{{ m.h }};background:{{ m.c }};border-radius:4px 4px 0 0"></div></div></sc-for>
+                          </div>
+                          <div style="display:flex;gap:4px"><sc-for list="{{ t.mBars }}" as="m" hint-placeholder-count="13"><div style="flex:1;text-align:center;font-size:10px;color:#7A8899">{{ m.label }}</div></sc-for></div>
+                          <div style="font-size:12.5px;color:#3E5560;line-height:1.4">{{ t.mNote }}</div>
+                        </div>
+                        <sc-if value="{{ t.hasRise }}" hint-placeholder-val="{{ false }}"><div style="flex:1 1 260px;min-width:0;background:#0B2730;color:#fff;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px">
+                          <div style="display:flex;flex-direction:column;gap:4px"><div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#F2B45A"><span style="width:8px;height:8px;border-radius:50%;background:#F2B45A"></span>Worth knowing</div><div style="font-size:17px;font-weight:800">{{ t.riseTitle }}</div><div style="font-size:13px;line-height:1.45;color:#C9D3D8">{{ t.wkText }}</div></div>
+                          <div style="display:flex;flex-wrap:wrap;gap:8px">
+                            <div style="flex:1 1 120px;padding:10px 12px;border-radius:12px;background:#163843;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#A9C0C6">{{ t.wkTerm }}</span><span style="font-size:18px;font-weight:800;color:#E3E000">{{ t.wkM1 }}<span style="font-size:12px;color:#C9D3D8"> a month</span></span><span style="font-size:12px;color:#C9D3D8">{{ t.wkU1 }}</span></div>
+                            <div style="flex:1 1 120px;padding:10px 12px;border-radius:12px;background:#163843;border:1.5px solid #F2B45A;display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:#A9C0C6">{{ t.wkFrom }}</span><span style="font-size:18px;font-weight:800;color:#F2B45A">{{ t.wkM2 }}<span style="font-size:12px;color:#C9D3D8"> a month</span></span><span style="font-size:12px;color:#C9D3D8">{{ t.wkU2 }}</span></div>
+                          </div>
+                        </div></sc-if>
+                      </div></sc-if>
+                      <sc-if value="{{ t.tabCalc }}" hint-placeholder-val="{{ false }}"><button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button><div style="display:flex;flex-direction:column;gap:6px;max-width:560px">
                         <sc-for list="{{ t.calc }}" as="c" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;gap:12px;padding-top:6px;border-top:{{ c.top }};font-size:13.5px;font-weight:{{ c.w }}"><div style="display:flex;flex-direction:column"><span>{{ c.label }}</span><span style="font-size:12px;font-weight:400;color:#5A6B80">{{ c.sub }}</span></div><span>{{ c.value }}</span></div></sc-for>
                         <div style="font-size:12.5px;color:#3E5560;padding-top:4px">{{ t.calcNote }}</div>
                       </div></sc-if>
@@ -3072,12 +3281,16 @@ class Component extends DCLogic {
       };
     });
     const tab = this.state.tab || 'overview';
-    const tabs = [['overview', 'Overview'], ['rates', 'Rates & charges'], ['calc', 'Calculation'], ['info', 'Tariff terms']].map(([k, l]) => ({ label: l, weight: tab === k ? 700 : 500, line: tab === k ? '#0B2730' : 'transparent', go: () => this.setState({ tab: k }) }));
-    const tabIs = { overview: tab === 'overview', rates: tab === 'rates', calc: tab === 'calc', info: tab === 'info' };
+    const tabs = [['overview', 'Overview'], ['rates', 'Rates & charges'], ['monthly', 'Monthly cost'], ['calc', 'Calculation'], ['info', 'Tariff terms']].map(([k, l]) => ({ label: l, weight: tab === k ? 700 : 500, line: tab === k ? '#0B2730' : 'transparent', lineDark: tab === k ? '#E3E000' : 'transparent', go: () => this.setState({ tab: k }) }));
+    const tabIs = { overview: tab === 'overview', rates: tab === 'rates', monthly: tab === 'monthly', calc: tab === 'calc', info: tab === 'info' };
     const ovFacts = [{ label: 'Contract', value: '12 months' }, { label: 'Rate type', value: 'Variable' }, { label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Exit fee', value: 'None' }, { label: 'Who can switch', value: 'New customers' }];
-    const rateFacts = [{ label: 'Unit rate', value: '36.51p/kWh', note: 'With 10.5% discount' }, { label: 'Standard unit rate', value: '40.79p/kWh', note: 'After 12 months' }, { label: 'Standing charge', value: 'None', note: 'Keypad tariff' }, { label: 'VAT', value: 'Included', note: 'All prices shown' }];
+    const vat4 = this.state.vat4 !== false, vx = p => (vat4 ? p : p / 1.05).toFixed(2) + 'p/kWh';
+    const rateFacts = [{ label: 'Unit rate', value: vx(36.51), note: 'With 10.5% discount' }, { label: 'Standard unit rate', value: vx(40.79), note: 'After 12 months' }, { label: 'Standing charge', value: 'None', note: 'Keypad tariff' }, { label: 'VAT at 5%', value: vat4 ? 'Included' : 'Excluded', note: 'In the prices shown' }];
+    const vat4Toggle = () => this.setState(s => ({ vat4: s.vat4 === false })), vat4Bg = vat4 ? '#0B2730' : '#fff', vat4Tick = vat4 ? '✓' : '';
     const L = (label, value, bold) => ({ label, value, w: bold ? 700 : 400, rule: bold ? '1px solid #E1DFB8' : '0', pad: bold ? '7px' : '0' });
-    const calcLines = [L('3,200 kWh × 40.79p', '£1,305.33'), L('10.5% discount', '−£137.06'), L('Standing charge', '£0.00'), L('Estimated annual bill', '£1,168.27', 1), L('£30 cashback / welcome credit', '−£30.00'), L('Year one cost', '£1,138.27', 1), L('Your current tariff', '£1,279.45'), L('You save', '£141.18', 1)];
+    const vm = n => '£' + (vat4 ? n : n / 1.05).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const vBill = vat4 ? 1168.27 : 1168.27 / 1.05, vCur = vat4 ? 1279.45 : 1279.45 / 1.05, gb = n => '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const calcLines = [L('3,200 kWh × ' + (vat4 ? 40.79 : 40.79 / 1.05).toFixed(2) + 'p', vm(1305.33)), L('10.5% discount', '−' + vm(137.06)), L('Standing charge', '£0.00'), ...(vat4 ? [] : [L('VAT at 5% (not included)', gb(1168.27 - vBill))]), L('Estimated annual bill' + (vat4 ? '' : ', excl. VAT'), gb(vBill), 1), L('£30 cashback / welcome credit', '−£30.00'), L('Year one cost', gb(vBill - 30), 1), L('Your current tariff' + (vat4 ? '' : ', excl. VAT'), gb(vCur)), L('You save', gb(vCur - vBill + 30), 1)];
     const specGroups = [
       { title: 'Price · incl. VAT', rows: [{ label: 'Unit rate', value: '36.51p/kWh' }, { label: 'Standing charge', value: 'None' }, { label: 'Annual bill', value: '£1,168.27' }, { label: 'Monthly', value: '£97.36' }] },
       { title: 'Contract', rows: [{ label: 'Term', value: '12 months' }, { label: 'Rate type', value: 'Variable' }, { label: 'Exit fee', value: 'None' }, { label: 'Who can switch', value: 'New customers' }] },
@@ -3484,6 +3697,7 @@ class Component extends DCLogic {
       const best = [...rpT].sort((a, b) => netOf(a) - netOf(b))[0];
       const blockers = rpFails(f, best);
       const maxN = Math.max(cur, ...rpT.map(netOf));
+      const vatOn = this.state.vat4 !== false, vf = vatOn ? 1 : 1 / 1.05;
       const CL = (label, sub, value, bold) => ({ label, sub, value, w: bold ? 700 : 400, top: bold ? '1px solid #E1DFB8' : '0' });
       const items = shown.map((t, i) => {
         const n = netOf(t), d = cur - n, good = d > 0, open = f.open === t.id, sel = f.sel.includes(t.id), top = i === 0 && f.sort === 'saving' && good;
@@ -3506,20 +3720,28 @@ class Component extends DCLogic {
           ctaBg: good ? '#C9A3E0' : '#E6E1EC',
           calcOpen: open, calcLabel: open ? 'Hide calculation ▴' : 'See calculation ▾',
           toggleCalc: e => { e.preventDefault(); set(c => ({ open: c.open === t.id ? null : t.id })); },
-          calc: [CL('Estimated annual bill', '3,200 kWh at ' + t.unit.toFixed(2) + 'p/kWh, incl. VAT', gbp(t.annual)), CL('Standing charge', 'None on this tariff', '£0.00'),
+          calc: [CL('Estimated annual bill', '3,200 kWh at ' + (t.unit * vf).toFixed(2) + 'p/kWh, ' + (vatOn ? 'incl.' : 'excl.') + ' VAT', gbp(t.annual * vf)), CL('Standing charge', 'None on this tariff', '£0.00'),
             ...(t.cash ? [CL('Cashback', f.cash ? 'Paid after you switch' : 'Not counted. Turn on "Count cashback" to include it.', f.cash ? '−' + gbp(t.cash) : '£0.00')] : []),
-            CL('Year one cost', '', gbp(n), 1), CL('Your current tariff', 'Budget Energy Q1 Fixed Keypad', gbp(cur)), CL(good ? 'You save' : 'You pay more', '', gbp(d), 1)],
+            CL('Year one cost', '', gbp(t.annual * vf - (f.cash ? t.cash : 0)), 1), CL('Your current tariff', 'Budget Energy Q1 Fixed Keypad', gbp(cur * vf)), CL(cur * vf - (t.annual * vf - (f.cash ? t.cash : 0)) > 0 ? 'You save' : 'You pay more', '', gbp(cur * vf - (t.annual * vf - (f.cash ? t.cash : 0))), 1)],
           calcNote: t.term ? 'After ' + t.term + ' months you move to ' + t.supplier + '’s standard rate unless you switch again.' : 'No contract. You can leave at any time without a fee.',
+          ...(() => { const after = { 0: 40.79, 2: 40.30, 3: 40.30, 5: 40.55 }[t.id], m1 = t.annual / 12, rise = !!(after && t.term), m2 = rise ? after * 3200 / 100 / 12 : m1, mMx = 125;
+            return { mBars: Array.from({ length: 13 }, (_, i) => { const v = i === 0 ? m1 - (f.cash ? t.cash : 0) : i === 12 ? m2 : m1; return { label: i === 12 ? '13+' : String(i + 1), h: (v / mMx * 100).toFixed(1) + '%', c: i === 12 && rise ? '#E87722' : '#B78DD4', tag: i === 0 || i === 1 || i === 12 ? '£' + Math.round(v) : '' }; }),
+              mCurLine: (cur / 12 / mMx * 100).toFixed(1) + '%', mCurText: 'Current ' + gbp(cur / 12),
+              mNote: (t.cash && f.cash ? 'Month 1 includes the £' + t.cash + ' cashback. ' : '') + (rise ? 'From month ' + (t.term + 1) + ' the discount ends and the bill rises to about ' + gbp(m2) + ' a month.' : 'The price stays the same each month unless ' + t.supplier + ' changes it.'),
+              wkM1: gbp(m1), wkM2: gbp(m2), wkU1: t.unit.toFixed(2) + 'p/kWh', wkU2: rise ? after.toFixed(2) + 'p/kWh · ' + gbp(m2 - m1) + ' more' : '', wkTerm: 'Months 1 to ' + (t.term || 12), wkFrom: 'From month ' + ((t.term || 12) + 1), wkText: rise ? 'The discount lasts ' + t.term + ' months. From month ' + (t.term + 1) + ' you move to ' + t.supplier + '’s standard keypad rate unless you switch again.' : '' }; })(),
+          hasChange: t.id === 0,
+          annualText: gbp(t.annual) + ' a year', perkChips: t.perks.map(p => '✓ ' + p),
+          cCurBar: top ? '#5E7880' : '#9AA7B8', cNewBar: top ? (good ? '#C9A3E0' : '#E87722') : (good ? '#B78DD4' : '#E87722'), cChipBorder: top ? '#3C6470' : '#E1DFB8', cChipBg: top ? 'transparent' : '#fff',
           ...(() => { const after = { 0: 40.79, 2: 40.30, 3: 40.30, 5: 40.55 }[t.id]; if (!after || !t.term) return { hasRise: false, riseTitle: '', riseText: '' };
             const m1 = t.annual / 12, m2 = after * 3200 / 100 / 12;
             return { hasRise: true, riseTitle: 'Dearer from month ' + (t.term + 1), riseText: 'About ' + gbp(m2) + ' a month at ' + after.toFixed(2) + 'p/kWh, ' + gbp(m2 - m1) + ' more than months 1 to ' + t.term + '. Create an account and we’ll remind you in month ' + (t.term - 1) + '.' }; })(),
           cBg: top ? '#0B2730' : '#fff', cInk: top ? '#fff' : '#0B2730', cMuted: top ? '#A9C0C6' : '#5A6B80', cBody: top ? '#C9D3D8' : '#3E5560', cRule: top ? '#1E4550' : '#EEF1F5', cTrack: top ? '#1E4550' : '#EEF1F5', cSave: top ? '#E3E000' : '#0B2730', cSaveLabel: top ? '#E3E000' : (good ? '#0B2730' : '#B5500F'),
           unitText: t.unit.toFixed(2) + 'p', termText: t.term ? t.term + ' months' : 'None', exitText: t.exit, rateText: t.rate,
-          tabs: [['overview', 'Overview'], ['rates', 'Rates & charges'], ['calc', 'Calculation'], ['info', 'Tariff terms']].map(([key, label]) => { const cur = (f.tabs[t.id] !== undefined ? f.tabs[t.id] : (top ? 'overview' : null)) === key;
+          tabs: [['overview', 'Overview'], ['rates', 'Rates & charges'], ['monthly', 'Monthly cost'], ['calc', 'Calculation'], ['info', 'Tariff terms']].map(([key, label]) => { const cur = (f.tabs[t.id] !== undefined ? f.tabs[t.id] : (top ? 'overview' : null)) === key;
             return { label, weight: cur ? 700 : 500, line: cur ? (top ? '#E3E000' : '#0B2730') : 'transparent', go: () => set(c => { const was = c.tabs[t.id] !== undefined ? c.tabs[t.id] : (top ? 'overview' : null); return { tabs: { ...c.tabs, [t.id]: was === key ? null : key } }; }) }; }),
-          ...(() => { const tb = f.tabs[t.id] !== undefined ? f.tabs[t.id] : (top ? 'overview' : null); return { tabAny: !!tb, tabOv: tb === 'overview', tabRates: tb === 'rates', tabCalc: tb === 'calc', tabInfo: tb === 'info' }; })(),
+          ...(() => { const tb = f.tabs[t.id] !== undefined ? f.tabs[t.id] : (top ? 'overview' : null); return { tabAny: !!tb, tabOv: tb === 'overview', tabRates: tb === 'rates', tabMonthly: tb === 'monthly', tabCalc: tb === 'calc', tabInfo: tb === 'info' }; })(),
           ovFacts: [{ label: 'Contract', value: t.term ? t.term + ' months' : 'None' }, { label: 'Rate type', value: t.rate }, { label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Exit fee', value: t.exit }, { label: 'Switch', value: t.online ? 'Via Power to Switch' : 'Supplier site' }],
-          rateFacts: [{ label: 'Unit rate', value: t.unit.toFixed(2) + 'p/kWh', note: 'Incl. VAT' }, { label: 'Standing charge', value: 'None', note: 'Keypad tariff' }, { label: 'Annual bill', value: gbp(t.annual), note: '3,200 kWh a year' }, { label: 'Monthly', value: gbp(t.annual / 12), note: 'Average' }],
+          rateFacts: [{ label: 'Unit rate', value: (t.unit * vf).toFixed(2) + 'p/kWh', note: vatOn ? 'Incl. VAT' : 'Excl. VAT' }, { label: 'Standing charge', value: 'None', note: 'Keypad tariff' }, { label: 'Annual bill', value: gbp(t.annual * vf), note: '3,200 kWh a year' }, { label: 'Monthly', value: gbp(t.annual * vf / 12), note: 'Average' }],
           infoLines: [t.term ? 'This tariff lasts ' + t.term + ' months. After that you move to ' + t.supplier + '’s standard keypad rate.' : 'No fixed term. You can leave at any time.', t.exit === 'None' ? 'No exit fee.' : 'A ' + t.exit + ' exit fee applies if you leave before the end of the contract.', t.rate === 'Fixed' ? 'The unit rate is fixed for the contract.' : 'Variable rate. ' + t.supplier + ' can change the price with notice.', ...(t.cash ? ['£' + t.cash + ' cashback is added to your account after you switch.'] : [])],
           selBg: sel ? '#0B2730' : '#fff', selBorder: sel ? '1.5px solid #0B2730' : '1.5px solid #C4CCD8', selTick: sel ? '✓' : '', selOp: !sel && f.sel.length >= 3 ? 0.45 : 1,
           toggleSel: () => set(c => ({ sel: c.sel.includes(t.id) ? c.sel.filter(x => x !== t.id) : c.sel.length >= 3 ? c.sel : [...c.sel, t.id] }))
@@ -3709,7 +3931,7 @@ class Component extends DCLogic {
       calc2Label: this.state.calc2 !== false ? 'Hide calculation ▴' : 'See calculation ▾',
       toggleCalc2: e => { e.preventDefault(); this.setState(s => ({ calc2: s.calc2 === false })); },
       vsRows, fitChecks,
-      tabs, tabIs, ovFacts, rateFacts, calcLines, specGroups, nextSteps, months, facts9, curLine: (curM / mMax * 100).toFixed(1) + '%',
+      tabs, tabIs, ovFacts, rateFacts, vat4Toggle, vat4Bg, vat4Tick, calcLines, specGroups, nextSteps, months, facts9, curLine: (curM / mMax * 100).toFixed(1) + '%',
       bList,
       calcOpen: !!this.state.calc,
       calcLabel: this.state.calc ? 'Hide calculation' : 'See calculation',
