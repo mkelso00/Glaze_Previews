@@ -8,10 +8,10 @@
 
 import { createServer } from "node:http";
 import { createReadStream, readFileSync, existsSync } from "node:fs";
-import { stat } from "node:fs/promises";
+import { stat, mkdir, readFile, writeFile, rename } from "node:fs/promises";
 import { join, normalize, extname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { createHash, timingSafeEqual } from "node:crypto";
+import { createHash, timingSafeEqual, randomUUID } from "node:crypto";
 
 const ROOT = fileURLToPath(new URL(".", import.meta.url)).replace(/\/+$/, "");
 const PORT = process.env.PORT || 3000;
@@ -48,9 +48,10 @@ function rawUrl(primary) {
 }
 
 // A thin wrapper served at /<slug>/ : a fixed confidential banner above the
-// preview (loaded in a frame). The banner sits outside the frame, so the
-// preview's own runtime re-render cannot remove it.
-function bannerWrapper(project) {
+// preview (loaded in a frame), plus a slide-out comments sidebar. The banner
+// and sidebar sit outside the frame, so the preview's own runtime re-render
+// cannot remove them.
+function bannerWrapper(project, isTeam) {
   const logo = LOGO_SRC
     ? `<img class="gz-logo" src="/${LOGO_SRC.split("/").map(encodeURIComponent).join("/")}" alt="Glaze Digital" />`
     : `<span class="gz-word">Glaze</span>`;
@@ -71,12 +72,46 @@ function bannerWrapper(project) {
     z-index: 2147483647; box-shadow: 0 1px 8px rgba(0,0,0,.4);
   }
   .gz-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .gz-right { display: flex; align-items: center; gap: 14px; min-width: 0; }
   .gz-logo { height: 20px; width: auto; display: block; }
   .gz-word { font-size: 15px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #6ea8fe; }
   .gz-title { color: #9aa3b2; font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .gz-note { color: #9aa3b2; font-size: 12px; font-weight: 400; letter-spacing: .01em; white-space: nowrap; }
-  .gz-frame { position: fixed; top: 40px; left: 0; width: 100%; height: calc(100% - 40px); border: 0; background: #fff; }
-  @media (max-width: 640px) { .gz-title { display: none; } .gz-note { font-size: 11px; } }
+  .gz-cbtn { appearance: none; border: 1px solid #2b3240; background: #171a21; color: #e7eaf0;
+    font: 600 12px/1 inherit; padding: 7px 12px; border-radius: 8px; cursor: pointer; white-space: nowrap; }
+  .gz-cbtn:hover { border-color: #34506e; }
+  .gz-cbtn .n { color: #6ea8fe; }
+  .gz-frame { position: fixed; top: 40px; left: 0; width: 100%; height: calc(100% - 40px); border: 0; background: #fff; transition: width .16s ease; }
+  body.gz-open .gz-frame { width: calc(100% - 340px); }
+  .gz-comments { position: fixed; top: 40px; right: 0; bottom: 0; width: 340px; transform: translateX(100%);
+    transition: transform .16s ease; background: #12151b; border-left: 1px solid #262b36;
+    z-index: 2147483646; display: flex; flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #e7eaf0; }
+  body.gz-open .gz-comments { transform: translateX(0); }
+  .gz-ch { padding: 13px 16px; border-bottom: 1px solid #262b36; display: flex; align-items: center; justify-content: space-between; }
+  .gz-ch b { font-size: 13px; font-weight: 600; }
+  .gz-x { appearance: none; background: none; border: 0; color: #9aa3b2; font-size: 18px; line-height: 1; cursor: pointer; }
+  .gz-list { flex: 1; overflow: auto; padding: 10px 14px; display: flex; flex-direction: column; gap: 10px; }
+  .gz-item { background: #171a21; border: 1px solid #232834; border-radius: 10px; padding: 10px 12px; }
+  .gz-item.res { opacity: .5; }
+  .gz-m { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; color: #9aa3b2; margin-bottom: 4px; }
+  .gz-nm { font-weight: 600; color: #c7ccd6; }
+  .gz-bd { font-size: 13px; line-height: 1.45; white-space: pre-wrap; word-break: break-word; }
+  .gz-ac { display: flex; gap: 12px; margin-top: 8px; }
+  .gz-ac button { appearance: none; background: none; border: 0; color: #6ea8fe; font: 600 11px/1 inherit; cursor: pointer; padding: 0; }
+  .gz-empty { color: #6b7280; font-size: 13px; text-align: center; padding: 26px 10px; }
+  .gz-form { border-top: 1px solid #262b36; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+  .gz-form input, .gz-form textarea { width: 100%; box-sizing: border-box; background: #0f1115; border: 1px solid #262b36;
+    border-radius: 8px; color: #e7eaf0; font: 13px/1.4 inherit; padding: 8px 10px; outline: none; }
+  .gz-form textarea { resize: vertical; min-height: 62px; }
+  .gz-form input:focus, .gz-form textarea:focus { border-color: #6ea8fe; }
+  .gz-send { background: #6ea8fe; color: #0f1115; border: 0; font-weight: 700; padding: 9px; border-radius: 8px; cursor: pointer; }
+  .gz-send:hover { background: #8bbcff; }
+  @media (max-width: 640px) {
+    .gz-title, .gz-note { display: none; }
+    .gz-comments { width: 100%; }
+    body.gz-open .gz-frame { width: 100%; visibility: hidden; }
+  }
 </style>
 </head>
 <body>
@@ -85,9 +120,73 @@ function bannerWrapper(project) {
       ${logo}
       <span class="gz-title">${escapeHtml(project.title)}</span>
     </div>
-    <div class="gz-note">© ${YEAR} Glaze Digital — confidential; not for distribution or reproduction.</div>
+    <div class="gz-right">
+      <button class="gz-cbtn" id="gz-toggle" aria-label="Toggle comments">Comments <span class="n" id="gz-count"></span></button>
+      <div class="gz-note">© ${YEAR} Glaze Digital — confidential; not for distribution or reproduction.</div>
+    </div>
   </div>
   <iframe class="gz-frame" src="${escapeHtml(rawUrl(project.primary))}"></iframe>
+  <aside class="gz-comments" aria-label="Comments">
+    <div class="gz-ch"><b>Comments</b><button class="gz-x" id="gz-close" aria-label="Close">×</button></div>
+    <div class="gz-list" id="gz-list"></div>
+    <form class="gz-form" id="gz-form">
+      <input id="gz-name" type="text" placeholder="Your name" maxlength="80" autocomplete="name" />
+      <textarea id="gz-text" placeholder="Leave a comment on this design…" maxlength="4000"></textarea>
+      <button class="gz-send" type="submit">Post comment</button>
+    </form>
+  </aside>
+  <script>
+  (function () {
+    var SLUG = ${JSON.stringify(project.slug)}, TEAM = ${isTeam ? "true" : "false"};
+    var body = document.body;
+    var list = document.getElementById("gz-list");
+    var countEl = document.getElementById("gz-count");
+    var nameIn = document.getElementById("gz-name");
+    function esc(s){ var d=document.createElement("div"); d.textContent=(s==null?"":String(s)); return d.innerHTML; }
+    function fmt(iso){ try { return new Date(iso).toLocaleString(undefined,{month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"}); } catch(e){ return ""; } }
+    function render(items){
+      countEl.textContent = items.length ? String(items.length) : "";
+      if(!items.length){ list.innerHTML = '<div class="gz-empty">No comments yet.<br>Add the first note below.</div>'; return; }
+      list.innerHTML = items.map(function(c){
+        return '<div class="gz-item'+(c.resolved?" res":"")+'" data-id="'+esc(c.id)+'">'
+          + '<div class="gz-m"><span class="gz-nm">'+esc(c.name)+'</span><span>'+fmt(c.created)+'</span></div>'
+          + '<div class="gz-bd">'+esc(c.body)+'</div>'
+          + '<div class="gz-ac"><button data-act="resolve">'+(c.resolved?"Unresolve":"Resolve")+'</button>'
+          + (TEAM?'<button data-act="delete">Delete</button>':'')
+          + '</div></div>';
+      }).join("");
+    }
+    function load(){
+      fetch("/api/comments?slug="+encodeURIComponent(SLUG)).then(function(r){return r.json();})
+        .then(function(d){ render((d&&d.comments)||[]); }).catch(function(){});
+    }
+    function toggle(open){ body.classList.toggle("gz-open", open); if(open) load(); }
+    document.getElementById("gz-toggle").addEventListener("click", function(){ toggle(!body.classList.contains("gz-open")); });
+    document.getElementById("gz-close").addEventListener("click", function(){ toggle(false); });
+    try { nameIn.value = localStorage.getItem("gz_name") || ""; } catch(e){}
+    document.getElementById("gz-form").addEventListener("submit", function(e){
+      e.preventDefault();
+      var name = nameIn.value.trim(), text = document.getElementById("gz-text").value.trim();
+      if(!text) return;
+      try { localStorage.setItem("gz_name", name); } catch(e){}
+      fetch("/api/comments",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({slug:SLUG,name:name,body:text})})
+        .then(function(r){return r.json();}).then(function(){ document.getElementById("gz-text").value=""; load(); }).catch(function(){});
+    });
+    list.addEventListener("click", function(e){
+      var btn = e.target.closest ? e.target.closest("button") : null; if(!btn) return;
+      var item = e.target.closest(".gz-item"); if(!item) return;
+      var id = item.getAttribute("data-id"), act = btn.getAttribute("data-act");
+      if(act==="resolve"){
+        fetch("/api/comments/resolve",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({id:id,resolved:!item.classList.contains("res")})}).then(load);
+      } else if(act==="delete"){
+        if(!confirm("Delete this comment?")) return;
+        fetch("/api/comments/delete",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({id:id})}).then(load);
+      }
+    });
+    // Load the count on first paint so the button shows how many comments exist.
+    load();
+  })();
+  </script>
 </body>
 </html>
 `;
@@ -221,6 +320,67 @@ function send(res, status, body, headers = {}) {
   res.end(body);
 }
 
+// ---- comments store --------------------------------------------------------
+// Durable JSON store. Railway sets RAILWAY_VOLUME_MOUNT_PATH automatically when
+// a volume is attached — point a volume there and comments persist across
+// deploys. Without a volume it falls back to ./data (works, but ephemeral).
+const DATA_DIR =
+  process.env.DATA_DIR || process.env.RAILWAY_VOLUME_MOUNT_PATH || join(ROOT, "data");
+const COMMENTS_FILE = join(DATA_DIR, "comments.json");
+const SLACK_WEBHOOK = process.env.SLACK_WEBHOOK_URL || "";
+const MAX_NAME = 80;
+const MAX_BODY = 4000;
+
+async function loadComments() {
+  try {
+    const data = JSON.parse(await readFile(COMMENTS_FILE, "utf8"));
+    return Array.isArray(data.comments) ? data.comments : [];
+  } catch {
+    return [];
+  }
+}
+
+// Serialize read-modify-write so concurrent posts can't clobber the file.
+let writeChain = Promise.resolve();
+function withComments(mutator) {
+  const run = writeChain.then(async () => {
+    const comments = await loadComments();
+    const result = await mutator(comments);
+    await mkdir(DATA_DIR, { recursive: true });
+    const tmp = COMMENTS_FILE + ".tmp";
+    await writeFile(tmp, JSON.stringify({ comments }, null, 2), "utf8");
+    await rename(tmp, COMMENTS_FILE);
+    return result;
+  });
+  writeChain = run.catch(() => {});
+  return run;
+}
+
+function clean(s, max) {
+  return String(s == null ? "" : s).slice(0, max).trim();
+}
+
+function sendJson(res, status, obj) {
+  send(res, status, JSON.stringify(obj), {
+    "Content-Type": "application/json; charset=utf-8",
+  });
+}
+
+async function notifySlack(c, title) {
+  if (!SLACK_WEBHOOK) return;
+  try {
+    await fetch(SLACK_WEBHOOK, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        text: `:speech_balloon: New comment on *${title}* by ${c.name}:\n> ${c.body}`,
+      }),
+    });
+  } catch {
+    /* best-effort */
+  }
+}
+
 const server = createServer(async (req, res) => {
   try {
     // Decode and strip query/hash, default "/" to the gallery index.
@@ -244,6 +404,65 @@ const server = createServer(async (req, res) => {
       return send(res, 401, loginPage(true), {
         "Content-Type": "text/html; charset=utf-8",
       });
+    }
+
+    // ---- Comments API ----
+    // Previews are shared by link, so listing / adding / resolving are open;
+    // deleting is restricted to the logged-in team (gallery password cookie).
+    if (pathname === "/api/comments") {
+      if (req.method === "GET") {
+        const slug = new URL(req.url, "http://x").searchParams.get("slug") || "";
+        const all = await loadComments();
+        return sendJson(res, 200, { comments: all.filter((c) => c.slug === slug) });
+      }
+      if (req.method === "POST") {
+        const raw = await readBody(req, MAX_BODY + MAX_NAME + 2000);
+        let p;
+        try { p = JSON.parse(raw || "{}"); } catch { p = {}; }
+        const slug = clean(p.slug, 200);
+        const name = clean(p.name, MAX_NAME) || "Anonymous";
+        const text = clean(p.body, MAX_BODY);
+        if (!slug || !SLUGS.has(slug) || !text) {
+          return sendJson(res, 400, { error: "Missing slug or comment." });
+        }
+        const comment = {
+          id: randomUUID(),
+          slug,
+          name,
+          body: text,
+          created: new Date().toISOString(),
+          resolved: false,
+        };
+        await withComments((list) => list.push(comment));
+        notifySlack(comment, (SLUGS.get(slug) || {}).title || slug);
+        return sendJson(res, 200, { comment });
+      }
+      return sendJson(res, 405, { error: "Method not allowed." });
+    }
+    if (pathname === "/api/comments/resolve" && req.method === "POST") {
+      const raw = await readBody(req);
+      let p;
+      try { p = JSON.parse(raw || "{}"); } catch { p = {}; }
+      const ok = await withComments((list) => {
+        const c = list.find((x) => x.id === p.id);
+        if (!c) return false;
+        c.resolved = !!p.resolved;
+        return true;
+      });
+      return sendJson(res, ok ? 200 : 404, { ok });
+    }
+    if (pathname === "/api/comments/delete" && req.method === "POST") {
+      if (!isAuthed(req)) return sendJson(res, 403, { error: "Not allowed." });
+      const raw = await readBody(req);
+      let p;
+      try { p = JSON.parse(raw || "{}"); } catch { p = {}; }
+      const ok = await withComments((list) => {
+        const i = list.findIndex((x) => x.id === p.id);
+        if (i === -1) return false;
+        list.splice(i, 1);
+        return true;
+      });
+      return sendJson(res, ok ? 200 : 404, { ok });
     }
 
     if (pathname === "/" || pathname === "") pathname = "/index.html";
@@ -270,7 +489,7 @@ const server = createServer(async (req, res) => {
           return send(res, 301, null, { Location: `/${project.slug}/` });
         }
         // Serve the banner wrapper (the preview loads in its frame).
-        return send(res, 200, bannerWrapper(project), {
+        return send(res, 200, bannerWrapper(project, isAuthed(req)), {
           "Content-Type": "text/html; charset=utf-8",
         });
       }

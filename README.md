@@ -43,6 +43,22 @@ node scripts/shoot.mjs            # writes thumbnails/<slug>.jpg (see file heade
 
 A preview without a committed thumbnail still shows a live (iframe) preview automatically.
 
+### Comments
+
+Each preview has a slide-out **Comments** panel (the button in the banner).
+Anyone with the preview link can add a comment and mark one resolved; only the
+logged-in team (gallery password) can delete. Comments are stored as JSON on the
+server, keyed by preview slug.
+
+**Persistence (one-time):** comments are written to
+`$RAILWAY_VOLUME_MOUNT_PATH/comments.json`. Attach a Railway **Volume** to the
+service (Railway → service → Variables/Volumes → add a volume, any mount path
+e.g. `/data`) and comments survive deploys. Without a volume they fall back to
+`./data`, which is wiped on each deploy. Override the location with `DATA_DIR`.
+
+**Slack (optional):** set `SLACK_WEBHOOK_URL` and every new comment is posted to
+that channel. Unset = no notifications.
+
 ### Confidential banner + logo
 
 Every preview served at `/<slug>/` is wrapped with a fixed banner reading
