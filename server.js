@@ -381,6 +381,88 @@ async function notifySlack(c, title) {
   }
 }
 
+// Comment store backend: Postgres when DATABASE_URL is set (durable, survives
+// deploys with no volume needed), otherwise the JSON file above.
+const DATABASE_URL = process.env.DATABASE_URL || "";
+let pool = null;
+if (DATABASE_URL) {
+  const pg = (await import("pg")).default;
+  pool = new pg.Pool({
+    connectionString: DATABASE_URL,
+    ssl:
+      /sslmode=require/i.test(DATABASE_URL) || process.env.PGSSL
+        ? { rejectUnauthorized: false }
+        : false,
+  });
+  await pool.query(`CREATE TABLE IF NOT EXISTS comments (
+    id text PRIMARY KEY,
+    slug text NOT NULL,
+    name text NOT NULL,
+    body text NOT NULL,
+    created timestamptz NOT NULL DEFAULT now(),
+    resolved boolean NOT NULL DEFAULT false
+  )`);
+  await pool.query(`CREATE INDEX IF NOT EXISTS comments_slug_idx ON comments (slug)`);
+  console.log("Comments store: Postgres");
+} else {
+  console.log("Comments store: JSON file at", COMMENTS_FILE);
+}
+
+const store = pool
+  ? {
+      async list(slug) {
+        const r = await pool.query(
+          "SELECT id, slug, name, body, created, resolved FROM comments WHERE slug = $1 ORDER BY created ASC",
+          [slug]
+        );
+        return r.rows.map((row) => ({
+          ...row,
+          created: row.created.toISOString(),
+        }));
+      },
+      async add(c) {
+        await pool.query(
+          "INSERT INTO comments (id, slug, name, body, created, resolved) VALUES ($1,$2,$3,$4,$5,$6)",
+          [c.id, c.slug, c.name, c.body, c.created, c.resolved]
+        );
+      },
+      async resolve(id, resolved) {
+        const r = await pool.query(
+          "UPDATE comments SET resolved = $2 WHERE id = $1",
+          [id, resolved]
+        );
+        return r.rowCount > 0;
+      },
+      async remove(id) {
+        const r = await pool.query("DELETE FROM comments WHERE id = $1", [id]);
+        return r.rowCount > 0;
+      },
+    }
+  : {
+      async list(slug) {
+        return (await loadComments()).filter((c) => c.slug === slug);
+      },
+      async add(c) {
+        await withComments((list) => list.push(c));
+      },
+      async resolve(id, resolved) {
+        return withComments((list) => {
+          const c = list.find((x) => x.id === id);
+          if (!c) return false;
+          c.resolved = resolved;
+          return true;
+        });
+      },
+      async remove(id) {
+        return withComments((list) => {
+          const i = list.findIndex((x) => x.id === id);
+          if (i === -1) return false;
+          list.splice(i, 1);
+          return true;
+        });
+      },
+    };
+
 const server = createServer(async (req, res) => {
   try {
     // Decode and strip query/hash, default "/" to the gallery index.
@@ -412,8 +494,7 @@ const server = createServer(async (req, res) => {
     if (pathname === "/api/comments") {
       if (req.method === "GET") {
         const slug = new URL(req.url, "http://x").searchParams.get("slug") || "";
-        const all = await loadComments();
-        return sendJson(res, 200, { comments: all.filter((c) => c.slug === slug) });
+        return sendJson(res, 200, { comments: await store.list(slug) });
       }
       if (req.method === "POST") {
         const raw = await readBody(req, MAX_BODY + MAX_NAME + 2000);
@@ -433,7 +514,7 @@ const server = createServer(async (req, res) => {
           created: new Date().toISOString(),
           resolved: false,
         };
-        await withComments((list) => list.push(comment));
+        await store.add(comment);
         notifySlack(comment, (SLUGS.get(slug) || {}).title || slug);
         return sendJson(res, 200, { comment });
       }
@@ -443,12 +524,7 @@ const server = createServer(async (req, res) => {
       const raw = await readBody(req);
       let p;
       try { p = JSON.parse(raw || "{}"); } catch { p = {}; }
-      const ok = await withComments((list) => {
-        const c = list.find((x) => x.id === p.id);
-        if (!c) return false;
-        c.resolved = !!p.resolved;
-        return true;
-      });
+      const ok = await store.resolve(p.id, !!p.resolved);
       return sendJson(res, ok ? 200 : 404, { ok });
     }
     if (pathname === "/api/comments/delete" && req.method === "POST") {
@@ -456,12 +532,7 @@ const server = createServer(async (req, res) => {
       const raw = await readBody(req);
       let p;
       try { p = JSON.parse(raw || "{}"); } catch { p = {}; }
-      const ok = await withComments((list) => {
-        const i = list.findIndex((x) => x.id === p.id);
-        if (i === -1) return false;
-        list.splice(i, 1);
-        return true;
-      });
+      const ok = await store.remove(p.id);
       return sendJson(res, ok ? 200 : 404, { ok });
     }
 

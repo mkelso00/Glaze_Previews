@@ -46,15 +46,19 @@ A preview without a committed thumbnail still shows a live (iframe) preview auto
 ### Comments
 
 Each preview has a slide-out **Comments** panel (the button in the banner).
-Anyone with the preview link can add a comment and mark one resolved; only the
-logged-in team (gallery password) can delete. Comments are stored as JSON on the
-server, keyed by preview slug.
+**Storage:** uses **Postgres** when a `DATABASE_URL` is set, otherwise a JSON
+file (`$RAILWAY_VOLUME_MOUNT_PATH/comments.json`, or `./data` locally).
 
-**Persistence (one-time):** comments are written to
-`$RAILWAY_VOLUME_MOUNT_PATH/comments.json`. Attach a Railway **Volume** to the
-service (Railway → service → Variables/Volumes → add a volume, any mount path
-e.g. `/data`) and comments survive deploys. Without a volume they fall back to
-`./data`, which is wiped on each deploy. Override the location with `DATA_DIR`.
+Recommended — add a Railway Postgres database (durable, no volume needed):
+
+1. Railway → your project → **New → Database → Add PostgreSQL**.
+2. On the **web service** → Variables → add a reference variable
+   `DATABASE_URL` = `${{ Postgres.DATABASE_URL }}` (Railway's variable picker
+   lists it). Redeploy.
+
+The server creates the `comments` table automatically on boot. Without
+`DATABASE_URL` it falls back to the JSON file (fine, but attach a volume or it
+resets on each deploy). `PGSSL=1` forces SSL if you use a public DB URL.
 
 **Slack (optional):** set `SLACK_WEBHOOK_URL` and every new comment is posted to
 that channel. Unset = no notifications.
