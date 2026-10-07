@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#f6f2ec;-webkit-font-smoothing:antialiased}a{color:#0f0e0e;text-decoration:none}a:hover{color:#1f3a2e}img{display:block}</style>
+</helmet>
+<div style="container-type:inline-size;background:#f6f2ec;color:#0f0e0e;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:15px;line-height:1.55">
+
+  <div style="background:#0f0e0e;color:#f6f2ec;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 28px;padding:10px 20px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center">
+    <span>Free gift box with every order</span>
+    <span>Order by Thu 17 Dec for UK Christmas delivery</span>
+  </div>
+
+  <header style="display:flex;justify-content:center;align-items:center;padding:22px 16px;border-bottom:1px solid #e3dcd1;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">Header</header>
+
+  <sc-if value="{{ isA }}" hint-placeholder-val="{{ true }}">
+    <section data-screen-label="Hero A" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))">
+      <div style="aspect-ratio:4/5;overflow:hidden;background:#e8e1d6">
+        <img src="https://linesandcurrent.com/cdn/shop/files/landc-132.jpg?v=1790171255&amp;width=1200" alt="Claddagh jewellery worn" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center;gap:24px;padding:clamp(40px,7cqi,96px) clamp(20px,6cqi,88px)">
+        <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">Christmas 2026</span>
+        <h1 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(44px,6.4cqi,84px);line-height:1;letter-spacing:-.01em">The Christmas Selection</h1>
+        <p style="margin:0;max-width:40ch;font-size:16px;color:#3d3935;text-wrap:pretty">Everyday gold and silver, chosen for giving. Every order arrives in a free gift box, ready to hand over.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="https://linesandcurrent.com/collections/most-gifted" style="background:#0f0e0e;color:#f6f2ec;padding:15px 28px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#1f3a2e;color:#f6f2ec">Shop gifts</a>
+          <a href="https://linesandcurrent.com/collections/gifts-under-50" style="border:1px solid #0f0e0e;padding:14px 28px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#0f0e0e;color:#f6f2ec">Gifts under £50</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:20px;border-top:1px solid #e3dcd1;font-size:13px;color:#3d3935">
+          <span style="font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:26px;line-height:1;color:#1f3a2e">10%</span>
+          <span>of our profits go to charity, so every gift gives twice. <a href="#giving" style="text-decoration:underline;text-underline-offset:3px">How we give</a></span>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ isB }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="Hero B" style="position:relative;min-height:clamp(560px,62cqi,760px);display:flex;align-items:flex-end;overflow:hidden;background:#2a2622">
+      <img src="https://linesandcurrent.com/cdn/shop/files/LISA_DESKTOP_BANNER_ff77d6d7-6609-45b0-98b1-432e3687f2cd.jpg?v=1790588074&amp;width=2000" alt="Lisa Hannigan wearing Claddagh" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,14,14,0) 35%,rgba(15,14,14,.72) 100%)"></div>
+      <div style="position:relative;width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px;padding:clamp(28px,5cqi,64px) clamp(20px,5cqi,64px);color:#f6f2ec">
+        <div style="display:flex;flex-direction:column;gap:18px;max-width:640px">
+          <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase">Christmas 2026</span>
+          <h1 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(46px,7.4cqi,104px);line-height:.98">The Christmas Selection</h1>
+          <p style="margin:0;max-width:42ch;font-size:16px;text-wrap:pretty">Everyday gold and silver, chosen for giving. Free gift box with every order, and 10% of our profits go to charity.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="https://linesandcurrent.com/collections/most-gifted" style="background:#f6f2ec;color:#0f0e0e;padding:15px 28px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#fff;color:#1f3a2e">Shop gifts</a>
+          <a href="#collections" style="border:1px solid #f6f2ec;color:#f6f2ec;padding:14px 28px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#f6f2ec;color:#0f0e0e">The collections</a>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ isC }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="Hero C" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;padding:clamp(48px,8cqi,112px) clamp(20px,5cqi,64px) clamp(32px,4cqi,56px)">
+      <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">Christmas 2026 · Soulfully designed in Belfast</span>
+      <h1 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(52px,10cqi,150px);line-height:.92;letter-spacing:-.02em">The Christmas<br>Selection</h1>
+      <p style="margin:0;max-width:46ch;font-size:16px;color:#3d3935;text-wrap:pretty">Four stories to give this year. Every order arrives in a free gift box, and 10% of our profits go to charity.</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+        <a href="https://linesandcurrent.com/collections/most-gifted" style="background:#0f0e0e;color:#f6f2ec;padding:15px 28px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#1f3a2e;color:#f6f2ec">Shop gifts</a>
+        <a href="#giving" style="border:1px solid #0f0e0e;padding:14px 28px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#0f0e0e;color:#f6f2ec">How we give</a>
+      </div>
+    </section>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(46%,240px),1fr));gap:4px;padding:0 4px">
+      <sc-for list="{{ collections }}" as="c" hint-placeholder-count="4">
+        <a href="{{ c.url }}" style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#e8e1d6;color:#f6f2ec">
+          <img src="{{ c.image }}" alt="{{ c.name }}" style="width:100%;height:100%;object-fit:cover">
+          <span style="position:absolute;left:0;right:0;bottom:0;padding:48px 16px 16px;background:linear-gradient(180deg,rgba(15,14,14,0),rgba(15,14,14,.6));font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:24px;text-align:left">{{ c.name }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <section data-screen-label="Specials" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));border-bottom:1px solid #e3dcd1">
+    <div style="display:flex;flex-direction:column;gap:6px;padding:28px clamp(20px,4cqi,48px);background:#1f3a2e;color:#f6f2ec">
+      <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.85">This Christmas</span>
+      <span style="font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;line-height:1.15">Free gift box with every order</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;padding:28px clamp(20px,4cqi,48px);border-left:1px solid #e3dcd1">
+      <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">At checkout</span>
+      <span style="font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;line-height:1.2">Add a handwritten gift note</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;padding:28px clamp(20px,4cqi,48px);border-left:1px solid #e3dcd1">
+      <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">Sending direct?</span>
+      <span style="font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;line-height:1.2">Request unbranded packaging</span>
+    </div>
+  </section>
+
+  <section id="collections" data-screen-label="Collections" style="padding:clamp(56px,8cqi,112px) clamp(16px,4cqi,48px);display:flex;flex-direction:column;gap:clamp(28px,4cqi,48px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">The collections</span>
+        <h2 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(34px,4.4cqi,56px);line-height:1.05">Four stories to give</h2>
+      </div>
+      <a href="https://linesandcurrent.com/collections/jewellery-collection" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid #0f0e0e;padding-bottom:3px">All collections</a>
+    </div>
+
+    <sc-if value="{{ collA }}" hint-placeholder-val="{{ true }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:clamp(12px,1.6cqi,20px)">
+        <sc-for list="{{ collections }}" as="c" hint-placeholder-count="4">
+          <a href="{{ c.url }}" style="display:flex;flex-direction:column;gap:14px" style-hover="color:#0f0e0e;opacity:.85">
+            <div style="aspect-ratio:4/5;overflow:hidden;background:#e8e1d6"><img src="{{ c.image }}" alt="{{ c.name }}" style="width:100%;height:100%;object-fit:cover"></div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:26px;line-height:1.1">{{ c.name }}</span>
+              <span style="font-size:14px;color:#5b5650;text-wrap:pretty">{{ c.line }}</span>
+              <span style="margin-top:6px;font-size:11px;letter-spacing:.16em;text-transform:uppercase">Shop {{ c.name }} · from {{ c.from }}</span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ collB }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:clamp(40px,6cqi,80px)">
+        <sc-for list="{{ collections }}" as="c" hint-placeholder-count="4">
+          <div style="display:flex;flex-wrap:wrap;flex-direction:{{ c.dir }};gap:clamp(20px,4cqi,56px);align-items:center">
+            <a href="{{ c.url }}" style="flex:1 1 360px;aspect-ratio:5/4;overflow:hidden;background:#e8e1d6"><img src="{{ c.image }}" alt="{{ c.name }}" style="width:100%;height:100%;object-fit:cover"></a>
+            <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:18px">
+              <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">{{ c.kicker }}</span>
+              <h3 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(34px,4cqi,52px);line-height:1">{{ c.name }}</h3>
+              <p style="margin:0;max-width:38ch;color:#3d3935;text-wrap:pretty">{{ c.line }}</p>
+              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+                <sc-for list="{{ c.products }}" as="p" hint-placeholder-count="3">
+                  <a href="{{ p.url }}" style="display:flex;flex-direction:column;gap:6px">
+                    <div style="aspect-ratio:1;overflow:hidden;background:#e8e1d6"><img src="{{ p.img }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover"></div>
+                    <span style="font-size:12px;line-height:1.3">{{ p.name }}</span>
+                    <span style="font-size:12px;color:#5b5650">{{ p.price }}</span>
+                  </a>
+                </sc-for>
+              </div>
+              <a href="{{ c.url }}" style="align-self:flex-start;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid #0f0e0e;padding-bottom:3px">Shop {{ c.name }}</a>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ collC }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+            <button onClick="{{ t.select }}" style="font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:12px 20px;min-height:44px;border:1px solid #0f0e0e;background:{{ t.bg }};color:{{ t.fg }};cursor:pointer">{{ t.name }}</button>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(16px,3cqi,40px)">
+          <a href="{{ active.url }}" style="aspect-ratio:4/5;overflow:hidden;background:#e8e1d6"><img src="{{ active.image }}" alt="{{ active.name }}" style="width:100%;height:100%;object-fit:cover"></a>
+          <div style="display:flex;flex-direction:column;gap:20px;justify-content:center">
+            <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">{{ active.kicker }}</span>
+            <h3 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(38px,5cqi,64px);line-height:1">{{ active.name }}</h3>
+            <p style="margin:0;max-width:38ch;color:#3d3935">{{ active.line }}</p>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+              <sc-for list="{{ active.products }}" as="p" hint-placeholder-count="3">
+                <a href="{{ p.url }}" style="display:flex;flex-direction:column;gap:6px">
+                  <div style="aspect-ratio:4/5;overflow:hidden;background:#e8e1d6"><img src="{{ p.img }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover"></div>
+                  <span style="font-size:12px;line-height:1.3">{{ p.name }}</span>
+                  <span style="font-size:12px;color:#5b5650">{{ p.price }}</span>
+                </a>
+              </sc-for>
+            </div>
+            <a href="{{ active.url }}" style="align-self:flex-start;background:#0f0e0e;color:#f6f2ec;padding:15px 28px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#1f3a2e;color:#f6f2ec">Shop {{ active.name }}</a>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </section>
+
+  <section data-screen-label="Most gifted" style="padding:0 clamp(16px,4cqi,48px) clamp(56px,8cqi,112px);display:flex;flex-direction:column;gap:clamp(24px,3cqi,40px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">Customer favourites</span>
+        <h2 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(34px,4.4cqi,56px);line-height:1.05">Most gifted</h2>
+      </div>
+      <a href="https://linesandcurrent.com/collections/most-gifted" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid #0f0e0e;padding-bottom:3px">Shop all gifts</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(46%,240px),1fr));gap:clamp(24px,2.4cqi,32px) clamp(12px,1.6cqi,20px)">
+      <sc-for list="{{ mostGifted }}" as="p" hint-placeholder-count="8">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="{{ p.url }}" style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#e8e1d6">
+            <img src="{{ p.img }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover">
+            <sc-if value="{{ p.tag }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:10px;left:10px;background:#f6f2ec;padding:4px 8px;font-size:10px;letter-spacing:.14em;text-transform:uppercase">{{ p.tag }}</span></sc-if>
+          </a>
+          <div style="display:flex;justify-content:space-between;gap:10px;font-size:13px;line-height:1.35">
+            <a href="{{ p.url }}">{{ p.name }}</a>
+            <span style="white-space:nowrap;color:#5b5650">{{ p.price }}</span>
+          </div>
+          <a href="{{ p.url }}" style="display:flex;align-items:center;justify-content:center;min-height:44px;border:1px solid #0f0e0e;font-size:11px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#0f0e0e;color:#f6f2ec">Quick add</a>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Personalised" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));background:#e8e1d6">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px">
+      <img src="https://linesandcurrent.com/cdn/shop/files/joni-birthstone-rings-1166039.jpg?v=1772239469&amp;width=750" alt="Joni birthstone rings" style="width:100%;height:100%;aspect-ratio:3/4;object-fit:cover">
+      <img src="https://linesandcurrent.com/cdn/shop/files/joni-birthstone-rings-8241961.jpg?v=1772239470&amp;width=750" alt="Joni birthstone rings stacked" style="width:100%;height:100%;aspect-ratio:3/4;object-fit:cover">
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:22px;padding:clamp(40px,6cqi,88px) clamp(20px,5cqi,72px)">
+      <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">Make it personal</span>
+      <h2 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(34px,4.4cqi,56px);line-height:1.05">Birthstones, letters and charms</h2>
+      <p style="margin:0;max-width:40ch;color:#3d3935;text-wrap:pretty">Choose their month, their initial or a charm that means something. Our 'Joni' birthstone rings start from £58.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a href="https://linesandcurrent.com/collections/birthstone-jewellery" style="background:#0f0e0e;color:#f6f2ec;padding:15px 24px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#1f3a2e;color:#f6f2ec">Birthstones</a>
+        <a href="https://linesandcurrent.com/collections/letters-jewellery" style="border:1px solid #0f0e0e;padding:14px 24px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#0f0e0e;color:#f6f2ec">Letters</a>
+        <a href="https://linesandcurrent.com/collections/charm-chains" style="border:1px solid #0f0e0e;padding:14px 24px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#0f0e0e;color:#f6f2ec">Charm chains</a>
+      </div>
+    </div>
+  </section>
+
+  <div style="height:clamp(56px,8cqi,112px)"></div>
+
+  <section data-screen-label="Shop by price" style="padding:0 clamp(16px,4cqi,48px) clamp(56px,8cqi,112px);display:flex;flex-direction:column;gap:clamp(24px,3cqi,40px)">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">Shop by budget</span>
+      <h2 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(34px,4.4cqi,56px);line-height:1.05">Gifts at every price</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(12px,1.6cqi,20px)">
+      <a href="https://linesandcurrent.com/collections/gifts-under-50" style="position:relative;aspect-ratio:1;overflow:hidden;background:#e8e1d6;color:#f6f2ec">
+        <img src="https://linesandcurrent.com/cdn/shop/files/elise-pearl-stud-earrings-764365.jpg?v=1730683961&amp;width=900" alt="Elise pearl studs" style="width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:auto 0 0 0;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:56px 20px 20px;background:linear-gradient(180deg,rgba(15,14,14,0),rgba(15,14,14,.62))"><span style="font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:32px;line-height:1">Under £50</span><span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase">Shop</span></div>
+      </a>
+      <a href="https://linesandcurrent.com/collections/gifts-under-75" style="position:relative;aspect-ratio:1;overflow:hidden;background:#e8e1d6;color:#f6f2ec">
+        <img src="https://linesandcurrent.com/cdn/shop/files/martha-mismatched-drop-pearl-earrings-657016.jpg?v=1742559423&amp;width=900" alt="Martha pearl drop earrings" style="width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:auto 0 0 0;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:56px 20px 20px;background:linear-gradient(180deg,rgba(15,14,14,0),rgba(15,14,14,.62))"><span style="font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:32px;line-height:1">Under £75</span><span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase">Shop</span></div>
+      </a>
+      <a href="https://linesandcurrent.com/collections/special-gifts-100" style="position:relative;aspect-ratio:1;overflow:hidden;background:#e8e1d6;color:#f6f2ec">
+        <img src="https://linesandcurrent.com/cdn/shop/files/paloma-paper-clip-chain-2055447.jpg?v=1772156592&amp;width=900" alt="Paloma paper clip chain" style="width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:auto 0 0 0;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:56px 20px 20px;background:linear-gradient(180deg,rgba(15,14,14,0),rgba(15,14,14,.62))"><span style="font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:32px;line-height:1">Special gifts £100+</span><span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase">Shop</span></div>
+      </a>
+    </div>
+    <a href="https://linesandcurrent.com/collections/gift-cards" style="align-self:center;font-size:13px;color:#3d3935">Not sure what to choose? <span style="text-decoration:underline;text-underline-offset:3px;color:#0f0e0e">Send a gift card</span></a>
+  </section>
+
+  <section data-screen-label="Stocking fillers" style="padding:0 0 clamp(56px,8cqi,112px) clamp(16px,4cqi,48px);display:flex;flex-direction:column;gap:clamp(24px,3cqi,40px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;padding-right:clamp(16px,4cqi,48px)">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">Little extras</span>
+        <h2 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(34px,4.4cqi,56px);line-height:1.05">Stocking fillers under £45</h2>
+      </div>
+      <span style="font-size:12px;color:#5b5650">Scroll for more</span>
+    </div>
+    <div style="display:flex;gap:clamp(12px,1.6cqi,20px);overflow-x:auto;scroll-snap-type:x mandatory;padding-right:clamp(16px,4cqi,48px);padding-bottom:8px">
+      <sc-for list="{{ stocking }}" as="p" hint-placeholder-count="7">
+        <a href="{{ p.url }}" style="flex:0 0 clamp(160px,22cqi,260px);scroll-snap-align:start;display:flex;flex-direction:column;gap:10px">
+          <div style="aspect-ratio:1;overflow:hidden;background:#e8e1d6"><img src="{{ p.img }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover"></div>
+          <span style="font-size:13px;line-height:1.35">{{ p.name }}</span>
+          <span style="font-size:13px;color:#5b5650">{{ p.price }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="giving" data-screen-label="Giving" style="background:#1f3a2e;color:#f6f2ec;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))">
+    <div style="display:flex;flex-direction:column;gap:24px;justify-content:center;padding:clamp(48px,7cqi,104px) clamp(20px,5cqi,72px)">
+      <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.85">Keeping the flow</span>
+      <h2 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(38px,5cqi,64px);line-height:1.02">Every gift gives back</h2>
+      <p style="margin:0;max-width:44ch;font-size:16px;text-wrap:pretty">We've always given at least 10% of our profits to charity. Since 2017 we've partnered with SOS Children's Villages, and we're now one of their largest UK corporate donors. Your Christmas orders help fund the Youth Training and Employability Centre in The Gambia.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px;padding-top:24px;border-top:1px solid rgba(246,242,236,.25)">
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:48px;line-height:1">10%</span><span style="font-size:13px">of profits, every year</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:48px;line-height:1">64</span><span style="font-size:13px">children sent to school for a year, 2017 to 2019</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:48px;line-height:1">587</span><span style="font-size:13px">graduates from the training centre, 2020 to 2024</span></div>
+      </div>
+      <a href="https://linesandcurrent.com/pages/keeping-the-flow" style="align-self:flex-start;border:1px solid #f6f2ec;color:#f6f2ec;padding:14px 28px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#f6f2ec;color:#1f3a2e">Read our giving story</a>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4px;min-height:420px;padding:4px">
+      <img src="https://linesandcurrent.com/cdn/shop/files/GIVING_square.jpg?v=1740414349&amp;width=1200" alt="Keeping the flow" style="grid-row:1 / 3;width:100%;height:100%;object-fit:cover">
+      <img src="https://linesandcurrent.com/cdn/shop/files/Gambia_VTC_Basse_impressions_Jakob_Fuhr_04_JPG.jpg?v=1740414935&amp;width=600" alt="Training centre in The Gambia" style="width:100%;height:100%;object-fit:cover">
+      <img src="https://linesandcurrent.com/cdn/shop/files/Gambia_VTC_Basse_impressions_Jakob_Fuhr_08_JPG.jpg?v=1740415031&amp;width=600" alt="Students at the training centre" style="width:100%;height:100%;object-fit:cover">
+    </div>
+  </section>
+
+  <section data-screen-label="On you" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));border-bottom:1px solid #e3dcd1">
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:22px;padding:clamp(40px,6cqi,88px) clamp(20px,5cqi,72px)">
+      <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">L&amp;C on you</span>
+      <h2 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(34px,4.4cqi,56px);line-height:1.05">Unwrapped and worn</h2>
+      <p style="margin:0;max-width:40ch;color:#3d3935;text-wrap:pretty">Our customers, in the wild. Share your Christmas gifts with @linesandcurrent.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a href="https://linesandcurrent.com/pages/l-c-on-you-1" style="background:#0f0e0e;color:#f6f2ec;padding:15px 24px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#1f3a2e;color:#f6f2ec">See the gallery</a>
+        <a href="https://www.instagram.com/linesandcurrent/" style="border:1px solid #0f0e0e;padding:14px 24px;font-size:12px;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#0f0e0e;color:#f6f2ec">Instagram</a>
+      </div>
+    </div>
+    <div style="aspect-ratio:1;overflow:hidden;background:#e8e1d6"><img src="https://linesandcurrent.com/cdn/shop/files/YOU_square_banner.jpg?v=1777366567&amp;width=1200" alt="Customers wearing Lines and Current" style="width:100%;height:100%;object-fit:cover"></div>
+  </section>
+
+  <section data-screen-label="Christmas info" style="padding:clamp(56px,8cqi,104px) clamp(16px,4cqi,48px);display:flex;flex-direction:column;gap:clamp(28px,4cqi,48px)">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5b5650">Good to know</span>
+      <h2 style="margin:0;text-transform:uppercase;letter-spacing:-.015em;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:clamp(34px,4.4cqi,56px);line-height:1.05">Christmas, sorted</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0;border-top:1px solid #0f0e0e">
+      <div style="display:flex;flex-direction:column;gap:14px;padding:24px 20px 24px 0">
+        <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase">Last order dates</span>
+        <div style="display:flex;flex-direction:column;font-size:14px">
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #e3dcd1"><span>International</span><span>Thu 10 Dec</span></div>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #e3dcd1"><span>UK standard</span><span>Thu 17 Dec</span></div>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #e3dcd1"><span>UK express</span><span>Mon 21 Dec</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;padding:24px 20px 24px 0">
+        <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase">Gift wrapping</span>
+        <p style="margin:0;font-size:14px;color:#3d3935;text-wrap:pretty">Every order comes in a free gift box. Add a gift note at checkout, or ask for unbranded packaging if it's going straight to them.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;padding:24px 20px 24px 0">
+        <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase">Returns</span>
+        <p style="margin:0;font-size:14px;color:#3d3935;text-wrap:pretty">30-day returns and exchanges. Gifts bought from 1 November can be returned until 31 January.</p>
+        <a href="https://linesandcurrent.com/pages/returns-refunds-policy" style="font-size:13px;text-decoration:underline;text-underline-offset:3px">Returns policy</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;padding:24px 20px 24px 0">
+        <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase">Visit the studio</span>
+        <p style="margin:0;font-size:14px;color:#3d3935;text-wrap:pretty">Shop in person at our Belfast studio and Christmas pop-ups. Extended hours in December.</p>
+        <a href="https://linesandcurrent.com/pages/2026-opening-hours-pop-ups" style="font-size:13px;text-decoration:underline;text-underline-offset:3px">Opening hours</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="display:flex;justify-content:center;align-items:center;padding:40px 16px;background:#0f0e0e;color:#f6f2ec;font-size:12px;letter-spacing:.2em;text-transform:uppercase">Footer</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;],&quot;default&quot;:&quot;a&quot;,&quot;tsType&quot;:&quot;'a'|'b'|'c'&quot;}}">
+const F = 'https://linesandcurrent.com/cdn/shop/files/';
+const P = 'https://linesandcurrent.com/cdn/shop/products/';
+const U = 'https://linesandcurrent.com/';
+const COLLECTIONS = [
+  { name: 'Claddagh', kicker: 'Lisa Hannigan x Claddagh', from: '£56', url: U + 'collections/claddagh',
+    line: 'Hands, heart and crown, reworked with Lisa Hannigan. A new classic for someone you love.',
+    image: F + 'resized_Mid_gold_claddagh_hoops.jpg?v=1790008066&width=750',
+    products: [
+      { name: "'Claddagh' Ring", price: 'From £58', img: F + 'resized_hero_gold_claddagh_ring.jpg?v=1790340896&width=750', url: U + 'products/claddagh-ring' },
+      { name: "'Claddagh' Mini Hoops", price: 'From £56', img: F + 'resized_mini_claddagh_gold_hoops_1.jpg?v=1789824598&width=750', url: U + 'products/claddagh-mini-hoops' },
+      { name: "'Claddagh' Mid Hoops", price: 'From £62', img: F + 'Resized_mid_gold_claddagh_hoop.jpg?v=1790007715&width=750', url: U + 'products/claddagh-mid-hoops' } ] },
+  { name: 'Pearled', kicker: 'Pearls, made modern', from: '£40', url: U + 'collections/pearled',
+    line: "Time to get 'pearled'. Freshwater pearls on chains, hoops and rings for everyday wear.",
+    image: 'https://linesandcurrent.com/cdn/shop/collections/pearled-869724.jpg?v=1730665521&width=900',
+    products: [
+      { name: "'Emelia' Pearl Chain", price: 'From £52', img: F + 'emelia-pearl-chain-necklace-398832.jpg?v=1742559646&width=500', url: U + 'products/emelia-pearl-chain-necklace' },
+      { name: "'Martha' Pearl Drops", price: 'From £54', img: F + 'martha-mismatched-drop-pearl-earrings-657016.jpg?v=1742559423&width=500', url: U + 'products/martha-mismatched-drop-earrings' },
+      { name: "'Elise' Pearl Studs", price: 'From £44', img: F + 'elise-pearl-stud-earrings-764365.jpg?v=1730683961&width=500', url: U + 'products/elise-pearl-stud-earrings' } ] },
+  { name: 'Celestial', kicker: 'Sun, moon and stars', from: '£30', url: U + 'collections/celestial-collection',
+    line: 'A tribute to the cosmic life force that connects us. Moons, suns and stars to wear every day.',
+    image: P + 'Photo28-09-2020_151805_c3483290-a749-4a29-a252-53a40c240735.jpg?v=1742558581&width=900',
+    products: [
+      { name: "'Moon Sister' Pendant", price: 'From £58', img: P + 'cresecentmoon_84f9a579-ff51-4bd3-b3a3-ff72900fa44f.jpg?v=1742558582&width=500', url: U + 'products/moon-sister-pendant-necklace' },
+      { name: "'Cosmo' Coin Necklace", price: 'From £78', img: P + 'cosmoproduct1.jpg?v=1742557055&width=500', url: U + 'products/cosmo-coin-pendant' },
+      { name: "'Astrid' Climbers", price: 'From £30', img: P + 'astrid.jpg?v=1742552746&width=500', url: U + 'products/astrid-climber-earring' } ] },
+  { name: 'Hearts', kicker: 'For the ones you love', from: '£18', url: U + 'collections/hearts',
+    line: "Billowy and unusually lopsided. J'adore.",
+    image: F + 'heart-in-the-clouds-chain-necklace-2985361.jpg?v=1778039831&width=900',
+    products: [
+      { name: "Mini 'Heart in the Clouds'", price: 'From £60', img: F + 'mini-heart-in-the-clouds-chain-necklace-7715139.jpg?v=1770398402&width=500', url: U + 'products/mini-heart-in-the-clouds-chain-necklace' },
+      { name: "'Locked In' Heart Necklace", price: 'From £70', img: F + 'locked-in-love-heart-necklace-9308715.jpg?v=1769419228&width=500', url: U + 'products/locked-in-love-heart-necklace' },
+      { name: "'Andie' Heart Charm Necklace", price: 'From £46', img: F + 'andie-tiny-heart-charm-necklace-965101.jpg?v=1751000486&width=500', url: U + 'products/andie-tiny-heart-charm-necklace' } ] }
+];
+
+const W = '&width=750';
+const MOST_GIFTED = [
+  { name: "'Paloma' Paper Clip Chain", price: 'From £105', img: F + 'paloma-paper-clip-chain-2055447.jpg?v=1772156592' + W, url: U + 'products/paloma-paper-clip-chain', tag: 'Best seller' },
+  { name: "'Joni' Birthstone Ring", price: 'From £58', img: F + 'joni-birthstone-rings-1166039.jpg?v=1772239469' + W, url: U + 'products/joni-birthstone-ring', tag: 'Personalise' },
+  { name: "'Emerging' Dome Hoops", price: 'From £58', img: F + 'emerging-dome-hoops-7851011.jpg?v=1751432410' + W, url: U + 'products/emerging-dome-hoops' },
+  { name: "'Selene' Seeded Pearl Necklace", price: '£60', img: F + 'selene-seeded-pearl-necklace-802915.jpg?v=1749761136' + W, url: U + 'products/selene-seeded-pearl-necklace' },
+  { name: "'Eloise' Pearl Huggies", price: 'From £58', img: F + 'eloise-pearl-huggie-earrings-330250.jpg?v=1742552718' + W, url: U + 'products/eloise-pearl-huggie-earring' },
+  { name: "'Heart in the Clouds' Ring", price: 'From £55', img: F + 'heart-in-the-clouds-ring-594236.jpg?v=1751000475' + W, url: U + 'products/heart-in-the-clouds-ring-1' },
+  { name: "'Sigrid' Satellite Chain", price: 'From £65', img: F + 'sigrid-satellite-chain-1293262.jpg?v=1778039830' + W, url: U + 'products/sigrid-satallite-chain' },
+  { name: "'Etna' Pearl Necklace", price: '£64', img: F + 'etna-pearl-necklace-734087.jpg?v=1730683958' + W, url: U + 'products/etna-pearl-necklace-1' }
+];
+const STOCKING = [
+  { name: "'Andie' Tiny Heart Charm", price: 'From £18', img: F + 'andie-tiny-heart-charm-993982.jpg?v=1751000475' + W, url: U + 'products/cross-with-mini-gem-charm-copy' },
+  { name: "'Astrid' Climber Earrings", price: 'From £30', img: P + 'astrid.jpg?v=1742552746' + W, url: U + 'products/astrid-climber-earring' },
+  { name: "'Locked In' Love Heart Charm", price: 'From £32', img: F + 'locked-in-love-heart-charm-1381629.jpg?v=1762528728' + W, url: U + 'products/locked-in-love-heart-charm' },
+  { name: "'Sigrid' Love Charm", price: 'From £36', img: F + 'sigrid-love-charm-7987830.jpg?v=1782265994' + W, url: U + 'products/sigrid-love-charm' },
+  { name: "'Selene' Seeded Pearl Bracelet", price: '£40', img: P + 'selene-seeded-pearl-bracelet-235178.jpg?v=1742555779' + W, url: U + 'products/selene-seeded-pearl-bracelet' },
+  { name: "'Etna' Pearl Anklet", price: '£42', img: F + 'etna-pearl-anklet-600149.jpg?v=1742553352' + W, url: U + 'products/etna-pearl-anklet' },
+  { name: "'Elise' Pearl Studs", price: 'From £44', img: F + 'elise-pearl-stud-earrings-764365.jpg?v=1730683961' + W, url: U + 'products/elise-pearl-stud-earrings' }
+];
+
+class Component extends DCLogic {
+  state = { tab: 0 };
+  renderVals() {
+    const v = (this.props.variant ?? 'a').toLowerCase();
+    const tab = this.state.tab;
+    return {
+      isA: v === 'a', isB: v === 'b', isC: v === 'c',
+      collA: v === 'a', collB: v === 'b', collC: v === 'c',
+      collections: COLLECTIONS.map((c, i) => ({ ...c, dir: i % 2 ? 'row-reverse' : 'row' })),
+      tabs: COLLECTIONS.map((c, i) => ({
+        name: c.name,
+        bg: i === tab ? '#0f0e0e' : 'transparent',
+        fg: i === tab ? '#f6f2ec' : '#0f0e0e',
+        select: () => this.setState({ tab: i })
+      })),
+      active: COLLECTIONS[tab],
+      mostGifted: MOST_GIFTED.map(p => ({ ...p, tag: p.tag || '' })),
+      stocking: STOCKING
+    };
+  }
+}
+</script>
+</body>
+</html>
