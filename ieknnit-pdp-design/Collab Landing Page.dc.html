@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; background: #FFFDF9; }
+  a { color: #3F4A3C; }
+  a:hover { color: #1C1B18; }
+</style>
+</helmet>
+
+<div style="font-family:Archivo,sans-serif;background:#FFFDF9;color:#1C1B18;overflow-x:hidden">
+
+  <div style="position:sticky;top:0;z-index:40;background:rgba(255,253,249,.94);backdrop-filter:blur(8px);border-bottom:1px solid #E4DED0">
+    <div style="max-width:1240px;margin:0 auto;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px">
+      <span style="font:400 13px/1 Newsreader,serif;letter-spacing:.3em;text-transform:uppercase">IrelandsEye</span>
+      <div style="display:flex;align-items:center;gap:28px">
+        <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">As Seen on Screen</span>
+        <a href="#shop" style="padding:12px 22px;background:#1C1B18;color:#FFFDF9;font:600 10px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none">Shop the piece</a>
+      </div>
+    </div>
+    <div style="height:2px;background:#EFEADD"><div style="height:2px;width:{{ progress }};background:#3F4A3C;transition:width .1s linear"></div></div>
+  </div>
+
+  <section style="position:relative;min-height:88vh;display:flex;align-items:flex-end">
+    <image-slot id="cl-hero" src="./uploads/C315_Isla_Oversized_Crew_Neck_in_Rocky_Ground_Small_96c6a086-6a6f-4da6-b4b7-27ee75c8b9dd_1000x.webp" shape="rect" style="position:absolute;inset:0;width:100%;height:100%" placeholder="Hero — the piece, full bleed"></image-slot>
+    <div style="position:relative;width:100%;padding:88px 40px 56px;background:linear-gradient(to top,rgba(20,21,19,.94) 30%,rgba(20,21,19,.78) 70%,rgba(20,21,19,.35))">
+      <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:40px">
+        <div style="display:flex;flex-direction:column;gap:18px;max-width:660px">
+          <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#FFFDF9">As Seen on Screen</span>
+          <h1 style="margin:0;font:300 clamp(40px,6vw,74px)/1.02 Newsreader,serif;letter-spacing:-.03em;color:#FFFDF9;text-wrap:pretty">Knitted in Dublin. Cast on screen.</h1>
+          <p style="margin:0;font:400 15px/1.75 Archivo,sans-serif;color:#FFFDF9;max-width:480px;text-wrap:pretty">Bad Sisters. House of Guinness. The Traitors. Costume departments keep coming back to the same Baldoyle factory — and to the same sweater.</p>
+        </div>
+        <div style="display:flex;gap:36px;padding-bottom:6px">
+          <div style="display:flex;flex-direction:column;gap:5px"><span style="font:300 32px/1 Newsreader,serif;color:#FFFDF9">27</span><span style="font:500 9px/1.4 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B8B3A4">Pairs<br>of hands</span></div>
+          <div style="display:flex;flex-direction:column;gap:5px"><span style="font:300 32px/1 Newsreader,serif;color:#FFFDF9">1988</span><span style="font:500 9px/1.4 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B8B3A4">Knitting<br>since</span></div>
+          <div style="display:flex;flex-direction:column;gap:5px"><span style="font:300 32px/1 Newsreader,serif;color:#FFFDF9">100%</span><span style="font:500 9px/1.4 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B8B3A4">Made<br>in Ireland</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid #E4DED0;background:#F8F5EC">
+    <div style="max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div style="padding:26px 28px 26px 0;display:flex;flex-direction:column;gap:6px"><span style="font:500 9px/1 Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Apple TV+</span><span style="font:400 16px/1.25 Newsreader,serif">Bad Sisters</span></div>
+      <div style="padding:26px 28px;border-left:1px solid #E4DED0;display:flex;flex-direction:column;gap:6px"><span style="font:500 9px/1 Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Netflix</span><span style="font:400 16px/1.25 Newsreader,serif">House of Guinness</span></div>
+      <div style="padding:26px 28px;border-left:1px solid #E4DED0;display:flex;flex-direction:column;gap:6px"><span style="font:500 9px/1 Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">BBC One</span><span style="font:400 16px/1.25 Newsreader,serif">The Traitors</span></div>
+      <div style="padding:26px 0 26px 28px;border-left:1px solid #E4DED0;display:flex;flex-direction:column;gap:6px"><span style="font:500 9px/1 Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">And</span><span style="font:400 16px/1.25 Newsreader,serif">[Further credits]</span></div>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto;padding:96px 40px 0">
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:640px">
+      <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#3F4A3C">The Screen Record</span>
+      <h2 style="margin:0;font:300 clamp(30px,3.4vw,44px)/1.1 Newsreader,serif;letter-spacing:-.022em;text-wrap:pretty">Every time it has turned up</h2>
+      <p style="margin:0;font:400 15px/1.75 Archivo,sans-serif;color:#5C574D;text-wrap:pretty">Scroll it in order. Nobody planned any of this — costume designers found us, not the other way round.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto;padding:56px 40px 0">
+    <div style="position:relative;display:flex;flex-direction:column;gap:0">
+      <div style="position:absolute;left:5px;top:14px;bottom:14px;width:1px;background:#E4DED0"></div>
+      <div style="position:absolute;left:5px;top:14px;width:1px;height:{{ spineFill }};background:#3F4A3C;transition:height .12s linear"></div>
+
+      <div data-chapter="1" style="display:flex;gap:clamp(24px,4vw,56px);padding:0 0 88px">
+        <div style="flex:0 0 11px;padding-top:10px"><span style="display:block;width:11px;height:11px;border-radius:50%;background:{{ dot1 }};box-shadow:0 0 0 6px #FFFDF9;transition:background .3s"></span></div>
+        <div style="flex:1;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(24px,3vw,44px);align-items:start">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A8378">Apple TV+ · Bad Sisters</span>
+            <h3 style="margin:0;font:400 clamp(24px,2.4vw,30px)/1.2 Newsreader,serif;text-wrap:pretty">Five sisters, one Dublin winter</h3>
+            <p style="margin:0;font:400 14px/1.75 Archivo,sans-serif;color:#5C574D;text-wrap:pretty">The costume department wanted knitwear that read as lived-in rather than styled — something a Garvey sister would actually own. [Confirm which pieces appeared, in which episodes, before publication.]</p>
+            <div style="margin-top:8px;padding:22px 24px;background:#F8F5EC;border-left:2px solid #3F4A3C;display:flex;flex-direction:column;gap:10px">
+              <span style="font:300 19px/1.5 Newsreader,serif;text-wrap:pretty">“[A line from the costume designer on why Irish-made knitwear was the right call.]”</span>
+              <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8378">[Name] · Costume Designer</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <image-slot id="cl-c1" shape="rect" style="width:100%;aspect-ratio:16/9" placeholder="Bad Sisters — screen still"></image-slot>
+            <span style="font:400 11px/1.4 Archivo,sans-serif;color:#8A8378">Still to be cleared with the production</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-chapter="2" style="display:flex;gap:clamp(24px,4vw,56px);padding:0 0 88px">
+        <div style="flex:0 0 11px;padding-top:10px"><span style="display:block;width:11px;height:11px;border-radius:50%;background:{{ dot2 }};box-shadow:0 0 0 6px #FFFDF9;transition:background .3s"></span></div>
+        <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:26px">
+          <div style="display:flex;flex-direction:column;gap:12px;max-width:620px">
+            <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A8378">Netflix · House of Guinness</span>
+            <h3 style="margin:0;font:400 clamp(24px,2.4vw,30px)/1.2 Newsreader,serif;text-wrap:pretty">Period Dublin, on the same machines</h3>
+            <p style="margin:0;font:400 14px/1.75 Archivo,sans-serif;color:#5C574D;text-wrap:pretty">Traditional Aran stitches — cable, diamond, honeycomb — are the reason a Baldoyle factory can dress a 19th-century Dublin story without a single reproduction. [Confirm pieces and episodes.]</p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <image-slot id="cl-c2a" shape="rect" style="width:100%;aspect-ratio:3/4" placeholder="Costume fitting"></image-slot>
+              <span style="font:400 11px/1.4 Archivo,sans-serif;color:#8A8378">Fitting, [location]</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <image-slot id="cl-c2b" shape="rect" style="width:100%;aspect-ratio:3/4" placeholder="On set"></image-slot>
+              <span style="font:400 11px/1.4 Archivo,sans-serif;color:#8A8378">On set</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <image-slot id="cl-c2c" src="./uploads/Linking_Landscape.webp" shape="rect" style="width:100%;aspect-ratio:3/4" placeholder="The stitch, close up"></image-slot>
+              <span style="font:400 11px/1.4 Archivo,sans-serif;color:#8A8378">Linked by hand in Baldoyle</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-chapter="3" style="display:flex;gap:clamp(24px,4vw,56px);padding:0 0 88px">
+        <div style="flex:0 0 11px;padding-top:10px"><span style="display:block;width:11px;height:11px;border-radius:50%;background:{{ dot3 }};box-shadow:0 0 0 6px #FFFDF9;transition:background .3s"></span></div>
+        <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:26px">
+          <div style="display:flex;flex-direction:column;gap:12px;max-width:620px">
+            <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A8378">BBC One · The Traitors</span>
+            <h3 style="margin:0;font:400 clamp(24px,2.4vw,30px)/1.2 Newsreader,serif;text-wrap:pretty">Castle knitwear, on camera all day</h3>
+            <p style="margin:0;font:400 14px/1.75 Archivo,sans-serif;color:#5C574D;text-wrap:pretty">Contestants wear the same pieces across long shoot days in cold rooms, which is a fair test of anything knitted. [Confirm which pieces and which series.]</p>
+          </div>
+          <div style="position:relative;background:#141513;overflow:hidden">
+            <image-slot id="cl-c3-video" shape="rect" style="width:100%;aspect-ratio:16/9;opacity:.72" placeholder="Video still — behind the scenes"></image-slot>
+            <button type="button" onClick="{{ playVideo }}" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer" style-hover="background:rgba(20,21,19,.2)">
+              <span style="width:76px;height:76px;border-radius:50%;background:rgba(255,253,249,.94);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;border-left:19px solid #141513;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px"></span></span>
+            </button>
+            <div style="position:absolute;left:0;right:0;bottom:0;padding:26px 28px;background:linear-gradient(to top,rgba(20,21,19,.9),rgba(20,21,19,0));display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <span style="font:500 9px/1 Archivo,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#C8B993">Film · {{ videoLabel }}</span>
+                <span style="font:400 20px/1.25 Newsreader,serif;color:#FFFDF9">How the sweater gets to set</span>
+              </div>
+              <span style="font:400 12px/1 Archivo,sans-serif;color:#B8B3A4">02:14</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-chapter="4" style="display:flex;gap:clamp(24px,4vw,56px);padding:0 0 88px">
+        <div style="flex:0 0 11px;padding-top:10px"><span style="display:block;width:11px;height:11px;border-radius:50%;background:{{ dot4 }};box-shadow:0 0 0 6px #FFFDF9;transition:background .3s"></span></div>
+        <div style="flex:1;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(24px,3vw,44px);align-items:center">
+          <image-slot id="cl-c4" src="./uploads/Linking_Landscape.webp" shape="rect" style="width:100%;aspect-ratio:4/3" placeholder="Production floor, Baldoyle"></image-slot>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A8378">Behind every credit</span>
+            <h3 style="margin:0;font:400 clamp(24px,2.4vw,30px)/1.2 Newsreader,serif;text-wrap:pretty">Made at Knitwear House, Baldoyle</h3>
+            <p style="margin:0;font:400 14px/1.75 Archivo,sans-serif;color:#5C574D;text-wrap:pretty">Every piece that reaches a costume truck is knitted, linked and finished on site in Dublin 13. Twenty-seven pairs of hands from yarn cone to folded box, and a quality table that sees all of them.</p>
+            <div style="margin-top:8px;padding:22px 24px;background:#F8F5EC;border-left:2px solid #3F4A3C;display:flex;flex-direction:column;gap:10px">
+              <span style="font:300 19px/1.5 Newsreader,serif;text-wrap:pretty">“[A line from the factory floor — a knitter, linker or the quality table.]”</span>
+              <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8378">[Name] · [Role, Baldoyle]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-chapter="5" style="display:flex;gap:clamp(24px,4vw,56px);padding:0 0 24px">
+        <div style="flex:0 0 11px;padding-top:10px"><span style="display:block;width:11px;height:11px;border-radius:50%;background:{{ dot5 }};box-shadow:0 0 0 6px #FFFDF9;transition:background .3s"></span></div>
+        <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:26px">
+          <div style="display:flex;flex-direction:column;gap:12px;max-width:620px">
+            <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A8378">And then everyone wanted one</span>
+            <h3 style="margin:0;font:400 clamp(24px,2.4vw,30px)/1.2 Newsreader,serif;text-wrap:pretty">Off screen, on the school run</h3>
+            <p style="margin:0;font:400 14px/1.75 Archivo,sans-serif;color:#5C574D;text-wrap:pretty">Each appearance sends people looking for the piece. It's the same sweater either way — no screen edition, no special run.</p>
+          </div>
+          <image-slot id="cl-c5" src="./uploads/C315_Isla_Oversized_Crew_Neck_in_Rocky_Ground_Small_2_1000x.webp" shape="rect" style="width:100%;aspect-ratio:21/9" placeholder="Campaign — wide"></image-slot>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top:96px;background:#141513;color:#EDEAE1;padding:88px 40px">
+    <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px;padding-bottom:30px;border-bottom:1px solid #2A2C28">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#C8B993">The Credits</span>
+          <h2 style="margin:0;font:300 clamp(30px,3.4vw,44px)/1.1 Newsreader,serif;letter-spacing:-.022em;color:#FFFDF9">On screen</h2>
+        </div>
+        <p style="margin:0;font:400 13px/1.7 Archivo,sans-serif;color:#A8A79A;max-width:340px;text-wrap:pretty">Episode numbers, characters and stills to be confirmed and cleared with each production before publication.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="position:relative"><image-slot id="cl-s1" shape="rect" style="width:100%;aspect-ratio:16/9" placeholder="Bad Sisters — still"></image-slot><span style="position:absolute;left:12px;top:12px;padding:6px 10px;background:rgba(20,21,19,.82);font:500 9px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#EDEAE1">Apple TV+</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font:400 18px/1.25 Newsreader,serif;color:#FFFDF9">Bad Sisters</span><span style="font:400 12px/1.5 Archivo,sans-serif;color:#8C8B80">[Series, episode] · [piece]</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="position:relative"><image-slot id="cl-s2" shape="rect" style="width:100%;aspect-ratio:16/9" placeholder="House of Guinness — still"></image-slot><span style="position:absolute;left:12px;top:12px;padding:6px 10px;background:rgba(20,21,19,.82);font:500 9px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#EDEAE1">Netflix</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font:400 18px/1.25 Newsreader,serif;color:#FFFDF9">House of Guinness</span><span style="font:400 12px/1.5 Archivo,sans-serif;color:#8C8B80">[Episode] · [piece]</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="position:relative"><image-slot id="cl-s3" shape="rect" style="width:100%;aspect-ratio:16/9" placeholder="The Traitors — still"></image-slot><span style="position:absolute;left:12px;top:12px;padding:6px 10px;background:rgba(20,21,19,.82);font:500 9px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#EDEAE1">BBC One</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font:400 18px/1.25 Newsreader,serif;color:#FFFDF9">The Traitors</span><span style="font:400 12px/1.5 Archivo,sans-serif;color:#8C8B80">[Series] · [piece]</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="position:relative"><image-slot id="cl-s4" shape="rect" style="width:100%;aspect-ratio:16/9" placeholder="Further credit — still"></image-slot><span style="position:absolute;left:12px;top:12px;padding:6px 10px;background:rgba(20,21,19,.82);font:500 9px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#EDEAE1">[Broadcaster]</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font:400 18px/1.25 Newsreader,serif;color:#FFFDF9">[Further credit]</span><span style="font:400 12px/1.5 Archivo,sans-serif;color:#8C8B80">[Detail] · [piece]</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto;padding:96px 40px 0">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:36px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#3F4A3C">Who Wears It</span>
+        <h2 style="margin:0;font:300 clamp(30px,3.4vw,44px)/1.1 Newsreader,serif;letter-spacing:-.022em">On screen and off it</h2>
+      </div>
+      <p style="margin:0;font:400 13px/1.7 Archivo,sans-serif;color:#8A8378;max-width:320px;text-wrap:pretty">Names, credits and quotes to be confirmed before publication.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <image-slot id="cl-w1" shape="rect" style="width:100%;aspect-ratio:3/4" placeholder="Portrait — wearer 1"></image-slot>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <span style="font:400 20px/1.2 Newsreader,serif">[Name]</span>
+          <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8378">[Role or credit]</span>
+          <span style="font:300 18px/1.5 Newsreader,serif;color:#3B382F;text-wrap:pretty;margin-top:4px">“[One line, in their own words, on why they reach for it.]”</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <image-slot id="cl-w2" shape="rect" style="width:100%;aspect-ratio:3/4" placeholder="Portrait — wearer 2"></image-slot>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <span style="font:400 20px/1.2 Newsreader,serif">[Name]</span>
+          <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8378">[Role or credit]</span>
+          <span style="font:300 18px/1.5 Newsreader,serif;color:#3B382F;text-wrap:pretty;margin-top:4px">“[One line, in their own words, on why they reach for it.]”</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <image-slot id="cl-w3" shape="rect" style="width:100%;aspect-ratio:3/4" placeholder="Portrait — wearer 3"></image-slot>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <span style="font:400 20px/1.2 Newsreader,serif">[Name]</span>
+          <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8378">[Role or credit]</span>
+          <span style="font:300 18px/1.5 Newsreader,serif;color:#3B382F;text-wrap:pretty;margin-top:4px">“[One line, in their own words, on why they reach for it.]”</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top:96px;background:#3F4A3C;color:#F2EFE6;padding:80px 40px">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,72px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#B9C2B0">In Their Words</span>
+        <span style="font:300 clamp(24px,2.8vw,34px)/1.35 Newsreader,serif;color:#FFFDF9;text-wrap:pretty">“[The strongest quote you have cleared — from a costume designer, stylist or wearer. Three lines at most.]”</span>
+        <div style="display:flex;align-items:center;gap:14px">
+          <image-slot id="cl-t-avatar" shape="circle" style="width:52px;height:52px" placeholder="Portrait"></image-slot>
+          <div style="display:flex;flex-direction:column;gap:3px">
+            <span style="font:400 16px/1.2 Newsreader,serif;color:#FFFDF9">[Name]</span>
+            <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B9C2B0">[Role · production]</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="padding:24px 26px;background:rgba(255,253,249,.07);display:flex;flex-direction:column;gap:10px">
+          <span style="font:300 18px/1.55 Newsreader,serif;color:#F2EFE6;text-wrap:pretty">“[A second, shorter quote.]”</span>
+          <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B9C2B0">[Name] · [Role]</span>
+        </div>
+        <div style="padding:24px 26px;background:rgba(255,253,249,.07);display:flex;flex-direction:column;gap:10px">
+          <span style="font:300 18px/1.55 Newsreader,serif;color:#F2EFE6;text-wrap:pretty">“[A third, shorter quote.]”</span>
+          <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B9C2B0">[Name] · [Role]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto;padding:96px 40px 0">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:32px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#3F4A3C">Share the Love</span>
+        <h2 style="margin:0;font:300 clamp(30px,3.4vw,44px)/1.1 Newsreader,serif;letter-spacing:-.022em">#IrelandsEye</h2>
+      </div>
+      <a href="#" style="font:500 12px/1 Archivo,sans-serif;letter-spacing:.06em;text-decoration:none;border-bottom:1px solid #B0A895;padding-bottom:4px">Tag us and we'll share it →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+      <image-slot id="cl-u1" shape="rect" style="width:100%;aspect-ratio:4/5" placeholder="UGC 01"></image-slot>
+      <image-slot id="cl-u2" shape="rect" style="width:100%;aspect-ratio:4/5" placeholder="UGC 02"></image-slot>
+      <div style="position:relative">
+        <image-slot id="cl-u3" shape="rect" style="width:100%;aspect-ratio:4/5;opacity:.8" placeholder="UGC reel still"></image-slot>
+        <div style="position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:9px;pointer-events:none">
+          <span style="width:40px;height:40px;border-radius:50%;background:rgba(255,253,249,.94);display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;border-left:11px solid #141513;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px"></span></span>
+          <span style="padding:6px 10px;background:rgba(20,21,19,.8);font:500 9px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#FFFDF9">Reel</span>
+        </div>
+      </div>
+      <div style="background:#F8F5EC;border:1px solid #E4DED0;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;aspect-ratio:4/5;box-sizing:border-box">
+        <span style="font:300 21px/1.4 Newsreader,serif;text-wrap:pretty">“[A line from a customer post, quoted with permission.]”</span>
+        <div style="display:flex;flex-direction:column;gap:3px">
+          <span style="font:500 11px/1 Archivo,sans-serif">[@handle]</span>
+          <span style="font:400 11px/1 Archivo,sans-serif;color:#8A8378">[Location]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop" style="margin-top:96px;border-top:1px solid #E4DED0">
+    <div style="max-width:1240px;margin:0 auto;padding:80px 40px 104px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,72px);align-items:center">
+      <image-slot id="cl-shop" src="./uploads/C315_Isla_Oversized_Crew_Neck_in_Rocky_Ground_Small_96c6a086-6a6f-4da6-b4b7-27ee75c8b9dd_1000x.webp" shape="rect" style="width:100%;aspect-ratio:4/5" placeholder="Product shot"></image-slot>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="font:500 10px/1 Archivo,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#3F4A3C">The Piece</span>
+        <h2 style="margin:0;font:300 clamp(30px,3.4vw,44px)/1.08 Newsreader,serif;letter-spacing:-.022em;text-wrap:pretty">The Isla Oversized Crew Neck</h2>
+        <span style="font:400 17px/1 Archivo,sans-serif">€169,95</span>
+        <p style="margin:0;font:400 14px/1.75 Archivo,sans-serif;color:#5C574D;max-width:420px;text-wrap:pretty">Knitted, linked and finished in our own factory in Baldoyle, Dublin. Every piece carries a Product Passport — fibre, construction, fit and care, on the page.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:8px">
+          <a href="#" style="padding:17px 30px;background:#1C1B18;color:#FFFDF9;font:600 11px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none">Add to bag</a>
+          <a href="./Product Passport.dc.html" style="font:500 12px/1 Archivo,sans-serif;letter-spacing:.06em;text-decoration:none;border-bottom:1px solid #B0A895;padding-bottom:4px">View the Product Passport →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1280 }
+}">
+class Component extends DCLogic {
+  state = { progress: 0, active: 0, playing: false };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      const chapters = Array.from(document.querySelectorAll("[data-chapter]"));
+      const line = window.innerHeight * 0.55;
+      let active = 0;
+      chapters.forEach((el, i) => {
+        if (el.getBoundingClientRect().top < line) active = i + 1;
+      });
+      if (progress !== this.state.progress || active !== this.state.active) {
+        this.setState({ progress, active });
+      }
+    };
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+    window.addEventListener("resize", this.onScroll);
+    this.onScroll();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("resize", this.onScroll);
+  }
+
+  renderVals() {
+    const a = this.state.active;
+    const dot = n => (a >= n ? "#3F4A3C" : "#D6CFBE");
+    return {
+      progress: Math.round(this.state.progress * 100) + "%",
+      spineFill: Math.min(100, Math.round((a / 5) * 100)) + "%",
+      dot1: dot(1), dot2: dot(2), dot3: dot(3), dot4: dot(4), dot5: dot(5),
+      videoLabel: this.state.playing ? "Playing" : "02:14",
+      playVideo: () => this.setState(s => ({ playing: !s.playing }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

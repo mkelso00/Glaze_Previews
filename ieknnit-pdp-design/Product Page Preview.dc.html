@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; background: #E8E4DB; }
+  a { color: #3F4A3C; }
+  a:hover { color: #1C1B18; }
+</style>
+</helmet>
+<div style="position:sticky;top:0;z-index:10;background:#1C1B18;color:#F6F3EC;padding:12px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:'Inter Tight',sans-serif">
+  <span style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#B0A895">Preview · content block above the passport</span>
+  <div style="display:flex;gap:8px;background:#FFFDF9;padding:4px">
+    <button type="button" onClick="{{ pick2a }}" style="display:flex;align-items:center;gap:10px;padding:9px 14px;background:{{ bg2a }};color:{{ ink2a }};border:1px solid #1C1B18;cursor:pointer;font:500 11px/1 'Inter Tight',sans-serif;letter-spacing:.1em;text-transform:uppercase">2A<span style="font:400 12px/1 'Inter Tight',sans-serif;letter-spacing:0;text-transform:none;opacity:.75">Open Description</span></button>
+    <button type="button" onClick="{{ pick2b }}" style="display:flex;align-items:center;gap:10px;padding:9px 14px;background:{{ bg2b }};color:{{ ink2b }};border:1px solid #1C1B18;cursor:pointer;font:500 11px/1 'Inter Tight',sans-serif;letter-spacing:.1em;text-transform:uppercase">2B<span style="font:400 12px/1 'Inter Tight',sans-serif;letter-spacing:0;text-transform:none;opacity:.75">Tabs</span></button>
+    <button type="button" onClick="{{ pick2c }}" style="display:flex;align-items:center;gap:10px;padding:9px 14px;background:{{ bg2c }};color:{{ ink2c }};border:1px solid #1C1B18;cursor:pointer;font:500 11px/1 'Inter Tight',sans-serif;letter-spacing:.1em;text-transform:uppercase">2C<span style="font:400 12px/1 'Inter Tight',sans-serif;letter-spacing:0;text-transform:none;opacity:.75">Maker-led</span></button>
+  </div>
+</div>
+
+<div style="display:flex;gap:64px;align-items:flex-start;padding:48px;font-family:'Inter Tight',sans-serif">
+  <div style="display:flex;flex-direction:column;gap:16px"><div style="display:flex;align-items:baseline;gap:12px"><span style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#1C1B18">Desktop</span><span style="font:400 12px/1 'Inter Tight',sans-serif;color:#8A8378">1440px</span></div><div style="width:1440px;background:#FFFDF9;font-family:'Inter Tight',sans-serif;box-shadow:0 2px 24px rgba(28,27,24,.08)">
+  <div style="display:flex;flex-direction:column">
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 420px;align-items:center">
+    <div style="position:relative;min-width:0"><image-slot id="pv-atf-1" shape="rect" src="./uploads/eva-heather-1.png" style="min-width:0;display:block;width:100%;height:760px" placeholder="Product image 1"></image-slot><span style="position:absolute;top:10px;left:0;padding:8px 10px;background:#3E8C86;color:#FFFFFF;font:500 11px/1 'Inter Tight',sans-serif">Perfect for Autumn</span></div>
+    <image-slot id="pv-atf-2" shape="rect" src="./uploads/eva-heather-2.png" style="min-width:0;display:block;width:100%;height:760px" placeholder="Product image 2"></image-slot>
+    <div style="padding:0 40px 0 56px"><div style="display:flex;flex-direction:column;gap:14px">
+  <div style="display:flex;align-items:center;gap:6px;font:400 11px/1 'Inter Tight',sans-serif;color:#1C1B18"><span style="letter-spacing:3px">★★★★★</span><span>(3 Reviews)</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px"><div style="font:700 24px/1.2 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#1C1B18">The Eva Cashmere Cable Crew Neck Heather</div><span style="flex:0 0 auto;width:42px;height:42px;border:1px solid #1C1B18;border-radius:50%;display:flex;align-items:center;justify-content:center;font:500 6px/1.2 'Inter Tight',sans-serif;letter-spacing:.08em;text-align:center">MADE IN<br>IRELAND</span></div>
+  <div style="font:400 16px/1 'Inter Tight',sans-serif;color:#1C1B18">€134,95</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border:1px solid #E4DED0"><div style="display:flex;align-items:center;gap:10px"><span style="width:20px;height:20px;background:#D77FD0"></span><span style="font:400 13px/1 'Inter Tight',sans-serif;color:#1C1B18">Heather</span></div><div style="display:flex;align-items:center;gap:4px"><span style="width:18px;height:18px;border-radius:50%;background:#E8E2C8"></span><span style="width:18px;height:18px;border-radius:50%;background:#C9A227;margin-left:-8px"></span><span style="width:18px;height:18px;border-radius:50%;background:#8FB0AA;margin-left:-8px"></span><span style="font:400 12px/1 'Inter Tight',sans-serif;color:#8A8378;margin-left:4px">+5 ⌄</span></div></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div style="display:flex;gap:16px;padding:12px 14px;border:1px solid #E4DED0"><span style="padding:0 2px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18">XS</span><span style="padding:0 2px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18">S</span><span style="padding:0 2px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18">M</span><span style="padding:0 2px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18">L</span><span style="padding:0 2px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18">XL</span><span style="padding:0 2px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18">XXL</span></div><span style="font:400 13px/1 'Inter Tight',sans-serif;color:#1C1B18;text-decoration:underline">Size Guide</span></div>
+  <span style="font:400 15px/1 'Inter Tight',sans-serif;color:#1C1B18;text-decoration:underline">Find your correct size here</span>
+  <div style="padding:13px 0 11px;border-radius:24px;background:#8FBFB8;color:#FFFFFF;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font:600 13px/1 'Inter Tight',sans-serif">Select A Size</span><span style="font:400 9px/1 'Inter Tight',sans-serif">All Duty and Taxes included on all orders.</span></div>
+  <div style="padding:8px;border:1px solid #E4DED0;text-align:center;font:400 12px/1.3 'Inter Tight',sans-serif;letter-spacing:.03em;color:#1C1B18">3 payments of <b>€44.98</b> at 0% interest with <b>Klarna</b> <u>Learn more</u></div>
+  <div style="display:flex;flex-direction:column;gap:7px;margin-top:4px"><div style="display:flex;align-items:center;gap:8px"><span style="flex:0 0 auto;width:12px;height:12px;border:1.2px solid #1C1B18;border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 8px/1 'Inter Tight',sans-serif">✓</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Model Height: 178cm/5'10</span></div><div style="display:flex;align-items:center;gap:8px"><span style="flex:0 0 auto;width:12px;height:12px;border:1.2px solid #1C1B18;border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 8px/1 'Inter Tight',sans-serif">✓</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Model wears size S/ UK/ AUS/ NZ 8-10/ EU 34-36 / US 4-6</span></div><div style="display:flex;align-items:center;gap:8px"><span style="flex:0 0 auto;width:12px;height:12px;border:1.2px solid #1C1B18;border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 8px/1 'Inter Tight',sans-serif">✓</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Regular Fit</span></div><div style="display:flex;align-items:center;gap:8px"><span style="flex:0 0 auto;width:12px;height:12px;border:1.2px solid #1C1B18;border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 8px/1 'Inter Tight',sans-serif">✓</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">50%...</span></div><span style="margin-left:20px;font:400 13px/1 'Inter Tight',sans-serif;color:#1C1B18;text-decoration:underline">See More</span></div>
+</div></div>
+  </div>
+  <div style="display:flex;gap:56px;padding:12px 16px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18"><span>Made in Ireland</span><span>Free Delivery Available</span><span style="display:flex;gap:10px"><span style="color:#3E8C86">★</span>Over 3,000 Positive Reviews</span></div>
+</div>
+
+  <sc-if value="{{ is2a }}" hint-placeholder-val="{{ true }}"><div style="width:100%;max-width:1440px;margin:0 auto;background:#FFFDF9;padding:64px 72px;box-sizing:border-box;display:flex;flex-direction:column;gap:56px">
+        <div style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:80px;align-items:start">
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A8378">Description</div>
+            <div style="font:600 30px/1.2 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#1C1B18;text-wrap:pretty">A heavy-gauge jersey knit in wool and cashmere, made to hold its shape.</div>
+            <div style="font:400 14px/1.75 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">[Product description from the live PDP.] Blue Ocean is a light denim blue with contrasting flecks, one of our bespoke colours dyed exclusively for IrelandsEye. Relaxed through the body and sleeve, with shoulders and neck joined by hand on the linking machine.</div>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px;margin-top:14px;border-top:1px solid #1C1B18">
+              <div style="display:flex;flex-direction:column;gap:5px;padding:14px 0;border-bottom:1px solid #E4DED0"><span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8378">Fibre</span><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">95% wool, 5% cashmere</span></div>
+              <div style="display:flex;flex-direction:column;gap:5px;padding:14px 0;border-bottom:1px solid #E4DED0"><span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8378">Knit</span><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Chunky jersey</span></div>
+              <div style="display:flex;flex-direction:column;gap:5px;padding:14px 0;border-bottom:1px solid #E4DED0"><span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8378">Fit</span><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Relaxed</span></div>
+              <div style="display:flex;flex-direction:column;gap:5px;padding:14px 0;border-bottom:1px solid #E4DED0"><span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8378">Made</span><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Baldoyle, Dublin</span></div>
+              <div style="display:flex;flex-direction:column;gap:5px;padding:14px 0;border-bottom:1px solid #E4DED0"><span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8378">Care</span><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Hand wash, dry flat</span></div>
+              <div style="display:flex;flex-direction:column;gap:5px;padding:14px 0;border-bottom:1px solid #E4DED0"><span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8378">Style</span><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">A469</span></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;border-top:1px solid #1C1B18;margin-top:28px">
+            <button type="button" onClick="{{ t2aShip }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 17px/1.3 'Inter Tight',sans-serif;color:#1C1B18" style-hover="color:#3F4A3C">Shipping &amp; Returns<span style="font:400 16px/1 'Inter Tight',sans-serif;color:#5C574D">{{ g2aShip }}</span></button>
+            <sc-if value="{{ o2aShip }}">
+              <div style="padding:4px 0 20px;border-bottom:1px solid #E4DED0;font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Free delivery available. [Delivery times by region.] [Returns window and process.]</div>
+            </sc-if>
+            <button type="button" onClick="{{ t2aCc }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 17px/1.3 'Inter Tight',sans-serif;color:#1C1B18" style-hover="color:#3F4A3C">Click &amp; Collect<span style="font:400 16px/1 'Inter Tight',sans-serif;color:#5C574D">{{ g2aCc }}</span></button>
+            <sc-if value="{{ o2aCc }}">
+              <div style="padding:4px 0 20px;border-bottom:1px solid #E4DED0;font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Collect from reception at Knitwear House, Baldoyle Industrial Estate, Dublin 13, D13 DT63. [Opening hours.]</div>
+            </sc-if>
+            <a href="#passport" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;border-bottom:1px solid #E4DED0;text-decoration:none;font:500 17px/1.3 'Inter Tight',sans-serif;color:#1C1B18">Ethical Sourcing &amp; Garment Care<span style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#3F4A3C">In the passport ↓</span></a>
+            <div style="display:flex;align-items:center;gap:12px;padding:20px 0 0;font:400 13px/1.5 'Inter Tight',sans-serif;color:#5C574D"><span style="color:#3F4A3C">★</span>Over 3,000 positive reviews</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+          <div style="display:flex;flex-direction:column;gap:12px"><image-slot id="pp-2a-1" shape="rect" src="./uploads/6E2A1743.webp" style="min-width:0;display:block;width:100%;height:200px" placeholder="Measuring table"></image-slot><div style="display:flex;gap:10px"><span style="font:500 13px/1.5 'Inter Tight',sans-serif;color:#B0A895">01</span><span style="font:400 13px/1.5 'Inter Tight',sans-serif;color:#1C1B18">Designed and Made in Ireland</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:12px"><image-slot id="pp-2a-2" shape="rect" src="./uploads/Linking_Landscape.webp" style="min-width:0;display:block;width:100%;height:200px" placeholder="Linking machine"></image-slot><div style="display:flex;gap:10px"><span style="font:500 13px/1.5 'Inter Tight',sans-serif;color:#B0A895">02</span><span style="font:400 13px/1.5 'Inter Tight',sans-serif;color:#1C1B18">Carefully passing through 27 pairs of hands</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:12px"><image-slot id="pp-2a-3" shape="rect" style="min-width:0;display:block;width:100%;height:200px" placeholder="Cable close-up"></image-slot><div style="display:flex;gap:10px"><span style="font:500 13px/1.5 'Inter Tight',sans-serif;color:#B0A895">03</span><span style="font:400 13px/1.5 'Inter Tight',sans-serif;color:#1C1B18">Each piece inspected with care</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:12px"><image-slot id="pp-2a-4" shape="rect" style="min-width:0;display:block;width:100%;height:200px" placeholder="Bespoke colour swatch"></image-slot><div style="display:flex;gap:10px"><span style="font:500 13px/1.5 'Inter Tight',sans-serif;color:#B0A895">04</span><span style="font:400 13px/1.5 'Inter Tight',sans-serif;color:#1C1B18">Bespoke colours. Designed in-house</span></div></div>
+        </div>
+      </div></sc-if>
+  <sc-if value="{{ is2b }}"><div style="width:100%;max-width:1440px;margin:0 auto;background:#FFFDF9;padding:56px 72px 64px;box-sizing:border-box;display:flex;flex-direction:column;gap:40px">
+        <div style="display:flex;gap:36px;border-bottom:1px solid #E4DED0">
+          <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="5">
+            <button type="button" onClick="{{ tb.select }}" style="padding:0 0 16px;margin-bottom:-1px;background:none;border:none;border-bottom:2px solid {{ tb.line }};cursor:pointer;font:500 16px/1.2 'Inter Tight',sans-serif;color:{{ tb.ink }}" style-hover="color:#1C1B18">{{ tb.label }}</button>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start;min-height:380px">
+          <div style="display:flex;flex-direction:column;gap:18px;padding-top:6px">
+            <sc-if value="{{ tbDesc }}">
+              <div style="display:flex;flex-direction:column;gap:18px">
+                <div style="font:600 30px/1.2 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#1C1B18;text-wrap:pretty">A heavy-gauge jersey knit in wool and cashmere, made to hold its shape.</div>
+                <div style="font:400 14px/1.75 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">[Product description from the live PDP.] Blue Ocean is a light denim blue with contrasting flecks, one of our bespoke colours dyed exclusively for IrelandsEye.</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ tbGlance }}">
+              <div style="display:flex;flex-direction:column;border-top:1px solid #1C1B18">
+                <div style="display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid #E4DED0"><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#8A8378">Fibre</span><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">95% wool, 5% cashmere</span></div>
+                <div style="display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid #E4DED0"><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#8A8378">Knit</span><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Chunky jersey, hand-linked seams</span></div>
+                <div style="display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid #E4DED0"><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#8A8378">Fit</span><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Relaxed through body and sleeve</span></div>
+                <div style="display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid #E4DED0"><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#8A8378">On the model</span><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">188cm / 6'2, wearing L</span></div>
+                <div style="display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid #E4DED0"><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#8A8378">Made</span><span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Baldoyle, Dublin</span></div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ tbShip }}">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <div style="font:600 26px/1.25 'Inter Tight',sans-serif;color:#1C1B18">Free delivery available.</div>
+                <div style="font:400 14px/1.75 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">[Delivery times by region.] [Returns window and process.]</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ tbCare }}">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <div style="font:600 26px/1.25 'Inter Tight',sans-serif;color:#1C1B18">Hand wash warm, dry flat, store folded.</div>
+                <div style="font:400 14px/1.75 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Spun and dyed by mills accredited to OEKO-TEX® Standard 100, the Responsible Wool Standard and The Good Cashmere Standard.</div>
+                <a href="#passport" style="font:500 12px/1 'Inter Tight',sans-serif;letter-spacing:.06em;text-decoration:none;border-bottom:1px solid #B0A895;padding-bottom:3px;width:fit-content">Full sourcing and care in the passport ↓</a>
+              </div>
+            </sc-if>
+            <sc-if value="{{ tbCc }}">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <div style="font:600 26px/1.25 'Inter Tight',sans-serif;color:#1C1B18">Collect it from the factory where it was made.</div>
+                <div style="font:400 14px/1.75 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Reception, Knitwear House, Baldoyle Industrial Estate, Dublin 13, D13 DT63. Choose collection at checkout. [Opening hours.]</div>
+              </div>
+            </sc-if>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-if value="{{ tbDesc }}"><image-slot id="pp-2b-desc" shape="rect" src="./uploads/C315_Isla_Oversized_Crew_Neck_in_Rocky_Ground_Small_2_1000x.webp" style="min-width:0;display:block;width:100%;height:380px" placeholder="Garment detail"></image-slot></sc-if>
+            <sc-if value="{{ tbGlance }}"><image-slot id="pp-2b-glance" shape="rect" src="./uploads/6E2A1743.webp" style="min-width:0;display:block;width:100%;height:380px" placeholder="Measuring table"></image-slot></sc-if>
+            <sc-if value="{{ tbShip }}"><image-slot id="pp-2b-ship" shape="rect" src="./uploads/Gifting_page_25_-_Gift_bag.webp" style="min-width:0;display:block;width:100%;height:380px" placeholder="Packed box"></image-slot></sc-if>
+            <sc-if value="{{ tbCare }}"><image-slot id="pp-2b-care" shape="rect" style="min-width:0;display:block;width:100%;height:380px" placeholder="Cable close-up"></image-slot></sc-if>
+            <sc-if value="{{ tbCc }}"><image-slot id="pp-2b-cc" shape="rect" src="./uploads/Linking_Landscape.webp" style="min-width:0;display:block;width:100%;height:380px" placeholder="Factory floor"></image-slot></sc-if>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-top:24px;border-top:1px solid #1C1B18">
+          <span style="font:500 15px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Designed and Made in Ireland</span>
+          <span style="font:500 15px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Carefully passing through 27 pairs of hands</span>
+          <span style="font:500 15px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Each piece inspected with care</span>
+          <span style="font:500 15px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Bespoke colours. Designed in-house</span>
+        </div>
+      </div></sc-if>
+  <sc-if value="{{ is2c }}"><div style="width:100%;max-width:1440px;margin:0 auto;background:#FFFDF9;padding:64px 72px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:72px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <image-slot id="pp-2c-hero" shape="rect" src="./uploads/Linking_Landscape.webp" style="min-width:0;display:block;width:100%;height:600px" placeholder="Hands at the linking machine"></image-slot>
+          <div style="display:flex;justify-content:space-between;gap:20px;font:400 12px/1.4 'Inter Tight',sans-serif;color:#8A8378"><span>Linking, Baldoyle</span><span>Style A469</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:36px">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A8378">Designed and Made in Ireland</div>
+            <div style="display:flex;align-items:baseline;gap:14px"><span style="font:600 64px/1 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#3F4A3C">27</span><span style="font:500 21px/1.3 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">pairs of hands, from yarn cone to folded box.</span></div>
+            <div style="display:flex;flex-direction:column;margin-top:8px">
+              <div style="display:flex;align-items:center;gap:16px;padding:12px 0;border-top:1px solid #E4DED0"><image-slot id="pp-2c-t1" shape="rect" src="./uploads/6E2A1743.webp" style="min-width:0;display:block;width:64px;height:64px;flex:0 0 64px" placeholder="Measure"></image-slot><span style="font:400 14px/1.5 'Inter Tight',sans-serif;color:#1C1B18">Each piece inspected with care</span></div>
+              <div style="display:flex;align-items:center;gap:16px;padding:12px 0;border-top:1px solid #E4DED0;border-bottom:1px solid #E4DED0"><image-slot id="pp-2c-t2" shape="rect" style="min-width:0;display:block;width:64px;height:64px;flex:0 0 64px" placeholder="Colour"></image-slot><span style="font:400 14px/1.5 'Inter Tight',sans-serif;color:#1C1B18">Bespoke colours. Designed in-house</span></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;border-top:1px solid #1C1B18">
+            <button type="button" onClick="{{ t2cDesc }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 17px/1.3 'Inter Tight',sans-serif;color:#1C1B18" style-hover="color:#3F4A3C">Description<span style="font:400 16px/1 'Inter Tight',sans-serif;color:#5C574D">{{ g2cDesc }}</span></button>
+            <sc-if value="{{ o2cDesc }}">
+              <div style="padding:4px 0 22px;border-bottom:1px solid #E4DED0;font:400 14px/1.75 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">[Product description from the live PDP.] A heavy-gauge jersey knit in 95% wool, 5% cashmere. Blue Ocean is a light denim blue with contrasting flecks, dyed exclusively for IrelandsEye.</div>
+            </sc-if>
+            <button type="button" onClick="{{ t2cGlance }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 17px/1.3 'Inter Tight',sans-serif;color:#1C1B18" style-hover="color:#3F4A3C">At a Glance<span style="font:400 16px/1 'Inter Tight',sans-serif;color:#5C574D">{{ g2cGlance }}</span></button>
+            <sc-if value="{{ o2cGlance }}">
+              <div style="padding:4px 0 22px;border-bottom:1px solid #E4DED0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px 24px;font:400 13px/1.5 'Inter Tight',sans-serif;color:#1C1B18">
+                <span>95% wool, 5% cashmere</span><span>Relaxed fit</span><span>Chunky jersey knit</span><span>Model 188cm, wearing L</span>
+              </div>
+            </sc-if>
+            <button type="button" onClick="{{ t2cShip }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 17px/1.3 'Inter Tight',sans-serif;color:#1C1B18" style-hover="color:#3F4A3C">Shipping &amp; Returns<span style="font:400 16px/1 'Inter Tight',sans-serif;color:#5C574D">{{ g2cShip }}</span></button>
+            <sc-if value="{{ o2cShip }}">
+              <div style="padding:4px 0 22px;border-bottom:1px solid #E4DED0;font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D">Free delivery available. [Delivery times.] [Returns window.]</div>
+            </sc-if>
+            <button type="button" onClick="{{ t2cCc }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 17px/1.3 'Inter Tight',sans-serif;color:#1C1B18" style-hover="color:#3F4A3C">Click &amp; Collect<span style="font:400 16px/1 'Inter Tight',sans-serif;color:#5C574D">{{ g2cCc }}</span></button>
+            <sc-if value="{{ o2cCc }}">
+              <div style="padding:4px 0 22px;border-bottom:1px solid #E4DED0;font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D">Collect from reception at Knitwear House, Baldoyle, Dublin 13. [Opening hours.]</div>
+            </sc-if>
+            <a href="#passport" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;border-bottom:1px solid #E4DED0;text-decoration:none;font:500 17px/1.3 'Inter Tight',sans-serif;color:#1C1B18">Ethical Sourcing &amp; Garment Care<span style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#3F4A3C">In the passport ↓</span></a>
+          </div>
+        </div>
+      </div></sc-if>
+
+  <div id="passport" style="border-top:1px solid #E4DED0"><div style="width:100%;max-width:1440px;margin:0 auto;box-sizing:border-box;background:#FFFDF9;padding:64px 72px 0;">
+
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:48px;padding-bottom:28px;border-bottom:1px solid #1C1B18">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A8378">Product Passport</div>
+            <div style="font:600 42px/1.05 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#1C1B18">The Roundstone<br>Cashmere Sweater</div>
+            <div style="font:400 13px/1 'Inter Tight',sans-serif;color:#5C574D;letter-spacing:.02em">Blue Ocean · Style A469 · Heirloom Collection</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex:0 0 auto">
+            <div style="width:96px;height:96px;border:1px solid #3F4A3C;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#3F4A3C;text-align:center">
+              <span style="font:500 8px/1 'Inter Tight',sans-serif;letter-spacing:.14em">MADE IN</span>
+              <span style="font:500 17px/1 'Inter Tight',sans-serif;letter-spacing:.01em">Ireland</span>
+              <span style="font:500 8px/1 'Inter Tight',sans-serif;letter-spacing:.14em">DUBLIN 13</span>
+            </div>
+            <div style="font:400 11px/1 'Inter Tight',sans-serif;color:#8A8378">Issued 2026</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 72px;padding:8px 0 0">
+
+          <div style="display:flex;flex-direction:column">
+            <div style="display:flex;gap:24px;padding:32px 0;border-bottom:1px solid #E4DED0">
+              <sc-if value="{{ numbered }}" hint-placeholder-val="{{ true }}"><span style="font:500 14px/1.6 'Inter Tight',sans-serif;color:#B0A895;flex:0 0 26px">01</span></sc-if>
+              <div style="display:flex;flex-direction:column;gap:9px">
+                <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Where it was made</div>
+                <div style="font:500 20px/1.35 'Inter Tight',sans-serif;color:#1C1B18">Knitted, linked and finished in our own factory in Baldoyle, Dublin.</div>
+                <div style="font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Knitwear House, Baldoyle Industrial Estate, Dublin 13, D13 DT63. Designed in-house and made on site — not sourced, not subcontracted. You can collect this piece at our reception desk if you'd rather come to it than have it come to you.</div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:24px;padding:32px 0;border-bottom:1px solid #E4DED0">
+              <sc-if value="{{ numbered }}" hint-placeholder-val="{{ true }}"><span style="font:500 14px/1.6 'Inter Tight',sans-serif;color:#B0A895;flex:0 0 26px">02</span></sc-if>
+              <div style="display:flex;flex-direction:column;gap:9px">
+                <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Fibre</div>
+                <div style="font:500 20px/1.35 'Inter Tight',sans-serif;color:#1C1B18">95% wool, 5% cashmere. 100% natural.</div>
+                <div style="font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Spun and dyed by accredited mills. Our bespoke colours are designed in-house and dyed exclusively for IrelandsEye — Blue Ocean is a light denim blue with contrasting flecks.</div>
+                <sc-if value="{{ certs }}" hint-placeholder-val="{{ true }}">
+                  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">
+                    <span style="padding:6px 11px;border:1px solid #D6CFBE;font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#5C574D">OEKO-TEX Standard 100</span>
+                    <span style="padding:6px 11px;border:1px solid #D6CFBE;font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#5C574D">Responsible Wool Standard</span>
+                    <span style="padding:6px 11px;border:1px solid #D6CFBE;font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#5C574D">The Good Cashmere Standard</span>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:24px;padding:32px 0;border-bottom:1px solid #E4DED0">
+              <sc-if value="{{ numbered }}" hint-placeholder-val="{{ true }}"><span style="font:500 14px/1.6 'Inter Tight',sans-serif;color:#B0A895;flex:0 0 26px">03</span></sc-if>
+              <div style="display:flex;flex-direction:column;gap:9px">
+                <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Construction</div>
+                <div style="font:500 20px/1.35 'Inter Tight',sans-serif;color:#1C1B18">Chunky jersey knit, hand-linked shoulders and neck.</div>
+                <div style="font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">A plain jersey stitch at a heavier gauge, so the sweater holds its shape rather than draping. Panels are joined on the linking machine stitch by stitch — a slower join than overlocking, and the reason the seams sit flat under the arm.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column">
+            <div style="display:flex;gap:24px;padding:32px 0;border-bottom:1px solid #E4DED0">
+              <sc-if value="{{ numbered }}" hint-placeholder-val="{{ true }}"><span style="font:500 14px/1.6 'Inter Tight',sans-serif;color:#B0A895;flex:0 0 26px">04</span></sc-if>
+              <div style="display:flex;flex-direction:column;gap:9px;width:100%">
+                <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">How it feels, fits and wears</div>
+                <div style="font:500 20px/1.35 'Inter Tight',sans-serif;color:#1C1B18">Relaxed fit. Soft against the neck, warm without weight.</div>
+                <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 24px;margin-top:6px">
+                  <div style="display:flex;flex-direction:column;gap:3px;padding-top:10px;border-top:1px solid #EFEADD">
+                    <span style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8A8378">Fit</span>
+                    <span style="font:400 13px/1.5 'Inter Tight',sans-serif;color:#1C1B18">Relaxed through body and sleeve</span>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:3px;padding-top:10px;border-top:1px solid #EFEADD">
+                    <span style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8A8378">On the model</span>
+                    <span style="font:400 13px/1.5 'Inter Tight',sans-serif;color:#1C1B18">188cm / 6'2, wearing size L</span>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:3px;padding-top:10px;border-top:1px solid #EFEADD">
+                    <span style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8A8378">Size equivalent</span>
+                    <span style="font:400 13px/1.5 'Inter Tight',sans-serif;color:#1C1B18">UK/US 40–42 · IT/FR/EU 50</span>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:3px;padding-top:10px;border-top:1px solid #EFEADD">
+                    <span style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8A8378">Wear</span>
+                    <span style="font:400 13px/1.5 'Inter Tight',sans-serif;color:#1C1B18">Softens with wear; may pill early on</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:24px;padding:32px 0;border-bottom:1px solid #E4DED0">
+              <sc-if value="{{ numbered }}" hint-placeholder-val="{{ true }}"><span style="font:500 14px/1.6 'Inter Tight',sans-serif;color:#B0A895;flex:0 0 26px">05</span></sc-if>
+              <div style="display:flex;flex-direction:column;gap:14px;width:100%">
+                <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Who made it</div>
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span style="font:600 56px/1 'Inter Tight',sans-serif;color:#3F4A3C;letter-spacing:-.02em">27</span>
+                  <span style="font:500 20px/1.35 'Inter Tight',sans-serif;color:#1C1B18">pairs of hands, from yarn cone to folded box.</span>
+                </div>
+                <div style="font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Knitters, linkers, menders, pressers and the quality table. Every piece is inspected by hand before it leaves the building.</div>
+                <sc-if value="{{ photos }}" hint-placeholder-val="{{ true }}">
+                  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-top:4px">
+                    <div style="display:flex;flex-direction:column;gap:7px">
+                      <image-slot id="pp-1a-hands" shape="rect" src="./uploads/Linking_Landscape.webp" style="min-width:0;display:block;width:100%;height:150px" placeholder="Hands at the linking machine"></image-slot>
+                      <span style="font:400 11px/1.4 'Inter Tight',sans-serif;color:#8A8378">Linking, Baldoyle</span>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:7px">
+                      <image-slot id="pp-1a-qa" shape="rect" src="./uploads/6E2A1743.webp" style="min-width:0;display:block;width:100%;height:150px" placeholder="Quality table / inspection"></image-slot>
+                      <span style="font:400 11px/1.4 'Inter Tight',sans-serif;color:#8A8378">Final inspection</span>
+                    </div>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:24px;padding:32px 0;border-bottom:1px solid #E4DED0">
+              <sc-if value="{{ numbered }}" hint-placeholder-val="{{ true }}"><span style="font:500 14px/1.6 'Inter Tight',sans-serif;color:#B0A895;flex:0 0 26px">06</span></sc-if>
+              <div style="display:flex;flex-direction:column;gap:9px">
+                <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">How to care for it</div>
+                <div style="font:500 20px/1.35 'Inter Tight',sans-serif;color:#1C1B18">Hand wash warm, dry flat, store folded.</div>
+                <div style="font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Hand wash in lukewarm water. Do not bleach. Do not tumble dry. Dry flat and reshape while damp. Warm iron. Store folded in a cool, dry place — never on a hanger.</div>
+                <a href="https://irelandseyeknitwear.com/pages/3-simple-steps-to-handwash-knitwear" style="font:500 12px/1 'Inter Tight',sans-serif;letter-spacing:.06em;text-decoration:none;border-bottom:1px solid #B0A895;padding-bottom:3px;width:fit-content;margin-top:4px">Handwashing in three steps →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin:40px -72px 0;background:#3F4A3C;color:#F2EFE6;padding:48px 72px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;padding-bottom:26px;border-bottom:1px solid rgba(242,239,230,.25)">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#B9C2B0">How to make it last longer</div>
+              <div style="font:600 30px/1.15 'Inter Tight',sans-serif;color:#FFFDF9">Wool doesn't wear out. It wears in.</div>
+            </div>
+            <div style="font:400 13px/1.7 'Inter Tight',sans-serif;color:#D5D9CD;max-width:340px;text-wrap:pretty">Pilling is normal on natural yarn and not a fault. Remove it and the sweater looks new again.</div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;padding-top:32px">
+            <sc-if value="{{ showKit }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;gap:9px">
+                <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B9C2B0">Depillar &amp; Bobble Remover Kit</div>
+                <div style="font:400 14px/1.65 'Inter Tight',sans-serif;color:#F2EFE6;text-wrap:pretty">Our own comb and shaver. Two minutes, twice a season, and the surface resets.</div>
+                <a href="https://irelandseyeknitwear.com/products/irelandseye-depillar" style="margin-top:6px;padding:12px 20px;background:#FFFDF9;color:#1C1B18;font:600 11px/1 'Inter Tight',sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;width:fit-content">Add the kit</a>
+              </div>
+            </sc-if>
+            <sc-if value="{{ showRepair }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;gap:9px">
+                <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B9C2B0">Return to the factory</div>
+                <div style="font:400 14px/1.65 'Inter Tight',sans-serif;color:#F2EFE6;text-wrap:pretty">Snagged, holed or gone at the cuff? Send it back to Baldoyle and our menders will look at it.</div>
+                <a href="mailto:info@ieknit.com" style="margin-top:6px;font:500 12px/1 'Inter Tight',sans-serif;letter-spacing:.06em;color:#FFFDF9;text-decoration:none;border-bottom:1px solid rgba(255,253,249,.5);padding-bottom:3px;width:fit-content">Start a repair →</a>
+              </div>
+            </sc-if>
+            <div style="display:flex;flex-direction:column;gap:9px">
+              <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B9C2B0">Learn the technique</div>
+              <div style="font:400 14px/1.65 'Inter Tight',sans-serif;color:#F2EFE6;text-wrap:pretty">How to debobble without thinning the knit, and how to dry flat so nothing stretches.</div>
+              <a href="https://irelandseyeknitwear.com/pages/how-to-remove-pilling-from-knitwear" style="margin-top:6px;font:500 12px/1 'Inter Tight',sans-serif;letter-spacing:.06em;color:#FFFDF9;text-decoration:none;border-bottom:1px solid rgba(255,253,249,.5);padding-bottom:3px;width:fit-content">Read the guide →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:56px 0 64px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;padding-bottom:26px;border-bottom:1px solid #1C1B18">
+            <div style="display:flex;align-items:baseline;gap:20px">
+              <sc-if value="{{ numbered }}" hint-placeholder-val="{{ true }}"><span style="font:500 14px/1 'Inter Tight',sans-serif;color:#B0A895">07</span></sc-if>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A8378">Share the Love</div>
+                <div style="font:600 30px/1.15 'Inter Tight',sans-serif;color:#1C1B18">Let us help you send a gift to a loved one</div>
+              </div>
+            </div>
+            <div style="font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;max-width:300px;text-wrap:pretty">Sent with care from our Factory in Ireland.</div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:44px;padding-top:32px">
+            <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <image-slot id="pp-1a-giftbag" shape="rect" src="./uploads/Gifting_page_25_-_Gift_bag.webp" style="min-width:0;display:block;width:100%;height:250px" placeholder="Branded gift bag"></image-slot>
+                <span style="font:400 11px/1.4 'Inter Tight',sans-serif;color:#8A8378">Wrapped in tissue paper, presented in an IrelandsEye box</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <image-slot id="pp-1a-giftcard" shape="rect" src="./uploads/Gifting_page_25_gift_note_1.webp" style="min-width:0;display:block;width:100%;height:250px" placeholder="Handwritten gift card"></image-slot>
+                <span style="font:400 11px/1.4 'Inter Tight',sans-serif;color:#8A8378">Your message, written out by hand in Baldoyle</span>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column">
+              <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #E4DED0">
+                <span style="flex:0 0 auto;width:5px;height:5px;border-radius:50%;background:#3F4A3C;margin-top:8px"></span>
+                <span style="font:400 15px/1.6 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">Sent with care from our Factory in Ireland</span>
+              </div>
+              <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #E4DED0">
+                <span style="flex:0 0 auto;width:5px;height:5px;border-radius:50%;background:#3F4A3C;margin-top:8px"></span>
+                <span style="font:400 15px/1.6 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">All gifts are sent with an unique IrelandsEye gift card, handwritten with your gift message</span>
+              </div>
+              <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #E4DED0">
+                <span style="flex:0 0 auto;width:5px;height:5px;border-radius:50%;background:#3F4A3C;margin-top:8px"></span>
+                <span style="font:400 15px/1.6 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">Gifts are carefully wrapped in tissue paper and presented in an IrelandEye branded box</span>
+              </div>
+              <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #E4DED0">
+                <span style="flex:0 0 auto;width:5px;height:5px;border-radius:50%;background:#3F4A3C;margin-top:8px"></span>
+                <span style="font:400 15px/1.6 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">Tell us about your gift at the checkout, there is no extra cost to add a gift note to your order</span>
+              </div>
+              <div style="margin-top:24px;padding:20px 22px;background:#F8F5EC;border:1px solid #E4DED0;display:flex;flex-direction:column;gap:10px">
+                <span style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8378">At the checkout</span>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <span style="width:16px;height:16px;border:1px solid #3F4A3C;background:#3F4A3C;display:flex;align-items:center;justify-content:center;color:#FFFDF9;font:600 10px/1 'Inter Tight',sans-serif">✓</span>
+                  <span style="font:400 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">This is a gift — add a handwritten note</span>
+                </div>
+                <div style="padding:12px 14px;background:#FFFDF9;border:1px solid #E4DED0;font:600 15px/1.5 'Inter Tight',sans-serif;color:#8A8378">A little gift to brighten up these darker days!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+</div></div>
+  <div style="display:flex;flex-direction:column;gap:16px"><div style="display:flex;align-items:baseline;gap:12px"><span style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#1C1B18">Mobile</span><span style="font:400 12px/1 'Inter Tight',sans-serif;color:#8A8378">390px</span></div><div style="width:390px;background:#FFFDF9;font-family:'Inter Tight',sans-serif;box-shadow:0 2px 24px rgba(28,27,24,.08)">
+  <div style="display:flex;flex-direction:column">
+  <div style="position:relative"><image-slot id="pv-atf-m" shape="rect" src="./uploads/eva-heather-2.png" style="min-width:0;display:block;width:100%;height:500px" placeholder="Product image"></image-slot><span style="position:absolute;top:10px;left:0;padding:7px 9px;background:#3E8C86;color:#FFFFFF;font:500 10px/1 'Inter Tight',sans-serif">Perfect for Autumn</span></div>
+  <div style="padding:24px 20px 8px"><div style="display:flex;flex-direction:column;gap:14px">
+  <div style="display:flex;align-items:center;gap:6px;font:400 11px/1 'Inter Tight',sans-serif;color:#1C1B18"><span style="letter-spacing:3px">★★★★★</span><span>(3 Reviews)</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px"><div style="font:700 22px/1.2 'Inter Tight',sans-serif;letter-spacing:-.01em;color:#1C1B18">The Eva Cashmere Cable Crew Neck Heather</div><span style="flex:0 0 auto;width:42px;height:42px;border:1px solid #1C1B18;border-radius:50%;display:flex;align-items:center;justify-content:center;font:500 6px/1.2 'Inter Tight',sans-serif;letter-spacing:.08em;text-align:center">MADE IN<br>IRELAND</span></div>
+  <div style="font:400 16px/1 'Inter Tight',sans-serif;color:#1C1B18">€134,95</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border:1px solid #E4DED0"><div style="display:flex;align-items:center;gap:10px"><span style="width:20px;height:20px;background:#D77FD0"></span><span style="font:400 13px/1 'Inter Tight',sans-serif;color:#1C1B18">Heather</span></div><div style="display:flex;align-items:center;gap:4px"><span style="width:18px;height:18px;border-radius:50%;background:#E8E2C8"></span><span style="width:18px;height:18px;border-radius:50%;background:#C9A227;margin-left:-8px"></span><span style="width:18px;height:18px;border-radius:50%;background:#8FB0AA;margin-left:-8px"></span><span style="font:400 12px/1 'Inter Tight',sans-serif;color:#8A8378;margin-left:4px">+5 ⌄</span></div></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div style="display:flex;gap:16px;padding:12px 14px;border:1px solid #E4DED0"><span style="padding:0 2px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18">XS</span><span style="padding:0 2px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18">S</span><span style="padding:0 2px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18">M</span><span style="padding:0 2px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18">L</span><span style="padding:0 2px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18">XL</span><span style="padding:0 2px;font:400 14px/1 'Inter Tight',sans-serif;color:#1C1B18">XXL</span></div><span style="font:400 13px/1 'Inter Tight',sans-serif;color:#1C1B18;text-decoration:underline">Size Guide</span></div>
+  <span style="font:400 15px/1 'Inter Tight',sans-serif;color:#1C1B18;text-decoration:underline">Find your correct size here</span>
+  <div style="padding:13px 0 11px;border-radius:24px;background:#8FBFB8;color:#FFFFFF;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font:600 13px/1 'Inter Tight',sans-serif">Select A Size</span><span style="font:400 9px/1 'Inter Tight',sans-serif">All Duty and Taxes included on all orders.</span></div>
+  <div style="padding:8px;border:1px solid #E4DED0;text-align:center;font:400 12px/1.3 'Inter Tight',sans-serif;letter-spacing:.03em;color:#1C1B18">3 payments of <b>€44.98</b> at 0% interest with <b>Klarna</b> <u>Learn more</u></div>
+  <div style="display:flex;flex-direction:column;gap:7px;margin-top:4px"><div style="display:flex;align-items:center;gap:8px"><span style="flex:0 0 auto;width:12px;height:12px;border:1.2px solid #1C1B18;border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 8px/1 'Inter Tight',sans-serif">✓</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Model Height: 178cm/5'10</span></div><div style="display:flex;align-items:center;gap:8px"><span style="flex:0 0 auto;width:12px;height:12px;border:1.2px solid #1C1B18;border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 8px/1 'Inter Tight',sans-serif">✓</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Model wears size S/ UK/ AUS/ NZ 8-10/ EU 34-36 / US 4-6</span></div><div style="display:flex;align-items:center;gap:8px"><span style="flex:0 0 auto;width:12px;height:12px;border:1.2px solid #1C1B18;border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 8px/1 'Inter Tight',sans-serif">✓</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Regular Fit</span></div><div style="display:flex;align-items:center;gap:8px"><span style="flex:0 0 auto;width:12px;height:12px;border:1.2px solid #1C1B18;border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 8px/1 'Inter Tight',sans-serif">✓</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">50%...</span></div><span style="margin-left:20px;font:400 13px/1 'Inter Tight',sans-serif;color:#1C1B18;text-decoration:underline">See More</span></div>
+</div></div>
+  <div style="display:flex;flex-direction:column;gap:10px;padding:16px 20px;font:400 13px/1 'Inter Tight',sans-serif;color:#1C1B18"><span>Made in Ireland</span><span>Free Delivery Available</span><span style="display:flex;gap:8px"><span style="color:#3E8C86">★</span>Over 3,000 Positive Reviews</span></div>
+</div>
+  <sc-if value="{{ is2a }}" hint-placeholder-val="{{ true }}"><div style="padding:36px 24px;display:flex;flex-direction:column;gap:32px">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Description</div>
+    <div style="font:600 24px/1.22 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">A heavy-gauge jersey knit in wool and cashmere, made to hold its shape.</div>
+    <div style="font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">[Product description from the live PDP.] Blue Ocean is a light denim blue with contrasting flecks, one of our bespoke colours dyed exclusively for IrelandsEye.</div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 18px;border-top:1px solid #1C1B18;margin-top:6px"><div style="display:flex;flex-direction:column;gap:4px;padding:12px 0;border-bottom:1px solid #E4DED0"><span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Fibre</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">95% wool, 5% cashmere</span></div><div style="display:flex;flex-direction:column;gap:4px;padding:12px 0;border-bottom:1px solid #E4DED0"><span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Knit</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Chunky jersey</span></div><div style="display:flex;flex-direction:column;gap:4px;padding:12px 0;border-bottom:1px solid #E4DED0"><span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Fit</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Relaxed</span></div><div style="display:flex;flex-direction:column;gap:4px;padding:12px 0;border-bottom:1px solid #E4DED0"><span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Made</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Baldoyle, Dublin</span></div><div style="display:flex;flex-direction:column;gap:4px;padding:12px 0;border-bottom:1px solid #E4DED0"><span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Care</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Hand wash, dry flat</span></div><div style="display:flex;flex-direction:column;gap:4px;padding:12px 0;border-bottom:1px solid #E4DED0"><span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Style</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18">A469</span></div></div>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #1C1B18">
+    <button type="button" onClick="{{ t2aShip }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 16px/1.3 'Inter Tight',sans-serif;color:#1C1B18">Shipping &amp; Returns<span style="font:400 15px/1 'Inter Tight',sans-serif;color:#5C574D">{{ g2aShip }}</span></button><sc-if value="{{ o2aShip }}"><div style="padding:2px 0 18px;border-bottom:1px solid #E4DED0;font:400 13px/1.65 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Free delivery available. [Delivery times by region.] [Returns window and process.]</div></sc-if>
+    <button type="button" onClick="{{ t2aCc }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 16px/1.3 'Inter Tight',sans-serif;color:#1C1B18">Click &amp; Collect<span style="font:400 15px/1 'Inter Tight',sans-serif;color:#5C574D">{{ g2aCc }}</span></button><sc-if value="{{ o2aCc }}"><div style="padding:2px 0 18px;border-bottom:1px solid #E4DED0;font:400 13px/1.65 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Collect from reception at Knitwear House, Baldoyle Industrial Estate, Dublin 13, D13 DT63. [Opening hours.]</div></sc-if>
+    <a href="#passport-m" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid #E4DED0;text-decoration:none;font:500 16px/1.3 'Inter Tight',sans-serif;color:#1C1B18">Ethical Sourcing &amp; Garment Care<span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#3F4A3C">Passport ↓</span></a>
+  </div>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 10px">
+    <div style="display:flex;flex-direction:column;gap:8px;min-width:0"><image-slot id="pv-m2a-1" shape="rect" src="./uploads/6E2A1743.webp" style="min-width:0;display:block;width:100%;height:150px" placeholder="Measuring table"></image-slot><div style="display:flex;gap:8px"><span style="font:500 12px/1.45 'Inter Tight',sans-serif;color:#B0A895">01</span><span style="font:400 12px/1.45 'Inter Tight',sans-serif;color:#1C1B18">Designed and Made in Ireland</span></div></div>
+    <div style="display:flex;flex-direction:column;gap:8px;min-width:0"><image-slot id="pv-m2a-2" shape="rect" src="./uploads/Linking_Landscape.webp" style="min-width:0;display:block;width:100%;height:150px" placeholder="Linking machine"></image-slot><div style="display:flex;gap:8px"><span style="font:500 12px/1.45 'Inter Tight',sans-serif;color:#B0A895">02</span><span style="font:400 12px/1.45 'Inter Tight',sans-serif;color:#1C1B18">Carefully passing through 27 pairs of hands</span></div></div>
+    <div style="display:flex;flex-direction:column;gap:8px;min-width:0"><image-slot id="pv-m2a-3" shape="rect" style="min-width:0;display:block;width:100%;height:150px" placeholder="Cable close-up"></image-slot><div style="display:flex;gap:8px"><span style="font:500 12px/1.45 'Inter Tight',sans-serif;color:#B0A895">03</span><span style="font:400 12px/1.45 'Inter Tight',sans-serif;color:#1C1B18">Each piece inspected with care</span></div></div>
+    <div style="display:flex;flex-direction:column;gap:8px;min-width:0"><image-slot id="pv-m2a-4" shape="rect" style="min-width:0;display:block;width:100%;height:150px" placeholder="Bespoke colour swatch"></image-slot><div style="display:flex;gap:8px"><span style="font:500 12px/1.45 'Inter Tight',sans-serif;color:#B0A895">04</span><span style="font:400 12px/1.45 'Inter Tight',sans-serif;color:#1C1B18">Bespoke colours. Designed in-house</span></div></div>
+  </div>
+</div></sc-if>
+  <sc-if value="{{ is2b }}"><div style="padding:32px 0 36px;display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;gap:24px;overflow-x:auto;padding:0 24px;border-bottom:1px solid #E4DED0">
+    <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="5">
+      <button type="button" onClick="{{ tb.select }}" style="flex:0 0 auto;padding:0 0 14px;margin-bottom:-1px;background:none;border:none;border-bottom:2px solid {{ tb.line }};cursor:pointer;font:500 15px/1.2 'Inter Tight',sans-serif;color:{{ tb.ink }};white-space:nowrap">{{ tb.label }}</button>
+    </sc-for>
+  </div>
+  <div style="padding:0 24px;display:flex;flex-direction:column;gap:20px">
+    <sc-if value="{{ tbDesc }}"><div style="display:flex;flex-direction:column;gap:14px"><div style="font:600 22px/1.25 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">A heavy-gauge jersey knit in wool and cashmere, made to hold its shape.</div><div style="font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">[Product description from the live PDP.] Blue Ocean is a light denim blue with contrasting flecks.</div><image-slot id="pv-m2b-desc" shape="rect" src="./uploads/C315_Isla_Oversized_Crew_Neck_in_Rocky_Ground_Small_2_1000x.webp" style="min-width:0;display:block;width:100%;height:260px" placeholder="Garment detail"></image-slot></div></sc-if>
+    <sc-if value="{{ tbGlance }}"><div style="display:flex;flex-direction:column;gap:16px"><div style="display:flex;flex-direction:column;border-top:1px solid #1C1B18"><div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #E4DED0"><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#8A8378">Fibre</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18;text-align:right">95% wool, 5% cashmere</span></div><div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #E4DED0"><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#8A8378">Knit</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18;text-align:right">Chunky jersey</span></div><div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #E4DED0"><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#8A8378">Fit</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18;text-align:right">Relaxed</span></div><div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #E4DED0"><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#8A8378">On the model</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18;text-align:right">188cm / 6'2, L</span></div><div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #E4DED0"><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#8A8378">Made</span><span style="font:400 13px/1.4 'Inter Tight',sans-serif;color:#1C1B18;text-align:right">Baldoyle, Dublin</span></div></div><image-slot id="pv-m2b-glance" shape="rect" src="./uploads/6E2A1743.webp" style="min-width:0;display:block;width:100%;height:260px" placeholder="Measuring table"></image-slot></div></sc-if>
+    <sc-if value="{{ tbShip }}"><div style="display:flex;flex-direction:column;gap:14px"><div style="font:600 22px/1.25 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">Free delivery available.</div><div style="font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">[Delivery times by region.] [Returns window and process.]</div><image-slot id="pv-m2b-ship" shape="rect" src="./uploads/Gifting_page_25_-_Gift_bag.webp" style="min-width:0;display:block;width:100%;height:260px" placeholder="Packed box"></image-slot></div></sc-if>
+    <sc-if value="{{ tbCare }}"><div style="display:flex;flex-direction:column;gap:14px"><div style="font:600 22px/1.25 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">Hand wash warm, dry flat, store folded.</div><div style="font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Spun and dyed by mills accredited to OEKO-TEX® Standard 100, the Responsible Wool Standard and The Good Cashmere Standard.</div><a href="#passport-m" style="font:500 12px/1 'Inter Tight',sans-serif;letter-spacing:.06em;text-decoration:none;border-bottom:1px solid #B0A895;padding-bottom:3px;width:fit-content">Full sourcing and care in the passport ↓</a></div></sc-if>
+    <sc-if value="{{ tbCc }}"><div style="display:flex;flex-direction:column;gap:14px"><div style="font:600 22px/1.25 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">Collect it from the factory where it was made.</div><div style="font:400 13px/1.7 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Reception, Knitwear House, Baldoyle Industrial Estate, Dublin 13, D13 DT63. [Opening hours.]</div><image-slot id="pv-m2b-cc" shape="rect" src="./uploads/Linking_Landscape.webp" style="min-width:0;display:block;width:100%;height:260px" placeholder="Factory floor"></image-slot></div></sc-if>
+  </div>
+  <div style="margin:4px 24px 0;display:flex;flex-direction:column;border-top:1px solid #1C1B18">
+    <span style="padding:12px 0;border-bottom:1px solid #E4DED0;font:500 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Designed and Made in Ireland</span>
+    <span style="padding:12px 0;border-bottom:1px solid #E4DED0;font:500 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Carefully passing through 27 pairs of hands</span>
+    <span style="padding:12px 0;border-bottom:1px solid #E4DED0;font:500 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Each piece inspected with care</span>
+    <span style="padding:12px 0;border-bottom:1px solid #E4DED0;font:500 14px/1.4 'Inter Tight',sans-serif;color:#1C1B18">Bespoke colours. Designed in-house</span>
+  </div>
+</div></sc-if>
+  <sc-if value="{{ is2c }}"><div style="padding:0 0 36px;display:flex;flex-direction:column;gap:28px">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <image-slot id="pv-m2c-hero" shape="rect" src="./uploads/Linking_Landscape.webp" style="min-width:0;display:block;width:100%;height:420px" placeholder="Hands at the linking machine"></image-slot>
+    <span style="padding:0 24px;font:400 11px/1.4 'Inter Tight',sans-serif;color:#8A8378">Linking, Baldoyle</span>
+  </div>
+  <div style="padding:0 24px;display:flex;flex-direction:column;gap:12px">
+    <div style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">Designed and Made in Ireland</div>
+    <div style="display:flex;align-items:baseline;gap:12px"><span style="font:600 52px/1 'Inter Tight',sans-serif;color:#3F4A3C">27</span><span style="font:500 18px/1.3 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">pairs of hands, from yarn cone to folded box.</span></div>
+    <div style="display:flex;flex-direction:column;margin-top:6px"><div style="display:flex;align-items:center;gap:14px;padding:10px 0;border-top:1px solid #E4DED0"><image-slot id="pv-m2c-t1" shape="rect" src="./uploads/6E2A1743.webp" style="min-width:0;display:block;width:56px;height:56px;flex:0 0 56px" placeholder="Measure"></image-slot><span style="font:400 13px/1.5 'Inter Tight',sans-serif;color:#1C1B18">Each piece inspected with care</span></div><div style="display:flex;align-items:center;gap:14px;padding:10px 0;border-top:1px solid #E4DED0;border-bottom:1px solid #E4DED0"><image-slot id="pv-m2c-t2" shape="rect" style="min-width:0;display:block;width:56px;height:56px;flex:0 0 56px" placeholder="Colour"></image-slot><span style="font:400 13px/1.5 'Inter Tight',sans-serif;color:#1C1B18">Bespoke colours. Designed in-house</span></div></div>
+  </div>
+  <div style="margin:0 24px;display:flex;flex-direction:column;border-top:1px solid #1C1B18">
+    <button type="button" onClick="{{ t2cDesc }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 16px/1.3 'Inter Tight',sans-serif;color:#1C1B18">Description<span style="font:400 15px/1 'Inter Tight',sans-serif;color:#5C574D">{{ g2cDesc }}</span></button><sc-if value="{{ o2cDesc }}"><div style="padding:2px 0 18px;border-bottom:1px solid #E4DED0;font:400 13px/1.65 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">[Product description from the live PDP.] A heavy-gauge jersey knit in 95% wool, 5% cashmere. Blue Ocean is a light denim blue with contrasting flecks, dyed exclusively for IrelandsEye.</div></sc-if>
+    <button type="button" onClick="{{ t2cGlance }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 16px/1.3 'Inter Tight',sans-serif;color:#1C1B18">At a Glance<span style="font:400 15px/1 'Inter Tight',sans-serif;color:#5C574D">{{ g2cGlance }}</span></button><sc-if value="{{ o2cGlance }}"><div style="padding:2px 0 18px;border-bottom:1px solid #E4DED0;font:400 13px/1.65 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">95% wool, 5% cashmere · Chunky jersey knit · Relaxed fit · Model 188cm, wearing L</div></sc-if>
+    <button type="button" onClick="{{ t2cShip }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 16px/1.3 'Inter Tight',sans-serif;color:#1C1B18">Shipping &amp; Returns<span style="font:400 15px/1 'Inter Tight',sans-serif;color:#5C574D">{{ g2cShip }}</span></button><sc-if value="{{ o2cShip }}"><div style="padding:2px 0 18px;border-bottom:1px solid #E4DED0;font:400 13px/1.65 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Free delivery available. [Delivery times.] [Returns window.]</div></sc-if>
+    <button type="button" onClick="{{ t2cCc }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 16px/1.3 'Inter Tight',sans-serif;color:#1C1B18">Click &amp; Collect<span style="font:400 15px/1 'Inter Tight',sans-serif;color:#5C574D">{{ g2cCc }}</span></button><sc-if value="{{ o2cCc }}"><div style="padding:2px 0 18px;border-bottom:1px solid #E4DED0;font:400 13px/1.65 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Collect from reception at Knitwear House, Baldoyle, Dublin 13. [Opening hours.]</div></sc-if>
+    <a href="#passport-m" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid #E4DED0;text-decoration:none;font:500 16px/1.3 'Inter Tight',sans-serif;color:#1C1B18">Ethical Sourcing &amp; Garment Care<span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#3F4A3C">Passport ↓</span></a>
+  </div>
+</div></sc-if>
+  <div id="passport-m" style="border-top:1px solid #E4DED0"><div style="background:#FFFDF9;padding:32px 24px 0">
+        <div style="display:flex;flex-direction:column;gap:10px;padding-bottom:20px;border-bottom:1px solid #1C1B18">
+          <div style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A8378">Product Passport</div>
+          <div style="font:600 27px/1.1 'Inter Tight',sans-serif;letter-spacing:-.02em;color:#1C1B18">The Roundstone Cashmere Sweater</div>
+          <div style="font:400 12px/1 'Inter Tight',sans-serif;color:#5C574D">Blue Ocean · A469</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:9px;padding:24px 0;border-bottom:1px solid #E4DED0">
+          <div style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">01 · Where it was made</div>
+          <div style="font:500 17px/1.35 'Inter Tight',sans-serif;color:#1C1B18">Knitted, linked and finished in Baldoyle, Dublin.</div>
+          <div style="font:400 13px/1.65 'Inter Tight',sans-serif;color:#5C574D;text-wrap:pretty">Knitwear House, Baldoyle Industrial Estate, Dublin 13. Made on site — not sourced, not subcontracted.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:9px;padding:24px 0;border-bottom:1px solid #E4DED0">
+          <div style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A8378">02 · Fibre</div>
+          <div style="font:500 17px/1.35 'Inter Tight',sans-serif;color:#1C1B18">95% wool, 5% cashmere. 100% natural.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">
+            <span style="padding:5px 9px;border:1px solid #D6CFBE;font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#5C574D">OEKO-TEX 100</span>
+            <span style="padding:5px 9px;border:1px solid #D6CFBE;font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#5C574D">RWS</span>
+            <span style="padding:5px 9px;border:1px solid #D6CFBE;font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#5C574D">Good Cashmere</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0;padding:8px 0 24px">
+          <button type="button" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 15px/1.3 'Inter Tight',sans-serif;color:#1C1B18" style-hover="color:#3F4A3C">03 · Construction<span style="font:400 15px/1 'Inter Tight',sans-serif;color:#B0A895">+</span></button>
+          <button type="button" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 15px/1.3 'Inter Tight',sans-serif;color:#1C1B18" style-hover="color:#3F4A3C">04 · Feel, fit and wear<span style="font:400 15px/1 'Inter Tight',sans-serif;color:#B0A895">+</span></button>
+          <button type="button" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 15px/1.3 'Inter Tight',sans-serif;color:#1C1B18" style-hover="color:#3F4A3C">05 · Who made it<span style="font:400 15px/1 'Inter Tight',sans-serif;color:#B0A895">+</span></button>
+          <button type="button" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px 0;background:none;border:none;border-bottom:1px solid #E4DED0;cursor:pointer;text-align:left;font:500 15px/1.3 'Inter Tight',sans-serif;color:#1C1B18" style-hover="color:#3F4A3C">06 · How to care for it<span style="font:400 15px/1 'Inter Tight',sans-serif;color:#B0A895">+</span></button>
+        </div>
+        <div style="margin:0 -24px;background:#3F4A3C;color:#F2EFE6;padding:32px 24px">
+          <div style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#B9C2B0;margin-bottom:10px">How to make it last longer</div>
+          <div style="font:600 24px/1.2 'Inter Tight',sans-serif;color:#FFFDF9;margin-bottom:12px">Wool doesn't wear out. It wears in.</div>
+          <div style="font:400 13px/1.65 'Inter Tight',sans-serif;color:#D5D9CD;text-wrap:pretty;margin-bottom:20px">Pilling is normal on natural yarn. Remove it and the sweater looks new again.</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a href="https://irelandseyeknitwear.com/products/irelandseye-depillar" style="padding:14px 20px;background:#FFFDF9;color:#1C1B18;font:600 11px/1 'Inter Tight',sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;text-align:center">Add the depillar kit</a>
+            <a href="mailto:info@ieknit.com" style="font:500 12px/1 'Inter Tight',sans-serif;letter-spacing:.06em;color:#FFFDF9;text-decoration:none;border-bottom:1px solid rgba(255,253,249,.5);padding-bottom:3px;width:fit-content">Return it to the factory for repair →</a>
+          </div>
+        </div>
+        <div style="padding:28px 0 32px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;flex-direction:column;gap:7px;padding-bottom:16px;border-bottom:1px solid #1C1B18">
+            <span style="font:500 9px/1 'Inter Tight',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A8378">07 · Share the Love</span>
+            <span style="font:600 24px/1.2 'Inter Tight',sans-serif;color:#1C1B18">Let us help you send a gift to a loved one</span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px">
+            <image-slot id="pp-1a-m-bag" shape="rect" src="./uploads/Gifting_page_25_-_Gift_bag.webp" style="min-width:0;display:block;width:100%;height:150px" placeholder="Branded gift bag"></image-slot>
+            <image-slot id="pp-1a-m-card" shape="rect" src="./uploads/Gifting_page_25_gift_note_1.webp" style="min-width:0;display:block;width:100%;height:150px" placeholder="Handwritten gift card"></image-slot>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <div style="display:flex;gap:12px;padding:13px 0;border-bottom:1px solid #E4DED0"><span style="flex:0 0 auto;width:4px;height:4px;border-radius:50%;background:#3F4A3C;margin-top:8px"></span><span style="font:400 14px/1.6 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">Sent with care from our Factory in Ireland</span></div>
+            <div style="display:flex;gap:12px;padding:13px 0;border-bottom:1px solid #E4DED0"><span style="flex:0 0 auto;width:4px;height:4px;border-radius:50%;background:#3F4A3C;margin-top:8px"></span><span style="font:400 14px/1.6 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">All gifts are sent with an unique IrelandsEye gift card, handwritten with your gift message</span></div>
+            <div style="display:flex;gap:12px;padding:13px 0;border-bottom:1px solid #E4DED0"><span style="flex:0 0 auto;width:4px;height:4px;border-radius:50%;background:#3F4A3C;margin-top:8px"></span><span style="font:400 14px/1.6 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">Gifts are carefully wrapped in tissue paper and presented in an IrelandEye branded box</span></div>
+            <div style="display:flex;gap:12px;padding:13px 0"><span style="flex:0 0 auto;width:4px;height:4px;border-radius:50%;background:#3F4A3C;margin-top:8px"></span><span style="font:400 14px/1.6 'Inter Tight',sans-serif;color:#1C1B18;text-wrap:pretty">Tell us about your gift at the checkout, there is no extra cost to add a gift note to your order</span></div>
+          </div>
+        </div>
+      </div></div>
+</div></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;longevity&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;Kit, repair and guide&quot;, &quot;Kit only&quot;, &quot;Repair only&quot;], &quot;default&quot;: &quot;Kit, repair and guide&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Passport content&quot; },
+  &quot;showMakerPhotos&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Passport content&quot; },
+  &quot;showCertBadges&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Passport content&quot; },
+  &quot;numberEntries&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Passport content&quot; }
+}">
+class Component extends DCLogic {
+  state = { open: false, acc: { "2cDesc": true }, tab: "Desc", opt: "2a" };
+  renderVals() {
+    const open = this.state.open;
+    const acc = {};
+    ["2aShip", "2aCc", "2cDesc", "2cGlance", "2cShip", "2cCc"].forEach(k => {
+      const on = !!this.state.acc[k];
+      acc["o" + k] = on;
+      acc["g" + k] = on ? "–" : "+";
+      acc["t" + k] = () => this.setState(s => ({ acc: { ...s.acc, [k]: !s.acc[k] } }));
+    });
+    const tabDefs = [["Desc", "Description"], ["Glance", "At a Glance"], ["Ship", "Shipping & Returns"], ["Care", "Ethical Sourcing & Care"], ["Cc", "Click & Collect"]];
+    const tab = this.state.tab;
+    const tabs = tabDefs.map(([k, label]) => ({ label, line: tab === k ? "#1C1B18" : "transparent", ink: tab === k ? "#1C1B18" : "#8A8378", select: () => this.setState({ tab: k }) }));
+    tabDefs.forEach(([k]) => { acc["tb" + k] = tab === k; });
+    Object.assign(acc, { tabs });
+    const mode = this.props.longevity ?? "Kit, repair and guide";
+    const opt = this.state.opt;
+    ["2a","2b","2c"].forEach(k => { acc["is"+k] = opt === k; acc["pick"+k] = () => this.setState({ opt: k }); acc["bg"+k] = opt === k ? "#1C1B18" : "#FFFDF9"; acc["ink"+k] = opt === k ? "#FFFDF9" : "#1C1B18"; });
+    return {
+      ...acc,
+      open,
+      toggle: () => this.setState(s => ({ open: !s.open })),
+      toggleLabel: open ? "Close the passport" : "Open the full passport",
+      toggleGlyph: open ? "–" : "+",
+      numbered: this.props.numberEntries ?? true,
+      certs: this.props.showCertBadges ?? true,
+      photos: this.props.showMakerPhotos ?? true,
+      showKit: mode !== "Repair only",
+      showRepair: mode !== "Kit only"
+    };
+  }
+}
+
+</script>
+</body>
+</html>
