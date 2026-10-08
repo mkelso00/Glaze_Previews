@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E4E0D9;color:#1C1D1F;font-family:Archivo,system-ui,sans-serif}
+a{color:#1C1D1F}a:hover{color:#5E5F62}
+</style>
+</helmet>
+<section style="padding:56px;display:flex;flex-direction:column;gap:32px">
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <div style="font-weight:800;letter-spacing:0.14em;font-size:14px">ROADSTONE</div>
+    <h1 style="margin:0;font-size:36px;font-weight:700;letter-spacing:-0.01em">Order builder</h1>
+    <p style="margin:0;font-size:16px;color:#5E5F62">Stage 1 for Online Sales on the left. Stage 2 for account customers and contractors on the right.</p>
+  </div>
+  <div style="display:flex;gap:56px;align-items:flex-start;width:max-content">
+    <div id="1a" style="width:1440px;flex:none;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;padding:4px 10px;border-radius:6px;background:#1C1D1F;color:#FFFFFF">1a</span>
+        <span style="font-size:20px;font-weight:700">Online Sales · B2C</span>
+        <span style="font-size:15px;color:#5E5F62">County price lists, Shopify customers, quote or pass to rep</span>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;background:#F4F2EE;box-shadow:0 1px 2px rgba(0,0,0,0.08),0 12px 32px rgba(0,0,0,0.08)">
+        <dc-import name="Order Builder" mode="online" hint-size="1440px,1100px"></dc-import>
+      </div>
+    </div>
+    <div id="1b" style="width:1440px;flex:none;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;padding:4px 10px;border-radius:6px;background:#1C1D1F;color:#FFFFFF">1b</span>
+        <span style="font-size:20px;font-weight:700">Accounts and contractors · B2B</span>
+        <span style="font-size:15px;color:#5E5F62">Agreed prices, sites, PO numbers, credit check</span>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;background:#F4F2EE;box-shadow:0 1px 2px rgba(0,0,0,0.08),0 12px 32px rgba(0,0,0,0.08)">
+        <dc-import name="Order Builder" mode="account" hint-size="1440px,1100px"></dc-import>
+      </div>
+    </div>
+  </div>
+</section>
+</x-dc>
+</body>
+</html>
