@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F2EE;color:#1C1D1F;font-family:Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#1C1D1F;text-decoration:underline}a:hover{color:#5E5F62}
+input,select,textarea,button{font-family:inherit;font-size:inherit}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+  <header style="background:#1C1D1F;color:#FFFFFF;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:14px 28px">
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="font-weight:800;letter-spacing:0.14em;font-size:15px">ROADSTONE</div>
+      <div style="width:1px;height:18px;background:#4A4B4F"></div>
+      <div style="font-size:14px;color:#D6D3CD">Online Sales · Order builder</div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;padding:3px 8px;border-radius:4px;background:#3A3B3F;color:#F2C230">SAMPLE DATA</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px;font-size:13px;color:#D6D3CD">
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#F2C230"></span><span>Quote time</span><span style="font-family:'JetBrains Mono',monospace;color:#FFFFFF">{{ elapsed }}</span></div>
+      <div>Signed in as Online Sales</div>
+    </div>
+  </header>
+
+  <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+    <div style="max-width:1320px;width:100%;margin:0 auto;padding:28px 28px 64px;display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+          <button onClick="{{ s.onClick }}" style="display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;border:1px solid {{ s.border }};background:{{ s.bg }};color:{{ s.fg }};cursor:{{ s.cursor }};font-weight:600;font-size:14px">
+            <span style="width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-family:'JetBrains Mono',monospace;background:{{ s.dotBg }};color:{{ s.dotFg }}">{{ s.mark }}</span>
+            <span>{{ s.label }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+        <main style="flex:1 1 620px;min-width:0;background:#FFFFFF;border:1px solid #DDD9D2;border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:28px">
+
+          <sc-if value="{{ isStep0 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:24px">
+              <div>
+                <h1 style="margin:0 0 6px;font-size:24px;font-weight:700;letter-spacing:-0.01em">Start an order</h1>
+                <p style="margin:0;color:#5E5F62;font-size:15px;text-wrap:pretty">Start from a sample enquiry or a blank order. The quote timer starts when you pick one.</p>
+              </div>
+              <button onClick="{{ startBlank }}" style="text-align:left;padding:18px;border-radius:8px;border:1px dashed #9A9893;background:#FFFFFF;cursor:pointer;display:flex;flex-direction:column;gap:4px;color:#1C1D1F">
+                <span style="font-weight:700;font-size:16px">Blank order</span>
+                <span style="font-size:13px;color:#5E5F62">Enter the customer details by hand, for phone and walk-in orders.</span>
+              </button>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#5E5F62">Sample enquiries</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px">
+                  <sc-for list="{{ enquiries }}" as="q" hint-placeholder-count="3">
+                    <button onClick="{{ q.onClick }}" style="text-align:left;padding:14px;border-radius:8px;border:1px solid {{ q.border }};background:{{ q.bg }};cursor:pointer;display:flex;flex-direction:column;gap:6px;color:#1C1D1F">
+                      <div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#5E5F62"><span style="font-weight:600;color:#1C1D1F">{{ q.source }}</span><span>{{ q.when }}</span></div>
+                      <div style="font-weight:600;font-size:15px">{{ q.name }}</div>
+                      <div style="font-size:13px;color:#5E5F62;line-height:1.4">{{ q.message }}</div>
+                    </button>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:28px">
+              <div>
+                <h1 style="margin:0 0 6px;font-size:24px;font-weight:700;letter-spacing:-0.01em">Customer and location</h1>
+                <p style="margin:0;color:#5E5F62;font-size:15px;text-wrap:pretty">Check the customer and delivery details. The Eircode sets the county price list, nearest quarry and delivery zone.</p>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#5E5F62">Contact</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+                  <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">Full name<input value="{{ c.name }}" onChange="{{ on.name }}" placeholder="First and last name" style="padding:11px 12px;border:1px solid #CFCAC1;border-radius:6px;font-weight:400;font-size:15px;background:#FFFFFF"></label>
+                  <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600"><span>Company <span style="font-weight:400;color:#5E5F62">(optional)</span></span><input value="{{ c.company }}" onChange="{{ on.company }}" placeholder="Company name" style="padding:11px 12px;border:1px solid #CFCAC1;border-radius:6px;font-weight:400;font-size:15px;background:#FFFFFF"></label>
+                  <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">Phone<input value="{{ c.phone }}" onChange="{{ on.phone }}" placeholder="08x xxx xxxx" style="padding:11px 12px;border:1px solid #CFCAC1;border-radius:6px;font-weight:400;font-size:15px;background:#FFFFFF"></label>
+                  <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">Email<input value="{{ c.email }}" onChange="{{ on.email }}" placeholder="name@example.ie" style="padding:11px 12px;border:1px solid #CFCAC1;border-radius:6px;font-weight:400;font-size:15px;background:#FFFFFF"></label>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#5E5F62">Delivery address</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+                  <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">Address line 1<input value="{{ c.line1 }}" onChange="{{ on.line1 }}" placeholder="House number and street" style="padding:11px 12px;border:1px solid #CFCAC1;border-radius:6px;font-weight:400;font-size:15px;background:#FFFFFF"></label>
+                  <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600"><span>Address line 2 <span style="font-weight:400;color:#5E5F62">(optional)</span></span><input value="{{ c.line2 }}" onChange="{{ on.line2 }}" placeholder="Townland or estate" style="padding:11px 12px;border:1px solid #CFCAC1;border-radius:6px;font-weight:400;font-size:15px;background:#FFFFFF"></label>
+                  <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">Town<input value="{{ c.town }}" onChange="{{ on.town }}" placeholder="Town or city" style="padding:11px 12px;border:1px solid #CFCAC1;border-radius:6px;font-weight:400;font-size:15px;background:#FFFFFF"></label>
+                  <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">County<input value="{{ countyField }}" onChange="{{ on.county }}" placeholder="Set from Eircode" style="padding:11px 12px;border:1px solid #CFCAC1;border-radius:6px;font-weight:400;font-size:15px;background:#FFFFFF"></label>
+                  <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">Eircode<input value="{{ c.eircode }}" onChange="{{ on.eircode }}" placeholder="e.g. D15 X2K7" style="padding:11px 12px;border:1px solid #CFCAC1;border-radius:6px;font-weight:400;font-size:15px;background:#FFFFFF;font-family:'JetBrains Mono',monospace"></label>
+                </div>
+                <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">Site access and delivery notes<textarea value="{{ c.site }}" onChange="{{ on.site }}" rows="2" placeholder="Gate code, narrow lane, where to drop the load" style="padding:11px 12px;border:1px solid #CFCAC1;border-radius:6px;font-weight:400;font-size:15px;background:#FFFFFF;font-size:14px;line-height:1.5;resize:vertical"></textarea></label>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="font-size:13px;font-weight:600">Lead source</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <sc-for list="{{ sources }}" as="so" hint-placeholder-count="5">
+                    <button onClick="{{ so.onClick }}" style="padding:9px 16px;border-radius:6px;border:1px solid {{ so.border }};background:{{ so.bg }};color:{{ so.fg }};font-weight:600;font-size:14px;cursor:pointer">{{ so.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="font-size:13px;font-weight:600">Customer type</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <sc-for list="{{ custTypes }}" as="t" hint-placeholder-count="3">
+                    <button onClick="{{ t.onClick }}" style="padding:9px 16px;border-radius:6px;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};font-weight:600;font-size:14px;cursor:pointer">{{ t.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <sc-if value="{{ locKnown }}" hint-placeholder-val="{{ false }}">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:#DDD9D2;border:1px solid #DDD9D2;border-radius:8px;overflow:hidden">
+                  <div style="background:#F8F6F2;padding:16px;display:flex;flex-direction:column;gap:4px"><div style="font-size:12px;color:#5E5F62">County</div><div style="font-weight:700;font-size:17px">{{ loc.county }}</div><div style="font-size:12px;color:#5E5F62">From Eircode routing key</div></div>
+                  <div style="background:#F8F6F2;padding:16px;display:flex;flex-direction:column;gap:4px"><div style="font-size:12px;color:#5E5F62">Price list</div><div style="font-weight:700;font-size:17px">{{ priceListName }}</div><div style="font-size:12px;color:#5E5F62">Shopify price list · county catalog</div></div>
+                  <div style="background:#F8F6F2;padding:16px;display:flex;flex-direction:column;gap:4px"><div style="font-size:12px;color:#5E5F62">Nearest quarry</div><div style="font-weight:700;font-size:17px">{{ loc.quarry }}</div><div style="font-size:12px;color:#5E5F62;font-family:'JetBrains Mono',monospace">{{ loc.km }} km · {{ bandLabel }}</div></div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ locUnknown }}" hint-placeholder-val="{{ false }}">
+                <div style="padding:14px 16px;border-radius:8px;background:#FBF1D2;font-size:14px;line-height:1.5">Eircode not recognised. This prototype knows D15, D24, A92, W91, R95, T12, V94 and H91.</div>
+              </sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:20px">
+              <div>
+                <h1 style="margin:0 0 6px;font-size:24px;font-weight:700;letter-spacing:-0.01em">Products</h1>
+                <p style="margin:0;color:#5E5F62;font-size:15px;text-wrap:pretty">Products come from the Shopify catalogue. Prices come from the county price list for the delivery address.</p>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:16px 18px;border-radius:8px;background:#1C1D1F;color:#FFFFFF">
+                <div style="display:flex;flex-direction:column;gap:4px">
+                  <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#F2C230">Pricing for</div>
+                  <div style="font-size:22px;font-weight:700">{{ county }} prices</div>
+                  <div style="font-size:13px;color:#D6D3CD">{{ countySource }}</div>
+                </div>
+                <label style="display:flex;flex-direction:column;gap:6px;font-size:12px;color:#D6D3CD">Price list
+                  <select value="{{ countyValue }}" onChange="{{ onCounty }}" style="padding:9px 10px;border-radius:6px;border:1px solid #4A4B4F;background:#2A2B2E;color:#FFFFFF;font-size:14px;min-width:200px">
+                    <sc-for list="{{ countyOptions }}" as="o" hint-placeholder-count="7"><option value="{{ o.value }}">{{ o.label }}</option></sc-for>
+                  </select>
+                </label>
+              </div>
+              <sc-if value="{{ countyOverridden }}" hint-placeholder-val="{{ false }}"><div style="padding:10px 14px;border-radius:6px;background:#FBF1D2;font-size:13px;line-height:1.5">Price list changed by hand from {{ loc.county }}. The change is saved on the Shopify order.</div></sc-if>
+              <div style="display:flex;flex-direction:column">
+                <sc-for list="{{ rows }}" as="l" hint-placeholder-count="1">
+                  <div style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(96px,auto);gap:16px;align-items:center;padding:16px 0;border-top:1px solid #E7E3DC">
+                    <div style="min-width:0;display:flex;flex-direction:column;gap:3px">
+                      <div style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#5E5F62">{{ l.catLabel }} · <span style="font-family:'JetBrains Mono',monospace;letter-spacing:0">{{ l.sku }}</span></div>
+                      <div style="font-weight:600;font-size:15px">{{ l.name }}</div>
+                      <div style="font-size:13px;color:#5E5F62">{{ l.spec }}</div>
+                      <div style="font-size:13px;font-family:'JetBrains Mono',monospace">{{ l.priceLabel }}</div>
+                      <sc-if value="{{ l.note }}"><div style="font-size:12px;color:#5E5F62">{{ l.note }}</div></sc-if>
+                      <sc-if value="{{ showWorking }}"><div style="font-size:12px;color:#5E5F62;font-family:'JetBrains Mono',monospace;background:#F4F2EE;padding:6px 8px;border-radius:4px;margin-top:4px;align-self:flex-start">{{ l.working }}</div></sc-if>
+                    </div>
+                    <div style="display:flex;align-items:center;border:1px solid #CFCAC1;border-radius:6px;overflow:hidden">
+                      <button onClick="{{ l.dec }}" style="width:36px;height:40px;border:none;background:#F4F2EE;cursor:pointer;font-size:18px;color:#1C1D1F">−</button>
+                      <input value="{{ l.qtyInput }}" onChange="{{ l.onQty }}" style="width:70px;height:40px;border:none;text-align:center;font-family:'JetBrains Mono',monospace;font-size:14px">
+                      <button onClick="{{ l.inc }}" style="width:36px;height:40px;border:none;background:#F4F2EE;cursor:pointer;font-size:18px;color:#1C1D1F">+</button>
+                    </div>
+                    <div style="text-align:right;display:flex;flex-direction:column;gap:2px;align-items:flex-end">
+                      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:15px">{{ l.totalLabel }}</div>
+                      <div style="font-size:12px;color:#5E5F62">{{ l.unit }}</div>
+                      <button onClick="{{ l.remove }}" style="border:none;background:transparent;padding:2px 0;font-size:12px;color:#5E5F62;cursor:pointer;text-decoration:underline">Remove</button>
+                    </div>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ noRows }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding:20px 0;border-top:1px solid #E7E3DC;font-size:14px;color:#5E5F62">No products on this order yet.</div>
+                </sc-if>
+              </div>
+              <sc-if value="{{ pickerClosed }}" hint-placeholder-val="{{ true }}">
+                <button onClick="{{ openPicker }}" style="align-self:flex-start;display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:6px;border:1px dashed #9A9893;background:#FFFFFF;color:#1C1D1F;font-weight:600;font-size:14px;cursor:pointer"><span style="font-size:18px;line-height:1">+</span>Add product</button>
+              </sc-if>
+              <sc-if value="{{ pickerOpen }}" hint-placeholder-val="{{ false }}">
+                <div style="border:1px solid #DDD9D2;border-radius:8px;background:#F8F6F2;padding:16px;display:flex;flex-direction:column;gap:12px">
+                  <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+                    <input value="{{ search }}" onChange="{{ onSearch }}" placeholder="Search Shopify products or SKU" style="flex:1 1 240px;padding:10px 12px;border:1px solid #CFCAC1;border-radius:6px;font-size:14px;background:#FFFFFF">
+                    <button onClick="{{ closePicker }}" style="padding:10px 18px;border-radius:6px;border:none;background:#1C1D1F;color:#FFFFFF;font-weight:600;font-size:14px;cursor:pointer">Done</button>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:6px">
+                    <sc-for list="{{ pickCats }}" as="pc" hint-placeholder-count="6">
+                      <button onClick="{{ pc.onClick }}" style="padding:6px 12px;border-radius:999px;border:1px solid {{ pc.border }};background:{{ pc.bg }};color:{{ pc.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ pc.label }}</button>
+                    </sc-for>
+                  </div>
+                  <div style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #DDD9D2;border-radius:6px;max-height:360px;overflow:auto">
+                    <sc-for list="{{ picks }}" as="pk" hint-placeholder-count="5">
+                      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:14px;align-items:center;padding:12px 14px;border-bottom:1px solid #EFECE6">
+                        <div style="min-width:0;display:flex;flex-direction:column;gap:2px">
+                          <div style="font-weight:600;font-size:14px">{{ pk.name }}</div>
+                          <div style="font-size:12px;color:#5E5F62">{{ pk.meta }}</div>
+                        </div>
+                        <div style="font-size:13px;font-family:'JetBrains Mono',monospace;text-align:right">{{ pk.priceLabel }}</div>
+                        <button onClick="{{ pk.onClick }}" style="padding:7px 14px;border-radius:6px;border:1px solid {{ pk.border }};background:{{ pk.bg }};color:{{ pk.fg }};font-weight:600;font-size:13px;cursor:pointer;min-width:76px">{{ pk.btn }}</button>
+                      </div>
+                    </sc-for>
+                    <sc-if value="{{ noPicks }}" hint-placeholder-val="{{ false }}"><div style="padding:16px;font-size:13px;color:#5E5F62">No matching products.</div></sc-if>
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:20px">
+              <div>
+                <h1 style="margin:0 0 6px;font-size:24px;font-weight:700;letter-spacing:-0.01em">Delivery and trucks</h1>
+                <p style="margin:0;color:#5E5F62;font-size:15px;text-wrap:pretty">Each product group goes on its own truck. The truck is suggested from the basket; change it if the site needs something else. Charges come from the truck rate for the delivery zone.</p>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:12px;padding:14px 16px;border-radius:8px;background:#F4F2EE;font-size:14px">
+                <span style="font-weight:600">{{ loc.quarry }} → {{ c.eircode }}</span><span style="color:#5E5F62">{{ loc.km }} km · {{ bandLabel }}</span>
+              </div>
+              <sc-for list="{{ groups }}" as="g" hint-placeholder-count="1">
+                <div style="border:1px solid #DDD9D2;border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:14px">
+                  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline">
+                    <div style="display:flex;flex-direction:column;gap:3px">
+                      <div style="font-weight:700;font-size:16px">{{ g.label }}</div>
+                      <div style="font-size:13px;color:#5E5F62">{{ g.items }}</div>
+                    </div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500">{{ g.chargeLabel }}</div>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:8px">
+                    <sc-for list="{{ g.trucks }}" as="tr" hint-placeholder-count="2">
+                      <button onClick="{{ tr.onClick }}" style="text-align:left;padding:10px 14px;border-radius:6px;border:1px solid {{ tr.border }};background:{{ tr.bg }};color:{{ tr.fg }};cursor:pointer;display:flex;flex-direction:column;gap:2px;min-width:180px">
+                        <span style="font-weight:600;font-size:14px">{{ tr.name }}</span>
+                        <span style="font-size:12px;opacity:0.8">{{ tr.cap }}</span>
+                      </button>
+                    </sc-for>
+                  </div>
+                  <sc-if value="{{ showWorking }}"><div style="font-size:12px;color:#5E5F62;font-family:'JetBrains Mono',monospace;background:#F4F2EE;padding:6px 8px;border-radius:4px;align-self:flex-start">{{ g.working }}</div></sc-if>
+                </div>
+              </sc-for>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+                <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">Preferred delivery date<input type="date" value="{{ date }}" onChange="{{ onDate }}" style="padding:10px 12px;border:1px solid #CFCAC1;border-radius:6px;font-weight:400;font-size:15px;background:#FFFFFF"></label>
+                <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">Window
+                  <div style="display:flex;gap:8px">
+                    <sc-for list="{{ windows }}" as="w" hint-placeholder-count="2">
+                      <button onClick="{{ w.onClick }}" style="flex:1;padding:10px 12px;border-radius:6px;border:1px solid {{ w.border }};background:{{ w.bg }};color:{{ w.fg }};font-weight:600;font-size:14px;cursor:pointer">{{ w.label }}</button>
+                    </sc-for>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isStep4 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:24px">
+              <div>
+                <h1 style="margin:0 0 6px;font-size:24px;font-weight:700;letter-spacing:-0.01em">Review and send</h1>
+                <p style="margin:0;color:#5E5F62;font-size:15px">Every price on the quote, with what changed it.</p>
+              </div>
+              <div style="display:flex;flex-direction:column;border-top:1px solid #1C1D1F">
+                <sc-for list="{{ breakdown }}" as="b" hint-placeholder-count="4">
+                  <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:12px 0;border-bottom:1px solid #E7E3DC;align-items:start">
+                    <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+                      <div style="font-weight:600;font-size:14px">{{ b.label }}</div>
+                      <div style="font-size:13px;color:#5E5F62">{{ b.detail }}</div>
+                      <div style="display:flex;flex-wrap:wrap;gap:4px">
+                        <sc-for list="{{ b.tags }}" as="tg" hint-placeholder-count="1">
+                          <span style="font-size:11px;font-weight:600;letter-spacing:0.04em;padding:2px 7px;border-radius:4px;background:#F4F2EE;color:#3A3B3F">{{ tg }}</span>
+                        </sc-for>
+                      </div>
+                    </div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:14px;text-align:right">{{ b.amount }}</div>
+                  </div>
+                </sc-for>
+                <div style="display:flex;justify-content:space-between;padding:14px 0;font-weight:700;font-size:18px"><span>Total ex VAT</span><span style="font-family:'JetBrains Mono',monospace">{{ totalLabel }}</span></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="font-size:13px;font-weight:600">Route</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">
+                  <sc-for list="{{ routes }}" as="r" hint-placeholder-count="3">
+                    <button onClick="{{ r.onClick }}" style="text-align:left;padding:14px;border-radius:8px;border:1px solid {{ r.border }};background:{{ r.bg }};color:#1C1D1F;cursor:pointer;display:flex;flex-direction:column;gap:6px">
+                      <div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><span style="font-weight:700;font-size:15px">{{ r.label }}</span><sc-if value="{{ r.suggested }}"><span style="font-size:11px;font-weight:600;padding:2px 7px;border-radius:4px;background:#F2C230">Suggested</span></sc-if></div>
+                      <div style="font-size:13px;color:#5E5F62;line-height:1.45">{{ r.desc }}</div>
+                    </button>
+                  </sc-for>
+                </div>
+                <div style="font-size:12px;color:#5E5F62">{{ routeReason }}</div>
+              </div>
+              <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">Note on quote<textarea value="{{ note }}" onChange="{{ onNote }}" rows="3" style="padding:11px 12px;border:1px solid #CFCAC1;border-radius:6px;font-weight:400;font-size:14px;line-height:1.5;resize:vertical"></textarea></label>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ notStep0 }}" hint-placeholder-val="{{ true }}"><div style="display:flex;justify-content:space-between;gap:12px;padding-top:20px;border-top:1px solid #E7E3DC">
+            <button onClick="{{ back }}" style="padding:12px 20px;border-radius:6px;border:1px solid #CFCAC1;background:#FFFFFF;color:#1C1D1F;font-weight:600;font-size:15px;cursor:pointer;visibility:{{ backVis }}">Back</button>
+            <button onClick="{{ next }}" style="padding:12px 24px;border-radius:6px;border:none;background:{{ nextBg }};color:{{ nextFg }};font-weight:700;font-size:15px;cursor:{{ nextCursor }}">{{ nextLabel }}</button>
+          </div></sc-if>
+        </main>
+
+        <sc-if value="{{ notStep0 }}" hint-placeholder-val="{{ true }}"><aside style="flex:0 1 360px;min-width:280px;display:flex;flex-direction:column;gap:16px;position:sticky;top:20px">
+          <div style="background:#FFFFFF;border:1px solid #DDD9D2;border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-weight:700;font-size:16px">Quote</div><div style="font-size:12px;color:#5E5F62;font-family:'JetBrains Mono',monospace">Q-26-04811</div></div>
+            <div style="display:flex;flex-direction:column;gap:3px;font-size:13px">
+              <div style="font-weight:600">{{ custName }}</div>
+              <div style="color:#5E5F62">{{ addrLine }}</div>
+              <div style="color:#5E5F62">{{ custLine }}</div>
+              <div style="color:#5E5F62">{{ sourceLine }}</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #E7E3DC;padding-top:12px">
+              <sc-if value="{{ noLines }}" hint-placeholder-val="{{ true }}"><div style="font-size:13px;color:#5E5F62">No products yet.</div></sc-if>
+              <sc-for list="{{ summary }}" as="sm" hint-placeholder-count="0">
+                <div style="display:flex;justify-content:space-between;gap:12px;font-size:13px"><span style="min-width:0">{{ sm.label }}</span><span style="font-family:'JetBrains Mono',monospace;white-space:nowrap">{{ sm.amount }}</span></div>
+              </sc-for>
+            </div>
+            <div style="display:flex;justify-content:space-between;border-top:1px solid #1C1D1F;padding-top:12px;font-weight:700;font-size:17px"><span>Total ex VAT</span><span style="font-family:'JetBrains Mono',monospace">{{ totalLabel }}</span></div>
+          </div>
+
+          <sc-if value="{{ showDiscovery }}" hint-placeholder-val="{{ true }}">
+            <div style="background:#FFFFFF;border:1px solid #DDD9D2;border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;flex-direction:column;gap:3px"><div style="font-weight:700;font-size:16px">For the 1pm call</div><div style="font-size:13px;color:#5E5F62">Where each topic sits in this flow</div></div>
+              <sc-for list="{{ discovery }}" as="d" hint-placeholder-count="7">
+                <button onClick="{{ d.onClick }}" style="text-align:left;border:none;border-top:1px solid #E7E3DC;background:transparent;padding:10px 0 0;cursor:pointer;display:flex;flex-direction:column;gap:4px;color:#1C1D1F">
+                  <div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><span style="font-weight:600;font-size:13px">{{ d.title }}</span><span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:2px 6px;border-radius:4px;background:{{ d.bg }};white-space:nowrap">{{ d.status }}</span></div>
+                  <div style="font-size:12px;color:#5E5F62;line-height:1.45">{{ d.where }}</div>
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+        </aside></sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:760px;width:100%;margin:0 auto;padding:56px 28px;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#5E5F62">{{ routeLabel }}</div>
+        <h1 style="margin:0;font-size:32px;font-weight:700;letter-spacing:-0.01em">{{ sentTitle }}</h1>
+        <p style="margin:0;color:#5E5F62;font-size:16px">Built in {{ elapsed }}. The current Drupal process takes around 20 minutes per enquiry.</p>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #DDD9D2;border-radius:10px;display:flex;flex-direction:column">
+        <sc-for list="{{ events }}" as="e" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;padding:16px 20px;border-top:1px solid #E7E3DC;align-items:start">
+            <div style="font-weight:700;font-size:14px">{{ e.system }}</div>
+            <div style="font-size:14px;line-height:1.5;color:#3A3B3F">{{ e.text }}</div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 7px;border-radius:4px;background:{{ e.bg }};white-space:nowrap">{{ e.status }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <button onClick="{{ reset }}" style="padding:12px 24px;border-radius:6px;border:none;background:#1C1D1F;color:#FFFFFF;font-weight:700;font-size:15px;cursor:pointer">Start new order</button>
+        <button onClick="{{ unsend }}" style="padding:12px 20px;border-radius:6px;border:1px solid #CFCAC1;background:#FFFFFF;color:#1C1D1F;font-weight:600;font-size:15px;cursor:pointer">Back to quote</button>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showWorking&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Display&quot;},&quot;showDiscovery&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Display&quot;},&quot;repThreshold&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:1000,&quot;min&quot;:0,&quot;max&quot;:10000,&quot;step&quot;:100,&quot;unit&quot;:&quot;€&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Rules&quot;}}">
+const LOC = {
+  D15:{county:'Dublin',quarry:'Huntstown',km:7}, D24:{county:'Dublin',quarry:'Belgard',km:4},
+  A92:{county:'Louth',quarry:'Huntstown',km:46}, W91:{county:'Kildare',quarry:'Belgard',km:28},
+  R95:{county:'Kilkenny',quarry:'Bennettsbridge',km:9}, T12:{county:'Cork',quarry:'Ballincollig',km:12},
+  V94:{county:'Limerick',quarry:'Castlemungret',km:6}, H91:{county:'Galway',quarry:'Oranmore',km:14}
+};
+const COUNTY = {
+  Dublin:{blocks:1,concrete:1,aggregates:1,roof:1}, Louth:{blocks:.97,concrete:.98,aggregates:.95,roof:1},
+  Kildare:{blocks:.98,concrete:.99,aggregates:.96,roof:1}, Kilkenny:{blocks:.94,concrete:.95,aggregates:.92,roof:.98},
+  Cork:{blocks:.96,concrete:.97,aggregates:.94,roof:.99}, Limerick:{blocks:.95,concrete:.96,aggregates:.93,roof:.99},
+  Galway:{blocks:.95,concrete:.97,aggregates:.93,roof:.99}
+};
+const CATS = [
+  {id:'blocks',label:'Blocks',rule:'Bales are fixed sizes, so quantities round up to the nearest full bale. 800+ blocks on the order is a full load and gets the full-load rate. Under 800 pays the minimum load charge.'},
+  {id:'concrete',label:'Ready-mix concrete',rule:'Priced per m³. Loads under the mixer capacity pay a part-load charge on the shortfall.'},
+  {id:'aggregates',label:'Aggregates',rule:'Priced per tonne. One tipper carries up to 20t.'},
+  {id:'roof',label:'Roof tiles',rule:'Priced per tile. Delivered on the same crane truck as blocks.'},
+  {id:'paving',label:'Paving',rule:'Priced per unit. Crane truck.'},
+  {id:'bagged',label:'Bagged products',rule:'Priced per bag. Crane truck.'}
+];
+const P = [
+  {id:'blk100',sku:'RS-BLK-100S',cat:'blocks',name:'Solid block 100mm',spec:'440 × 215 × 100mm · 72 per bale',bale:72,list:1150,full:950,step:72,unit:'blocks'},
+  {id:'blk140',sku:'RS-BLK-140S',cat:'blocks',name:'Solid block 140mm',spec:'440 × 215 × 140mm · 56 per bale',bale:56,list:1650,full:1420,step:56,unit:'blocks'},
+  {id:'blk215',sku:'RS-BLK-215H',cat:'blocks',name:'Hollow block 215mm',spec:'440 × 215 × 215mm · 40 per bale',bale:40,list:2350,full:2050,step:40,unit:'blocks'},
+  {id:'c25',sku:'RS-RMX-C25',cat:'concrete',name:'Ready-mix C25/30',spec:'General purpose · slabs, paths, shed bases',price:138,step:0.5,unit:'m³'},
+  {id:'c30',sku:'RS-RMX-C30',cat:'concrete',name:'Ready-mix C30/37',spec:'Foundations and reinforced work',price:146,step:0.5,unit:'m³'},
+  {id:'agg804',sku:'RS-AGG-804',cat:'aggregates',name:'Clause 804 sub-base',spec:'Granular fill for driveways and foundations',price:24,step:1,unit:'t'},
+  {id:'agg20',sku:'RS-AGG-20C',cat:'aggregates',name:'20mm clean stone',spec:'Drainage and backfill',price:29,step:1,unit:'t'},
+  {id:'sand',sku:'RS-AGG-SHS',cat:'aggregates',name:'Sharp sand',spec:'Screeds and concrete mixes',price:31,step:1,unit:'t'},
+  {id:'tile',sku:'RS-ROF-INT',cat:'roof',name:'Interlocking concrete roof tile',spec:'384 per pallet',price:1.45,pack:384,step:48,unit:'tiles'},
+  {id:'ridge',sku:'RS-ROF-RDG',cat:'roof',name:'Ridge tile',spec:'100 per pallet',price:4.2,pack:100,step:10,unit:'tiles'},
+  {id:'pave',sku:'RS-PAV-600B',cat:'paving',name:'Paving slab 600 × 600 buff',spec:'40 per pallet',price:6.9,pack:40,step:10,unit:'slabs'},
+  {id:'kerb',sku:'RS-PAV-KRB',cat:'paving',name:'Bullnose kerb 915mm',spec:'Per kerb',price:8.4,step:5,unit:'kerbs'},
+  {id:'cem',sku:'RS-BAG-CEM25',cat:'bagged',name:'General purpose cement 25kg',spec:'56 bags per pallet',price:9.5,pack:56,step:10,unit:'bags'},
+  {id:'mort',sku:'RS-BAG-MOR25',cat:'bagged',name:'Ready-mix mortar 25kg',spec:'56 bags per pallet',price:7.8,pack:56,step:10,unit:'bags'}
+];
+const mult = (m,cat) => m[cat] ?? m.blocks;
+const TRUCKS = {
+  TR1:{name:'TR1 Flatbed with crane',cap:'Up to 1,200 blocks per load',rates:[65,95,140],per:1200},
+  TR2:{name:'TR2 Rigid flatbed, no crane',cap:'Up to 1,200 blocks · kerbside only',rates:[50,80,120],per:1200},
+  TR3:{name:'TR3 Mixer 6m³',cap:'6m³ per load',rates:[0,45,95],per:6},
+  TR4:{name:'TR4 Mixer 8m³',cap:'8m³ per load',rates:[0,55,110],per:8},
+  TR6:{name:'TR6 Tipper 20t',cap:'20t per load',rates:[70,110,165],per:20},
+  TR7:{name:'TR7 Tipper 10t',cap:'10t per load · tight sites',rates:[55,85,130],per:10}
+};
+const GROUPS = [
+  {id:'dry',cats:['blocks','roof','paving','bagged'],label:'Blocks, tiles, paving and bagged',trucks:['TR1','TR2']},
+  {id:'concrete',cats:['concrete'],label:'Ready-mix concrete',trucks:['TR3','TR4']},
+  {id:'aggregates',cats:['aggregates'],label:'Aggregates',trucks:['TR6','TR7']}
+];
+const BANDS = ['Zone A · 0–15 km','Zone B · 15–40 km','Zone C · 40 km+'];
+const ENQ = [
+  {id:1,source:'Website form',when:'09:42',name:'Seán Murphy',company:'',phone:'087 412 9930',email:'sean.murphy@example.ie',line1:'14 Hartstown Grove',line2:'',town:'Clonsilla',county:'Dublin',eircode:'D15 X2K7',site:'Side gate, drop on driveway.',type:'Homeowner',message:'Looking for about 1,000 100mm blocks for a garden wall.',qty:{blk100:1000}},
+  {id:2,source:'Facebook Ads',when:'10:15',campaign:'Autumn Build · Leinster',name:'Aoife Kelly',company:'',phone:'086 220 1184',email:'aoife.k@example.ie',line1:'Ballyfoyle Road',line2:'Dunmore',town:'Kilkenny',county:'Kilkenny',eircode:'R95 F6P2',site:'Narrow lane, chute access from the road.',type:'Homeowner',message:'Price for 4m³ of concrete for a shed base?',qty:{c25:4}},
+  {id:3,source:'Google Ads',when:'10:51',campaign:'Ready-mix near me',name:'Declan Byrne',company:'Byrne Groundworks Ltd',phone:'041 983 2210',email:'office@byrnegw.example.ie',line1:'Site 3, Mell Business Park',line2:'',town:'Drogheda',county:'Louth',eircode:'A92 KH04',site:'Site open 7am to 4pm. Ask for Declan.',type:'Contractor',message:'40t of 804 and 12m³ C30 for house foundations.',qty:{agg804:40,c30:12}}
+];
+const ROUTES = {
+  help:{label:'B2C Help',desc:'Create quote for approval. Customer gets it by email with a Shopify payment link.',cta:'Send quote to customer'},
+  rep:{label:'B2C Rep',desc:'Create quote for approval and pass to a rep to follow up.',cta:'Pass to rep'},
+  b2b:{label:'B2B Rep',desc:'Create the quote for the rep. The rep takes the account from here.',cta:'Send to rep'}
+};
+const eur = n => '€' + (Math.round(n*100)/100).toLocaleString('en-IE',{minimumFractionDigits:2,maximumFractionDigits:2});
+const num = n => n.toLocaleString('en-IE');
+const blank = () => ({name:'',company:'',phone:'',email:'',line1:'',line2:'',town:'',county:'',eircode:'',site:''});
+const SOURCES = ['Website form','Phone','Email','Facebook Ads','Google Ads'];
+
+class Component extends DCLogic {
+  state = {source:'Website form',added:[],picker:false,search:'',pickCat:'all',countyOverride:null,step:0,enq:null,c:blank(),type:'Homeowner',cat:'blocks',qty:{},truck:{},route:null,note:'Price based on full load quote, based on the closest full bale size. Delivery to kerbside unless agreed.',date:'',win:'AM',sent:false,start:Date.now(),now:Date.now(),end:null};
+  componentDidMount(){ this.t = setInterval(()=>this.setState({now:Date.now()}),1000); }
+  componentWillUnmount(){ clearInterval(this.t); }
+  loc(){ const k=(this.state.c.eircode||'').replace(/\s/g,'').toUpperCase().slice(0,3); return k.length===3 ? (LOC[k]||false) : null; }
+  calc(){
+    const s=this.state, loc=this.loc()||null, county=s.countyOverride||(loc?loc.county:'Dublin'), m=COUNTY[county];
+    const band = loc ? (loc.km<15?0:loc.km<40?1:2) : 0;
+    const q = id => s.qty[id]||0;
+    const blocks = P.filter(p=>p.cat==='blocks').reduce((a,p)=>a+(q(p.id)?Math.ceil(q(p.id)/p.bale)*p.bale:0),0);
+    const full = blocks>=800;
+    const rows = P.map(p=>{
+      const qty=q(p.id); let billed=qty, unit, priceLabel, note='', working;
+      if(p.cat==='blocks'){
+        const bales=Math.ceil(qty/p.bale); billed=bales*p.bale;
+        const rate=(full?p.full:p.list)*m.blocks; unit=rate/1000;
+        priceLabel=`${county} price · ${eur(rate)} per 1,000 · ${full?'full-load':'part-load'} rate`;
+        if(qty) note = billed!==qty ? `Rounded up to ${bales} bales (${num(billed)} blocks)` : `${bales} bales`;
+        working=`${full?'Order ≥ 800 blocks → full-load':'Order < 800 blocks → list'} €${num(full?p.full:p.list)}/1,000 × ${county} ${m.blocks.toFixed(2)} = €${unit.toFixed(3)} each`;
+      } else {
+        unit=p.price*mult(m,p.cat);
+        priceLabel=`${county} price · ${eur(unit)} per ${({tiles:'tile',slabs:'slab',kerbs:'kerb',bags:'bag'})[p.unit]||p.unit}`;
+        if(p.pack&&qty) note=`${Math.ceil(qty/p.pack)} pallet${Math.ceil(qty/p.pack)>1?'s':''}`;
+        working=`Base €${p.price} × ${county} ${mult(m,p.cat).toFixed(2)} = ${eur(unit)}`;
+      }
+      return {p,qty,billed,unit,total:billed*unit,priceLabel,note,working};
+    });
+    const lines = rows.filter(r=>r.qty>0&&s.added.includes(r.p.id));
+    const sumCat = c => lines.filter(r=>r.p.cat===c).reduce((a,r)=>a+r.billed,0);
+    const conc=sumCat('concrete'), agg=sumCat('aggregates'), roof=sumCat('roof');
+    const groups = GROUPS.map(g=>{
+      const has = lines.some(r=>g.cats.includes(r.p.cat)); if(!has) return null;
+      let tid = s.truck[g.id];
+      if(!tid) tid = g.id==='concrete' ? (conc>6?'TR4':'TR3') : g.trucks[0];
+      const T=TRUCKS[tid];
+      const loads = g.id==='dry' ? Math.max(1,Math.ceil(blocks/T.per)) : g.id==='concrete' ? Math.ceil(conc/T.per) : Math.ceil(agg/T.per);
+      const rate=T.rates[band], charge=rate*loads;
+      const items = lines.filter(r=>g.cats.includes(r.p.cat)).map(r=>`${num(r.billed)} ${r.p.unit} ${r.p.name}`).join(' · ');
+      return {g,tid,T,loads,rate,charge,items};
+    }).filter(Boolean);
+    const charges=[];
+    const goods = lines.reduce((a,r)=>a+r.total,0);
+    if(blocks>0 && !full) charges.push({label:'Minimum load charge',detail:`${num(blocks)} blocks, under the 800 full-load threshold`,tags:['Product'],amount:85});
+    const cg = groups.find(x=>x.g.id==='concrete');
+    if(cg){ const short=cg.loads*cg.T.per-conc; if(short>0) charges.push({label:'Concrete part-load charge',detail:`${short} m³ short of a full ${cg.T.per}m³ load × €25`,tags:['Product','Truck'],amount:short*25}); }
+    const levyBase = lines.filter(r=>r.p.cat==='blocks'||r.p.cat==='concrete').reduce((a,r)=>a+r.total,0);
+    if(levyBase>0) charges.push({label:'Defective Concrete Products Levy',detail:`5% of ${eur(levyBase)} block and concrete value (rate to confirm)`,tags:['Product'],amount:levyBase*0.05});
+    const delivery = groups.reduce((a,x)=>a+x.charge,0);
+    const total = goods + charges.reduce((a,c)=>a+c.amount,0) + delivery;
+    return {loc,county,m,band,full,blocks,rows,lines,groups,charges,goods,delivery,total};
+  }
+  set(k,v){ this.setState(s=>({c:{...s.c,[k]:v}})); }
+  setQty(id,v){ this.setState(s=>({qty:{...s.qty,[id]:Math.max(0,v)}})); }
+  addP(p){ this.setState(s=>s.added.includes(p.id)?null:({added:[...s.added,p.id],qty:{...s.qty,[p.id]:s.qty[p.id]||p.step}})); }
+  removeP(id){ this.setState(s=>({added:s.added.filter(x=>x!==id),qty:{...s.qty,[id]:0}})); }
+  renderVals(){
+    const s=this.state, R=this.calc(), loc=R.loc;
+    const threshold=this.props.repThreshold ?? 1000;
+    const showWorking=this.props.showWorking ?? true;
+    const step1ok = !!(s.c.name && loc);
+    const hasLines = R.lines.length>0;
+    const reach = n => n<=1 || (n===2&&step1ok) || (n>2&&step1ok&&hasLines);
+    const go = n => reach(n) && this.setState({step:n});
+    const sec = s.step===0 && !s.sent ? 0 : Math.max(0, Math.floor(((s.end||s.now)-s.start)/1000));
+    const elapsed = `${String(Math.floor(sec/60)).padStart(2,'0')}:${String(sec%60).padStart(2,'0')}`;
+    const suggested = s.type==='Contractor' ? 'b2b' : R.total>threshold ? 'rep' : 'help';
+    const route = s.route||suggested;
+    const enq = ENQ.find(e=>e.id===s.enq);
+    const steps = ['Start','Customer','Products','Delivery','Review & send'].map((label,n)=>{
+      const active=s.step===n, done=n<s.step&&reach(n), ok=reach(n);
+      return {label,mark:done?'✓':String(n+1),onClick:()=>go(n),
+        bg:active?'#1C1D1F':'#FFFFFF',fg:active?'#FFFFFF':ok?'#1C1D1F':'#9A9893',border:active?'#1C1D1F':'#DDD9D2',
+        dotBg:active?'#F2C230':done?'#F2C230':'#F4F2EE',dotFg:'#1C1D1F',cursor:ok?'pointer':'default'};
+    });
+    const canNext = s.step===1?step1ok : s.step===2?hasLines : true;
+    const tags = r => r.p.cat==='blocks' ? ['County','Product','Load size'] : ['County','Product'];
+    const breakdown = [
+      ...R.lines.map(r=>({label:`${r.p.name} × ${num(r.billed)} ${r.p.unit}`,detail:`${r.priceLabel}${r.note?' · '+r.note:''}`,tags:[R.county+' price list',...tags(r).slice(1)],amount:eur(r.total)})),
+      ...R.charges.map(c=>({...c,amount:eur(c.amount)})),
+      ...R.groups.map(x=>({label:`Delivery · ${x.T.name}`,detail:`${x.loads} load${x.loads>1?'s':''} × ${eur(x.rate)} · ${BANDS[R.band]} from ${loc?loc.quarry:''}`,tags:['Truck','Delivery location'],amount:x.charge?eur(x.charge):'Included'}))
+    ];
+    const summary = [
+      ...R.lines.map(r=>({label:`${r.p.name} × ${num(r.billed)}`,amount:eur(r.total)})),
+      ...R.charges.map(c=>({label:c.label,amount:eur(c.amount)})),
+      ...(R.groups.length?[{label:`Delivery (${R.groups.reduce((a,x)=>a+x.loads,0)} load${R.groups.reduce((a,x)=>a+x.loads,0)>1?'s':''})`,amount:eur(R.delivery)}]:[])
+    ];
+    const D = [
+      {title:'Product categories',where:'Step 2 product picker searches the Shopify catalogue by name, SKU or category.',status:'Sample',n:2},
+      {title:'Pricing variances per product',where:'Bale rounding, 800-block full-load rate, minimum load and part-load charges, levy.',status:'Modelled',n:2},
+      {title:'Pricing variances per truck',where:'Step 3. Each truck type has its own rate card; staff can swap the suggested truck.',status:'Modelled',n:3},
+      {title:'Pricing variances per delivery location',where:'Distance from nearest quarry sets Zone A/B/C on the truck rate.',status:'Modelled',n:3},
+      {title:'Pricing variances per county / location',where:'Eircode picks the county price list in Shopify. Step 2 shows which county is applied; staff can change it.',status:'Modelled',n:1},
+      {title:'How is the system currently linked with Command Cloud',where:'Shown as an API push on send. Need to confirm how Drupal syncs today and why orders aren\'t created in Command Cloud.',status:'Open',n:4},
+      {title:'How we can link in leads (FB Ads / Google Ads), ongoing comms (Mailchimp / Klaviyo)',where:'Ad leads land in the enquiry inbox with campaign attached. Sending a quote starts a follow-up flow.',status:'Assumed',n:1}
+    ].map(d=>({...d,bg:d.status==='Open'?'#F9D9CF':d.status==='Assumed'?'#FBF1D2':d.status==='Sample'?'#E7E3DC':'#DCEBD9',onClick:()=>go(d.n)}));
+    const toggle = (a,b) => ({bg:a?'#1C1D1F':'#FFFFFF',fg:a?'#FFFFFF':'#1C1D1F',border:a?'#1C1D1F':'#CFCAC1'});
+    const events = [
+      {system:'Shopify',text:`Draft order #D1047 created for ${s.c.name}. County price list, truck codes, delivery zone and quarry stored on the order.`,status:'Done'},
+      route==='help'
+        ? {system:'Email',text:`Quote sent to ${s.c.email||'customer'} with a payment link for ${eur(R.total)} ex VAT.`,status:'Done'}
+        : {system:'Rep',text:`Quote passed to the ${R.county} rep with the full breakdown and customer details.`,status:'Done'},
+      {system:'Command Cloud',text:'Order pushed via the Command Cloud API once accepted. Mapping to existing Drupal sync to confirm.',status:'To confirm'},
+      {system:'Klaviyo',text:route==='help'?'Profile updated and "Quote follow-up" flow started: reminder after 48 hours if unpaid.':'Profile updated and tagged as rep-managed. No automated follow-up.',status:'Assumed'},
+      {system:'Attribution',text:`Lead source ${s.source} saved on the order for reporting.`,status:'Assumed'}
+    ].map(e=>({...e,bg:e.status==='Done'?'#DCEBD9':e.status==='To confirm'?'#F9D9CF':'#FBF1D2'}));
+    return {
+      elapsed, notSent:!s.sent, sent:s.sent, steps, c:s.c, showWorking, showDiscovery:this.props.showDiscovery ?? true,
+      isStep0:s.step===0,notStep0:s.step!==0,isStep1:s.step===1,isStep2:s.step===2,isStep3:s.step===3,isStep4:s.step===4,
+      enquiries: ENQ.map(e=>({...e,campaign:e.campaign||'',bg:s.enq===e.id?'#FBF1D2':'#FFFFFF',border:s.enq===e.id?'#F2C230':'#DDD9D2',
+        onClick:()=>this.setState({enq:e.id,source:e.source,c:Object.fromEntries(Object.keys(blank()).map(k=>[k,e[k]||''])),type:e.type,step:1,start:Date.now(),end:null,qty:{...e.qty},added:Object.keys(e.qty),countyOverride:null,truck:{},route:null})})),
+      on:Object.fromEntries(Object.keys(blank()).map(k=>[k,e=>this.set(k,k==='eircode'?e.target.value.toUpperCase():e.target.value)])),
+      countyField:s.c.county||(loc?loc.county:''),
+      sources:SOURCES.map(x=>({label:x,...toggle(s.source===x),onClick:()=>this.setState({source:x})})),
+      custTypes:['Homeowner','Self-builder','Contractor'].map(t=>({label:t,...toggle(s.type===t),onClick:()=>this.setState({type:t,route:null})})),
+      locKnown:!!loc, locUnknown:loc===false, loc:loc||{county:'—',quarry:'—',km:0},
+      priceListName:`${R.county} 2026`, bandLabel:BANDS[R.band],
+      county:R.county, countyValue:R.county,
+      countySource: s.countyOverride ? 'Set by hand' : (loc ? `Set by Eircode ${s.c.eircode} · Shopify catalog "${R.county} 2026"` : 'Default list'),
+      countyOverridden: !!(s.countyOverride && loc && s.countyOverride!==loc.county),
+      countyOptions:Object.keys(COUNTY).map(k=>({value:k,label:`${k} 2026${loc&&loc.county===k?' (from Eircode)':''}`})),
+      onCounty:e=>this.setState({countyOverride:loc&&e.target.value===loc.county?null:e.target.value}),
+      rows:s.added.map(id=>R.rows.find(r=>r.p.id===id)).filter(Boolean).map(r=>({name:r.p.name,sku:r.p.sku,catLabel:CATS.find(k=>k.id===r.p.cat).label,spec:r.p.spec,priceLabel:r.priceLabel,note:r.note,working:r.working,unit:r.p.unit,
+        qtyInput:String(r.qty),totalLabel:r.qty?eur(r.total):'—',remove:()=>this.removeP(r.p.id),
+        onQty:e=>this.setQty(r.p.id,parseFloat(e.target.value)||0),
+        inc:()=>this.setQty(r.p.id,(r.qty||0)+r.p.step), dec:()=>this.setQty(r.p.id,(r.qty||0)-r.p.step)})),
+      noRows:s.added.length===0, pickerOpen:s.picker, pickerClosed:!s.picker,
+      openPicker:()=>this.setState({picker:true}), closePicker:()=>this.setState({picker:false,search:''}),
+      search:s.search, onSearch:e=>this.setState({search:e.target.value}),
+      pickCats:[{id:'all',label:'All'},...CATS].map(k=>({label:k.label,...toggle(s.pickCat===k.id),onClick:()=>this.setState({pickCat:k.id})})),
+      ...(()=>{ const t=s.search.trim().toLowerCase(); const list=R.rows.filter(r=>(s.pickCat==='all'||r.p.cat===s.pickCat)&&(!t||(r.p.name+' '+r.p.sku).toLowerCase().includes(t)));
+        return {noPicks:list.length===0, picks:list.map(r=>{const on=s.added.includes(r.p.id); return {name:r.p.name,meta:`${CATS.find(k=>k.id===r.p.cat).label} · ${r.p.sku} · ${r.p.spec}`,
+          priceLabel:r.p.cat==='blocks'?`${eur((r.p.list)*mult(R.m,'blocks'))} / 1,000`:`${eur(r.p.price*mult(R.m,r.p.cat))} / ${r.p.unit}`,
+          btn:on?'Added':'Add',bg:on?'#F4F2EE':'#F2C230',fg:on?'#5E5F62':'#1C1D1F',border:on?'#DDD9D2':'#F2C230',onClick:()=>on?this.removeP(r.p.id):this.addP(r.p)};})}; })(),
+      groups:R.groups.map(x=>({label:x.g.label,items:x.items,chargeLabel:x.charge?eur(x.charge):'Included',
+        working:`${x.T.name}: ${BANDS[R.band].split(' · ')[0]} rate ${eur(x.rate)} × ${x.loads} load${x.loads>1?'s':''}`,
+        trucks:x.g.trucks.map(id=>({name:TRUCKS[id].name,cap:TRUCKS[id].cap,...toggle(x.tid===id),onClick:()=>this.setState(st=>({truck:{...st.truck,[x.g.id]:id}}))}))})),
+      date:s.date,onDate:e=>this.setState({date:e.target.value}),
+      windows:['AM','PM'].map(w=>({label:w==='AM'?'Morning':'Afternoon',...toggle(s.win===w),onClick:()=>this.setState({win:w})})),
+      breakdown, totalLabel:eur(R.total),
+      routes:Object.entries(ROUTES).map(([id,r])=>({label:r.label,desc:r.desc,suggested:id===suggested,bg:route===id?'#FBF1D2':'#FFFFFF',border:route===id?'#F2C230':'#DDD9D2',onClick:()=>this.setState({route:id})})),
+      routeReason: s.type==='Contractor' ? 'Suggested B2B Rep because the customer is a contractor.' : R.total>threshold ? `Suggested B2C Rep because the total is over ${eur(threshold)}.` : `Suggested B2C Help because the total is under ${eur(threshold)}.`,
+      note:s.note,onNote:e=>this.setState({note:e.target.value}),
+      back:()=>this.setState({step:Math.max(0,s.step-1)}), backVis:'visible',
+      startBlank:()=>this.setState({enq:null,source:'Phone',c:blank(),type:'Homeowner',qty:{},added:[],countyOverride:null,truck:{},route:null,step:1,start:Date.now(),end:null}),
+      next:()=>{ if(!canNext) return; if(s.step<4) this.setState({step:s.step+1}); else this.setState({sent:true,end:Date.now()}); },
+      nextLabel: s.step<4 ? 'Continue' : ROUTES[route].cta,
+      nextBg:canNext?'#F2C230':'#E7E3DC', nextFg:canNext?'#1C1D1F':'#9A9893', nextCursor:canNext?'pointer':'not-allowed',
+      custName:s.c.name||'No customer yet',
+      custLine: loc ? `${s.c.eircode} · ${R.county} price list · ${s.type}` : s.type,
+      sourceLine: `Source: ${s.source}`, addrLine:[s.c.line1,s.c.town].filter(Boolean).join(', '),
+      summary, noLines:!hasLines, discovery:D,
+      routeLabel:ROUTES[route].label, sentTitle: route==='help'?'Quote sent to customer':'Quote passed to rep', events,
+      reset:()=>this.setState({source:'Website form',added:[],picker:false,search:'',pickCat:'all',countyOverride:null,step:0,enq:null,c:blank(),type:'Homeowner',cat:'blocks',qty:{},truck:{},route:null,date:'',sent:false,start:Date.now(),end:null}),
+      unsend:()=>this.setState({sent:false,end:null})
+    };
+  }
+}
+</script>
+</body>
+</html>
