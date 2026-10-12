@@ -9,6 +9,382 @@
 <x-dc>
 <helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;background:#EEF1F5;font-family:'Figtree',system-ui,sans-serif;color:#0B2730;-webkit-font-smoothing:antialiased}a{color:#0B2730}a:hover{color:#0B2730}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opt{flex:none;display:grid;grid-template-columns:260px max-content;gap:40px;align-items:start;padding:0 64px;border-left:1px solid #D9DFE8;scroll-margin-top:16px}.dv-opt:first-child{border-left:0;padding-left:0}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{position:sticky;top:24px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;font:400 14.5px/1.55 'Figtree',system-ui,sans-serif;color:#3E5560;text-wrap:pretty}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:32px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style></helmet>
 <main style="width:max-content;padding:48px 56px 80px;box-sizing:border-box">
+<div id="compare" style="display:flex;flex-direction:column;gap:6px;padding:0 0 40px">
+  <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Archive</div>
+  <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Comparison form options, archived</div>
+  <div style="font-size:15px;color:#3E5560;max-width:760px;line-height:1.5">Options 7b, 7c, 7d, 7f, 7g, 7h, 7i, 7j, 7l, 7m. The chosen form, 7a, and 7e and 7k are on <a href="Result Block Options.dc.html#7a" style="font-weight:700">Result Block Options</a>.</div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:flex-start;margin-bottom:64px">
+<div class="dv-opt" id="7b"><div class="dv-olabel"><a class="dv-oid" href="#7b">7b</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">One question at a time</div><div>Six short screens with large tiles and a progress bar. Each answer shows up under "So far" and can be changed with one tap. Works well on mobile, where most comparisons start. Click the tiles and Continue to step through.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="background:#0B2730;color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:16px;font-weight:800">Compare NI electricity prices</span><span style="font-size:13px;color:#C9D3D8">Step 1 of 3</span></div>
+          <div style="height:6px;background:#EEF1F5"><div style="height:100%;width:{{ wzPct }};background:#B78DD4;transition:width .3s"></div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:28px;padding:32px 24px 28px">
+            <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:640px">
+              <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5B2F7A">{{ wzNum }}</div><div style="font-size:26px;font-weight:800;line-height:1.15;text-wrap:pretty">{{ wzTitle }}</div><div style="font-size:14.5px;color:#3E5560;line-height:1.45">{{ wzHelp }}</div></div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px">
+                <sc-for list="{{ wzTiles }}" as="t" hint-placeholder-count="4">
+                  <button onClick="{{ t.pick }}" style="position:relative;min-height:72px;text-align:left;padding:14px 16px;border:{{ t.border }};background:{{ t.bg }};border-radius:14px;display:flex;flex-direction:column;justify-content:center;gap:3px;cursor:pointer;font-family:inherit;color:#0B2730">
+                    <sc-if value="{{ t.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-height:30px;max-width:96px;object-fit:contain"></sc-if>
+                    <sc-if value="{{ t.noLogo }}" hint-placeholder-val="{{ true }}"><span style="font-size:15.5px;font-weight:800;line-height:1.25;padding-right:18px">{{ t.label }}</span></sc-if>
+                    <sc-if value="{{ t.hasSub }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;color:#5A6B80">{{ t.sub }}</span></sc-if>
+                    <sc-if value="{{ t.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span></sc-if>
+                  </button>
+                </sc-for>
+              </div>
+              <div style="display:flex;gap:10px;align-items:center">
+                <button onClick="{{ wzBack }}" style="height:50px;padding:0 20px;border:1px solid #C4CCD8;background:#fff;border-radius:12px;font:700 15px 'Figtree',sans-serif;color:#0B2730;cursor:pointer;opacity:{{ wzBackOp }}">← Back</button>
+                <button onClick="{{ wzNext }}" style="flex:1;max-width:320px;height:50px;border:0;border-radius:12px;background:#C9A3E0;font:800 16px 'Figtree',sans-serif;color:#0B2730;cursor:pointer" style-hover="background:#B78DD4">{{ wzNextLabel }}</button>
+              </div>
+            </div>
+            <div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:14px;background:#FBFAE6;align-self:flex-start">
+              <div style="font-size:14px;font-weight:800">So far</div>
+              <sc-if value="{{ wzNone }}" hint-placeholder-val="{{ true }}"><div style="font-size:13px;color:#5A6B80">Your answers will appear here.</div></sc-if>
+              <sc-for list="{{ wzSoFar }}" as="a" hint-placeholder-count="0"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13.5px;padding-top:8px;border-top:1px solid #ECE9C4"><span style="color:#5A6B80">{{ a.label }}</span><span style="display:flex;gap:8px;align-items:baseline"><span style="font-weight:700;text-align:right">{{ a.value }}</span><a href="#7b" onClick="{{ a.go }}" style="font-size:12px;font-weight:700;color:#5B2F7A">Change</a></span></div></sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="7c"><div class="dv-olabel"><a class="dv-oid" href="#7c">7c</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Bill upload first</div><div>Uploading a bill becomes the main route, with manual entry as the alternative. After upload the customer checks what was read and fixes anything marked. The upload flow is on the live page today but sits behind a small tab. Click "Try a sample bill" to see the check screen.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="background:#0B2730;color:#fff;padding:28px 28px 26px;display:flex;flex-direction:column;gap:6px"><div style="font-size:28px;font-weight:800;line-height:1.1">See what you could save</div><div style="font-size:14.5px;color:#C9D3D8">Upload a bill and we'll read your supplier, tariff and usage.</div></div>
+          <div style="padding:24px;display:flex;flex-direction:column;gap:18px;background:#F7F8FA">
+            <sc-if value="{{ upPending }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-wrap:wrap;gap:16px">
+                <div style="flex:2 1 380px;min-width:0;background:#fff;border:2px dashed #B78DD4;border-radius:16px;padding:28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px">
+                  <div style="width:56px;height:56px;border-radius:14px;background:#F1E7F8;color:#5B2F7A;font-size:26px;font-weight:800;display:flex;align-items:center;justify-content:center">↑</div>
+                  <div style="font-size:19px;font-weight:800">Upload your electricity bill</div>
+                  <div style="font-size:13.5px;color:#3E5560;max-width:360px;line-height:1.45">PDF or a photo of a paper bill. Takes about 20 seconds. Your bill is deleted once we've read it.</div>
+                  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:4px"><button style="height:48px;padding:0 22px;border:0;border-radius:12px;background:#C9A3E0;font:800 15px 'Figtree',sans-serif;color:#0B2730;cursor:pointer" style-hover="background:#B78DD4">Choose a file</button><button onClick="{{ upTry }}" style="height:48px;padding:0 18px;border:1px solid #C4CCD8;background:#fff;border-radius:12px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">Try a sample bill</button></div>
+                </div>
+                <div style="flex:1 1 220px;min-width:0;background:#fff;border:1px solid #E6EAF0;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px">
+                  <div style="font-size:16px;font-weight:800">No bill to hand?</div>
+                  <div style="font-size:13.5px;color:#3E5560;line-height:1.45">Answer six quick questions instead. You'll need to know your supplier and roughly how you pay.</div>
+                  <a href="#7b" style="margin-top:auto;height:46px;border:1px solid #0B2730;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:700;text-decoration:none">Enter details manually</a>
+                </div>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px 20px;font-size:12.5px;color:#3E5560"><span>✓ Works with all six NI suppliers</span><span>✓ Keypad statements and Direct Debit bills</span><span>✓ 4.8 from 107 reviews</span></div>
+            </sc-if>
+            <sc-if value="{{ upDone }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#fff;border:1px solid #E6EAF0;border-radius:16px;overflow:hidden">
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:16px 20px;background:#FBFAE6;border-bottom:1px solid #ECE9C4"><span style="width:28px;height:28px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span><div style="flex:1 1 200px;display:flex;flex-direction:column"><span style="font-size:16px;font-weight:800">We read your bill</span><span style="font-size:12.5px;color:#5A6B80">budget-energy-aug-2026.pdf</span></div><a href="#7c" onClick="{{ upReset }}" style="font-size:13px;font-weight:700;color:#5B2F7A">Upload a different bill</a></div>
+                <sc-for list="{{ upRows }}" as="r" hint-placeholder-count="6">
+                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:12px 20px;border-bottom:1px solid #EEF1F5;background:{{ r.bg }}">
+                    <span style="flex:0 0 130px;font-size:13.5px;color:#5A6B80">{{ r.label }}</span>
+                    <span style="flex:1 1 160px;font-size:14.5px;font-weight:700">{{ r.value }}</span>
+                    <span style="font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:{{ r.tagBg }};color:{{ r.tagFg }}">{{ r.tag }}</span>
+                    <a href="#7c" style="font-size:12.5px;font-weight:700;color:#5B2F7A">Edit</a>
+                  </div>
+                </sc-for>
+                <div style="padding:14px 20px;font-size:13px;color:#3E5560;line-height:1.45">Your bill shows 8 months of usage. We've estimated a full year from it. Edit if you know your annual kWh.</div>
+              </div>
+              <button style="height:56px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 17px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Looks right, show my savings →</button>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="7d"><div class="dv-olabel"><a class="dv-oid" href="#7d">7d</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Conversation</div><div>The same six questions asked as a short chat. Answers are quick-reply buttons, so there is no typing. Each answer stays visible above, and tapping it goes back to that question. Feels less like a form for customers who find forms off-putting. Click the replies to step through.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="background:#0B2730;color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:16px;font-weight:800">Compare NI electricity prices</span><span style="font-size:13px;color:#C9D3D8">{{ chCount }}</span></div>
+          <div style="padding:28px 24px;display:flex;flex-direction:column;gap:12px;max-width:680px;margin:0 auto;box-sizing:border-box;width:100%">
+            <sc-for list="{{ chMsgs }}" as="m" hint-placeholder-count="3">
+              <div style="display:flex;justify-content:{{ m.justify }}">
+                <sc-if value="{{ m.isBot }}" hint-placeholder-val="{{ true }}"><div style="max-width:78%;display:flex;flex-direction:column;gap:3px;padding:12px 16px;border-radius:4px 16px 16px 16px;background:#F1E7F8;color:#0B2730"><span style="font-size:15px;font-weight:700;line-height:1.35">{{ m.text }}</span><sc-if value="{{ m.hasHelp }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:#3E5560;line-height:1.4">{{ m.help }}</span></sc-if></div></sc-if>
+                <sc-if value="{{ m.isMe }}" hint-placeholder-val="{{ false }}"><button onClick="{{ m.go }}" style="max-width:78%;padding:11px 16px;border:0;border-radius:16px 4px 16px 16px;background:#0B2730;color:#fff;font:700 14.5px 'Figtree',sans-serif;cursor:pointer;text-align:right">{{ m.text }}</button></sc-if>
+              </div>
+            </sc-for>
+            <sc-if value="{{ chAsking }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;padding-top:4px">
+                <sc-for list="{{ chOpts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="height:44px;padding:0 16px;border:2px solid #0B2730;background:#fff;border-radius:999px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer" style-hover="background:#FBFAE6">{{ o.label }}</button></sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ chDone }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:10px;padding-top:6px">
+                <button style="height:54px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 17px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Show my savings →</button>
+                <a href="#7d" onClick="{{ chReset }}" style="align-self:center;font-size:13px;font-weight:700;color:#5B2F7A">Start again</a>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="7f"><div class="dv-olabel"><a class="dv-oid" href="#7f">7f</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Three questions, details optional</div><div>Only supplier, payment and household size are required. Tariff name, join date, Economy 7 and exact kWh sit in an optional panel that says what we assume if they're left blank. Gets customers to results fastest; they can refine on the results page.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#FBFAE6;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="padding:36px 24px 32px;display:flex;flex-direction:column;gap:24px;max-width:720px;margin:0 auto;box-sizing:border-box;width:100%">
+            <div style="display:flex;flex-direction:column;gap:8px;text-align:center;align-items:center"><div style="font-size:30px;font-weight:800;line-height:1.1;text-wrap:balance">Find a cheaper electricity plan in 3 questions</div><div style="font-size:14.5px;color:#3E5560">Free and independent. Compares all six NI suppliers.</div></div>
+            <div style="background:#fff;border:1px solid #ECE9C4;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:22px">
+              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:800">1. Who supplies you now?</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px">
+                  <sc-for list="{{ cSups }}" as="s" hint-placeholder-count="6">
+                    <button onClick="{{ s.pick }}" style="position:relative;height:54px;border:{{ s.border }};background:{{ s.bg }};border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:6px 10px;font-family:inherit">
+                      <sc-if value="{{ s.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-height:28px;max-width:90px;object-fit:contain"></sc-if>
+                      <sc-if value="{{ s.noLogo }}" hint-placeholder-val="{{ true }}"><span style="font-size:13.5px;font-weight:800;color:#3E5560">{{ s.name }}</span></sc-if>
+                    </button>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:800">2. How do you pay?</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px"><sc-for list="{{ cPays }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:46px;border:{{ o.border }};background:{{ o.bg }};border-radius:10px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:800">3. How many people live at home?</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px"><sc-for list="{{ cHouses }}" as="h" hint-placeholder-count="3"><button onClick="{{ h.pick }}" style="height:46px;border:{{ h.border }};background:{{ h.bg }};border-radius:10px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ h.t }}</button></sc-for></div>
+              </div>
+              <div style="border:1px solid #E6EAF0;border-radius:12px;overflow:hidden">
+                <button onClick="{{ qfToggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border:0;background:#F7F8FA;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer;text-align:left"><span>Make it more accurate <span style="font-weight:500;color:#5A6B80">· optional</span></span><span style="transform:{{ qfRot }};transition:transform .2s">▾</span></button>
+                <sc-if value="{{ qfOpen }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;flex-direction:column">
+                    <sc-for list="{{ qfRows }}" as="r" hint-placeholder-count="4">
+                      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:12px 16px;border-top:1px solid #EEF1F5">
+                        <span style="flex:1 1 160px;font-size:14px;font-weight:700">{{ r.label }}</span>
+                        <span style="flex:1 1 180px;height:40px;border:1px solid #C4CCD8;border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:13.5px;color:#5A6B80">{{ r.ph }}<span>▾</span></span>
+                        <span style="flex:1 1 100%;font-size:12px;color:#5A6B80">{{ r.assume }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+              <button style="height:56px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 17px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Show my savings →</button>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px 20px;font-size:12.5px;color:#3E5560"><span>✓ 4.8 from 107 reviews</span><span>✓ Customers saved £421 on average last year</span><span>✓ Trusted since 2015</span></div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="7g"><div class="dv-olabel"><a class="dv-oid" href="#7g">7g</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Bill guide beside the form</div><div>A sample bill sits next to the form. Choosing a field highlights where to find that answer on the bill, and the guide switches between a Direct Debit bill and a keypad receipt. Aimed at customers who don't know their tariff name or usage. Click the fields to see the matching highlight. The bill is a layout sketch; real bill images would replace it.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="background:#0B2730;color:#fff;padding:22px 24px;display:flex;flex-direction:column;gap:4px"><div style="font-size:24px;font-weight:800">Compare NI electricity prices</div><div style="font-size:14px;color:#C9D3D8">Step 1 of 3 · Everything you need is on your bill</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:24px;padding:24px">
+            <div style="flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:10px">
+              <sc-for list="{{ bgFields }}" as="f" hint-placeholder-count="5">
+                <button onClick="{{ f.pick }}" style="display:flex;align-items:center;gap:14px;padding:14px 16px;border:{{ f.border }};background:{{ f.bg }};border-radius:12px;cursor:pointer;text-align:left;font-family:inherit;color:#0B2730">
+                  <span style="flex:none;width:26px;height:26px;border-radius:50%;background:{{ f.numBg }};color:{{ f.numFg }};font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ f.n }}</span>
+                  <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:14.5px;font-weight:800">{{ f.label }}</span><span style="font-size:13px;color:#5A6B80">{{ f.value }}</span></span>
+                  <span style="font-size:13px;color:#5A6B80">▾</span>
+                </button>
+              </sc-for>
+              <button style="margin-top:6px;height:54px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Show my savings →</button>
+            </div>
+            <div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:12px">
+              <div style="display:inline-flex;align-self:flex-start;padding:4px;border-radius:999px;background:#EEF1F5;gap:4px">
+                <sc-for list="{{ bgTypes }}" as="o" hint-placeholder-count="2"><button onClick="{{ o.pick }}" style="height:34px;padding:0 14px;border:0;border-radius:999px;background:{{ o.bg }};box-shadow:{{ o.shadow }};font:700 13px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for>
+              </div>
+              <div style="background:#F7F8FA;border:1px solid #E6EAF0;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;font-size:12px;color:#5A6B80">
+                <sc-for list="{{ bgZones }}" as="z" hint-placeholder-count="5">
+                  <div style="position:relative;padding:10px 12px;border-radius:8px;border:{{ z.border }};background:{{ z.bg }};display:flex;flex-direction:column;gap:5px;transition:background .2s">
+                    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase">{{ z.title }}</span><span style="width:20px;height:20px;border-radius:50%;background:{{ z.numBg }};color:{{ z.numFg }};font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ z.n }}</span></div>
+                    <div style="height:7px;width:{{ z.w1 }};border-radius:4px;background:#D9DFE8"></div>
+                    <div style="height:7px;width:{{ z.w2 }};border-radius:4px;background:#E6EAF0"></div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="padding:12px 14px;border-radius:12px;background:#F1E7F8;font-size:13.5px;line-height:1.45;color:#0B2730"><strong>{{ bgTipTitle }}</strong> {{ bgTip }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="7h"><div class="dv-olabel"><a class="dv-oid" href="#7h">7h</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Results preview as you go</div><div>Matching tariffs appear under the form once supplier and payment are chosen, with the saving hidden. Picking a household size reveals the savings. Shows customers that results are real and close, which gives them a reason to finish. Pick a household size to reveal.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="padding:28px 24px;display:flex;flex-direction:column;gap:20px;max-width:760px;margin:0 auto;box-sizing:border-box;width:100%">
+            <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5B2F7A">Step 1 of 3</div><div style="font-size:28px;font-weight:800;line-height:1.1">Compare NI electricity prices</div></div>
+            <div style="display:flex;flex-wrap:wrap;gap:12px">
+              <div style="flex:1 1 220px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Current supplier</div><div style="height:48px;border:2px solid #0B2730;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14.5px;font-weight:700">Budget Energy<span style="color:#0B2730">✓</span></div></div>
+              <div style="flex:1 1 220px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">How you pay</div><div style="height:48px;border:2px solid #0B2730;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14.5px;font-weight:700">Pay as you go<span style="color:#0B2730">✓</span></div></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">How many people live at home?</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px"><sc-for list="{{ thHouses }}" as="h" hint-placeholder-count="3"><button onClick="{{ h.pick }}" style="height:48px;border:{{ h.border }};background:{{ h.bg }};border-radius:10px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ h.t }}</button></sc-for></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid #E6EAF0">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font-size:17px;font-weight:800">18 keypad tariffs match</span><span style="font-size:13px;color:#5A6B80">{{ thNote }}</span></div>
+              <sc-for list="{{ thRows }}" as="r" hint-placeholder-count="3">
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:14px 16px;border:1px solid #E6EAF0;border-radius:12px">
+                  <div style="width:72px;height:32px;flex:none;display:flex;align-items:center;justify-content:center"><sc-if value="{{ r.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></sc-if><sc-if value="{{ r.noLogo }}" hint-placeholder-val="{{ true }}"><span style="font-size:12.5px;font-weight:800;color:#3E5560;text-align:center;line-height:1.1">{{ r.supplier }}</span></sc-if></div>
+                  <div style="flex:1 1 180px;min-width:0;display:flex;flex-direction:column"><span style="font-size:14.5px;font-weight:700;line-height:1.3">{{ r.name }}</span><span style="font-size:12.5px;color:#5A6B80">{{ r.meta }}</span></div>
+                  <div style="flex:none;min-width:110px;text-align:right;display:flex;flex-direction:column"><span style="font-size:12px;color:#5A6B80">You save</span><span style="font-size:22px;font-weight:800;filter:{{ r.blur }};transition:filter .3s">{{ r.save }}</span></div>
+                </div>
+              </sc-for>
+            </div>
+            <button style="height:54px;border:0;border-radius:12px;background:{{ thCtaBg }};color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer">{{ thCta }}</button>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="7i"><div class="dv-olabel"><a class="dv-oid" href="#7i">7i</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Search bar</div><div>All the required questions fit in one bar, like a travel search. It works as the homepage hero, so customers can start comparing without loading a separate form page. On mobile the bar stacks. Shortcut links fill it in for common cases. Click a field to open its options.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#0B2730;border:1px solid #D9DFE8;border-radius:16px;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="padding:48px 24px 40px;display:flex;flex-direction:column;gap:24px;align-items:center;text-align:center">
+            <div style="display:flex;flex-direction:column;gap:10px;align-items:center"><div style="font-size:36px;font-weight:800;line-height:1.05;color:#fff;text-wrap:balance;max-width:640px">Are you paying too much for electricity?</div><div style="font-size:15px;color:#C9D3D8">Compare all six NI suppliers in under a minute.</div></div>
+            <div style="width:100%;max-width:900px;background:#fff;border-radius:16px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;box-sizing:border-box;text-align:left">
+              <sc-for list="{{ siFields }}" as="f" hint-placeholder-count="3">
+                <div style="position:relative;flex:1 1 200px;min-width:0">
+                  <button onClick="{{ f.toggle }}" style="width:100%;display:flex;flex-direction:column;gap:2px;padding:10px 14px;border:0;border-radius:10px;background:{{ f.bg }};cursor:pointer;text-align:left;font-family:inherit;color:#0B2730" style-hover="background:#F7F8FA"><span style="font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5A6B80">{{ f.label }}</span><span style="font-size:15.5px;font-weight:800;display:flex;justify-content:space-between;gap:8px">{{ f.value }}<span style="color:#5A6B80;font-weight:600">▾</span></span></button>
+                  <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:absolute;z-index:5;top:calc(100% + 8px);left:0;right:0;min-width:220px;background:#fff;border:1px solid #D9DFE8;border-radius:12px;box-shadow:0 10px 30px rgba(11,39,48,.18);padding:6px;display:flex;flex-direction:column">
+                      <sc-for list="{{ f.opts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="display:flex;justify-content:space-between;gap:8px;padding:10px 12px;border:0;border-radius:8px;background:{{ o.bg }};font:600 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer;text-align:left" style-hover="background:#FBFAE6">{{ o.label }}<span style="font-weight:800">{{ o.tick }}</span></button></sc-for>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+              <button style="flex:1 1 160px;min-height:58px;border:0;border-radius:10px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Compare →</button>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;align-items:center"><span style="font-size:13px;color:#C9D3D8">Shortcuts:</span><sc-for list="{{ siShort }}" as="s" hint-placeholder-count="3"><button onClick="{{ s.pick }}" style="height:34px;padding:0 14px;border:1px solid #3D5963;background:transparent;border-radius:999px;font:600 13px 'Figtree',sans-serif;color:#fff;cursor:pointer" style-hover="border-color:#C9A3E0">{{ s.label }}</button></sc-for></div>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;font-size:13px;color:#C9D3D8"><span>✓ 4.8 from 107 reviews</span><span>✓ Customers saved £421 on average last year</span><span>✓ Tariff name and exact usage can be added on the results page</span></div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="7j"><div class="dv-olabel"><a class="dv-oid" href="#7j">7j</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Start with what matters</div><div>The first question asks what the customer cares about most. Their picks set how results are sorted and which badges show, so someone who wants no contract sees those tariffs first. The usual questions follow in a compact block. Pick up to three priorities.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="background:#0B2730;color:#fff;padding:28px 24px;display:flex;flex-direction:column;gap:18px">
+            <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#C9A3E0">Step 1 of 3</div><div style="font-size:28px;font-weight:800;line-height:1.1">What matters most in a new plan?</div><div style="font-size:14.5px;color:#C9D3D8">Pick up to three. We'll sort your results to match.</div></div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px">
+              <sc-for list="{{ glOpts }}" as="g" hint-placeholder-count="6">
+                <button onClick="{{ g.pick }}" style="position:relative;text-align:left;padding:14px 16px;border:{{ g.border }};background:{{ g.bg }};border-radius:14px;display:flex;flex-direction:column;gap:3px;cursor:pointer;font-family:inherit;color:{{ g.fg }};opacity:{{ g.op }}">
+                  <span style="font-size:15.5px;font-weight:800;padding-right:22px">{{ g.label }}</span><span style="font-size:12.5px;color:{{ g.sub }}">{{ g.note }}</span>
+                  <sc-if value="{{ g.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ g.rank }}</span></sc-if>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="padding:24px;display:flex;flex-direction:column;gap:18px">
+            <div style="display:flex;flex-wrap:wrap;gap:12px">
+              <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Current supplier</div><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14.5px;font-weight:600">Budget Energy<span style="color:#5A6B80">▾</span></div></div>
+              <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">How you pay</div><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14.5px;font-weight:600">Pay as you go<span style="color:#5A6B80">▾</span></div></div>
+              <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Home size</div><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14.5px;font-weight:600">3–4 people<span style="color:#5A6B80">▾</span></div></div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;background:#FBFAE6;font-size:13.5px"><span style="font-weight:700">Results sorted by:</span><sc-for list="{{ glSort }}" as="s" hint-placeholder-count="1"><span style="padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #ECE9C4;font-weight:700">{{ s.text }}</span></sc-for></div>
+            <button style="height:54px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Show my matches →</button>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="7l"><div class="dv-olabel"><a class="dv-oid" href="#7l">7l</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Separate keypad and bill journeys</div><div>The first choice is how the customer pays. Keypad customers are asked what they top up each week, which most know better than kWh. Bill payers are asked their monthly Direct Debit or bill amount. Both journeys are three questions long. Choose a path to see it.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="background:#0B2730;color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:16px;font-weight:800">Compare NI electricity prices</span><span style="font-size:13px;color:#C9D3D8">Step 1 of 3</span></div>
+          <div style="padding:28px 24px;display:flex;flex-direction:column;gap:20px;max-width:760px;margin:0 auto;box-sizing:border-box;width:100%">
+            <sc-if value="{{ spNone }}" hint-placeholder-val="{{ true }}">
+              <div style="font-size:26px;font-weight:800;line-height:1.15">How do you pay for electricity?</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+                <button onClick="{{ spKp }}" style="text-align:left;padding:22px;border:2px solid #E6EAF0;background:#fff;border-radius:16px;display:flex;flex-direction:column;gap:8px;cursor:pointer;font-family:inherit;color:#0B2730" style-hover="border-color:#0B2730"><span style="width:44px;height:44px;border-radius:12px;background:#EFEC8C;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800">£</span><span style="font-size:19px;font-weight:800">I top up a keypad</span><span style="font-size:13.5px;color:#3E5560;line-height:1.4">Pay as you go. You buy credit and top up your meter.</span></button>
+                <button onClick="{{ spDd }}" style="text-align:left;padding:22px;border:2px solid #E6EAF0;background:#fff;border-radius:16px;display:flex;flex-direction:column;gap:8px;cursor:pointer;font-family:inherit;color:#0B2730" style-hover="border-color:#0B2730"><span style="width:44px;height:44px;border-radius:12px;background:#F1E7F8;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800">✉</span><span style="font-size:19px;font-weight:800">I get a bill</span><span style="font-size:13.5px;color:#3E5560;line-height:1.4">Direct Debit, or paying by cash, card or cheque.</span></button>
+              </div>
+            </sc-if>
+            <sc-if value="{{ spChosen }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 14px;border-radius:12px;background:#FBFAE6"><span style="font-size:14px;font-weight:700">{{ spPathLabel }}</span><a href="#7l" onClick="{{ spReset }}" style="font-size:13px;font-weight:700;color:#5B2F7A">Change</a></div>
+              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:800">1. Who supplies you?</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ spSups }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.pick }}" style="height:40px;padding:0 14px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div></div>
+              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:800">{{ spQ2 }}</div><div style="font-size:13px;color:#5A6B80;margin-top:-4px">{{ spQ2Help }}</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px"><sc-for list="{{ spAmts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="height:54px;border:{{ o.border }};background:{{ o.bg }};border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;font-family:inherit;color:#0B2730"><span style="font-size:16px;font-weight:800">{{ o.label }}</span><span style="font-size:11.5px;color:#5A6B80">{{ o.sub }}</span></button></sc-for></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:800">{{ spQ3 }}</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ spQ3Opts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:40px;padding:0 14px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div></div>
+              <button style="height:54px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ spCta }}</button>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<div class="dv-opt" id="7m"><div class="dv-olabel"><a class="dv-oid" href="#7m">7m</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Help at hand</div><div>A "Stuck? Talk to us" panel sits beside the form, with the phone number, opening hours and a callback booking. Picking a slot and adding a name and number confirms the callback. On mobile the panel moves below the button. The phone number and hours are placeholders. Pick a slot and book to see the confirmation.</div></div>
+  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
+      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
+        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
+        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
+          <div style="background:#0B2730;color:#fff;padding:22px 24px;display:flex;flex-direction:column;gap:4px"><div style="font-size:24px;font-weight:800">Compare NI electricity prices</div><div style="font-size:14px;color:#C9D3D8">Step 1 of 3 · Your details</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:24px;padding:24px">
+            <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:14px">
+              <sc-for list="{{ hpFields }}" as="f" hint-placeholder-count="5"><div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">{{ f.label }}</div><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14.5px;font-weight:600;color:{{ f.color }}">{{ f.value }}<span style="color:#5A6B80">▾</span></div></div></sc-for>
+              <button style="margin-top:4px;height:54px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Show my savings →</button>
+            </div>
+            <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:14px;padding:20px;border-radius:16px;background:#F1E7F8;align-self:flex-start">
+              <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:18px;font-weight:800">Stuck? Talk to us</div><div style="font-size:13.5px;color:#3E5560;line-height:1.45">Our team can find your tariff and run the comparison with you.</div></div>
+              <a href="#7m" style="display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:12px;background:#fff;text-decoration:none"><span style="font-size:20px;font-weight:800">028 0000 0000</span><span style="font-size:12.5px;color:#5A6B80">Mon to Fri, 9am to 5pm · Free to call</span></a>
+              <sc-if value="{{ cbPending }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">Or book a callback</div>
+                  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px"><sc-for list="{{ cbSlots }}" as="s" hint-placeholder-count="4"><button onClick="{{ s.pick }}" style="padding:8px 10px;border:{{ s.border }};background:{{ s.bg }};border-radius:10px;display:flex;flex-direction:column;cursor:pointer;font-family:inherit;color:#0B2730;text-align:left"><span style="font-size:12px;color:#5A6B80">{{ s.day }}</span><span style="font-size:13.5px;font-weight:800">{{ s.time }}</span></button></sc-for></div>
+                  <div style="height:42px;border:1px solid #C4CCD8;border-radius:10px;background:#fff;display:flex;align-items:center;padding:0 12px;font-size:14px;color:#7A8899">Your name</div>
+                  <div style="height:42px;border:1px solid #C4CCD8;border-radius:10px;background:#fff;display:flex;align-items:center;padding:0 12px;font-size:14px;color:#7A8899">Phone number</div>
+                  <button onClick="{{ cbBook }}" style="height:46px;border:0;border-radius:10px;background:#0B2730;color:#fff;font:800 14.5px 'Figtree',sans-serif;cursor:pointer">{{ cbCta }}</button>
+                </div>
+              </sc-if>
+              <sc-if value="{{ cbDone }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:12px;background:#fff">
+                  <div style="display:flex;align-items:center;gap:10px"><span style="width:26px;height:26px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span><span style="font-size:15px;font-weight:800">Callback booked</span></div>
+                  <div style="font-size:13.5px;color:#3E5560;line-height:1.45">{{ cbConfirm }} Have a recent bill to hand if you can.</div>
+                  <a href="#7m" onClick="{{ cbReset }}" style="font-size:13px;font-weight:700;color:#5B2F7A">Change time</a>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</div>
+<div style="border-top:2px solid #0B2730;padding-top:96px"></div>
   <div style="display:flex;flex-direction:column;gap:6px;padding:0 0 40px">
     <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Archive</div>
     <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Archive</div>

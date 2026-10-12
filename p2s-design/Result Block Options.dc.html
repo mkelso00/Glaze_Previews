@@ -9,6 +9,12 @@
 <x-dc>
 <helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;background:#EEF1F5;font-family:'Figtree',system-ui,sans-serif;color:#0B2730;-webkit-font-smoothing:antialiased}a{color:#0B2730}a:hover{color:#0B2730}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opt{flex:none;display:grid;grid-template-columns:260px max-content;gap:40px;align-items:start;padding:0 64px;border-left:1px solid #D9DFE8;scroll-margin-top:16px}.dv-opt:first-child{border-left:0;padding-left:0}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{position:sticky;top:24px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;font:400 14.5px/1.55 'Figtree',system-ui,sans-serif;color:#3E5560;text-wrap:pretty}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:32px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style></helmet>
 <main style="width:max-content;padding:48px 56px 80px;box-sizing:border-box">
+<nav style="position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px;margin:0 0 40px;background:#0B2730;border-radius:14px;box-shadow:0 4px 16px rgba(11,39,48,.18)">
+  <span style="padding:0 12px 0 8px;font-size:15px;font-weight:800;color:#fff">Power to Switch</span>
+  <sc-for list="{{ tabList }}" as="t" hint-placeholder-count="7"><button onClick="{{ t.pick }}" style="height:40px;padding:0 16px;border:0;border-radius:10px;background:{{ t.bg }};color:{{ t.fg }};font:700 14px 'Figtree',sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px"><span style="font-size:12px;font-weight:800;opacity:.7">{{ t.n }}</span>{{ t.label }}</button></sc-for>
+  <a href="Switch Form Archive.dc.html" style="margin-left:auto;height:40px;padding:0 16px;border:1px solid #3D5963;border-radius:10px;display:flex;align-items:center;font-size:14px;font-weight:700;color:#C9D3D8;text-decoration:none">Archive ↗</a>
+</nav>
+<div data-tab="blocks" style="display:{{ tabDisp.blocks }}">
   <div style="display:flex;flex-direction:column;gap:6px;padding:0 0 40px">
     <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Electricity results</div>
     <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Result block options</div>
@@ -74,7 +80,7 @@
             </sc-if>
             <sc-if value="{{ tabIs.rates }}" hint-placeholder-val="{{ false }}">
               <button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button>
-              <div style="margin-bottom:10px;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden;background:#fff;font-size:13px"><div style="display:grid;grid-template-columns:minmax(70px,.8fr) minmax(0,2fr) auto;gap:10px;padding:7px 12px;background:#F4F2D6;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#5A6B80"><span>Rate</span><span>Times</span><span>Price</span></div><sc-for list="{{ bands }}" as="bd" hint-placeholder-count="1"><div style="display:grid;grid-template-columns:minmax(70px,.8fr) minmax(0,2fr) auto;gap:10px;align-items:baseline;padding:7px 12px;border-top:1px solid #EEECCF"><strong>{{ bd.band }}</strong><span style="color:#3E5560">{{ bd.times }}</span><strong>{{ bd.rate }}</strong></div></sc-for></div>
+              <div style="margin-bottom:10px;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden;background:#fff;font-size:13px"><div style="display:grid;grid-template-columns:{{ rt4.cols }};gap:10px;padding:7px 12px;background:#F4F2D6;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#5A6B80"><sc-for list="{{ rt4.head }}" as="hd" hint-placeholder-count="3"><span>{{ hd }}</span></sc-for></div><sc-for list="{{ rt4.rows }}" as="rw" hint-placeholder-count="2"><div style="display:grid;grid-template-columns:{{ rt4.cols }};gap:10px;align-items:baseline;padding:7px 12px;border-top:1px solid #EEECCF"><sc-for list="{{ rw.cells }}" as="cl" hint-placeholder-count="3"><span style="font-weight:{{ cl.w }};color:{{ cl.c }}">{{ cl.t }}</span></sc-for></div></sc-for></div>
               <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden">
                 <sc-for list="{{ rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for>
               </div>
@@ -110,6 +116,7 @@
                 <div>The 10.5% discount applies for 12 months. After that you move to SSE Airtricity's standard keypad rate.</div>
                 <div>The £30 welcome credit is added to your account after you switch.</div>
                 <div>For new SSE Airtricity customers only. No exit fee.</div>
+                <div><strong>Price change on 1 December 2026.</strong> The unit rate goes from 35.80p to 36.51p/kWh. Rates before and after are in Rates &amp; charges.</div>
                 <div style="display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" target="_blank" rel="noopener" style="font-weight:600">Full T&amp;Cs ↗</a><a href="#" target="_blank" rel="noopener" style="font-weight:600">Promotional terms ↗</a></div>
               </div>
             </sc-if>
@@ -165,7 +172,7 @@
             </sc-if>
             <sc-if value="{{ tabIs.rates }}" hint-placeholder-val="{{ false }}">
               <button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button>
-              <div style="margin-bottom:10px;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden;background:#fff;font-size:13px"><div style="display:grid;grid-template-columns:minmax(70px,.8fr) minmax(0,2fr) auto;gap:10px;padding:7px 12px;background:#F4F2D6;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#5A6B80"><span>Rate</span><span>Times</span><span>Price</span></div><sc-for list="{{ bands }}" as="bd" hint-placeholder-count="1"><div style="display:grid;grid-template-columns:minmax(70px,.8fr) minmax(0,2fr) auto;gap:10px;align-items:baseline;padding:7px 12px;border-top:1px solid #EEECCF"><strong>{{ bd.band }}</strong><span style="color:#3E5560">{{ bd.times }}</span><strong>{{ bd.rate }}</strong></div></sc-for></div>
+              <div style="margin-bottom:10px;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden;background:#fff;font-size:13px"><div style="display:grid;grid-template-columns:{{ rt4.cols }};gap:10px;padding:7px 12px;background:#F4F2D6;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#5A6B80"><sc-for list="{{ rt4.head }}" as="hd" hint-placeholder-count="3"><span>{{ hd }}</span></sc-for></div><sc-for list="{{ rt4.rows }}" as="rw" hint-placeholder-count="2"><div style="display:grid;grid-template-columns:{{ rt4.cols }};gap:10px;align-items:baseline;padding:7px 12px;border-top:1px solid #EEECCF"><sc-for list="{{ rw.cells }}" as="cl" hint-placeholder-count="3"><span style="font-weight:{{ cl.w }};color:{{ cl.c }}">{{ cl.t }}</span></sc-for></div></sc-for></div>
               <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden">
                 <sc-for list="{{ rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for>
               </div>
@@ -201,6 +208,7 @@
                 <div>The 10.5% discount applies for 12 months. After that you move to SSE Airtricity's standard keypad rate.</div>
                 <div>The £30 welcome credit is added to your account after you switch.</div>
                 <div>For new SSE Airtricity customers only. No exit fee.</div>
+                <div><strong>Price change on 1 December 2026.</strong> The unit rate goes from 35.80p to 36.51p/kWh. Rates before and after are in Rates &amp; charges.</div>
                 <div style="display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" target="_blank" rel="noopener" style="font-weight:600">Full T&amp;Cs ↗</a><a href="#" target="_blank" rel="noopener" style="font-weight:600">Promotional terms ↗</a></div>
               </div>
             </sc-if>
@@ -259,7 +267,7 @@
             </sc-if>
             <sc-if value="{{ tabIs.rates }}" hint-placeholder-val="{{ false }}">
               <button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button>
-              <div style="margin-bottom:10px;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden;background:#fff;font-size:13px"><div style="display:grid;grid-template-columns:minmax(70px,.8fr) minmax(0,2fr) auto;gap:10px;padding:7px 12px;background:#F4F2D6;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#5A6B80"><span>Rate</span><span>Times</span><span>Price</span></div><sc-for list="{{ bands }}" as="bd" hint-placeholder-count="1"><div style="display:grid;grid-template-columns:minmax(70px,.8fr) minmax(0,2fr) auto;gap:10px;align-items:baseline;padding:7px 12px;border-top:1px solid #EEECCF"><strong>{{ bd.band }}</strong><span style="color:#3E5560">{{ bd.times }}</span><strong>{{ bd.rate }}</strong></div></sc-for></div>
+              <div style="margin-bottom:10px;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden;background:#fff;font-size:13px"><div style="display:grid;grid-template-columns:{{ rt4.cols }};gap:10px;padding:7px 12px;background:#F4F2D6;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#5A6B80"><sc-for list="{{ rt4.head }}" as="hd" hint-placeholder-count="3"><span>{{ hd }}</span></sc-for></div><sc-for list="{{ rt4.rows }}" as="rw" hint-placeholder-count="2"><div style="display:grid;grid-template-columns:{{ rt4.cols }};gap:10px;align-items:baseline;padding:7px 12px;border-top:1px solid #EEECCF"><sc-for list="{{ rw.cells }}" as="cl" hint-placeholder-count="3"><span style="font-weight:{{ cl.w }};color:{{ cl.c }}">{{ cl.t }}</span></sc-for></div></sc-for></div>
               <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden">
                 <sc-for list="{{ rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for>
               </div>
@@ -295,6 +303,7 @@
                 <div>The 10.5% discount applies for 12 months. After that you move to SSE Airtricity's standard keypad rate.</div>
                 <div>The £30 welcome credit is added to your account after you switch.</div>
                 <div>For new SSE Airtricity customers only. No exit fee.</div>
+                <div><strong>Price change on 1 December 2026.</strong> The unit rate goes from 35.80p to 36.51p/kWh. Rates before and after are in Rates &amp; charges.</div>
                 <div style="display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;margin-top:4px"><a href="#" style="font-weight:600">Company &amp; tariff info</a><a href="#" target="_blank" rel="noopener" style="font-weight:600">Full T&amp;Cs ↗</a><a href="#" target="_blank" rel="noopener" style="font-weight:600">Promotional terms ↗</a></div>
               </div>
             </sc-if>
@@ -806,7 +815,9 @@
 
 </div>
 
-<div style="display:flex;flex-direction:column;gap:6px;padding:96px 0 40px;margin-top:64px;border-top:2px solid #0B2730">
+</div>
+<div data-tab="calc" style="display:{{ tabDisp.calc }}">
+<div style="display:flex;flex-direction:column;gap:6px;padding:0 0 40px">
   <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · See calculation</div>
   <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Calculation block options</div>
   <div style="font-size:15px;color:#3E5560;max-width:760px;line-height:1.5">What opens from "See calculation". bonkers.ie uses a separate plan page with a summary, then sections for plan features, time bands, electricity charges and payment information. These three options show the same content in a panel, an in-card drawer and a chart. All figures use the SSE Airtricity sample at 3,200 kWh a year.</div>
@@ -1251,7 +1262,9 @@
 
 </div>
 
-<div id="compare" style="display:flex;flex-direction:column;gap:6px;padding:96px 0 40px;margin-top:64px;border-top:2px solid #0B2730">
+</div>
+<div data-tab="compare" style="display:{{ tabDisp.compare }}">
+<div id="compare" style="display:flex;flex-direction:column;gap:6px;padding:0 0 40px">
   <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Step 1</div>
   <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Comparison page options</div>
   <div style="font-size:15px;color:#3E5560;max-width:760px;line-height:1.5">The page customers fill in before they see results. Below: what the current page gets wrong, then thirteen ways to redesign it. All of them ask the same questions as today, with the cashback question moved to the results page as a filter.</div>
@@ -1274,7 +1287,7 @@
 </div>
 <div style="display:flex;flex-direction:row;align-items:flex-start">
 
-<div class="dv-opt" id="7a"><div class="dv-olabel"><a class="dv-oid" href="#7a">7a</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Grouped single page</div><div style="display:inline-flex;align-self:flex-start;padding:3px 10px;border-radius:999px;background:#E3E000;color:#0B2730;font-size:12px;font-weight:800">Chosen · others kept for A/B tests</div><div>An optional fourth group lets customers create an account, with three reasons to, before they see results. Same one-page form, split into four numbered groups. Selected tiles get a tick and a dark border. The tariff list is filtered by supplier and payment type. Usage can be estimated from household size. A summary on the right fills in as the customer answers. Email and account sign-up move below the button.</div></div>
+<div class="dv-opt" id="7a"><div class="dv-olabel"><a class="dv-oid" href="#7a">7a</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Grouped single page</div><div style="display:inline-flex;align-self:flex-start;padding:3px 10px;border-radius:999px;background:#E3E000;color:#0B2730;font-size:12px;font-weight:800">Chosen · others kept for A/B tests</div><div>Starts by asking how to compare: enter details or upload a bill. The manual route follows the live form: Economy 7 has a "Not sure" answer, customers say whether they know their tariff, "My tariff isn't listed" falls back to the standard rate, the join date only shows for discount tariffs, and usage can be estimated, entered in kWh or entered as spend. An optional fourth group lets customers create an account, with three reasons to, before they see results. Same one-page form, split into four numbered groups. Selected tiles get a tick and a dark border. The tariff list is filtered by supplier and payment type. Usage can be estimated from household size. A summary on the right fills in as the customer answers. Email and account sign-up move below the button.</div></div>
   <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
     <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
       <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
@@ -1290,14 +1303,33 @@
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:24px;padding:24px;background:#F7F8FA">
             <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:16px">
-              <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;background:#F1E7F8;font-size:13.5px;color:#0B2730;line-height:1.4"><span style="flex:none;font-weight:800;color:#5B2F7A">Tip</span><span>Have a recent bill to hand, or <a href="#7c" style="font-weight:700">upload it instead</a> and we'll fill this in for you.</span></div>
+              <div style="background:#fff;border:1px solid #E6EAF0;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
+                <div style="font-size:18px;font-weight:800">How would you like to compare?</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+                  <sc-for list="{{ cModes }}" as="m" hint-placeholder-count="2">
+                    <button onClick="{{ m.pick }}" style="position:relative;text-align:left;padding:16px;border:{{ m.border }};background:{{ m.bg }};border-radius:12px;display:flex;gap:14px;align-items:flex-start;cursor:pointer;font-family:inherit;color:#0B2730">
+                      <span style="flex:none;width:40px;height:40px;border-radius:10px;background:{{ m.iconBg }};display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800">{{ m.icon }}</span>
+                      <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;padding-right:22px"><span style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:16px;font-weight:800">{{ m.t }}<sc-if value="{{ m.isNew }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;font-weight:800;letter-spacing:.04em;padding:2px 7px;border-radius:6px;background:#0B2730;color:#E3E000">NEW</span></sc-if></span><span style="font-size:13px;color:#5A6B80;line-height:1.4">{{ m.s }}</span></span>
+                      <span style="position:absolute;top:14px;right:14px;width:20px;height:20px;box-sizing:border-box;border-radius:50%;border:2px solid #0B2730;background:{{ m.dot }};box-shadow:inset 0 0 0 3px {{ m.bg }}"></span>
+                    </button>
+                  </sc-for>
+                </div>
+                <sc-if value="{{ cUpload }}" hint-placeholder-val="{{ false }}">
+                  <div style="border:2px dashed #B78DD4;border-radius:12px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;background:#FBF8FD">
+                    <div style="font-size:16px;font-weight:800">Upload your latest electricity bill</div>
+                    <div style="font-size:13px;color:#3E5560;max-width:380px;line-height:1.45">PDF or a photo of a paper bill or keypad statement. We read your supplier, tariff and usage, then you check them.</div>
+                    <button style="height:46px;padding:0 22px;border:0;border-radius:12px;background:#C9A3E0;font:800 15px 'Figtree',sans-serif;color:#0B2730;cursor:pointer" style-hover="background:#B78DD4">Choose a file</button>
+                    <div style="font-size:12px;color:#5A6B80">Works with all six NI suppliers. Your bill is deleted once read.</div>
+                  </div>
+                </sc-if>
+              </div>
+              <sc-if value="{{ cManual }}" hint-placeholder-val="{{ true }}">
               <div style="background:#fff;border:1px solid #E6EAF0;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
                 <div style="display:flex;align-items:center;gap:10px"><span style="width:26px;height:26px;border-radius:50%;background:#0B2730;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">1</span><span style="font-size:18px;font-weight:800">Who supplies your electricity?</span></div>
                 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">
                   <sc-for list="{{ cSups }}" as="s" hint-placeholder-count="6">
                     <button onClick="{{ s.pick }}" style="position:relative;height:60px;border:{{ s.border }};background:{{ s.bg }};border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:8px 12px;font-family:inherit">
-                      <sc-if value="{{ s.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-height:32px;max-width:100px;object-fit:contain"></sc-if>
-                      <sc-if value="{{ s.noLogo }}" hint-placeholder-val="{{ true }}"><span style="font-size:14.5px;font-weight:800;color:#3E5560">{{ s.name }}</span></sc-if>
+                      <img src="{{ s.logo }}" alt="{{ s.name }}" style="max-height:34px;max-width:100%;object-fit:contain">
                       <sc-if value="{{ s.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:6px;right:6px;width:18px;height:18px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span></sc-if>
                     </button>
                   </sc-for>
@@ -1315,15 +1347,35 @@
                     <sc-for list="{{ cE7s }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:46px;border:{{ o.border }};background:{{ o.bg }};border-radius:10px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for>
                   </div>
                 </div>
-                <div style="display:flex;flex-wrap:wrap;gap:14px">
-                  <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Tariff name</div><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14px;font-weight:600">Q1 Fixed Keypad<span style="color:#5A6B80">▾</span></div><div style="font-size:12px;color:#5A6B80">{{ cTariffNote }}</div></div>
-                  <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">When did you join it?</div><div style="display:flex;gap:8px"><div style="flex:1;height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:14px;font-weight:600">March<span style="color:#5A6B80">▾</span></div><div style="flex:1;height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:14px;font-weight:600">2025<span style="color:#5A6B80">▾</span></div></div><div style="font-size:12px;color:#5A6B80">So we can tell you if an exit fee applies.</div></div>
+                <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">Do you know your tariff?</div>
+                  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-width:420px">
+                    <sc-for list="{{ cKnows }}" as="o" hint-placeholder-count="2"><button onClick="{{ o.pick }}" style="height:46px;border:{{ o.border }};background:{{ o.bg }};border-radius:10px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for>
+                  </div>
                 </div>
+                <sc-if value="{{ cKnowNo }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding:12px 14px;border-radius:10px;background:#F7F8FA;font-size:13px;color:#3E5560;line-height:1.45">{{ cStdNote }}</div>
+                </sc-if>
+                <sc-if value="{{ cKnowYes }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start">
+                  <div style="position:relative;flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Tariff name</div>
+                    <button onClick="{{ cTarToggle }}" style="height:46px;border:1px solid #C4CCD8;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 14px;font:600 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer;text-align:left">{{ cTarName }}<span style="color:#5A6B80">▾</span></button>
+                    <sc-if value="{{ cTarOpen }}" hint-placeholder-val="{{ false }}">
+                      <div style="position:absolute;z-index:5;top:78px;left:0;right:0;background:#fff;border:1px solid #D9DFE8;border-radius:12px;box-shadow:0 10px 30px rgba(11,39,48,.18);padding:6px;display:flex;flex-direction:column">
+                        <sc-for list="{{ cTarOpts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="display:flex;align-items:center;gap:8px;padding:10px 12px;border:0;border-top:{{ o.sep }};border-radius:8px;background:{{ o.bg }};font:600 14px 'Figtree',sans-serif;color:{{ o.fg }};cursor:pointer;text-align:left" style-hover="background:#FBFAE6"><span style="flex:1">{{ o.label }}</span><sc-if value="{{ o.disc }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px;background:#F1E7F8;color:#5B2F7A">Discount</span></sc-if><span style="width:14px;font-weight:800">{{ o.tick }}</span></button></sc-for>
+                      </div>
+                    </sc-if>
+                    <div style="font-size:12px;color:#5A6B80;line-height:1.4">{{ cTariffNote }}</div>
+                  </div>
+                  <sc-if value="{{ cShowJoin }}" hint-placeholder-val="{{ true }}">
+                  <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">When did you join it?</div><div style="display:flex;gap:8px"><div style="flex:1;height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:14px;font-weight:600">March<span style="color:#5A6B80">▾</span></div><div style="flex:1;height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:14px;font-weight:600">2025<span style="color:#5A6B80">▾</span></div></div><div style="font-size:12px;color:#5A6B80">Discount tariffs end after a set time. This tells us when yours does.</div></div>
+                  </sc-if>
+                </div>
+                </sc-if>
               </div>
               <div style="background:#fff;border:1px solid #E6EAF0;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
                 <div style="display:flex;align-items:center;gap:10px"><span style="width:26px;height:26px;border-radius:50%;background:#0B2730;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">3</span><span style="font-size:18px;font-weight:800">How much electricity do you use?</span></div>
                 <div style="display:inline-flex;align-self:flex-start;padding:4px;border-radius:999px;background:#EEF1F5;gap:4px">
-                  <sc-for list="{{ cUseModes }}" as="o" hint-placeholder-count="2"><button onClick="{{ o.pick }}" style="height:36px;padding:0 16px;border:0;border-radius:999px;background:{{ o.bg }};box-shadow:{{ o.shadow }};font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for>
+                  <sc-for list="{{ cUseModes }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:36px;padding:0 16px;border:0;border-radius:999px;background:{{ o.bg }};box-shadow:{{ o.shadow }};font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for>
                 </div>
                 <sc-if value="{{ cUseEst }}" hint-placeholder-val="{{ true }}">
                   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px">
@@ -1333,7 +1385,11 @@
                 <sc-if value="{{ cUseKwh }}" hint-placeholder-val="{{ false }}">
                   <div style="display:flex;flex-direction:column;gap:6px;max-width:320px"><div style="display:flex;align-items:center;height:46px;border:1px solid #C4CCD8;border-radius:10px;padding:0 14px;font-size:15px;font-weight:700">3,200<span style="margin-left:auto;font-weight:600;color:#5A6B80">kWh a year</span></div><div style="font-size:12px;color:#5A6B80">Shown on your annual statement, or add up 12 months of bills.</div></div>
                 </sc-if>
+                <sc-if value="{{ cUseSpend }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;flex-direction:column;gap:6px;max-width:420px"><div style="display:flex;gap:8px"><div style="flex:1;display:flex;align-items:center;height:46px;border:1px solid #C4CCD8;border-radius:10px;padding:0 14px;font-size:15px;font-weight:700"><span style="color:#5A6B80;margin-right:4px">£</span>{{ cSpendAmt }}</div><div style="flex:1;height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:14px;font-weight:600">{{ cSpendPer }}<span style="color:#5A6B80">▾</span></div></div><div style="font-size:12px;color:#5A6B80">{{ cSpendHelp }}</div></div>
+                </sc-if>
               </div>
+              </sc-if>
               <div style="background:#fff;border:1px solid #E6EAF0;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px">
                 <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"><span style="width:26px;height:26px;border-radius:50%;background:#F1E7F8;color:#5B2F7A;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">4</span><span style="font-size:18px;font-weight:800">Save your results</span><span style="font-size:12px;font-weight:800;padding:3px 9px;border-radius:999px;background:#EEF1F5;color:#5A6B80">Optional</span></div>
                 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px">
@@ -1368,122 +1424,6 @@
                 <div style="display:flex;justify-content:space-between;padding:12px 0;font-size:14px;font-weight:600">How long does switching take?<span style="color:#5B2F7A">+</span></div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="7b"><div class="dv-olabel"><a class="dv-oid" href="#7b">7b</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">One question at a time</div><div>Six short screens with large tiles and a progress bar. Each answer shows up under "So far" and can be changed with one tap. Works well on mobile, where most comparisons start. Click the tiles and Continue to step through.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
-          <div style="background:#0B2730;color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:16px;font-weight:800">Compare NI electricity prices</span><span style="font-size:13px;color:#C9D3D8">Step 1 of 3</span></div>
-          <div style="height:6px;background:#EEF1F5"><div style="height:100%;width:{{ wzPct }};background:#B78DD4;transition:width .3s"></div></div>
-          <div style="display:flex;flex-wrap:wrap;gap:28px;padding:32px 24px 28px">
-            <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:640px">
-              <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5B2F7A">{{ wzNum }}</div><div style="font-size:26px;font-weight:800;line-height:1.15;text-wrap:pretty">{{ wzTitle }}</div><div style="font-size:14.5px;color:#3E5560;line-height:1.45">{{ wzHelp }}</div></div>
-              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px">
-                <sc-for list="{{ wzTiles }}" as="t" hint-placeholder-count="4">
-                  <button onClick="{{ t.pick }}" style="position:relative;min-height:72px;text-align:left;padding:14px 16px;border:{{ t.border }};background:{{ t.bg }};border-radius:14px;display:flex;flex-direction:column;justify-content:center;gap:3px;cursor:pointer;font-family:inherit;color:#0B2730">
-                    <sc-if value="{{ t.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-height:30px;max-width:96px;object-fit:contain"></sc-if>
-                    <sc-if value="{{ t.noLogo }}" hint-placeholder-val="{{ true }}"><span style="font-size:15.5px;font-weight:800;line-height:1.25;padding-right:18px">{{ t.label }}</span></sc-if>
-                    <sc-if value="{{ t.hasSub }}" hint-placeholder-val="{{ false }}"><span style="font-size:12.5px;color:#5A6B80">{{ t.sub }}</span></sc-if>
-                    <sc-if value="{{ t.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span></sc-if>
-                  </button>
-                </sc-for>
-              </div>
-              <div style="display:flex;gap:10px;align-items:center">
-                <button onClick="{{ wzBack }}" style="height:50px;padding:0 20px;border:1px solid #C4CCD8;background:#fff;border-radius:12px;font:700 15px 'Figtree',sans-serif;color:#0B2730;cursor:pointer;opacity:{{ wzBackOp }}">← Back</button>
-                <button onClick="{{ wzNext }}" style="flex:1;max-width:320px;height:50px;border:0;border-radius:12px;background:#C9A3E0;font:800 16px 'Figtree',sans-serif;color:#0B2730;cursor:pointer" style-hover="background:#B78DD4">{{ wzNextLabel }}</button>
-              </div>
-            </div>
-            <div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:14px;background:#FBFAE6;align-self:flex-start">
-              <div style="font-size:14px;font-weight:800">So far</div>
-              <sc-if value="{{ wzNone }}" hint-placeholder-val="{{ true }}"><div style="font-size:13px;color:#5A6B80">Your answers will appear here.</div></sc-if>
-              <sc-for list="{{ wzSoFar }}" as="a" hint-placeholder-count="0"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13.5px;padding-top:8px;border-top:1px solid #ECE9C4"><span style="color:#5A6B80">{{ a.label }}</span><span style="display:flex;gap:8px;align-items:baseline"><span style="font-weight:700;text-align:right">{{ a.value }}</span><a href="#7b" onClick="{{ a.go }}" style="font-size:12px;font-weight:700;color:#5B2F7A">Change</a></span></div></sc-for>
-            </div>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="7c"><div class="dv-olabel"><a class="dv-oid" href="#7c">7c</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Bill upload first</div><div>Uploading a bill becomes the main route, with manual entry as the alternative. After upload the customer checks what was read and fixes anything marked. The upload flow is on the live page today but sits behind a small tab. Click "Try a sample bill" to see the check screen.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
-          <div style="background:#0B2730;color:#fff;padding:28px 28px 26px;display:flex;flex-direction:column;gap:6px"><div style="font-size:28px;font-weight:800;line-height:1.1">See what you could save</div><div style="font-size:14.5px;color:#C9D3D8">Upload a bill and we'll read your supplier, tariff and usage.</div></div>
-          <div style="padding:24px;display:flex;flex-direction:column;gap:18px;background:#F7F8FA">
-            <sc-if value="{{ upPending }}" hint-placeholder-val="{{ true }}">
-              <div style="display:flex;flex-wrap:wrap;gap:16px">
-                <div style="flex:2 1 380px;min-width:0;background:#fff;border:2px dashed #B78DD4;border-radius:16px;padding:28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px">
-                  <div style="width:56px;height:56px;border-radius:14px;background:#F1E7F8;color:#5B2F7A;font-size:26px;font-weight:800;display:flex;align-items:center;justify-content:center">↑</div>
-                  <div style="font-size:19px;font-weight:800">Upload your electricity bill</div>
-                  <div style="font-size:13.5px;color:#3E5560;max-width:360px;line-height:1.45">PDF or a photo of a paper bill. Takes about 20 seconds. Your bill is deleted once we've read it.</div>
-                  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:4px"><button style="height:48px;padding:0 22px;border:0;border-radius:12px;background:#C9A3E0;font:800 15px 'Figtree',sans-serif;color:#0B2730;cursor:pointer" style-hover="background:#B78DD4">Choose a file</button><button onClick="{{ upTry }}" style="height:48px;padding:0 18px;border:1px solid #C4CCD8;background:#fff;border-radius:12px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">Try a sample bill</button></div>
-                </div>
-                <div style="flex:1 1 220px;min-width:0;background:#fff;border:1px solid #E6EAF0;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px">
-                  <div style="font-size:16px;font-weight:800">No bill to hand?</div>
-                  <div style="font-size:13.5px;color:#3E5560;line-height:1.45">Answer six quick questions instead. You'll need to know your supplier and roughly how you pay.</div>
-                  <a href="#7b" style="margin-top:auto;height:46px;border:1px solid #0B2730;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:700;text-decoration:none">Enter details manually</a>
-                </div>
-              </div>
-              <div style="display:flex;flex-wrap:wrap;gap:8px 20px;font-size:12.5px;color:#3E5560"><span>✓ Works with all six NI suppliers</span><span>✓ Keypad statements and Direct Debit bills</span><span>✓ 4.8 from 107 reviews</span></div>
-            </sc-if>
-            <sc-if value="{{ upDone }}" hint-placeholder-val="{{ false }}">
-              <div style="background:#fff;border:1px solid #E6EAF0;border-radius:16px;overflow:hidden">
-                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:16px 20px;background:#FBFAE6;border-bottom:1px solid #ECE9C4"><span style="width:28px;height:28px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span><div style="flex:1 1 200px;display:flex;flex-direction:column"><span style="font-size:16px;font-weight:800">We read your bill</span><span style="font-size:12.5px;color:#5A6B80">budget-energy-aug-2026.pdf</span></div><a href="#7c" onClick="{{ upReset }}" style="font-size:13px;font-weight:700;color:#5B2F7A">Upload a different bill</a></div>
-                <sc-for list="{{ upRows }}" as="r" hint-placeholder-count="6">
-                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:12px 20px;border-bottom:1px solid #EEF1F5;background:{{ r.bg }}">
-                    <span style="flex:0 0 130px;font-size:13.5px;color:#5A6B80">{{ r.label }}</span>
-                    <span style="flex:1 1 160px;font-size:14.5px;font-weight:700">{{ r.value }}</span>
-                    <span style="font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:{{ r.tagBg }};color:{{ r.tagFg }}">{{ r.tag }}</span>
-                    <a href="#7c" style="font-size:12.5px;font-weight:700;color:#5B2F7A">Edit</a>
-                  </div>
-                </sc-for>
-                <div style="padding:14px 20px;font-size:13px;color:#3E5560;line-height:1.45">Your bill shows 8 months of usage. We've estimated a full year from it. Edit if you know your annual kWh.</div>
-              </div>
-              <button style="height:56px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 17px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Looks right, show my savings →</button>
-            </sc-if>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="7d"><div class="dv-olabel"><a class="dv-oid" href="#7d">7d</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Conversation</div><div>The same six questions asked as a short chat. Answers are quick-reply buttons, so there is no typing. Each answer stays visible above, and tapping it goes back to that question. Feels less like a form for customers who find forms off-putting. Click the replies to step through.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
-          <div style="background:#0B2730;color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:16px;font-weight:800">Compare NI electricity prices</span><span style="font-size:13px;color:#C9D3D8">{{ chCount }}</span></div>
-          <div style="padding:28px 24px;display:flex;flex-direction:column;gap:12px;max-width:680px;margin:0 auto;box-sizing:border-box;width:100%">
-            <sc-for list="{{ chMsgs }}" as="m" hint-placeholder-count="3">
-              <div style="display:flex;justify-content:{{ m.justify }}">
-                <sc-if value="{{ m.isBot }}" hint-placeholder-val="{{ true }}"><div style="max-width:78%;display:flex;flex-direction:column;gap:3px;padding:12px 16px;border-radius:4px 16px 16px 16px;background:#F1E7F8;color:#0B2730"><span style="font-size:15px;font-weight:700;line-height:1.35">{{ m.text }}</span><sc-if value="{{ m.hasHelp }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:#3E5560;line-height:1.4">{{ m.help }}</span></sc-if></div></sc-if>
-                <sc-if value="{{ m.isMe }}" hint-placeholder-val="{{ false }}"><button onClick="{{ m.go }}" style="max-width:78%;padding:11px 16px;border:0;border-radius:16px 4px 16px 16px;background:#0B2730;color:#fff;font:700 14.5px 'Figtree',sans-serif;cursor:pointer;text-align:right">{{ m.text }}</button></sc-if>
-              </div>
-            </sc-for>
-            <sc-if value="{{ chAsking }}" hint-placeholder-val="{{ true }}">
-              <div style="display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;padding-top:4px">
-                <sc-for list="{{ chOpts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="height:44px;padding:0 16px;border:2px solid #0B2730;background:#fff;border-radius:999px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer" style-hover="background:#FBFAE6">{{ o.label }}</button></sc-for>
-              </div>
-            </sc-if>
-            <sc-if value="{{ chDone }}" hint-placeholder-val="{{ false }}">
-              <div style="display:flex;flex-direction:column;gap:10px;padding-top:6px">
-                <button style="height:54px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 17px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Show my savings →</button>
-                <a href="#7d" onClick="{{ chReset }}" style="align-self:center;font-size:13px;font-weight:700;color:#5B2F7A">Start again</a>
-              </div>
-            </sc-if>
           </div>
         </div>
       </div>
@@ -1537,287 +1477,76 @@
   </div>
 </div>
 
-<div class="dv-opt" id="7f"><div class="dv-olabel"><a class="dv-oid" href="#7f">7f</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Three questions, details optional</div><div>Only supplier, payment and household size are required. Tariff name, join date, Economy 7 and exact kWh sit in an optional panel that says what we assume if they're left blank. Gets customers to results fastest; they can refine on the results page.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#FBFAE6;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
-          <div style="padding:36px 24px 32px;display:flex;flex-direction:column;gap:24px;max-width:720px;margin:0 auto;box-sizing:border-box;width:100%">
-            <div style="display:flex;flex-direction:column;gap:8px;text-align:center;align-items:center"><div style="font-size:30px;font-weight:800;line-height:1.1;text-wrap:balance">Find a cheaper electricity plan in 3 questions</div><div style="font-size:14.5px;color:#3E5560">Free and independent. Compares all six NI suppliers.</div></div>
-            <div style="background:#fff;border:1px solid #ECE9C4;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:22px">
-              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:800">1. Who supplies you now?</div>
-                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px">
-                  <sc-for list="{{ cSups }}" as="s" hint-placeholder-count="6">
-                    <button onClick="{{ s.pick }}" style="position:relative;height:54px;border:{{ s.border }};background:{{ s.bg }};border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:6px 10px;font-family:inherit">
-                      <sc-if value="{{ s.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-height:28px;max-width:90px;object-fit:contain"></sc-if>
-                      <sc-if value="{{ s.noLogo }}" hint-placeholder-val="{{ true }}"><span style="font-size:13.5px;font-weight:800;color:#3E5560">{{ s.name }}</span></sc-if>
-                    </button>
-                  </sc-for>
-                </div>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:800">2. How do you pay?</div>
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px"><sc-for list="{{ cPays }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:46px;border:{{ o.border }};background:{{ o.bg }};border-radius:10px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:800">3. How many people live at home?</div>
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px"><sc-for list="{{ cHouses }}" as="h" hint-placeholder-count="3"><button onClick="{{ h.pick }}" style="height:46px;border:{{ h.border }};background:{{ h.bg }};border-radius:10px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ h.t }}</button></sc-for></div>
-              </div>
-              <div style="border:1px solid #E6EAF0;border-radius:12px;overflow:hidden">
-                <button onClick="{{ qfToggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border:0;background:#F7F8FA;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer;text-align:left"><span>Make it more accurate <span style="font-weight:500;color:#5A6B80">· optional</span></span><span style="transform:{{ qfRot }};transition:transform .2s">▾</span></button>
-                <sc-if value="{{ qfOpen }}" hint-placeholder-val="{{ false }}">
-                  <div style="display:flex;flex-direction:column">
-                    <sc-for list="{{ qfRows }}" as="r" hint-placeholder-count="4">
-                      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:12px 16px;border-top:1px solid #EEF1F5">
-                        <span style="flex:1 1 160px;font-size:14px;font-weight:700">{{ r.label }}</span>
-                        <span style="flex:1 1 180px;height:40px;border:1px solid #C4CCD8;border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:13.5px;color:#5A6B80">{{ r.ph }}<span>▾</span></span>
-                        <span style="flex:1 1 100%;font-size:12px;color:#5A6B80">{{ r.assume }}</span>
-                      </div>
-                    </sc-for>
-                  </div>
-                </sc-if>
-              </div>
-              <button style="height:56px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 17px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Show my savings →</button>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px 20px;font-size:12.5px;color:#3E5560"><span>✓ 4.8 from 107 reviews</span><span>✓ Customers saved £421 on average last year</span><span>✓ Trusted since 2015</span></div>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="7g"><div class="dv-olabel"><a class="dv-oid" href="#7g">7g</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Bill guide beside the form</div><div>A sample bill sits next to the form. Choosing a field highlights where to find that answer on the bill, and the guide switches between a Direct Debit bill and a keypad receipt. Aimed at customers who don't know their tariff name or usage. Click the fields to see the matching highlight. The bill is a layout sketch; real bill images would replace it.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
-          <div style="background:#0B2730;color:#fff;padding:22px 24px;display:flex;flex-direction:column;gap:4px"><div style="font-size:24px;font-weight:800">Compare NI electricity prices</div><div style="font-size:14px;color:#C9D3D8">Step 1 of 3 · Everything you need is on your bill</div></div>
-          <div style="display:flex;flex-wrap:wrap;gap:24px;padding:24px">
-            <div style="flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:10px">
-              <sc-for list="{{ bgFields }}" as="f" hint-placeholder-count="5">
-                <button onClick="{{ f.pick }}" style="display:flex;align-items:center;gap:14px;padding:14px 16px;border:{{ f.border }};background:{{ f.bg }};border-radius:12px;cursor:pointer;text-align:left;font-family:inherit;color:#0B2730">
-                  <span style="flex:none;width:26px;height:26px;border-radius:50%;background:{{ f.numBg }};color:{{ f.numFg }};font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ f.n }}</span>
-                  <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:14.5px;font-weight:800">{{ f.label }}</span><span style="font-size:13px;color:#5A6B80">{{ f.value }}</span></span>
-                  <span style="font-size:13px;color:#5A6B80">▾</span>
-                </button>
-              </sc-for>
-              <button style="margin-top:6px;height:54px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Show my savings →</button>
-            </div>
-            <div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:12px">
-              <div style="display:inline-flex;align-self:flex-start;padding:4px;border-radius:999px;background:#EEF1F5;gap:4px">
-                <sc-for list="{{ bgTypes }}" as="o" hint-placeholder-count="2"><button onClick="{{ o.pick }}" style="height:34px;padding:0 14px;border:0;border-radius:999px;background:{{ o.bg }};box-shadow:{{ o.shadow }};font:700 13px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for>
-              </div>
-              <div style="background:#F7F8FA;border:1px solid #E6EAF0;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;font-size:12px;color:#5A6B80">
-                <sc-for list="{{ bgZones }}" as="z" hint-placeholder-count="5">
-                  <div style="position:relative;padding:10px 12px;border-radius:8px;border:{{ z.border }};background:{{ z.bg }};display:flex;flex-direction:column;gap:5px;transition:background .2s">
-                    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase">{{ z.title }}</span><span style="width:20px;height:20px;border-radius:50%;background:{{ z.numBg }};color:{{ z.numFg }};font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ z.n }}</span></div>
-                    <div style="height:7px;width:{{ z.w1 }};border-radius:4px;background:#D9DFE8"></div>
-                    <div style="height:7px;width:{{ z.w2 }};border-radius:4px;background:#E6EAF0"></div>
-                  </div>
-                </sc-for>
-              </div>
-              <div style="padding:12px 14px;border-radius:12px;background:#F1E7F8;font-size:13.5px;line-height:1.45;color:#0B2730"><strong>{{ bgTipTitle }}</strong> {{ bgTip }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="7h"><div class="dv-olabel"><a class="dv-oid" href="#7h">7h</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Results preview as you go</div><div>Matching tariffs appear under the form once supplier and payment are chosen, with the saving hidden. Picking a household size reveals the savings. Shows customers that results are real and close, which gives them a reason to finish. Pick a household size to reveal.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
-          <div style="padding:28px 24px;display:flex;flex-direction:column;gap:20px;max-width:760px;margin:0 auto;box-sizing:border-box;width:100%">
-            <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5B2F7A">Step 1 of 3</div><div style="font-size:28px;font-weight:800;line-height:1.1">Compare NI electricity prices</div></div>
-            <div style="display:flex;flex-wrap:wrap;gap:12px">
-              <div style="flex:1 1 220px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Current supplier</div><div style="height:48px;border:2px solid #0B2730;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14.5px;font-weight:700">Budget Energy<span style="color:#0B2730">✓</span></div></div>
-              <div style="flex:1 1 220px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">How you pay</div><div style="height:48px;border:2px solid #0B2730;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14.5px;font-weight:700">Pay as you go<span style="color:#0B2730">✓</span></div></div>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">How many people live at home?</div>
-              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px"><sc-for list="{{ thHouses }}" as="h" hint-placeholder-count="3"><button onClick="{{ h.pick }}" style="height:48px;border:{{ h.border }};background:{{ h.bg }};border-radius:10px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ h.t }}</button></sc-for></div>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid #E6EAF0">
-              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font-size:17px;font-weight:800">18 keypad tariffs match</span><span style="font-size:13px;color:#5A6B80">{{ thNote }}</span></div>
-              <sc-for list="{{ thRows }}" as="r" hint-placeholder-count="3">
-                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:14px 16px;border:1px solid #E6EAF0;border-radius:12px">
-                  <div style="width:72px;height:32px;flex:none;display:flex;align-items:center;justify-content:center"><sc-if value="{{ r.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="uploads/SSE-Airtricity-logo.png" alt="SSE Airtricity" style="max-width:100%;max-height:100%;object-fit:contain"></sc-if><sc-if value="{{ r.noLogo }}" hint-placeholder-val="{{ true }}"><span style="font-size:12.5px;font-weight:800;color:#3E5560;text-align:center;line-height:1.1">{{ r.supplier }}</span></sc-if></div>
-                  <div style="flex:1 1 180px;min-width:0;display:flex;flex-direction:column"><span style="font-size:14.5px;font-weight:700;line-height:1.3">{{ r.name }}</span><span style="font-size:12.5px;color:#5A6B80">{{ r.meta }}</span></div>
-                  <div style="flex:none;min-width:110px;text-align:right;display:flex;flex-direction:column"><span style="font-size:12px;color:#5A6B80">You save</span><span style="font-size:22px;font-weight:800;filter:{{ r.blur }};transition:filter .3s">{{ r.save }}</span></div>
-                </div>
-              </sc-for>
-            </div>
-            <button style="height:54px;border:0;border-radius:12px;background:{{ thCtaBg }};color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer">{{ thCta }}</button>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="7i"><div class="dv-olabel"><a class="dv-oid" href="#7i">7i</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Search bar</div><div>All the required questions fit in one bar, like a travel search. It works as the homepage hero, so customers can start comparing without loading a separate form page. On mobile the bar stacks. Shortcut links fill it in for common cases. Click a field to open its options.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#0B2730;border:1px solid #D9DFE8;border-radius:16px;box-shadow:0 1px 2px rgba(16,35,63,.05)">
-          <div style="padding:48px 24px 40px;display:flex;flex-direction:column;gap:24px;align-items:center;text-align:center">
-            <div style="display:flex;flex-direction:column;gap:10px;align-items:center"><div style="font-size:36px;font-weight:800;line-height:1.05;color:#fff;text-wrap:balance;max-width:640px">Are you paying too much for electricity?</div><div style="font-size:15px;color:#C9D3D8">Compare all six NI suppliers in under a minute.</div></div>
-            <div style="width:100%;max-width:900px;background:#fff;border-radius:16px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;box-sizing:border-box;text-align:left">
-              <sc-for list="{{ siFields }}" as="f" hint-placeholder-count="3">
-                <div style="position:relative;flex:1 1 200px;min-width:0">
-                  <button onClick="{{ f.toggle }}" style="width:100%;display:flex;flex-direction:column;gap:2px;padding:10px 14px;border:0;border-radius:10px;background:{{ f.bg }};cursor:pointer;text-align:left;font-family:inherit;color:#0B2730" style-hover="background:#F7F8FA"><span style="font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5A6B80">{{ f.label }}</span><span style="font-size:15.5px;font-weight:800;display:flex;justify-content:space-between;gap:8px">{{ f.value }}<span style="color:#5A6B80;font-weight:600">▾</span></span></button>
-                  <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
-                    <div style="position:absolute;z-index:5;top:calc(100% + 8px);left:0;right:0;min-width:220px;background:#fff;border:1px solid #D9DFE8;border-radius:12px;box-shadow:0 10px 30px rgba(11,39,48,.18);padding:6px;display:flex;flex-direction:column">
-                      <sc-for list="{{ f.opts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="display:flex;justify-content:space-between;gap:8px;padding:10px 12px;border:0;border-radius:8px;background:{{ o.bg }};font:600 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer;text-align:left" style-hover="background:#FBFAE6">{{ o.label }}<span style="font-weight:800">{{ o.tick }}</span></button></sc-for>
-                    </div>
-                  </sc-if>
-                </div>
-              </sc-for>
-              <button style="flex:1 1 160px;min-height:58px;border:0;border-radius:10px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Compare →</button>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;align-items:center"><span style="font-size:13px;color:#C9D3D8">Shortcuts:</span><sc-for list="{{ siShort }}" as="s" hint-placeholder-count="3"><button onClick="{{ s.pick }}" style="height:34px;padding:0 14px;border:1px solid #3D5963;background:transparent;border-radius:999px;font:600 13px 'Figtree',sans-serif;color:#fff;cursor:pointer" style-hover="border-color:#C9A3E0">{{ s.label }}</button></sc-for></div>
-            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;font-size:13px;color:#C9D3D8"><span>✓ 4.8 from 107 reviews</span><span>✓ Customers saved £421 on average last year</span><span>✓ Tariff name and exact usage can be added on the results page</span></div>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="7j"><div class="dv-olabel"><a class="dv-oid" href="#7j">7j</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Start with what matters</div><div>The first question asks what the customer cares about most. Their picks set how results are sorted and which badges show, so someone who wants no contract sees those tariffs first. The usual questions follow in a compact block. Pick up to three priorities.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
-          <div style="background:#0B2730;color:#fff;padding:28px 24px;display:flex;flex-direction:column;gap:18px">
-            <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#C9A3E0">Step 1 of 3</div><div style="font-size:28px;font-weight:800;line-height:1.1">What matters most in a new plan?</div><div style="font-size:14.5px;color:#C9D3D8">Pick up to three. We'll sort your results to match.</div></div>
-            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px">
-              <sc-for list="{{ glOpts }}" as="g" hint-placeholder-count="6">
-                <button onClick="{{ g.pick }}" style="position:relative;text-align:left;padding:14px 16px;border:{{ g.border }};background:{{ g.bg }};border-radius:14px;display:flex;flex-direction:column;gap:3px;cursor:pointer;font-family:inherit;color:{{ g.fg }};opacity:{{ g.op }}">
-                  <span style="font-size:15.5px;font-weight:800;padding-right:22px">{{ g.label }}</span><span style="font-size:12.5px;color:{{ g.sub }}">{{ g.note }}</span>
-                  <sc-if value="{{ g.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ g.rank }}</span></sc-if>
-                </button>
-              </sc-for>
-            </div>
-          </div>
-          <div style="padding:24px;display:flex;flex-direction:column;gap:18px">
-            <div style="display:flex;flex-wrap:wrap;gap:12px">
-              <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Current supplier</div><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14.5px;font-weight:600">Budget Energy<span style="color:#5A6B80">▾</span></div></div>
-              <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">How you pay</div><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14.5px;font-weight:600">Pay as you go<span style="color:#5A6B80">▾</span></div></div>
-              <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">Home size</div><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14.5px;font-weight:600">3–4 people<span style="color:#5A6B80">▾</span></div></div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;background:#FBFAE6;font-size:13.5px"><span style="font-weight:700">Results sorted by:</span><sc-for list="{{ glSort }}" as="s" hint-placeholder-count="1"><span style="padding:4px 10px;border-radius:999px;background:#fff;border:1px solid #ECE9C4;font-weight:700">{{ s.text }}</span></sc-for></div>
-            <button style="height:54px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Show my matches →</button>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="7k"><div class="dv-olabel"><a class="dv-oid" href="#7k">7k</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Your tariff card fills in</div><div>Beside the form is a card for the customer's current tariff, in the same style as the result cards. Each answer fills in one part of it. Once usage is added, it shows roughly what they pay now, which is the figure every result is compared against. Answer the questions to fill the card.</div></div>
+<div class="dv-opt" id="7k"><div class="dv-olabel"><a class="dv-oid" href="#7k">7k</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Your tariff card fills in</div><div>Beside the form is a card for the customer's current tariff, in the same style as the result cards. Each answer fills in one part of it. Once usage is added, it shows roughly what they pay now, which is the figure every result is compared against. Customers can enter details or upload a bill; "Try a sample bill" fills the card in one go. Answer the questions to fill the card.</div></div>
   <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
     <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
       <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
         <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
         <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
           <div style="display:flex;flex-wrap:wrap">
-            <div style="flex:1 1 540px;min-width:0;padding:28px 24px;display:flex;flex-direction:column;gap:20px">
-              <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5B2F7A">Step 1 of 3</div><div style="font-size:26px;font-weight:800;line-height:1.15">Tell us about your current plan</div></div>
-              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">Current supplier</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ kcSups }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.pick }}" style="height:40px;padding:0 14px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div></div>
-              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">How you pay</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ kcPays }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:40px;padding:0 14px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div></div>
-              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">Tariff</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ kcTariffs }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:40px;padding:0 14px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div></div>
-              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">Home size</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ kcHouses }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:40px;padding:0 14px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div></div>
+            <div style="flex:1 1 540px;min-width:0;display:flex;flex-direction:column">
+              <div style="padding:24px 24px 20px;background:#F1E7F8;display:flex;flex-direction:column;gap:14px">
+                <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5B2F7A">Step 1 of 3</div><div style="font-size:26px;font-weight:800;line-height:1.15">Tell us about your current plan</div></div>
+                <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+                  <sc-for list="{{ kcModes }}" as="m" hint-placeholder-count="2"><button onClick="{{ m.pick }}" style="display:flex;align-items:center;gap:10px;padding:12px 14px;border:{{ m.border }};background:{{ m.bg }};border-radius:12px;cursor:pointer;font-family:inherit;color:{{ m.fg }};text-align:left"><span style="flex:none;width:32px;height:32px;border-radius:8px;background:{{ m.iconBg }};color:#0B2730;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800">{{ m.icon }}</span><span style="flex:1;min-width:0;font-size:14.5px;font-weight:800;line-height:1.25">{{ m.t }}</span><sc-if value="{{ m.isNew }}" hint-placeholder-val="{{ false }}"><span style="font-size:10.5px;font-weight:800;letter-spacing:.04em;padding:2px 7px;border-radius:6px;background:#E3E000;color:#0B2730">NEW</span></sc-if></button></sc-for>
+                </div>
+              </div>
+              <sc-if value="{{ kcUpload }}" hint-placeholder-val="{{ false }}">
+                <div style="padding:24px;display:flex;flex-direction:column;gap:14px">
+                  <div style="border:2px dashed #B78DD4;border-radius:16px;padding:28px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;background:#FBF8FD">
+                    <div style="width:52px;height:52px;border-radius:14px;background:#C9A3E0;color:#0B2730;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center">↑</div>
+                    <div style="font-size:18px;font-weight:800">Upload your latest bill</div>
+                    <div style="font-size:13.5px;color:#3E5560;max-width:360px;line-height:1.45">PDF or a photo of a bill or keypad statement. Watch your plan card fill in as we read it.</div>
+                    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:4px"><button style="height:46px;padding:0 20px;border:0;border-radius:12px;background:#0B2730;color:#fff;font:800 14.5px 'Figtree',sans-serif;cursor:pointer">Choose a file</button><button onClick="{{ kcSample }}" style="height:46px;padding:0 18px;border:2px solid #0B2730;background:#fff;border-radius:12px;font:700 14px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">Try a sample bill</button></div>
+                  </div>
+                  <div style="font-size:12.5px;color:#5A6B80;text-align:center">Works with all six NI suppliers. Your bill is deleted once read.</div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ kcManual }}" hint-placeholder-val="{{ true }}">
+                <div style="padding:24px;display:flex;flex-direction:column;gap:22px">
+                  <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:center;gap:10px"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">1</span><span style="font-size:15px;font-weight:800">Current supplier</span></div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px"><sc-for list="{{ kcSups }}" as="s" hint-placeholder-count="6"><button onClick="{{ s.pick }}" style="position:relative;height:56px;border:{{ s.border }};background:{{ s.bg }};border-radius:12px;display:flex;align-items:center;justify-content:center;padding:8px 12px;cursor:pointer"><img src="{{ s.logo }}" alt="{{ s.label }}" style="max-height:30px;max-width:100%;object-fit:contain"><sc-if value="{{ s.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:5px;right:5px;width:18px;height:18px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span></sc-if></button></sc-for></div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:center;gap:10px"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">2</span><span style="font-size:15px;font-weight:800">How do you pay?</span></div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ kcPays }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:42px;padding:0 16px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div></div>
+                  <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:center;gap:10px"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">3</span><span style="font-size:15px;font-weight:800">Do you have an Economy 7 meter?</span></div><div style="font-size:12.5px;color:#5A6B80;margin-top:-4px;padding-left:34px">Two readings on your meter, a day rate and a cheaper night rate.</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ kcE7s }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:42px;padding:0 16px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div></div>
+                  <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:center;gap:10px"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">4</span><span style="font-size:15px;font-weight:800">Your current tariff</span></div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ kcKnows }}" as="o" hint-placeholder-count="2"><button onClick="{{ o.pick }}" style="height:42px;padding:0 16px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div>
+                    <sc-if value="{{ kcKnowNo }}" hint-placeholder-val="{{ false }}"><div style="padding:12px 14px;border-radius:10px;background:#F7F8FA;font-size:13px;color:#3E5560;line-height:1.45">{{ kcStdNote }}</div></sc-if>
+                    <sc-if value="{{ kcTarAsk }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:12px;background:#FBF8FD;border:1px solid #E3D3EE"><div style="font-size:13.5px;font-weight:700">Tariff name <span style="font-weight:500;color:#5A6B80">· {{ kcTarCount }}</span></div>
+                      <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ kcTarOpts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="height:40px;padding:0 14px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13px 'Figtree',sans-serif;color:{{ o.fg }};cursor:pointer;display:flex;align-items:center;gap:6px">{{ o.label }}<sc-if value="{{ o.disc }}" hint-placeholder-val="{{ false }}"><span style="font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:999px;background:#F1E7F8;color:#5B2F7A">Discount</span></sc-if></button></sc-for></div>
+                      <sc-if value="{{ kcNotListed }}" hint-placeholder-val="{{ false }}"><div style="font-size:12.5px;color:#3E5560">{{ kcStdNote }}</div></sc-if>
+                      <sc-if value="{{ kcShowJoin }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;padding-top:6px"><div style="font-size:13.5px;font-weight:700">When did you join it?</div><div style="display:flex;gap:8px;max-width:320px"><div style="flex:1;height:42px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:14px;font-weight:600">March<span style="color:#5A6B80">▾</span></div><div style="flex:1;height:42px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:14px;font-weight:600">2025<span style="color:#5A6B80">▾</span></div></div><div style="font-size:12px;color:#5A6B80">Discount tariffs end after a set time. This tells us when yours does.</div></div></sc-if>
+                    </div></sc-if>
+                    <sc-if value="{{ kcNeedPay }}" hint-placeholder-val="{{ false }}"><div style="font-size:12.5px;color:#5A6B80">Choose how you pay first and we'll list the matching tariffs.</div></sc-if>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:center;gap:10px"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">5</span><span style="font-size:15px;font-weight:800">How much electricity do you use?</span></div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ kcUseModes }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:42px;padding:0 16px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div>
+                    <sc-if value="{{ kcUseEst }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ kcHouses }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:42px;padding:0 16px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div></sc-if>
+                    <sc-if value="{{ kcUseKwh }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;max-width:320px"><div style="display:flex;align-items:center;height:44px;border:1px solid #C4CCD8;border-radius:10px;padding:0 14px;font-size:15px;font-weight:700">3,200<span style="margin-left:auto;font-weight:600;color:#5A6B80">kWh a year</span></div><div style="font-size:12px;color:#5A6B80">Shown on your annual statement, or add up 12 months of bills.</div></div></sc-if>
+                    <sc-if value="{{ kcUseSpend }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;max-width:380px"><div style="display:flex;gap:8px"><div style="flex:1;display:flex;align-items:center;height:42px;border:1px solid #C4CCD8;border-radius:10px;padding:0 14px;font-size:15px;font-weight:700"><span style="color:#5A6B80;margin-right:4px">£</span>{{ kcSpendAmt }}</div><div style="flex:1;height:42px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:14px;font-weight:600">{{ kcSpendPer }}<span style="color:#5A6B80">▾</span></div></div><div style="font-size:12px;color:#5A6B80">{{ kcSpendHelp }}</div></div></sc-if>
+                  </div>
+                </div>
+              </sc-if>
             </div>
-            <div style="flex:1 1 320px;min-width:0;background:#F7F8FA;padding:28px 24px;display:flex;flex-direction:column;gap:14px">
-              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5A6B80">Your current plan</span><span style="font-size:12.5px;font-weight:700;color:#5B2F7A">{{ kcProgress }}</span></div>
-              <div style="background:#fff;border:1px solid #D9DFE8;border-radius:14px;overflow:hidden">
+            <div style="flex:1 1 320px;min-width:0;background:#0B2730;color:#fff;padding:28px 24px;display:flex;flex-direction:column;gap:14px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#C9A3E0">Your current plan</span><span style="font-size:12.5px;font-weight:700;color:#E3E000">{{ kcProgress }}</span></div>
+              <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px"><sc-for list="{{ kcSegs }}" as="g" hint-placeholder-count="5"><div style="height:5px;border-radius:3px;background:{{ g.bg }};transition:background .3s"></div></sc-for></div>
+              <div style="background:#fff;color:#0B2730;border-radius:14px;overflow:hidden">
                 <div style="padding:16px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #EEF1F5">
-                  <div style="width:56px;height:36px;flex:none;border-radius:8px;border:{{ kcLogoBorder }};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#3E5560;text-align:center;line-height:1.1">{{ kcSupShort }}</div>
+                  <div style="width:84px;height:40px;flex:none;border-radius:8px;border:{{ kcLogoBorder }};display:flex;align-items:center;justify-content:center;padding:4px 6px;box-sizing:border-box"><sc-if value="{{ kcHasLogo }}" hint-placeholder-val="{{ false }}"><img src="{{ kcLogo }}" alt="{{ kcSupText }}" style="max-width:100%;max-height:100%;object-fit:contain"></sc-if><sc-if value="{{ kcNoLogo }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;font-weight:800;color:#C4CCD8">?</span></sc-if></div>
                   <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span style="font-size:12.5px;font-weight:600;color:{{ kcSupColor }}">{{ kcSupText }}</span><span style="font-size:16px;font-weight:800;color:{{ kcTarColor }}">{{ kcTarText }}</span></div>
                 </div>
                 <div style="padding:14px 18px;display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid #EEF1F5">
                   <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;border:{{ kcPayBorder }};background:{{ kcPayBg }};color:{{ kcPayColor }}">{{ kcPayText }}</span>
+                  <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;border:{{ kcE7Border }};background:{{ kcE7Bg }};color:{{ kcE7Color }}">{{ kcE7Text }}</span>
                   <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;border:{{ kcUseBorder }};background:{{ kcUseBg }};color:{{ kcUseColor }}">{{ kcUseText }}</span>
                 </div>
-                <div style="padding:16px 18px;display:flex;flex-direction:column;gap:2px;background:{{ kcBillBg }}"><span style="font-size:12.5px;font-weight:600;color:#5A6B80">You pay about</span><span style="font-size:30px;font-weight:800;line-height:1.1;color:{{ kcBillColor }}">{{ kcBill }}</span><span style="font-size:12.5px;color:#5A6B80">{{ kcBillSub }}</span></div>
+                <div style="padding:16px 18px;display:flex;flex-direction:column;gap:2px;background:{{ kcBillBg }};transition:background .3s"><span style="font-size:12.5px;font-weight:700;color:#0B2730">You pay about</span><span style="font-size:30px;font-weight:800;line-height:1.1;color:{{ kcBillColor }}">{{ kcBill }}</span><span style="font-size:12.5px;color:#3E5560">{{ kcBillSub }}</span></div>
               </div>
-              <button style="height:52px;border:0;border-radius:12px;background:{{ kcCtaBg }};color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer">{{ kcCta }}</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="7l"><div class="dv-olabel"><a class="dv-oid" href="#7l">7l</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Separate keypad and bill journeys</div><div>The first choice is how the customer pays. Keypad customers are asked what they top up each week, which most know better than kWh. Bill payers are asked their monthly Direct Debit or bill amount. Both journeys are three questions long. Choose a path to see it.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
-          <div style="background:#0B2730;color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:16px;font-weight:800">Compare NI electricity prices</span><span style="font-size:13px;color:#C9D3D8">Step 1 of 3</span></div>
-          <div style="padding:28px 24px;display:flex;flex-direction:column;gap:20px;max-width:760px;margin:0 auto;box-sizing:border-box;width:100%">
-            <sc-if value="{{ spNone }}" hint-placeholder-val="{{ true }}">
-              <div style="font-size:26px;font-weight:800;line-height:1.15">How do you pay for electricity?</div>
-              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
-                <button onClick="{{ spKp }}" style="text-align:left;padding:22px;border:2px solid #E6EAF0;background:#fff;border-radius:16px;display:flex;flex-direction:column;gap:8px;cursor:pointer;font-family:inherit;color:#0B2730" style-hover="border-color:#0B2730"><span style="width:44px;height:44px;border-radius:12px;background:#EFEC8C;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800">£</span><span style="font-size:19px;font-weight:800">I top up a keypad</span><span style="font-size:13.5px;color:#3E5560;line-height:1.4">Pay as you go. You buy credit and top up your meter.</span></button>
-                <button onClick="{{ spDd }}" style="text-align:left;padding:22px;border:2px solid #E6EAF0;background:#fff;border-radius:16px;display:flex;flex-direction:column;gap:8px;cursor:pointer;font-family:inherit;color:#0B2730" style-hover="border-color:#0B2730"><span style="width:44px;height:44px;border-radius:12px;background:#F1E7F8;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800">✉</span><span style="font-size:19px;font-weight:800">I get a bill</span><span style="font-size:13.5px;color:#3E5560;line-height:1.4">Direct Debit, or paying by cash, card or cheque.</span></button>
+              <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;border:1px solid #2A4650;background:{{ kcFindBg }}">
+                <span style="flex:none;width:36px;height:36px;border-radius:50%;background:{{ kcFindDot }};color:{{ kcFindIconFg }};display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800">{{ kcFindIcon }}</span>
+                <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:800;line-height:1.3;color:{{ kcFindFg }}">{{ kcFindTitle }}</span><span style="font-size:12.5px;line-height:1.4;color:{{ kcFindSubFg }}">{{ kcFindSub }}</span></span>
               </div>
-            </sc-if>
-            <sc-if value="{{ spChosen }}" hint-placeholder-val="{{ false }}">
-              <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 14px;border-radius:12px;background:#FBFAE6"><span style="font-size:14px;font-weight:700">{{ spPathLabel }}</span><a href="#7l" onClick="{{ spReset }}" style="font-size:13px;font-weight:700;color:#5B2F7A">Change</a></div>
-              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:800">1. Who supplies you?</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ spSups }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.pick }}" style="height:40px;padding:0 14px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div></div>
-              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:800">{{ spQ2 }}</div><div style="font-size:13px;color:#5A6B80;margin-top:-4px">{{ spQ2Help }}</div>
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px"><sc-for list="{{ spAmts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="height:54px;border:{{ o.border }};background:{{ o.bg }};border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;font-family:inherit;color:#0B2730"><span style="font-size:16px;font-weight:800">{{ o.label }}</span><span style="font-size:11.5px;color:#5A6B80">{{ o.sub }}</span></button></sc-for></div>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:800">{{ spQ3 }}</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ spQ3Opts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height:40px;padding:0 14px;border:{{ o.border }};background:{{ o.bg }};border-radius:999px;font:700 13.5px 'Figtree',sans-serif;color:#0B2730;cursor:pointer">{{ o.label }}</button></sc-for></div></div>
-              <button style="height:54px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">{{ spCta }}</button>
-            </sc-if>
-          </div>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</div>
-
-<div class="dv-opt" id="7m"><div class="dv-olabel"><a class="dv-oid" href="#7m">7m</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Help at hand</div><div>A "Stuck? Talk to us" panel sits beside the form, with the phone number, opening hours and a callback booking. Picking a slot and adding a name and number confirms the callback. On mobile the panel moves below the button. The phone number and hours are placeholders. Pick a slot and book to see the confirmation.</div></div>
-  <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
-    <sc-for list="{{ frames }}" as="frame" hint-placeholder-count="2">
-      <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
-        <div style="font:500 11px ui-monospace,Menlo,monospace;color:#7A8899">{{ frame.label }}</div>
-        <div style="background:#fff;border:1px solid #D9DFE8;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(16,35,63,.05)">
-          <div style="background:#0B2730;color:#fff;padding:22px 24px;display:flex;flex-direction:column;gap:4px"><div style="font-size:24px;font-weight:800">Compare NI electricity prices</div><div style="font-size:14px;color:#C9D3D8">Step 1 of 3 · Your details</div></div>
-          <div style="display:flex;flex-wrap:wrap;gap:24px;padding:24px">
-            <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:14px">
-              <sc-for list="{{ hpFields }}" as="f" hint-placeholder-count="5"><div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:14px;font-weight:700">{{ f.label }}</div><div style="height:46px;border:1px solid #C4CCD8;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14.5px;font-weight:600;color:{{ f.color }}">{{ f.value }}<span style="color:#5A6B80">▾</span></div></div></sc-for>
-              <button style="margin-top:4px;height:54px;border:0;border-radius:12px;background:#C9A3E0;color:#0B2730;font:800 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#B78DD4">Show my savings →</button>
-            </div>
-            <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:14px;padding:20px;border-radius:16px;background:#F1E7F8;align-self:flex-start">
-              <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:18px;font-weight:800">Stuck? Talk to us</div><div style="font-size:13.5px;color:#3E5560;line-height:1.45">Our team can find your tariff and run the comparison with you.</div></div>
-              <a href="#7m" style="display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:12px;background:#fff;text-decoration:none"><span style="font-size:20px;font-weight:800">028 0000 0000</span><span style="font-size:12.5px;color:#5A6B80">Mon to Fri, 9am to 5pm · Free to call</span></a>
-              <sc-if value="{{ cbPending }}" hint-placeholder-val="{{ true }}">
-                <div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">Or book a callback</div>
-                  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px"><sc-for list="{{ cbSlots }}" as="s" hint-placeholder-count="4"><button onClick="{{ s.pick }}" style="padding:8px 10px;border:{{ s.border }};background:{{ s.bg }};border-radius:10px;display:flex;flex-direction:column;cursor:pointer;font-family:inherit;color:#0B2730;text-align:left"><span style="font-size:12px;color:#5A6B80">{{ s.day }}</span><span style="font-size:13.5px;font-weight:800">{{ s.time }}</span></button></sc-for></div>
-                  <div style="height:42px;border:1px solid #C4CCD8;border-radius:10px;background:#fff;display:flex;align-items:center;padding:0 12px;font-size:14px;color:#7A8899">Your name</div>
-                  <div style="height:42px;border:1px solid #C4CCD8;border-radius:10px;background:#fff;display:flex;align-items:center;padding:0 12px;font-size:14px;color:#7A8899">Phone number</div>
-                  <button onClick="{{ cbBook }}" style="height:46px;border:0;border-radius:10px;background:#0B2730;color:#fff;font:800 14.5px 'Figtree',sans-serif;cursor:pointer">{{ cbCta }}</button>
-                </div>
-              </sc-if>
-              <sc-if value="{{ cbDone }}" hint-placeholder-val="{{ false }}">
-                <div style="display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:12px;background:#fff">
-                  <div style="display:flex;align-items:center;gap:10px"><span style="width:26px;height:26px;border-radius:50%;background:#0B2730;color:#E3E000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</span><span style="font-size:15px;font-weight:800">Callback booked</span></div>
-                  <div style="font-size:13.5px;color:#3E5560;line-height:1.45">{{ cbConfirm }} Have a recent bill to hand if you can.</div>
-                  <a href="#7m" onClick="{{ cbReset }}" style="font-size:13px;font-weight:700;color:#5B2F7A">Change time</a>
-                </div>
-              </sc-if>
+              <button style="height:52px;border:0;border-radius:12px;background:{{ kcCtaBg }};color:{{ kcCtaFg }};font:800 16px 'Figtree',sans-serif;cursor:pointer">{{ kcCta }}</button>
+              <div style="font-size:12px;color:#9FB0B7;line-height:1.4">Every result is compared against this figure.</div>
             </div>
           </div>
         </div>
@@ -1827,7 +1556,9 @@
 </div>
 
 </div>
-<div id="switch" style="display:flex;flex-direction:column;gap:6px;padding:96px 0 40px;margin-top:64px;border-top:2px solid #0B2730">
+</div>
+<div data-tab="switch" style="display:{{ tabDisp.switch }}">
+<div id="switch" style="display:flex;flex-direction:column;gap:6px;padding:0 0 40px">
   <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Step 4</div>
   <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Switch form options</div>
   <div style="font-size:15px;color:#3E5560;max-width:760px;line-height:1.5">The form customers complete after choosing a tariff. Below: what it needs to collect, then the logged-in version of the form. 8a (new customer) sits beside 8g (logged in). Earlier options 8b to 8f are in the <a href="Switch Form Archive.dc.html" style="font-weight:700">archive</a>. Personal details, address and meter number are sample data. Use the "switchPayment" tweak to see the Direct Debit version of the payment section.</div>
@@ -2022,7 +1753,9 @@
 
 
 </div>
-<div id="results" style="display:flex;flex-direction:column;gap:6px;padding:96px 0 40px;margin-top:64px;border-top:2px solid #0B2730">
+</div>
+<div data-tab="results" style="display:{{ tabDisp.results }}">
+<div id="results" style="display:flex;flex-direction:column;gap:6px;padding:0 0 40px">
   <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Results page</div>
   <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Results page and filters</div>
   <div style="font-size:15px;color:#3E5560;max-width:780px;line-height:1.5">The page customers land on after the comparison form. It brings together a summary of the form answers (<a href="#7a">7a</a>), the result block (<a href="#3b">3b</a>), the calculation (<a href="#6b">6b</a>) and a switch button that leads to the switch form (<a href="#8a">8a</a>). Below: the filters it offers, then the chosen layout, 9a. Options 9b to 9e are in the <a href="Switch Form Archive.dc.html#9b" style="font-weight:700">archive</a>. Filters work in every option. Tariffs other than the SSE Airtricity 10.5% one are sample data.</div>
@@ -2045,7 +1778,7 @@
 </div>
 <div style="display:flex;flex-direction:row;align-items:flex-start">
 
-<div class="dv-opt" id="9a"><div class="dv-olabel"><a class="dv-oid" href="#9a">9a</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Full results page, slide-in filters</div><div>Everything on one page: a four-step progress bar, the form answers with a link back to <a href="#7a">7a</a>, results across the full width, with filters in a panel that slides in from the left when you click Filters. The three most-used filters also sit beside the button as quick chips. Cards are <a href="#3b">3b</a> with the <a href="#4a">4a</a> tabs underneath: overview, rates, calculation and tariff terms. The top result opens on Overview; click the active tab again to close it. Each filter shows how many tariffs you'd see if you ticked it. On mobile the panel slides up from the bottom. "Switch online" leads to the switch form.</div></div>
+<div class="dv-opt" id="9a"><div class="dv-olabel"><a class="dv-oid" href="#9a">9a</a><div style="font-size:20px;font-weight:700;line-height:1.25;color:#0B2730">Full results page, slide-in filters</div><div>Everything on one page: a four-step progress bar, the form answers with a link back to <a href="#7a">7a</a>, results across the full width, with filters in a panel that slides in from the left when you click Filters. The three most-used filters also sit beside the button as quick chips. Cards follow <a href="#4a">4a</a>: two cost bars, offer tags, price-change and discount-end strips, and five tabs (overview, rates by time band, average monthly cost with a reminder prompt, calculation and tariff terms, with promotional terms where they apply). The VAT and cashback ticks are shared with 4a. The top result opens on Overview; click the active tab again to close it. Each filter shows how many tariffs you'd see if you ticked it. On mobile the panel slides up from the bottom. "Switch online" leads to the switch form.</div></div>
   <div style="display:flex;flex-wrap:nowrap;gap:36px;align-items:flex-start">
     <sc-for list="{{ rpFrames }}" as="frame" hint-placeholder-count="2">
       <div style="width:{{ frame.w }};max-width:100%;display:flex;flex-direction:column;gap:8px">
@@ -2112,7 +1845,7 @@
                       <div style="display:flex;align-items:center;justify-content:center;gap:4px;margin-top:-2px;font-size:11.5px;font-weight:600;color:{{ t.cMuted }};line-height:1.3"><sc-if value="{{ t.routeClock }}" hint-placeholder-val="{{ true }}"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="flex:none"><circle cx="8" cy="8" r="6.5"></circle><path d="M8 4.5V8l2.5 1.5"></path></svg></sc-if><span>{{ t.route }}</span></div>
                     </div>
                   </div>
-                  <sc-if value="{{ t.hasChange }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:10px;align-items:flex-start;padding:6px 16px;border-top:1px solid #E3D3EE;background:#F7F1FB;font-size:12.5px;line-height:1.45"><span style="flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#5B2F7A;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">i</span><span style="display:flex;flex-wrap:wrap;gap:2px 12px;min-width:0"><strong style="color:#5B2F7A">{{ pcTitle }}</strong><sc-for list="{{ pcRows }}" as="r" hint-placeholder-count="1"><span style="display:flex;flex-wrap:wrap;gap:2px 10px;color:#3E5560"><strong style="color:#0B2730">{{ r.label }}</strong><span>{{ r.from }} → <strong style="color:#0B2730">{{ r.to }}</strong></span></span></sc-for><span style="color:#3E5560">The costs above already include the new {{ pcWhat }}.</span></span></div></sc-if>
+                  <sc-if value="{{ t.hasChange }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:10px;align-items:flex-start;padding:6px 16px;border-top:1px solid #E3D3EE;background:#F7F1FB;font-size:12.5px;line-height:1.45"><span style="flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#5B2F7A;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">i</span><span style="display:flex;flex-wrap:wrap;gap:2px 12px;min-width:0"><strong style="color:#5B2F7A">{{ t.tPcTitle }}</strong><sc-for list="{{ t.tPcRows }}" as="r" hint-placeholder-count="1"><span style="display:flex;flex-wrap:wrap;gap:2px 10px;color:#3E5560"><strong style="color:#0B2730">{{ r.label }}</strong><span>{{ r.from }} → <strong style="color:#0B2730">{{ r.to }}</strong></span></span></sc-for><span style="color:#3E5560">The costs above already include the new {{ t.tPcWhat }}.</span></span></div></sc-if>
                   <sc-if value="{{ t.hasRise }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:10px;align-items:flex-start;padding:6px 16px;border-top:1px solid #F6D9C2;background:#FFF6EE;font-size:12.5px;line-height:1.45"><span style="flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:#F2B45A;color:#0B2730;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">!</span><span><strong style="color:#B5500F">{{ t.riseTitle }}.</strong> <span style="color:#3E5560">{{ t.riseText }}</span></span></div></sc-if>
                   <div style="display:flex;gap:4px;padding:0 10px;border-top:1px solid {{ t.cRule }};overflow-x:auto">
                     <sc-for list="{{ t.tabs }}" as="tb" hint-placeholder-count="4"><div onClick="{{ tb.go }}" style="flex:none;padding:8px 8px;font-size:13px;font-weight:{{ tb.weight }};color:{{ t.cInk }};border-bottom:3px solid {{ tb.line }};cursor:pointer;white-space:nowrap">{{ tb.label }}</div></sc-for>
@@ -2120,7 +1853,7 @@
                   <sc-if value="{{ t.tabAny }}" hint-placeholder-val="{{ false }}">
                     <div style="padding:12px 16px;background:#FBFAE6;color:#0B2730;border-top:1px solid #E6EAF0">
                       <sc-if value="{{ t.tabOv }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.ovFacts }}" as="f" hint-placeholder-count="6"><div style="background:#fff;padding:9px 12px;display:flex;flex-direction:column;gap:1px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:14px;font-weight:700">{{ f.value }}</div></div></sc-for></div></sc-if>
-                      <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button><div style="margin-bottom:10px;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden;background:#fff;font-size:13px"><div style="display:grid;grid-template-columns:minmax(70px,.8fr) minmax(0,2fr) auto;gap:10px;padding:7px 12px;background:#F4F2D6;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#5A6B80"><span>Rate</span><span>Times</span><span>Price</span></div><sc-for list="{{ t.bands }}" as="bd" hint-placeholder-count="1"><div style="display:grid;grid-template-columns:minmax(70px,.8fr) minmax(0,2fr) auto;gap:10px;align-items:baseline;padding:7px 12px;border-top:1px solid #EEECCF"><strong>{{ bd.band }}</strong><span style="color:#3E5560">{{ bd.times }}</span><strong>{{ bd.rate }}</strong></div></sc-for></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
+                      <sc-if value="{{ t.tabRates }}" hint-placeholder-val="{{ false }}"><button onClick="{{ vat4Toggle }}" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;background:none;border:0;padding:0;cursor:pointer;font:600 14px 'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ vat4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ vat4Tick }}</span>Show prices including VAT</button><div style="margin-bottom:10px;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden;background:#fff;font-size:13px"><div style="display:grid;grid-template-columns:{{ t.rt.cols }};gap:10px;padding:7px 12px;background:#F4F2D6;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#5A6B80"><sc-for list="{{ t.rt.head }}" as="hd" hint-placeholder-count="3"><span>{{ hd }}</span></sc-for></div><sc-for list="{{ t.rt.rows }}" as="rw" hint-placeholder-count="2"><div style="display:grid;grid-template-columns:{{ t.rt.cols }};gap:10px;align-items:baseline;padding:7px 12px;border-top:1px solid #EEECCF"><sc-for list="{{ rw.cells }}" as="cl" hint-placeholder-count="3"><span style="font-weight:{{ cl.w }};color:{{ cl.c }}">{{ cl.t }}</span></sc-for></div></sc-for></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:#E1DFB8;border:1px solid #E1DFB8;border-radius:10px;overflow:hidden"><sc-for list="{{ t.rateFacts }}" as="f" hint-placeholder-count="4"><div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><div style="font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#7A8899">{{ f.label }}</div><div style="font-size:15px;font-weight:700">{{ f.value }}</div><div style="font-size:12px;color:#5A6B80">{{ f.note }}</div></div></sc-for></div></sc-if>
                       <sc-if value="{{ t.tabMonthly }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:14px">
                         <div style="font-size:19px;font-weight:800;line-height:1.2;text-wrap:pretty">{{ t.avgTitle }}</div>
                         <sc-if value="{{ t.hasCash }}" hint-placeholder-val="{{ false }}"><button onClick="{{ cb4Toggle }}" style="display:flex;gap:12px;align-items:flex-start;margin-bottom:-10px;background:none;border:0;padding:0;cursor:pointer;text-align:left;font-family:'Figtree',sans-serif;color:#0B2730"><span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:6px;border:2px solid #0B2730;background:{{ cb4Bg }};color:#E3E000;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800">{{ cb4Tick }}</span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:700">{{ t.avgCashLabel }}</span><span style="font-size:12.5px;color:#5A6B80">A one-off saving in your first year.</span></span></button></sc-if>
@@ -2184,7 +1917,9 @@
 
 
 </div>
-<div id="account" style="display:flex;flex-direction:column;gap:6px;padding:96px 0 40px;margin-top:64px;border-top:2px solid #0B2730">
+</div>
+<div data-tab="account" style="display:{{ tabDisp.account }}">
+<div id="account" style="display:flex;flex-direction:column;gap:6px;padding:0 0 40px">
   <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Account</div>
   <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">My account</div>
   <div style="font-size:15px;color:#3E5560;max-width:780px;line-height:1.5">A redesign of the logged-in area, one page per option: 10a Dashboard to 10g Settings. The sidebar links jump between them. Use the "accountState" tweak to switch between a new account with nothing saved yet and a customer who has just switched. Names, dates, bills and figures are sample data.</div>
@@ -2216,7 +1951,7 @@
                 <div style="font-size:26px;font-weight:800;line-height:1;color:#E3E000">{{ acAlertAmt }}<span style="font-size:13px;font-weight:600;color:#C9D3D8"> a year</span></div>
                 <input type="range" min="25" max="200" step="25" value="{{ acAmtVal }}" onChange="{{ acSetAmt }}" style="width:100%;accent-color:#E3E000">
               </div>
-              <a href="#7m" style="padding:0 12px;font-size:14.5px;font-weight:700;color:#fff;text-decoration:none">Get help</a>
+              <a href="Switch Form Archive.dc.html#7m" style="padding:0 12px;font-size:14.5px;font-weight:700;color:#fff;text-decoration:none">Get help</a>
               <div style="display:flex;align-items:center;gap:10px;padding:12px 0 0 10px;border-top:1px solid #1E4550">
                 <span style="width:34px;height:34px;flex:none;border-radius:50%;background:#C9A3E0;color:#0B2730;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">MK</span>
                 <div style="flex:1;display:flex;flex-direction:column;min-width:0"><span style="font-size:14px;font-weight:700">Mark Kelso</span><span style="font-size:12px;color:#A9C0C6;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">m@glze.me</span></div>
@@ -2356,7 +2091,7 @@
                           <div style="width:44px;height:54px;flex:none;border-radius:8px;background:#F1E7F8;border:1px solid #E1D2EC;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#5B2F7A">PDF</div>
                           <div style="flex:1 1 180px;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:14.5px;font-weight:800">{{ b.sup }} · {{ b.period }}</span><span style="font-size:12.5px;color:#5A6B80">{{ b.type }} · {{ b.used }}</span></div>
                           <div style="display:flex;gap:18px;font-size:13.5px"><div style="display:flex;flex-direction:column"><span style="font-size:11.5px;color:#7A8899">Usage</span><strong>{{ b.kwh }}</strong></div><div style="display:flex;flex-direction:column"><span style="font-size:11.5px;color:#7A8899">Spent</span><strong>{{ b.amt }}</strong></div></div>
-                          <a href="#7c" style="height:40px;padding:0 14px;border-radius:10px;border:1.5px solid #0B2730;color:#0B2730;font-size:13.5px;font-weight:700;text-decoration:none;display:flex;align-items:center">Compare with this bill</a>
+                          <a href="Switch Form Archive.dc.html#7c" style="height:40px;padding:0 14px;border-radius:10px;border:1.5px solid #0B2730;color:#0B2730;font-size:13.5px;font-weight:700;text-decoration:none;display:flex;align-items:center">Compare with this bill</a>
                         </div>
                       </sc-for>
                     </div>
@@ -2528,7 +2263,9 @@
 </div>
 </sc-for>
 </div>
-<div id="switchplus" style="display:flex;flex-direction:column;gap:6px;padding:96px 0 40px;margin-top:64px;border-top:2px solid #0B2730">
+</div>
+<div data-tab="switchplus" style="display:{{ tabDisp.switchplus }}">
+<div id="switchplus" style="display:flex;flex-direction:column;gap:6px;padding:0 0 40px">
   <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5B2F7A">Power to Switch · Switch Plus</div>
   <div style="font-size:34px;font-weight:800;color:#0B2730;letter-spacing:-.01em">Switch Plus</div>
   <div style="font-size:15px;color:#3E5560;max-width:780px;line-height:1.5">A paid service: customers pay a yearly fee and Power to Switch moves them to the cheapest tariff every year. A landing page, then the account dashboard with Switch Plus added and a page explaining it. Use the "switchPlus" tweak to see the member version, or click Join on 11c.</div>
@@ -2614,7 +2351,7 @@
                 <div style="font-size:26px;font-weight:800;line-height:1;color:#E3E000">{{ acAlertAmt }}<span style="font-size:13px;font-weight:600;color:#C9D3D8"> a year</span></div>
                 <input type="range" min="25" max="200" step="25" value="{{ acAmtVal }}" onChange="{{ acSetAmt }}" style="width:100%;accent-color:#E3E000">
               </div>
-              <a href="#7m" style="padding:0 12px;font-size:14.5px;font-weight:700;color:#fff;text-decoration:none">Get help</a>
+              <a href="Switch Form Archive.dc.html#7m" style="padding:0 12px;font-size:14.5px;font-weight:700;color:#fff;text-decoration:none">Get help</a>
               <div style="display:flex;align-items:center;gap:10px;padding:12px 0 0 10px;border-top:1px solid #1E4550">
                 <span style="width:34px;height:34px;flex:none;border-radius:50%;background:#C9A3E0;color:#0B2730;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">MK</span>
                 <div style="flex:1;display:flex;flex-direction:column;min-width:0"><span style="font-size:14px;font-weight:700">Mark Kelso</span><span style="font-size:12px;color:#A9C0C6;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">m@glze.me</span></div>
@@ -2768,7 +2505,7 @@
                           <div style="width:44px;height:54px;flex:none;border-radius:8px;background:#F1E7F8;border:1px solid #E1D2EC;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#5B2F7A">PDF</div>
                           <div style="flex:1 1 180px;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:14.5px;font-weight:800">{{ b.sup }} · {{ b.period }}</span><span style="font-size:12.5px;color:#5A6B80">{{ b.type }} · {{ b.used }}</span></div>
                           <div style="display:flex;gap:18px;font-size:13.5px"><div style="display:flex;flex-direction:column"><span style="font-size:11.5px;color:#7A8899">Usage</span><strong>{{ b.kwh }}</strong></div><div style="display:flex;flex-direction:column"><span style="font-size:11.5px;color:#7A8899">Spent</span><strong>{{ b.amt }}</strong></div></div>
-                          <a href="#7c" style="height:40px;padding:0 14px;border-radius:10px;border:1.5px solid #0B2730;color:#0B2730;font-size:13.5px;font-weight:700;text-decoration:none;display:flex;align-items:center">Compare with this bill</a>
+                          <a href="Switch Form Archive.dc.html#7c" style="height:40px;padding:0 14px;border-radius:10px;border:1.5px solid #0B2730;color:#0B2730;font-size:13.5px;font-weight:700;text-decoration:none;display:flex;align-items:center">Compare with this bill</a>
                         </div>
                       </sc-for>
                     </div>
@@ -3129,9 +2866,20 @@
 </div>
 
 </div>
+</div>
 </main></x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;switchRoute&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Switch online&quot;,&quot;Supplier site&quot;,&quot;By phone&quot;],&quot;default&quot;:&quot;Switch online&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;cashbackInSaving&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;result&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Saves money&quot;,&quot;Costs more&quot;],&quot;default&quot;:&quot;Saves money&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;switchPayment&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Keypad&quot;,&quot;Direct Debit&quot;],&quot;default&quot;:&quot;Keypad&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;accountState&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Switched customer&quot;,&quot;New account&quot;],&quot;default&quot;:&quot;Switched customer&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;switchPlus&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Not a member&quot;,&quot;Member&quot;],&quot;default&quot;:&quot;Not a member&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;priceChange&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Unit rate&quot;,&quot;Unit rate and standing charge&quot;],&quot;default&quot;:&quot;Unit rate&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;rateBands&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Single rate&quot;,&quot;Day &amp; night&quot;,&quot;Three bands&quot;,&quot;Four bands&quot;],&quot;default&quot;:&quot;Three bands&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
+  rateTable(rate, vf, ch) {
+    const { bands } = this.rateBands(rate, vf), sets = this.rateBands(1, 1).bands;
+    const p = (v, u) => (v * vf).toFixed(2) + u, mult = sets.map(b => parseFloat(b.rate));
+    const head = ch ? ['Rate', 'Times', ch.until, ch.from] : ['Rate', 'Times', 'Price'];
+    const cell = (t, w, c) => ({ t, w: w || 400, c: c || '#3E5560' });
+    const rows = bands.map((b, i) => ({ cells: [cell(b.band, 700, '#0B2730'), cell(b.times), ...(ch ? [cell(p(ch.pre * mult[i], 'p/kWh'), 600, '#5A6B80')] : []), cell(b.rate, 700, '#0B2730')] }));
+    const sc = ch && ch.sc ? ch.sc : null;
+    rows.push({ cells: [cell('Standing charge', 700, '#0B2730'), cell('Every day'), ...(ch ? [cell(sc ? p(sc[0], 'p a day') : 'None', 600, '#5A6B80')] : []), cell(sc ? p(sc[1], 'p a day') : 'None', 700, '#0B2730')] });
+    return { head, rows, cols: ch ? 'minmax(64px,.7fr) minmax(0,1.6fr) minmax(76px,auto) minmax(76px,auto)' : 'minmax(64px,.7fr) minmax(0,2fr) auto' };
+  }
   rateBands(rate, vf) {
     const sets = {
       'Single rate': [['All day', 'Any time', 1]],
@@ -3143,7 +2891,26 @@ class Component extends DCLogic {
     return { bands: s.map(([band, times, m]) => ({ band, times, rate: (rate * m * vf).toFixed(2) + 'p/kWh' })), bandCount: s.length, bandSummary: s.length === 1 ? 'Single rate' : s.length + ' rates by time of day' };
   }
   state = { open: 0 };
-  renderVals() {
+  componentDidMount() {
+    const saved = localStorage.getItem('pts-tab'); if (saved) this.setState({ tab: saved });
+    this._hash = () => this._goHash(location.hash);
+    this._click = e => { const a = e.target.closest && e.target.closest('a[href^="#"]'); if (a) setTimeout(() => this._goHash(a.getAttribute('href')), 0); };
+    window.addEventListener('hashchange', this._hash); document.addEventListener('click', this._click, true);
+    if (location.hash) setTimeout(() => this._goHash(location.hash), 50);
+  }
+  componentWillUnmount() { window.removeEventListener('hashchange', this._hash); document.removeEventListener('click', this._click, true); }
+  _goHash(hash) {
+    const id = (hash || '').slice(1); if (!id) return;
+    const el = document.getElementById(id); const sec = el && el.closest('[data-tab]');
+    if (sec) { const t = sec.getAttribute('data-tab'); this._setTab(t); setTimeout(() => { const r = el.getBoundingClientRect(); window.scrollBy(0, r.top - 80); }, 30); }
+  }
+  _setTab(t) { localStorage.setItem('pts-tab', t); this.setState({ tab: t }); }
+  renderVals() { const base = this._rv(); const tab = this.state.tab ?? 'blocks';
+    const T = [["blocks","Result blocks"],["calc","Calculation"],["compare","Comparison form"],["switch","Switch form"],["results","Results page"],["account","My account"],["switchplus","Switch Plus"]];
+    const tabDisp = {}; T.forEach(([k]) => { tabDisp[k] = k === tab ? 'block' : 'none'; });
+    return { ...base, tabDisp, tabList: T.map(([k, label], i) => ({ label, n: i + 1, bg: k === tab ? '#E3E000' : 'transparent', fg: k === tab ? '#0B2730' : '#fff', pick: () => { this._setTab(k); window.scrollTo(0, 0); } })) };
+  }
+  _rv() {
     const route = this.props.switchRoute ?? 'Switch online';
     const withCash = this.props.cashbackInSaving ?? true;
     const worse = (this.props.result ?? 'Saves money') === 'Costs more';
@@ -3270,8 +3037,9 @@ class Component extends DCLogic {
     const ovFacts = [{ label: 'Contract', value: '12 months' }, { label: 'Rate type', value: 'Variable' }, { label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Exit fee', value: 'None' }, { label: 'Who can switch', value: 'New customers' }];
     const vat4 = this.state.vat4 !== false, vx = p => (vat4 ? p : p / 1.05).toFixed(2) + 'p/kWh';
     const b4 = this.rateBands(36.51, vat4 ? 1 : 1 / 1.05), bands = b4.bands;
+    const rt4 = this.rateTable(36.51, vat4 ? 1 : 1 / 1.05, { pre: 35.80, until: 'Until 30 Nov', from: 'From 1 Dec', sc: this.props.priceChange === 'Unit rate and standing charge' ? [18.50, 19.82] : null });
     ovFacts.unshift({ label: 'Unit rates', value: b4.bandSummary });
-    const rateFacts = [{ label: 'Average unit rate', value: vx(36.51), note: 'With discount, on your usage' }, { label: 'Standard average rate', value: vx(40.79), note: 'From month 13' }, { label: 'Standing charge', value: 'None', note: 'Keypad tariff' }, { label: 'VAT at 5%', value: vat4 ? 'Included' : 'Excluded', note: 'In the prices shown' }];
+    const rateFacts = [{ label: 'Average unit rate', value: vx(36.51), note: 'With discount, on your usage' }, { label: 'Standard average rate', value: vx(40.79), note: 'From month 13' }, { label: 'VAT at 5%', value: vat4 ? 'Included' : 'Excluded', note: 'In the prices shown' }];
     const pcBoth = this.props.priceChange === 'Unit rate and standing charge';
     const pcTitle = 'Price change from 1 December 2026', pcWhat = pcBoth ? 'rates' : 'rate', pcRows = [{ label: 'Unit rate', from: '35.80p/kWh', to: '36.51p/kWh' }, ...(pcBoth ? [{ label: 'Standing charge', from: '18.50p a day', to: '19.82p a day' }] : [])];
     const cb4 = !!this.state.cb4, cb4m = 97.36 - (cb4 ? 2.5 : 0);
@@ -3280,7 +3048,7 @@ class Component extends DCLogic {
     const L = (label, value, bold) => ({ label, value, w: bold ? 700 : 400, rule: bold ? '1px solid #E1DFB8' : '0', pad: bold ? '7px' : '0' });
     const vm = n => '£' + (vat4 ? n : n / 1.05).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const vBill = vat4 ? 1168.27 : 1168.27 / 1.05, vCur = vat4 ? 1279.45 : 1279.45 / 1.05, gb = n => '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    const calcLines = [L('3,200 kWh × ' + (vat4 ? 40.79 : 40.79 / 1.05).toFixed(2) + 'p', vm(1305.33)), L('10.5% discount', '−' + vm(137.06)), L('Standing charge', '£0.00'), ...(vat4 ? [] : [L('VAT at 5% (not included)', gb(1168.27 - vBill))]), L('Estimated annual bill' + (vat4 ? '' : ', excl. VAT'), gb(vBill), 1), L('£30 cashback / welcome credit', '−£30.00'), L('Year one cost', gb(vBill - 30), 1), L('Your current tariff' + (vat4 ? '' : ', excl. VAT'), gb(vCur)), L('You save', gb(vCur - vBill + 30), 1)];
+    const calcLines = [L('Uses the rates from 1 December 2026 (see Rates & charges)', ''), L('3,200 kWh × ' + (vat4 ? 40.79 : 40.79 / 1.05).toFixed(2) + 'p', vm(1305.33)), L('10.5% discount', '−' + vm(137.06)), L('Standing charge', '£0.00'), ...(vat4 ? [] : [L('VAT at 5% (not included)', gb(1168.27 - vBill))]), L('Estimated annual bill' + (vat4 ? '' : ', excl. VAT'), gb(vBill), 1), L('£30 cashback / welcome credit', '−£30.00'), L('Year one cost', gb(vBill - 30), 1), L('Your current tariff' + (vat4 ? '' : ', excl. VAT'), gb(vCur)), L('You save', gb(vCur - vBill + 30), 1)];
     const specGroups = [
       { title: 'Price · incl. VAT', rows: [{ label: 'Unit rate', value: '36.51p/kWh' }, { label: 'Standing charge', value: 'None' }, { label: 'Annual bill', value: '£1,168.27' }, { label: 'Monthly', value: '£97.36' }] },
       { title: 'Contract', rows: [{ label: 'Term', value: '12 months' }, { label: 'Rate type', value: 'Variable' }, { label: 'Exit fee', value: 'None' }, { label: 'Who can switch', value: 'New customers' }] },
@@ -3386,17 +3154,45 @@ class Component extends DCLogic {
     const supNames = ['Budget Energy', 'Click Energy', 'Electric Ireland', 'Power NI', 'Share Energy', 'SSE Airtricity'];
     const cSup = this.state.cSup ?? 'Budget Energy', cPay = this.state.cPay ?? 'Pay as you go', cE7 = this.state.cE7 ?? 'No';
     const cUse = this.state.cUse ?? 'est', cHouse = this.state.cHouse ?? 1;
-    const cSups = supNames.map(n => ({ name: n, hasLogo: n === 'SSE Airtricity', noLogo: n !== 'SSE Airtricity', ...tile(cSup === n, () => this.setState({ cSup: n })) }));
-    const cPays = ['Direct Debit', 'Pay as you go', 'Cash, card, cheque'].map(l => ({ label: l, ...tile(cPay === l, () => this.setState({ cPay: l })) }));
+    const logoFile = { 'Budget Energy': 'budget', 'Click Energy': 'click', 'Electric Ireland': 'electric', 'Power NI': 'powerni', 'Share Energy': 'share', 'SSE Airtricity': 'sse' };
+    const cSups = supNames.map(n => ({ name: n, logo: 'assets/logo-' + logoFile[n] + '.png', hasLogo: n === 'SSE Airtricity', noLogo: n !== 'SSE Airtricity', ...tile(cSup === n, () => this.setState({ cSup: n, cTar: null, cTarOpen: false })) }));
+    const cPays = ['Direct Debit', 'Pay as you go', 'Cash, card, cheque'].map(l => ({ label: l, ...tile(cPay === l, () => this.setState({ cPay: l, cTar: null, cTarOpen: false })) }));
+    const cMode = this.state.cMode ?? 'manual', cKnow = this.state.cKnow ?? 'yes';
+    const cModes = [
+      { k: 'manual', t: 'Enter details manually', s: 'Choose your supplier and tariff, and tell us your usage or spend.', icon: '☰', isNew: false },
+      { k: 'upload', t: 'Upload a bill', s: 'We read your supplier, tariff and usage from a recent bill.', icon: '↑', isNew: true }
+    ].map(m => { const on = cMode === m.k; return { ...m, border: on ? onB : offB, bg: on ? '#FBFAE6' : '#fff', iconBg: on ? '#E3E000' : '#F1E7F8', dot: on ? '#0B2730' : '#fff', pick: () => this.setState({ cMode: m.k }) }; });
+    const cKnows = [['yes', 'I know my tariff'], ['no', "I don't know my tariff"]].map(([k, l]) => ({ label: l, ...tile(cKnow === k, () => this.setState({ cKnow: k, cTarOpen: false })) }));
+    const tarLists = {
+      'Pay as you go': [['Standard Keypad', false], ['Keypad 8% discount', true], ['Q1 Fixed Keypad', true]],
+      'Direct Debit': [['Standard Direct Debit', false], ['Online Saver 12% discount', true], ['Fixed 12 month', true]],
+      'Cash, card, cheque': [['Standard Credit', false], ['Quarterly Bill 5% discount', true]]
+    };
+    const tarList = tarLists[cPay];
+    const cTar = this.state.cTar ?? (cPay === 'Pay as you go' ? 2 : 0);
+    const cTarNL = cTar === -1, cTarItem = cTarNL ? null : tarList[Math.min(cTar, tarList.length - 1)];
+    const cTarName = cTarNL ? "My tariff isn't listed" : cTarItem[0];
+    const payWord = cPay === 'Pay as you go' ? 'keypad' : cPay === 'Direct Debit' ? 'Direct Debit' : 'standard credit';
+    const cTarOpts = tarList.map(([n, d], i) => ({ label: n, disc: d, fg: '#0B2730', sep: '0', tick: !cTarNL && cTarItem[0] === n ? '✓' : '', bg: !cTarNL && cTarItem[0] === n ? '#FBFAE6' : '#fff', pick: () => this.setState({ cTar: i, cTarOpen: false }) }))
+      .concat([{ label: "My tariff isn't listed", disc: false, fg: '#5B2F7A', sep: '1px solid #EEF1F5', tick: cTarNL ? '✓' : '', bg: cTarNL ? '#FBFAE6' : '#fff', pick: () => this.setState({ cTar: -1, cTarOpen: false }) }]);
+    const cShowJoin = cKnow === 'yes' && !cTarNL && cTarItem[1];
+    const cStd = cSup + "'s standard " + payWord + ' rate';
+    const cTariffNote = cTarNL ? "We'll compare against " + cStd + '.' : tarList.length + ' ' + cSup + ' ' + payWord + ' tariffs. Not here? Choose "My tariff isn\'t listed".';
+    const cUseNow = this.state.cUse ?? 'est';
+    const cSpendKp = cPay === 'Pay as you go';
+    const cSpendAmt = cSpendKp ? '25' : '95', cSpendPer = cSpendKp ? 'Per week' : 'Per month';
+    const cSpendHelp = cSpendKp ? 'Roughly what you top up. We work out your usage from it.' : 'Your monthly Direct Debit or average bill. We work out your usage from it.';
     const cE7s = ['Yes', 'No', 'Not sure'].map(l => ({ label: l, ...tile(cE7 === l, () => this.setState({ cE7: l })) }));
     const houseData = [{ t: '1–2 people', s: 'Flat or small house', k: '2,200 kWh' }, { t: '3–4 people', s: 'Average home', k: '3,200 kWh' }, { t: '5+ people', s: 'Large home', k: '4,200 kWh' }];
     const cHouses = houseData.map((h, i) => ({ ...h, ...tile(cHouse === i, () => this.setState({ cHouse: i })) }));
-    const cUseModes = [['est', 'Estimate it for me'], ['kwh', 'I know my kWh']].map(([k, l]) => ({ label: l, bg: cUse === k ? '#fff' : 'transparent', shadow: cUse === k ? '0 1px 2px rgba(11,39,48,.15)' : 'none', pick: () => this.setState({ cUse: k }) }));
+    const cUseModes = [['est', 'Estimate it for me'], ['kwh', 'I know my kWh'], ['spend', 'I know my spend']].map(([k, l]) => ({ label: l, bg: cUse === k ? '#fff' : 'transparent', shadow: cUse === k ? '0 1px 2px rgba(11,39,48,.15)' : 'none', pick: () => this.setState({ cUse: k }) }));
     const cSummary = [
       { label: 'Supplier', value: cSup }, { label: 'Payment', value: cPay }, { label: 'Economy 7', value: cE7 },
-      { label: 'Tariff', value: 'Q1 Fixed Keypad' }, { label: 'Joined', value: 'March 2025' },
-      { label: 'Usage', value: cUse === 'est' ? houseData[cHouse].k + ' (est.)' : '3,200 kWh' }
+      { label: 'Tariff', value: cKnow === 'no' || cTarNL ? 'Standard rate' : cTarName },
+      ...(cShowJoin ? [{ label: 'Joined', value: 'March 2025' }] : []),
+      { label: 'Usage', value: cUse === 'est' ? houseData[cHouse].k + ' (est.)' : cUse === 'spend' ? '£' + cSpendAmt + ' ' + cSpendPer.toLowerCase() : '3,200 kWh' }
     ];
+    const cSummaryOut = cMode === 'upload' ? [{ label: 'Method', value: 'Bill upload' }, { label: 'Details', value: 'Read from your bill' }] : cSummary;
     const cIssues = [
       { area: 'Step bar', issue: 'All three steps look the same. The current step is only a faint tint.', fix: 'Fill the current step and number each one.' },
       { area: 'Supplier tiles', issue: 'Five per row leaves SSE Airtricity alone on a second row. Unselected logos look disabled.', fix: 'Three per row on desktop, two on mobile. Full-colour logos.' },
@@ -3494,11 +3290,26 @@ class Component extends DCLogic {
     const glSort = gl.length ? gl.map((t, i) => ({ text: (i + 1) + '. ' + t })) : [{ text: 'Lowest price' }];
     const kc = this.state.kc ?? {};
     const kcSet = (k, v) => () => this.setState(s => ({ kc: { ...(s.kc ?? {}), [k]: v } }));
-    const kcPill = (k, v) => ({ label: v, border: kc[k] === v ? '2px solid #0B2730' : '2px solid #E6EAF0', bg: kc[k] === v ? '#FBFAE6' : '#fff', pick: kcSet(k, v) });
-    const kcN = ['sup', 'pay', 'tar', 'house'].filter(k => kc[k]).length;
+    const kcPill = (k, v) => ({ label: v, on: kc[k] === v, border: kc[k] === v ? '2px solid #0B2730' : '2px solid #E6EAF0', bg: kc[k] === v ? '#E3E000' : '#fff', pick: kcSet(k, v) });
+    const kcLogoMap = { 'Budget Energy': 'budget', 'Click Energy': 'click', 'Electric Ireland': 'electric', 'Power NI': 'powerni', 'Share Energy': 'share', 'SSE Airtricity': 'sse' };
+    const kcMode = this.state.kcMode ?? 'manual';
+    const kcTarLists = {
+      'Pay as you go': [['Standard Keypad', false], ['Keypad 8% discount', true], ['Q1 Fixed Keypad', true]],
+      'Direct Debit': [['Standard Direct Debit', false], ['Online Saver 12% discount', true], ['Fixed 12 month', true]],
+      'Cash, card, cheque': [['Standard Credit', false], ['Quarterly Bill 5% discount', true]]
+    };
+    const kcTarList = kc.pay ? kcTarLists[kc.pay] : [];
+    const kcNL = kc.tar === 'NL', kcTarItem = kcTarList.find(t => t[0] === kc.tar);
+    const kcTarDone = kc.know === 'no' || kcNL || !!kcTarItem;
+    const kcUseMode = kc.use || null;
+    const kcKwhVal = kcUseMode === 'est' ? ({ '1–2 people': 2200, '3–4 people': 3200, '5+ people': 4200 })[kc.house] : kcUseMode ? 3200 : undefined;
+    const kcN = [!!kc.sup, !!kc.pay, !!kc.e7, kcTarDone, !!kcKwhVal].filter(Boolean).length;
     const dash = '1.5px dashed #C4CCD8', solid = '1px solid #D9DFE8';
-    const kcKwh = { '1–2 people': 2200, '3–4 people': 3200, '5+ people': 4200 }[kc.house];
-    const kcReady = kcN === 4;
+    const kcKwh = kcKwhVal;
+    const kcReady = kcN === 5;
+    const kcMatch = kc.pay ? ({ 'Pay as you go': 25, 'Direct Debit': 31, 'Cash, card, cheque': 18 })[kc.pay] : 45;
+    const kcPayWord = ({ 'Pay as you go': 'keypad', 'Direct Debit': 'Direct Debit', 'Cash, card, cheque': 'standard credit' })[kc.pay] || '';
+    const kcCheaper = Math.min(kcMatch - 1, kcTarItem ? (kcTarItem[1] ? 6 : 14) : 14);
     const sp = this.state.sp ?? null, spS = this.state.spS ?? {};
     const spSet = (k, v) => () => this.setState(s => ({ spS: { ...(s.spS ?? {}), [k]: v } }));
     const spPill = (k, v) => ({ label: v, border: spS[k] === v ? '2px solid #0B2730' : '2px solid #E6EAF0', bg: spS[k] === v ? '#FBFAE6' : '#fff', pick: spSet(k, v) });
@@ -3507,15 +3318,37 @@ class Component extends DCLogic {
     const cbS = this.state.cbS ?? null, cbDoneB = !!this.state.cbDone;
     const cmpVals4 = {
       glOpts, glSort,
-      kcSups: supNames.map(n => kcPill('sup', n)), kcPays: ['Direct Debit', 'Pay as you go', 'Cash, card, cheque'].map(n => kcPill('pay', n)),
+      kcSups: supNames.map(n => ({ ...kcPill('sup', n), bg: kc.sup === n ? '#FBFAE6' : '#fff', logo: 'assets/logo-' + kcLogoMap[n] + '.png' })),
+      kcModes: [['manual', 'Enter details', '☰', false], ['upload', 'Upload a bill', '↑', true]].map(([k, t, icon, isNew]) => { const on = kcMode === k; return { t, icon, isNew, border: on ? '2px solid #0B2730' : '2px solid transparent', bg: on ? '#fff' : 'rgba(255,255,255,.5)', fg: '#0B2730', iconBg: on ? '#E3E000' : '#fff', pick: () => this.setState({ kcMode: k }) }; }),
+      kcManual: kcMode === 'manual', kcUpload: kcMode === 'upload',
+      kcSample: () => this.setState({ kcMode: 'manual', kc: { sup: 'Budget Energy', pay: 'Pay as you go', e7: 'No', know: 'yes', tar: 'Q1 Fixed Keypad', use: 'kwh' } }),
+      kcPays: ['Direct Debit', 'Pay as you go', 'Cash, card, cheque'].map(n => ({ ...kcPill('pay', n), pick: () => this.setState(s => ({ kc: { ...(s.kc ?? {}), pay: n, tar: null } })) })),
+      kcE7s: ['Yes', 'No', 'Not sure'].map(n => kcPill('e7', n)),
+      kcKnows: [['yes', 'I know my tariff'], ['no', "I don't know my tariff"]].map(([k, l]) => ({ ...kcPill('know', k), label: l })),
+      kcKnowNo: kc.know === 'no', kcTarAsk: kc.know === 'yes' && !!kc.pay, kcNeedPay: kc.know === 'yes' && !kc.pay,
+      kcTarCount: kcTarList.length + ' ' + (kc.sup || '') + ' ' + kcPayWord + ' tariffs',
+      kcTarOpts: kcTarList.map(([n, d]) => ({ ...kcPill('tar', n), disc: d, fg: '#0B2730' })).concat([{ ...kcPill('tar', 'NL'), label: "My tariff isn't listed", disc: false, fg: '#5B2F7A' }]),
+      kcNotListed: kcNL, kcShowJoin: kc.know === 'yes' && !!kcTarItem && kcTarItem[1],
+      kcStdNote: "We'll compare against " + (kc.sup || 'your supplier') + "'s standard " + (kcPayWord || '') + ' rate, which is what most customers pay once a discount ends.',
+      kcUseModes: [['est', 'Estimate it for me'], ['kwh', 'I know my kWh'], ['spend', 'I know my spend']].map(([k, l]) => ({ ...kcPill('use', k), label: l })),
+      kcUseEst: kcUseMode === 'est', kcUseKwh: kcUseMode === 'kwh', kcUseSpend: kcUseMode === 'spend',
+      kcSpendAmt: kc.pay === 'Pay as you go' ? '25' : '95', kcSpendPer: kc.pay === 'Pay as you go' ? 'Per week' : 'Per month',
+      kcSpendHelp: kc.pay === 'Pay as you go' ? 'Roughly what you top up. We work out your usage from it.' : 'Your monthly Direct Debit or average bill. We work out your usage from it.',
+      kcE7Text: kc.e7 ? (kc.e7 === 'Yes' ? 'Economy 7' : kc.e7 === 'No' ? '24 hour meter' : 'Meter type not sure') : 'Meter type', kcE7Border: kc.e7 ? '1px solid #0B2730' : dash, kcE7Bg: kc.e7 ? '#F1E7F8' : '#fff', kcE7Color: kc.e7 ? '#0B2730' : '#9AA7B8',
+      kcSegs: [0, 1, 2, 3, 4].map(i => ({ bg: i < kcN ? '#E3E000' : '#2A4650' })),
+      kcHasLogo: !!kc.sup, kcNoLogo: !kc.sup, kcLogo: kc.sup ? 'assets/logo-' + kcLogoMap[kc.sup] + '.png' : '',
       kcTariffs: ['Standard', 'Fixed 12 month', 'Discount tariff'].map(n => kcPill('tar', n)), kcHouses: houseData.map(h => kcPill('house', h.t)),
-      kcProgress: kcN + ' of 4 details', kcLogoBorder: kc.sup ? solid : dash, kcSupShort: kc.sup ? kc.sup.split(' ')[0] : '?',
-      kcSupText: kc.sup || 'Supplier', kcSupColor: kc.sup ? '#5A6B80' : '#9AA7B8', kcTarText: kc.tar || 'Tariff name', kcTarColor: kc.tar ? '#0B2730' : '#9AA7B8',
-      kcPayText: kc.pay || 'Payment type', kcPayBorder: kc.pay ? '1px solid #0B2730' : dash, kcPayBg: kc.pay ? '#EFEC8C' : '#fff', kcPayColor: kc.pay ? '#0B2730' : '#9AA7B8',
-      kcUseText: kcKwh ? kcKwh.toLocaleString('en-GB') + ' kWh a year' : 'Usage', kcUseBorder: kcKwh ? '1px solid #0B2730' : dash, kcUseBg: kcKwh ? '#EFEC8C' : '#fff', kcUseColor: kcKwh ? '#0B2730' : '#9AA7B8',
-      kcBill: kcKwh ? gbp(kcKwh * 0.3998) + ' a year' : '£—', kcBillColor: kcKwh ? '#0B2730' : '#C4CCD8', kcBillBg: kcReady ? '#FBFAE6' : '#fff',
-      kcBillSub: kcKwh ? 'about ' + gbp(kcKwh * 0.3998 / 12) + ' a month at 39.98p/kWh' : 'Add your home size to see this',
-      kcCta: kcReady ? 'Find me something cheaper →' : (4 - kcN) + ' more to go', kcCtaBg: kcReady ? '#C9A3E0' : '#E6E1EC',
+      kcProgress: kcN + ' of 5 details', kcLogoBorder: kc.sup ? '1px solid #EEF1F5' : dash, kcSupShort: kc.sup ? kc.sup.split(' ')[0] : '?',
+      kcSupText: kc.sup || 'Supplier', kcSupColor: kc.sup ? '#5A6B80' : '#9AA7B8', kcTarText: kcTarItem ? kcTarItem[0] : (kc.know === 'no' || kcNL) ? 'Standard rate' : 'Tariff name', kcTarColor: kcTarDone ? '#0B2730' : '#9AA7B8',
+      kcPayText: kc.pay || 'Payment type', kcPayBorder: kc.pay ? '1px solid #0B2730' : dash, kcPayBg: kc.pay ? '#F1E7F8' : '#fff', kcPayColor: kc.pay ? '#0B2730' : '#9AA7B8',
+      kcUseText: kcKwh ? kcKwh.toLocaleString('en-GB') + ' kWh a year' : 'Usage', kcUseBorder: kcKwh ? '1px solid #0B2730' : dash, kcUseBg: kcKwh ? '#F1E7F8' : '#fff', kcUseColor: kcKwh ? '#0B2730' : '#9AA7B8',
+      kcBill: kcKwh ? gbp(kcKwh * 0.3998) + ' a year' : '£—', kcBillColor: kcKwh ? '#0B2730' : '#C4CCD8', kcBillBg: kcReady ? '#E3E000' : kcKwh ? '#FBFAE6' : '#fff',
+      kcBillSub: kcKwh ? 'about ' + gbp(kcKwh * 0.3998 / 12) + ' a month at 39.98p/kWh' : 'Add your usage to see this',
+      kcCta: kcReady ? 'See ' + kcCheaper + ' cheaper tariffs →' : (5 - kcN) + ' more to go',
+      kcFindTitle: kcReady ? kcCheaper + ' tariffs cheaper than what you pay now' : 'Searching ' + kcMatch + ' of 45 tariffs',
+      kcFindSub: kcReady ? 'Out of ' + kcMatch + ' ' + kcPayWord + ' tariffs from all six NI suppliers.' : kc.pay ? 'Only ' + kcPayWord + ' tariffs you can switch to.' : 'Every NI electricity tariff. Your answers narrow it down.',
+      kcFindIcon: kcReady ? '✓' : kcN + '/4', kcFindDot: kcReady ? '#0B2730' : '#C9A3E0', kcFindIconFg: kcReady ? '#E3E000' : '#0B2730', kcFindBg: kcReady ? '#E3E000' : 'transparent',
+      kcFindFg: kcReady ? '#0B2730' : '#fff', kcFindSubFg: kcReady ? '#0B2730' : '#9FB0B7', kcCtaBg: kcReady ? '#C9A3E0' : '#2A4650', kcCtaFg: kcReady ? '#0B2730' : '#9FB0B7',
       spNone: !sp, spChosen: !!sp, spKp: () => this.setState({ sp: 'kp' }), spDd: () => this.setState({ sp: 'dd' }), spReset: e => { e.preventDefault(); this.setState({ sp: null, spS: {} }); },
       spPathLabel: sp === 'kp' ? 'Keypad, pay as you go' : 'Bill payer',
       spSups: supNames.map(n => spPill('sup', n)),
@@ -3534,8 +3367,10 @@ class Component extends DCLogic {
     };
     const cmpVals = {
       ...cmpVals2, ...cmpVals3, ...cmpVals4,
-      cSups, cPays, cE7s, cHouses, cUseModes, cSummary, cIssues, cUseEst: cUse === 'est', cUseKwh: cUse === 'kwh',
-      cTariffNote: 'Showing 4 ' + cSup + ' ' + (cPay === 'Pay as you go' ? 'keypad' : cPay.toLowerCase()) + ' tariffs',
+      cSups, cPays, cE7s, cHouses, cUseModes, cSummary: cSummaryOut, cIssues, cUseEst: cUse === 'est', cUseKwh: cUse === 'kwh', cUseSpend: cUse === 'spend',
+      cTariffNote, cModes, cManual: cMode === 'manual', cUpload: cMode === 'upload', cKnows, cKnowYes: cKnow === 'yes', cKnowNo: cKnow === 'no',
+      cStdNote: "No problem. We'll compare against " + cStd + ', which is what most customers pay once a discount ends.',
+      cTarName, cTarOpts, cTarOpen: !!this.state.cTarOpen, cTarToggle: () => this.setState(s => ({ cTarOpen: !s.cTarOpen })), cShowJoin, cSpendAmt, cSpendPer, cSpendHelp,
       wzTiles, wzSoFar, wzNone: wzSoFar.length === 0, wzNum: 'Question ' + (wz + 1) + ' of ' + Q.length, wzTitle: q.title, wzHelp: q.help,
       wzPct: ((wz + (sel != null ? 1 : 0)) / Q.length * 100).toFixed(0) + '%', wzBackOp: wz === 0 ? 0.4 : 1,
       wzBack: () => this.setState({ wz: Math.max(0, wz - 1) }),
@@ -3710,7 +3545,7 @@ class Component extends DCLogic {
           ctaBg: good ? '#C9A3E0' : '#E6E1EC',
           calcOpen: open, calcLabel: open ? 'Hide calculation ▴' : 'See calculation ▾',
           toggleCalc: e => { e.preventDefault(); set(c => ({ open: c.open === t.id ? null : t.id })); },
-          calc: [CL('Estimated annual bill', '3,200 kWh at ' + (t.unit * vf).toFixed(2) + 'p/kWh, ' + (vatOn ? 'incl.' : 'excl.') + ' VAT', gbp(t.annual * vf)), CL('Standing charge', 'None on this tariff', '£0.00'),
+          calc: [...({ 0: 1, 2: 1, 3: 1, 5: 1 }[t.id] ? [CL('Rates used', 'The new rates from ' + { 0: '1 December 2026', 2: '15 November 2026', 3: '1 January 2027', 5: '1 December 2026' }[t.id] + '. Rates before and after are in Rates & charges.', '')] : []), CL('Estimated annual bill', '3,200 kWh at ' + (t.unit * vf).toFixed(2) + 'p/kWh, ' + (vatOn ? 'incl.' : 'excl.') + ' VAT', gbp(t.annual * vf)), CL('Standing charge', 'None on this tariff', '£0.00'),
             ...(t.cash ? [CL('Cashback', f.cash ? 'Paid after you switch' : 'Not counted. Turn on "Count cashback" to include it.', f.cash ? '−' + gbp(t.cash) : '£0.00')] : []),
             CL('Year one cost', '', gbp(t.annual * vf - (f.cash ? t.cash : 0)), 1), CL('Your current tariff', 'Budget Energy Q1 Fixed Keypad', gbp(cur * vf)), CL(cur * vf - (t.annual * vf - (f.cash ? t.cash : 0)) > 0 ? 'You save' : 'You pay more', '', gbp(cur * vf - (t.annual * vf - (f.cash ? t.cash : 0))), 1)],
           calcNote: t.term ? 'After ' + t.term + ' months you move to ' + t.supplier + '’s standard rate unless you switch again.' : 'No contract. You can leave at any time without a fee.',
@@ -3719,7 +3554,9 @@ class Component extends DCLogic {
               mCurLine: (cur / 12 / mMx * 100).toFixed(1) + '%', mCurText: 'Current ' + gbp(cur / 12),
               mNote: (t.cash && f.cash ? 'Month 1 includes the £' + t.cash + ' cashback. ' : '') + (rise ? 'From month ' + (t.term + 1) + ' the discount ends and the bill rises to about ' + gbp(m2) + ' a month.' : 'The price stays the same each month unless ' + t.supplier + ' changes it.'),
               wkM1: gbp(m1), wkM2: gbp(m2), wkU1: t.unit.toFixed(2) + 'p/kWh', wkU2: rise ? after.toFixed(2) + 'p/kWh · ' + gbp(m2 - m1) + ' more' : '', wkTerm: 'Months 1 to ' + (t.term || 12), wkFrom: 'From month ' + ((t.term || 12) + 1), wkText: rise ? 'The discount lasts ' + t.term + ' months. From month ' + (t.term + 1) + ' you move to ' + t.supplier + '’s standard keypad rate unless you switch again.' : '' }; })(),
-          hasChange: t.id === 0, hasPromo: !!t.cash, remindM: 'month ' + ((t.term || 12) - 1),
+          ...(() => { const pc = { 0: ['1 December 2026', [['Unit rate', '35.80p/kWh', '36.51p/kWh']]], 2: ['15 November 2026', [['Unit rate', '36.90p/kWh', '38.02p/kWh'], ['Standing charge', '15.20p a day', '16.10p a day']]], 3: ['1 January 2027', [['Unit rate', '37.20p/kWh', '38.40p/kWh']]], 5: ['1 December 2026', [['Unit rate', '41.30p/kWh', '40.55p/kWh']]] }[t.id];
+            if (pc && t.id === 0 && this.props.priceChange === 'Unit rate and standing charge') pc[1].push(['Standing charge', '18.50p a day', '19.82p a day']);
+            return { hasChange: !!pc, tPcTitle: pc ? 'Price change from ' + pc[0] : '', tPcRows: pc ? pc[1].map(([label, from, to]) => ({ label, from, to })) : [], tPcWhat: pc && pc[1].length > 1 ? 'rates' : 'rate' }; })(), hasPromo: !!t.cash, remindM: 'month ' + ((t.term || 12) - 1),
           ...(() => { const after = { 0: 40.79, 2: 40.30, 3: 40.30, 5: 40.55 }[t.id], rise = !!(after && t.term), a1 = t.annual / 12 - (this.state.cb4 && t.cash ? t.cash / 12 : 0), a2 = rise ? after * 3200 / 100 / 12 : t.annual / 12, mx = Math.max(a1, a2);
             return { avgTitle: rise ? 'Your deal now. Your cost when it ends.' : 'Your average monthly cost', avgCashLabel: 'Include £' + t.cash + ' cashback', avg1: gbp(a1), avg2: gbp(a2), avgH1: Math.round(80 * a1 / mx) + 'px', avgH2: Math.round(80 * a2 / mx) + 'px',
               avgL1: rise ? 'With your discount' : 'Year one', avgS1: rise ? 'First ' + t.term + ' months' : 'Months 1 to 12', avgL2: rise ? 'After your discount' : 'After year one', avgS2: rise ? 'From month ' + (t.term + 1) : 'If rates don’t change',
@@ -3734,10 +3571,10 @@ class Component extends DCLogic {
           tabs: [['overview', 'Overview'], ['rates', 'Rates & charges'], ['monthly', 'Monthly cost'], ['calc', 'Calculation'], ['info', 'Tariff terms']].map(([key, label]) => { const cur = (f.tabs[t.id] !== undefined ? f.tabs[t.id] : (top ? 'overview' : null)) === key;
             return { label, weight: cur ? 700 : 500, line: cur ? (top ? '#E3E000' : '#0B2730') : 'transparent', go: () => set(c => { const was = c.tabs[t.id] !== undefined ? c.tabs[t.id] : (top ? 'overview' : null); return { tabs: { ...c.tabs, [t.id]: was === key ? null : key } }; }) }; }),
           ...(() => { const tb = f.tabs[t.id] !== undefined ? f.tabs[t.id] : (top ? 'overview' : null); return { tabAny: !!tb, tabOv: tb === 'overview', tabRates: tb === 'rates', tabMonthly: tb === 'monthly', tabCalc: tb === 'calc', tabInfo: tb === 'info' }; })(),
-          bands: this.rateBands(t.unit, vf).bands,
+          rt: (() => { const pc = { 0: [35.80, 'Until 30 Nov', 'From 1 Dec'], 2: [36.90, 'Until 14 Nov', 'From 15 Nov'], 3: [37.20, 'Until 31 Dec', 'From 1 Jan'], 5: [41.30, 'Until 30 Nov', 'From 1 Dec'] }[t.id]; const sc = t.id === 2 ? [15.20, 16.10] : t.id === 0 && this.props.priceChange === 'Unit rate and standing charge' ? [18.50, 19.82] : null; return this.rateTable(t.unit, vf, pc ? { pre: pc[0], until: pc[1], from: pc[2], sc } : null); })(),
           ovFacts: [{ label: 'Unit rates', value: this.rateBands(t.unit, 1).bandSummary }, { label: 'Contract', value: t.term ? t.term + ' months' : 'None' }, { label: 'Rate type', value: t.rate }, { label: 'Payment', value: 'Pay as you go' }, { label: 'Billing', value: 'Keypad top-up' }, { label: 'Exit fee', value: t.exit }, { label: 'Switch', value: t.online ? 'Via Power to Switch' : 'Supplier site' }],
-          rateFacts: [{ label: 'Average unit rate', value: (t.unit * vf).toFixed(2) + 'p/kWh', note: 'On your usage, ' + (vatOn ? 'incl.' : 'excl.') + ' VAT' }, { label: 'Standing charge', value: 'None', note: 'Keypad tariff' }, { label: 'Annual bill', value: gbp(t.annual * vf), note: '3,200 kWh a year' }, { label: 'Monthly', value: gbp(t.annual * vf / 12), note: 'Average' }],
-          infoLines: [t.term ? 'This tariff lasts ' + t.term + ' months. After that you move to ' + t.supplier + '’s standard keypad rate.' : 'No fixed term. You can leave at any time.', t.exit === 'None' ? 'No exit fee.' : 'A ' + t.exit + ' exit fee applies if you leave before the end of the contract.', t.rate === 'Fixed' ? 'The unit rate is fixed for the contract.' : 'Variable rate. ' + t.supplier + ' can change the price with notice.', ...(t.cash ? ['£' + t.cash + ' cashback is added to your account after you switch.'] : [])],
+          rateFacts: [{ label: 'Average unit rate', value: (t.unit * vf).toFixed(2) + 'p/kWh', note: 'On your usage, ' + (vatOn ? 'incl.' : 'excl.') + ' VAT' }, { label: 'Annual bill', value: gbp(t.annual * vf), note: '3,200 kWh a year' }, { label: 'Monthly', value: gbp(t.annual * vf / 12), note: 'Average' }],
+          infoLines: [...({ 0: 1, 2: 1, 3: 1, 5: 1 }[t.id] ? ['Price change on ' + { 0: '1 December 2026', 2: '15 November 2026', 3: '1 January 2027', 5: '1 December 2026' }[t.id] + '. Rates before and after are in Rates & charges.'] : []), t.term ? 'This tariff lasts ' + t.term + ' months. After that you move to ' + t.supplier + '’s standard keypad rate.' : 'No fixed term. You can leave at any time.', t.exit === 'None' ? 'No exit fee.' : 'A ' + t.exit + ' exit fee applies if you leave before the end of the contract.', t.rate === 'Fixed' ? 'The unit rate is fixed for the contract.' : 'Variable rate. ' + t.supplier + ' can change the price with notice.', ...(t.cash ? ['£' + t.cash + ' cashback is added to your account after you switch.'] : [])],
           selBg: sel ? '#0B2730' : '#fff', selBorder: sel ? '1.5px solid #0B2730' : '1.5px solid #C4CCD8', selTick: sel ? '✓' : '', selOp: !sel && f.sel.length >= 3 ? 0.45 : 1,
           toggleSel: () => set(c => ({ sel: c.sel.includes(t.id) ? c.sel.filter(x => x !== t.id) : c.sel.length >= 3 ? c.sel : [...c.sel, t.id] }))
         };
@@ -3926,7 +3763,7 @@ class Component extends DCLogic {
       calc2Label: this.state.calc2 !== false ? 'Hide calculation ▴' : 'See calculation ▾',
       toggleCalc2: e => { e.preventDefault(); this.setState(s => ({ calc2: s.calc2 === false })); },
       vsRows, fitChecks,
-      tabs, tabIs, ovFacts, rateFacts, bands, vat4Toggle, vat4Bg, vat4Tick, cb4Toggle, cb4Bg, cb4Tick, cb4M1, cb4H1, cb4Diff, pcTitle, pcWhat, pcRows, calcLines, specGroups, nextSteps, months, facts9, curLine: (curM / mMax * 100).toFixed(1) + '%',
+      tabs, tabIs, ovFacts, rateFacts, bands, rt4, vat4Toggle, vat4Bg, vat4Tick, cb4Toggle, cb4Bg, cb4Tick, cb4M1, cb4H1, cb4Diff, pcTitle, pcWhat, pcRows, calcLines, specGroups, nextSteps, months, facts9, curLine: (curM / mMax * 100).toFixed(1) + '%',
       bList,
       calcOpen: !!this.state.calc,
       calcLabel: this.state.calc ? 'Hide calculation' : 'See calculation',
