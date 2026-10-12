@@ -9,10 +9,10 @@
 <x-dc>
 <helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>body{margin:0;background:#EEF1F5;font-family:'Figtree',system-ui,sans-serif;color:#0B2730;-webkit-font-smoothing:antialiased}a{color:#0B2730}a:hover{color:#0B2730}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opt{flex:none;display:grid;grid-template-columns:260px max-content;gap:40px;align-items:start;padding:0 64px;border-left:1px solid #D9DFE8;scroll-margin-top:16px}.dv-opt:first-child{border-left:0;padding-left:0}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{position:sticky;top:24px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;font:400 14.5px/1.55 'Figtree',system-ui,sans-serif;color:#3E5560;text-wrap:pretty}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:32px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style></helmet>
 <main style="width:max-content;padding:48px 56px 80px;box-sizing:border-box">
-<nav style="position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px;margin:0 0 40px;background:#0B2730;border-radius:14px;box-shadow:0 4px 16px rgba(11,39,48,.18)">
+<nav style="position:sticky;top:0;left:56px;z-index:20;width:max-content;max-width:calc(100vw - 112px);display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px;margin:0 0 40px;background:#0B2730;border-radius:14px;box-shadow:0 4px 16px rgba(11,39,48,.18)">
   <span style="padding:0 12px 0 8px;font-size:15px;font-weight:800;color:#fff">Power to Switch</span>
   <sc-for list="{{ tabList }}" as="t" hint-placeholder-count="7"><button onClick="{{ t.pick }}" style="height:40px;padding:0 16px;border:0;border-radius:10px;background:{{ t.bg }};color:{{ t.fg }};font:700 14px 'Figtree',sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px"><span style="font-size:12px;font-weight:800;opacity:.7">{{ t.n }}</span>{{ t.label }}</button></sc-for>
-  <a href="Switch Form Archive.dc.html" style="margin-left:auto;height:40px;padding:0 16px;border:1px solid #3D5963;border-radius:10px;display:flex;align-items:center;font-size:14px;font-weight:700;color:#C9D3D8;text-decoration:none">Archive ↗</a>
+  <a href="Switch Form Archive.dc.html" style="margin-left:10px;height:40px;padding:0 16px;border:1px solid #3D5963;border-radius:10px;display:flex;align-items:center;font-size:14px;font-weight:700;color:#C9D3D8;text-decoration:none">Archive ↗</a>
 </nav>
 <div data-tab="blocks" style="display:{{ tabDisp.blocks }}">
   <div style="display:flex;flex-direction:column;gap:6px;padding:0 0 40px">
@@ -1531,7 +1531,7 @@
               <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px"><sc-for list="{{ kcSegs }}" as="g" hint-placeholder-count="5"><div style="height:5px;border-radius:3px;background:{{ g.bg }};transition:background .3s"></div></sc-for></div>
               <div style="background:#fff;color:#0B2730;border-radius:14px;overflow:hidden">
                 <div style="padding:16px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #EEF1F5">
-                  <div style="width:84px;height:40px;flex:none;border-radius:8px;border:{{ kcLogoBorder }};display:flex;align-items:center;justify-content:center;padding:4px 6px;box-sizing:border-box"><sc-if value="{{ kcHasLogo }}" hint-placeholder-val="{{ false }}"><img src="{{ kcLogo }}" alt="{{ kcSupText }}" style="max-width:100%;max-height:100%;object-fit:contain"></sc-if><sc-if value="{{ kcNoLogo }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;font-weight:800;color:#C4CCD8">?</span></sc-if></div>
+                  <div style="width:84px;height:40px;flex:none;border-radius:8px;border:{{ kcLogoBorder }};display:flex;align-items:center;justify-content:center;padding:4px 6px;box-sizing:border-box"><sc-if value="{{ kcHasLogo }}" hint-placeholder-val="{{ false }}"><sc-for list="{{ kcLogoList }}" as="lg" hint-placeholder-count="0"><img src="{{ lg.src }}" alt="{{ lg.alt }}" style="max-width:100%;max-height:100%;object-fit:contain"></sc-for></sc-if><sc-if value="{{ kcNoLogo }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;font-weight:800;color:#C4CCD8">?</span></sc-if></div>
                   <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span style="font-size:12.5px;font-weight:600;color:{{ kcSupColor }}">{{ kcSupText }}</span><span style="font-size:16px;font-weight:800;color:{{ kcTarColor }}">{{ kcTarText }}</span></div>
                 </div>
                 <div style="padding:14px 18px;display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid #EEF1F5">
@@ -2892,7 +2892,7 @@ class Component extends DCLogic {
   }
   state = { open: 0 };
   componentDidMount() {
-    const saved = localStorage.getItem('pts-tab'); if (saved) this.setState({ tab: saved });
+    const saved = localStorage.getItem('pts-tab'); if (saved) this.setState({ pageTab: saved });
     this._hash = () => this._goHash(location.hash);
     this._click = e => { const a = e.target.closest && e.target.closest('a[href^="#"]'); if (a) setTimeout(() => this._goHash(a.getAttribute('href')), 0); };
     window.addEventListener('hashchange', this._hash); document.addEventListener('click', this._click, true);
@@ -2904,8 +2904,8 @@ class Component extends DCLogic {
     const el = document.getElementById(id); const sec = el && el.closest('[data-tab]');
     if (sec) { const t = sec.getAttribute('data-tab'); this._setTab(t); setTimeout(() => { const r = el.getBoundingClientRect(); window.scrollBy(0, r.top - 80); }, 30); }
   }
-  _setTab(t) { localStorage.setItem('pts-tab', t); this.setState({ tab: t }); }
-  renderVals() { const base = this._rv(); const tab = this.state.tab ?? 'blocks';
+  _setTab(t) { localStorage.setItem('pts-tab', t); this.setState({ pageTab: t }); }
+  renderVals() { const base = this._rv(); const tab = this.state.pageTab ?? 'blocks';
     const T = [["blocks","Result blocks"],["calc","Calculation"],["compare","Comparison form"],["switch","Switch form"],["results","Results page"],["account","My account"],["switchplus","Switch Plus"]];
     const tabDisp = {}; T.forEach(([k]) => { tabDisp[k] = k === tab ? 'block' : 'none'; });
     return { ...base, tabDisp, tabList: T.map(([k, label], i) => ({ label, n: i + 1, bg: k === tab ? '#E3E000' : 'transparent', fg: k === tab ? '#0B2730' : '#fff', pick: () => { this._setTab(k); window.scrollTo(0, 0); } })) };
@@ -3336,7 +3336,7 @@ class Component extends DCLogic {
       kcSpendHelp: kc.pay === 'Pay as you go' ? 'Roughly what you top up. We work out your usage from it.' : 'Your monthly Direct Debit or average bill. We work out your usage from it.',
       kcE7Text: kc.e7 ? (kc.e7 === 'Yes' ? 'Economy 7' : kc.e7 === 'No' ? '24 hour meter' : 'Meter type not sure') : 'Meter type', kcE7Border: kc.e7 ? '1px solid #0B2730' : dash, kcE7Bg: kc.e7 ? '#F1E7F8' : '#fff', kcE7Color: kc.e7 ? '#0B2730' : '#9AA7B8',
       kcSegs: [0, 1, 2, 3, 4].map(i => ({ bg: i < kcN ? '#E3E000' : '#2A4650' })),
-      kcHasLogo: !!kc.sup, kcNoLogo: !kc.sup, kcLogo: kc.sup ? 'assets/logo-' + kcLogoMap[kc.sup] + '.png' : '',
+      kcHasLogo: !!kc.sup, kcNoLogo: !kc.sup, kcLogoList: kc.sup ? [{ src: 'assets/logo-' + kcLogoMap[kc.sup] + '.png', alt: kc.sup }] : [],
       kcTariffs: ['Standard', 'Fixed 12 month', 'Discount tariff'].map(n => kcPill('tar', n)), kcHouses: houseData.map(h => kcPill('house', h.t)),
       kcProgress: kcN + ' of 5 details', kcLogoBorder: kc.sup ? '1px solid #EEF1F5' : dash, kcSupShort: kc.sup ? kc.sup.split(' ')[0] : '?',
       kcSupText: kc.sup || 'Supplier', kcSupColor: kc.sup ? '#5A6B80' : '#9AA7B8', kcTarText: kcTarItem ? kcTarItem[0] : (kc.know === 'no' || kcNL) ? 'Standard rate' : 'Tariff name', kcTarColor: kcTarDone ? '#0B2730' : '#9AA7B8',
