@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Libre+Caslon+Text:ital@0;1&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Poppins,sans-serif;color:#344c58;-webkit-font-smoothing:antialiased}
+a{color:#344c58}a:hover{color:#e2645c}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width:390px;height:844px;background:#344c58;display:flex;flex-direction:column;overflow:hidden;position:relative">
+  <div style="height:56px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;flex:none">
+    <div style="display:flex;flex-direction:column;gap:4px;width:22px"><span style="height:2px;background:#344c58"></span><span style="height:2px;background:#344c58"></span><span style="height:2px;background:#344c58"></span></div>
+    <img src="assets/logo.png" alt="Warren Evans" style="height:20px;display:block">
+    <div style="width:20px;height:20px;border:2px solid #344c58;border-radius:4px 4px 5px 5px;box-sizing:border-box"></div>
+  </div>
+
+  <div style="flex:none;background:#f5f5f4;height:{{ imgH }};position:relative;display:flex;align-items:center;justify-content:center;transition:height .3s">
+    <img src="assets/bed.png" alt="Sunday Shaker" style="width:86%;height:86%;object-fit:contain;display:block;filter:{{ bedFilter }};transition:filter .35s">
+    <div style="position:absolute;right:12px;bottom:{{ chipBottom }};display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:60%">
+      <sc-for list="{{ summary }}" as="t" hint-placeholder-count="3">
+        <span style="background:#fff;border-radius:12px;padding:3px 10px;font-size:11px;font-weight:500;box-shadow:0 1px 3px rgba(0,0,0,.08)">{{ t.text }}</span>
+      </sc-for>
+    </div>
+    <div style="position:absolute;top:12px;left:12px;background:#344c58;color:#fff;border-radius:12px;padding:3px 10px;font-size:11px;font-weight:500">Sunday Shaker · Small Single</div>
+  </div>
+
+  <div style="flex:1;min-height:0;background:#fff;display:flex;flex-direction:column;position:relative;z-index:1;margin-top:{{ panelLift }};border-radius:{{ panelRadius }};box-shadow:{{ panelShadow }}">
+    <sc-if value="{{ isSheet }}" hint-placeholder-val="{{ false }}"><div style="width:40px;height:4px;border-radius:2px;background:#d7dde0;margin:8px auto 0;flex:none"></div></sc-if>
+    <sc-if value="{{ isTabs }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;gap:6px;overflow-x:auto;padding:12px 14px;border-bottom:1px solid #e3e7e8;flex:none;scrollbar-width:none">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+          <button onClick="{{ s.go }}" style="flex:none;background:{{ s.bg }};color:{{ s.fg }};border:1.5px solid #344c58;border-radius:18px;padding:6px 12px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap">{{ s.tabLabel }}</button>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isSteps }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:14px 18px 0;flex:none">
+        <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:500"><span>Step {{ stepNo }} of {{ stepCount }}</span><span>{{ nextHint }}</span></div>
+        <div style="height:4px;background:#e3e7e8;border-radius:2px;margin-top:8px;overflow:hidden"><div style="height:100%;width:{{ progress }};background:#7fcbcf;transition:width .3s"></div></div>
+      </div>
+    </sc-if>
+
+    <div style="flex:1;min-height:0;overflow-y:auto;padding:16px 18px 18px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:14px">
+        <div style="font-size:17px;font-weight:600">{{ cur.title }}</div>
+        <div style="font-size:13px;font-weight:500;color:#2f7f73;white-space:nowrap">{{ cur.selected }}</div>
+      </div>
+
+      <sc-if value="{{ isHeadboard }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ listStyle }}">
+          <sc-for list="{{ headboards }}" as="o" hint-placeholder-count="8">
+            <button onClick="{{ o.pick }}" style="flex:none;width:{{ tileW }};box-sizing:border-box;background:#f5f5f4;border:2px solid {{ o.border }};border-radius:8px;padding:0 0 6px;cursor:pointer;color:#344c58;display:flex;flex-direction:column;align-items:center;gap:4px;overflow:hidden">
+              <span style="display:block;width:100%;height:54px;background:#fff;position:relative"><span style="position:absolute;left:14%;bottom:8px;width:72%;height:10px;background:#d9d4cb;border-radius:2px"></span><span style="position:absolute;left:14%;bottom:18px;width:8px;height:{{ o.h }};background:#c9a77a;border-radius:2px 2px 0 0"></span></span>
+              <span style="font-size:11px;font-weight:{{ o.weight }}">{{ o.label }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isFinish }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <sc-for list="{{ finishGroups }}" as="g" hint-placeholder-count="2">
+            <div>
+              <div style="font-size:11px;letter-spacing:.06em;margin-bottom:10px">{{ g.name }}</div>
+              <div style="{{ swatchStyle }}">
+                <sc-for list="{{ g.items }}" as="o" hint-placeholder-count="6">
+                  <button onClick="{{ o.pick }}" style="flex:none;background:none;border:0;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;color:#344c58">
+                    <span style="box-sizing:border-box;width:48px;height:48px;border-radius:50%;background:{{ o.color }};box-shadow:{{ o.ring }}"></span>
+                    <span style="font-size:10px;line-height:1.2;text-align:center;width:58px">{{ o.label }}</span>
+                  </button>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isHeight }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+          <sc-for list="{{ heights }}" as="o" hint-placeholder-count="3">
+            <button onClick="{{ o.pick }}" style="background:{{ o.bg }};border:2px solid {{ o.border }};border-radius:10px;padding:10px 6px;cursor:pointer;color:#344c58;display:flex;flex-direction:column;align-items:center;gap:6px">
+              <span style="height:44px;display:flex;align-items:flex-end;gap:6px"><span style="width:10px;height:{{ o.bar }};background:#c9a77a;border-radius:2px"></span><span style="font-size:11px">{{ o.cm }}</span></span>
+              <span style="font-size:13px;font-weight:600">{{ o.label }}</span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="font-size:13px;line-height:1.5;margin-top:12px">{{ heightNote }}</div>
+      </sc-if>
+
+      <sc-if value="{{ isStorage }}" hint-placeholder-val="{{ false }}">
+        <div style="font-size:12px;line-height:1.5;margin-bottom:12px">½ length boxes, finished in your leg colour. Height follows your leg choice.</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <sc-for list="{{ storage }}" as="o" hint-placeholder-count="5">
+            <button onClick="{{ o.pick }}" style="background:{{ o.bg }};border:2px solid {{ o.border }};border-radius:10px;padding:11px 14px;cursor:pointer;color:#344c58;display:flex;align-items:center;gap:12px;text-align:left">
+              <span style="box-sizing:border-box;width:18px;height:18px;border-radius:50%;border:2px solid #344c58;display:flex;align-items:center;justify-content:center;flex:none"><span style="width:8px;height:8px;border-radius:50%;background:{{ o.dot }}"></span></span>
+              <span style="flex:1;font-size:13px;font-weight:500">{{ o.label }}</span>
+              <span style="font-size:12px;display:flex;gap:6px"><span style="text-decoration:line-through">{{ o.was }}</span><span style="font-weight:600;color:#e2645c">{{ o.price }}</span></span>
+            </button>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="flex:none;border-top:1px solid #e3e7e8;padding:12px 18px 16px;display:flex;align-items:center;gap:12px;background:#fff">
+      <sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ back }}" style="width:44px;height:44px;border-radius:50%;border:2px solid #344c58;background:#fff;color:#344c58;font-size:16px;cursor:pointer;flex:none">←</button>
+      </sc-if>
+      <div style="flex:1;line-height:1.2">
+        <div style="font-size:12px;text-decoration:line-through">£{{ was }}</div>
+        <div style="font-size:19px;font-weight:600;color:#e2645c">Sale £{{ price }}</div>
+      </div>
+      <button onClick="{{ next }}" style="background:#e2645c;color:#fff;border:0;border-radius:30px;padding:0 22px;height:46px;font-size:15px;font-weight:600;cursor:pointer;white-space:nowrap">{{ ctaLabel }}</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;tabs&quot;,&quot;steps&quot;,&quot;sheet&quot;,&quot;compact&quot;],&quot;default&quot;:&quot;tabs&quot;,&quot;tsType&quot;:&quot;'tabs'|'steps'|'sheet'|'compact'&quot;}}">
+class Component extends DCLogic {
+  state = { step: 0, headboard: 'Sunday', hbFinish: 'Natural Oak', frame: 'Natural Oak', height: 'Medium', storage: 0 };
+  renderVals() {
+    const v = this.props.variant ?? 'tabs';
+    const st = this.state;
+    const set = o => this.setState(o);
+    const stepsDef = [
+      { key: 'headboard', title: 'Headboard style', tab: 'Headboard' },
+      { key: 'hbFinish', title: 'Headboard finish', tab: 'Headboard finish' },
+      { key: 'frame', title: 'Frame & leg finish', tab: 'Frame & legs' },
+      { key: 'height', title: 'Leg height', tab: 'Leg height' },
+      { key: 'storage', title: 'Underbed storage', tab: 'Storage' }
+    ];
+    const finishes = [
+      { g: 'QUALITY STAINS', items: [['Ebony', '#231f1e', 'brightness(.35) saturate(.6)'], ['Honey Oak', '#c8914f', 'sepia(.35) saturate(1.3)'], ['Natural Oak', '#c9a77a', 'none'], ['Natural Pine', '#f0d9b8', 'brightness(1.12) saturate(.8)'], ['Walnut', '#6b4226', 'brightness(.6) sepia(.4)'], ['Mahogany', '#5e1b14', 'brightness(.55) sepia(.6) hue-rotate(-20deg) saturate(1.6)'], ['Antique Pine', '#b7791f', 'sepia(.5) saturate(1.5)'], ['White Wash', '#ecdccb', 'brightness(1.2) saturate(.45)']] },
+      { g: 'WATER BASED PAINTS', items: [['Stone', '#c9bcae', 'grayscale(.7) brightness(1.1)'], ['Dove Grey', '#b9bfc2', 'grayscale(1) brightness(1.15)'], ['Navy', '#1f4a5c', 'grayscale(1) brightness(.5) sepia(.3) hue-rotate(160deg) saturate(2)']] }
+    ];
+    const allFin = finishes.flatMap(f => f.items);
+    const storageOpts = [['No storage', 0, null], ['1 drawer', 104, 173], ['2 drawers', 197, 328], ['3 drawers', 295, 491], ['4 drawers', 371, 618]];
+    const heightOpts = [['Deco', '7cm', '14px', 'Low and modern. Sits close to the floor.'], ['Medium', '22cm', '28px', 'The normal height you would expect on a bed.'], ['Extra Tall', '30cm', '40px', 'Easier to get in and out of, with room for storage underneath.']];
+    const cur = stepsDef[st.step];
+    const selText = { headboard: st.headboard, hbFinish: st.hbFinish, frame: st.frame, height: st.height, storage: storageOpts[st.storage][0] };
+    const steps = stepsDef.map((s, i) => ({
+      tabLabel: (i < st.step ? '✓ ' : '') + s.tab,
+      bg: i === st.step ? '#344c58' : '#fff', fg: i === st.step ? '#fff' : '#344c58',
+      go: () => set({ step: i })
+    }));
+    const ring = sel => sel ? '0 0 0 3px #fff, 0 0 0 5px #344c58' : 'inset 0 0 0 1px rgba(0,0,0,.08)';
+    const finishKey = cur.key === 'hbFinish' ? 'hbFinish' : 'frame';
+    const finishGroups = finishes.map(f => ({ name: f.g, items: f.items.map(([label, color]) => ({ label, color, ring: ring(st[finishKey] === label), pick: () => set({ [finishKey]: label }) })) }));
+    const hbH = { Oxford: '40px', Bristol: '36px', Sunday: '32px', Wednesday: '30px', Camden: '26px', Kentish: '22px', Modern: '18px', None: '0px' };
+    const headboards = Object.keys(hbH).map(label => ({ label, h: hbH[label], border: st.headboard === label ? '#344c58' : 'transparent', weight: st.headboard === label ? 600 : 400, pick: () => set({ headboard: label }) }));
+    const heights = heightOpts.map(([label, cm, bar]) => ({ label, cm, bar, bg: st.height === label ? '#eef8f8' : '#fff', border: st.height === label ? '#344c58' : '#d7dde0', pick: () => set({ height: label }) }));
+    const storage = storageOpts.map(([label, p, w], i) => ({ label, price: p ? '£' + p : '', was: w ? '£' + w : '', bg: st.storage === i ? '#eef8f8' : '#fff', border: st.storage === i ? '#344c58' : '#d7dde0', dot: st.storage === i ? '#344c58' : 'transparent', pick: () => set({ storage: i }) }));
+    const extra = storageOpts[st.storage][1], extraWas = storageOpts[st.storage][2] || 0;
+    const last = st.step === stepsDef.length - 1;
+    const isSteps = v === 'steps' || v === 'sheet';
+    const isSheet = v === 'sheet', isCompact = v === 'compact';
+    const frameF = 'none';
+    const summary = [st.frame, st.height + ' legs'].concat(st.storage ? [storageOpts[st.storage][0]] : []).map(text => ({ text }));
+    return {
+      isTabs: !isSteps, isSteps, steps, cur: { title: cur.title, selected: selText[cur.key] },
+      stepNo: st.step + 1, stepCount: stepsDef.length, progress: ((st.step + 1) / stepsDef.length * 100) + '%',
+      nextHint: last ? 'Last step' : 'Next: ' + stepsDef[st.step + 1].tab,
+      imgH: isSheet ? '380px' : isCompact ? '190px' : isSteps ? '330px' : '280px',
+      chipBottom: isSheet ? '36px' : '12px',
+      isSheet, panelLift: isSheet ? '-22px' : '0', panelRadius: isSheet ? '20px 20px 0 0' : '0', panelShadow: isSheet ? '0 -6px 20px rgba(0,0,0,.12)' : 'none', bedFilter: frameF, summary,
+      isHeadboard: cur.key === 'headboard', isFinish: cur.key === 'hbFinish' || cur.key === 'frame', isHeight: cur.key === 'height', isStorage: cur.key === 'storage',
+      headboards, finishGroups, heights, storage,
+      heightNote: (heightOpts.find(h => h[0] === st.height) || [])[3],
+      listStyle: isSteps ? 'display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none' : 'display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px',
+      tileW: isSteps ? '84px' : 'auto',
+      swatchStyle: isSteps ? 'display:flex;gap:10px;overflow-x:auto;padding:4px 4px 6px;scrollbar-width:none' : 'display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px 4px;padding:4px',
+      price: 565 + extra, was: 941 + extraWas,
+      showBack: isSteps && st.step > 0,
+      back: () => set({ step: Math.max(0, st.step - 1) }),
+      next: () => last ? null : set({ step: st.step + 1 }),
+      ctaLabel: last ? 'Add To Basket' : (isSteps ? 'Next' : 'Next: ' + stepsDef[st.step + 1].tab)
+    };
+  }
+}
+</script>
+</body>
+</html>

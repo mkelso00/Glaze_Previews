@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#e2dfd7;font-family:Poppins,sans-serif;color:#344c58;-webkit-font-smoothing:antialiased}a{color:#344c58}a:hover{color:#e2645c}</style>
+</helmet>
+<div style="min-height:100vh;background:#e2dfd7;overflow:hidden">
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#fff;display:flex;align-items:center;gap:40px;padding:26px 64px">
+      <img src="assets/logo.png" alt="Warren Evans" style="height:28px;display:block">
+      <nav style="display:flex;gap:30px;font-size:14px;flex:1;justify-content:center"><span>Beds</span><span style="border-bottom:1.5px solid #344c58">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>Blog &amp; Guides</span><span>FAQs</span></nav>
+      <div style="background:#f2f2f2;border-radius:4px;padding:8px 14px;font-size:12px;color:#777;width:150px">Search for anything..</div>
+    </div>
+    <div style="background:#344c58;padding:40px 64px 110px;display:flex;flex-direction:column;align-items:center;gap:28px">
+      <div style="display:flex;gap:12px;flex-wrap:nowrap;justify-content:center"><sc-for list="{{ sizes }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:#fff;border-radius:999px;padding:8px 20px;font-size:15px;white-space:nowrap">{{ s.n }}</span></sc-for></div>
+      <div style="width:100%;max-width:1312px;box-sizing:border-box;background:#fff;border-radius:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:20px 0">
+        <div style="display:flex;gap:16px;align-items:center;justify-content:center;padding:0 28px">
+          <svg width="44" height="44" viewBox="0 0 32 32" fill="none" stroke="#344c58" stroke-width="1.6" stroke-linejoin="round" style="flex:none"><path d="M3 13L16 3l13 10"></path><path d="M6.5 11v17h19V11"></path><text x="16" y="24" text-anchor="middle" font-family="Poppins" font-size="12" font-weight="600" fill="#344c58" stroke="none">6</text></svg>
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:17px;font-weight:600">6 months free in home trial</span><span style="font-size:13px">Sleep on it at home for up to 6 months</span></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:center;justify-content:center;padding:0 28px;border-left:1px solid #e2dfd7;border-right:1px solid #e2dfd7">
+          <svg width="44" height="44" viewBox="0 0 32 32" fill="none" stroke="#344c58" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" style="flex:none"><path d="M2.5 8h16v14h-16z"></path><path d="M18.5 12h5.5l5 5v5h-10.5"></path><circle cx="8" cy="23.5" r="2.5" fill="#fff"></circle><circle cx="23.5" cy="23.5" r="2.5" fill="#fff"></circle><path d="M7.5 15.5a3 3 0 0 1 5.6-1.5"></path><path d="M13.5 12v2.2h-2.2"></path></svg>
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:17px;font-weight:600">Free delivery and recycling</span><span style="font-size:13px">We take your old mattress away</span></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:center;justify-content:center;padding:0 28px">
+          <svg width="44" height="44" viewBox="0 0 32 32" fill="none" stroke="#344c58" stroke-width="1.6" stroke-linejoin="round" style="flex:none"><circle cx="16" cy="13" r="10"></circle><path d="M10.5 21.5L8.5 30l7.5-3.2 7.5 3.2-2-8.5"></path><text x="16" y="16.5" text-anchor="middle" font-family="Poppins" font-size="{{ yearSize }}" font-weight="600" fill="#344c58" stroke="none">{{ years }}</text></svg>
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:17px;font-weight:600">{{ gTitle }}</span><span style="font-size:13px">{{ gSub }}</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;padding:0 64px;margin-top:-70px">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="3">
+        <div style="background:#fff;border-radius:20px;padding:26px 26px 30px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:30px;font-weight:600;line-height:1.2;text-wrap:balance">{{ c.name }}</div>
+          <div style="font-size:17px;color:#5b6b72">With quality wool &amp; cotton layers</div>
+          <img src="{{ c.img }}" alt="" style="width:100%;aspect-ratio:16/10;object-fit:cover;display:block;margin-top:14px">
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#fff;display:grid;grid-template-columns:44px 1fr 44px;align-items:center;padding:14px 16px">
+      <div style="display:flex;flex-direction:column;gap:5px;width:22px"><span style="height:2px;background:#344c58"></span><span style="height:2px;background:#344c58"></span><span style="height:2px;background:#344c58"></span></div>
+      <img src="assets/logo.png" alt="Warren Evans" style="height:20px;justify-self:center;display:block">
+      <div style="justify-self:end;width:20px;height:20px;border:2px solid #344c58;border-radius:4px 4px 5px 5px"></div>
+    </div>
+    <div style="background:#344c58;padding:20px 0 70px;display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;gap:8px;overflow-x:auto;padding:0 16px"><sc-for list="{{ sizes }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:#fff;border-radius:999px;padding:7px 16px;font-size:13px;white-space:nowrap;flex:none">{{ s.n }}</span></sc-for></div>
+      <div style="margin:0 16px;background:#fff;border-radius:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:14px 4px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:0 6px">
+          <svg width="34" height="34" viewBox="0 0 32 32" fill="none" stroke="#344c58" stroke-width="1.6" stroke-linejoin="round"><path d="M3 13L16 3l13 10"></path><path d="M6.5 11v17h19V11"></path><text x="16" y="24" text-anchor="middle" font-family="Poppins" font-size="12" font-weight="600" fill="#344c58" stroke="none">6</text></svg>
+          <span style="font-size:12px;font-weight:600;line-height:1.3">6 months free in home trial</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:0 6px;border-left:1px solid #e2dfd7;border-right:1px solid #e2dfd7">
+          <svg width="34" height="34" viewBox="0 0 32 32" fill="none" stroke="#344c58" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M2.5 8h16v14h-16z"></path><path d="M18.5 12h5.5l5 5v5h-10.5"></path><circle cx="8" cy="23.5" r="2.5" fill="#fff"></circle><circle cx="23.5" cy="23.5" r="2.5" fill="#fff"></circle><path d="M7.5 15.5a3 3 0 0 1 5.6-1.5"></path><path d="M13.5 12v2.2h-2.2"></path></svg>
+          <span style="font-size:12px;font-weight:600;line-height:1.3">Free delivery and recycling</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:0 6px">
+          <svg width="34" height="34" viewBox="0 0 32 32" fill="none" stroke="#344c58" stroke-width="1.6" stroke-linejoin="round"><circle cx="16" cy="13" r="10"></circle><path d="M10.5 21.5L8.5 30l7.5-3.2 7.5 3.2-2-8.5"></path><text x="16" y="16.5" text-anchor="middle" font-family="Poppins" font-size="{{ yearSize }}" font-weight="600" fill="#344c58" stroke="none">{{ years }}</text></svg>
+          <span style="font-size:12px;font-weight:600;line-height:1.3">{{ gTitle }}</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:0 16px;margin-top:-50px;display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ cardsMobile }}" as="c" hint-placeholder-count="1">
+        <div style="background:#fff;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:22px;font-weight:600;line-height:1.2">{{ c.name }}</div>
+          <div style="font-size:14px;color:#5b6b72">With quality wool &amp; cotton layers</div>
+          <img src="{{ c.img }}" alt="" style="width:100%;aspect-ratio:16/10;object-fit:cover;display:block;margin-top:10px">
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:820},&quot;view&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;desktop&quot;,&quot;mobile&quot;],&quot;default&quot;:&quot;desktop&quot;,&quot;tsType&quot;:&quot;'desktop'|'mobile'&quot;},&quot;collection&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;all&quot;,&quot;pocket&quot;,&quot;coil&quot;],&quot;default&quot;:&quot;all&quot;,&quot;tsType&quot;:&quot;'all'|'pocket'|'coil'&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const view = this.props.view ?? 'desktop';
+    const col = this.props.collection ?? 'all';
+    const coil = { img: 'assets/mattress-coil.png' }, pocket = { img: 'assets/mattress-pocket.png' };
+    const sets = {
+      all: [{ name: 'Natural 13.5 Essential Coil Spring Mattress', ...coil }, { name: 'Natural 13.5+ Luxury Coil Spring Mattress', ...coil }, { name: 'Natural 1200 Grand Pocket Spring Mattress', ...pocket }],
+      pocket: [{ name: 'Natural 1200 Grand Pocket Spring Mattress', ...pocket }, { name: 'Natural 1200+ Glorious Pocket Spring Mattress', ...pocket }, { name: 'Natural 2000 Windsor Pocket Spring Mattress', ...pocket }],
+      coil: [{ name: 'Natural 13.5 Essential Coil Spring Mattress', ...coil }, { name: 'Natural 13.5+ Luxury Coil Spring Mattress', ...coil }]
+    };
+    const isCoil = col === 'coil';
+    const g = {
+      all: ['10 year guarantee', '5 years on coil spring mattresses'],
+      pocket: ['10 year guarantee', 'On every pocket spring mattress'],
+      coil: ['5 year guarantee', 'On every coil spring mattress']
+    }[col];
+    const sizes = ['Small Single', 'Single', 'Petite Double', 'Small Double', 'Double', 'King', 'Small Super King', 'Super King'];
+    return {
+      isDesktop: view === 'desktop', isMobile: view === 'mobile',
+      years: isCoil ? '5' : '10', yearSize: isCoil ? 11 : 9,
+      gTitle: g[0], gSub: g[1],
+      cards: sets[col], cardsMobile: sets[col].slice(0, 1),
+      sizes: sizes.map(n => ({ n, bg: n === 'Double' ? '#6cc5bc' : 'transparent', bd: n === 'Double' ? '#6cc5bc' : '#fff' }))
+    };
+  }
+}
+</script>
+</body>
+</html>
