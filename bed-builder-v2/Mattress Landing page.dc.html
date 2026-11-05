@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#cfcac2;font-family:Poppins,sans-serif;color:#2f4a55}a{color:#2f4a55}a:hover{color:#d9675f}*{box-sizing:border-box}</style>
+</helmet>
+<section style="padding:64px;display:flex;flex-direction:column;gap:40px;border-bottom:2px solid #bdb7ae">
+<div style="display:flex;flex-direction:column;gap:6px;max-width:900px">
+<div style="font-size:14px;letter-spacing:.08em;text-transform:uppercase">Turn 6 · Turn 5 at 1440px and 1024px</div>
+<div style="font-size:15px;line-height:1.6;color:#3d5560">Each version is shown at 1440px then 1024px, in order: 5a, 5b, 5c. At 1024px the side margins drop from 56px to 32px. The 1280px originals are in Turn 5.</div>
+</div>
+<div style="display:flex;flex-wrap:nowrap;gap:64px;align-items:flex-start;width:max-content">
+<div id="6a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#31474f;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">6a</span><span style="font-size:15px">5a at 1440px</span></div>
+<div style="width:1440px;box-shadow:0 10px 40px rgba(0,0,0,.12);color:#31474f"><div style="display:flex;align-items:center;justify-content:space-between;padding:22px 56px;background:#fff;border-bottom:1px solid #ece8e2">
+<img src="assets/logo.png" style="height:28px" alt="Warren Evans">
+<div style="display:flex;gap:30px;font-size:15px"><span>Beds</span><span style="border-bottom:1.5px solid #31474f">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>FAQs</span></div>
+<div style="display:flex;gap:18px;align-items:center;font-size:14px"><span style="background:#f2f2f2;border-radius:6px;padding:8px 14px;width:190px;color:#7a868b">Search for anything…</span><span>Basket (4)</span></div>
+</div>
+<div style="background:#31474f;color:#fff;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:stretch">
+<div style="padding:40px 56px;display:flex;flex-direction:column;gap:16px;justify-content:center">
+<div style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#cfdadd">Home › Natural mattresses</div>
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:52px;line-height:1">Natural Mattresses</div>
+<div style="font-size:15px;line-height:1.65;color:#e3eaec;max-width:600px">Every mattress is handcrafted using GOTS-certified organic wool and natural materials. Choose your preferred firmness level to find the perfect match for your needs, all backed by our trial and guarantee.</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ sizePills }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};border-radius:999px;padding:6px 16px;font-size:14px">{{ s.n }}</span></sc-for></div>
+</div>
+<div style="background:#f5f5f5"><img src="assets/bed.png" style="width:100%;height:100%;min-height:320px;object-fit:cover;display:block" alt=""></div>
+</div>
+<div style="background:#3f5a64;color:#fff;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding:20px 56px">
+<div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" style="flex-shrink:0"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div><div style="font-weight:600;font-size:15px">6-month free trial</div><div style="font-size:13px;color:#dbe4e7">Sleep on it at home for up to 6 months.</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" style="flex-shrink:0"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div><div style="font-weight:600;font-size:15px">Free returns</div><div style="font-size:13px;color:#dbe4e7">Not right? We collect it with no return fee.*</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" style="flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M10 21v-6h4v6"></path></svg><div><div style="font-weight:600;font-size:15px">Handmade in London</div><div style="font-size:13px;color:#dbe4e7">Made to order in our own workshop.</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" style="flex-shrink:0"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"></path><path d="M5 19l7-7"></path></svg><div><div style="font-weight:600;font-size:15px">No foams or latex</div><div style="font-size:13px;color:#dbe4e7">GOTS-certified British wool and cotton.</div></div></div>
+</div>
+<div style="background:#e4e0d9;padding:44px 56px 64px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+<sc-for list="{{ grid6 }}" as="p" hint-placeholder-count="6">
+<div style="background:#fff;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:14px">
+<div style="position:relative;border-radius:12px;overflow:hidden"><img src="{{ p.img }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" alt=""><sc-if value="{{ p.hasBadge }}"><span style="position:absolute;top:14px;left:14px;background:#31474f;color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px">{{ p.badge }}</span></sc-if></div>
+<div style="padding:4px 10px 10px;display:flex;flex-direction:column;gap:12px;flex:1">
+<div style="font-size:21px;font-weight:600;line-height:1.25">{{ p.name }}</div>
+<div style="display:flex;flex-direction:column;gap:5px;font-size:14px"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:9px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div>
+<div style="flex:1"></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="color:#d9675f;font-size:24px;font-weight:600">{{ p.price }}</span><span style="background:#31474f;color:#fff;font-size:14px;font-weight:500;padding:11px 22px;border-radius:999px">View product</span></div>
+</div></div>
+</sc-for>
+</div>
+<div style="background:#fff;color:#31474f;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+<img src="assets/mattress-pocket.png" style="width:100%;height:100%;min-height:400px;object-fit:cover;display:block" alt="">
+<div style="padding:56px 64px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:42px;line-height:1.05">Handmade, with nothing synthetic inside</div>
+<div style="font-size:16px;line-height:1.7;color:#3d5560">Made with organic cotton and wool, our mattresses offer a breathable and hypoallergenic sleep surface. Each one has a spring core for support and body alignment, and is handmade to the highest standards.</div>
+<a href="#" style="font-size:15px;text-decoration:underline;align-self:flex-start;color:#31474f">About our workshop</a>
+</div></div></div></div>
+<div id="6b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#31474f;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">6b</span><span style="font-size:15px">5a at 1024px</span></div>
+<div style="width:1024px;box-shadow:0 10px 40px rgba(0,0,0,.12);color:#31474f"><div style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:#fff;border-bottom:1px solid #ece8e2">
+<img src="assets/logo.png" style="height:28px" alt="Warren Evans">
+<div style="display:flex;gap:18px;font-size:14px"><span>Beds</span><span style="border-bottom:1.5px solid #31474f">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>FAQs</span></div>
+<div style="display:flex;gap:18px;align-items:center;font-size:14px"><span style="background:#f2f2f2;border-radius:6px;padding:8px 14px;width:120px;white-space:nowrap;color:#7a868b">Search…</span><span>Basket (4)</span></div>
+</div>
+<div style="background:#31474f;color:#fff;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:stretch">
+<div style="padding:36px 32px;display:flex;flex-direction:column;gap:16px;justify-content:center">
+<div style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#cfdadd">Home › Natural mattresses</div>
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:52px;line-height:1">Natural Mattresses</div>
+<div style="font-size:15px;line-height:1.65;color:#e3eaec;max-width:600px">Every mattress is handcrafted using GOTS-certified organic wool and natural materials. Choose your preferred firmness level to find the perfect match for your needs, all backed by our trial and guarantee.</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ sizePills }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};border-radius:999px;padding:6px 16px;font-size:14px">{{ s.n }}</span></sc-for></div>
+</div>
+<div style="background:#f5f5f5"><img src="assets/bed.png" style="width:100%;height:100%;min-height:320px;object-fit:cover;display:block" alt=""></div>
+</div>
+<div style="background:#3f5a64;color:#fff;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding:18px 32px">
+<div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" style="flex-shrink:0"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div><div style="font-weight:600;font-size:15px">6-month free trial</div><div style="font-size:13px;color:#dbe4e7">Sleep on it at home for up to 6 months.</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" style="flex-shrink:0"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div><div style="font-weight:600;font-size:15px">Free returns</div><div style="font-size:13px;color:#dbe4e7">Not right? We collect it with no return fee.*</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" style="flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M10 21v-6h4v6"></path></svg><div><div style="font-weight:600;font-size:15px">Handmade in London</div><div style="font-size:13px;color:#dbe4e7">Made to order in our own workshop.</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" style="flex-shrink:0"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"></path><path d="M5 19l7-7"></path></svg><div><div style="font-weight:600;font-size:15px">No foams or latex</div><div style="font-size:13px;color:#dbe4e7">GOTS-certified British wool and cotton.</div></div></div>
+</div>
+<div style="background:#e4e0d9;padding:36px 32px 52px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+<sc-for list="{{ grid6 }}" as="p" hint-placeholder-count="6">
+<div style="background:#fff;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:14px">
+<div style="position:relative;border-radius:12px;overflow:hidden"><img src="{{ p.img }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" alt=""><sc-if value="{{ p.hasBadge }}"><span style="position:absolute;top:14px;left:14px;background:#31474f;color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px">{{ p.badge }}</span></sc-if></div>
+<div style="padding:4px 10px 10px;display:flex;flex-direction:column;gap:12px;flex:1">
+<div style="font-size:21px;font-weight:600;line-height:1.25">{{ p.name }}</div>
+<div style="display:flex;flex-direction:column;gap:5px;font-size:14px"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:9px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div>
+<div style="flex:1"></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="color:#d9675f;font-size:24px;font-weight:600">{{ p.price }}</span><span style="background:#31474f;color:#fff;font-size:14px;font-weight:500;padding:11px 22px;border-radius:999px">View product</span></div>
+</div></div>
+</sc-for>
+</div>
+<div style="background:#fff;color:#31474f;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+<img src="assets/mattress-pocket.png" style="width:100%;height:100%;min-height:400px;object-fit:cover;display:block" alt="">
+<div style="padding:44px 40px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:42px;line-height:1.05">Handmade, with nothing synthetic inside</div>
+<div style="font-size:16px;line-height:1.7;color:#3d5560">Made with organic cotton and wool, our mattresses offer a breathable and hypoallergenic sleep surface. Each one has a spring core for support and body alignment, and is handmade to the highest standards.</div>
+<a href="#" style="font-size:15px;text-decoration:underline;align-self:flex-start;color:#31474f">About our workshop</a>
+</div></div></div></div>
+
+<div id="6c" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#31474f;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">6c</span><span style="font-size:15px">5b at 1440px</span></div>
+<div style="width:1440px;box-shadow:0 10px 40px rgba(0,0,0,.12);color:#31474f"><div style="display:flex;align-items:center;justify-content:space-between;padding:22px 56px;background:#fff;border-bottom:1px solid #ece8e2">
+<img src="assets/logo.png" style="height:28px" alt="Warren Evans">
+<div style="display:flex;gap:30px;font-size:15px"><span>Beds</span><span style="border-bottom:1.5px solid #31474f">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>FAQs</span></div>
+<div style="display:flex;gap:18px;align-items:center;font-size:14px"><span style="background:#f2f2f2;border-radius:6px;padding:8px 14px;width:190px;color:#7a868b">Search for anything…</span><span>Basket (4)</span></div>
+</div>
+<div style="position:relative;background:#f5f5f5;height:520px;overflow:hidden">
+<img src="assets/bed.png" style="position:absolute;right:-40px;top:0;height:100%;width:78%;object-fit:cover" alt="">
+<div style="position:absolute;left:56px;top:50%;transform:translateY(-50%);width:500px;background:#fff;padding:40px;display:flex;flex-direction:column;gap:16px;box-shadow:0 20px 50px rgba(49,71,79,.12)">
+<div style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#5b6b72">Home › Natural mattresses</div>
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:52px;line-height:1">Natural Mattresses</div>
+<div style="font-size:15px;line-height:1.65;color:#3d5560">Every mattress is handcrafted using GOTS-certified organic wool and natural materials. Choose your preferred firmness level to find the perfect match for your needs, all backed by our trial and guarantee.</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ sizePillsLight }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};border-radius:999px;padding:6px 16px;font-size:14px">{{ s.n }}</span></sc-for></div>
+</div></div>
+<div style="background:#e4e0d9;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding:22px 56px">
+<div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div><div style="font-weight:600;font-size:15px">6-month free trial</div><div style="font-size:13px;color:#4d636c">Sleep on it at home for up to 6 months.</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div><div style="font-weight:600;font-size:15px">Free returns</div><div style="font-size:13px;color:#4d636c">Not right? We collect it with no return fee.*</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M10 21v-6h4v6"></path></svg><div><div style="font-weight:600;font-size:15px">Handmade in London</div><div style="font-size:13px;color:#4d636c">Made to order in our own workshop.</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"></path><path d="M5 19l7-7"></path></svg><div><div style="font-weight:600;font-size:15px">No foams or latex</div><div style="font-size:13px;color:#4d636c">GOTS-certified British wool and cotton.</div></div></div>
+</div>
+<div style="background:#fff;padding:56px 56px 72px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 32px">
+<sc-for list="{{ grid6 }}" as="p" hint-placeholder-count="6">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="position:relative;overflow:hidden"><img src="{{ p.img }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" alt=""><sc-if value="{{ p.hasBadge }}"><span style="position:absolute;top:14px;left:14px;background:#31474f;color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px">{{ p.badge }}</span></sc-if></div>
+<div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#3f9e95;padding-top:4px">{{ p.type }}</div>
+<div style="font-size:20px;font-weight:600;line-height:1.25">{{ p.name }}</div>
+<div style="font-size:17px">From <span style="color:#d9675f;font-weight:600">{{ p.price }}</span></div>
+<div style="border-top:1px solid #d9d4cc;padding-top:12px"><div style="display:flex;flex-direction:column;gap:5px;font-size:14px"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:9px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div></div>
+<span style="align-self:flex-start;border:1.5px solid #31474f;font-size:14px;font-weight:500;padding:10px 22px;border-radius:999px;margin-top:4px">View product</span>
+</div>
+</sc-for>
+</div>
+<div style="background:#31474f;color:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+<img src="assets/mattress-pocket.png" style="width:100%;height:100%;min-height:400px;object-fit:cover;display:block" alt="">
+<div style="padding:56px 64px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:42px;line-height:1.05">Handmade, with nothing synthetic inside</div>
+<div style="font-size:16px;line-height:1.7;color:#e3eaec">Made with organic cotton and wool, our mattresses offer a breathable and hypoallergenic sleep surface. Each one has a spring core for support and body alignment, and is handmade to the highest standards.</div>
+<a href="#" style="font-size:15px;text-decoration:underline;align-self:flex-start;color:#fff">About our workshop</a>
+</div></div></div></div>
+<div id="6d" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#31474f;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">6d</span><span style="font-size:15px">5b at 1024px</span></div>
+<div style="width:1024px;box-shadow:0 10px 40px rgba(0,0,0,.12);color:#31474f"><div style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:#fff;border-bottom:1px solid #ece8e2">
+<img src="assets/logo.png" style="height:28px" alt="Warren Evans">
+<div style="display:flex;gap:18px;font-size:14px"><span>Beds</span><span style="border-bottom:1.5px solid #31474f">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>FAQs</span></div>
+<div style="display:flex;gap:18px;align-items:center;font-size:14px"><span style="background:#f2f2f2;border-radius:6px;padding:8px 14px;width:120px;white-space:nowrap;color:#7a868b">Search…</span><span>Basket (4)</span></div>
+</div>
+<div style="position:relative;background:#f5f5f5;height:520px;overflow:hidden">
+<img src="assets/bed.png" style="position:absolute;right:-40px;top:0;height:100%;width:78%;object-fit:cover" alt="">
+<div style="position:absolute;left:32px;top:50%;transform:translateY(-50%);width:440px;background:#fff;padding:40px;display:flex;flex-direction:column;gap:16px;box-shadow:0 20px 50px rgba(49,71,79,.12)">
+<div style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#5b6b72">Home › Natural mattresses</div>
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:52px;line-height:1">Natural Mattresses</div>
+<div style="font-size:15px;line-height:1.65;color:#3d5560">Every mattress is handcrafted using GOTS-certified organic wool and natural materials. Choose your preferred firmness level to find the perfect match for your needs, all backed by our trial and guarantee.</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ sizePillsLight }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};border-radius:999px;padding:6px 16px;font-size:14px">{{ s.n }}</span></sc-for></div>
+</div></div>
+<div style="background:#e4e0d9;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding:20px 32px">
+<div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div><div style="font-weight:600;font-size:15px">6-month free trial</div><div style="font-size:13px;color:#4d636c">Sleep on it at home for up to 6 months.</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div><div style="font-weight:600;font-size:15px">Free returns</div><div style="font-size:13px;color:#4d636c">Not right? We collect it with no return fee.*</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M10 21v-6h4v6"></path></svg><div><div style="font-weight:600;font-size:15px">Handmade in London</div><div style="font-size:13px;color:#4d636c">Made to order in our own workshop.</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"></path><path d="M5 19l7-7"></path></svg><div><div style="font-weight:600;font-size:15px">No foams or latex</div><div style="font-size:13px;color:#4d636c">GOTS-certified British wool and cotton.</div></div></div>
+</div>
+<div style="background:#fff;padding:44px 32px 60px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 32px">
+<sc-for list="{{ grid6 }}" as="p" hint-placeholder-count="6">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="position:relative;overflow:hidden"><img src="{{ p.img }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" alt=""><sc-if value="{{ p.hasBadge }}"><span style="position:absolute;top:14px;left:14px;background:#31474f;color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px">{{ p.badge }}</span></sc-if></div>
+<div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#3f9e95;padding-top:4px">{{ p.type }}</div>
+<div style="font-size:20px;font-weight:600;line-height:1.25">{{ p.name }}</div>
+<div style="font-size:17px">From <span style="color:#d9675f;font-weight:600">{{ p.price }}</span></div>
+<div style="border-top:1px solid #d9d4cc;padding-top:12px"><div style="display:flex;flex-direction:column;gap:5px;font-size:14px"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:9px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div></div>
+<span style="align-self:flex-start;border:1.5px solid #31474f;font-size:14px;font-weight:500;padding:10px 22px;border-radius:999px;margin-top:4px">View product</span>
+</div>
+</sc-for>
+</div>
+<div style="background:#31474f;color:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+<img src="assets/mattress-pocket.png" style="width:100%;height:100%;min-height:400px;object-fit:cover;display:block" alt="">
+<div style="padding:44px 40px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:42px;line-height:1.05">Handmade, with nothing synthetic inside</div>
+<div style="font-size:16px;line-height:1.7;color:#e3eaec">Made with organic cotton and wool, our mattresses offer a breathable and hypoallergenic sleep surface. Each one has a spring core for support and body alignment, and is handmade to the highest standards.</div>
+<a href="#" style="font-size:15px;text-decoration:underline;align-self:flex-start;color:#fff">About our workshop</a>
+</div></div></div></div>
+
+<div id="6e" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#31474f;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">6e</span><span style="font-size:15px">5c at 1440px</span></div>
+<div style="width:1440px;box-shadow:0 10px 40px rgba(0,0,0,.12);color:#31474f"><div style="display:flex;align-items:center;justify-content:space-between;padding:22px 56px;background:#fff;border-bottom:1px solid #ece8e2">
+<img src="assets/logo.png" style="height:28px" alt="Warren Evans">
+<div style="display:flex;gap:30px;font-size:15px"><span>Beds</span><span style="border-bottom:1.5px solid #31474f">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>FAQs</span></div>
+<div style="display:flex;gap:18px;align-items:center;font-size:14px"><span style="background:#f2f2f2;border-radius:6px;padding:8px 14px;width:190px;color:#7a868b">Search for anything…</span><span>Basket (4)</span></div>
+</div>
+<div style="background:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:stretch">
+<div style="padding:64px 56px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#5b6b72">Home › Natural mattresses</div>
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:64px;line-height:1">Natural Mattresses</div>
+<div style="font-size:16px;line-height:1.7;color:#3d5560;max-width:480px">Every mattress is handcrafted using GOTS-certified organic wool and natural materials. Choose your preferred firmness level to find the perfect match for your needs, all backed by our trial and guarantee.</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ sizePillsLight }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};border-radius:999px;padding:6px 16px;font-size:14px">{{ s.n }}</span></sc-for></div>
+</div>
+<div style="background:#f5f5f5"><img src="assets/bed.png" style="width:100%;height:100%;min-height:460px;object-fit:cover;display:block" alt=""></div>
+</div>
+<div style="background:#fff;border-top:1px solid #ece8e2;border-bottom:1px solid #ece8e2;display:flex;justify-content:center;gap:64px;padding:26px 56px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;max-width:200px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div style="font-weight:600;font-size:15px">6-month free trial</div><div style="font-size:13px;color:#4d636c;line-height:1.45">Sleep on it at home for up to 6 months.</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;max-width:200px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div style="font-weight:600;font-size:15px">Free returns</div><div style="font-size:13px;color:#4d636c;line-height:1.45">Not right? We collect it with no return fee.*</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;max-width:200px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M10 21v-6h4v6"></path></svg><div style="font-weight:600;font-size:15px">Handmade in London</div><div style="font-size:13px;color:#4d636c;line-height:1.45">Made to order in our own workshop.</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;max-width:200px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"></path><path d="M5 19l7-7"></path></svg><div style="font-weight:600;font-size:15px">No foams or latex</div><div style="font-size:13px;color:#4d636c;line-height:1.45">GOTS-certified British wool and cotton.</div></div>
+</div>
+<div style="background:#fff;padding:56px 56px 72px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 28px">
+<sc-for list="{{ grid6 }}" as="p" hint-placeholder-count="6">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="position:relative;background:#e4e0d9;border-radius:20px;padding:22px"><img src="{{ p.img }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:12px" alt=""><sc-if value="{{ p.hasBadge }}"><span style="position:absolute;top:14px;left:14px;background:#31474f;color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px">{{ p.badge }}</span></sc-if></div>
+<div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline"><div style="font-size:20px;font-weight:600;line-height:1.25">{{ p.name }}</div><span style="color:#d9675f;font-size:20px;font-weight:600;white-space:nowrap">{{ p.price }}</span></div>
+<div style="display:flex;flex-direction:column;gap:5px;font-size:14px"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:9px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div>
+<span style="align-self:stretch;text-align:center;background:#31474f;color:#fff;font-size:14px;font-weight:500;padding:13px;border-radius:999px;margin-top:4px">View product</span>
+</div>
+</sc-for>
+</div>
+<div style="background:#e4e0d9;color:#31474f;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+<img src="assets/mattress-pocket.png" style="width:100%;height:100%;min-height:400px;object-fit:cover;display:block" alt="">
+<div style="padding:56px 64px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:42px;line-height:1.05">Handmade, with nothing synthetic inside</div>
+<div style="font-size:16px;line-height:1.7;color:#3d5560">Made with organic cotton and wool, our mattresses offer a breathable and hypoallergenic sleep surface. Each one has a spring core for support and body alignment, and is handmade to the highest standards.</div>
+<a href="#" style="font-size:15px;text-decoration:underline;align-self:flex-start;color:#31474f">About our workshop</a>
+</div></div></div></div>
+<div id="6f" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#31474f;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">6f</span><span style="font-size:15px">5c at 1024px</span></div>
+<div style="width:1024px;box-shadow:0 10px 40px rgba(0,0,0,.12);color:#31474f"><div style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:#fff;border-bottom:1px solid #ece8e2">
+<img src="assets/logo.png" style="height:28px" alt="Warren Evans">
+<div style="display:flex;gap:18px;font-size:14px"><span>Beds</span><span style="border-bottom:1.5px solid #31474f">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>FAQs</span></div>
+<div style="display:flex;gap:18px;align-items:center;font-size:14px"><span style="background:#f2f2f2;border-radius:6px;padding:8px 14px;width:120px;white-space:nowrap;color:#7a868b">Search…</span><span>Basket (4)</span></div>
+</div>
+<div style="background:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:stretch">
+<div style="padding:48px 32px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#5b6b72">Home › Natural mattresses</div>
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:64px;line-height:1">Natural Mattresses</div>
+<div style="font-size:16px;line-height:1.7;color:#3d5560;max-width:480px">Every mattress is handcrafted using GOTS-certified organic wool and natural materials. Choose your preferred firmness level to find the perfect match for your needs, all backed by our trial and guarantee.</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ sizePillsLight }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};border-radius:999px;padding:6px 16px;font-size:14px">{{ s.n }}</span></sc-for></div>
+</div>
+<div style="background:#f5f5f5"><img src="assets/bed.png" style="width:100%;height:100%;min-height:460px;object-fit:cover;display:block" alt=""></div>
+</div>
+<div style="background:#fff;border-top:1px solid #ece8e2;border-bottom:1px solid #ece8e2;display:flex;justify-content:center;gap:28px;padding:22px 32px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;max-width:200px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div style="font-weight:600;font-size:15px">6-month free trial</div><div style="font-size:13px;color:#4d636c;line-height:1.45">Sleep on it at home for up to 6 months.</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;max-width:200px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div style="font-weight:600;font-size:15px">Free returns</div><div style="font-size:13px;color:#4d636c;line-height:1.45">Not right? We collect it with no return fee.*</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;max-width:200px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M10 21v-6h4v6"></path></svg><div style="font-weight:600;font-size:15px">Handmade in London</div><div style="font-size:13px;color:#4d636c;line-height:1.45">Made to order in our own workshop.</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;max-width:200px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"></path><path d="M5 19l7-7"></path></svg><div style="font-weight:600;font-size:15px">No foams or latex</div><div style="font-size:13px;color:#4d636c;line-height:1.45">GOTS-certified British wool and cotton.</div></div>
+</div>
+<div style="background:#fff;padding:44px 32px 60px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 28px">
+<sc-for list="{{ grid6 }}" as="p" hint-placeholder-count="6">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="position:relative;background:#e4e0d9;border-radius:20px;padding:22px"><img src="{{ p.img }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:12px" alt=""><sc-if value="{{ p.hasBadge }}"><span style="position:absolute;top:14px;left:14px;background:#31474f;color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px">{{ p.badge }}</span></sc-if></div>
+<div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline"><div style="font-size:20px;font-weight:600;line-height:1.25">{{ p.name }}</div><span style="color:#d9675f;font-size:20px;font-weight:600;white-space:nowrap">{{ p.price }}</span></div>
+<div style="display:flex;flex-direction:column;gap:5px;font-size:14px"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:9px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div>
+<span style="align-self:stretch;text-align:center;background:#31474f;color:#fff;font-size:14px;font-weight:500;padding:13px;border-radius:999px;margin-top:4px">View product</span>
+</div>
+</sc-for>
+</div>
+<div style="background:#e4e0d9;color:#31474f;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+<img src="assets/mattress-pocket.png" style="width:100%;height:100%;min-height:400px;object-fit:cover;display:block" alt="">
+<div style="padding:44px 40px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:42px;line-height:1.05">Handmade, with nothing synthetic inside</div>
+<div style="font-size:16px;line-height:1.7;color:#3d5560">Made with organic cotton and wool, our mattresses offer a breathable and hypoallergenic sleep surface. Each one has a spring core for support and body alignment, and is handmade to the highest standards.</div>
+<a href="#" style="font-size:15px;text-decoration:underline;align-self:flex-start;color:#31474f">About our workshop</a>
+</div></div></div></div>
+</div>
+</section>
+<section style="padding:64px;display:flex;flex-direction:column;gap:32px;border-bottom:2px solid #bdb7ae">
+<div style="display:flex;flex-direction:column;gap:6px;max-width:900px">
+<div style="font-size:14px;letter-spacing:.08em;text-transform:uppercase">Turn 5 · Three directions on Turn 4</div>
+<div style="font-size:15px;line-height:1.6;color:#3d5560">Same content and order as <a href="#4a">4a</a>: hero, trust strip, three cards per row, brand story. Each version changes the hero, the trust strip and the card style.</div>
+</div>
+<div style="display:flex;flex-wrap:nowrap;gap:64px;align-items:flex-start;width:max-content">
+<div id="5a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#31474f;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">5a</span><span style="font-size:15px">Compact hero, slate trust band, framed cards</span></div>
+<div style="width:1280px;box-shadow:0 10px 40px rgba(0,0,0,.12);color:#31474f"><div style="display:flex;align-items:center;justify-content:space-between;padding:22px 56px;background:#fff;border-bottom:1px solid #ece8e2">
+<img src="assets/logo.png" style="height:28px" alt="Warren Evans">
+<div style="display:flex;gap:30px;font-size:15px"><span>Beds</span><span style="border-bottom:1.5px solid #31474f">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>FAQs</span></div>
+<div style="display:flex;gap:18px;align-items:center;font-size:14px"><span style="background:#f2f2f2;border-radius:6px;padding:8px 14px;width:190px;color:#7a868b">Search for anything…</span><span>Basket (4)</span></div>
+</div>
+<div style="background:#31474f;color:#fff;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:stretch">
+<div style="padding:40px 56px;display:flex;flex-direction:column;gap:16px;justify-content:center">
+<div style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#cfdadd">Home › Natural mattresses</div>
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:52px;line-height:1">Natural Mattresses</div>
+<div style="font-size:15px;line-height:1.65;color:#e3eaec;max-width:600px">Every mattress is handcrafted using GOTS-certified organic wool and natural materials. Choose your preferred firmness level to find the perfect match for your needs, all backed by our trial and guarantee.</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ sizePills }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};border-radius:999px;padding:6px 16px;font-size:14px">{{ s.n }}</span></sc-for></div>
+</div>
+<div style="background:#f5f5f5"><img src="assets/bed.png" style="width:100%;height:100%;min-height:320px;object-fit:cover;display:block" alt=""></div>
+</div>
+<div style="background:#3f5a64;color:#fff;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding:20px 56px">
+<div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" style="flex-shrink:0"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div><div style="font-weight:600;font-size:15px">6-month free trial</div><div style="font-size:13px;color:#dbe4e7">Sleep on it at home for up to 6 months.</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" style="flex-shrink:0"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div><div style="font-weight:600;font-size:15px">Free returns</div><div style="font-size:13px;color:#dbe4e7">Not right? We collect it with no return fee.*</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" style="flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M10 21v-6h4v6"></path></svg><div><div style="font-weight:600;font-size:15px">Handmade in London</div><div style="font-size:13px;color:#dbe4e7">Made to order in our own workshop.</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" style="flex-shrink:0"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"></path><path d="M5 19l7-7"></path></svg><div><div style="font-weight:600;font-size:15px">No foams or latex</div><div style="font-size:13px;color:#dbe4e7">GOTS-certified British wool and cotton.</div></div></div>
+</div>
+<div style="background:#e4e0d9;padding:44px 56px 64px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+<sc-for list="{{ grid6 }}" as="p" hint-placeholder-count="6">
+<div style="background:#fff;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:14px">
+<div style="position:relative;border-radius:12px;overflow:hidden"><img src="{{ p.img }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" alt=""><sc-if value="{{ p.hasBadge }}"><span style="position:absolute;top:14px;left:14px;background:#31474f;color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px">{{ p.badge }}</span></sc-if></div>
+<div style="padding:4px 10px 10px;display:flex;flex-direction:column;gap:12px;flex:1">
+<div style="font-size:21px;font-weight:600;line-height:1.25">{{ p.name }}</div>
+<div style="display:flex;flex-direction:column;gap:5px;font-size:14px"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:9px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div>
+<div style="flex:1"></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="color:#d9675f;font-size:24px;font-weight:600">{{ p.price }}</span><span style="background:#31474f;color:#fff;font-size:14px;font-weight:500;padding:11px 22px;border-radius:999px">View product</span></div>
+</div></div>
+</sc-for>
+</div>
+<div style="background:#fff;color:#31474f;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+<img src="assets/mattress-pocket.png" style="width:100%;height:100%;min-height:400px;object-fit:cover;display:block" alt="">
+<div style="padding:56px 64px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:42px;line-height:1.05">Handmade, with nothing synthetic inside</div>
+<div style="font-size:16px;line-height:1.7;color:#3d5560">Made with organic cotton and wool, our mattresses offer a breathable and hypoallergenic sleep surface. Each one has a spring core for support and body alignment, and is handmade to the highest standards.</div>
+<a href="#" style="font-size:15px;text-decoration:underline;align-self:flex-start;color:#31474f">About our workshop</a>
+</div></div></div></div>
+<div id="5b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#31474f;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">5b</span><span style="font-size:15px">Photo-led hero, open product grid</span></div>
+<div style="width:1280px;box-shadow:0 10px 40px rgba(0,0,0,.12);color:#31474f"><div style="display:flex;align-items:center;justify-content:space-between;padding:22px 56px;background:#fff;border-bottom:1px solid #ece8e2">
+<img src="assets/logo.png" style="height:28px" alt="Warren Evans">
+<div style="display:flex;gap:30px;font-size:15px"><span>Beds</span><span style="border-bottom:1.5px solid #31474f">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>FAQs</span></div>
+<div style="display:flex;gap:18px;align-items:center;font-size:14px"><span style="background:#f2f2f2;border-radius:6px;padding:8px 14px;width:190px;color:#7a868b">Search for anything…</span><span>Basket (4)</span></div>
+</div>
+<div style="position:relative;background:#f5f5f5;height:520px;overflow:hidden">
+<img src="assets/bed.png" style="position:absolute;right:-40px;top:0;height:100%;width:78%;object-fit:cover" alt="">
+<div style="position:absolute;left:56px;top:50%;transform:translateY(-50%);width:500px;background:#fff;padding:40px;display:flex;flex-direction:column;gap:16px;box-shadow:0 20px 50px rgba(49,71,79,.12)">
+<div style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#5b6b72">Home › Natural mattresses</div>
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:52px;line-height:1">Natural Mattresses</div>
+<div style="font-size:15px;line-height:1.65;color:#3d5560">Every mattress is handcrafted using GOTS-certified organic wool and natural materials. Choose your preferred firmness level to find the perfect match for your needs, all backed by our trial and guarantee.</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ sizePillsLight }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};border-radius:999px;padding:6px 16px;font-size:14px">{{ s.n }}</span></sc-for></div>
+</div></div>
+<div style="background:#e4e0d9;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding:22px 56px">
+<div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div><div style="font-weight:600;font-size:15px">6-month free trial</div><div style="font-size:13px;color:#4d636c">Sleep on it at home for up to 6 months.</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div><div style="font-weight:600;font-size:15px">Free returns</div><div style="font-size:13px;color:#4d636c">Not right? We collect it with no return fee.*</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M10 21v-6h4v6"></path></svg><div><div style="font-weight:600;font-size:15px">Handmade in London</div><div style="font-size:13px;color:#4d636c">Made to order in our own workshop.</div></div></div><div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"></path><path d="M5 19l7-7"></path></svg><div><div style="font-weight:600;font-size:15px">No foams or latex</div><div style="font-size:13px;color:#4d636c">GOTS-certified British wool and cotton.</div></div></div>
+</div>
+<div style="background:#fff;padding:56px 56px 72px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 32px">
+<sc-for list="{{ grid6 }}" as="p" hint-placeholder-count="6">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="position:relative;overflow:hidden"><img src="{{ p.img }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" alt=""><sc-if value="{{ p.hasBadge }}"><span style="position:absolute;top:14px;left:14px;background:#31474f;color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px">{{ p.badge }}</span></sc-if></div>
+<div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#3f9e95;padding-top:4px">{{ p.type }}</div>
+<div style="font-size:20px;font-weight:600;line-height:1.25">{{ p.name }}</div>
+<div style="font-size:17px">From <span style="color:#d9675f;font-weight:600">{{ p.price }}</span></div>
+<div style="border-top:1px solid #d9d4cc;padding-top:12px"><div style="display:flex;flex-direction:column;gap:5px;font-size:14px"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:9px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div></div>
+<span style="align-self:flex-start;border:1.5px solid #31474f;font-size:14px;font-weight:500;padding:10px 22px;border-radius:999px;margin-top:4px">View product</span>
+</div>
+</sc-for>
+</div>
+<div style="background:#31474f;color:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+<img src="assets/mattress-pocket.png" style="width:100%;height:100%;min-height:400px;object-fit:cover;display:block" alt="">
+<div style="padding:56px 64px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:42px;line-height:1.05">Handmade, with nothing synthetic inside</div>
+<div style="font-size:16px;line-height:1.7;color:#e3eaec">Made with organic cotton and wool, our mattresses offer a breathable and hypoallergenic sleep surface. Each one has a spring core for support and body alignment, and is handmade to the highest standards.</div>
+<a href="#" style="font-size:15px;text-decoration:underline;align-self:flex-start;color:#fff">About our workshop</a>
+</div></div></div></div>
+<div id="5c" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#31474f;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">5c</span><span style="font-size:15px">Light editorial, centred header, beige tiles</span></div>
+<div style="width:1280px;box-shadow:0 10px 40px rgba(0,0,0,.12);color:#31474f"><div style="display:flex;align-items:center;justify-content:space-between;padding:22px 56px;background:#fff;border-bottom:1px solid #ece8e2">
+<img src="assets/logo.png" style="height:28px" alt="Warren Evans">
+<div style="display:flex;gap:30px;font-size:15px"><span>Beds</span><span style="border-bottom:1.5px solid #31474f">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>FAQs</span></div>
+<div style="display:flex;gap:18px;align-items:center;font-size:14px"><span style="background:#f2f2f2;border-radius:6px;padding:8px 14px;width:190px;color:#7a868b">Search for anything…</span><span>Basket (4)</span></div>
+</div>
+<div style="background:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:stretch">
+<div style="padding:64px 56px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#5b6b72">Home › Natural mattresses</div>
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:64px;line-height:1">Natural Mattresses</div>
+<div style="font-size:16px;line-height:1.7;color:#3d5560;max-width:480px">Every mattress is handcrafted using GOTS-certified organic wool and natural materials. Choose your preferred firmness level to find the perfect match for your needs, all backed by our trial and guarantee.</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ sizePillsLight }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};border-radius:999px;padding:6px 16px;font-size:14px">{{ s.n }}</span></sc-for></div>
+</div>
+<div style="background:#f5f5f5"><img src="assets/bed.png" style="width:100%;height:100%;min-height:460px;object-fit:cover;display:block" alt=""></div>
+</div>
+<div style="background:#fff;border-top:1px solid #ece8e2;border-bottom:1px solid #ece8e2;display:flex;justify-content:center;gap:64px;padding:26px 56px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;max-width:200px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div style="font-weight:600;font-size:15px">6-month free trial</div><div style="font-size:13px;color:#4d636c;line-height:1.45">Sleep on it at home for up to 6 months.</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;max-width:200px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div style="font-weight:600;font-size:15px">Free returns</div><div style="font-size:13px;color:#4d636c;line-height:1.45">Not right? We collect it with no return fee.*</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;max-width:200px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M10 21v-6h4v6"></path></svg><div style="font-weight:600;font-size:15px">Handmade in London</div><div style="font-size:13px;color:#4d636c;line-height:1.45">Made to order in our own workshop.</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;max-width:200px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"></path><path d="M5 19l7-7"></path></svg><div style="font-weight:600;font-size:15px">No foams or latex</div><div style="font-size:13px;color:#4d636c;line-height:1.45">GOTS-certified British wool and cotton.</div></div>
+</div>
+<div style="background:#fff;padding:56px 56px 72px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 28px">
+<sc-for list="{{ grid6 }}" as="p" hint-placeholder-count="6">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="position:relative;background:#e4e0d9;border-radius:20px;padding:22px"><img src="{{ p.img }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:12px" alt=""><sc-if value="{{ p.hasBadge }}"><span style="position:absolute;top:14px;left:14px;background:#31474f;color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px">{{ p.badge }}</span></sc-if></div>
+<div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline"><div style="font-size:20px;font-weight:600;line-height:1.25">{{ p.name }}</div><span style="color:#d9675f;font-size:20px;font-weight:600;white-space:nowrap">{{ p.price }}</span></div>
+<div style="display:flex;flex-direction:column;gap:5px;font-size:14px"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:9px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div>
+<span style="align-self:stretch;text-align:center;background:#31474f;color:#fff;font-size:14px;font-weight:500;padding:13px;border-radius:999px;margin-top:4px">View product</span>
+</div>
+</sc-for>
+</div>
+<div style="background:#e4e0d9;color:#31474f;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+<img src="assets/mattress-pocket.png" style="width:100%;height:100%;min-height:400px;object-fit:cover;display:block" alt="">
+<div style="padding:56px 64px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:42px;line-height:1.05">Handmade, with nothing synthetic inside</div>
+<div style="font-size:16px;line-height:1.7;color:#3d5560">Made with organic cotton and wool, our mattresses offer a breathable and hypoallergenic sleep surface. Each one has a spring core for support and body alignment, and is handmade to the highest standards.</div>
+<a href="#" style="font-size:15px;text-decoration:underline;align-self:flex-start;color:#31474f">About our workshop</a>
+</div></div></div></div>
+</div>
+</section>
+<section style="padding:64px;display:flex;flex-direction:column;gap:32px;border-bottom:2px solid #bdb7ae">
+<div style="display:flex;flex-direction:column;gap:6px;max-width:900px">
+<div style="font-size:14px;letter-spacing:.08em;text-transform:uppercase">Turn 4 · Naturalmat-style, rebuilt</div>
+<div style="font-size:15px;line-height:1.6;color:#3d5560">Split hero with the size picker, Mark's trial and returns message built into the USP strip, three large cards per row and a brand story. Copy, bullets and prices are taken from warrenevans.com.</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
+<div id="4a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#31474f;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">4a</span><span style="font-size:15px">Desktop collection</span></div>
+<div style="width:1280px;background:#e4e0d9;box-shadow:0 10px 40px rgba(0,0,0,.12);color:#31474f">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:22px 56px;background:#fff">
+<img src="assets/logo.png" style="height:28px" alt="Warren Evans">
+<div style="display:flex;gap:30px;font-size:15px;color:#31474f"><span>Beds</span><span style="border-bottom:1.5px solid #31474f">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>FAQs</span></div>
+<div style="display:flex;gap:18px;align-items:center;font-size:14px"><span style="background:#f2f2f2;border-radius:6px;padding:8px 14px;width:190px;color:#7a868b">Search for anything…</span><span>Basket (4)</span></div>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);background:#31474f">
+<div style="color:#fff;padding:56px 56px 52px;display:flex;flex-direction:column;gap:22px;justify-content:center">
+<div style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;display:flex;gap:10px;color:#cfdadd"><span>Home</span><span>›</span><span>Natural mattresses</span></div>
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:60px;line-height:1">Natural Mattresses</div>
+<div style="font-size:16px;line-height:1.7;color:#e3eaec;max-width:470px;text-wrap:pretty">Every mattress is handcrafted using GOTS-certified organic wool and natural materials. Choose your preferred firmness level to find the perfect match for your needs, all backed by our trial and guarantee.</div>
+<div style="display:flex;flex-direction:column;gap:10px;padding-top:6px"><div style="font-size:13px;color:#cfdadd">Showing prices for</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ sizePills }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:#fff;border-radius:999px;padding:6px 16px;font-size:14px">{{ s.n }}</span></sc-for></div></div>
+</div>
+<div style="background:#f5f5f5"><img src="assets/bed.png" style="width:100%;height:100%;min-height:460px;object-fit:cover;display:block" alt="Warren Evans bed with natural mattress"></div>
+</div>
+<div style="background:#fff;display:grid;grid-template-columns:auto repeat(4,minmax(0,1fr));gap:28px;align-items:center;padding:24px 56px;border-bottom:1px solid #d9d4cc">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;line-height:1.05;padding-right:12px">Buy with<br>confidence</div>
+<div style="display:flex;gap:12px;align-items:center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div><div style="font-weight:600;font-size:15px">6-month free trial</div><div style="font-size:13px;color:#4d636c;line-height:1.45">Sleep on it at home for up to 6 months.</div></div></div>
+<div style="display:flex;gap:12px;align-items:center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div><div style="font-weight:600;font-size:15px">Free returns</div><div style="font-size:13px;color:#4d636c;line-height:1.45">Not right? We collect it with no return fee.*</div></div></div>
+<div style="display:flex;gap:12px;align-items:center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M10 21v-6h4v6"></path></svg><div><div style="font-weight:600;font-size:15px">Handmade in London</div><div style="font-size:13px;color:#4d636c;line-height:1.45">Made to order in our own workshop.</div></div></div>
+<div style="display:flex;gap:12px;align-items:center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"></path><path d="M5 19l7-7"></path></svg><div><div style="font-weight:600;font-size:15px">No foams or latex</div><div style="font-size:13px;color:#4d636c;line-height:1.45">GOTS-certified British wool and cotton.</div></div></div>
+</div>
+<div style="padding:44px 56px 64px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;font-size:15px"><span>6 mattresses</span><span>Sort: Recommended ⌄</span></div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+<sc-for list="{{ grid6 }}" as="p" hint-placeholder-count="6">
+<div style="background:#fff;border-radius:18px;overflow:hidden;display:flex;flex-direction:column">
+<div style="position:relative"><img src="{{ p.img }}" style="width:100%;aspect-ratio:16/10;object-fit:cover;display:block" alt="{{ p.name }}"><sc-if value="{{ p.hasBadge }}"><span style="position:absolute;top:16px;left:16px;background:#31474f;color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px">{{ p.badge }}</span></sc-if></div>
+<div style="padding:24px 26px 26px;display:flex;flex-direction:column;gap:12px;flex:1">
+<div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#3f9e95">{{ p.type }}</div>
+<div style="font-size:22px;font-weight:600;line-height:1.25;color:#31474f">{{ p.name }}</div>
+<div style="display:flex;flex-direction:column;gap:5px;font-size:14px;color:#31474f"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:9px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div>
+<div style="flex:1"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid #ece8e2"><div style="display:flex;flex-direction:column"><span style="font-size:12px;color:#5b6b72">Double</span><span style="color:#d9675f;font-size:24px;font-weight:600;line-height:1.1">{{ p.price }}</span></div><span style="background:#31474f;color:#fff;font-size:14px;font-weight:500;padding:11px 22px;border-radius:999px">View product</span></div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="background:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch">
+<img src="assets/mattress-pocket.png" style="width:100%;height:100%;min-height:420px;object-fit:cover;display:block" alt="Inside a Warren Evans pocket spring mattress">
+<div style="padding:56px 64px;display:flex;flex-direction:column;gap:20px;justify-content:center">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:44px;line-height:1.05">Handmade, with nothing synthetic inside</div>
+<div style="font-size:16px;line-height:1.7;color:#3d5560;text-wrap:pretty">Made with organic cotton and wool, our mattresses offer a breathable and hypoallergenic sleep surface. Each one has a spring core for support and body alignment, and is handmade to the highest standards.</div>
+<div style="display:flex;flex-direction:column;gap:10px;font-size:15px">
+<div style="display:flex;gap:10px"><span style="color:#3f9e95;font-weight:600">✓</span>100% natural cotton covers and flame retardancy</div>
+<div style="display:flex;gap:10px"><span style="color:#3f9e95;font-weight:600">✓</span>Organic wool layers for the right sleeping temperature</div>
+<div style="display:flex;gap:10px"><span style="color:#3f9e95;font-weight:600">✓</span>No foams, latex or chemical fire retardants</div>
+</div>
+<a href="#" style="font-size:15px;text-decoration:underline;align-self:flex-start">About our workshop</a>
+</div>
+</div>
+<div style="font-size:12px;color:#4d636c;padding:18px 56px">*Returns small print to confirm with Warren Evans.</div>
+</div>
+</div>
+<div id="4b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#31474f;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">4b</span><span style="font-size:15px">Mobile collection</span></div>
+<div style="width:390px;background:#e4e0d9;box-shadow:0 10px 40px rgba(0,0,0,.12);color:#31474f">
+<div style="background:#fff;display:flex;align-items:center;justify-content:space-between;padding:16px 18px"><span style="font-size:22px">☰</span><img src="assets/logo.png" style="height:22px" alt="Warren Evans"><span style="font-size:13px;font-weight:600">Basket (4)</span></div>
+<div style="background:#f5f5f5"><img src="assets/bed.png" style="width:100%;aspect-ratio:16/10;object-fit:cover;display:block" alt=""></div>
+<div style="background:#31474f;color:#fff;padding:24px 20px 22px;display:flex;flex-direction:column;gap:14px">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:40px;line-height:1">Natural Mattresses</div>
+<div style="font-size:14px;line-height:1.6;color:#e3eaec">Every mattress is handcrafted using GOTS-certified organic wool and natural materials.</div>
+<div style="display:flex;gap:8px;overflow-x:auto;margin:0 -20px;padding:2px 20px"><sc-for list="{{ sizePills }}" as="s" hint-placeholder-count="8"><span style="border:1px solid {{ s.bd }};background:{{ s.bg }};color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;white-space:nowrap;flex-shrink:0">{{ s.n }}</span></sc-for></div>
+</div>
+<div style="background:#fff;padding:20px;display:flex;flex-direction:column;gap:14px;border-bottom:1px solid #d9d4cc">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px">Buy with confidence</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px">
+<div style="display:flex;gap:10px;align-items:flex-start"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div style="font-weight:600;font-size:13px;line-height:1.35">6-month free trial</div></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div style="font-weight:600;font-size:13px;line-height:1.35">Free returns</div></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M3 21h18"></path><path d="M5 21V10l7-5 7 5v11"></path><path d="M10 21v-6h4v6"></path></svg><div style="font-weight:600;font-size:13px;line-height:1.35">Handmade in London</div></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#31474f" stroke-width="1.5" style="flex-shrink:0"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"></path><path d="M5 19l7-7"></path></svg><div style="font-weight:600;font-size:13px;line-height:1.35">No foams or latex</div></div>
+</div>
+</div>
+<div style="padding:20px 14px 28px;display:flex;flex-direction:column;gap:14px">
+<sc-for list="{{ grid6 }}" as="p" hint-placeholder-count="6">
+<div style="background:#fff;border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+<div style="position:relative"><img src="{{ p.img }}" style="width:100%;aspect-ratio:16/10;object-fit:cover;display:block" alt="{{ p.name }}"><sc-if value="{{ p.hasBadge }}"><span style="position:absolute;top:12px;left:12px;background:#31474f;color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px">{{ p.badge }}</span></sc-if></div>
+<div style="padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1">
+<div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#3f9e95">{{ p.type }}</div>
+<div style="font-size:19px;font-weight:600;line-height:1.25;color:#31474f">{{ p.name }}</div>
+<div style="display:flex;flex-direction:column;gap:5px;font-size:13px;color:#31474f"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:9px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div>
+<div style="flex:1"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid #ece8e2"><div style="display:flex;flex-direction:column"><span style="font-size:12px;color:#5b6b72">Double</span><span style="color:#d9675f;font-size:22px;font-weight:600;line-height:1.1">{{ p.price }}</span></div><span style="background:#31474f;color:#fff;font-size:14px;font-weight:500;padding:11px 18px;border-radius:999px">View product</span></div>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="background:#fff">
+<img src="assets/mattress-pocket.png" style="width:100%;aspect-ratio:16/10;object-fit:cover;display:block" alt="">
+<div style="padding:24px 20px 28px;display:flex;flex-direction:column;gap:14px">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:32px;line-height:1.05">Handmade, with nothing synthetic inside</div>
+<div style="font-size:14px;line-height:1.6;color:#3d5560">Made with organic cotton and wool, our mattresses offer a breathable and hypoallergenic sleep surface, handmade to the highest standards.</div>
+<a href="#" style="font-size:14px;text-decoration:underline">About our workshop</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section style="padding:64px;display:flex;flex-direction:column;gap:32px;border-bottom:2px solid #bdb7ae">
+<div style="display:flex;flex-direction:column;gap:6px;max-width:900px">
+<div style="font-size:14px;letter-spacing:.08em;text-transform:uppercase">Turn 2 · Simpler, shop-first</div>
+<div style="font-size:15px;line-height:1.6;color:#3d5560">One USP bar, a standard product grid and one trust banner. Ratings, review counts and the missing prices are placeholders.</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
+
+<div id="2a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#2f4a55;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">2a</span><span style="font-size:15px">Desktop collection</span></div>
+<div style="width:1280px;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.12)">
+<div style="background:#2f4a55;color:#fff;display:flex;justify-content:center;gap:40px;padding:10px;font-size:13px"><sc-for list="{{ bar }}" as="b" hint-placeholder-count="4"><span>{{ b }}</span></sc-for></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:22px 56px;border-bottom:1px solid #ece8e2">
+<img src="assets/logo.png" style="height:28px" alt="Warren Evans">
+<div style="display:flex;gap:30px;font-size:15px"><span>Beds</span><span style="font-weight:600">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span></div>
+<div style="display:flex;gap:20px;font-size:14px"><span>Search</span><span>Account</span><span>Basket (4)</span></div>
+</div>
+<div style="padding:36px 56px 64px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end">
+<div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;color:#5b6b72">Home / Natural mattresses</div><div style="font-size:34px;font-weight:600">Natural Mattresses</div></div>
+<div style="font-size:14px;color:#5b6b72">6 mattresses</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+<sc-for list="{{ usps2 }}" as="u" hint-placeholder-count="4"><div style="background:#f3f0eb;border-radius:12px;padding:16px 18px;display:flex;gap:12px;align-items:center"><span style="width:30px;height:30px;border-radius:50%;background:#2f4a55;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">✓</span><div><div style="font-weight:600;font-size:15px">{{ u.t }}</div><div style="font-size:13px;color:#5b6b72">{{ u.d }}</div></div></div></sc-for>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #ece8e2;border-bottom:1px solid #ece8e2">
+<div style="display:flex;gap:10px">
+<span style="border:1px solid #2f4a55;border-radius:999px;padding:8px 18px;font-size:14px;font-weight:500">Size: Double ⌄</span>
+<span style="border:1px solid #cfcac2;border-radius:999px;padding:8px 18px;font-size:14px">Spring type ⌄</span>
+<span style="border:1px solid #cfcac2;border-radius:999px;padding:8px 18px;font-size:14px">Price ⌄</span>
+</div>
+<span style="font-size:14px">Sort: Bestselling ⌄</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px">
+<sc-for list="{{ first3 }}" as="p" hint-placeholder-count="3">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="position:relative;background:#f3f0eb;border-radius:12px;overflow:hidden"><img src="{{ p.img }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;mix-blend-mode:multiply" alt=""></div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<div style="font-size:17px;font-weight:600;line-height:1.3">{{ p.short }}</div>
+<div style="font-size:14px;color:#5b6b72">{{ p.type }}</div>
+<div style="display:flex;flex-direction:column;gap:4px;font-size:14px;padding:6px 0 2px"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:8px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div>
+<div style="font-size:13px"><span style="color:#e0a12b">★★★★★</span> {{ p.rating }}</div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center"><div style="color:#d9675f;font-size:20px;font-weight:600">{{ p.price }}</div><span style="background:#2f4a55;color:#fff;font-size:14px;font-weight:500;padding:10px 20px;border-radius:999px">View product</span></div>
+</div>
+</sc-for>
+</div>
+<div style="background:#f3f0eb;border-radius:12px;padding:22px 32px;display:flex;align-items:center;justify-content:space-between">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px">Buy with confidence</div>
+<div style="display:flex;gap:14px;align-items:center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2f4a55" stroke-width="1.5"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div><div style="font-weight:600;font-size:15px">6-month free trial</div><div style="font-size:13px">Sleep on it at home for up to 6 months.</div></div></div>
+<div style="display:flex;gap:14px;align-items:center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2f4a55" stroke-width="1.5"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div><div style="font-weight:600;font-size:15px">Free returns</div><div style="font-size:13px">Not right? We collect it with no return fee.*</div></div></div>
+<a href="#" style="font-size:14px;text-decoration:underline">How it works</a>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px">
+<sc-for list="{{ last3 }}" as="p" hint-placeholder-count="3">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="background:#f3f0eb;border-radius:12px;overflow:hidden"><img src="{{ p.img }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;mix-blend-mode:multiply" alt=""></div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<div style="font-size:17px;font-weight:600;line-height:1.3">{{ p.short }}</div>
+<div style="font-size:14px;color:#5b6b72">{{ p.type }}</div>
+<div style="display:flex;flex-direction:column;gap:4px;font-size:14px;padding:6px 0 2px"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:8px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div>
+<div style="font-size:13px"><span style="color:#e0a12b">★★★★★</span> {{ p.rating }}</div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center"><div style="color:#d9675f;font-size:20px;font-weight:600">{{ p.price }}</div><span style="background:#2f4a55;color:#fff;font-size:14px;font-weight:500;padding:10px 20px;border-radius:999px">View product</span></div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<div id="2b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#2f4a55;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">2b</span><span style="font-size:15px">Mobile collection</span></div>
+<div style="width:390px;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.12)">
+<div style="background:#2f4a55;color:#fff;text-align:center;padding:9px;font-size:12px">6-month free trial · Free delivery</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #ece8e2"><span style="font-size:22px">☰</span><img src="assets/logo.png" style="height:22px" alt="Warren Evans"><span style="font-size:13px;font-weight:600">Basket (4)</span></div>
+<div style="padding:20px 16px 8px;display:flex;flex-direction:column;gap:4px"><div style="font-size:12px;color:#5b6b72">Home / Natural mattresses</div><div style="font-size:26px;font-weight:600">Natural Mattresses</div></div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:8px 16px 4px">
+<sc-for list="{{ usps2 }}" as="u" hint-placeholder-count="4"><div style="background:#f3f0eb;border-radius:10px;padding:10px 12px;display:flex;gap:8px;align-items:center"><span style="width:22px;height:22px;border-radius:50%;background:#2f4a55;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0">✓</span><div><div style="font-weight:600;font-size:13px;line-height:1.3">{{ u.t }}</div><div style="font-size:11px;color:#5b6b72">{{ u.d }}</div></div></div></sc-for>
+</div>
+<div style="display:flex;gap:8px;padding:12px 16px;border-bottom:1px solid #ece8e2">
+<span style="flex:1;text-align:center;border:1px solid #2f4a55;border-radius:999px;padding:10px;font-size:13px;font-weight:500">Size: Double ⌄</span>
+<span style="flex:1;text-align:center;border:1px solid #cfcac2;border-radius:999px;padding:10px;font-size:13px">Filter &amp; sort</span>
+</div>
+<div style="padding:16px;display:flex;flex-direction:column;gap:20px">
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px">
+<sc-for list="{{ first4 }}" as="p" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="background:#f3f0eb;border-radius:10px;overflow:hidden"><img src="{{ p.img }}" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;mix-blend-mode:multiply" alt=""></div>
+<div style="font-size:14px;font-weight:600;line-height:1.3">{{ p.short }}</div>
+<div style="display:flex;flex-direction:column;gap:2px;font-size:12px;line-height:1.35"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:5px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div>
+<div style="font-size:12px"><span style="color:#e0a12b">★★★★★</span> {{ p.rating }}</div>
+<div style="color:#d9675f;font-size:16px;font-weight:600">{{ p.price }}</div>
+</div>
+</sc-for>
+</div>
+<div style="background:#f3f0eb;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px">Buy with confidence</div>
+<div style="display:flex;gap:12px;align-items:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2f4a55" stroke-width="1.5"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div><div style="font-weight:600;font-size:14px">6-month free trial</div><div style="font-size:12px">Sleep on it at home for up to 6 months.</div></div></div>
+<div style="display:flex;gap:12px;align-items:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2f4a55" stroke-width="1.5"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div><div style="font-weight:600;font-size:14px">Free returns</div><div style="font-size:12px">Not right? We collect it with no return fee.*</div></div></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px">
+<sc-for list="{{ last2 }}" as="p" hint-placeholder-count="2">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="background:#f3f0eb;border-radius:10px;overflow:hidden"><img src="{{ p.img }}" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;mix-blend-mode:multiply" alt=""></div>
+<div style="font-size:14px;font-weight:600;line-height:1.3">{{ p.short }}</div>
+<div style="display:flex;flex-direction:column;gap:2px;font-size:12px;line-height:1.35"><sc-for list="{{ p.bullets }}" as="b"><div style="display:flex;gap:5px"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ b }}</span></div></sc-for></div>
+<div style="font-size:12px"><span style="color:#e0a12b">★★★★★</span> {{ p.rating }}</div>
+<div style="color:#d9675f;font-size:16px;font-weight:600">{{ p.price }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<div id="2c" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#2f4a55;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">2c</span><span style="font-size:15px">Desktop product page</span></div>
+<div style="width:1280px;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.12)">
+<div style="background:#2f4a55;color:#fff;display:flex;justify-content:center;gap:40px;padding:10px;font-size:13px"><sc-for list="{{ bar }}" as="b" hint-placeholder-count="4"><span>{{ b }}</span></sc-for></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:22px 56px;border-bottom:1px solid #ece8e2">
+<img src="assets/logo.png" style="height:28px" alt="Warren Evans">
+<div style="display:flex;gap:30px;font-size:15px"><span>Beds</span><span style="font-weight:600">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span></div>
+<div style="display:flex;gap:20px;font-size:14px"><span>Search</span><span>Account</span><span>Basket (4)</span></div>
+</div>
+<div style="padding:28px 56px 64px;display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:56px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#5b6b72">Home / Natural mattresses / Natural 1200 Grand</div>
+<div style="background:#f3f0eb;border-radius:14px;overflow:hidden"><img src="assets/mattress-pocket.png" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;mix-blend-mode:multiply" alt=""></div>
+<div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px">
+<div style="background:#f3f0eb;border-radius:8px;overflow:hidden;border:2px solid #2f4a55"><img src="assets/mattress-pocket.png" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;mix-blend-mode:multiply" alt=""></div>
+<div style="background:#f3f0eb;border-radius:8px;aspect-ratio:1"></div><div style="background:#f3f0eb;border-radius:8px;aspect-ratio:1"></div><div style="background:#f3f0eb;border-radius:8px;aspect-ratio:1"></div><div style="background:#f3f0eb;border-radius:8px;aspect-ratio:1"></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:22px;padding-top:30px">
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:30px;font-weight:600;line-height:1.2">Natural 1200 Grand Pocket Spring Mattress</div><div style="font-size:14px"><span style="color:#e0a12b">★★★★★</span> 4.9 · <span style="text-decoration:underline">86 reviews</span></div></div>
+<div style="color:#d9675f;font-size:30px;font-weight:600">£1,082</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:600">Size</div><div style="border:1px solid #cfcac2;border-radius:10px;padding:14px 16px;font-size:15px;display:flex;justify-content:space-between"><span>Double · 135 x 190cm</span><span>⌄</span></div></div>
+<div style="background:#2f4a55;color:#fff;text-align:center;font-weight:600;font-size:16px;padding:17px;border-radius:999px">Add to basket</div>
+<div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+<sc-for list="{{ ticks }}" as="t" hint-placeholder-count="3"><div style="display:flex;gap:10px;align-items:center"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ t }}</span></div></sc-for>
+</div>
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{ accordions }}" as="a" hint-placeholder-count="4"><div style="display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid #ece8e2;font-size:15px"><span>{{ a }}</span><span>+</span></div></sc-for>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="2d" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#2f4a55;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">2d</span><span style="font-size:15px">Mobile product page</span></div>
+<div style="width:390px;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.12)">
+<div style="background:#2f4a55;color:#fff;text-align:center;padding:9px;font-size:12px">6-month free trial · Free delivery</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #ece8e2"><span style="font-size:22px">☰</span><img src="assets/logo.png" style="height:22px" alt="Warren Evans"><span style="font-size:13px;font-weight:600">Basket (4)</span></div>
+<div style="background:#f3f0eb;position:relative"><img src="assets/mattress-pocket.png" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;mix-blend-mode:multiply" alt=""><div style="position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px"><span style="width:7px;height:7px;border-radius:50%;background:#2f4a55"></span><span style="width:7px;height:7px;border-radius:50%;background:#bdb7ae"></span><span style="width:7px;height:7px;border-radius:50%;background:#bdb7ae"></span><span style="width:7px;height:7px;border-radius:50%;background:#bdb7ae"></span></div></div>
+<div style="padding:20px 16px 28px;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:22px;font-weight:600;line-height:1.25">Natural 1200 Grand Pocket Spring Mattress</div><div style="font-size:13px"><span style="color:#e0a12b">★★★★★</span> 4.9 · <span style="text-decoration:underline">86 reviews</span></div></div>
+<div style="color:#d9675f;font-size:26px;font-weight:600">£1,082</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:600">Size</div><div style="border:1px solid #cfcac2;border-radius:10px;padding:14px;font-size:15px;display:flex;justify-content:space-between"><span>Double · 135 x 190cm</span><span>⌄</span></div></div>
+<div style="background:#2f4a55;color:#fff;text-align:center;font-weight:600;font-size:16px;padding:16px;border-radius:999px">Add to basket</div>
+<div style="display:flex;flex-direction:column;gap:9px;font-size:14px">
+<sc-for list="{{ ticks }}" as="t" hint-placeholder-count="3"><div style="display:flex;gap:10px;align-items:center"><span style="color:#3f9e95;font-weight:600">✓</span><span>{{ t }}</span></div></sc-for>
+</div>
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{ accordions }}" as="a" hint-placeholder-count="4"><div style="display:flex;justify-content:space-between;padding:15px 0;border-top:1px solid #ece8e2;font-size:15px"><span>{{ a }}</span><span>+</span></div></sc-for>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+<section style="padding:64px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px;max-width:900px">
+<div style="font-size:14px;letter-spacing:.08em;text-transform:uppercase">Turn 1 · For Gemma and Dave to review, then Warren to sign off</div>
+<div style="font-size:32px;font-weight:600">Mattress collection and product page, Naturalmat-style layout</div>
+<div style="font-size:16px;line-height:1.6;color:#3d5560">Smaller mattress image on the right, key USPs straight under the size picker, and Mark's "Buy with confidence" banner tidied to match the rest of the site. Bracketed text such as [X] is a figure we still need from Warren Evans.</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
+
+<div id="1a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#2f4a55;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">1a</span><span style="font-size:15px">Desktop collection, small image, two per row</span></div>
+<div style="width:1280px;background:#e4e0d9;box-shadow:0 10px 40px rgba(0,0,0,.12)">
+<div style="background:#fff;display:flex;align-items:center;justify-content:space-between;padding:22px 56px">
+<img src="assets/logo.png" style="height:30px" alt="Warren Evans">
+<div style="display:flex;gap:30px;font-size:15px"><span>Beds</span><span style="border-bottom:1px solid #2f4a55">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>FAQs</span></div>
+<div style="font-size:14px;background:#f2f2f2;border-radius:6px;padding:8px 14px;width:200px;color:#7a868b">Search for anything…</div>
+</div>
+<div style="background:#2f4a55;color:#fff;padding:40px 56px 32px;display:flex;flex-direction:column;gap:22px;align-items:center">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:46px;line-height:1">Natural Mattresses</div>
+<div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+<sc-for list="{{ sizes }}" as="s" hint-placeholder-count="8"><span style="border:1px solid #fff;border-radius:999px;padding:7px 22px;font-size:15px">{{ s }}</span></sc-for>
+</div>
+</div>
+<div style="background:#fff;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-bottom:1px solid #d9d4cc">
+<sc-for list="{{ uspPrimary }}" as="u" hint-placeholder-count="4"><div style="padding:18px 20px;display:flex;flex-direction:column;gap:2px;border-right:1px solid #ece8e2"><div style="font-weight:600;font-size:15px">{{ u.t }}</div><div style="font-size:13px;color:#4d636c">{{ u.d }}</div></div></sc-for>
+<div style="padding:18px 20px;display:flex;flex-direction:column;gap:2px"><div style="font-weight:600;font-size:15px"><span style="color:#e0a12b">★★★★★</span> [4.9]</div><div style="font-size:13px;color:#4d636c">From [1,200] Trustpilot reviews</div></div>
+</div>
+<div style="padding:40px 56px 56px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:15px">6 mattresses in Double</div><div style="font-size:15px">Sort: Recommended</div></div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px">
+<sc-for list="{{ first4 }}" as="p" hint-placeholder-count="4">
+<div style="background:#fff;border-radius:18px;padding:28px;display:flex;gap:24px;align-items:center">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;min-width:0">
+<div style="font-size:23px;font-weight:600;line-height:1.2">{{ p.name }}</div>
+<div style="font-size:15px;color:#4d636c">With quality wool &amp; cotton layers</div>
+<div style="display:flex;flex-direction:column;gap:4px;font-size:14px"><sc-for list="{{ p.bullets }}" as="b"><div>• {{ b }}</div></sc-for></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px"><div style="color:#d9675f;font-size:26px;font-weight:500">{{ p.price }}</div><span style="background:#2f4a55;color:#fff;font-size:14px;font-weight:500;padding:10px 18px;border-radius:999px">View mattress</span></div>
+</div>
+<img src="{{ p.img }}" style="width:190px;height:150px;object-fit:cover;border-radius:12px;flex-shrink:0" alt="">
+</div>
+</sc-for>
+</div>
+<div style="background:#fff;border-radius:18px;padding:26px 40px;display:flex;align-items:center;justify-content:center;gap:56px">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:30px">Buy with confidence</div>
+<div style="display:flex;gap:14px;align-items:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2f4a55" stroke-width="1.5"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div><div style="font-weight:600;font-size:17px">6-month free trial</div><div style="font-size:14px">Sleep on it at home for up to 6 months.</div></div></div>
+<div style="display:flex;gap:14px;align-items:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2f4a55" stroke-width="1.5"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div><div style="font-weight:600;font-size:17px">Free returns</div><div style="font-size:14px">Not right? We collect it with no return fee.*</div></div></div>
+<a href="#" style="font-size:14px;text-decoration:underline">How the trial works</a>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px">
+<sc-for list="{{ last2 }}" as="p" hint-placeholder-count="2">
+<div style="background:#fff;border-radius:18px;padding:28px;display:flex;gap:24px;align-items:center">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;min-width:0">
+<div style="font-size:23px;font-weight:600;line-height:1.2">{{ p.name }}</div>
+<div style="font-size:15px;color:#4d636c">With quality wool &amp; cotton layers</div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px"><div style="color:#d9675f;font-size:26px;font-weight:500">{{ p.price }}</div><span style="background:#2f4a55;color:#fff;font-size:14px;font-weight:500;padding:10px 18px;border-radius:999px">View mattress</span></div>
+</div>
+<img src="{{ p.img }}" style="width:190px;height:150px;object-fit:cover;border-radius:12px;flex-shrink:0" alt="">
+</div>
+</sc-for>
+</div>
+<div style="font-size:12px;color:#4d636c">*Returns terms to confirm with Warren Evans.</div>
+</div>
+<div style="background:#2f4a55;color:#fff;padding:36px 56px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px">
+<sc-for list="{{ uspSecondary }}" as="u" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:6px"><div style="font-weight:600;font-size:17px">{{ u.t }}</div><div style="font-size:14px;line-height:1.5;color:#dbe4e7">{{ u.d }}</div></div></sc-for>
+</div>
+</div>
+</div>
+
+<div id="1c" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#2f4a55;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">1c</span><span style="font-size:15px">Mobile collection</span></div>
+<div style="width:390px;background:#e4e0d9;box-shadow:0 10px 40px rgba(0,0,0,.12)">
+<div style="background:#fff;display:flex;align-items:center;justify-content:space-between;padding:18px 20px"><span style="font-size:24px">☰</span><img src="assets/logo.png" style="height:24px" alt="Warren Evans"><span style="font-size:14px;font-weight:600">Bag (4)</span></div>
+<div style="background:#2f4a55;color:#fff;padding:26px 0 22px;display:flex;flex-direction:column;gap:16px">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:36px;line-height:1;padding:0 20px">Natural Mattresses</div>
+<div style="display:flex;gap:8px;overflow-x:auto;padding:0 20px"><sc-for list="{{ sizes }}" as="s" hint-placeholder-count="8"><span style="border:1px solid #fff;border-radius:999px;padding:8px 16px;font-size:14px;white-space:nowrap;flex-shrink:0">{{ s }}</span></sc-for></div>
+</div>
+<div style="background:#fff;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))">
+<sc-for list="{{ uspPrimary }}" as="u" hint-placeholder-count="4"><div style="padding:14px 16px;border-right:1px solid #ece8e2;border-bottom:1px solid #ece8e2"><div style="font-weight:600;font-size:14px">{{ u.t }}</div><div style="font-size:12px;color:#4d636c;line-height:1.4">{{ u.d }}</div></div></sc-for>
+</div>
+<div style="background:#fff;padding:10px 16px;font-size:13px;text-align:center;border-bottom:1px solid #d9d4cc"><span style="color:#e0a12b">★★★★★</span> [4.9] from [1,200] Trustpilot reviews</div>
+<div style="padding:20px 14px 28px;display:flex;flex-direction:column;gap:14px">
+<sc-for list="{{ first3 }}" as="p" hint-placeholder-count="3">
+<div style="background:#fff;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:14px;align-items:flex-start">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;min-width:0"><div style="font-size:18px;font-weight:600;line-height:1.25">{{ p.name }}</div><div style="font-size:13px;color:#4d636c">With quality wool &amp; cotton layers</div></div>
+<img src="{{ p.img }}" style="width:104px;height:84px;object-fit:cover;border-radius:10px;flex-shrink:0" alt="">
+</div>
+<div style="display:flex;flex-direction:column;gap:3px;font-size:13px"><sc-for list="{{ p.bullets }}" as="b"><div>• {{ b }}</div></sc-for></div>
+<div style="display:flex;align-items:center;justify-content:space-between"><div style="color:#d9675f;font-size:22px;font-weight:500">{{ p.price }}</div><span style="background:#2f4a55;color:#fff;font-size:13px;font-weight:500;padding:12px 16px;border-radius:999px">View mattress</span></div>
+</div>
+</sc-for>
+<div style="background:#fff;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px">
+<div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px">Buy with confidence</div>
+<div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2f4a55" stroke-width="1.5"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><div><div style="font-weight:600;font-size:15px">6-month free trial</div><div style="font-size:13px">Sleep on it at home for up to 6 months.</div></div></div>
+<div style="display:flex;gap:12px;align-items:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2f4a55" stroke-width="1.5"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg><div><div style="font-weight:600;font-size:15px">Free returns</div><div style="font-size:13px">Not right? We collect it with no return fee.*</div></div></div>
+</div>
+<sc-for list="{{ last3 }}" as="p" hint-placeholder-count="3">
+<div style="background:#fff;border-radius:16px;padding:18px;display:flex;gap:14px;align-items:flex-start">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;min-width:0"><div style="font-size:18px;font-weight:600;line-height:1.25">{{ p.name }}</div><div style="font-size:13px;color:#4d636c">With quality wool &amp; cotton layers</div><div style="color:#d9675f;font-size:22px;font-weight:500">{{ p.price }}</div></div>
+<img src="{{ p.img }}" style="width:104px;height:84px;object-fit:cover;border-radius:10px;flex-shrink:0" alt="">
+</div>
+</sc-for>
+</div>
+<div style="background:#2f4a55;color:#fff;padding:26px 20px;display:flex;flex-direction:column;gap:18px">
+<sc-for list="{{ uspSecondary }}" as="u" hint-placeholder-count="4"><div><div style="font-weight:600;font-size:15px">{{ u.t }}</div><div style="font-size:13px;line-height:1.5;color:#dbe4e7">{{ u.d }}</div></div></sc-for>
+</div>
+</div>
+</div>
+
+<div id="1b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#2f4a55;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">1b</span><span style="font-size:15px">Desktop collection, medium image, one per row (product list only)</span></div>
+<div style="width:1280px;background:#e4e0d9;padding:40px 56px;display:flex;flex-direction:column;gap:20px;box-shadow:0 10px 40px rgba(0,0,0,.12)">
+<sc-for list="{{ first3 }}" as="p" hint-placeholder-count="3">
+<div style="background:#fff;border-radius:18px;padding:32px 36px;display:flex;gap:40px;align-items:center">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;min-width:0">
+<div style="font-size:28px;font-weight:600;line-height:1.2">{{ p.name }}</div>
+<div style="font-size:16px;color:#4d636c">With quality wool &amp; cotton layers</div>
+<div style="display:flex;gap:24px;flex-wrap:wrap;font-size:15px"><sc-for list="{{ p.bullets }}" as="b"><div>• {{ b }}</div></sc-for></div>
+<div style="display:flex;align-items:center;gap:24px;margin-top:8px"><div style="color:#d9675f;font-size:30px;font-weight:500">{{ p.price }}</div><span style="background:#2f4a55;color:#fff;font-size:15px;font-weight:500;padding:12px 22px;border-radius:999px">View mattress</span><span style="font-size:14px">6-month free trial · Free returns</span></div>
+</div>
+<img src="{{ p.img }}" style="width:340px;height:230px;object-fit:cover;border-radius:14px;flex-shrink:0" alt="">
+</div>
+</sc-for>
+</div>
+</div>
+
+<div id="1d" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#2f4a55;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">1d</span><span style="font-size:15px">Desktop product page, smaller image on the right</span></div>
+<div style="width:1280px;background:#e4e0d9;box-shadow:0 10px 40px rgba(0,0,0,.12)">
+<div style="background:#fff;display:flex;align-items:center;justify-content:space-between;padding:22px 56px">
+<img src="assets/logo.png" style="height:30px" alt="Warren Evans">
+<div style="display:flex;gap:30px;font-size:15px"><span>Beds</span><span style="border-bottom:1px solid #2f4a55">Natural mattresses</span><span>Kids mattresses</span><span>Underbed storage</span><span>About us</span><span>FAQs</span></div>
+<div style="font-size:14px;background:#f2f2f2;border-radius:6px;padding:8px 14px;width:200px;color:#7a868b">Search for anything…</div>
+</div>
+<div style="padding:40px 56px 56px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;align-items:start">
+<div style="background:#fff;border-radius:18px;padding:36px;display:flex;flex-direction:column;gap:20px">
+<div style="font-size:13px;letter-spacing:.04em;text-transform:uppercase">Home › Natural mattresses</div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:34px;font-weight:600;line-height:1.15">Natural 1200 Grand Pocket Spring Mattress</div><div style="font-size:16px;color:#4d636c">With quality wool &amp; cotton layers</div><div style="font-size:14px"><span style="color:#e0a12b">★★★★★</span> [4.9] · [86] reviews</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:15px;font-weight:600">Size: Double | 135cm x 190cm</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ sizeChips }}" as="s" hint-placeholder-count="8"><span style="border:1px solid #2f4a55;border-radius:999px;padding:7px 16px;font-size:14px;background:{{ s.bg }};color:{{ s.fg }}">{{ s.n }}</span></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:4px;font-size:15px"><div>• Pocket-Sprung Comfort</div><div>• A Trusted Everyday Choice</div><div>• Balanced Body Support</div><div>• Dependable Night After Night</div></div>
+<div style="display:flex;align-items:center;gap:20px"><div style="color:#d9675f;font-size:34px;font-weight:500">£1,082</div><div style="flex:1;background:#2f4a55;color:#fff;text-align:center;font-weight:600;font-size:16px;padding:16px;border-radius:999px">Add to basket</div></div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#e4e0d9;border:1px solid #e4e0d9;border-radius:12px;overflow:hidden">
+<sc-for list="{{ uspPrimary }}" as="u" hint-placeholder-count="4"><div style="background:#f7f5f1;padding:14px 16px"><div style="font-weight:600;font-size:14px">{{ u.t }}</div><div style="font-size:13px;color:#4d636c">{{ u.d }}</div></div></sc-for>
+</div>
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{ accordions }}" as="a" hint-placeholder-count="4"><div style="display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid #d9d4cc;font-size:16px"><span>{{ a }}</span><span>+</span></div></sc-for>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;position:sticky;top:20px">
+<img src="assets/mattress-pocket.png" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;background:#fff" alt="">
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px">
+<img src="assets/mattress-pocket.png" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:2px solid #2f4a55" alt="">
+<img src="assets/mattress-coil.png" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px" alt="">
+<div style="aspect-ratio:1;border-radius:10px;background:#d6d1c9;display:flex;align-items:center;justify-content:center;font-size:12px;text-align:center;padding:6px">Room photo</div>
+<div style="aspect-ratio:1;border-radius:10px;background:#d6d1c9;display:flex;align-items:center;justify-content:center;font-size:12px;text-align:center;padding:6px">Layers diagram</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="1e" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#2f4a55;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">1e</span><span style="font-size:15px">Mobile product page</span></div>
+<div style="width:390px;background:#e4e0d9;box-shadow:0 10px 40px rgba(0,0,0,.12)">
+<div style="background:#fff;display:flex;align-items:center;justify-content:space-between;padding:18px 20px"><span style="font-size:24px">☰</span><img src="assets/logo.png" style="height:24px" alt="Warren Evans"><span style="font-size:14px;font-weight:600">Bag (4)</span></div>
+<div style="padding:16px 14px 28px;display:flex;flex-direction:column;gap:14px">
+<div style="background:#fff;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;gap:14px;align-items:flex-start">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;min-width:0"><div style="font-size:21px;font-weight:600;line-height:1.2">Natural 1200 Grand Pocket Spring Mattress</div><div style="font-size:13px"><span style="color:#e0a12b">★★★★★</span> [4.9] · [86]</div></div>
+<img src="assets/mattress-pocket.png" style="width:120px;height:100px;object-fit:cover;border-radius:10px;flex-shrink:0" alt="">
+</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:600">Size: Double | 135cm x 190cm</div><div style="border:1px solid #d9d4cc;border-radius:8px;padding:14px;font-size:15px;display:flex;justify-content:space-between"><span>Double</span><span>⌄</span></div></div>
+<div style="display:flex;flex-direction:column;gap:3px;font-size:14px"><div>• Pocket-Sprung Comfort</div><div>• A Trusted Everyday Choice</div><div>• Balanced Body Support</div><div>• Dependable Night After Night</div></div>
+<div style="color:#d9675f;font-size:28px;font-weight:500">£1,082</div>
+<div style="background:#2f4a55;color:#fff;text-align:center;font-weight:600;font-size:16px;padding:16px;border-radius:999px">Add to basket</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#e4e0d9;border:1px solid #e4e0d9;border-radius:12px;overflow:hidden">
+<sc-for list="{{ uspPrimary }}" as="u" hint-placeholder-count="4"><div style="background:#f7f5f1;padding:12px"><div style="font-weight:600;font-size:13px">{{ u.t }}</div><div style="font-size:12px;color:#4d636c;line-height:1.4">{{ u.d }}</div></div></sc-for>
+</div>
+</div>
+<div style="background:#fff;border-radius:16px;padding:4px 20px">
+<sc-for list="{{ accordions }}" as="a" hint-placeholder-count="4"><div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid #ece8e2;font-size:15px"><span>{{ a }}</span><span>+</span></div></sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<div id="1f" style="display:flex;flex-direction:column;gap:12px;max-width:1280px">
+<div style="display:flex;gap:10px;align-items:center"><span style="background:#2f4a55;color:#fff;font-weight:600;font-size:14px;padding:4px 10px;border-radius:6px">1f</span><span style="font-size:15px">Mark's trust banner: review</span></div>
+<div style="background:#fff;border-radius:18px;padding:32px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;box-shadow:0 10px 40px rgba(0,0,0,.08)">
+<div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase">As built (hidden on site)</div><img src="uploads/mark_banner-1793115060849-4hjw.png" style="width:100%;border-radius:10px;border:1px solid #e4e0d9" alt="Mark's banner"></div>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.55">
+<div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase">Changes in 1a–1e</div>
+<div>1. "6 month free trial" now reads "6-month free trial". The cart prompt says "six months", so pick one style and use it in the banner, cart and FAQs.</div>
+<div>2. Full stop moved inside the asterisk on "no return fee.*", and the asterisk now has a footnote. At the moment it doesn't point to anything.</div>
+<div>3. Added a "How the trial works" link so the claim is backed up.</div>
+<div>4. The banner sits after the first row of products. The trial and returns are also in the USP strip under the size picker and under Add to basket, so shoppers see them before scrolling.</div>
+<div>5. Kept the Cormorant italic heading and line icons, which match the italic product titles on the bed pages. The other USPs are text only, so the two icons stay specific to this banner.</div>
+<div>6. Still needed: Trustpilot score and review count, guarantee length, delivery and recycling terms, and the returns small print.</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const coil = 'assets/mattress-coil.png', pocket = 'assets/mattress-pocket.png';
+    const cb = ['Simple, Honest Support', 'For Back And Side Sleepers', 'Breathable For Easy Sleep'];
+    const products = [
+      { name: 'Natural 13.5 Essential Coil Spring Mattress', img: coil, bullets: cb, price: '£832' },
+      { name: 'Natural 13.5+ Luxury Coil Spring Mattress', img: coil, bullets: cb, price: '£832' },
+      { name: 'Natural 1200 Grand Pocket Spring Mattress', img: pocket, bullets: ['Pocket-Sprung Comfort', 'A Trusted Everyday Choice', 'Balanced Body Support', 'Dependable Night After Night'], price: '£1,082' },
+      { name: 'Natural 1200+ Glorious Pocket Spring Mattress', img: pocket, bullets: [], price: '£[—]' },
+      { name: 'Natural 2000 Windsor Pocket Spring Mattress', img: pocket, bullets: [], price: '£[—]' },
+      { name: 'Natural 2000+ Balmoral Pocket Spring Mattress', img: pocket, bullets: [], price: '£[—]' }
+    ];
+    const meta = [['Natural 13.5 Essential', 'Coil spring'], ['Natural 13.5+ Luxury', 'Coil spring'], ['Natural 1200 Grand', 'Pocket spring'], ['Natural 1200+ Glorious', 'Pocket spring'], ['Natural 2000 Windsor', 'Pocket spring'], ['Natural 2000+ Balmoral', 'Pocket spring']];
+    products.forEach((p, i) => { p.short = meta[i][0]; p.type = meta[i][1] + ' · wool & cotton layers'; p.rating = '4.9 (86)'; if (i > 2) p.price = '£—'; });
+    const extra = {
+      bar: ['6-month free trial', 'Free delivery', 'Handmade in London', 'Old mattress recycling'],
+      usps2: [
+        { t: '6-month free trial', d: 'Sleep on it at home' },
+        { t: 'Free returns', d: 'No return fee*' },
+        { t: 'Handmade in London', d: 'Made to order' },
+        { t: 'Natural fillings', d: 'Wool & cotton layers' }
+      ],
+      ticks: ['6-month free trial, free returns', 'Free delivery', 'Handmade to order in London']
+    };
+    const sizes = ['Small Single', 'Single', 'Petite Double', 'Small Double', 'Double', 'King', 'Small Super King', 'Super King'];
+    products.forEach(p => { p.from = p.price.includes('—') ? 'From £[—]' : 'From ' + p.price; p.noBullets = !p.bullets.length; });
+    const gb = ['Pocket-Sprung Comfort', 'A Trusted Everyday Choice', 'Balanced Body Support', 'Dependable Night After Night'];
+    const tb = ['High Spring Count Support', 'Above Typical Industry Standards', 'Comfort That Holds Its Shape', 'Outstanding Value For The Build'];
+    const grid6 = [
+      { name: 'Natural 13.5 Essential Coil Spring Mattress', type: 'Coil spring', img: coil, bullets: cb, price: '£832' },
+      { name: 'Natural 13.5+ Luxury Coil Spring Mattress', type: 'Coil spring', img: coil, bullets: cb, price: '£832' },
+      { name: 'Natural 1200 Grand Pocket Spring Mattress', type: 'Pocket spring', img: pocket, bullets: gb, price: '£1,082' },
+      { name: 'Natural 1200+ Glorious Pocket Spring Mattress', type: 'Pocket spring', img: pocket, bullets: gb, price: '£1,082' },
+      { name: 'Natural 2000 Windsor Pocket Spring Mattress', type: 'Pocket spring', img: pocket, bullets: tb, price: '£1,497' },
+      { name: 'Natural 2000+ Balmoral Pocket Spring Mattress', type: 'Pocket spring', img: pocket, bullets: tb, price: '£1,497', badge: 'Very popular' }
+    ].map(p => ({ ...p, hasBadge: !!p.badge }));
+    return {
+      ...extra,
+      grid6,
+      sizePillsLight: sizes.map(n => ({ n, bg: n === 'Double' ? '#31474f' : '#fff', fg: n === 'Double' ? '#fff' : '#31474f', bd: '#31474f' })),
+      sizePills: sizes.map(n => ({ n, fg: '#fff', bg: n === 'Double' ? '#6cc5bc' : 'transparent', bd: n === 'Double' ? '#6cc5bc' : '#fff' })),
+      coilList: products.slice(0, 2), pocketList: products.slice(2),
+      ladder: products.map(p => p.short.replace('Natural ', '')),
+      sizes,
+      sizeChips: sizes.map(n => ({ n, bg: n === 'Double' ? '#2f4a55' : '#fff', fg: n === 'Double' ? '#fff' : '#2f4a55' })),
+      first4: products.slice(0, 4), last2: products.slice(4),
+      first3: products.slice(0, 3), last3: products.slice(3),
+      uspPrimary: [
+        { t: '6-month free trial', d: 'Sleep on it at home for up to 6 months.' },
+        { t: 'Free returns', d: 'Not right? We collect it.*' },
+        { t: 'Free delivery', d: '[Area and timescale to confirm]' },
+        { t: 'Handmade in London', d: 'Made to order in our workshop' }
+      ],
+      uspSecondary: [
+        { t: 'Natural fillings', d: 'Quality wool & cotton layers around every spring unit.' },
+        { t: 'Made-to-order sizes', d: 'Eight standard sizes, with [custom sizes on request].' },
+        { t: 'Old mattress recycling', d: 'We take your old mattress away for recycling. [Price to confirm]' },
+        { t: '[X]-year guarantee', d: '[Guarantee terms to confirm]' }
+      ],
+      accordions: ["What's inside", 'Firmness and feel', 'Delivery and recycling', '6-month trial and returns']
+    };
+  }
+}
+</script>
+</body>
+</html>

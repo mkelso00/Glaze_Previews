@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Drinks section concepts side by side</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&amp;family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E9E6DC}
+a{color:#1E4D2B}a:hover{color:#123220}
+</style>
+</helmet>
+<div style="width: 6000px; min-height: 1500px; box-sizing: border-box; background: #E9E6DC; font-family: 'Figtree', system-ui, sans-serif; color: #1F2A22; display: flex; gap: 80px; align-items: stretch">
+
+<div style="width: 1440px; flex: none; display: flex; flex-direction: column">
+<p style="margin: 0; padding: 20px 24px; font-size: 22px; font-weight: 700; color: #1F2A22">Option 1 · Flavour cards with pack switch</p>
+<section style="flex: 1; background: #F6F3EA; padding: 88px 24px 96px">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #A3214F">Ár gCumbaitea · our kombucha</p>
+<h2 style="margin: 0; font-family: 'Lilita One', sans-serif; font-weight: 400; font-size: 60px; line-height: 1; color: #1E4D2B">Real kombucha, brewed by hand in Galway</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.5; color: #3D4A40">Organic, naturally fermented and packed with live cultures. Pick a flavour, pick your case.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #3D4A40">Case size</p>
+<div role="group" aria-label="Case size" style="display: flex; gap: 6px; padding: 6px; background: #FFFFFF; border-radius: 999px; border: 1px solid #DCD6C6">
+<sc-for list="{{s1.packs}}" as="p1" hint-placeholder-count="3">
+<button type="button" onClick="{{p1.pick}}" aria-pressed="{{p1.pressed}}" style="{{p1.style}}">{{p1.label}}</button>
+</sc-for>
+</div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; padding-top: 120px">
+<sc-for list="{{s1.flavours}}" as="f1" hint-placeholder-count="3">
+<article style="{{f1.cardStyle}}">
+<img src="{{f1.img}}" alt="{{f1.alt}}" style="height: 320px; width: auto; display: block; margin: -150px auto 0; filter: drop-shadow(0 18px 22px rgba(20,30,20,0.22))">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<h3 style="{{f1.nameStyle}}">{{f1.name}}</h3>
+<sc-if value="{{f1.badge}}" hint-placeholder-val="{{false}}">
+<span style="font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 999px; background: #FFFFFF; color: #1F2A22; white-space: nowrap">{{f1.badge}}</span>
+</sc-if>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2E3A31">{{f1.line}}</p>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{f1.usps}}" as="u1" hint-placeholder-count="3">
+<li style="display: flex; gap: 10px; align-items: center; font-size: 15px; font-weight: 500; color: #1F2A22">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M20 6 9 17l-5-5"></path></svg>
+<span>{{u1}}</span>
+</li>
+</sc-for>
+</ul>
+<div style="display: flex; flex-direction: column; gap: 16px; padding-top: 18px; border-top: 1px solid rgba(31,42,34,0.15); margin-top: auto">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+<p style="margin: 0; font-family: 'Lilita One', sans-serif; font-size: 36px; line-height: 1; color: #1F2A22">{{s1.price}}</p>
+<p style="margin: 0; font-size: 14px; color: #3D4A40">{{s1.packLine}}</p>
+</div>
+<a href="{{f1.url}}" style="{{f1.btnStyle}}">View product
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<p style="margin: 0; font-size: 14px; text-align: center; color: #2E3A31">Or <a href="{{f1.url}}" style="font-weight: 700">subscribe and save 20%</a></p>
+</div>
+</article>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+<div style="display: flex; gap: 14px; align-items: center; padding: 18px 20px; background: #FFFFFF; border-radius: 18px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1E4D2B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"></path><path d="M2 21c0-3 1.9-5.4 5.1-6"></path></svg>
+<p style="margin: 0; font-size: 15px; font-weight: 600">Certified organic</p>
+</div>
+<div style="display: flex; gap: 14px; align-items: center; padding: 18px 20px; background: #FFFFFF; border-radius: 18px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1E4D2B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+<p style="margin: 0; font-size: 15px; font-weight: 600">Canned by hand in the Galway Gaeltacht</p>
+</div>
+<div style="display: flex; gap: 14px; align-items: center; padding: 18px 20px; background: #FFFFFF; border-radius: 18px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1E4D2B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3Z"></path></svg>
+<p style="margin: 0; font-size: 15px; font-weight: 600">Carbon-neutral brewery</p>
+</div>
+<div style="display: flex; gap: 14px; align-items: center; padding: 18px 20px; background: #FFFFFF; border-radius: 18px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1E4D2B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"></path></svg>
+<p style="margin: 0; font-size: 15px; font-weight: 600">Loved by 29,000+ people</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<div style="width: 1440px; flex: none; display: flex; flex-direction: column">
+<p style="margin: 0; padding: 20px 24px; font-size: 22px; font-weight: 700; color: #1F2A22">Option 2 · Flavour spotlight with subscribe toggle</p>
+<section style="{{s2.sectionStyle}}">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center">
+<h2 style="margin: 0; font-family: 'Lilita One', sans-serif; font-weight: 400; font-size: 64px; line-height: 1; color: #1E4D2B">KOMBUCHA</h2>
+<p style="margin: 0; font-family: 'Lilita One', sans-serif; font-size: 30px; line-height: 1; color: #1E4D2B">ÁR GCUMBAITEA</p>
+</div>
+<div style="display: flex; gap: 32px; align-items: center">
+<div role="tablist" aria-label="Choose a flavour" style="flex: 0 0 270px; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{s2.tabs}}" as="t2" hint-placeholder-count="3">
+<button type="button" role="tab" aria-selected="{{t2.selected}}" onClick="{{t2.pick}}" style="{{t2.style}}">
+<img src="{{t2.img}}" alt="" style="height: 64px; width: auto; flex: none">
+<span style="display: flex; flex-direction: column; gap: 2px; text-align: left">
+<span style="font-family: 'Lilita One', sans-serif; font-size: 20px; line-height: 1.1">{{t2.name}}</span>
+<span style="font-size: 13px; font-weight: 600; opacity: 0.85">From €24.00</span>
+</span>
+</button>
+</sc-for>
+</div>
+<div style="flex: 1 1 auto; display: flex; justify-content: center; align-items: center; min-height: 560px; position: relative">
+<div style="{{s2.discStyle}}"></div>
+<img src="{{s2.f.img}}" alt="{{s2.f.alt}}" style="position: relative; height: 540px; width: auto; filter: drop-shadow(0 30px 30px rgba(20,30,20,0.28))">
+<sc-if value="{{s2.f.badge}}" hint-placeholder-val="{{false}}">
+<span style="position: absolute; top: 40px; right: 6%; width: 104px; height: 104px; border-radius: 50%; background: #1F2A22; color: #FFFFFF; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 14px; font-weight: 700; line-height: 1.2; transform: rotate(-10deg)">{{s2.f.badge}}</span>
+</sc-if>
+</div>
+<div style="flex: 0 0 440px; display: flex; flex-direction: column; gap: 22px; background: #FFFFFF; border-radius: 28px; padding: 32px; box-sizing: border-box; box-shadow: 0 20px 50px rgba(20,40,30,0.10)">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="{{s2.eyebrowStyle}}">Organic real kombucha</p>
+<h3 style="margin: 0; font-family: 'Lilita One', sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: #1F2A22">{{s2.f.name}}</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3D4A40">{{s2.f.line}}</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{s2.f.usps}}" as="u2" hint-placeholder-count="4">
+<span style="{{s2.chipStyle}}">{{u2}}</span>
+</sc-for>
+</div>
+<div role="radiogroup" aria-label="Purchase option" style="display: flex; flex-direction: column; gap: 10px">
+<button type="button" role="radio" aria-checked="{{s2.subOn}}" onClick="{{s2.pickSub}}" style="{{s2.subStyle}}">
+<span style="display: flex; flex-direction: column; gap: 2px; text-align: left">
+<span style="font-weight: 700; font-size: 16px">Subscribe and save 20%</span>
+<span style="font-size: 13px; color: #3D4A40">Skip, pause or swap any time</span>
+</span>
+<span style="display: flex; flex-direction: column; align-items: flex-end">
+<span style="font-family: 'Lilita One', sans-serif; font-size: 26px; line-height: 1">{{s2.subPrice}}</span>
+<span style="font-size: 13px; color: #3D4A40; text-decoration: line-through">{{s2.oneOffPrice}}</span>
+</span>
+</button>
+<button type="button" role="radio" aria-checked="{{s2.oneOn}}" onClick="{{s2.pickOne}}" style="{{s2.oneStyle}}">
+<span style="font-weight: 700; font-size: 16px">One-off purchase</span>
+<span style="font-family: 'Lilita One', sans-serif; font-size: 26px; line-height: 1">{{s2.oneOffPrice}}</span>
+</button>
+</div>
+<div style="display: flex; gap: 8px" role="group" aria-label="Case size">
+<sc-for list="{{s2.packs}}" as="p2" hint-placeholder-count="3">
+<button type="button" aria-pressed="{{p2.pressed}}" onClick="{{p2.pick}}" style="{{p2.style}}">{{p2.label}}</button>
+</sc-for>
+</div>
+<a href="{{s2.f.url}}" style="{{s2.ctaStyle}}">View {{s2.f.name}}</a>
+<p style="margin: 0; font-size: 13px; color: #3D4A40; text-align: center">{{s2.perCan}} · plus Re-turn deposit</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<div style="width: 1440px; flex: none; display: flex; flex-direction: column">
+<p style="margin: 0; padding: 20px 24px; font-size: 22px; font-weight: 700; color: #1F2A22">Option 3 · Dark shelf with USP strip</p>
+<section style="flex: 1; background: #163A22; color: #F6F3EA">
+<div style="border-bottom: 1px solid rgba(246,243,234,0.18); padding: 22px 24px">
+<ul style="max-width: 1240px; margin: 0 auto; padding: 0; list-style: none; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px">
+<sc-for list="{{s3.usps}}" as="u3" hint-placeholder-count="5">
+<li style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B9E3A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+<span>{{u3}}</span>
+</li>
+</sc-for>
+</ul>
+</div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 80px 24px 96px; display: flex; flex-direction: column; gap: 64px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-family: 'Lilita One', sans-serif; font-size: 28px; color: #B9E3A6">Ár gCumbaitea</p>
+<h2 style="margin: 0; font-family: 'Lilita One', sans-serif; font-weight: 400; font-size: 84px; line-height: 0.95; color: #F6F3EA">Drink different.</h2>
+</div>
+<p style="margin: 0; max-width: 420px; font-size: 18px; line-height: 1.55; color: #D9E4D6">Organic kombucha, fermented the traditional way and canned by hand in our carbon-neutral brewery in Co. Galway.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px">
+<sc-for list="{{s3.flavours}}" as="f3" hint-placeholder-count="3">
+<article style="display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
+<div style="position: relative; width: 100%; display: flex; justify-content: center; padding-bottom: 18px">
+<div style="{{f3.plinth}}"></div>
+<img src="{{f3.img}}" alt="{{f3.alt}}" style="position: relative; height: 360px; width: auto; filter: drop-shadow(0 24px 24px rgba(0,0,0,0.35))">
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: center">
+<h3 style="{{f3.nameStyle}}">{{f3.name}}</h3>
+<p style="margin: 0; font-size: 16px; color: #D9E4D6">{{f3.line}}</p>
+</div>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 8px">
+<span style="font-family: 'Lilita One', sans-serif; font-size: 34px; color: #FFFFFF">€24.00</span>
+<span style="font-size: 15px; color: #D9E4D6">8 cans · €3.00 a can</span>
+</p>
+<a href="{{f3.url}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 28px; border-radius: 999px; border: 2px solid #F6F3EA; color: #F6F3EA; font-weight: 700; font-size: 16px; text-decoration: none">View product
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+</article>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 28px 32px; border-radius: 24px; background: #F6F3EA; color: #1F2A22">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<p style="margin: 0; font-family: 'Lilita One', sans-serif; font-size: 30px; color: #1E4D2B">Subscribe and save 20%</p>
+<p style="margin: 0; font-size: 16px; color: #3D4A40">Fresh cans to your door. Skip, pause or swap flavours any time.</p>
+</div>
+<a href="https://drinkallabout.com/products/nationwide-home-kombucha-delivery" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 32px; border-radius: 999px; background: #A3214F; color: #FFFFFF; font-family: 'Lilita One', sans-serif; font-size: 20px; letter-spacing: 0.02em; text-decoration: none">Start a subscription</a>
+</div>
+</div>
+</section>
+</div>
+
+<div style="width: 1440px; flex: none; display: flex; flex-direction: column">
+<p style="margin: 0; padding: 20px 24px; font-size: 22px; font-weight: 700; color: #1F2A22">Option 4 · What's in the can</p>
+<section style="{{s4.sectionStyle}}">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.9">What's in the can</p>
+<h2 style="margin: 0; font-family: 'Lilita One', sans-serif; font-weight: 400; font-size: 64px; line-height: 1">{{s4.f.name}} Kombucha</h2>
+</div>
+<div role="tablist" aria-label="Choose a flavour" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px">
+<sc-for list="{{s4.tabs}}" as="t4" hint-placeholder-count="3">
+<button type="button" role="tab" aria-selected="{{t4.selected}}" onClick="{{t4.pick}}" style="{{t4.style}}">{{t4.name}}</button>
+</sc-for>
+</div>
+<div style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 32px">
+<ul style="flex: 1 1 280px; max-width: 360px; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 56px">
+<sc-for list="{{s4.left}}" as="c4" hint-placeholder-count="2">
+<li style="display: flex; align-items: center; gap: 16px; justify-content: flex-end; text-align: right">
+<span style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Lilita One', sans-serif; font-size: 24px; line-height: 1.1">{{c4.title}}</span>
+<span style="font-size: 15px; line-height: 1.45; opacity: 0.92">{{c4.body}}</span>
+</span>
+<span style="flex: none; width: 56px; border-top: 2px dashed rgba(255,255,255,0.7)"></span>
+<span style="flex: none; width: 14px; height: 14px; border-radius: 50%; background: #FFFFFF"></span>
+</li>
+</sc-for>
+</ul>
+<div style="flex: 0 1 300px; display: flex; justify-content: center; position: relative">
+<div style="position: absolute; top: 50%; left: 50%; width: 380px; height: 380px; transform: translate(-50%, -50%); border-radius: 50%; background: rgba(255,255,255,0.12)"></div>
+<img src="{{s4.f.img}}" alt="{{s4.f.alt}}" style="position: relative; height: 520px; width: auto; filter: drop-shadow(0 30px 30px rgba(0,0,0,0.35))">
+</div>
+<ul style="flex: 1 1 280px; max-width: 360px; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 56px">
+<sc-for list="{{s4.right}}" as="d4" hint-placeholder-count="2">
+<li style="display: flex; align-items: center; gap: 16px">
+<span style="flex: none; width: 14px; height: 14px; border-radius: 50%; background: #FFFFFF"></span>
+<span style="flex: none; width: 56px; border-top: 2px dashed rgba(255,255,255,0.7)"></span>
+<span style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Lilita One', sans-serif; font-size: 24px; line-height: 1.1">{{d4.title}}</span>
+<span style="font-size: 15px; line-height: 1.45; opacity: 0.92">{{d4.body}}</span>
+</span>
+</li>
+</sc-for>
+</ul>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 20px; padding: 14px 14px 14px 28px; border-radius: 999px; background: #FFFFFF; color: #1F2A22">
+<p style="margin: 0; display: flex; align-items: baseline; gap: 8px">
+<span style="font-family: 'Lilita One', sans-serif; font-size: 30px">From €24.00</span>
+<span style="font-size: 15px; color: #3D4A40">8 cans · or 20% off on subscription</span>
+</p>
+<a href="{{s4.f.url}}" style="{{s4.ctaStyle}}">View product</a>
+</div>
+</div>
+</section>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":6000,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { pack1: 8, i2: 1, sub2: true, pack2: 12, i4: 1 }; }
+  renderVals() {
+    const base = 'https://drinkallabout.com/products/';
+    const IMG = { g: './assets/f977428c2aedcead659555fa7a4a3c07.png', r: './assets/dd06015f8823a37f60cbb3aae0840c03.png', b: './assets/e0b6d04deba787c89e06b09556b31233.png' };
+    const ALT = { g: 'Can of All About organic guava and grapefruit kombucha', r: 'Can of All About organic raspberry kombucha', b: 'Can of All About organic blueberry and mint kombucha' };
+    const URL = { g: base + 'organic-guava-grapefruit-kombucha', r: base + 'organic-raspberry-kombucha-nationwide-home-delivery', b: base + 'organic-blueberry-mint-kombucha-nationwide-home-delivery' };
+    const prices = { 8: 24.00, 12: 35.00, 16: 45.50 };
+    const off = (n) => Math.round(n * 0.8 * 100) / 100;
+
+    // Option 1
+    const pack1 = this.state.pack1;
+    const price1 = prices[pack1];
+    const mk1 = (o) => ({ ...o,
+      cardStyle: 'display: flex; flex-direction: column; gap: 22px; padding: 0 28px 28px; border-radius: 32px; background: ' + o.tint + ';',
+      nameStyle: 'margin: 0; font-family: \'Lilita One\', sans-serif; font-weight: 400; font-size: 30px; line-height: 1.05; color: ' + o.ink + ';',
+      btnStyle: 'display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; border-radius: 999px; background: ' + o.ink + '; color: #FFFFFF; font-weight: 700; font-size: 16px; text-decoration: none;' });
+    const s1 = {
+      packs: [8, 12, 16].map((n) => {
+        const on = n === pack1;
+        return { label: n + ' cans', pressed: on ? 'true' : 'false', pick: () => this.setState({ pack1: n }),
+          style: 'min-height: 44px; padding: 0 20px; border: 0; border-radius: 999px; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; ' + (on ? 'background: #1E4D2B; color: #FFFFFF;' : 'background: transparent; color: #1E4D2B;') };
+      }),
+      flavours: [
+        mk1({ name: 'Guava + Grapefruit', img: IMG.g, alt: ALT.g, tint: '#DDEDD3', ink: '#2C6436', badge: '', line: 'Tropical guava and zesty grapefruit on a master blend of organic teas.', usps: ['Organic fruit and tea', 'Gut-friendly live cultures', 'Fermented the traditional way'], url: URL.g }),
+        mk1({ name: 'Raspberry', img: IMG.r, alt: ALT.r, tint: '#F8DCE5', ink: '#9E1F4C', badge: 'Great Taste award', line: 'Organic raspberries on a master blend of organic teas.', usps: ['Organic raspberries', 'Gut-friendly live cultures', 'Fermented the traditional way'], url: URL.r }),
+        mk1({ name: 'Blueberry + Mint', img: IMG.b, alt: ALT.b, tint: '#E2E2F4', ink: '#4A4A94', badge: '', line: 'Organic blueberries with a cool hit of mint.', usps: ['Organic blueberries', 'Gut-friendly live cultures', 'Fermented the traditional way'], url: URL.b })
+      ],
+      price: '€' + price1.toFixed(2),
+      packLine: pack1 + ' cans · €' + (price1 / pack1).toFixed(2) + ' a can'
+    };
+
+    // Option 2
+    const usps2 = ['Organic', 'Live cultures', 'Carbon-neutral brewery', 'Made in Galway'];
+    const F2 = [
+      { name: 'Guava + Grapefruit', img: IMG.g, alt: ALT.g, tint: '#DDEDD3', deep: '#C6E1B8', ink: '#2C6436', badge: '', line: 'Tropical guava and zesty grapefruit, fermented the traditional way with our SCOBY culture.', usps: usps2, url: URL.g },
+      { name: 'Raspberry', img: IMG.r, alt: ALT.r, tint: '#F8DCE5', deep: '#F1BFCF', ink: '#9E1F4C', badge: 'Great Taste award', line: 'Organic raspberries on a master blend of organic teas, fermented the traditional way.', usps: usps2, url: URL.r },
+      { name: 'Blueberry + Mint', img: IMG.b, alt: ALT.b, tint: '#E2E2F4', deep: '#CACAEA', ink: '#4A4A94', badge: '', line: 'Organic blueberries and fresh mint, brewed and canned by hand in the Galway Gaeltacht.', usps: usps2, url: URL.b }
+    ];
+    const f2 = F2[this.state.i2];
+    const pack2 = this.state.pack2;
+    const one2 = prices[pack2];
+    const sub2 = off(one2);
+    const live2 = this.state.sub2 ? sub2 : one2;
+    const opt2 = (on) => 'display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; padding: 12px 18px; border-radius: 16px; cursor: pointer; font-family: inherit; color: #1F2A22; text-align: left; ' + (on ? 'background: ' + f2.tint + '; border: 2px solid ' + f2.ink + ';' : 'background: #FFFFFF; border: 2px solid #DCD6C6;');
+    const s2 = {
+      f: f2,
+      tabs: F2.map((x, i) => {
+        const on = i === this.state.i2;
+        return { ...x, selected: on ? 'true' : 'false', pick: () => this.setState({ i2: i }),
+          style: 'display: flex; align-items: center; gap: 14px; min-height: 84px; padding: 10px 16px; border-radius: 20px; cursor: pointer; font-family: inherit; text-align: left; ' + (on ? 'background: ' + x.ink + '; color: #FFFFFF; border: 2px solid ' + x.ink + ';' : 'background: #FFFFFF; color: ' + x.ink + '; border: 2px solid rgba(31,42,34,0.12);') };
+      }),
+      packs: [8, 12, 16].map((n) => {
+        const on = n === pack2;
+        return { label: n + ' cans', pressed: on ? 'true' : 'false', pick: () => this.setState({ pack2: n }),
+          style: 'flex: 1; min-height: 44px; border-radius: 12px; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; ' + (on ? 'background: #1F2A22; color: #FFFFFF; border: 2px solid #1F2A22;' : 'background: #FFFFFF; color: #1F2A22; border: 2px solid #DCD6C6;') };
+      }),
+      sectionStyle: 'flex: 1; color: #1F2A22; padding: 80px 24px 96px; transition: background 0.3s; background: ' + f2.tint + ';',
+      discStyle: 'position: absolute; width: 460px; height: 460px; border-radius: 50%; background: ' + f2.deep + ';',
+      eyebrowStyle: 'margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: ' + f2.ink + ';',
+      chipStyle: 'font-size: 13px; font-weight: 700; padding: 7px 12px; border-radius: 999px; background: ' + f2.tint + '; color: ' + f2.ink + ';',
+      subOn: this.state.sub2 ? 'true' : 'false', oneOn: this.state.sub2 ? 'false' : 'true',
+      pickSub: () => this.setState({ sub2: true }), pickOne: () => this.setState({ sub2: false }),
+      subStyle: opt2(this.state.sub2), oneStyle: opt2(!this.state.sub2),
+      subPrice: '€' + sub2.toFixed(2), oneOffPrice: '€' + one2.toFixed(2),
+      ctaStyle: 'display: flex; align-items: center; justify-content: center; min-height: 56px; border-radius: 999px; background: ' + f2.ink + '; color: #FFFFFF; font-weight: 700; font-size: 17px; text-decoration: none;',
+      perCan: pack2 + ' cans · €' + (live2 / pack2).toFixed(2) + ' a can'
+    };
+
+    // Option 3
+    const mk3 = (o) => ({ ...o,
+      plinth: 'position: absolute; bottom: 0; width: 78%; height: 120px; border-radius: 50%; background: ' + o.col + '; opacity: 0.9;',
+      nameStyle: 'margin: 0; font-family: \'Lilita One\', sans-serif; font-weight: 400; font-size: 34px; line-height: 1; color: ' + o.light + ';' });
+    const s3 = {
+      usps: ['Certified organic', 'Packed with live cultures', 'Carbon-neutral brewery', 'Made in the Galway Gaeltacht', '1% for the Planet'],
+      flavours: [
+        mk3({ name: 'Guava + Grapefruit', img: IMG.g, alt: ALT.g, col: '#3E8E47', light: '#C9EBB8', line: 'Tropical, zesty and bright', url: URL.g }),
+        mk3({ name: 'Raspberry', img: IMG.r, alt: ALT.r, col: '#B0204F', light: '#FFC4D6', line: 'Great Taste award winner', url: URL.r }),
+        mk3({ name: 'Blueberry + Mint', img: IMG.b, alt: ALT.b, col: '#5B5FB0', light: '#D2D3FA', line: 'Juicy berry, cool mint finish', url: URL.b })
+      ]
+    };
+
+    // Option 4
+    const F4 = [
+      { name: 'Guava + Grapefruit', bg: '#2C6436', img: IMG.g, alt: ALT.g, fruit: ['Organic guava + grapefruit', 'Tropical sweetness with a zesty, sharp edge.'], url: URL.g },
+      { name: 'Raspberry', bg: '#9E1F4C', img: IMG.r, alt: ALT.r, fruit: ['Organic raspberries', 'Real organic fruit. A Great Taste award winner.'], url: URL.r },
+      { name: 'Blueberry + Mint', bg: '#4A4A94', img: IMG.b, alt: ALT.b, fruit: ['Organic blueberries + mint', 'Juicy berries with a cool, clean finish.'], url: URL.b }
+    ];
+    const f4 = F4[this.state.i4];
+    const s4 = {
+      f: f4,
+      tabs: F4.map((x, i) => {
+        const on = i === this.state.i4;
+        return { ...x, selected: on ? 'true' : 'false', pick: () => this.setState({ i4: i }),
+          style: 'min-height: 46px; padding: 0 22px; border-radius: 999px; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer; ' + (on ? 'background: #FFFFFF; color: ' + x.bg + '; border: 2px solid #FFFFFF;' : 'background: transparent; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.6);') };
+      }),
+      left: [
+        { title: f4.fruit[0], body: f4.fruit[1] },
+        { title: 'Master blend of organic teas', body: 'The organic tea base behind every can.' }
+      ],
+      right: [
+        { title: 'Fermented with our SCOBY', body: 'Made the traditional way, so it is real kombucha.' },
+        { title: 'Packed with live cultures', body: 'Brewed and canned by hand in the Galway Gaeltacht.' }
+      ],
+      sectionStyle: 'flex: 1; color: #FFFFFF; padding: 80px 24px 88px; transition: background 0.3s; background: ' + f4.bg + ';',
+      ctaStyle: 'display: inline-flex; align-items: center; min-height: 52px; padding: 0 30px; border-radius: 999px; background: ' + f4.bg + '; color: #FFFFFF; font-weight: 700; font-size: 16px; text-decoration: none;'
+    };
+
+    return { s1, s2, s3, s4 };
+  }
+}
+</script>
+</body>
+</html>
