@@ -30,7 +30,38 @@ const IGNORE_DIRS = new Set([
 // Per-project display overrides. Key = the project's path (a root-level .html
 // file, or a top-level folder name). Set an exact title and/or slug here:
 //   "chamber13-pdp": { title: "Chamber 13 — PDP", slug: "chamber-13" }
-const META_OVERRIDES = {};
+const META_OVERRIDES = {
+  "warren-evans-blk-friday-v3": { title: "Warren Evans — Black Friday V3" },
+  "we-black-friday-v2": { title: "Warren Evans — Black Friday V2" },
+  "we-blk-friday-homepage": { title: "Warren Evans — Black Friday Homepage" },
+  "Warren-Evans-Black-Friday-Examples": { title: "Warren Evans — Black Friday Examples" },
+  "warren-evans-upsell-idea": { title: "Warren Evans — Upsell Idea" },
+  "bed-builder-v2": { title: "Bed Builder V2" },
+  "Current vs proposed – one board for preview-html": { title: "Current vs Proposed — One Board" },
+  "improvments-to-pdp": { title: "PDP Improvements" },
+  "Kombucha-brand-landing-pages": { title: "Kombucha — Brand Landing Pages" },
+  "kombucha-keyword-rich-lp": { title: "Kombucha — Keyword-Rich LP" },
+  "drink-landing-page": { title: "Kombucha — Landing Page" },
+  "roadstone-shopify-order-builder": { title: "Roadstone — Order Builder" },
+  "l&l-xmaspage": { title: "L&L — Christmas Page" },
+  "ieknnit-pdp-design": { title: "Ieknnit — PDP Design" },
+  "Charitie-marketplace": { title: "Charitie — Marketplace" },
+  "dougies-goodies-packing-slip": { title: "Dougies Goodies — Packing Slip" },
+  "p2s-design": { title: "Power to Switch — Design" },
+  "blk-box-gym-designer": { title: "BLK BOX — Gym Designer" },
+  "blk-box-product-rail": { title: "BLK BOX — Product Rail" },
+  "blk-box-updates": { title: "BLK BOX — Updates" },
+  "blog-product-integration": { title: "BLK BOX — Blog Product Blocks" },
+  "Drinkallabout - Long Description Options": { title: "Drinkallabout — Long Description Options" },
+  "Dumbell-selection": { title: "Dumbbell Selector" },
+  "Skingredients-Christmas-Landing-Page": { title: "Skingredients — Christmas Landing Page" },
+  "chamber13-pdp": { title: "Chamber 13 — PDP" },
+  "equi-landing-page": { title: "Equi — Landing Page" },
+  "highbury-vintners": { title: "Highbury Vintners" },
+  "house-of-joppa-audit": { title: "House of Joppa — Audit" },
+  "irelands-eye-passport": { title: "Ireland's Eye — Passport" },
+  "skin-nerd-calendar": { title: "Skin Nerd — Advent Calendar" },
+};
 
 // ---- naming --------------------------------------------------------------
 
@@ -360,25 +391,26 @@ async function main() {
   const previews = [];
   for (const it of items) {
     const primary = relative(ROOT, it.primary).split(sep).join("/");
-    const override = META_OVERRIDES[primary] || META_OVERRIDES[it.base] || {};
+    const folderOv = (it.base && META_OVERRIDES[it.base]) || {};
+    const pageOv = META_OVERRIDES[primary] || {};
 
-    // Title: "Project — Page" for multi-page folders, unless the page name
-    // just repeats the project name.
-    let title = it.projectTitle;
-    let slugBase = it.projectTitle;
-    if (it.pageTitle && slugify(it.pageTitle) !== slugify(it.projectTitle)) {
-      title = `${it.projectTitle} — ${it.pageTitle}`;
-      slugBase = `${it.projectTitle} ${it.pageTitle}`;
-    }
-    if (override.title) title = override.title;
+    // Raw names drive the slug (stable URLs); display titles can be overridden.
+    const rawProject = it.projectTitle;
+    const dispProject = folderOv.title || rawProject;
+    const hasPage =
+      it.pageTitle && slugify(it.pageTitle) !== slugify(rawProject);
 
-    let slug = slugify(override.slug || slugBase) || "preview";
+    let slugBase = hasPage ? `${rawProject} ${it.pageTitle}` : rawProject;
+    let slug = slugify(pageOv.slug || slugBase) || "preview";
     if (used.has(slug)) {
       let n = 2;
       while (used.has(`${slug}-${n}`)) n++;
       slug = `${slug}-${n}`;
     }
     used.add(slug);
+
+    let title = hasPage ? `${dispProject} — ${it.pageTitle}` : dispProject;
+    if (pageOv.title) title = pageOv.title;
 
     const added =
       gitAddedDate(primary) ||
@@ -390,9 +422,10 @@ async function main() {
     previews.push({
       slug,
       title,
-      folderTitle: it.projectTitle,
+      folderTitle: dispProject,
+      folderSlugBase: rawProject,
       pageTitle: it.pageTitle,
-      description: await readDescription(it.primary, override),
+      description: await readDescription(it.primary, pageOv),
       primary,
       base: it.base,
       added,
@@ -408,7 +441,11 @@ async function main() {
   for (const p of previews) {
     const key = p.base ? `d:${p.base}` : `f:${p.slug}`;
     if (!groups.has(key)) {
-      groups.set(key, { ftitle: p.folderTitle || p.title, items: [] });
+      groups.set(key, {
+        ftitle: p.folderTitle || p.title,
+        fslugBase: p.folderSlugBase || p.title,
+        items: [],
+      });
     }
     groups.get(key).items.push(p);
   }
@@ -418,7 +455,7 @@ async function main() {
   for (const g of groups.values()) {
     g.items.sort((a, b) => (a.added < b.added ? 1 : a.added > b.added ? -1 : 0));
     const added = g.items.reduce((m, p) => (p.added > m ? p.added : m), "");
-    let fslug = slugify(g.ftitle) || "folder";
+    let fslug = slugify(g.fslugBase) || "folder";
     if (usedF.has(fslug)) {
       let n = 2;
       while (usedF.has(`${fslug}-${n}`)) n++;

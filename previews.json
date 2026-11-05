@@ -2,7 +2,7 @@
   "pages": [
     {
       "slug": "warren-evans-blk-friday-v-3",
-      "title": "Warren Evans BLK Friday V 3",
+      "title": "Warren Evans — Black Friday V3",
       "primary": "warren-evans-blk-friday-v3/Main.dc.html",
       "base": "warren-evans-blk-friday-v3",
       "added": "2026-11-05T08:50:17+01:00",
@@ -10,7 +10,7 @@
     },
     {
       "slug": "we-black-friday-v-2",
-      "title": "We Black Friday V 2",
+      "title": "Warren Evans — Black Friday V2",
       "primary": "we-black-friday-v2/Main.dc.html",
       "base": "we-black-friday-v2",
       "added": "2026-11-04T12:01:58+01:00",
@@ -18,7 +18,7 @@
     },
     {
       "slug": "bed-builder-v-2",
-      "title": "Bed Builder V 2",
+      "title": "Bed Builder V2",
       "primary": "bed-builder-v2/Mobile Bed Builder Options.dc.html",
       "base": "bed-builder-v2",
       "added": "2026-11-04T10:25:06+01:00",
@@ -26,7 +26,7 @@
     },
     {
       "slug": "current-vs-proposed-one-board-for-preview-html-comparison",
-      "title": "Current vs Proposed – One Board for Preview Html — Comparison",
+      "title": "Current vs Proposed — One Board — Comparison",
       "primary": "Current vs proposed – one board for preview-html/Comparison.dc.html",
       "base": "Current vs proposed – one board for preview-html",
       "added": "2026-11-03T13:31:33+01:00",
@@ -34,7 +34,7 @@
     },
     {
       "slug": "current-vs-proposed-one-board-for-preview-html-current",
-      "title": "Current vs Proposed – One Board for Preview Html — Current",
+      "title": "Current vs Proposed — One Board — Current",
       "primary": "Current vs proposed – one board for preview-html/Current.dc.html",
       "base": "Current vs proposed – one board for preview-html",
       "added": "2026-11-03T13:31:33+01:00",
@@ -42,7 +42,7 @@
     },
     {
       "slug": "current-vs-proposed-one-board-for-preview-html-main",
-      "title": "Current vs Proposed – One Board for Preview Html — Main",
+      "title": "Current vs Proposed — One Board — Main",
       "primary": "Current vs proposed – one board for preview-html/Main.dc.html",
       "base": "Current vs proposed – one board for preview-html",
       "added": "2026-11-03T13:31:33+01:00",
@@ -50,7 +50,7 @@
     },
     {
       "slug": "improvments-to-pdp-comparison",
-      "title": "Improvments to PDP — Comparison",
+      "title": "PDP Improvements — Comparison",
       "primary": "improvments-to-pdp/Comparison.dc.html",
       "base": "improvments-to-pdp",
       "added": "2026-11-03T13:31:33+01:00",
@@ -58,7 +58,7 @@
     },
     {
       "slug": "improvments-to-pdp-current",
-      "title": "Improvments to PDP — Current",
+      "title": "PDP Improvements — Current",
       "primary": "improvments-to-pdp/Current.dc.html",
       "base": "improvments-to-pdp",
       "added": "2026-11-03T13:31:33+01:00",
@@ -66,7 +66,7 @@
     },
     {
       "slug": "improvments-to-pdp-main",
-      "title": "Improvments to PDP — Main",
+      "title": "PDP Improvements — Main",
       "primary": "improvments-to-pdp/Main.dc.html",
       "base": "improvments-to-pdp",
       "added": "2026-11-03T13:31:33+01:00",
@@ -74,7 +74,7 @@
     },
     {
       "slug": "warren-evans-black-friday-examples",
-      "title": "Warren Evans Black Friday Examples",
+      "title": "Warren Evans — Black Friday Examples",
       "primary": "Warren-Evans-Black-Friday-Examples/Main.dc.html",
       "base": "Warren-Evans-Black-Friday-Examples",
       "added": "2026-11-03T13:14:46+01:00",
@@ -82,7 +82,7 @@
     },
     {
       "slug": "we-blk-friday-homepage",
-      "title": "We BLK Friday Homepage",
+      "title": "Warren Evans — Black Friday Homepage",
       "primary": "we-blk-friday-homepage/Main.dc.html",
       "base": "we-blk-friday-homepage",
       "added": "2026-11-03T13:02:03+01:00",
@@ -90,7 +90,7 @@
     },
     {
       "slug": "kombucha-brand-landing-pages",
-      "title": "Kombucha Brand Landing Pages",
+      "title": "Kombucha — Brand Landing Pages",
       "primary": "Kombucha-brand-landing-pages/index.html",
       "base": "Kombucha-brand-landing-pages",
       "added": "2026-10-13T10:16:11+02:00",
@@ -98,7 +98,7 @@
     },
     {
       "slug": "roadstone-shopify-order-builder-order-flows",
-      "title": "Roadstone Shopify Order Builder — Order Flows",
+      "title": "Roadstone — Order Builder — Order Flows",
       "primary": "roadstone-shopify-order-builder/Order Flows.dc.html",
       "base": "roadstone-shopify-order-builder",
       "added": "2026-10-08T13:17:10+02:00",
@@ -106,7 +106,7 @@
     },
     {
       "slug": "roadstone-shopify-order-builder-order-builder",
-      "title": "Roadstone Shopify Order Builder — Order Builder",
+      "title": "Roadstone — Order Builder — Order Builder",
       "primary": "roadstone-shopify-order-builder/Order Builder.dc.html",
       "base": "roadstone-shopify-order-builder",
       "added": "2026-10-08T12:29:37+02:00",
@@ -114,7 +114,7 @@
     },
     {
       "slug": "l-and-l-xmaspage-christmas-selection-options",
-      "title": "L&l Xmaspage — Christmas Selection Options",
+      "title": "L&L — Christmas Page — Christmas Selection Options",
       "primary": "l&l-xmaspage/Christmas Selection Options.dc.html",
       "base": "l&l-xmaspage",
       "added": "2026-10-07T16:34:29+02:00",
@@ -122,7 +122,7 @@
     },
     {
       "slug": "l-and-l-xmaspage-christmas-selection",
-      "title": "L&l Xmaspage — Christmas Selection",
+      "title": "L&L — Christmas Page — Christmas Selection",
       "primary": "l&l-xmaspage/Christmas Selection.dc.html",
       "base": "l&l-xmaspage",
       "added": "2026-10-07T16:34:29+02:00",
@@ -130,7 +130,7 @@
     },
     {
       "slug": "ieknnit-pdp-design-collab-landing-page",
-      "title": "Ieknnit PDP Design — Collab Landing Page",
+      "title": "Ieknnit — PDP Design — Collab Landing Page",
       "primary": "ieknnit-pdp-design/Collab Landing Page.dc.html",
       "base": "ieknnit-pdp-design",
       "added": "2026-10-07T14:32:14+02:00",
@@ -138,7 +138,7 @@
     },
     {
       "slug": "ieknnit-pdp-design-product-page-preview",
-      "title": "Ieknnit PDP Design — Product Page Preview",
+      "title": "Ieknnit — PDP Design — Product Page Preview",
       "primary": "ieknnit-pdp-design/Product Page Preview.dc.html",
       "base": "ieknnit-pdp-design",
       "added": "2026-10-07T14:32:14+02:00",
@@ -146,7 +146,7 @@
     },
     {
       "slug": "ieknnit-pdp-design-product-passport",
-      "title": "Ieknnit PDP Design — Product Passport",
+      "title": "Ieknnit — PDP Design — Product Passport",
       "primary": "ieknnit-pdp-design/Product Passport.dc.html",
       "base": "ieknnit-pdp-design",
       "added": "2026-10-07T14:32:14+02:00",
@@ -154,7 +154,7 @@
     },
     {
       "slug": "charitie-marketplace",
-      "title": "Charitie Marketplace",
+      "title": "Charitie — Marketplace",
       "primary": "Charitie-marketplace/index.html",
       "base": "Charitie-marketplace",
       "added": "2026-10-05T16:49:44+02:00",
@@ -162,7 +162,7 @@
     },
     {
       "slug": "warren-evans-upsell-idea-bed-pdp-mattress-upsell-v-2",
-      "title": "Warren Evans Upsell Idea — Bed PDP Mattress Upsell V 2",
+      "title": "Warren Evans — Upsell Idea — Bed PDP Mattress Upsell V 2",
       "primary": "warren-evans-upsell-idea/Bed PDP Mattress Upsell v2.dc.html",
       "base": "warren-evans-upsell-idea",
       "added": "2026-10-05T16:42:17+02:00",
@@ -170,7 +170,7 @@
     },
     {
       "slug": "warren-evans-upsell-idea-bed-pdp-mattress-upsell",
-      "title": "Warren Evans Upsell Idea — Bed PDP Mattress Upsell",
+      "title": "Warren Evans — Upsell Idea — Bed PDP Mattress Upsell",
       "primary": "warren-evans-upsell-idea/Bed PDP Mattress Upsell.dc.html",
       "base": "warren-evans-upsell-idea",
       "added": "2026-10-05T16:42:17+02:00",
@@ -178,7 +178,7 @@
     },
     {
       "slug": "warren-evans-upsell-idea",
-      "title": "Warren Evans Upsell Idea",
+      "title": "Warren Evans — Upsell Idea",
       "primary": "warren-evans-upsell-idea/index.html",
       "base": "warren-evans-upsell-idea",
       "added": "2026-10-05T16:27:16+02:00",
@@ -186,7 +186,7 @@
     },
     {
       "slug": "dougies-goodies-packing-slip",
-      "title": "Dougies Goodies Packing Slip",
+      "title": "Dougies Goodies — Packing Slip",
       "primary": "dougies-goodies-packing-slip/Packing Slip.dc.html",
       "base": "dougies-goodies-packing-slip",
       "added": "2026-10-01T13:09:24+02:00",
@@ -194,7 +194,7 @@
     },
     {
       "slug": "kombucha-keyword-rich-lp",
-      "title": "Kombucha Keyword Rich Lp",
+      "title": "Kombucha — Keyword-Rich LP",
       "primary": "kombucha-keyword-rich-lp/index.html",
       "base": "kombucha-keyword-rich-lp",
       "added": "2026-10-01T10:05:59+02:00",
@@ -202,7 +202,7 @@
     },
     {
       "slug": "p2s-design-result-block-options",
-      "title": "P2S Design — Result Block Options",
+      "title": "Power to Switch — Design — Result Block Options",
       "primary": "p2s-design/Result Block Options.dc.html",
       "base": "p2s-design",
       "added": "2026-09-30T12:01:34+02:00",
@@ -210,7 +210,7 @@
     },
     {
       "slug": "p2s-design-result-block-redesign",
-      "title": "P2S Design — Result Block Redesign",
+      "title": "Power to Switch — Design — Result Block Redesign",
       "primary": "p2s-design/Result Block Redesign.dc.html",
       "base": "p2s-design",
       "added": "2026-09-30T12:01:34+02:00",
@@ -218,7 +218,7 @@
     },
     {
       "slug": "p2s-design-switch-form-archive",
-      "title": "P2S Design — Switch Form Archive",
+      "title": "Power to Switch — Design — Switch Form Archive",
       "primary": "p2s-design/Switch Form Archive.dc.html",
       "base": "p2s-design",
       "added": "2026-09-30T12:01:34+02:00",
@@ -226,7 +226,7 @@
     },
     {
       "slug": "blk-box-gym-designer",
-      "title": "BLK BOX Gym Designer",
+      "title": "BLK BOX — Gym Designer",
       "primary": "blk-box-gym-designer/BLK_BOX_Gym_Designer_Standalone_.html",
       "base": "blk-box-gym-designer",
       "added": "2026-09-30T11:59:04+02:00",
@@ -234,7 +234,7 @@
     },
     {
       "slug": "drinkallabout-long-description-options",
-      "title": "Drinkallabout Long Description Options",
+      "title": "Drinkallabout — Long Description Options",
       "primary": "Drinkallabout - Long Description Options/Collection Description Options.dc.html",
       "base": "Drinkallabout - Long Description Options",
       "added": "2026-09-23T14:17:20+02:00",
@@ -242,7 +242,7 @@
     },
     {
       "slug": "dumbell-selection",
-      "title": "Dumbell Selection",
+      "title": "Dumbbell Selector",
       "primary": "Dumbell-selection/DumbbellSelector.dc.html",
       "base": "Dumbell-selection",
       "added": "2026-09-23T14:17:20+02:00",
@@ -250,7 +250,7 @@
     },
     {
       "slug": "skingredients-christmas-landing-page",
-      "title": "Skingredients Christmas Landing Page",
+      "title": "Skingredients — Christmas Landing Page",
       "primary": "Skingredients-Christmas-Landing-Page/index.html",
       "base": "Skingredients-Christmas-Landing-Page",
       "added": "2026-09-23T14:17:20+02:00",
@@ -258,7 +258,7 @@
     },
     {
       "slug": "blk-box-product-rail",
-      "title": "BLK BOX Product Rail",
+      "title": "BLK BOX — Product Rail",
       "primary": "blk-box-product-rail/Product Rail PDP.dc.html",
       "base": "blk-box-product-rail",
       "added": "2026-09-23T14:17:20+02:00",
@@ -266,7 +266,7 @@
     },
     {
       "slug": "blk-box-updates",
-      "title": "BLK BOX Updates",
+      "title": "BLK BOX — Updates",
       "primary": "blk-box-updates/blk-box-Flooring-Home Gym.dc.html",
       "base": "blk-box-updates",
       "added": "2026-09-23T14:17:20+02:00",
@@ -274,7 +274,7 @@
     },
     {
       "slug": "blog-product-integration",
-      "title": "Blog Product Integration",
+      "title": "BLK BOX — Blog Product Blocks",
       "primary": "blog-product-integration/BLK BOX Blog Product Blocks.dc.html",
       "base": "blog-product-integration",
       "added": "2026-09-23T14:17:20+02:00",
@@ -282,7 +282,7 @@
     },
     {
       "slug": "chamber-13-pdp-chamber-13-product-page",
-      "title": "Chamber 13 PDP — Chamber 13 Product Page",
+      "title": "Chamber 13 — PDP — Chamber 13 Product Page",
       "primary": "chamber13-pdp/Chamber 13 Product Page.dc.html",
       "base": "chamber13-pdp",
       "added": "2026-09-23T14:17:20+02:00",
@@ -290,7 +290,7 @@
     },
     {
       "slug": "chamber-13-pdp",
-      "title": "Chamber 13 PDP",
+      "title": "Chamber 13 — PDP",
       "primary": "chamber13-pdp/chamber13-pdp.dc.html",
       "base": "chamber13-pdp",
       "added": "2026-09-23T14:17:20+02:00",
@@ -298,7 +298,7 @@
     },
     {
       "slug": "drink-landing-page",
-      "title": "Drink Landing Page",
+      "title": "Kombucha — Landing Page",
       "primary": "drink-landing-page/Kombucha Landing Pages.dc.html",
       "base": "drink-landing-page",
       "added": "2026-09-23T14:17:20+02:00",
@@ -306,7 +306,7 @@
     },
     {
       "slug": "equi-landing-page",
-      "title": "Equi Landing Page",
+      "title": "Equi — Landing Page",
       "primary": "equi-landing-page/WildWash Birthday Club.html",
       "base": "equi-landing-page",
       "added": "2026-09-23T14:17:20+02:00",
@@ -322,7 +322,7 @@
     },
     {
       "slug": "house-of-joppa-audit",
-      "title": "House of Joppa Audit",
+      "title": "House of Joppa — Audit",
       "primary": "house-of-joppa-audit/index.html",
       "base": "house-of-joppa-audit",
       "added": "2026-09-23T14:17:20+02:00",
@@ -330,7 +330,7 @@
     },
     {
       "slug": "irelands-eye-passport",
-      "title": "Irelands Eye Passport",
+      "title": "Ireland's Eye — Passport",
       "primary": "irelands-eye-passport/Irelands-Eye-Passport.dc.html",
       "base": "irelands-eye-passport",
       "added": "2026-09-23T14:17:20+02:00",
@@ -338,7 +338,7 @@
     },
     {
       "slug": "skin-nerd-calendar",
-      "title": "Skin Nerd Calendar",
+      "title": "Skin Nerd — Advent Calendar",
       "primary": "skin-nerd-calendar/Advent Calendar.dc.html",
       "base": "skin-nerd-calendar",
       "added": "2026-09-23T14:17:20+02:00",
@@ -348,46 +348,46 @@
   "folders": [
     {
       "fslug": "warren-evans-blk-friday-v-3",
-      "ftitle": "Warren Evans BLK Friday V 3",
+      "ftitle": "Warren Evans — Black Friday V3",
       "added": "2026-11-05T08:50:17+01:00",
       "count": 1,
       "items": [
         {
           "slug": "warren-evans-blk-friday-v-3",
-          "title": "Warren Evans BLK Friday V 3",
+          "title": "Warren Evans — Black Friday V3",
           "thumb": null
         }
       ]
     },
     {
       "fslug": "we-black-friday-v-2",
-      "ftitle": "We Black Friday V 2",
+      "ftitle": "Warren Evans — Black Friday V2",
       "added": "2026-11-04T12:01:58+01:00",
       "count": 1,
       "items": [
         {
           "slug": "we-black-friday-v-2",
-          "title": "We Black Friday V 2",
+          "title": "Warren Evans — Black Friday V2",
           "thumb": null
         }
       ]
     },
     {
       "fslug": "bed-builder-v-2",
-      "ftitle": "Bed Builder V 2",
+      "ftitle": "Bed Builder V2",
       "added": "2026-11-04T10:25:06+01:00",
       "count": 1,
       "items": [
         {
           "slug": "bed-builder-v-2",
-          "title": "Bed Builder V 2",
+          "title": "Bed Builder V2",
           "thumb": null
         }
       ]
     },
     {
       "fslug": "current-vs-proposed-one-board-for-preview-html",
-      "ftitle": "Current vs Proposed – One Board for Preview Html",
+      "ftitle": "Current vs Proposed — One Board",
       "added": "2026-11-03T13:31:33+01:00",
       "count": 3,
       "items": [
@@ -410,7 +410,7 @@
     },
     {
       "fslug": "improvments-to-pdp",
-      "ftitle": "Improvments to PDP",
+      "ftitle": "PDP Improvements",
       "added": "2026-11-03T13:31:33+01:00",
       "count": 3,
       "items": [
@@ -433,46 +433,46 @@
     },
     {
       "fslug": "warren-evans-black-friday-examples",
-      "ftitle": "Warren Evans Black Friday Examples",
+      "ftitle": "Warren Evans — Black Friday Examples",
       "added": "2026-11-03T13:14:46+01:00",
       "count": 1,
       "items": [
         {
           "slug": "warren-evans-black-friday-examples",
-          "title": "Warren Evans Black Friday Examples",
+          "title": "Warren Evans — Black Friday Examples",
           "thumb": null
         }
       ]
     },
     {
       "fslug": "we-blk-friday-homepage",
-      "ftitle": "We BLK Friday Homepage",
+      "ftitle": "Warren Evans — Black Friday Homepage",
       "added": "2026-11-03T13:02:03+01:00",
       "count": 1,
       "items": [
         {
           "slug": "we-blk-friday-homepage",
-          "title": "We BLK Friday Homepage",
+          "title": "Warren Evans — Black Friday Homepage",
           "thumb": null
         }
       ]
     },
     {
       "fslug": "kombucha-brand-landing-pages",
-      "ftitle": "Kombucha Brand Landing Pages",
+      "ftitle": "Kombucha — Brand Landing Pages",
       "added": "2026-10-13T10:16:11+02:00",
       "count": 1,
       "items": [
         {
           "slug": "kombucha-brand-landing-pages",
-          "title": "Kombucha Brand Landing Pages",
+          "title": "Kombucha — Brand Landing Pages",
           "thumb": null
         }
       ]
     },
     {
       "fslug": "roadstone-shopify-order-builder",
-      "ftitle": "Roadstone Shopify Order Builder",
+      "ftitle": "Roadstone — Order Builder",
       "added": "2026-10-08T13:17:10+02:00",
       "count": 2,
       "items": [
@@ -490,7 +490,7 @@
     },
     {
       "fslug": "l-and-l-xmaspage",
-      "ftitle": "L&l Xmaspage",
+      "ftitle": "L&L — Christmas Page",
       "added": "2026-10-07T16:34:29+02:00",
       "count": 2,
       "items": [
@@ -508,7 +508,7 @@
     },
     {
       "fslug": "ieknnit-pdp-design",
-      "ftitle": "Ieknnit PDP Design",
+      "ftitle": "Ieknnit — PDP Design",
       "added": "2026-10-07T14:32:14+02:00",
       "count": 3,
       "items": [
@@ -531,20 +531,20 @@
     },
     {
       "fslug": "charitie-marketplace",
-      "ftitle": "Charitie Marketplace",
+      "ftitle": "Charitie — Marketplace",
       "added": "2026-10-05T16:49:44+02:00",
       "count": 1,
       "items": [
         {
           "slug": "charitie-marketplace",
-          "title": "Charitie Marketplace",
+          "title": "Charitie — Marketplace",
           "thumb": null
         }
       ]
     },
     {
       "fslug": "warren-evans-upsell-idea",
-      "ftitle": "Warren Evans Upsell Idea",
+      "ftitle": "Warren Evans — Upsell Idea",
       "added": "2026-10-05T16:42:17+02:00",
       "count": 3,
       "items": [
@@ -560,40 +560,40 @@
         },
         {
           "slug": "warren-evans-upsell-idea",
-          "title": "Warren Evans Upsell Idea",
+          "title": "Warren Evans — Upsell Idea",
           "thumb": null
         }
       ]
     },
     {
       "fslug": "dougies-goodies-packing-slip",
-      "ftitle": "Dougies Goodies Packing Slip",
+      "ftitle": "Dougies Goodies — Packing Slip",
       "added": "2026-10-01T13:09:24+02:00",
       "count": 1,
       "items": [
         {
           "slug": "dougies-goodies-packing-slip",
-          "title": "Dougies Goodies Packing Slip",
+          "title": "Dougies Goodies — Packing Slip",
           "thumb": null
         }
       ]
     },
     {
       "fslug": "kombucha-keyword-rich-lp",
-      "ftitle": "Kombucha Keyword Rich Lp",
+      "ftitle": "Kombucha — Keyword-Rich LP",
       "added": "2026-10-01T10:05:59+02:00",
       "count": 1,
       "items": [
         {
           "slug": "kombucha-keyword-rich-lp",
-          "title": "Kombucha Keyword Rich Lp",
+          "title": "Kombucha — Keyword-Rich LP",
           "thumb": null
         }
       ]
     },
     {
       "fslug": "p2s-design",
-      "ftitle": "P2S Design",
+      "ftitle": "Power to Switch — Design",
       "added": "2026-09-30T12:01:34+02:00",
       "count": 3,
       "items": [
@@ -616,98 +616,98 @@
     },
     {
       "fslug": "blk-box-gym-designer",
-      "ftitle": "BLK BOX Gym Designer",
+      "ftitle": "BLK BOX — Gym Designer",
       "added": "2026-09-30T11:59:04+02:00",
       "count": 1,
       "items": [
         {
           "slug": "blk-box-gym-designer",
-          "title": "BLK BOX Gym Designer",
+          "title": "BLK BOX — Gym Designer",
           "thumb": "thumbnails/blk-box-gym-designer.jpg"
         }
       ]
     },
     {
       "fslug": "drinkallabout-long-description-options",
-      "ftitle": "Drinkallabout Long Description Options",
+      "ftitle": "Drinkallabout — Long Description Options",
       "added": "2026-09-23T14:17:20+02:00",
       "count": 1,
       "items": [
         {
           "slug": "drinkallabout-long-description-options",
-          "title": "Drinkallabout Long Description Options",
+          "title": "Drinkallabout — Long Description Options",
           "thumb": "thumbnails/drinkallabout-long-description-options.jpg"
         }
       ]
     },
     {
       "fslug": "dumbell-selection",
-      "ftitle": "Dumbell Selection",
+      "ftitle": "Dumbbell Selector",
       "added": "2026-09-23T14:17:20+02:00",
       "count": 1,
       "items": [
         {
           "slug": "dumbell-selection",
-          "title": "Dumbell Selection",
+          "title": "Dumbbell Selector",
           "thumb": "thumbnails/dumbell-selection.jpg"
         }
       ]
     },
     {
       "fslug": "skingredients-christmas-landing-page",
-      "ftitle": "Skingredients Christmas Landing Page",
+      "ftitle": "Skingredients — Christmas Landing Page",
       "added": "2026-09-23T14:17:20+02:00",
       "count": 1,
       "items": [
         {
           "slug": "skingredients-christmas-landing-page",
-          "title": "Skingredients Christmas Landing Page",
+          "title": "Skingredients — Christmas Landing Page",
           "thumb": "thumbnails/skingredients-christmas-landing-page.jpg"
         }
       ]
     },
     {
       "fslug": "blk-box-product-rail",
-      "ftitle": "BLK BOX Product Rail",
+      "ftitle": "BLK BOX — Product Rail",
       "added": "2026-09-23T14:17:20+02:00",
       "count": 1,
       "items": [
         {
           "slug": "blk-box-product-rail",
-          "title": "BLK BOX Product Rail",
+          "title": "BLK BOX — Product Rail",
           "thumb": "thumbnails/blk-box-product-rail.jpg"
         }
       ]
     },
     {
       "fslug": "blk-box-updates",
-      "ftitle": "BLK BOX Updates",
+      "ftitle": "BLK BOX — Updates",
       "added": "2026-09-23T14:17:20+02:00",
       "count": 1,
       "items": [
         {
           "slug": "blk-box-updates",
-          "title": "BLK BOX Updates",
+          "title": "BLK BOX — Updates",
           "thumb": "thumbnails/blk-box-updates.jpg"
         }
       ]
     },
     {
       "fslug": "blog-product-integration",
-      "ftitle": "Blog Product Integration",
+      "ftitle": "BLK BOX — Blog Product Blocks",
       "added": "2026-09-23T14:17:20+02:00",
       "count": 1,
       "items": [
         {
           "slug": "blog-product-integration",
-          "title": "Blog Product Integration",
+          "title": "BLK BOX — Blog Product Blocks",
           "thumb": "thumbnails/blog-product-integration.jpg"
         }
       ]
     },
     {
       "fslug": "chamber-13-pdp",
-      "ftitle": "Chamber 13 PDP",
+      "ftitle": "Chamber 13 — PDP",
       "added": "2026-09-23T14:17:20+02:00",
       "count": 2,
       "items": [
@@ -725,26 +725,26 @@
     },
     {
       "fslug": "drink-landing-page",
-      "ftitle": "Drink Landing Page",
+      "ftitle": "Kombucha — Landing Page",
       "added": "2026-09-23T14:17:20+02:00",
       "count": 1,
       "items": [
         {
           "slug": "drink-landing-page",
-          "title": "Drink Landing Page",
+          "title": "Kombucha — Landing Page",
           "thumb": "thumbnails/drink-landing-page.jpg"
         }
       ]
     },
     {
       "fslug": "equi-landing-page",
-      "ftitle": "Equi Landing Page",
+      "ftitle": "Equi — Landing Page",
       "added": "2026-09-23T14:17:20+02:00",
       "count": 1,
       "items": [
         {
           "slug": "equi-landing-page",
-          "title": "Equi Landing Page",
+          "title": "Equi — Landing Page",
           "thumb": "thumbnails/equi-landing-page.jpg"
         }
       ]
@@ -764,39 +764,39 @@
     },
     {
       "fslug": "house-of-joppa-audit",
-      "ftitle": "House of Joppa Audit",
+      "ftitle": "House of Joppa — Audit",
       "added": "2026-09-23T14:17:20+02:00",
       "count": 1,
       "items": [
         {
           "slug": "house-of-joppa-audit",
-          "title": "House of Joppa Audit",
+          "title": "House of Joppa — Audit",
           "thumb": "thumbnails/house-of-joppa-audit.jpg"
         }
       ]
     },
     {
       "fslug": "irelands-eye-passport",
-      "ftitle": "Irelands Eye Passport",
+      "ftitle": "Ireland's Eye — Passport",
       "added": "2026-09-23T14:17:20+02:00",
       "count": 1,
       "items": [
         {
           "slug": "irelands-eye-passport",
-          "title": "Irelands Eye Passport",
+          "title": "Ireland's Eye — Passport",
           "thumb": "thumbnails/irelands-eye-passport.jpg"
         }
       ]
     },
     {
       "fslug": "skin-nerd-calendar",
-      "ftitle": "Skin Nerd Calendar",
+      "ftitle": "Skin Nerd — Advent Calendar",
       "added": "2026-09-23T14:17:20+02:00",
       "count": 1,
       "items": [
         {
           "slug": "skin-nerd-calendar",
-          "title": "Skin Nerd Calendar",
+          "title": "Skin Nerd — Advent Calendar",
           "thumb": "thumbnails/skin-nerd-calendar.jpg"
         }
       ]
