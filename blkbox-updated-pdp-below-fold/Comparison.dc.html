@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BLK BOX product page, current vs proposed</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=DM+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0;background:#ececea}
+a{color:#111111}a:hover{color:#555555}
+</style>
+</helmet>
+<div style="width: 1400px; box-sizing: border-box; padding: 64px 56px 80px 56px; background: #ececea; font-family: Inter, system-ui, sans-serif; color: #111111; display: flex; flex-direction: column; gap: 40px">
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5a5a5a">BLK BOX Fitness · Product page, mobile</div>
+<h1 style="margin: 0; font-size: 44px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1">Competition Kettlebells: current vs proposed</h1>
+<p style="margin: 0; max-width: 820px; font-size: 17px; line-height: 1.5; color: #333333">Everything above Add to Cart is unchanged so the comparison is only about the buy area and what sits below it. Numbered markers on the proposed page match the notes on the right.</p>
+</div>
+
+<div style="display: flex; gap: 48px; align-items: flex-start">
+
+<div style="display: flex; flex-direction: column; gap: 16px; flex: 0 0 390px">
+<div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600"><span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; background: #ffffff; border: 1px solid #c8c8c4">Current</span><span style="font-weight: 400; color: #5a5a5a">Live site, 3 Nov 2026</span></div>
+<div style="width: 390px; border-radius: 28px; overflow: hidden; background: #ffffff; box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 12px 32px rgba(0,0,0,0.08)">
+<dc-import name="Current" hint-size="390px,3520px"></dc-import>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px; flex: 0 0 390px">
+<div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600"><span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; background: #111111; color: #ffffff">Proposed</span><span style="font-weight: 400; color: #5a5a5a">Glaze Digital</span></div>
+<div style="position: relative; width: 390px">
+<div style="width: 390px; border-radius: 28px; overflow: hidden; background: #ffffff; box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 12px 32px rgba(0,0,0,0.08)">
+<dc-import name="Main" hint-size="390px,4180px"></dc-import>
+</div>
+<sc-for list="{{ markers }}" as="m" hint-placeholder-count="9">
+<div style="{{ m.style }}">{{ m.n }}</div>
+</sc-for>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px; flex: 1 1 0; min-width: 0; padding-top: 50px">
+<sc-for list="{{ notes }}" as="note" hint-placeholder-count="9">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; background: #ffffff; border-radius: 12px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: #d9602b; color: #ffffff; font-size: 13px; font-weight: 700; flex-shrink: 0">{{ note.n }}</span><span style="font-size: 16px; font-weight: 700; letter-spacing: -0.01em">{{ note.title }}</span></div>
+<div style="font-size: 13.5px; line-height: 1.5; color: #333333"><strong style="color: #111111">Why: </strong>{{ note.why }}</div>
+<div style="font-size: 13.5px; line-height: 1.5; color: #333333"><strong style="color: #111111">Change: </strong>{{ note.change }}</div>
+<div style="font-size: 13.5px; line-height: 1.5; color: #333333"><strong style="color: #111111">Improves: </strong>{{ note.improves }}</div>
+</div>
+</sc-for>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; background: #fff4e5; border: 1px solid #f0c48a; border-radius: 12px">
+<div style="font-size: 16px; font-weight: 700">Check before build</div>
+<div style="font-size: 13.5px; line-height: 1.55; color: #333333">Trust bar says free shipping over €900, the delivery table says €599.</div>
+<div style="font-size: 13.5px; line-height: 1.55; color: #333333">Delivery bands overlap (€180 to €429 and €423 to €598).</div>
+<div style="font-size: 13.5px; line-height: 1.55; color: #333333">Gym tile page prices in EUR but the m² calculator totals in GBP.</div>
+<div style="font-size: 13.5px; line-height: 1.55; color: #333333">Square brackets on the proposed page are facts still to fill in.</div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1400,"height":4500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tops = [1050, 1130, 1350, 1660, 1990, 2500, 2720, 2980, 3270];
+    const markers = tops.map((t, i) => ({
+      n: String(i + 1),
+      style: 'position: absolute; left: -14px; top: ' + t + 'px; width: 28px; height: 28px; border-radius: 50%; background: #d9602b; color: #ffffff; font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 3px #ececea'
+    }));
+    const notes = [
+      { n: '1', title: 'Full-width Add to Cart with live price',
+        why: 'Each weight is a different price and the price sits several scrolls above the button once the weight picker is in view. Sharing a row with the quantity box left the button too narrow to carry the price.',
+        change: 'Quantity moves up under the weight picker. Add to Cart goes full width and shows the live total (weight × quantity), updating when either changes.',
+        improves: 'No surprise at the cart. The buyer confirms the price at the moment they commit.' },
+      { n: '2', title: 'Add to Quote, delivery and stock',
+        why: 'Add to Quote was a small text link squeezed beside the delivery line. 5 of 9 weights are sold out and the only signal is a strike through the pill.',
+        change: 'Add to Quote kept as a full-width secondary button under Add to Cart, with a hint on who it is for. Stock line with a back in stock date and notify link.',
+        improves: 'Trade and facility buyers find the quote route without hunting, and the sale is kept when a size is out.' },
+      { n: '3', title: 'Trust grid, static 2x2',
+        why: 'The carousel shows one message at a time, the first tile renders blank, and the same messages repeat lower down.',
+        change: 'All four visible at once, no dots or arrows, duplicate removed. Finance shows the real monthly figure for this price.',
+        improves: 'Proof is read without a swipe, and the page loses a bug and a repeat.' },
+      { n: '4', title: 'Key specs strip and benefits',
+        why: '33mm, ±1% and 8 to 40kg are what buyers compare on, and they were hidden in a closed accordion. "Durable Design" and "Competition-Ready" were labels, not reasons.',
+        change: 'Numbers first, then four specific benefit lines and one line on who it suits.',
+        improves: 'The comparison facts sit in the first screen below the button.' },
+      { n: '5', title: 'Accordions tidied',
+        why: 'Specs appeared twice, delivery and returns were split, finance was three bare numbers, and the lifetime warranty had no detail.',
+        change: 'Specifications open by default. Delivery and returns merged with fee bands. Klarna and PayPal splits. Warranty added.',
+        improves: 'Every question that stops a purchase is answered in one place, in order.' },
+      { n: '6', title: 'Reviews',
+        why: 'The page says 21 reviews at the top and never shows one.',
+        change: 'Rating, one most helpful review, link to all.',
+        improves: 'Social proof where the decision is made, not just a star count.' },
+      { n: '7', title: 'Which kettlebell?',
+        why: 'Cast iron vs competition vs urethane is the first FAQ on the live page, and the buying guide already exists.',
+        change: 'Three row comparison with prices and the guide link.',
+        improves: 'Stops the back and forth between product pages. The same slot takes the 1/3/5 Series table on benches.' },
+      { n: '8', title: 'Often bought together',
+        why: 'No cross sell anywhere on the current page.',
+        change: 'Rack, flooring, chalk, pulled from Rebuy or a metafield.',
+        improves: 'Raises order value on a €38 product that ships at €5,99.' },
+      { n: '9', title: 'FAQ cut to three, breadcrumb to the end',
+        why: 'Five questions, two already answered above. The breadcrumb sat mid page, breaking the flow.',
+        change: 'The three questions that block a purchase, first one open. Breadcrumb at the bottom, still crawlable.',
+        improves: 'Shorter page, fewer taps, nothing interrupting the sections that sell.' }
+    ];
+    return { markers, notes };
+  }
+}
+</script>
+</body>
+</html>
