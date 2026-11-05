@@ -24,8 +24,8 @@
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 56px 24px 80px; }
-    header { margin-bottom: 36px; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+    header { margin-bottom: 28px; }
     .brand {
       font-size: 13px;
       letter-spacing: 0.14em;
@@ -36,59 +36,33 @@
     }
     h1 { font-size: 30px; margin: 0 0 8px; font-weight: 650; }
     .sub { color: var(--muted); margin: 0; font-size: 15px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 18px;
-      margin-top: 8px;
-    }
-    .card {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: inherit;
-      background: var(--panel);
+    .list {
+      margin-top: 18px;
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      background: var(--panel);
     }
-    .card:hover {
-      background: var(--panel-hover);
-      border-color: #34506e;
-      transform: translateY(-1px);
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 18px;
+      text-decoration: none;
+      color: inherit;
+      border-top: 1px solid var(--border);
+      transition: background 0.12s ease;
     }
-    .thumb {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      background: #0b0d11;
-      border-bottom: 1px solid var(--border);
+    .row:first-child { border-top: 0; }
+    .row:hover { background: var(--panel-hover); }
+    .row-name { font-size: 16px; font-weight: 600; overflow-wrap: anywhere; }
+    .row-meta { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .badge {
+      background: #1d222c; border: 1px solid #2a3140; color: var(--muted);
+      font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap;
     }
-    .shot {
-      position: absolute;
-      top: 0;
-      left: 0;
-      border: 0;
-      pointer-events: none;
-    }
-    img.shot { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-    iframe.shot.live {
-      width: 1280px;
-      height: 800px;
-      transform-origin: top left;
-      background: #fff;
-    }
-    .card-body { padding: 13px 16px 15px; }
-    .card-title {
-      font-size: 15px;
-      margin: 0;
-      font-weight: 600;
-      line-height: 1.3;
-      overflow-wrap: anywhere;
-    }
-    .view { margin-left: auto; color: var(--accent); font-weight: 600; }
+    .chev { color: var(--muted); font-size: 16px; }
+    .row:hover .chev { color: var(--accent); }
     .empty {
       text-align: center;
       padding: 60px 20px;
@@ -98,7 +72,7 @@
     }
     .empty-sub { font-size: 14px; }
     code { background: #20242e; padding: 2px 6px; border-radius: 5px; font-size: 13px; }
-    footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
+    footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
   </style>
 </head>
 <body>
@@ -106,145 +80,135 @@
     <header>
       <p class="brand">Glaze Digital</p>
       <h1>Client Previews</h1>
-      <p class="sub">20 previews</p>
+      <p class="sub">30 projects</p>
     </header>
-    <main class="grid">
-      <a class="card" href="/p2s-design-result-block-options/">
-        <div class="thumb"><img class="shot" src="thumbnails/p2s-design-result-block-options.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">P2S Design — Result Block Options</h2>
-        </div>
+    <main>
+      <div class="list">
+      <a class="row" href="/warren-evans-blk-friday-v-3/">
+        <span class="row-name">Warren Evans BLK Friday V 3</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/p2s-design-result-block-redesign/">
-        <div class="thumb"><img class="shot" src="thumbnails/p2s-design-result-block-redesign.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">P2S Design — Result Block Redesign</h2>
-        </div>
+      <a class="row" href="/we-black-friday-v-2/">
+        <span class="row-name">We Black Friday V 2</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/p2s-design-switch-form-archive/">
-        <div class="thumb"><img class="shot" src="thumbnails/p2s-design-switch-form-archive.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">P2S Design — Switch Form Archive</h2>
-        </div>
+      <a class="row" href="/bed-builder-v-2/">
+        <span class="row-name">Bed Builder V 2</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/blk-box-gym-designer/">
-        <div class="thumb"><img class="shot" src="thumbnails/blk-box-gym-designer.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">BLK BOX Gym Designer</h2>
-        </div>
+      <a class="row" href="/f/current-vs-proposed-one-board-for-preview-html/">
+        <span class="row-name">Current vs Proposed – One Board for Preview Html</span>
+        <span class="row-meta"><span class="badge">3 designs</span><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/kombucha-lp/">
-        <div class="thumb"><img class="shot" src="thumbnails/kombucha-lp.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Kombucha Lp</h2>
-        </div>
+      <a class="row" href="/f/improvments-to-pdp/">
+        <span class="row-name">Improvments to PDP</span>
+        <span class="row-meta"><span class="badge">3 designs</span><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/kombucha-lp-kombucha-landing-pages/">
-        <div class="thumb"><img class="shot" src="thumbnails/kombucha-lp-kombucha-landing-pages.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Kombucha Lp — Kombucha Landing Pages</h2>
-        </div>
+      <a class="row" href="/warren-evans-black-friday-examples/">
+        <span class="row-name">Warren Evans Black Friday Examples</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/equi-landing-page/">
-        <div class="thumb"><img class="shot" src="thumbnails/equi-landing-page.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Equi Landing Page</h2>
-        </div>
+      <a class="row" href="/we-blk-friday-homepage/">
+        <span class="row-name">We BLK Friday Homepage</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/skingredients-christmas-landing-page/">
-        <div class="thumb"><img class="shot" src="thumbnails/skingredients-christmas-landing-page.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Skingredients Christmas Landing Page</h2>
-        </div>
+      <a class="row" href="/kombucha-brand-landing-pages/">
+        <span class="row-name">Kombucha Brand Landing Pages</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/irelands-eye-passport/">
-        <div class="thumb"><img class="shot" src="thumbnails/irelands-eye-passport.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Irelands Eye Passport</h2>
-        </div>
+      <a class="row" href="/f/roadstone-shopify-order-builder/">
+        <span class="row-name">Roadstone Shopify Order Builder</span>
+        <span class="row-meta"><span class="badge">2 designs</span><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/blk-box-product-rail/">
-        <div class="thumb"><img class="shot" src="thumbnails/blk-box-product-rail.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">BLK BOX Product Rail</h2>
-        </div>
+      <a class="row" href="/f/l-and-l-xmaspage/">
+        <span class="row-name">L&amp;l Xmaspage</span>
+        <span class="row-meta"><span class="badge">2 designs</span><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/house-of-joppa-audit/">
-        <div class="thumb"><img class="shot" src="thumbnails/house-of-joppa-audit.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">House of Joppa Audit</h2>
-        </div>
+      <a class="row" href="/f/ieknnit-pdp-design/">
+        <span class="row-name">Ieknnit PDP Design</span>
+        <span class="row-meta"><span class="badge">3 designs</span><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/blk-box-updates/">
-        <div class="thumb"><img class="shot" src="thumbnails/blk-box-updates.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">BLK BOX Updates</h2>
-        </div>
+      <a class="row" href="/charitie-marketplace/">
+        <span class="row-name">Charitie Marketplace</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/chamber-13-pdp-chamber-13-product-page/">
-        <div class="thumb"><img class="shot" src="thumbnails/chamber-13-pdp-chamber-13-product-page.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Chamber 13 PDP — Chamber 13 Product Page</h2>
-        </div>
+      <a class="row" href="/f/warren-evans-upsell-idea/">
+        <span class="row-name">Warren Evans Upsell Idea</span>
+        <span class="row-meta"><span class="badge">3 designs</span><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/chamber-13-pdp/">
-        <div class="thumb"><img class="shot" src="thumbnails/chamber-13-pdp.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Chamber 13 PDP</h2>
-        </div>
+      <a class="row" href="/dougies-goodies-packing-slip/">
+        <span class="row-name">Dougies Goodies Packing Slip</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/drinkallabout-long-description-options/">
-        <div class="thumb"><img class="shot" src="thumbnails/drinkallabout-long-description-options.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Drinkallabout Long Description Options</h2>
-        </div>
+      <a class="row" href="/kombucha-keyword-rich-lp/">
+        <span class="row-name">Kombucha Keyword Rich Lp</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/skin-nerd-calendar/">
-        <div class="thumb"><img class="shot" src="thumbnails/skin-nerd-calendar.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Skin Nerd Calendar</h2>
-        </div>
+      <a class="row" href="/f/p2s-design/">
+        <span class="row-name">P2S Design</span>
+        <span class="row-meta"><span class="badge">3 designs</span><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/dumbell-selection/">
-        <div class="thumb"><img class="shot" src="thumbnails/dumbell-selection.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Dumbell Selection</h2>
-        </div>
+      <a class="row" href="/blk-box-gym-designer/">
+        <span class="row-name">BLK BOX Gym Designer</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/blog-product-integration/">
-        <div class="thumb"><img class="shot" src="thumbnails/blog-product-integration.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Blog Product Integration</h2>
-        </div>
+      <a class="row" href="/drinkallabout-long-description-options/">
+        <span class="row-name">Drinkallabout Long Description Options</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/highbury-vintners/">
-        <div class="thumb"><img class="shot" src="thumbnails/highbury-vintners.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Highbury Vintners</h2>
-        </div>
+      <a class="row" href="/dumbell-selection/">
+        <span class="row-name">Dumbell Selection</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
-      <a class="card" href="/drink-landing-page/">
-        <div class="thumb"><img class="shot" src="thumbnails/drink-landing-page.jpg" alt="" loading="lazy" /></div>
-        <div class="card-body">
-          <h2 class="card-title">Drink Landing Page</h2>
-        </div>
+      <a class="row" href="/skingredients-christmas-landing-page/">
+        <span class="row-name">Skingredients Christmas Landing Page</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
       </a>
+      <a class="row" href="/blk-box-product-rail/">
+        <span class="row-name">BLK BOX Product Rail</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
+      </a>
+      <a class="row" href="/blk-box-updates/">
+        <span class="row-name">BLK BOX Updates</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
+      </a>
+      <a class="row" href="/blog-product-integration/">
+        <span class="row-name">Blog Product Integration</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
+      </a>
+      <a class="row" href="/f/chamber-13-pdp/">
+        <span class="row-name">Chamber 13 PDP</span>
+        <span class="row-meta"><span class="badge">2 designs</span><span class="chev">&rarr;</span></span>
+      </a>
+      <a class="row" href="/drink-landing-page/">
+        <span class="row-name">Drink Landing Page</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
+      </a>
+      <a class="row" href="/equi-landing-page/">
+        <span class="row-name">Equi Landing Page</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
+      </a>
+      <a class="row" href="/highbury-vintners/">
+        <span class="row-name">Highbury Vintners</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
+      </a>
+      <a class="row" href="/house-of-joppa-audit/">
+        <span class="row-name">House of Joppa Audit</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
+      </a>
+      <a class="row" href="/irelands-eye-passport/">
+        <span class="row-name">Irelands Eye Passport</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
+      </a>
+      <a class="row" href="/skin-nerd-calendar/">
+        <span class="row-name">Skin Nerd Calendar</span>
+        <span class="row-meta"><span class="chev">&rarr;</span></span>
+      </a>
+      </div>
     </main>
     <footer>
       Updated automatically on each push.
     </footer>
   </div>
-  <script>
-    // Scale each live-iframe thumbnail to its card width (1280px design width).
-    function fitThumbs() {
-      document.querySelectorAll("iframe.shot.live").forEach(function (f) {
-        var w = f.parentElement.clientWidth;
-        f.style.transform = "scale(" + w / 1280 + ")";
-      });
-    }
-    window.addEventListener("resize", fitThumbs);
-    window.addEventListener("load", fitThumbs);
-    fitThumbs();
-  </script>
 </body>
 </html>

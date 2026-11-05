@@ -228,7 +228,8 @@ function previousDates() {
   const map = new Map();
   try {
     const prev = JSON.parse(readFileSync(join(ROOT, MANIFEST), "utf8"));
-    for (const p of prev) if (p.primary && p.added) map.set(p.primary, p.added);
+    const pages = Array.isArray(prev) ? prev : prev.pages || [];
+    for (const p of pages) if (p.primary && p.added) map.set(p.primary, p.added);
   } catch {
     /* no previous manifest */
   }
@@ -237,22 +238,20 @@ function previousDates() {
 
 // ---- render --------------------------------------------------------------
 
-function renderCard(p) {
-  const thumb = p.thumb
-    ? `<img class="shot" src="${escapeHtml(p.thumb)}" alt="" loading="lazy" />`
-    : `<iframe class="shot live" src="/${escapeHtml(p.slug)}/" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>`;
-  return `      <a class="card" href="/${escapeHtml(p.slug)}/">
-        <div class="thumb">${thumb}</div>
-        <div class="card-body">
-          <h2 class="card-title">${escapeHtml(p.title)}</h2>
-        </div>
+function renderRow(f) {
+  const href = f.count === 1 ? `/${f.items[0].slug}/` : `/f/${f.fslug}/`;
+  const meta =
+    f.count > 1 ? `<span class="badge">${f.count} designs</span>` : "";
+  return `      <a class="row" href="${escapeHtml(href)}">
+        <span class="row-name">${escapeHtml(f.ftitle)}</span>
+        <span class="row-meta">${meta}<span class="chev">&rarr;</span></span>
       </a>`;
 }
 
-function renderPage(previews) {
-  const cards = previews.map(renderCard).join("\n");
-  const count = previews.length;
-  const countLabel = count === 1 ? "1 preview" : `${count} previews`;
+function renderPage(folders) {
+  const rows = folders.map(renderRow).join("\n");
+  const count = folders.length;
+  const countLabel = count === 1 ? "1 project" : `${count} projects`;
   const empty = `      <div class="empty">
         <p>No previews yet.</p>
         <p class="empty-sub">Add an <code>.html</code> file or a folder of previews and push — it will appear here automatically.</p>
@@ -283,8 +282,8 @@ function renderPage(previews) {
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 56px 24px 80px; }
-    header { margin-bottom: 36px; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+    header { margin-bottom: 28px; }
     .brand {
       font-size: 13px;
       letter-spacing: 0.14em;
@@ -295,59 +294,33 @@ function renderPage(previews) {
     }
     h1 { font-size: 30px; margin: 0 0 8px; font-weight: 650; }
     .sub { color: var(--muted); margin: 0; font-size: 15px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 18px;
-      margin-top: 8px;
-    }
-    .card {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: inherit;
-      background: var(--panel);
+    .list {
+      margin-top: 18px;
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      background: var(--panel);
     }
-    .card:hover {
-      background: var(--panel-hover);
-      border-color: #34506e;
-      transform: translateY(-1px);
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 18px;
+      text-decoration: none;
+      color: inherit;
+      border-top: 1px solid var(--border);
+      transition: background 0.12s ease;
     }
-    .thumb {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      background: #0b0d11;
-      border-bottom: 1px solid var(--border);
+    .row:first-child { border-top: 0; }
+    .row:hover { background: var(--panel-hover); }
+    .row-name { font-size: 16px; font-weight: 600; overflow-wrap: anywhere; }
+    .row-meta { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .badge {
+      background: #1d222c; border: 1px solid #2a3140; color: var(--muted);
+      font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap;
     }
-    .shot {
-      position: absolute;
-      top: 0;
-      left: 0;
-      border: 0;
-      pointer-events: none;
-    }
-    img.shot { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-    iframe.shot.live {
-      width: 1280px;
-      height: 800px;
-      transform-origin: top left;
-      background: #fff;
-    }
-    .card-body { padding: 13px 16px 15px; }
-    .card-title {
-      font-size: 15px;
-      margin: 0;
-      font-weight: 600;
-      line-height: 1.3;
-      overflow-wrap: anywhere;
-    }
-    .view { margin-left: auto; color: var(--accent); font-weight: 600; }
+    .chev { color: var(--muted); font-size: 16px; }
+    .row:hover .chev { color: var(--accent); }
     .empty {
       text-align: center;
       padding: 60px 20px;
@@ -357,7 +330,7 @@ function renderPage(previews) {
     }
     .empty-sub { font-size: 14px; }
     code { background: #20242e; padding: 2px 6px; border-radius: 5px; font-size: 13px; }
-    footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
+    footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
   </style>
 </head>
 <body>
@@ -367,25 +340,13 @@ function renderPage(previews) {
       <h1>Client Previews</h1>
       <p class="sub">${countLabel}</p>
     </header>
-    <main class="grid">
-${count ? cards : empty}
+    <main>
+      ${count ? `<div class="list">\n${rows}\n      </div>` : empty}
     </main>
     <footer>
       Updated automatically on each push.
     </footer>
   </div>
-  <script>
-    // Scale each live-iframe thumbnail to its card width (1280px design width).
-    function fitThumbs() {
-      document.querySelectorAll("iframe.shot.live").forEach(function (f) {
-        var w = f.parentElement.clientWidth;
-        f.style.transform = "scale(" + w / 1280 + ")";
-      });
-    }
-    window.addEventListener("resize", fitThumbs);
-    window.addEventListener("load", fitThumbs);
-    fitThumbs();
-  </script>
 </body>
 </html>
 `;
@@ -429,6 +390,8 @@ async function main() {
     previews.push({
       slug,
       title,
+      folderTitle: it.projectTitle,
+      pageTitle: it.pageTitle,
       description: await readDescription(it.primary, override),
       primary,
       base: it.base,
@@ -437,21 +400,61 @@ async function main() {
     });
   }
 
-  // Latest uploaded first.
+  // Latest uploaded first (pages).
   previews.sort((a, b) => (a.added < b.added ? 1 : a.added > b.added ? -1 : 0));
 
-  await writeFile(join(ROOT, OUTPUT), renderPage(previews), "utf8");
+  // Group pages into folders. Root-level files are each their own folder.
+  const groups = new Map();
+  for (const p of previews) {
+    const key = p.base ? `d:${p.base}` : `f:${p.slug}`;
+    if (!groups.has(key)) {
+      groups.set(key, { ftitle: p.folderTitle || p.title, items: [] });
+    }
+    groups.get(key).items.push(p);
+  }
+
+  const usedF = new Set();
+  const folders = [];
+  for (const g of groups.values()) {
+    g.items.sort((a, b) => (a.added < b.added ? 1 : a.added > b.added ? -1 : 0));
+    const added = g.items.reduce((m, p) => (p.added > m ? p.added : m), "");
+    let fslug = slugify(g.ftitle) || "folder";
+    if (usedF.has(fslug)) {
+      let n = 2;
+      while (usedF.has(`${fslug}-${n}`)) n++;
+      fslug = `${fslug}-${n}`;
+    }
+    usedF.add(fslug);
+    folders.push({
+      fslug,
+      ftitle: g.ftitle,
+      added,
+      count: g.items.length,
+      items: g.items.map((p) => ({
+        slug: p.slug,
+        title: p.pageTitle || p.title,
+        thumb: p.thumb,
+      })),
+    });
+  }
+  // Latest-added folder first (not alphabetical).
+  folders.sort((a, b) => (a.added < b.added ? 1 : a.added > b.added ? -1 : 0));
+
+  await writeFile(join(ROOT, OUTPUT), renderPage(folders), "utf8");
   await writeFile(
     join(ROOT, MANIFEST),
     JSON.stringify(
-      previews.map(({ slug, title, primary, base, added, thumb }) => ({
-        slug,
-        title,
-        primary,
-        base,
-        added,
-        thumb,
-      })),
+      {
+        pages: previews.map(({ slug, title, primary, base, added, thumb }) => ({
+          slug,
+          title,
+          primary,
+          base,
+          added,
+          thumb,
+        })),
+        folders,
+      },
       null,
       2
     ) + "\n",
@@ -459,13 +462,13 @@ async function main() {
   );
 
   console.log(
-    `Generated ${OUTPUT} + ${MANIFEST} with ${previews.length} preview(s):` +
-      (previews.length
+    `Generated ${OUTPUT} + ${MANIFEST}: ${folders.length} folder(s), ${previews.length} page(s):` +
+      (folders.length
         ? "\n  - " +
-          previews
+          folders
             .map(
-              (p) =>
-                `/${p.slug}/  (${p.added.slice(0, 10)}, ${p.thumb ? "shot" : "live"})`
+              (f) =>
+                `${f.ftitle}  (${f.added.slice(0, 10)}, ${f.count} design${f.count > 1 ? "s" : ""})`
             )
             .join("\n  - ")
         : " (none)")

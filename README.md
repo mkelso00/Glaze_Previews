@@ -2,15 +2,14 @@
 
 Hosting for HTML previews shared with clients — including exports from Claude Code.
 Served by a small Node app on Railway (see "Hosting on Railway" below). A password-gated
-gallery lists every preview as a grid of thumbnails; each preview gets a clean URL and a
-confidential Glaze banner.
+gallery lists projects as a simple **folder list, newest first**; each design gets a clean
+URL and a confidential Glaze banner.
 
 ## Live site
 
 - **Gallery (password-gated):** the Railway app root, e.g. `https://<app>.up.railway.app/`
-- **A specific preview:** `https://<app>.up.railway.app/<slug>/`
-
-  e.g. `/highbury-vintners/`, `/backyard-movie-nights/`
+- **A specific design:** `https://<app>.up.railway.app/<slug>/`
+- **A multi-design folder:** `https://<app>.up.railway.app/f/<folder-slug>/`
 
 ## Adding a new preview
 
@@ -19,13 +18,11 @@ confidential Glaze banner.
 
 On each deploy the generator ([`scripts/build-index.mjs`](scripts/build-index.mjs)):
 
-- Lists **one card per project** — each top-level `.html` file, and each top-level folder
-  (linked to that folder's primary page, chosen over print/source/archive variants).
-- Derives a clean **title** (acronyms like BLK BOX / PDP preserved, export noise stripped)
-  and a clean **URL slug** from it.
-- Orders the gallery by **latest uploaded first** (from git history, baked into
-  `previews.json` so it stays stable across redeploys).
-- Shows a **thumbnail** if `thumbnails/<slug>.jpg` exists, otherwise a live iframe preview.
+- Lists **one row per folder** (plus each root-level `.html` file), ordered **latest added
+  first** (from git history, baked into `previews.json` so it stays stable across redeploys).
+- A folder with several designs shows a "N designs" tag and opens a chooser at
+  `/f/<folder-slug>/`; a single-design folder opens its design directly.
+- Each design still has its own clean `/<slug>/` URL, banner, and comments.
 
 Use clear folder/file names — `spring-campaign-landing` becomes "Spring Campaign Landing"
 at `/spring-campaign-landing/`.
