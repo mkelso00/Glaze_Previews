@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Liberation Oil product page audit</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>
+body{margin:0;background:#F4F1EC}
+a{color:#1E3A8A}a:hover{color:#172554}
+.pin{position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;border:3px solid #FFFFFF;font-family:Inter,sans-serif;font-weight:800;font-size:17px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.35);padding:0;z-index:2;display:flex;align-items:center;justify-content:center}
+.pin:hover,.pin:focus{z-index:30;outline:3px solid #FACC15;outline-offset:2px}
+.p-high{background:#172554;color:#FFFFFF}
+.p-med{background:#2563EB;color:#FFFFFF}
+.p-quick{background:#FFFFFF;color:#172554;border-color:#172554}
+.tip{position:absolute;top:50%;transform:translateY(-24px);width:360px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s ease;text-align:left;background:#111827;color:#F9FAFB;border-radius:12px;padding:18px 20px;font-weight:400;font-size:14px;line-height:1.5;box-shadow:0 12px 32px rgba(0,0,0,.35);display:block}
+.tip-r{left:56px}
+.tip-l{right:56px}
+.tip-up{top:auto;bottom:-20px;transform:none}
+.pin:hover .tip,.pin:focus .tip{opacity:1;visibility:visible}
+.tip b{display:block;font-size:16px;font-weight:700;margin-bottom:6px;color:#FFFFFF}
+.tip i{display:inline-block;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#FDE68A;margin-bottom:8px}
+.tip em{font-style:normal;font-weight:700;color:#93C5FD}
+.tip span{display:block}
+</style>
+</helmet>
+<div style="width: 1600px; min-height: 4200px; box-sizing: border-box; padding: 56px 0 72px; font-family: Inter, sans-serif; color: #1C1917; background: #F4F1EC">
+
+<div style="padding: 0 56px 28px; margin: 0 56px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #D6D0C6; padding-left: 0; padding-right: 0">
+<a href="https://glazedigital.com" style="display: inline-flex; color: #1C1917" aria-label="Glaze Digital"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 26" width="170" height="34" role="img" aria-label="GLAZE"><path fill="currentColor" d="M24.4133 13.2898H11.8358V15.6185H21.882C21.8595 15.731 21.837 15.8548 21.8258 15.9673C20.9933 20.3435 17.4045 23.4823 12.567 23.4823C7.72953 23.4823 4.01703 20.3435 2.94828 15.9673C2.75703 15.1685 2.64453 14.3248 2.64453 13.4585C2.64453 11.7148 3.06078 10.106 3.80328 8.69976C5.46828 5.54976 8.76453 3.46851 12.7358 3.46851C16.707 3.46851 18.372 4.64976 20.1945 6.50601L21.882 4.75101C19.6545 2.48976 16.4483 1.07227 12.7358 1.07227C7.34703 1.07227 2.89203 4.17726 1.03578 8.69976C0.439531 10.1623 0.113281 11.7598 0.113281 13.4585C0.113281 15.1573 0.192031 15.1573 0.360781 15.9673C1.48578 21.7048 6.44703 25.8785 12.567 25.8785C18.687 25.8785 23.4345 21.6823 24.3233 15.9673C24.4245 15.3148 24.4808 14.651 24.4808 13.9648C24.4808 13.2785 24.4133 13.2898 24.4133 13.2898Z"></path><path fill="currentColor" d="M35.125 15.9666H36.4862V8.69914H35.125V0.869141H32.5938V8.69914H33.955V15.9666H32.5938V24.6629H49.9637V22.2666H35.125V15.9666Z"></path><path fill="currentColor" d="M75.4761 15.9666L72.1348 8.69914L68.5348 0.869141H66.4761L62.8648 8.69914L59.5123 15.9666L55.4961 24.6629H58.2298L62.1111 16.0229H72.7423L76.5898 24.6629H79.4586L75.4648 15.9666H75.4761ZM65.4411 8.69914L67.4661 4.17664L69.4798 8.69914L71.7523 13.7954H63.1461L65.4411 8.69914Z"></path><path fill="currentColor" d="M85.0859 3.23164H99.9697L96.0097 8.69914H97.2022L91.9259 15.9666H90.7222L85.0859 23.7179V24.6629H104.087V22.3004H89.2034L93.8047 15.9666H95.0084L100.273 8.69914H99.0809L104.087 1.78039V0.869141H85.0859V3.23164Z"></path><path fill="currentColor" d="M115.504 22.3004V15.9666V13.3229H124.403V11.0616H115.504V8.69914V3.23164H129.398V0.869141H112.973V8.69914V15.9666V24.6629H129.488V22.3004H115.504Z"></path></svg></a>
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #44403C">Prepared by Glaze Digital · Shopify Premier Partner · glazedigital.com</p>
+</div>
+<header style="padding: 0 56px; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 36px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 980px">
+<p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #57534E">Product page audit · 6 November 2026</p>
+<h1 style="margin: 0; font-size: 46px; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em">GLORIAH Liberation Oil: what's missing from the product page</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.5; color: #44403C">Hover or tab to each numbered pin for the issue and the fix. Full detail, plus issues further down the page, sits below the screenshot. Audited from hellogloriah.com/products/liberation-oil, viewed from the EU (euro pricing).</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; font-weight: 600; flex-shrink: 0">
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #172554; display: inline-block"></span>High impact</div>
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #2563EB; display: inline-block"></span>Medium impact</div>
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 18px; height: 18px; border-radius: 50%; background: #FFFFFF; border: 2px solid #172554; display: inline-block"></span>Quick fix</div>
+</div>
+</header>
+
+<section aria-label="Annotated product page" style="position: relative; width: 1600px; height: 1021px">
+<img src="./assets/2bbcfb0d5f78b00731a1cf015d5a3ddd.png" alt="Current GLORIAH Liberation Oil product page" style="width: 1600px; height: 1021px; display: block">
+
+<button class="pin p-high" style="left: 80.6%; top: 21.7%" aria-label="1: No star rating or review count">1<span class="tip tip-l"><i>High impact</i><b>No star rating or review count</b><span>Six video reviews sit far down the page, but there's no average score, no count and no written reviews near the buy box.</span><span style="margin-top: 8px"><em>Fix:</em> add a reviews app (Judge.me, Okendo or Yotpo), show stars and count under the title linking to reviews, and send a review request from Klaviyo after delivery.</span></span></button>
+
+<button class="pin p-high" style="left: 58.4%; top: 24.1%" aria-label="2: Size does not match the packaging">2<span class="tip tip-r"><i>High impact · quick to fix</i><b>Says 40ml, the box says 30ml</b><span>The copy says 40ml. The main packshot clearly says 30ml. On an intimate product, a mismatch like this makes people doubt everything else.</span><span style="margin-top: 8px"><em>Fix:</em> confirm the real size, correct the image or copy, and fill in Shopify's unit price (price per 100ml). The theme already prints an empty unit price label.</span></span></button>
+
+<button class="pin p-med" style="left: 12%; top: 7.7%" aria-label="3: Currency mismatch in the announcement bar">3<span class="tip tip-r"><i>Medium impact</i><b>Bar says £25, price shows in €</b><span>EU visitors see "Free shipping over £25" next to a €30.95 price. They have to do the maths and still don't know if the offer applies to them.</span><span style="margin-top: 8px"><em>Fix:</em> set the announcement text per market in Shopify Markets so the threshold shows in the shopper's currency, and match it to the real EU shipping rate.</span></span></button>
+
+<button class="pin p-high" style="left: 91.9%; top: 27.9%" aria-label="4: Description says what it is, not why to buy">4<span class="tip tip-l"><i>High impact</i><b>Says what it is, not why to buy it</b><span>The intro describes texture and ingredient count. It doesn't say who it's for, what it helps with day to day, or that it isn't a lube (a common confusion, answered only in the FAQ).</span><span style="margin-top: 8px"><em>Fix:</em> add 3 to 4 tick bullets: three plant-based ingredients, hormone and fragrance free, daily moisturiser not a lube, nurse and female founded. Keep wording cosmetic, not medical.</span></span></button>
+
+<button class="pin p-med" style="left: 70%; top: 35.7%" aria-label="5: No delivery promise">5<span class="tip tip-l"><i>Medium impact</i><b>No delivery promise or discreet packaging note</b><span>"Shipping calculated in the checkout" is all the shopper gets. No dispatch time, no delivery estimate, and nothing about discreet packaging, which matters a lot for this category.</span><span style="margin-top: 8px"><em>Fix:</em> "Order by 2pm, sent today in plain packaging" plus a free shipping progress line. Also check the threshold: it says "over £25" and the oil is exactly £25, so a single bottle may not qualify.</span></span></button>
+
+<button class="pin p-high" style="left: 91.9%; top: 41.8%" aria-label="6: Subscription option explains nothing">6<span class="tip tip-l"><i>High impact</i><b>Subscription explains nothing</b><span>"How often do you need your support?" with no visible frequency, no "skip or cancel anytime" and no saving per delivery (€7.74).</span><span style="margin-top: 8px"><em>Fix:</em> show frequency pills, "skip, pause or cancel anytime", and the saving in money. Set frequencies from real reorder gaps: at 2 to 3 drops a day, 40ml could last 9 months or more on paper.</span></span></button>
+
+<button class="pin p-med" style="left: 92.2%; top: 48.9%" aria-label="7: No reassurance around the add to cart button">7<span class="tip tip-l"><i>Medium impact</i><b>Nothing reassuring near the button</b><span>The buy box ends at the buttons. No returns position, no guarantee, no secure checkout or founder credential at the moment of decision.</span><span style="margin-top: 8px"><em>Fix:</em> one icon row under the buttons: discreet packaging · dispatch time · nurse and female founded · returns or guarantee. Check a sticky add to cart bar on mobile.</span></span></button>
+
+<button class="pin p-quick" style="left: 67%; top: 61.3%" aria-label="8: First accordion repeats the intro">8<span class="tip tip-l"><i>Quick fix</i><b>First accordion repeats the intro</b><span>"What is Liberation Oil?" says the same thing as the paragraph above it, and it's the one open by default.</span><span style="margin-top: 8px"><em>Fix:</em> replace it with "Is it for me?" covering the top FAQ answers: not a lube, hormone free, external use only, not for use with latex condoms.</span></span></button>
+
+<button class="pin p-med" style="left: 64.5%; top: 70.9%" aria-label="9: Soul Gel cross-sell is only a text link">9<span class="tip tip-l"><i>Medium impact · AOV</i><b>Soul Gel pairing is just a text link</b><span>The page recommends Soul Gel but makes the shopper leave to buy it. Bundles exist in the menu but don't appear here, and the FAQ links to a bundle name that isn't in the menu.</span><span style="margin-top: 8px"><em>Fix:</em> a "Complete the routine" add-on with a tick box and price, or a link to the Daily Hydration Set showing the saving.</span></span></button>
+
+<button class="pin p-high" style="left: 61.5%; top: 77.4%" aria-label="10: Claims don't match supplier data">10<span class="tip tip-l"><i>High impact · compliance</i><b>Ingredient claims don't add up</b><span>The FAQ says AlgaPur gives 25% more hydration, 58% more collagen and "over 200% reduction" in water loss. The supplier publishes 15%, 28% and elastin, not collagen. A reduction over 100% isn't possible.</span><span style="margin-top: 8px"><em>Fix:</em> use the supplier's figures with a source and say they relate to the raw ingredient, or remove them.</span></span></button>
+
+<button class="pin p-high" style="left: 61.3%; top: 84%" aria-label="11: Condom warning missing from How to use">11<span class="tip tip-l tip-up"><i>High impact · safety</i><b>Condom warning is buried</b><span>The FAQ says it isn't safe with condoms, but How to use doesn't mention it, and the page pairs the oil with an "in the moment" gel. Oils can weaken latex.</span><span style="margin-top: 8px"><em>Fix:</em> add "Not for use with latex condoms. External use only. Patch test first." to How to use and next to the Soul Gel pairing.</span></span></button>
+
+<button class="pin p-med" style="left: 28%; top: 94.4%" aria-label="12: Best trust points hidden in thumbnails">12<span class="tip tip-r tip-up"><i>Medium impact</i><b>Best trust points hidden in thumbnails</b><span>"Nurse and female founded" and "no plastics" only appear in small infographic thumbnails, which are unreadable on a phone. No texture shot, no size in hand, no product video.</span><span style="margin-top: 8px"><em>Fix:</em> move the founder credential into the buy box, add a drop and texture shot, and pull one or two of the video reviews into the gallery.</span></span></button>
+
+<button class="pin p-quick" style="left: 19.3%; top: 18%" aria-label="13: Template and data bugs">13<span class="tip tip-r"><i>Quick fix</i><b>Template and data bugs</b><span>The page code prints "Regular price £0.00" and empty sale and unit price labels. The product data has no rating, so Google can't show stars. The page heading and SEO title use different names.</span><span style="margin-top: 8px"><em>Fix:</em> tidy the price snippet, add rating data once reviews are live, and line up the product name.</span></span></button>
+</section>
+
+<section style="padding: 64px 56px 0">
+<h2 style="margin: 0 0 8px; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">The 13 pins in full</h2>
+<p style="margin: 0 0 28px; font-size: 16px; color: #44403C">Ordered as they appear on the page. Priority is my judgement of impact on conversion, trust and risk.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+<sc-for list="{{pins}}" as="p" hint-placeholder-count="13">
+<article style="background: #FFFFFF; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px; border: 1px solid #E7E2DA">
+<div style="display: flex; align-items: center; gap: 12px">
+<sc-if value="{{p.high}}" hint-placeholder-val="{{true}}"><span style="width: 34px; height: 34px; border-radius: 50%; background: #172554; color: #FFFFFF; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">{{p.n}}</span></sc-if>
+<sc-if value="{{p.med}}" hint-placeholder-val="{{false}}"><span style="width: 34px; height: 34px; border-radius: 50%; background: #2563EB; color: #FFFFFF; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">{{p.n}}</span></sc-if>
+<sc-if value="{{p.quick}}" hint-placeholder-val="{{false}}"><span style="width: 30px; height: 30px; border-radius: 50%; background: #FFFFFF; border: 2px solid #172554; color: #172554; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0">{{p.n}}</span></sc-if>
+<span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #57534E">{{p.pri}}</span>
+</div>
+<h3 style="margin: 0; font-size: 19px; line-height: 1.3; font-weight: 700">{{p.title}}</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #44403C">{{p.problem}}</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #1C1917"><strong style="color: #1E3A8A">Fix: </strong>{{p.fix}}</p>
+</article>
+</sc-for>
+</div>
+</section>
+
+<section style="padding: 64px 56px 0">
+<h2 style="margin: 0 0 8px; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Further down the page (not in the screenshot)</h2>
+<p style="margin: 0 0 28px; font-size: 16px; color: #44403C">Found on the live page below the fold.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+<sc-for list="{{below}}" as="b" hint-placeholder-count="6">
+<article style="background: #FFFFFF; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #E7E2DA">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #57534E">{{b.pri}}</span>
+<h3 style="margin: 0; font-size: 19px; line-height: 1.3; font-weight: 700">{{b.title}}</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #44403C">{{b.body}}</p>
+</article>
+</sc-for>
+</div>
+</section>
+
+<section style="padding: 64px 56px 0">
+<h2 style="margin: 0 0 28px; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Suggested order of work</h2>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+<article style="background: #172554; color: #FFFFFF; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #BFDBFE">This week · under a day</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Fix what costs trust</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #E0E7FF">2 size mismatch · 11 condom warning · 10 ingredient claims · 13 price snippet bugs · 3 currency in the bar · footer copyright · first accordion (8)</p>
+</article>
+<article style="background: #2563EB; color: #FFFFFF; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #DBEAFE">Next 2 to 3 weeks</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Rebuild the buy box</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #EFF6FF">Reviews app and stars (1) · benefit bullets (4) · delivery and discreet packaging line (5) · clearer subscription (6) · trust row and sticky add to cart (7) · gallery shots (12)</p>
+</article>
+<article style="background: #FFFFFF; border: 2px solid #172554; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #1E3A8A">Then test</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">Grow order value and repeat rate</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #44403C">Soul Gel add-on vs bundle link (9) · subscription selected by default vs not (watch cancels and refunds) · post-purchase flow: how to use, review ask, refill reminder timed to real usage</p>
+</article>
+</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1600,"height":4100}}'>
+class Component extends DCLogic {
+renderVals() {
+const t = (n, lvl, pri, title, problem, fix) => ({ n: n, high: lvl === 'h', med: lvl === 'm', quick: lvl === 'q', pri: pri, title: title, problem: problem, fix: fix });
+return {
+pins: [
+t(1, 'h', 'High impact', 'No star rating or review count by the title', 'The only social proof is six video reviews far down the page (rated 4.5 to 5). There is no average, no count and no written reviews near the buy box. Baymard found shoppers chose a 4.5-star product with 57 ratings over a 5-star one with 4 ratings at nearly twice the rate: the count is what makes a score believable.', 'Install a reviews app (Judge.me, Okendo or Yotpo), show stars and count under the title linked to the reviews section, import the video reviews, and add a Klaviyo review request around 2 to 3 weeks after delivery.'),
+t(2, 'h', 'High impact · quick to fix', 'Copy says 40ml, the box says 30ml', 'The product copy says 40ml but the main packshot reads 30ml. Shoppers notice, and on an intimate product any mismatch weakens trust in the ingredient and safety claims too.', 'Confirm the real size, correct the packshot or copy, and fill in the unit price field in Shopify so price per 100ml shows. The theme already prints an empty unit price label.'),
+t(3, 'm', 'Medium impact', 'Announcement bar in pounds, price in euros', 'EU visitors see "Free shipping over £25" beside a €30.95 price. It reads as a UK-only offer, and the shopper cannot tell whether it applies.', 'Use market-specific announcement text in Shopify Markets so each market sees its own threshold in its own currency, and make sure the EU free shipping rate actually matches what the bar promises.'),
+t(4, 'h', 'High impact', 'Says what it is, not why to buy it', 'The intro covers texture and ingredient count. It does not say who it is for, what it does for them day to day, or that it is not a lubricant, which the FAQ has to clear up later.', 'Add 3 to 4 tick bullets under the intro: three plant-based ingredients, hormone and fragrance free, a daily moisturiser not a lube, nurse and female founded. Keep wording cosmetic (soft, comfortable, nourished), not medical.'),
+t(5, 'm', 'Medium impact', 'No delivery promise or discreet packaging note', 'The only delivery line is "Shipping calculated in the checkout". For this category, discreet packaging is one of the first questions people have. The free shipping threshold says "over £25" and the oil costs exactly £25, so a single bottle may not qualify.', 'Add a dispatch cut-off and delivery estimate, "sent in plain, discreet packaging", and a free shipping progress line. Decide whether the threshold should be "£25 and over" or deliberately just above one bottle to push the Soul Gel add-on.'),
+t(6, 'h', 'High impact', 'Subscription explains nothing', 'The option asks "How often do you need your support?" but shows no frequency, no "skip or cancel anytime", and the saving only as a crossed-out price. On the page’s own dosage (2 to 3 drops a day, at roughly 20 drops per ml), 40ml would last 9 months or more, so a monthly default would overship.', 'Show frequency pills, "skip, pause or cancel anytime", and "save €7.74 every delivery". Set the frequencies from the real reorder gap in Shopify order data, not the dosage maths, as real use is probably higher.'),
+t(7, 'm', 'Medium impact', 'Nothing reassuring near the buttons', 'The buy box ends at Add to cart and Shop Pay. There is no returns position, guarantee, secure checkout note or founder credential at the point of decision.', 'Add one icon row under the buttons: discreet packaging · dispatch time · nurse and female founded · returns or guarantee. Check a sticky add to cart bar is on mobile.'),
+t(8, 'q', 'Quick fix', 'First accordion repeats the intro', '"What is Liberation Oil?" is open by default and repeats the paragraph above it, taking the most valuable space under the buttons.', 'Replace it with "Is it for me?" holding the top FAQ answers: not a lube, hormone free, external use only, not for use with latex condoms.'),
+t(9, 'm', 'Medium impact · order value', 'Soul Gel pairing is only a text link', 'The page recommends Soul Gel but the shopper has to leave to buy it. Bundles are in the menu but not on the page, and the FAQ links to an "Intimate Hydration Bundle" that is not in the Bundles menu.', 'Add a "Complete the routine" add-on with a tick box and price, or a card linking to the Daily Hydration Set with the saving shown. Fix the bundle naming so it matches the menu.'),
+t(10, 'h', 'High impact · compliance', 'Ingredient claims don’t match the supplier', 'The FAQ claims "over 25%" more hydration, "over 58%" more collagen and "over 200% reduction" in water loss, with no source. The supplier’s published AlgaPur data shows 15% more hydration and 28% less water loss over 24 hours, and a rise in elastin, not collagen. A reduction over 100% is not possible.', 'Use the supplier’s figures with a source, say they relate to the raw ingredient rather than the finished oil, or remove them. The ASA expects the evidence to be held before a claim is made.'),
+t(11, 'h', 'High impact · safety', 'Condom warning is buried in the FAQ', 'The FAQ says it is not safe with condoms, but How to use does not, and the page pairs the oil with an "in the moment" gel. Oils can weaken latex, so this needs to be where people read the instructions.', 'Add "Not for use with latex condoms. External use only. Patch test before first use." to How to use and next to the Soul Gel pairing.'),
+t(12, 'm', 'Medium impact', 'Best trust points hidden in thumbnails', '"Nurse and female founded" and "no plastics" only appear inside small infographic thumbnails, unreadable on a phone. There is no texture shot, size in hand, application visual or product video.', 'Move the founder credential into the buy box, add a drop and texture shot and a size-in-hand shot, and put one or two of the existing video reviews into the gallery.'),
+t(13, 'q', 'Quick fix', 'Template and data bugs', 'The page code outputs "Regular price £0.00" and empty sale and unit price labels, which screen readers and Google can pick up. Product data has no rating so Google cannot show stars. The heading says "Intimate Oil for Down There", the SEO title says "Natural Intimate Skin Moisturiser".', 'Tidy the price snippet in the theme, add rating data once reviews are live, and agree one product name used in both places.')
+],
+below: [
+{ pri: 'High impact', title: 'No returns position or guarantee', body: 'No returns or refund policy on the page. Opened intimate care products are often not returnable for hygiene reasons, so say so plainly, and consider a first-order guarantee to take the risk out of trying it.' },
+{ pri: 'Medium impact', title: 'Video reviews without a score', body: 'The "As loved by you" videos show individual stars (averaging about 4.75) but no overall score or count. Feed them into the reviews app so they count towards the rating.' },
+{ pri: 'Medium impact', title: 'Long FAQ at the bottom', body: 'Eleven FAQs do important work (not a lube, hormone free, not condom safe) but sit below everything else. Move the top four up (pin 8) and trim repeats of the ingredients and how-to-use answers.' },
+{ pri: 'Medium impact', title: 'No founder story on the page', body: 'The nurse founder is the strongest credibility point the brand has, yet "Our Story" is only a menu link. A short founder block with a photo and two lines on why she made it would carry a lot of weight here.' },
+{ pri: 'Medium impact', title: 'Nothing on why this over the alternatives', body: 'Shoppers are likely weighing coconut oil, a lube or a pharmacy cream. A simple "what it is and isn’t" table would help, but keep any comparison factual and evidenced.' },
+{ pri: 'Quick fix', title: 'Footer reads "© 2024 Wonder-theme"', body: 'The footer shows the theme name and an old year. Swap it for the brand name and the current year.' }
+]
+};
+}
+}
+</script>
+</body>
+</html>
