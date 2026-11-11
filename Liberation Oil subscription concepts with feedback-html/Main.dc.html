@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Liberation Oil subscription concepts with feedback</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Instrument+Serif&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#B4532A}a:hover{color:#8E3F1E}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 4060px; height: 2000px; box-sizing: border-box; padding: 64px; display: flex; flex-direction: column; gap: 56px; background: #F4ECE5; color: #2A1F1A; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 15px; line-height: 1.4">
+
+<div style="display: flex; gap: 48px; align-items: stretch">
+<div style="flex: 1.3; display: flex; flex-direction: column; gap: 14px; justify-content: center">
+<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8E3F1E">GLORIAH x Glaze · November 2026</span>
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 88px; line-height: 1">Liberation Oil: presenting the subscription</h1>
+<p style="margin: 0; font-size: 20px; color: #6B5A50; max-width: 900px">Five concepts for the product page, shown on mobile where most Meta traffic lands. Each numbered dot has a note beside it. Tap a dot or a note to highlight the pair.</p>
+</div>
+<div style="flex: 1; padding: 28px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E6D6CA; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 22px; font-weight: 600">Check before we build</h2>
+<ol style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #4A3B33">
+<li><strong>How long does a bottle really last?</strong> At 2 to 3 drops a day, 40ml should last far longer than 8 weeks. If so, deliveries pile up and people cancel. Reorder data will tell us.</li>
+<li>'Free gift every 2nd month' and '2 month commitment' don't match 8 and 10 week deliveries. What are the real terms?</li>
+<li>Subscription orders are £18.75, under the £25 free delivery line. Do subscribers pay postage?</li>
+<li>What is the gift? A candle was mentioned.</li>
+<li>The crossed-out £0.00 on the live page looks like a theme bug.</li>
+</ol>
+</div>
+<div style="flex: 0.8; padding: 28px; border-radius: 24px; background: #2A1F1A; color: #FBF6F1; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 22px; font-weight: 600">Quick wins in Loop, no build</h2>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #E9DDD3">
+<li>Rename the plan heading to 'Delivered every'</li>
+<li>Rename plans to '8 weeks (daily use)' and '10 weeks (most days)'</li>
+<li>Turn on the benefits pop-up</li>
+<li>Show the per-delivery price</li>
+<li>Show frequency as buttons, not a dropdown</li>
+</ul>
+<p style="margin: 0; font-size: 14px; color: #CDBBAE">B, C and D need a custom theme block that reads the same Loop plans, so Loop still runs every subscription.</p>
+</div>
+</div>
+
+<div style="display: flex; gap: 72px; align-items: flex-start">
+
+<section style="display: flex; flex-direction: column; gap: 20px; width: 726px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 28px; font-weight: 600">A · Two clear choices</h2>
+<p style="margin: 0; color: #6B5A50">Buy once or subscribe, side by side, in plain words.</p>
+</div>
+<div style="display: flex; gap: 56px; align-items: flex-start">
+<div style="width: 390px; flex-shrink: 0; box-sizing: border-box; padding: 24px 20px; border-radius: 32px; background: #FBF6F1; border: 1px solid #E6D6CA; box-shadow: 0 12px 32px rgba(42,31,26,0.08); display: flex; flex-direction: column; gap: 18px">
+
+<div style="position: relative; display: flex; gap: 16px; align-items: center">
+<div style="width: 88px; height: 88px; flex-shrink: 0; border-radius: 16px; background: #F3E3D8; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #6B5A50; text-align: center">Product image</div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 30px; line-height: 1.05">Liberation Oil</span><span style="color: #6B5A50">Daily intimate oil · 40ml</span></div>
+<button type="button" aria-label="Feedback A1" onClick="{{go.A1}}" style="position: absolute; top: 6px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.A1}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">1</button>
+</div>
+
+<div style="position: relative; font-size: 16px; font-weight: 600">How would you like it?
+<button type="button" aria-label="Feedback A2" onClick="{{go.A2}}" style="position: absolute; top: -4px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.A2}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">2</button>
+</div>
+
+<div style="position: relative; display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 16px; border: 2px solid #E6D6CA; background: #FBF6F1">
+<span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; border: 2px solid #E6D6CA; box-sizing: border-box"></span>
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-weight: 600; font-size: 16px">Buy once</span><span style="color: #6B5A50; font-size: 14px">One bottle, no strings attached</span></span>
+<span style="font-weight: 600; font-size: 16px">£25.00</span>
+<button type="button" aria-label="Feedback A3" onClick="{{go.A3}}" style="position: absolute; top: 6px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.A3}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">3</button>
+</div>
+
+<div style="position: relative; border-radius: 16px; border: 2px solid #B4532A; background: #FFFFFF; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; display: flex; gap: 12px; align-items: flex-start">
+<span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; border: 2px solid #B4532A; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><span style="width: 10px; height: 10px; border-radius: 50%; background: #B4532A"></span></span>
+<span style="display: flex; flex-direction: column; gap: 4px; flex: 1"><span style="font-weight: 600; font-size: 16px">Subscribe &amp; save 25%</span><span style="color: #6B5A50; font-size: 14px">About 33p a day · skip or cancel from your account</span><span style="align-self: flex-start; margin-top: 4px; padding: 3px 10px; border-radius: 999px; background: #F3E3D8; color: #8E3F1E; font-size: 12px; font-weight: 600">Best value</span></span>
+<span style="display: flex; flex-direction: column; align-items: flex-end"><span style="font-weight: 600; font-size: 16px">£18.75</span><span style="color: #6B5A50; font-size: 13px; text-decoration: line-through">£25.00</span></span>
+<button type="button" aria-label="Feedback A4" onClick="{{go.A4}}" style="position: absolute; top: -10px; right: -70px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.A4}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">4</button>
+</div>
+<div style="position: relative; padding-left: 32px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; font-weight: 600">Delivered every</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<span style="padding: 8px; border-radius: 12px; border: 2px solid #B4532A; display: flex; flex-direction: column; align-items: center"><span style="font-weight: 600">8 weeks</span><span style="font-size: 12px; color: #6B5A50">Daily use</span></span>
+<span style="padding: 8px; border-radius: 12px; border: 2px solid #E6D6CA; display: flex; flex-direction: column; align-items: center"><span style="font-weight: 600">10 weeks</span><span style="font-size: 12px; color: #6B5A50">Most days</span></span>
+</div>
+<span style="font-size: 13px; color: #6B5A50">Best if you use it every day. About £10.18 a month.</span>
+<button type="button" aria-label="Feedback A5" onClick="{{go.A5}}" style="position: absolute; top: 0; right: -70px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.A5}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">5</button>
+</div>
+<div style="position: relative; padding-left: 32px; display: flex; flex-direction: column; gap: 6px; font-size: 14px">
+<span>✓ 25% off every delivery</span><span>✓ Free gift with every 3rd delivery</span><span>✓ Swap to another product any time</span><span>✓ Skip or change dates from your account</span>
+<button type="button" aria-label="Feedback A6" onClick="{{go.A6}}" style="position: absolute; top: 0; right: -70px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.A6}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">6</button>
+</div>
+</div>
+
+<div style="position: relative; font-size: 14px; font-weight: 600; color: #B4532A; text-decoration: underline">Why subscribe? See how it works
+<button type="button" aria-label="Feedback A7" onClick="{{go.A7}}" style="position: absolute; top: -6px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.A7}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3); text-decoration: none">7</button>
+</div>
+
+<div style="position: relative; padding: 14px 16px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E6D6CA; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; font-weight: 600; color: #6B5A50">What it costs you, if a bottle lasts 8 weeks</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px"><span style="display: flex; flex-direction: column"><span style="font-size: 13px; color: #6B5A50">Buy once</span><span style="font-size: 18px; font-weight: 600">45p a day</span></span><span style="display: flex; flex-direction: column"><span style="font-size: 13px; color: #6B5A50">Subscribe</span><span style="font-size: 18px; font-weight: 600; color: #8E3F1E">33p a day</span></span></div>
+<button type="button" aria-label="Feedback A8" onClick="{{go.A8}}" style="position: absolute; top: 6px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.A8}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">8</button>
+</div>
+
+<div style="position: relative; min-height: 56px; border-radius: 999px; background: #B4532A; color: #FFFFFF; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center">Subscribe · £18.75 every 8 weeks
+<button type="button" aria-label="Feedback A9" onClick="{{go.A9}}" style="position: absolute; top: 13px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.A9}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">9</button>
+</div>
+<span style="font-size: 13px; color: #6B5A50; text-align: center">30-day money-back guarantee</span>
+</div>
+
+<div style="width: 280px; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{notesA}}" as="n" hint-placeholder-count="9">
+<button type="button" onClick="{{n.pick}}" style="display: flex; gap: 10px; align-items: flex-start; width: 100%; text-align: left; padding: 12px; border-radius: 14px; border: 2px solid {{n.border}}; background: {{n.bg}}; color: #2A1F1A; cursor: pointer; font-size: 14px; line-height: 1.4">
+<span style="width: 24px; height: 24px; flex-shrink: 0; border-radius: 50%; background: {{n.dot}}; color: #FFFFFF; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{n.num}}</span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">{{n.title}}</span><span style="color: #6B5A50">{{n.text}}</span></span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 20px; width: 726px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 28px; font-weight: 600">B · Help me choose</h2>
+<p style="margin: 0; color: #6B5A50">A short question that recommends the right plan.</p>
+</div>
+<div style="display: flex; gap: 56px; align-items: flex-start">
+<div style="width: 390px; flex-shrink: 0; box-sizing: border-box; padding: 24px 20px; border-radius: 32px; background: #FBF6F1; border: 1px solid #E6D6CA; box-shadow: 0 12px 32px rgba(42,31,26,0.08); display: flex; flex-direction: column; gap: 18px">
+
+<div style="display: flex; gap: 16px; align-items: center">
+<div style="width: 88px; height: 88px; flex-shrink: 0; border-radius: 16px; background: #F3E3D8; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #6B5A50; text-align: center">Product image</div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 30px; line-height: 1.05">Liberation Oil</span><span style="color: #6B5A50">£25.00 · or £18.75 when you subscribe</span></div>
+</div>
+
+<div style="position: relative; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; line-height: 1.1">Not sure which to pick?</span>
+<span style="color: #6B5A50">Tell us how you'll use it and we'll suggest the best fit.</span>
+<button type="button" aria-label="Feedback B1" onClick="{{go.B1}}" style="position: absolute; top: 2px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.B1}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">1</button>
+</div>
+
+<div style="position: relative; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 16px; font-weight: 600">How often will you use Liberation Oil?</span>
+<span style="padding: 14px 16px; border-radius: 16px; border: 2px solid #B4532A; background: #FFFFFF; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600; font-size: 16px">Every day</span><span style="color: #6B5A50; font-size: 14px">Part of my morning or evening routine</span></span>
+<span style="padding: 14px 16px; border-radius: 16px; border: 2px solid #E6D6CA; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600; font-size: 16px">Most days</span><span style="color: #6B5A50; font-size: 14px">Four or five times a week</span></span>
+<span style="padding: 14px 16px; border-radius: 16px; border: 2px solid #E6D6CA; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600; font-size: 16px">Now and then</span><span style="color: #6B5A50; font-size: 14px">I'm trying it out, or use it as I need it</span></span>
+<button type="button" aria-label="Feedback B2" onClick="{{go.B2}}" style="position: absolute; top: -4px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.B2}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">2</button>
+</div>
+
+<div style="position: relative; padding: 20px; border-radius: 20px; background: #FFFFFF; border: 2px solid #B4532A; display: flex; flex-direction: column; gap: 12px">
+<span style="align-self: flex-start; padding: 3px 10px; border-radius: 999px; background: #F3E3D8; color: #8E3F1E; font-size: 12px; font-weight: 600">Our suggestion</span>
+<span style="font-size: 20px; font-weight: 600">Subscribe, delivered every 8 weeks</span>
+<span style="color: #6B5A50; font-size: 14px">Used daily, a new bottle arrives just as you run low, so your routine never stops.</span>
+<span style="display: flex; align-items: baseline; gap: 8px"><span style="font-size: 24px; font-weight: 600">£18.75</span><span style="font-size: 14px; color: #6B5A50; text-decoration: line-through">£25.00</span><span style="font-size: 14px; color: #8E3F1E; font-weight: 600">About 33p a day</span></span>
+<span style="min-height: 56px; border-radius: 999px; background: #B4532A; color: #FFFFFF; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center">Subscribe · £18.75 every 8 weeks</span>
+<button type="button" aria-label="Feedback B3" onClick="{{go.B3}}" style="position: absolute; top: 14px; right: -54px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.B3}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">3</button>
+<div style="position: relative; display: flex; justify-content: space-between; font-size: 14px">
+<span style="font-weight: 600; color: #B4532A; text-decoration: underline">Why subscribe?</span>
+<span style="color: #6B5A50; text-decoration: underline">Or buy once for £25.00</span>
+<button type="button" aria-label="Feedback B4" onClick="{{go.B4}}" style="position: absolute; top: -6px; right: -74px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.B4}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">4</button>
+</div>
+</div>
+
+<div style="position: relative; padding: 12px 14px; border-radius: 12px; border: 1px dashed #D4BFB0; font-size: 13px; color: #6B5A50">Built as a custom theme block on top of Loop's plans
+<button type="button" aria-label="Feedback B5" onClick="{{go.B5}}" style="position: absolute; top: 6px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.B5}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">5</button>
+</div>
+</div>
+
+<div style="width: 280px; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{notesB}}" as="n" hint-placeholder-count="5">
+<button type="button" onClick="{{n.pick}}" style="display: flex; gap: 10px; align-items: flex-start; width: 100%; text-align: left; padding: 12px; border-radius: 14px; border: 2px solid {{n.border}}; background: {{n.bg}}; color: #2A1F1A; cursor: pointer; font-size: 14px; line-height: 1.4">
+<span style="width: 24px; height: 24px; flex-shrink: 0; border-radius: 50%; background: {{n.dot}}; color: #FFFFFF; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{n.num}}</span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">{{n.title}}</span><span style="color: #6B5A50">{{n.text}}</span></span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 20px; width: 726px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 28px; font-weight: 600">C · Why subscribe? pop-up</h2>
+<p style="margin: 0; color: #6B5A50">Opens from the 'Why subscribe?' link on A, B and D.</p>
+</div>
+<div style="display: flex; gap: 56px; align-items: flex-start">
+<div style="width: 390px; flex-shrink: 0; box-sizing: border-box; border-radius: 32px; background: #5E514A; border: 1px solid #E6D6CA; box-shadow: 0 12px 32px rgba(42,31,26,0.08); padding-top: 40px; display: flex; flex-direction: column">
+<div style="background: #FBF6F1; border-radius: 24px 24px 31px 31px; padding: 12px 20px 24px; display: flex; flex-direction: column; gap: 20px">
+<div style="width: 40px; height: 4px; border-radius: 2px; background: #D4BFB0; align-self: center"></div>
+
+<div style="position: relative; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 34px; line-height: 1.05">Why subscribe?</span>
+<span style="color: #6B5A50">Liberation Oil works best used daily. A subscription means you never run out, and it costs you less.</span>
+<button type="button" aria-label="Feedback C1" onClick="{{go.C1}}" style="position: absolute; top: 4px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.C1}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">1</button>
+</div>
+
+<div style="position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<span style="padding: 14px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E6D6CA; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 600">25% off, every time</span><span style="font-size: 13px; color: #6B5A50">£18.75 instead of £25.00</span></span>
+<span style="padding: 14px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E6D6CA; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 600">Never run out</span><span style="font-size: 13px; color: #6B5A50">Every 8 or 10 weeks, you choose</span></span>
+<span style="padding: 14px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E6D6CA; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 600">A free gift</span><span style="font-size: 13px; color: #6B5A50">With every 3rd delivery</span></span>
+<span style="padding: 14px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E6D6CA; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 600">You're in control</span><span style="font-size: 13px; color: #6B5A50">Skip, swap or cancel in your account</span></span>
+<button type="button" aria-label="Feedback C2" onClick="{{go.C2}}" style="position: absolute; top: 6px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.C2}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">2</button>
+</div>
+
+<div style="position: relative; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 17px; font-weight: 600">How it works, order by order</span>
+<span style="display: flex; gap: 12px"><span style="width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; background: #B4532A; color: #FFFFFF; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center">1</span><span style="display: flex; flex-direction: column"><span style="font-weight: 600">Today</span><span style="font-size: 14px; color: #6B5A50">Your first bottle, 25% off. You pay £18.75.</span></span></span>
+<span style="display: flex; gap: 12px"><span style="width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; background: #F3E3D8; color: #8E3F1E; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center">2</span><span style="display: flex; flex-direction: column"><span style="font-weight: 600">Week 8</span><span style="font-size: 14px; color: #6B5A50">Bottle two arrives. We email you before it ships, so you can skip or move it.</span></span></span>
+<span style="display: flex; gap: 12px"><span style="width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; background: #F3E3D8; color: #8E3F1E; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center">3</span><span style="display: flex; flex-direction: column"><span style="font-weight: 600">Week 16</span><span style="font-size: 14px; color: #6B5A50">Bottle three, plus your free gift.</span></span></span>
+<span style="display: flex; gap: 12px"><span style="width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; border: 2px dashed #D4BFB0; box-sizing: border-box; color: #8E3F1E; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center">+</span><span style="display: flex; flex-direction: column"><span style="font-weight: 600">Any time</span><span style="font-size: 14px; color: #6B5A50">Skip, change to every 10 weeks, swap to Soul Gel, or cancel.</span></span></span>
+<button type="button" aria-label="Feedback C3" onClick="{{go.C3}}" style="position: absolute; top: -4px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.C3}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">3</button>
+</div>
+
+<div style="position: relative; padding: 16px; border-radius: 16px; background: #F3E3D8; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 13px; color: #6B5A50; font-weight: 600">Over a year, delivered every 8 weeks</span>
+<span style="font-size: 22px; font-weight: 600">Save around £40</span>
+<span style="font-size: 13px; color: #6B5A50">About 6 to 7 deliveries, plus two free gifts</span>
+<button type="button" aria-label="Feedback C4" onClick="{{go.C4}}" style="position: absolute; top: 6px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.C4}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">4</button>
+</div>
+
+<div style="position: relative; display: flex; flex-direction: column">
+<span style="font-size: 17px; font-weight: 600; margin-bottom: 6px">Good to know</span>
+<span style="padding: 10px 0; border-top: 1px solid #E6D6CA; display: flex; flex-direction: column"><span style="font-weight: 600; font-size: 14px">Can I cancel?</span><span style="font-size: 14px; color: #6B5A50">Yes. After your 2nd delivery you can cancel any time from your account.</span></span>
+<span style="padding: 10px 0; border-top: 1px solid #E6D6CA; display: flex; flex-direction: column"><span style="font-weight: 600; font-size: 14px">What if I have too much?</span><span style="font-size: 14px; color: #6B5A50">Skip a delivery or space them out. It takes two taps.</span></span>
+<span style="padding: 10px 0; border-top: 1px solid #E6D6CA; border-bottom: 1px solid #E6D6CA; display: flex; flex-direction: column"><span style="font-weight: 600; font-size: 14px">Not for me?</span><span style="font-size: 14px; color: #6B5A50">Your first order is covered by our 30-day money-back guarantee.</span></span>
+<button type="button" aria-label="Feedback C5" onClick="{{go.C5}}" style="position: absolute; top: -4px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.C5}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">5</button>
+</div>
+
+<div style="position: relative; display: flex; flex-direction: column; gap: 8px">
+<span style="min-height: 56px; border-radius: 999px; background: #B4532A; color: #FFFFFF; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center">Subscribe &amp; save 25%</span>
+<span style="text-align: center; color: #6B5A50; font-size: 14px; text-decoration: underline">Not now, buy once for £25.00</span>
+<button type="button" aria-label="Feedback C6" onClick="{{go.C6}}" style="position: absolute; top: 13px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.C6}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">6</button>
+</div>
+</div>
+</div>
+
+<div style="width: 280px; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{notesC}}" as="n" hint-placeholder-count="6">
+<button type="button" onClick="{{n.pick}}" style="display: flex; gap: 10px; align-items: flex-start; width: 100%; text-align: left; padding: 12px; border-radius: 14px; border: 2px solid {{n.border}}; background: {{n.bg}}; color: #2A1F1A; cursor: pointer; font-size: 14px; line-height: 1.4">
+<span style="width: 24px; height: 24px; flex-shrink: 0; border-radius: 50%; background: {{n.dot}}; color: #FFFFFF; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{n.num}}</span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">{{n.title}}</span><span style="color: #6B5A50">{{n.text}}</span></span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 20px; width: 726px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 28px; font-weight: 600">D · Buy once first</h2>
+<p style="margin: 0; color: #6B5A50">Single purchase leads, subscribe sits beside it.</p>
+</div>
+<div style="display: flex; gap: 56px; align-items: flex-start">
+<div style="width: 390px; flex-shrink: 0; box-sizing: border-box; padding: 24px 20px; border-radius: 32px; background: #FBF6F1; border: 1px solid #E6D6CA; box-shadow: 0 12px 32px rgba(42,31,26,0.08); display: flex; flex-direction: column; gap: 18px">
+
+<div style="height: 220px; border-radius: 20px; background: #F3E3D8; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #6B5A50">Product image</div>
+
+<div style="position: relative; display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 34px; line-height: 1.05">Liberation Oil</span>
+<span style="color: #6B5A50">Daily intimate oil · 3 plant ingredients · 40ml</span>
+<span style="font-size: 24px; font-weight: 600; margin-top: 4px">£25.00</span>
+<button type="button" aria-label="Feedback D1" onClick="{{go.D1}}" style="position: absolute; top: 4px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.D1}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">1</button>
+</div>
+
+<div style="position: relative; display: flex; gap: 10px">
+<span style="flex: 1.35; min-height: 56px; border-radius: 999px; background: #B4532A; color: #FFFFFF; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center">Add to bag</span>
+<span style="flex: 1; min-height: 56px; border-radius: 999px; border: 2px solid #B4532A; background: #F3E3D8; color: #8E3F1E; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.15"><span style="font-size: 15px; font-weight: 600">Subscribe</span><span style="font-size: 12px">£18.75 · save 25%</span></span>
+<button type="button" aria-label="Feedback D2" onClick="{{go.D2}}" style="position: absolute; top: 13px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.D2}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">2</button>
+</div>
+
+<div style="position: relative; padding: 18px; border-radius: 20px; background: #FFFFFF; border: 2px solid #B4532A; display: flex; flex-direction: column; gap: 14px">
+<span style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 18px; font-weight: 600">Subscribe &amp; save 25%</span><span style="font-size: 14px; color: #8E3F1E; font-weight: 600">About 33p a day</span></span>
+<span style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<span style="padding: 8px; border-radius: 12px; border: 2px solid #B4532A; display: flex; flex-direction: column; align-items: center"><span style="font-weight: 600">8 weeks</span><span style="font-size: 12px; color: #6B5A50">If you use it daily</span></span>
+<span style="padding: 8px; border-radius: 12px; border: 2px solid #E6D6CA; display: flex; flex-direction: column; align-items: center"><span style="font-weight: 600">10 weeks</span><span style="font-size: 12px; color: #6B5A50">If you use it most days</span></span>
+</span>
+<span style="display: flex; flex-direction: column; gap: 6px; font-size: 14px"><span>✓ £6.25 off every bottle</span><span>✓ Free gift with every 3rd delivery</span><span>✓ Skip, swap or cancel from your account</span></span>
+<button type="button" aria-label="Feedback D3" onClick="{{go.D3}}" style="position: absolute; top: 14px; right: -54px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.D3}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">3</button>
+<div style="position: relative; min-height: 56px; border-radius: 999px; background: #B4532A; color: #FFFFFF; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center">Subscribe · £18.75 every 8 weeks
+<button type="button" aria-label="Feedback D4" onClick="{{go.D4}}" style="position: absolute; top: 13px; right: -74px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.D4}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">4</button>
+</div>
+</div>
+
+<div style="position: relative; font-size: 13px; color: #6B5A50; text-align: center">30-day money-back guarantee
+<button type="button" aria-label="Feedback D5" onClick="{{go.D5}}" style="position: absolute; top: -7px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.D5}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">5</button>
+</div>
+</div>
+
+<div style="width: 280px; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{notesD}}" as="n" hint-placeholder-count="5">
+<button type="button" onClick="{{n.pick}}" style="display: flex; gap: 10px; align-items: flex-start; width: 100%; text-align: left; padding: 12px; border-radius: 14px; border: 2px solid {{n.border}}; background: {{n.bg}}; color: #2A1F1A; cursor: pointer; font-size: 14px; line-height: 1.4">
+<span style="width: 24px; height: 24px; flex-shrink: 0; border-radius: 50%; background: {{n.dot}}; color: #FFFFFF; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{n.num}}</span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">{{n.title}}</span><span style="color: #6B5A50">{{n.text}}</span></span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 20px; width: 726px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 28px; font-weight: 600">E · Refill page</h2>
+<p style="margin: 0; color: #6B5A50">A one-off reorder, worded the way people search.</p>
+</div>
+<div style="display: flex; gap: 56px; align-items: flex-start">
+<div style="width: 390px; flex-shrink: 0; box-sizing: border-box; padding: 24px 20px; border-radius: 32px; background: #FBF6F1; border: 1px solid #E6D6CA; box-shadow: 0 12px 32px rgba(42,31,26,0.08); display: flex; flex-direction: column; gap: 18px">
+
+<div style="position: relative; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #8E3F1E">Running low?</span>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 38px; line-height: 1.02">Refill your Liberation Oil</span>
+<span style="color: #6B5A50">The same three-ingredient formula, in the same 40ml bottle. Reorder in a tap.</span>
+<button type="button" aria-label="Feedback E1" onClick="{{go.E1}}" style="position: absolute; top: -4px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.E1}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">1</button>
+</div>
+
+<div style="height: 180px; border-radius: 20px; background: #F3E3D8; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #6B5A50">Refill image</div>
+
+<div style="position: relative; display: flex; flex-direction: column; gap: 10px">
+<span style="display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 16px; border: 2px solid #B4532A; background: #FFFFFF"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; border: 2px solid #B4532A; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><span style="width: 10px; height: 10px; border-radius: 50%; background: #B4532A"></span></span><span style="display: flex; flex-direction: column; flex: 1"><span style="font-weight: 600; font-size: 16px">One refill</span><span style="color: #6B5A50; font-size: 14px">Just this bottle</span></span><span style="font-weight: 600; font-size: 16px">£25.00</span></span>
+<span style="display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 16px; border: 2px solid #E6D6CA"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; border: 2px solid #E6D6CA; box-sizing: border-box"></span><span style="display: flex; flex-direction: column; flex: 1"><span style="font-weight: 600; font-size: 16px">Refill automatically</span><span style="color: #6B5A50; font-size: 14px">Save 25%, every 8 or 10 weeks</span></span><span style="display: flex; flex-direction: column; align-items: flex-end"><span style="font-weight: 600; font-size: 16px">£18.75</span><span style="color: #6B5A50; font-size: 13px; text-decoration: line-through">£25.00</span></span></span>
+<button type="button" aria-label="Feedback E2" onClick="{{go.E2}}" style="position: absolute; top: 6px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.E2}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">2</button>
+</div>
+
+<div style="position: relative; min-height: 56px; border-radius: 999px; background: #B4532A; color: #FFFFFF; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center">Add refill to bag · £25.00
+<button type="button" aria-label="Feedback E3" onClick="{{go.E3}}" style="position: absolute; top: 13px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.E3}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">3</button>
+</div>
+
+<div style="position: relative; display: flex; gap: 12px; align-items: center; padding: 14px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E6D6CA">
+<span style="width: 52px; height: 52px; flex-shrink: 0; border-radius: 12px; background: #F3E3D8; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #6B5A50">Soul Gel</span>
+<span style="display: flex; flex-direction: column; flex: 1"><span style="font-weight: 600; font-size: 14px">Add Soul Gel</span><span style="font-size: 13px; color: #6B5A50">For glide, alongside your daily oil · £18.00</span></span>
+<span style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; border: 2px solid #B4532A; color: #8E3F1E; font-size: 20px; display: flex; align-items: center; justify-content: center">+</span>
+<button type="button" aria-label="Feedback E4" onClick="{{go.E4}}" style="position: absolute; top: 6px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.E4}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">4</button>
+</div>
+
+<div style="position: relative; font-size: 14px; color: #6B5A50; text-align: center">Already subscribed? <span style="font-weight: 600; color: #B4532A; text-decoration: underline">Manage your deliveries</span>
+<button type="button" aria-label="Feedback E5" onClick="{{go.E5}}" style="position: absolute; top: -6px; right: -52px; width: 30px; height: 30px; padding: 0; border-radius: 50%; border: 2px solid #FFFFFF; background: {{dot.E5}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 4px rgba(42,31,26,0.3)">5</button>
+</div>
+</div>
+
+<div style="width: 280px; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{notesE}}" as="n" hint-placeholder-count="5">
+<button type="button" onClick="{{n.pick}}" style="display: flex; gap: 10px; align-items: flex-start; width: 100%; text-align: left; padding: 12px; border-radius: 14px; border: 2px solid {{n.border}}; background: {{n.bg}}; color: #2A1F1A; cursor: pointer; font-size: 14px; line-height: 1.4">
+<span style="width: 24px; height: 24px; flex-shrink: 0; border-radius: 50%; background: {{n.dot}}; color: #FFFFFF; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{n.num}}</span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">{{n.title}}</span><span style="color: #6B5A50">{{n.text}}</span></span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":4060,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const act = this.state.act ?? null;
+    const notes = {
+      A: [
+        ['A1', 'Short header', 'Keeps the buying choice above the fold on a phone.'],
+        ['A2', 'Ask about buying first', "Replaces 'How often do you need your support?'. How they buy comes first, timing second."],
+        ['A3', 'Buy once, in plain words', 'Preselected for the first 6 months so current conversion is not put at risk.'],
+        ['A4', 'Saving shown per day', "33p a day lands harder than '£18.75'. The 'Best value' tag draws the eye without forcing it."],
+        ['A5', 'Buttons, not a dropdown', 'Each option says who it suits. Timing must match real bottle life (check 1).'],
+        ['A6', 'Value beyond the discount', 'A gift on every 3rd delivery gives a reason to stay. Terms to confirm.'],
+        ['A7', 'Why subscribe? link', 'Opens the pop-up (C) for anyone who wants detail before committing.'],
+        ['A8', 'Cost per day, side by side', 'Makes the saving obvious at a glance.'],
+        ['A9', 'Button repeats the choice', 'Text changes with the option and shows the price, so there are no surprises at checkout.']
+      ],
+      B: [
+        ['B1', 'Talks like the team', 'Sounds like the chat they would have at an event: we help you choose.'],
+        ['B2', 'Three simple answers', 'No jargon, no maths. Real usage cadence still needs confirming.'],
+        ['B3', 'One clear suggestion', 'A plan, the reason, the price and the price per day in one card.'],
+        ['B4', 'Always an easy way out', 'Buy once is one tap away, so nobody feels pushed.'],
+        ['B5', 'How it is built', "Loop's widget can't ask questions. A custom theme block adds the same Loop plans to the cart."]
+      ],
+      C: [
+        ['C1', 'The why in one line', 'Never run out, and it costs less.'],
+        ['C2', 'Four quick reasons', 'Scannable in seconds: saving, timing, gift, control.'],
+        ['C3', 'Order by order', 'Makes the saving and the gift feel real, and shows when they are in control.'],
+        ['C4', 'Yearly saving', 'Around £40 at 8 weeks: about 6.5 deliveries x £6.25 saved.'],
+        ['C5', 'Answers the worries', 'Locked in, too much product, not for me. Cancel terms to confirm.'],
+        ['C6', 'Polite way back', 'A clear main action, plus buy once for anyone not ready.']
+      ],
+      D: [
+        ['D1', 'One price up front', 'Keeps the page calm for cold Meta traffic.'],
+        ['D2', 'Subscribe sits beside', "Mark's six-month plan: buy once leads, subscribe shows its price and saving next to it."],
+        ['D3', 'Opens in place', 'No new page and no pop-up to close.'],
+        ['D4', 'Same clear button', 'Matches A, so the wording is consistent across the site.'],
+        ['D5', 'Guarantee by the button', '30-day money-back guarantee repeated where the decision happens.']
+      ],
+      E: [
+        ['E1', "Matches the search: 'refill'", 'Use for Klaviyo reorder emails and refill search ads.'],
+        ['E2', 'One refill by default', 'Auto-refill is offered as the step up, 25% off.'],
+        ['E3', 'Free delivery line', "£25 sits right on it. Check whether 'over £25' includes £25."],
+        ['E4', 'Easy add-on', 'Soul Gel lifts order value from a buyer who already trusts the brand.'],
+        ['E5', 'Route for subscribers', "Sends existing subscribers to their account and cuts 'where's my order' emails."]
+      ]
+    };
+    const go = {}, dot = {};
+    const build = (list) => list.map((n) => {
+      const on = act === n[0];
+      return {
+        id: n[0], num: n[0].slice(1), title: n[1], text: n[2],
+        border: on ? '#B4532A' : '#E6D6CA',
+        bg: on ? '#FFF4EC' : '#FFFFFF',
+        dot: on ? '#2A1F1A' : '#B4532A',
+        pick: () => this.setState({ act: on ? null : n[0] })
+      };
+    });
+    Object.keys(notes).forEach((k) => notes[k].forEach((n) => {
+      const on = act === n[0];
+      dot[n[0]] = on ? '#2A1F1A' : '#B4532A';
+      go[n[0]] = () => this.setState({ act: on ? null : n[0] });
+    }));
+    return {
+      go: go, dot: dot,
+      notesA: build(notes.A), notesB: build(notes.B), notesC: build(notes.C),
+      notesD: build(notes.D), notesE: build(notes.E)
+    };
+  }
+}
+</script>
+</body>
+</html>
