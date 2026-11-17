@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Church of Oak Sitemap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: a poured-concrete page; the nav reads left to right as a tree, the register below is the working detail. */
+  --bg:#ecebe6; --surface:#f7f6f2; --ink:#1e2320; --muted:#5e645f; --line:#cfcdc4;
+  --accent:#2f4a3a; --corten:#9a4b25;
+  --p1:#2f4a3a; --p2:#7a5a1e; --p3:#9a4b25; --p4:#6b6f79;
+  --display:"Newsreader", Georgia, serif; --body:"IBM Plex Sans", system-ui, sans-serif; --mono:"IBM Plex Mono", ui-monospace, monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161917; --surface:#1f2320; --ink:#e7e6e0; --muted:#a1a69f; --line:#353a36;
+    --accent:#8fb49d; --corten:#d98a5f; --p1:#8fb49d; --p2:#d2b26a; --p3:#d98a5f; --p4:#a3a8b3; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161917; --surface:#1f2320; --ink:#e7e6e0; --muted:#a1a69f; --line:#353a36;
+  --accent:#8fb49d; --corten:#d98a5f; --p1:#8fb49d; --p2:#d2b26a; --p3:#d98a5f; --p4:#a3a8b3; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--body)}
+.wrap{max-width:1240px;margin:0 auto;padding:40px 20px 80px;display:grid;gap:48px}
+h1,h2,h3{font-family:var(--display);font-weight:500;text-wrap:balance;margin:0}
+h1{font-size:44px;line-height:1.05}
+h2{font-size:28px;line-height:1.15}
+h3{font-size:19px}
+p{margin:0;max-width:68ch}
+.lede{color:var(--muted);font-size:17px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--muted);font-size:13px}
+header.top{display:grid;gap:14px;border-bottom:1px solid var(--line);padding-bottom:28px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+section{display:grid;gap:18px}
+.sec-head{display:grid;gap:6px}
+code,.url{font-family:var(--mono);font-size:12.5px}
+
+/* Phase legend */
+.legend{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 10px;font-size:12.5px;white-space:nowrap}
+.dot{width:9px;height:9px;border-radius:50%;flex:none}
+.d1{background:var(--p1)}.d2{background:var(--p2)}.d3{background:var(--p3)}.d4{background:var(--p4)}
+
+/* Nav mock */
+.navmock{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+.navmock .logo{font-family:var(--display);font-size:20px;margin-right:auto}
+.navmock .item{font-size:14px;font-weight:500}
+.navmock .util{font-size:13px;color:var(--muted)}
+.navmock .cta{font-size:13px;border:1px solid var(--ink);padding:4px 12px;border-radius:2px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;display:grid;gap:10px;align-content:start}
+.panel ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.panel li{font-size:14px}
+.small{font-size:13px;color:var(--muted)}
+
+/* Tree */
+.tree-scroll{overflow-x:auto;padding-bottom:6px}
+.root{display:flex;justify-content:flex-start}
+.root .node{border-color:var(--ink)}
+.cols{display:grid;grid-template-columns:repeat(6,minmax(200px,1fr));gap:14px;min-width:1260px;margin-top:14px;position:relative}
+.col{display:grid;gap:8px;align-content:start;border-top:2px solid var(--ink);padding-top:12px}
+.col.util{border-top-style:dashed;border-top-color:var(--muted)}
+.col-title{font-family:var(--display);font-size:18px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.col-title small{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.col-desc{font-size:12.5px;color:var(--muted)}
+.node{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--p1);border-radius:3px;padding:8px 10px;display:grid;gap:2px}
+.node.ph2{border-left-color:var(--p2)}.node.ph3{border-left-color:var(--p3)}.node.ph4{border-left-color:var(--p4)}
+.node.l2{margin-left:16px}
+.node.l3{margin-left:32px}
+.node .name{font-size:13.5px;font-weight:500;line-height:1.3}
+.node .url{color:var(--muted);font-size:11px;word-break:break-all}
+.node .flags{display:flex;gap:4px;flex-wrap:wrap}
+.flag{font-size:10.5px;padding:0 6px;border-radius:2px;border:1px solid var(--line);color:var(--muted)}
+.flag.hidden{color:var(--corten);border-color:var(--corten)}
+
+/* Register */
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters button{font:inherit;font-size:13px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.filters button:focus-visible,.filters input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.filters input{font:inherit;font-size:13px;padding:5px 10px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--ink);min-width:220px}
+.count{font-size:13px;color:var(--muted);margin-left:auto}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:1080px;font-size:13.5px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--surface);position:sticky;top:0}
+tr.grp td{background:var(--bg);font-family:var(--display);font-size:16px;padding-top:14px}
+td.pg{font-weight:500;min-width:190px}
+td.pg.l2{padding-left:26px}td.pg.l3{padding-left:40px}
+td .url{color:var(--muted)}
+td.notes{color:var(--muted);max-width:420px}
+
+/* Decisions */
+.decisions{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;counter-reset:dec}
+.decision{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--corten);border-radius:4px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.decision h3{font-size:17px}
+.decision p{font-size:14px}
+.decision .rec{font-size:13.5px;color:var(--ink)}
+.decision .rec b{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:13px}
+@media (max-width:600px){h1{font-size:34px}.wrap{padding:28px 16px 60px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Church of Oak · New website · Information architecture</div>
+  <h1>Church of Oak sitemap</h1>
+  <p class="lede">Every page planned for churchofoak.com on Shopify, grouped the way a visitor moves through the brand: the story, the whiskey, the visit, and what they come back for. URLs are the real Shopify paths, so the SEO assessment and the Frontend wireframes can start from this.</p>
+  <div class="meta"><span>Draft v1 · 13 November 2026</span><span>Prepared by Glaze for Robert Jordan and Frontend</span><span id="pagecount"></span></div>
+</header>
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">How to read it</div>
+    <h2>Four release phases</h2>
+    <p class="small">Each page is tagged by the moment it needs to go live, not by a date, because the bottle launch and Brand Home opening drive the timing.</p>
+  </div>
+  <div class="legend">
+    <span class="chip"><span class="dot d1"></span>P1 New site launch</span>
+    <span class="chip"><span class="dot d2"></span>P2 Whiskey release</span>
+    <span class="chip"><span class="dot d3"></span>P3 Brand Home opening</span>
+    <span class="chip"><span class="dot d4"></span>P4 Later, architecture ready</span>
+    <span class="chip"><span class="flag hidden" style="border:0;padding:0">Hidden</span> not in navigation, noindex</span>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">Navigation</div>
+    <h2>Header and footer</h2>
+    <p class="small">Four top-level items, in line with the shallow navigation agreed in the 29 October website review. Trace sits inside Whiskey and is reached directly from the NFC tag on each bottle, so it does not need a header slot.</p>
+  </div>
+  <div class="navmock" aria-label="Header navigation mock-up">
+    <span class="logo">Church of Oak</span>
+    <span class="item">The Distillery</span>
+    <span class="item">Whiskey</span>
+    <span class="item">Visit</span>
+    <span class="item">Journal</span>
+    <span class="util">Search</span><span class="util">Account</span><span class="util">Bag</span>
+    <span class="cta">Join the Congregation</span>
+  </div>
+  <div class="two">
+    <div class="panel">
+      <h3>Header: two options</h3>
+      <ul>
+        <li><b>Option A, story first (recommended for P1 and P2).</b> The Distillery, Whiskey, Visit, Journal. Leads with place and process while the Brand Home is still being built.</li>
+        <li><b>Option B, visit first (switch at P3).</b> Visit, Whiskey, The Distillery, Journal. Once tours are bookable, Visit becomes the main revenue page from search and should sit first.</li>
+        <li>The Join button stays in both. It feeds the Klaviyo list that every release mechanic (ballot, pre-sale, waiting list) depends on.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Footer</h3>
+      <ul>
+        <li><b>Explore:</b> Our story, Trace your bottle, Plan your visit, Events, Gift an experience</li>
+        <li><b>Help:</b> Contact, FAQs, Delivery and returns, Accessibility, Responsible drinking</li>
+        <li><b>Company:</b> Trade and distributors, Groups and travel partners, Press, Careers</li>
+        <li><b>Legal:</b> Privacy, Terms of sale, Booking terms, Release and ballot terms, Cookie settings</li>
+        <li>Address, phone, Instagram, newsletter sign-up, "Made by Glaze"</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">Structure</div>
+    <h2>The tree</h2>
+    <p class="small">Scroll sideways on smaller screens. Indented cards are child pages. The left edge colour shows the phase.</p>
+  </div>
+  <div class="tree-scroll">
+    <div class="root"><div class="node" style="min-width:260px"><span class="name">Home</span><span class="url">/</span><span class="flags"><span class="flag">Age gate overlay on first visit</span></span></div></div>
+    <div class="cols" id="tree"></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">Page register</div>
+    <h2>Every page, with its Shopify setup</h2>
+    <p class="small">This is the list to hand to the SEO assessment and to Frontend for wireframes. "Index" means whether Google should see it.</p>
+  </div>
+  <div class="filters" role="group" aria-label="Filter pages by phase">
+    <button type="button" data-phase="all" aria-pressed="true" id="f-all">All</button>
+    <button type="button" data-phase="1" aria-pressed="false" id="f-1">P1 Launch</button>
+    <button type="button" data-phase="2" aria-pressed="false" id="f-2">P2 Whiskey</button>
+    <button type="button" data-phase="3" aria-pressed="false" id="f-3">P3 Brand Home</button>
+    <button type="button" data-phase="4" aria-pressed="false" id="f-4">P4 Later</button>
+    <label for="q" class="small" style="margin-left:8px">Search</label>
+    <input id="q" type="search" placeholder="Page, URL or note">
+    <span class="count" id="count"></span>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Page</th><th>URL</th><th>Shopify object</th><th>Phase</th><th>Index</th><th>Purpose and notes</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">Open decisions</div>
+    <h2>Six things that change the map</h2>
+    <p class="small">Each of these moves URLs or templates, so they are worth settling before wireframes are signed off.</p>
+  </div>
+  <div class="decisions">
+    <div class="decision">
+      <h3>1. Booking engine</h3>
+      <p>AnyRoad, FareHarbor or Shopify decides whether experiences live at <code>/products/…</code> (Shopify) or as Shopify pages with an embedded widget.</p>
+      <p class="rec"><b>Recommendation:</b> keep every experience as a Shopify page whichever engine wins, so the search-friendly content and URLs belong to Church of Oak and survive a change of supplier. This matches section 13.3 of the booking spec.</p>
+    </div>
+    <div class="decision">
+      <h3>2. Where batch data lives</h3>
+      <p>Metaobjects in Shopify give clean URLs at <code>/pages/batch/{number}</code>. A live NetSuite lookup would need an app proxy URL such as <code>/apps/trace/{number}</code>.</p>
+      <p class="rec"><b>Recommendation:</b> sync NetSuite into Shopify metaobjects and keep the <code>/pages/batch/</code> pattern. NFC tags printed now will point at it for years, so the URL must never change.</p>
+    </div>
+    <div class="decision">
+      <h3>3. Batch pages in Google</h3>
+      <p>Hundreds of near-identical batch pages can read as thin content and dilute the site.</p>
+      <p class="rec"><b>Recommendation:</b> noindex individual batch pages and index the Trace hub and the Grain page, which carry the story. Batch pages stay public, as agreed on 12 November, since an NFC scan cannot prove purchase.</p>
+    </div>
+    <div class="decision">
+      <h3>4. Membership name and scope</h3>
+      <p>"Join the congregation" already runs on the holding site. Is the Congregation a free list, or a members tier with its own area and benefits?</p>
+      <p class="rec"><b>Recommendation:</b> launch as a free list at P1, add a tagged members area at P4 once there is something to give members (priority ballots, member events).</p>
+    </div>
+    <div class="decision">
+      <h3>5. Countries sold to</h3>
+      <p>Selling to the UK, EU or US changes the structure. Shopify Markets adds subfolders such as <code>/en-gb/</code> and hreflang tags, and US alcohol shipping rules are state by state.</p>
+      <p class="rec"><b>Recommendation:</b> launch Ireland first with one domain, plan subfolders for the UK and EU at P2, and treat the US as a distributor link rather than a direct shop.</p>
+    </div>
+    <div class="decision">
+      <h3>6. The Lever Room</h3>
+      <p>The founders' cask programme is private. It can be a hidden page with a password field, or a page only shown to customers tagged as founders.</p>
+      <p class="rec"><b>Recommendation:</b> customer-tag gating, noindex, no links from the public site. Cask payments run through Shopify invoice links as agreed on 12 November.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">Shopify rules this map follows</div>
+    <h2>Why the URLs look the way they do</h2>
+  </div>
+  <div class="two">
+    <div class="panel">
+      <ul>
+        <li>Shopify fixes the folder for each object: <code>/pages/</code>, <code>/products/</code>, <code>/collections/</code>, <code>/blogs/</code>, <code>/policies/</code>. Clean top-level URLs such as <code>/visit</code> are not possible, so the handle after the folder carries the keyword.</li>
+        <li>Metaobject entries with web pages switched on publish at <code>/pages/{type}/{handle}</code>. That is how batches, experiences detail and team profiles can get their own pages without an app.</li>
+        <li>Legal policies set in Settings publish at <code>/policies/…</code> automatically. Booking terms and ballot terms are not standard policies, so they are normal pages.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <ul>
+        <li>The Journal uses one blog with tags for seasons and topics, rather than several blogs, so every story shares one URL folder and builds authority in one place.</li>
+        <li>New customer accounts sit on Shopify's own account pages. Bookings and guest passes appear there only if the chosen booking engine has a customer account extension.</li>
+        <li>The old WordPress URLs were redirected at the holding-site stage. Any page in this map that replaces a former WordPress page should reuse that redirect target.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>Sources: Glaze and Frontend website review (29 October 2026), critical path call notes (12 November 2026), Brand Home booking engine spec, Phase 1 approved scope. Draft for discussion; page names are working labels for Frontend to refine.</footer>
+</main>
+
+<script>
+const P = {1:"P1 Launch",2:"P2 Whiskey",3:"P3 Brand Home",4:"P4 Later"};
+const S = [
+ {id:"distillery", title:"The Distillery", short:"Story", desc:"Place, people and process. The slow, visual storytelling section.", util:false, pages:[
+  {n:"The Distillery (hub)",u:"/pages/the-distillery",t:"Page, custom template",p:1,i:"Yes",l:1,note:"Long scroll overview with film and sound, linking to each chapter. Target: Irish whiskey distillery Kildare."},
+  {n:"Our story",u:"/pages/our-story",t:"Page",p:1,i:"Yes",l:2,note:"Founding story and the meaning of the name. Bottle design and designer story held back until launch, as agreed."},
+  {n:"Ballykelly Mills",u:"/pages/ballykelly-mills",t:"Page",p:1,i:"Yes",l:2,note:"The place: the restored mill, Monasterevin, the ODOS buildings, the meadow. Strong for place-based search."},
+  {n:"Grain to glass",u:"/pages/grain-to-glass",t:"Page, chapter template",p:1,i:"Yes",l:2,note:"One long page with anchored chapters: mash, fermentation, the three stills, the worm tub, the levers, casks. One strong page beats six thin ones."},
+  {n:"Grain and Athgarrett",u:"/pages/grain",t:"Page",p:1,i:"Yes",l:3,note:"Maize, rye, oats and barley; malting and kilning at Athgarrett. Explains the grain passport that batch pages show."},
+  {n:"People",u:"/pages/people",t:"Page + team metaobject",p:1,i:"Yes",l:2,note:"Distillers and makers. Profiles as metaobjects so they can be reused on experience pages (your host)."},
+  {n:"Now at the distillery",u:"/pages/now",t:"Page, live content",p:4,i:"Yes",l:2,note:"The seasonal or time-of-day view raised in the review: what is in the stills, the weather, the meadow. Optional."}
+ ]},
+ {id:"whiskey", title:"Whiskey", short:"Shop", desc:"The shop, release mechanics and traceability.", util:false, pages:[
+  {n:"Whiskey (all)",u:"/collections/whiskey",t:"Collection",p:2,i:"Yes",l:1,note:"Main shop page. Small range, so a curated editorial layout, not a grid of filters."},
+  {n:"Product page",u:"/products/{handle}",t:"Product, custom template",p:2,i:"Yes",l:2,note:"One template with states: coming soon, ballot open, pre-sale, on sale, sold out with waiting list. Threads set and Icon first."},
+  {n:"Releases",u:"/pages/releases",t:"Page",p:2,i:"Yes",l:2,note:"How releases work: ballot, pre-sale, waiting list. Upcoming and past releases. Builds the sense of an event for Threads and Icon."},
+  {n:"Release landing page",u:"/pages/release-{name}",t:"Page, landing template",p:2,i:"No",l:3,note:"One per drop for ads and email, with a single goal. Noindex to avoid competing with the product page."},
+  {n:"Gifts",u:"/collections/gifts",t:"Collection",p:2,i:"Yes",l:2,note:"Gift sets, gift vouchers and experiences as gifts. Engraving and packaging depend on the fulfilment review."},
+  {n:"Merchandise",u:"/collections/merchandise",t:"Collection",p:4,i:"Yes",l:2,note:"Only if a range is planned. Can live under Gifts until then."},
+  {n:"Trace your bottle",u:"/pages/trace",t:"Page, lookup template",p:1,i:"Yes",l:2,note:"Enter or scan a batch number. Can launch before bottles if batch data is ready, as a proof of the traceability story."},
+  {n:"Batch page",u:"/pages/batch/{batch-number}",t:"Metaobject web page",p:2,i:"No",l:3,note:"Grain passport, distillation and cask data, linked product. NFC tags point here. Public, not behind purchase. URL must never change."},
+  {n:"The Lever Room",u:"/pages/the-lever-room",t:"Page, gated by customer tag",p:3,i:"No",l:2,hidden:true,note:"Private founders' cask programme. Not linked from the public site. Payments via Shopify invoice links."}
+ ]},
+ {id:"visit", title:"Visit", short:"Brand Home", desc:"Experiences, dining, events and planning a visit.", util:false, pages:[
+  {n:"Visit (hub)",u:"/pages/visit",t:"Page, custom template",p:1,i:"Yes",l:1,note:"The Brand Home story and what is coming. At P1 it collects interest; at P3 it sells. Target: distillery tours Kildare, things to do in Kildare."},
+  {n:"Experiences",u:"/pages/experiences",t:"Page",p:3,i:"Yes",l:2,note:"Compare all experiences side by side: duration, group size, price, what is included."},
+  {n:"Experience page",u:"/pages/experience/{name}",t:"Metaobject web page or product",p:3,i:"Yes",l:3,note:"Core, Signature, masterclasses. Content on Shopify, booking via the chosen engine. See decision 1."},
+  {n:"Private dining and tasting room",u:"/pages/private-dining",t:"Page + enquiry form",p:3,i:"Yes",l:2,note:"Room for up to 20. Enquiry led, quote then deposit, per the booking spec."},
+  {n:"Events",u:"/pages/events",t:"Page, calendar",p:3,i:"Yes",l:2,note:"Tastings, dinners, talks, launches. Feeds from the booking engine."},
+  {n:"Event page",u:"/pages/event/{name}",t:"Metaobject web page",p:3,i:"Yes",l:3,note:"One per event. Expired events redirect to Events to keep the site clean."},
+  {n:"Café and bakery",u:"/pages/cafe",t:"Page",p:3,i:"Yes",l:2,note:"External operator. Opening hours, menu link and their own booking link if they have one."},
+  {n:"Gift an experience",u:"/products/experience-gift",t:"Product (gift voucher)",p:3,i:"Yes",l:2,note:"Recipient picks the date later. Also listed in Gifts."},
+  {n:"Groups, trade and travel",u:"/pages/groups",t:"Page + enquiry form",p:3,i:"Yes",l:2,note:"Corporate, tour operators, travel advisors and concierges. Enquiry and quote flow, partner rates later."},
+  {n:"Plan your visit",u:"/pages/plan-your-visit",t:"Page",p:1,i:"Yes",l:2,note:"Getting here from Dublin, opening times, parking, accessibility by experience, age policy, FAQs. Needed from launch for contact and directions."},
+  {n:"Click and collect at the distillery",u:"/pages/collect",t:"Page",p:3,i:"No",l:3,note:"How to order online and pick up during a visit. Linked from booking confirmations."}
+ ]},
+ {id:"journal", title:"Journal", short:"Stories", desc:"Seasonal stories that keep the site changing.", util:false, pages:[
+  {n:"Journal",u:"/blogs/journal",t:"Blog",p:1,i:"Yes",l:1,note:"Seasonal broadcasts from the distillery, as discussed in the review. One blog, tagged."},
+  {n:"Tag: Seasons",u:"/blogs/journal/tagged/seasons",t:"Blog tag",p:1,i:"No",l:2,note:"Tag pages are useful for browsing but too thin to index."},
+  {n:"Tag: From the stills",u:"/blogs/journal/tagged/distillery",t:"Blog tag",p:1,i:"No",l:2,note:"Production notes and milestones."},
+  {n:"Tag: News",u:"/blogs/journal/tagged/news",t:"Blog tag",p:1,i:"No",l:2,note:"Openings, releases, press."},
+  {n:"Article",u:"/blogs/journal/{handle}",t:"Article",p:1,i:"Yes",l:2,note:"Image and film led template. The main source of new search traffic over time."}
+ ]},
+ {id:"congregation", title:"The Congregation", short:"CRM", desc:"Sign-up, membership and accounts.", util:false, pages:[
+  {n:"Join the Congregation",u:"/pages/the-congregation",t:"Page + Klaviyo form",p:1,i:"Yes",l:1,note:"What you get by joining: first word on releases, ballots, events. Replaces the holding-site sign-up step."},
+  {n:"Complete your profile",u:"/pages/welcome",t:"Page + Klaviyo form",p:1,i:"No",l:2,note:"Step 3 of the agreed sign-up flow: add preferences and details after confirming email."},
+  {n:"Members area",u:"/pages/members",t:"Page, gated by customer tag",p:4,i:"No",l:2,hidden:true,note:"Only if the Congregation becomes a tier with benefits. See decision 4."},
+  {n:"Account",u:"/account",t:"Shopify customer account",p:2,i:"No",l:1,note:"Orders, addresses. Bookings and guest passes if the booking engine supports it."},
+  {n:"Waiting list confirmation",u:"/pages/waiting-list",t:"Page",p:2,i:"No",l:2,note:"Shown after joining a waiting list or ballot. Sets expectations on what happens next."}
+ ]},
+ {id:"help", title:"Help, company and legal", short:"Footer", desc:"Footer and utility pages. Some are legally required for alcohol and EU sales.", util:true, pages:[
+  {n:"Contact",u:"/pages/contact",t:"Page + form",p:1,i:"Yes",l:1,note:"Address, phone, email, map. Already on the holding site."},
+  {n:"FAQs",u:"/pages/faqs",t:"Page",p:1,i:"Yes",l:1,note:"Grows with each phase: shop, delivery, visits, bookings."},
+  {n:"Trade and distributors",u:"/pages/trade",t:"Page + form",p:2,i:"Yes",l:1,note:"Where to buy, distributor enquiries."},
+  {n:"Press",u:"/pages/press",t:"Page",p:1,i:"Yes",l:1,note:"Coverage, media kit request, press contact."},
+  {n:"Careers",u:"/pages/careers",t:"Page",p:3,i:"Yes",l:1,note:"Brand Home hiring. Optional until then."},
+  {n:"Accessibility statement",u:"/pages/accessibility",t:"Page",p:1,i:"Yes",l:1,note:"Required under the European Accessibility Act for online sales and booking."},
+  {n:"Responsible drinking",u:"/pages/responsible-drinking",t:"Page",p:1,i:"Yes",l:1,note:"Links to drinkaware.ie. Supports the age gate and Irish alcohol advertising rules."},
+  {n:"Delivery and returns",u:"/policies/shipping-policy",t:"Policy",p:2,i:"No",l:1,note:"Plus /policies/refund-policy. Countries and age check on delivery."},
+  {n:"Privacy policy",u:"/policies/privacy-policy",t:"Policy",p:1,i:"No",l:1,note:"Live now on the holding site."},
+  {n:"Terms of sale",u:"/policies/terms-of-service",t:"Policy",p:2,i:"No",l:1,note:"Shop terms."},
+  {n:"Booking terms",u:"/pages/booking-terms",t:"Page",p:3,i:"No",l:1,note:"Cancellations, amendments, age rules for experiences."},
+  {n:"Release and ballot terms",u:"/pages/release-terms",t:"Page",p:2,i:"No",l:1,note:"Ballot rules and limits per customer. Needed before the first ballot opens."},
+  {n:"Search",u:"/search",t:"Shopify search",p:1,i:"No",l:1,note:"Predictive search across pages, products and Journal."},
+  {n:"Page not found",u:"/404",t:"Template",p:1,i:"No",l:1,note:"Branded, with links to Visit, Whiskey and Trace."}
+ ]}
+];
+
+const total = S.reduce((a,s)=>a+s.pages.length,0)+1;
+document.getElementById("pagecount").textContent = total+" pages and templates";
+
+const tree = document.getElementById("tree");
+S.forEach(s=>{
+  const col = document.createElement("div");
+  col.className = "col"+(s.util?" util":"");
+  const h = document.createElement("div"); h.className="col-title";
+  h.innerHTML = `<span>${s.title}</span><small>${s.pages.length}</small>`;
+  const d = document.createElement("div"); d.className="col-desc"; d.textContent=s.desc;
+  col.append(h,d);
+  s.pages.forEach(pg=>{
+    const n = document.createElement("div");
+    n.className = `node ph${pg.p} l${pg.l}`;
+    let flags = "";
+    if(pg.hidden) flags += `<span class="flag hidden">Hidden</span>`;
+    if(pg.i==="No" && !pg.hidden) flags += `<span class="flag">Noindex</span>`;
+    n.innerHTML = `<span class="name">${pg.n}</span><span class="url">${pg.u}</span>${flags?`<span class="flags">${flags}</span>`:""}`;
+    n.title = pg.note;
+    col.append(n);
+  });
+  tree.append(col);
+});
+
+const rows = document.getElementById("rows");
+let phase = "all", q = "";
+function render(){
+  rows.innerHTML = "";
+  let shown = 0;
+  const homeMatch = (phase==="all"||phase==="1") && (!q || "home / age gate".includes(q));
+  if(homeMatch){
+    rows.insertAdjacentHTML("beforeend",`<tr class="grp"><td colspan="6">Home</td></tr><tr><td class="pg">Home</td><td><span class="url">/</span></td><td>Home template</td><td><span class="chip"><span class="dot d1"></span>${P[1]}</span></td><td>Yes</td><td class="notes">Film and sound led opener, then one route each into the Distillery, Whiskey, Visit and Journal. Age gate as an invitation, not a barrier; DOB or yes/no still to decide.</td></tr>`);
+    shown++;
+  }
+  S.forEach(s=>{
+    const list = s.pages.filter(pg=>(phase==="all"||String(pg.p)===phase) && (!q || (pg.n+" "+pg.u+" "+pg.note+" "+pg.t).toLowerCase().includes(q)));
+    if(!list.length) return;
+    rows.insertAdjacentHTML("beforeend",`<tr class="grp"><td colspan="6">${s.title}</td></tr>`);
+    list.forEach(pg=>{
+      shown++;
+      rows.insertAdjacentHTML("beforeend",`<tr><td class="pg l${pg.l}">${pg.n}${pg.hidden?' <span class="flag hidden">Hidden</span>':''}</td><td><span class="url">${pg.u}</span></td><td>${pg.t}</td><td><span class="chip"><span class="dot d${pg.p}"></span>${P[pg.p]}</span></td><td>${pg.i}</td><td class="notes">${pg.note}</td></tr>`);
+    });
+  });
+  document.getElementById("count").textContent = shown+" shown";
+}
+document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{
+  phase = b.dataset.phase;
+  document.querySelectorAll(".filters button").forEach(x=>x.setAttribute("aria-pressed", x===b?"true":"false"));
+  render();
+}));
+document.getElementById("q").addEventListener("input",e=>{q=e.target.value.trim().toLowerCase();render();});
+render();
+</script>
+</body>
+</html>

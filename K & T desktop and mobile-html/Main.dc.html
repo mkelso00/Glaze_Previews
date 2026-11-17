@@ -1,0 +1,1806 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>K &amp; T website</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+h1,h2,h3,h4{font-family:Outfit,Figtree,sans-serif;letter-spacing:-0.01em}
+a{color:#141414}a:hover{color:#242424}
+</style>
+</helmet>
+<div style="width: 6146px; box-sizing: border-box; padding: 80px; background: #DCDCDA; display: flex; gap: 140px; align-items: flex-start; font-family: Figtree, system-ui, sans-serif; color: #141414">
+
+<div id="page-home" style="display: flex; flex-direction: column; gap: 28px">
+<p style="margin: 0; display: flex; align-items: baseline; gap: 16px; font-size: 18px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #575757"><span style="font-family: Outfit, sans-serif; font-size: 44px; font-weight: 300; letter-spacing: 0; color: #141414">01</span>Homepage</p>
+<div style="display: flex; gap: 72px; align-items: flex-start">
+<div style="flex: 0 0 1440px; width: 1440px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Desktop</p>
+<div style="background: #FFFFFF; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 60px 120px -40px rgba(0,0,0,0.35)">
+<!-- Announcement bar -->
+<div style="background: {{ink}}; color: #FFFFFF; font-size: 14px; font-weight: 600; padding: 10px 24px; display: flex; justify-content: center; align-items: center; gap: 28px; flex-wrap: wrap; text-align: center">
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Order by 10am for next-day delivery</span>
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Perfect fit guaranteed or we remake it</span>
+</div>
+
+<!-- Header -->
+<header style="background: #FFFFFF; border-bottom: 1px solid #E6E6E6">
+<div style="max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+<a href="#page-home" aria-label="K and T home" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: {{ink}}">
+<span aria-hidden="true" style="width: 40px; height: 40px; box-sizing: border-box; border: 1.5px solid {{ink}}; display: flex; align-items: center; justify-content: center; font-family: Outfit, sans-serif; font-weight: 400; font-size: 17px; letter-spacing: 0.02em">KT</span><span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 24px; letter-spacing: 0.06em">K &amp; T</span>
+</a>
+<nav aria-label="Main" style="display: flex; gap: 28px; flex-wrap: wrap; font-size: 15px; font-weight: 600">
+<a href="#page-product" style="text-decoration: none">Shop</a>
+<a href="#how" style="text-decoration: none">How it works</a>
+<a href="#" style="text-decoration: none">Measuring guide</a>
+<a href="#" style="text-decoration: none">The Quiet</a>
+<a href="#page-about" style="text-decoration: none">Our story</a>
+<a href="#reviews" style="text-decoration: none">Reviews</a>
+<a href="#faq" style="text-decoration: none">FAQ</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 6px">
+<button aria-label="Account" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></button>
+<button aria-label="Basket" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></button>
+<a href="#page-product" style="margin-left: 8px; background: {{ink}}; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 15px; padding: 12px 20px; border-radius: 999px">Start your order</a>
+</div>
+</div>
+</header>
+
+<!-- Hero -->
+<section style="position: relative; background: {{ink}}; color: #FFFFFF; overflow: hidden; min-height: 780px; display: flex; align-items: center">
+<video src="./assets/dd3603af001d37f37aded7f19435dbf2.mp4" poster="./assets/0d0b658d886e48a59375ade45c5aa09c.jpg" autoplay="" muted="" loop="" playsinline="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"></video>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.62) 42%, rgba(10,10,10,0.08) 75%), linear-gradient(0deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0) 30%)"></div>
+<div style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 96px 32px 160px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 28px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: {{accent}}">You've tried curtains. You've tried blinds. Even the travel blackouts.</p>
+<h1 style="margin: 0; font-size: 76px; line-height: 0.98; font-weight: 600">Light still finds a way in. Not any more.</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #CFCFCF; max-width: 520px">A made-to-measure blackout panel that presses into your window frame and stops light at the edges. No drilling. No damage. Darkness in seconds.</p>
+<div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center">
+<a href="#page-product" style="background: {{accent}}; color: {{ink}}; text-decoration: none; font-weight: 600; font-size: 17px; padding: 18px 30px; border-radius: 999px; box-shadow: 0 10px 24px -10px rgba(0,0,0,0.55); display: inline-flex; align-items: center; gap: 10px">Start your order from £77 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a href="#how" style="color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 26px; border-radius: 999px; border: 2px solid rgba(255,255,255,0.35)">How it works</a>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-top: 8px">
+<div style="display: flex; gap: 2px" role="img" aria-label="5 out of 5 stars">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="{{accent}}" aria-hidden="true"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3"></polygon></svg>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="{{accent}}" aria-hidden="true"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3"></polygon></svg>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="{{accent}}" aria-hidden="true"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3"></polygon></svg>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="{{accent}}" aria-hidden="true"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3"></polygon></svg>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="{{accent}}" aria-hidden="true"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3"></polygon></svg>
+</div>
+<span style="font-size: 15px; font-weight: 600; color: #CFCFCF">5-star reviews from parents of babies, toddlers and big kids</span>
+</div>
+</div>
+<div style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #FFFFFF; border-radius: 18px; padding: 16px 20px; display: flex; align-items: center; gap: 14px; box-shadow: 0 24px 48px -16px rgba(0,0,0,0.55)">
+<div style="width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; color: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></div>
+<div>
+<p style="margin: 0; font-weight: 700; font-size: 16px">Darkness in seconds</p>
+<p style="margin: 2px 0 0; font-size: 14px; color: #CFCFCF">Watch how it fits</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- USP strip -->
+<section style="background: linear-gradient(180deg, {{ink}} 0, {{ink}} 50%, #FFFFFF 50%); padding: 0 32px">
+<div style="max-width: 1216px; margin: -56px auto 0; position: relative; background: #FFFFFF; border-radius: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 30px 60px -20px rgba(0,0,0,0.35); padding: 28px 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Next-day delivery by 10am</div>
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17L17 3l4 4L7 21H3z"></path><path d="M7 13l2 2M10 10l2 2M13 7l2 2"></path></svg>Made to measure</div>
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Perfect fit guarantee</div>
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M5.6 5.6l12.8 12.8"></path></svg>No drilling, no damage</div>
+</div>
+</section>
+
+<!-- Darkness in seconds -->
+<section style="background: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 72px; align-items: center">
+<div style="position: relative; padding: 0 28px 28px 0"><div aria-hidden="true" style="position: absolute; top: 28px; left: 28px; right: 0; bottom: 0; border-radius: 28px; background: #E7E7E5"></div>
+<div style="position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 4 / 3; background: #F3F3F2; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
+<video src="./assets/dd3603af001d37f37aded7f19435dbf2.mp4" poster="./assets/99b17a0e92c64849b18d3742eb40ae18.jpg" controls="" muted="" playsinline="" preload="none" aria-label="Video: The Calm Panel going up in seconds" style="width: 100%; height: 100%; object-fit: cover; display: block; background: #141414"></video>
+<span style="position: absolute; left: 20px; top: 20px; background: {{ink}}; color: #FFFFFF; font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 999px">Watch: darkness in seconds</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2A2A2A">Why it works</p>
+<h2 style="margin: 0; font-size: 54px; line-height: 1.02; font-weight: 600">Light leaks round the edges. So we sealed them.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #575757">Each Calm Panel is custom-made for your window frame. Soft, premium fabric with side and bottom panels presses into the corners where light usually creeps in.</p>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #575757">Use it alongside your existing curtains or blinds for a darker, calmer room that tells your child it's time for sleep.</p>
+<div style="display: flex; flex-direction: column; gap: 12px; padding-top: 6px">
+<div style="display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 17px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #E7E7E5; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Sits inside the frame, not over it</div>
+<div style="display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 17px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #E7E7E5; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Side and bottom panels block the edges</div>
+<div style="display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 17px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #E7E7E5; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Works with the curtains or blinds you already have</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Comparison -->
+<section style="background: #F3F3F2">
+<div style="max-width: 1080px; margin: 0 auto; padding: 104px 32px; display: flex; flex-direction: column; gap: 40px">
+<div style="text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center">
+<h2 style="margin: 0; font-size: 50px; line-height: 1.04; font-weight: 600">Why the usual fixes fall short</h2>
+<p style="margin: 0; font-size: 19px; color: #575757; max-width: 620px">Most blackouts cover the window. The Calm Panel fits inside it.</p>
+</div>
+<div style="overflow-x: auto; background: #FFFFFF; border-radius: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)">
+<table style="width: 100%; border-collapse: collapse; min-width: 640px; font-size: 16px">
+<thead>
+<tr>
+<th scope="col" style="text-align: left; padding: 22px 28px; font-weight: 700; color: #575757"></th>
+<th scope="col" style="padding: 22px 16px; background: {{ink}}; color: #FFFFFF; font-family: Outfit, sans-serif; font-size: 18px; font-weight: 600; border-radius: 16px 16px 0 0">The Calm Panel</th>
+<th scope="col" style="padding: 22px 16px; font-weight: 700">Blackout curtains</th>
+<th scope="col" style="padding: 22px 16px; font-weight: 700">Blinds</th>
+<th scope="col" style="padding: 22px 16px; font-weight: 700">Travel blackouts</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 20px 28px; font-weight: 700">Blocks light at the edges</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A">Yes</td>
+<td style="text-align: center; color: #575757">Gaps</td>
+<td style="text-align: center; color: #575757">Gaps</td>
+<td style="text-align: center; color: #575757">Partly</td>
+</tr>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 20px 28px; font-weight: 700">Made to your exact window</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A">Yes</td>
+<td style="text-align: center; color: #575757">Rarely</td>
+<td style="text-align: center; color: #575757">Sometimes</td>
+<td style="text-align: center; color: #575757">No</td>
+</tr>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 20px 28px; font-weight: 700">No drilling</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A">Yes</td>
+<td style="text-align: center; color: #575757">Usually not</td>
+<td style="text-align: center; color: #575757">Usually not</td>
+<td style="text-align: center; color: #575757">Yes</td>
+</tr>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 20px 28px; font-weight: 700">Sits inside the window frame</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A; border-radius: 0 0 16px 16px">Yes</td>
+<td style="text-align: center; color: #575757">No</td>
+<td style="text-align: center; color: #575757">Sometimes</td>
+<td style="text-align: center; color: #575757; padding: 20px 16px">No</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- How it works -->
+<section id="how" style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 640px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: {{accent}}">How it works</p>
+<h2 style="margin: 0; font-size: 54px; line-height: 1.02; font-weight: 600">Measure. Attach. Hang. Sleep.</h2>
+</div>
+<a href="#" style="color: #FFFFFF; font-weight: 700; font-size: 16px">Read the measuring and fitting guide</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<div style="background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)), #242424; border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.6); border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: Outfit, sans-serif; font-size: 64px; font-weight: 600; line-height: 1; color: {{accent}}">1</span>
+<h3 style="margin: 0; font-size: 28px; font-weight: 600">Measure</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #CFCFCF">Measure the inside of your window frame. Our guide walks you through it, and we'll check your numbers for free in 10 minutes.</p>
+</div>
+<div style="background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)), #242424; border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.6); border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: Outfit, sans-serif; font-size: 64px; font-weight: 600; line-height: 1; color: {{accent}}">2</span>
+<h3 style="margin: 0; font-size: 28px; font-weight: 600">Attach</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #CFCFCF">Stick the discreet hook strip along the top of the frame. Everything you need comes in the box.</p>
+</div>
+<div style="background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)), #242424; border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.6); border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: Outfit, sans-serif; font-size: 64px; font-weight: 600; line-height: 1; color: {{accent}}">3</span>
+<h3 style="margin: 0; font-size: 28px; font-weight: 600">Hang</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #CFCFCF">Press the panel onto the strip and into the corners. Darkness in seconds, every bedtime.</p>
+</div>
+</div>
+<div style="background: {{accent}}; color: {{ink}}; border-radius: 24px; padding: 28px 36px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap">
+<div style="display: flex; align-items: center; gap: 16px">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>
+<div>
+<p style="margin: 0; font-family: Outfit, sans-serif; font-size: 24px; font-weight: 600">Not sure about your measurements?</p>
+<p style="margin: 4px 0 0; font-size: 16px; font-weight: 600">Send them over and we'll check them within 10 minutes.</p>
+</div>
+</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap">
+<a href="#" style="background: {{ink}}; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 16px; padding: 14px 24px; border-radius: 999px; box-shadow: 0 10px 24px -10px rgba(0,0,0,0.55)">WhatsApp us</a>
+<a href="#" style="color: {{ink}}; text-decoration: none; font-weight: 700; font-size: 16px; padding: 12px 22px; border-radius: 999px; border: 2px solid {{ink}}">Email us</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Bedtime ritual -->
+<section style="background: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 72px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2A2A2A">The bedtime ritual</p>
+<h2 style="margin: 0; font-size: 54px; line-height: 1.02; font-weight: 600">Panel up. Lights out. Little one settles.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #575757">Pressing the panel into place becomes part of the routine. True darkness is a simple, steady cue that helps children feel safe and drift off, whether it's 7pm in June or a lunchtime nap.</p>
+<a href="#page-product" style="align-self: flex-start; background: {{ink}}; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 28px; border-radius: 999px">Start your order</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<img src="./assets/adbaa67a9ca0ec80c233a8112299efa5.jpg" alt="Peace lily on a wooden stool in the nursery" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 24px; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
+<img src="./assets/09e8620b0666ca85313ea2e4f92c2f39.jpg" alt="Wooden cot and woven basket in the nursery" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 24px; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45); margin-top: 48px">
+</div>
+</div>
+</section>
+
+<!-- Choose your size -->
+<section style="background: #F3F3F2">
+<div style="max-width: 1280px; margin: 0 auto; padding: 104px 32px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 50px; line-height: 1.04; font-weight: 600">One panel, sized for your window</h2>
+<p style="margin: 0; font-size: 19px; color: #575757">Pick a size band, then a height. Every panel comes in Chalk.</p>
+</div>
+<a href="#" style="font-weight: 700; font-size: 16px">How to measure</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px">
+<a href="#page-product" style="text-decoration: none; color: {{ink}}; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 10px; border: 2px solid transparent">
+<span style="font-size: 14px; font-weight: 700; color: #575757; text-transform: uppercase; letter-spacing: 0.1em">Small</span>
+<span style="font-family: Outfit, sans-serif; font-size: 44px; font-weight: 600">£77</span>
+<span style="font-size: 15px; color: #575757">Standard height, up to 150cm</span>
+<span style="margin-top: 10px; font-weight: 700; font-size: 15px">Choose Small</span>
+</a>
+<a href="#page-product" style="text-decoration: none; color: {{ink}}; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 10px; border: 2px solid transparent">
+<span style="font-size: 14px; font-weight: 700; color: #575757; text-transform: uppercase; letter-spacing: 0.1em">Medium</span>
+<span style="font-family: Outfit, sans-serif; font-size: 44px; font-weight: 600">£92</span>
+<span style="font-size: 15px; color: #575757">Standard height, up to 150cm</span>
+<span style="margin-top: 10px; font-weight: 700; font-size: 15px">Choose Medium</span>
+</a>
+<a href="#page-product" style="text-decoration: none; color: {{ink}}; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 10px; border: 2px solid transparent">
+<span style="font-size: 14px; font-weight: 700; color: #575757; text-transform: uppercase; letter-spacing: 0.1em">Large</span>
+<span style="font-family: Outfit, sans-serif; font-size: 44px; font-weight: 600">£107</span>
+<span style="font-size: 15px; color: #575757">Standard height, up to 150cm</span>
+<span style="margin-top: 10px; font-weight: 700; font-size: 15px">Choose Large</span>
+</a>
+<a href="#page-product" style="text-decoration: none; color: #FFFFFF; background: {{ink}}; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 10px; border: 2px solid {{ink}}">
+<span style="font-size: 14px; font-weight: 700; color: {{accent}}; text-transform: uppercase; letter-spacing: 0.1em">Custom</span>
+<span style="font-family: Outfit, sans-serif; font-size: 44px; font-weight: 600">£125</span>
+<span style="font-size: 15px; color: #CFCFCF">For unusual or extra-wide windows</span>
+<span style="margin-top: 10px; font-weight: 700; font-size: 15px">Choose Custom</span>
+</a>
+</div>
+<p style="margin: 0; font-size: 15px; color: #575757">Extra length (151 to 200cm) and custom height (over 200cm) available on every size.</p>
+</div>
+</section>
+
+<!-- Reviews -->
+<section id="reviews" style="background: #F3F3F2">
+<div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px; display: flex; flex-direction: column; gap: 44px">
+<div style="text-align: center; display: flex; flex-direction: column; gap: 12px; align-items: center">
+<h2 style="margin: 0; font-size: 50px; line-height: 1.04; font-weight: 600">Parents are sleeping better too</h2>
+<p style="margin: 0; font-size: 19px; color: #575757">From 4 months to 7 years old</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 16px">
+<span style="color: #141414; font-size: 20px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+<blockquote style="margin: 0; font-size: 18px; line-height: 1.55; font-weight: 600">[Review 1 quote from the current site]</blockquote>
+<figcaption style="font-size: 15px; color: #575757">[Name], parent of a [age]</figcaption>
+</figure>
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 16px">
+<span style="color: #141414; font-size: 20px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+<blockquote style="margin: 0; font-size: 18px; line-height: 1.55; font-weight: 600">[Review 2 quote from the current site]</blockquote>
+<figcaption style="font-size: 15px; color: #575757">[Name], parent of a [age]</figcaption>
+</figure>
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 16px">
+<span style="color: #141414; font-size: 20px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+<blockquote style="margin: 0; font-size: 18px; line-height: 1.55; font-weight: 600">[Review 3 quote from the current site]</blockquote>
+<figcaption style="font-size: 15px; color: #575757">[Name], parent of a [age]</figcaption>
+</figure>
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 16px">
+<span style="color: #141414; font-size: 20px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+<blockquote style="margin: 0; font-size: 18px; line-height: 1.55; font-weight: 600">[Review 4 quote from the current site]</blockquote>
+<figcaption style="font-size: 15px; color: #575757">[Name], parent of a [age]</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<!-- Guarantee -->
+<section style="background: #E7E7E5">
+<div style="max-width: 1280px; margin: 0 auto; padding: 80px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px; align-items: center">
+<div style="display: flex; gap: 24px; align-items: center">
+<div style="flex: 0 0 auto; width: 112px; height: 112px; border-radius: 999px; background: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
+<h2 style="margin: 0; font-size: 46px; line-height: 1.04; font-weight: 600">Perfect fit, guaranteed.</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 19px; line-height: 1.6">If your Calm Panel isn't quite right for your window, we'll remake it. Measure with confidence, and if you're unsure, we'll check your numbers first.</p>
+<a href="#" style="font-weight: 700; font-size: 16px; color: #141414">How the guarantee works</a>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background: #FFFFFF">
+<div style="max-width: 880px; margin: 0 auto; padding: 112px 32px; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-size: 50px; line-height: 1.04; font-weight: 600; text-align: center">Questions parents ask</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #DDDDDD">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="5">
+<div style="border-bottom: 1px solid #DDDDDD">
+<button onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="width: 100%; min-height: 64px; background: transparent; border: 0; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer; text-align: left; font-family: Figtree, sans-serif; font-size: 19px; font-weight: 700; color: #141414">{{ f.q }}<span style="flex: 0 0 auto; width: 36px; height: 36px; border-radius: 999px; background: #F3F3F2; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 600">{{ f.sign }}</span></button>
+<sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0 0 24px; font-size: 17px; line-height: 1.65; color: #575757; max-width: 720px">{{ f.a }}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- Newsletter -->
+<section style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 88px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 46px; line-height: 1.04; font-weight: 600">Sleep tips, straight to your inbox</h2>
+<p style="margin: 0; font-size: 18px; color: #CFCFCF">Product news and gentle advice for calmer bedtimes. No spam.</p>
+</div>
+<form style="display: flex; gap: 12px; flex-wrap: wrap">
+<label for="nl-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email address</label>
+<input id="nl-email" type="email" placeholder="Your email address" style="flex: 1 1 260px; min-height: 56px; border-radius: 999px; border: 0; padding: 0 24px; font-family: Figtree, sans-serif; font-size: 17px; color: #141414">
+<button type="button" style="min-height: 56px; border-radius: 999px; border: 0; padding: 0 30px; background: {{accent}}; color: {{ink}}; font-family: Figtree, sans-serif; font-weight: 600; font-size: 17px; cursor: pointer">Sign up</button>
+</form>
+</div>
+</section>
+
+
+
+<!-- Footer -->
+<footer style="background: #0A0A0A; color: #B8B8B8">
+<div style="max-width: 1280px; margin: 0 auto; padding: 72px 32px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.06em; color: #FFFFFF">K &amp; T</span>
+<p style="margin: 0; font-size: 15px; line-height: 1.6">A design-led sleep solutions company, and the makers of The Calm Panel.</p>
+</div>
+<nav aria-label="Shop" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">Shop</span>
+<a href="#page-product" style="color: #B8B8B8; text-decoration: none">The Calm Panel</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Measuring and fitting guide</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Perfect fit guarantee</a>
+</nav>
+<nav aria-label="Help" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">Help</span>
+<a href="#faq" style="color: #B8B8B8; text-decoration: none">FAQ</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Delivery and returns</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Contact us</a>
+</nav>
+<nav aria-label="About" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">About</span>
+<a href="#page-about" style="color: #B8B8B8; text-decoration: none">Our story</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">The Quiet</a>
+</nav>
+</div>
+<div style="max-width: 1280px; margin: 0 auto; padding: 24px 32px 40px; border-top: 1px solid #242424; font-size: 14px">© 2026 K &amp; T. All rights reserved.</div>
+</footer>
+</div>
+</div>
+<div style="flex: 0 0 390px; width: 390px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Mobile</p>
+<div style="width: 390px; background: #FFFFFF; border-radius: 40px; overflow: hidden; box-shadow: 0 0 0 10px #141414, 0 60px 120px -40px rgba(0,0,0,0.45)">
+<!-- Announcement bar -->
+<div style="background: {{ink}}; color: #FFFFFF; font-size: 14px; font-weight: 600; padding: 10px 24px; display: flex; justify-content: center; align-items: center; gap: 28px; flex-wrap: wrap; text-align: center">
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Order by 10am for next-day delivery</span>
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Perfect fit guaranteed or we remake it</span>
+</div>
+
+<!-- Header -->
+<header style="background: #FFFFFF; border-bottom: 1px solid #E6E6E6">
+<div style="padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<button aria-label="Open menu" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+<a href="#page-home" aria-label="K and T home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: {{ink}}"><span aria-hidden="true" style="width: 34px; height: 34px; box-sizing: border-box; border: 1.5px solid {{ink}}; display: flex; align-items: center; justify-content: center; font-family: Outfit, sans-serif; font-weight: 400; font-size: 15px">KT</span><span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 21px; letter-spacing: 0.06em">K &amp; T</span></a>
+<button aria-label="Basket" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></button>
+</div>
+</header>
+
+<!-- Hero -->
+<section style="position: relative; background: {{ink}}; color: #FFFFFF; overflow: hidden; min-height: 600px; display: flex; align-items: center">
+<video src="./assets/dd3603af001d37f37aded7f19435dbf2.mp4" poster="./assets/0d0b658d886e48a59375ade45c5aa09c.jpg" autoplay="" muted="" loop="" playsinline="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"></video>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.5) 60%, rgba(10,10,10,0.3) 100%), linear-gradient(0deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0) 30%)"></div>
+<div style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 53px 20px 96px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; flex-wrap: wrap">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 28px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: {{accent}}">You've tried curtains. You've tried blinds. Even the travel blackouts.</p>
+<h1 style="margin: 0; font-size: 42px; line-height: 0.98; font-weight: 600">Light still finds a way in. Not any more.</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #CFCFCF; max-width: 520px">A made-to-measure blackout panel that presses into your window frame and stops light at the edges. No drilling. No damage. Darkness in seconds.</p>
+<div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center">
+<a href="#page-product" style="background: {{accent}}; color: {{ink}}; text-decoration: none; font-weight: 600; font-size: 17px; padding: 18px 30px; border-radius: 999px; box-shadow: 0 10px 24px -10px rgba(0,0,0,0.55); display: inline-flex; align-items: center; gap: 10px">Start your order from £77 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a href="#how" style="color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 26px; border-radius: 999px; border: 2px solid rgba(255,255,255,0.35)">How it works</a>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-top: 8px">
+<div style="display: flex; gap: 2px" role="img" aria-label="5 out of 5 stars">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="{{accent}}" aria-hidden="true"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3"></polygon></svg>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="{{accent}}" aria-hidden="true"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3"></polygon></svg>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="{{accent}}" aria-hidden="true"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3"></polygon></svg>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="{{accent}}" aria-hidden="true"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3"></polygon></svg>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="{{accent}}" aria-hidden="true"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3"></polygon></svg>
+</div>
+<span style="font-size: 15px; font-weight: 600; color: #CFCFCF">5-star reviews from parents of babies, toddlers and big kids</span>
+</div>
+</div>
+<div style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #FFFFFF; border-radius: 18px; padding: 16px 20px; display: flex; align-items: center; gap: 14px; box-shadow: 0 24px 48px -16px rgba(0,0,0,0.55)">
+<div style="width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; color: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></div>
+<div>
+<p style="margin: 0; font-weight: 700; font-size: 16px">Darkness in seconds</p>
+<p style="margin: 2px 0 0; font-size: 14px; color: #CFCFCF">Watch how it fits</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- USP strip -->
+<section style="background: linear-gradient(180deg, {{ink}} 0, {{ink}} 50%, #FFFFFF 50%); padding: 0 16px">
+<div style="max-width: 1216px; margin: -40px auto 0; position: relative; background: #FFFFFF; border-radius: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 30px 60px -20px rgba(0,0,0,0.35); padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Next-day delivery by 10am</div>
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17L17 3l4 4L7 21H3z"></path><path d="M7 13l2 2M10 10l2 2M13 7l2 2"></path></svg>Made to measure</div>
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Perfect fit guarantee</div>
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M5.6 5.6l12.8 12.8"></path></svg>No drilling, no damage</div>
+</div>
+</section>
+
+<!-- Darkness in seconds -->
+<section style="background: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 62px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 36px; align-items: center">
+<div style="position: relative; padding: 0 28px 28px 0"><div aria-hidden="true" style="position: absolute; top: 28px; left: 28px; right: 0; bottom: 0; border-radius: 28px; background: #E7E7E5"></div>
+<div style="position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 4 / 3; background: #F3F3F2; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
+<video src="./assets/dd3603af001d37f37aded7f19435dbf2.mp4" poster="./assets/99b17a0e92c64849b18d3742eb40ae18.jpg" controls="" muted="" playsinline="" preload="none" aria-label="Video: The Calm Panel going up in seconds" style="width: 100%; height: 100%; object-fit: cover; display: block; background: #141414"></video>
+<span style="position: absolute; left: 20px; top: 20px; background: {{ink}}; color: #FFFFFF; font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 999px">Watch: darkness in seconds</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2A2A2A">Why it works</p>
+<h2 style="margin: 0; font-size: 36px; line-height: 1.02; font-weight: 600">Light leaks round the edges. So we sealed them.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #575757">Each Calm Panel is custom-made for your window frame. Soft, premium fabric with side and bottom panels presses into the corners where light usually creeps in.</p>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #575757">Use it alongside your existing curtains or blinds for a darker, calmer room that tells your child it's time for sleep.</p>
+<div style="display: flex; flex-direction: column; gap: 12px; padding-top: 6px">
+<div style="display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 17px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #E7E7E5; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Sits inside the frame, not over it</div>
+<div style="display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 17px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #E7E7E5; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Side and bottom panels block the edges</div>
+<div style="display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 17px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #E7E7E5; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Works with the curtains or blinds you already have</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Comparison -->
+<section style="background: #F3F3F2">
+<div style="max-width: 1080px; margin: 0 auto; padding: 57px 20px; display: flex; flex-direction: column; gap: 28px">
+<div style="text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center">
+<h2 style="margin: 0; font-size: 33px; line-height: 1.04; font-weight: 600">Why the usual fixes fall short</h2>
+<p style="margin: 0; font-size: 19px; color: #575757; max-width: 620px">Most blackouts cover the window. The Calm Panel fits inside it.</p>
+</div>
+<div style="overflow-x: auto; background: #FFFFFF; border-radius: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)">
+<table style="width: 100%; border-collapse: collapse; min-width: 640px; font-size: 16px">
+<thead>
+<tr>
+<th scope="col" style="text-align: left; padding: 16px; font-weight: 700; color: #575757"></th>
+<th scope="col" style="padding: 22px 16px; background: {{ink}}; color: #FFFFFF; font-family: Outfit, sans-serif; font-size: 18px; font-weight: 600; border-radius: 16px 16px 0 0">The Calm Panel</th>
+<th scope="col" style="padding: 22px 16px; font-weight: 700">Blackout curtains</th>
+<th scope="col" style="padding: 22px 16px; font-weight: 700">Blinds</th>
+<th scope="col" style="padding: 22px 16px; font-weight: 700">Travel blackouts</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 16px 14px; font-weight: 700">Blocks light at the edges</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A">Yes</td>
+<td style="text-align: center; color: #575757">Gaps</td>
+<td style="text-align: center; color: #575757">Gaps</td>
+<td style="text-align: center; color: #575757">Partly</td>
+</tr>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 16px 14px; font-weight: 700">Made to your exact window</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A">Yes</td>
+<td style="text-align: center; color: #575757">Rarely</td>
+<td style="text-align: center; color: #575757">Sometimes</td>
+<td style="text-align: center; color: #575757">No</td>
+</tr>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 16px 14px; font-weight: 700">No drilling</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A">Yes</td>
+<td style="text-align: center; color: #575757">Usually not</td>
+<td style="text-align: center; color: #575757">Usually not</td>
+<td style="text-align: center; color: #575757">Yes</td>
+</tr>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 16px 14px; font-weight: 700">Sits inside the window frame</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A; border-radius: 0 0 16px 16px">Yes</td>
+<td style="text-align: center; color: #575757">No</td>
+<td style="text-align: center; color: #575757">Sometimes</td>
+<td style="text-align: center; color: #575757; padding: 20px 16px">No</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- How it works -->
+<section id="m-how" style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 62px 20px; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 640px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: {{accent}}">How it works</p>
+<h2 style="margin: 0; font-size: 36px; line-height: 1.02; font-weight: 600">Measure. Attach. Hang. Sleep.</h2>
+</div>
+<a href="#" style="color: #FFFFFF; font-weight: 700; font-size: 16px">Read the measuring and fitting guide</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<div style="background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)), #242424; border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.6); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: Outfit, sans-serif; font-size: 35px; font-weight: 600; line-height: 1; color: {{accent}}">1</span>
+<h3 style="margin: 0; font-size: 28px; font-weight: 600">Measure</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #CFCFCF">Measure the inside of your window frame. Our guide walks you through it, and we'll check your numbers for free in 10 minutes.</p>
+</div>
+<div style="background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)), #242424; border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.6); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: Outfit, sans-serif; font-size: 35px; font-weight: 600; line-height: 1; color: {{accent}}">2</span>
+<h3 style="margin: 0; font-size: 28px; font-weight: 600">Attach</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #CFCFCF">Stick the discreet hook strip along the top of the frame. Everything you need comes in the box.</p>
+</div>
+<div style="background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)), #242424; border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.6); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: Outfit, sans-serif; font-size: 35px; font-weight: 600; line-height: 1; color: {{accent}}">3</span>
+<h3 style="margin: 0; font-size: 28px; font-weight: 600">Hang</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #CFCFCF">Press the panel onto the strip and into the corners. Darkness in seconds, every bedtime.</p>
+</div>
+</div>
+<div style="background: {{accent}}; color: {{ink}}; border-radius: 24px; padding: 20px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap">
+<div style="display: flex; align-items: center; gap: 16px">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>
+<div>
+<p style="margin: 0; font-family: Outfit, sans-serif; font-size: 24px; font-weight: 600">Not sure about your measurements?</p>
+<p style="margin: 4px 0 0; font-size: 16px; font-weight: 600">Send them over and we'll check them within 10 minutes.</p>
+</div>
+</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap">
+<a href="#" style="background: {{ink}}; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 16px; padding: 14px 24px; border-radius: 999px; box-shadow: 0 10px 24px -10px rgba(0,0,0,0.55)">WhatsApp us</a>
+<a href="#" style="color: {{ink}}; text-decoration: none; font-weight: 700; font-size: 16px; padding: 12px 22px; border-radius: 999px; border: 2px solid {{ink}}">Email us</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Bedtime ritual -->
+<section style="background: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 62px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 36px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2A2A2A">The bedtime ritual</p>
+<h2 style="margin: 0; font-size: 36px; line-height: 1.02; font-weight: 600">Panel up. Lights out. Little one settles.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #575757">Pressing the panel into place becomes part of the routine. True darkness is a simple, steady cue that helps children feel safe and drift off, whether it's 7pm in June or a lunchtime nap.</p>
+<a href="#page-product" style="align-self: flex-start; background: {{ink}}; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 28px; border-radius: 999px">Start your order</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<img src="./assets/adbaa67a9ca0ec80c233a8112299efa5.jpg" alt="Peace lily on a wooden stool in the nursery" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 24px; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
+<img src="./assets/09e8620b0666ca85313ea2e4f92c2f39.jpg" alt="Wooden cot and woven basket in the nursery" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 24px; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45); margin-top: 48px">
+</div>
+</div>
+</section>
+
+<!-- Choose your size -->
+<section style="background: #F3F3F2">
+<div style="max-width: 1280px; margin: 0 auto; padding: 57px 20px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 33px; line-height: 1.04; font-weight: 600">One panel, sized for your window</h2>
+<p style="margin: 0; font-size: 19px; color: #575757">Pick a size band, then a height. Every panel comes in Chalk.</p>
+</div>
+<a href="#" style="font-weight: 700; font-size: 16px">How to measure</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px">
+<a href="#page-product" style="text-decoration: none; color: {{ink}}; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 10px; border: 2px solid transparent">
+<span style="font-size: 14px; font-weight: 700; color: #575757; text-transform: uppercase; letter-spacing: 0.1em">Small</span>
+<span style="font-family: Outfit, sans-serif; font-size: 29px; font-weight: 600">£77</span>
+<span style="font-size: 15px; color: #575757">Standard height, up to 150cm</span>
+<span style="margin-top: 10px; font-weight: 700; font-size: 15px">Choose Small</span>
+</a>
+<a href="#page-product" style="text-decoration: none; color: {{ink}}; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 10px; border: 2px solid transparent">
+<span style="font-size: 14px; font-weight: 700; color: #575757; text-transform: uppercase; letter-spacing: 0.1em">Medium</span>
+<span style="font-family: Outfit, sans-serif; font-size: 29px; font-weight: 600">£92</span>
+<span style="font-size: 15px; color: #575757">Standard height, up to 150cm</span>
+<span style="margin-top: 10px; font-weight: 700; font-size: 15px">Choose Medium</span>
+</a>
+<a href="#page-product" style="text-decoration: none; color: {{ink}}; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 10px; border: 2px solid transparent">
+<span style="font-size: 14px; font-weight: 700; color: #575757; text-transform: uppercase; letter-spacing: 0.1em">Large</span>
+<span style="font-family: Outfit, sans-serif; font-size: 29px; font-weight: 600">£107</span>
+<span style="font-size: 15px; color: #575757">Standard height, up to 150cm</span>
+<span style="margin-top: 10px; font-weight: 700; font-size: 15px">Choose Large</span>
+</a>
+<a href="#page-product" style="text-decoration: none; color: #FFFFFF; background: {{ink}}; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 10px; border: 2px solid {{ink}}">
+<span style="font-size: 14px; font-weight: 700; color: {{accent}}; text-transform: uppercase; letter-spacing: 0.1em">Custom</span>
+<span style="font-family: Outfit, sans-serif; font-size: 29px; font-weight: 600">£125</span>
+<span style="font-size: 15px; color: #CFCFCF">For unusual or extra-wide windows</span>
+<span style="margin-top: 10px; font-weight: 700; font-size: 15px">Choose Custom</span>
+</a>
+</div>
+<p style="margin: 0; font-size: 15px; color: #575757">Extra length (151 to 200cm) and custom height (over 200cm) available on every size.</p>
+</div>
+</section>
+
+<!-- Reviews -->
+<section id="m-reviews" style="background: #F3F3F2">
+<div style="max-width: 1280px; margin: 0 auto; padding: 62px 20px; display: flex; flex-direction: column; gap: 44px">
+<div style="text-align: center; display: flex; flex-direction: column; gap: 12px; align-items: center">
+<h2 style="margin: 0; font-size: 33px; line-height: 1.04; font-weight: 600">Parents are sleeping better too</h2>
+<p style="margin: 0; font-size: 19px; color: #575757">From 4 months to 7 years old</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 16px">
+<span style="color: #141414; font-size: 20px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+<blockquote style="margin: 0; font-size: 18px; line-height: 1.55; font-weight: 600">[Review 1 quote from the current site]</blockquote>
+<figcaption style="font-size: 15px; color: #575757">[Name], parent of a [age]</figcaption>
+</figure>
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 16px">
+<span style="color: #141414; font-size: 20px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+<blockquote style="margin: 0; font-size: 18px; line-height: 1.55; font-weight: 600">[Review 2 quote from the current site]</blockquote>
+<figcaption style="font-size: 15px; color: #575757">[Name], parent of a [age]</figcaption>
+</figure>
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 16px">
+<span style="color: #141414; font-size: 20px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+<blockquote style="margin: 0; font-size: 18px; line-height: 1.55; font-weight: 600">[Review 3 quote from the current site]</blockquote>
+<figcaption style="font-size: 15px; color: #575757">[Name], parent of a [age]</figcaption>
+</figure>
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 16px">
+<span style="color: #141414; font-size: 20px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+<blockquote style="margin: 0; font-size: 18px; line-height: 1.55; font-weight: 600">[Review 4 quote from the current site]</blockquote>
+<figcaption style="font-size: 15px; color: #575757">[Name], parent of a [age]</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<!-- Guarantee -->
+<section style="background: #E7E7E5">
+<div style="max-width: 1280px; margin: 0 auto; padding: 44px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px; align-items: center">
+<div style="display: flex; gap: 24px; align-items: center">
+<div style="flex: 0 0 auto; width: 112px; height: 112px; border-radius: 999px; background: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
+<h2 style="margin: 0; font-size: 30px; line-height: 1.04; font-weight: 600">Perfect fit, guaranteed.</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 19px; line-height: 1.6">If your Calm Panel isn't quite right for your window, we'll remake it. Measure with confidence, and if you're unsure, we'll check your numbers first.</p>
+<a href="#" style="font-weight: 700; font-size: 16px; color: #141414">How the guarantee works</a>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="m-faq" style="background: #FFFFFF">
+<div style="max-width: 880px; margin: 0 auto; padding: 62px 20px; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-size: 33px; line-height: 1.04; font-weight: 600; text-align: center">Questions parents ask</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #DDDDDD">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="5">
+<div style="border-bottom: 1px solid #DDDDDD">
+<button onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="width: 100%; min-height: 64px; background: transparent; border: 0; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer; text-align: left; font-family: Figtree, sans-serif; font-size: 19px; font-weight: 700; color: #141414">{{ f.q }}<span style="flex: 0 0 auto; width: 36px; height: 36px; border-radius: 999px; background: #F3F3F2; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 600">{{ f.sign }}</span></button>
+<sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0 0 24px; font-size: 17px; line-height: 1.65; color: #575757; max-width: 720px">{{ f.a }}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- Newsletter -->
+<section style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 48px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 28px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.04; font-weight: 600">Sleep tips, straight to your inbox</h2>
+<p style="margin: 0; font-size: 18px; color: #CFCFCF">Product news and gentle advice for calmer bedtimes. No spam.</p>
+</div>
+<form style="display: flex; gap: 12px; flex-wrap: wrap">
+<label for="m-nl-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email address</label>
+<input id="m-nl-email" type="email" placeholder="Your email address" style="flex: 1 1 260px; min-height: 56px; border-radius: 999px; border: 0; padding: 0 24px; font-family: Figtree, sans-serif; font-size: 17px; color: #141414">
+<button type="button" style="min-height: 56px; border-radius: 999px; border: 0; padding: 0 30px; background: {{accent}}; color: {{ink}}; font-family: Figtree, sans-serif; font-weight: 600; font-size: 17px; cursor: pointer">Sign up</button>
+</form>
+</div>
+</section>
+
+
+
+<!-- Footer -->
+<footer style="background: #0A0A0A; color: #B8B8B8">
+<div style="max-width: 1280px; margin: 0 auto; padding: 40px 20px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.06em; color: #FFFFFF">K &amp; T</span>
+<p style="margin: 0; font-size: 15px; line-height: 1.6">A design-led sleep solutions company, and the makers of The Calm Panel.</p>
+</div>
+<nav aria-label="Shop" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">Shop</span>
+<a href="#page-product" style="color: #B8B8B8; text-decoration: none">The Calm Panel</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Measuring and fitting guide</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Perfect fit guarantee</a>
+</nav>
+<nav aria-label="Help" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">Help</span>
+<a href="#faq" style="color: #B8B8B8; text-decoration: none">FAQ</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Delivery and returns</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Contact us</a>
+</nav>
+<nav aria-label="About" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">About</span>
+<a href="#page-about" style="color: #B8B8B8; text-decoration: none">Our story</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">The Quiet</a>
+</nav>
+</div>
+<div style="max-width: 1280px; margin: 0 auto; padding: 13px 20px 24px; border-top: 1px solid #242424; font-size: 14px">© 2026 K &amp; T. All rights reserved.</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+
+<div id="page-product" style="display: flex; flex-direction: column; gap: 28px">
+<p style="margin: 0; display: flex; align-items: baseline; gap: 16px; font-size: 18px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #575757"><span style="font-family: Outfit, sans-serif; font-size: 44px; font-weight: 300; letter-spacing: 0; color: #141414">02</span>Product page</p>
+<div style="display: flex; gap: 72px; align-items: flex-start">
+<div style="flex: 0 0 1440px; width: 1440px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Desktop</p>
+<div style="background: #FFFFFF; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 60px 120px -40px rgba(0,0,0,0.35)">
+<!-- Announcement bar -->
+<div style="background: {{ink}}; color: #FFFFFF; font-size: 14px; font-weight: 600; padding: 10px 24px; display: flex; justify-content: center; align-items: center; gap: 28px; flex-wrap: wrap; text-align: center">
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Order by 10am for next-day delivery</span>
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Perfect fit guaranteed or we remake it</span>
+</div>
+
+<!-- Header -->
+<header style="background: #FFFFFF; border-bottom: 1px solid #E6E6E6">
+<div style="max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+<a href="#page-home" aria-label="K and T home" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: {{ink}}">
+<span aria-hidden="true" style="width: 40px; height: 40px; box-sizing: border-box; border: 1.5px solid {{ink}}; display: flex; align-items: center; justify-content: center; font-family: Outfit, sans-serif; font-weight: 400; font-size: 17px; letter-spacing: 0.02em">KT</span><span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 24px; letter-spacing: 0.06em">K &amp; T</span>
+</a>
+<nav aria-label="Main" style="display: flex; gap: 28px; flex-wrap: wrap; font-size: 15px; font-weight: 600">
+<a href="#page-product" style="text-decoration: none">Shop</a>
+<a href="#how" style="text-decoration: none">How it works</a>
+<a href="#" style="text-decoration: none">Measuring guide</a>
+<a href="#" style="text-decoration: none">The Quiet</a>
+<a href="#page-about" style="text-decoration: none">Our story</a>
+<a href="#reviews" style="text-decoration: none">Reviews</a>
+<a href="#faq" style="text-decoration: none">FAQ</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 6px">
+<button aria-label="Account" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></button>
+<button aria-label="Basket" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></button>
+<a href="#page-product" style="margin-left: 8px; background: {{ink}}; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 15px; padding: 12px 20px; border-radius: 999px">Start your order</a>
+</div>
+</div>
+</header>
+
+<!-- Main product block -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 28px 32px 112px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; color: #575757; margin-bottom: 24px"><a href="#page-home" style="color: #575757">Home</a> / <span>The Calm Panel</span></nav>
+<div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+
+<!-- Gallery -->
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 14px; position: sticky; top: 24px">
+<div style="position: relative; border-radius: 28px; overflow: hidden; background: #F3F3F2; aspect-ratio: 1 / 1; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
+<sc-if value="{{ mainIsPhoto }}" hint-placeholder-val="{{ true }}">
+<img src="{{ mainSrc }}" alt="{{ mainAlt }}" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</sc-if>
+<sc-if value="{{ mainIsPlaceholder }}" hint-placeholder-val="{{ false }}">
+<div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: #575757; font-weight: 700; font-size: 18px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 17l-5-5-9 8"></path></svg>{{ mainAlt }}</div>
+</sc-if>
+<span style="position: absolute; left: 20px; top: 20px; background: {{accent}}; color: {{ink}}; font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 999px">Made to measure</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{ thumbs }}" as="t" hint-placeholder-count="6">
+<button onClick="{{ t.pick }}" aria-label="{{ t.alt }}" aria-pressed="{{ t.active }}" style="{{ t.style }}">
+<sc-if value="{{ t.isPhoto }}" hint-placeholder-val="{{ true }}">
+<img src="{{ t.src }}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</sc-if>
+<sc-if value="{{ t.isPlaceholder }}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 11px; font-weight: 700; color: #575757; padding: 6px; text-align: center; line-height: 1.2">Fabric close-up</span>
+</sc-if>
+</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 6px">
+<div style="position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)">
+<img src="./assets/09e8620b0666ca85313ea2e4f92c2f39.jpg" alt="Cot in a calm, dark nursery" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<button aria-label="Play the fitting video" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; border-radius: 999px; border: 0; background: {{accent}}; color: {{ink}}; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3)"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></button>
+<span style="position: absolute; left: 14px; bottom: 14px; background: {{ink}}; color: #FFFFFF; font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 999px">Watch it go up in seconds</span>
+</div>
+<div style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)">
+<svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><path d="M20.5 7.5a9.5 9.5 0 1 0 3 12 7.5 7.5 0 0 1-3-12z" fill="{{accent}}"></path></svg>
+<p style="margin: 0; font-family: Outfit, sans-serif; font-size: 22px; line-height: 1.3; font-weight: 400">"The magic isn't the darkness. It's the calm it creates for your family."</p>
+<a href="#page-about" style="color: {{accent}}; font-weight: 700; font-size: 15px">Read our story</a>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+<div style="background: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg><span style="font-weight: 700; font-size: 15px">Next-day delivery</span><span style="font-size: 14px; color: #575757">Order by 10am</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span style="font-weight: 700; font-size: 15px">Perfect fit</span><span style="font-size: 14px; color: #575757">Or we remake it</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M5.6 5.6l12.8 12.8"></path></svg><span style="font-weight: 700; font-size: 15px">No drilling</span><span style="font-size: 14px; color: #575757">No damage to frames</span></div>
+</div>
+</div>
+
+<!-- Buy box -->
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<a href="#product-reviews" style="display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 15px; font-weight: 600; color: #575757"><span style="color: #141414; font-size: 18px; letter-spacing: 2px" aria-hidden="true">★★★★★</span>5-star reviews from parents</a>
+<h1 style="margin: 0; font-size: 52px; line-height: 1; font-weight: 600">The Calm Panel</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.5; color: #575757">A made-to-measure blackout panel that fits inside your child's window frame and stops light at the edges.</p>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<span style="background: #E7E7E5; color: #1E1E1E; font-size: 14px; font-weight: 700; padding: 8px 14px; border-radius: 999px">Blocks edge light</span>
+<span style="background: #E7E7E5; color: #1E1E1E; font-size: 14px; font-weight: 700; padding: 8px 14px; border-radius: 999px">No drilling</span>
+<span style="background: #E7E7E5; color: #1E1E1E; font-size: 14px; font-weight: 700; padding: 8px 14px; border-radius: 999px">Works with curtains and blinds</span>
+</div>
+<div style="display: flex; align-items: baseline; gap: 12px">
+<span style="font-family: Outfit, sans-serif; font-size: 40px; font-weight: 600">£{{ price }}</span>
+<span style="font-size: 15px; color: #575757">{{ summary }}</span>
+</div>
+
+<!-- Step 1 -->
+<div style="background: #F3F3F2; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<h2 style="margin: 0; font-size: 20px; font-weight: 600"><span style="color: #575757">1.</span> Measure inside your frame</h2>
+<a href="#" style="font-size: 14px; font-weight: 700">Measuring guide</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="w" style="font-size: 14px; font-weight: 700">Width (cm)</label>
+<input id="w" inputmode="decimal" placeholder="e.g. 95" style="min-height: 52px; border: 1.5px solid #CCCCCC; border-radius: 12px; padding: 0 16px; font-family: Figtree, sans-serif; font-size: 17px; background: #FFFFFF; color: #141414">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="h" style="font-size: 14px; font-weight: 700">Height (cm)</label>
+<input id="h" inputmode="decimal" placeholder="e.g. 120" style="min-height: 52px; border: 1.5px solid #CCCCCC; border-radius: 12px; padding: 0 16px; font-family: Figtree, sans-serif; font-size: 17px; background: #FFFFFF; color: #141414">
+</div>
+</div>
+<p style="margin: 0; font-size: 14px; color: #575757">Enter your measurements and we'll highlight the right size band. Unsure? <a href="#" style="font-weight: 700">Get a free 10-minute check on WhatsApp</a></p>
+</div>
+
+<!-- Step 2 -->
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<h2 style="margin: 0; font-size: 20px; font-weight: 600"><span style="color: #575757">2.</span> Size band: {{ sizeName }}</h2>
+<a href="#" style="font-size: 14px; font-weight: 700">Size chart</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{ sizes }}" as="s" hint-placeholder-count="4">
+<button onClick="{{ s.pick }}" aria-pressed="{{ s.active }}" style="{{ s.style }}"><span style="font-weight: 600; font-size: 16px">{{ s.name }}</span><span style="font-size: 14px; font-weight: 600; opacity: 0.85">£{{ s.price }}</span></button>
+</sc-for>
+</div>
+</div>
+
+<!-- Step 3 -->
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 20px; font-weight: 600"><span style="color: #575757">3.</span> Height</h2>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{ heights }}" as="h" hint-placeholder-count="3">
+<button onClick="{{ h.pick }}" aria-pressed="{{ h.active }}" style="{{ h.style }}"><span style="display: flex; align-items: center; gap: 12px"><span style="{{ h.dot }}"></span><span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-weight: 600; font-size: 16px">{{ h.name }}</span><span style="font-size: 14px; color: #575757">{{ h.range }}</span></span></span><span style="font-weight: 600; font-size: 15px">{{ h.extra }}</span></button>
+</sc-for>
+</div>
+</div>
+
+<!-- Colour -->
+<div style="display: flex; align-items: center; gap: 14px">
+<span style="width: 44px; height: 44px; border-radius: 999px; background: #EEECE6; box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px {{ink}}" aria-hidden="true"></span>
+<span style="font-size: 16px"><strong>Colour:</strong> Chalk</span>
+</div>
+
+<!-- ATC -->
+<div style="display: flex; flex-direction: column; gap: 12px">
+<button style="min-height: 64px; border: 0; border-radius: 999px; background: {{ink}}; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 19px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 12px">Add to basket <span style="opacity: 0.6">|</span> £{{ price }}</button>
+<p style="margin: 0; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Order by 10am for next-day delivery</p>
+</div>
+
+<!-- Guarantee -->
+<div style="background: #E7E7E5; border-radius: 20px; padding: 20px 22px; display: flex; gap: 16px; align-items: flex-start">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+<div>
+<p style="margin: 0; font-weight: 600; font-size: 17px">Perfect fit, guaranteed</p>
+<p style="margin: 4px 0 0; font-size: 15px; line-height: 1.5">If your Calm Panel isn't quite right for your window, we'll remake it. <a href="#" style="font-weight: 700">Learn more</a></p>
+</div>
+</div>
+
+<!-- Accordions -->
+<div style="border-top: 1px solid #DDDDDD">
+<sc-for list="{{ panels }}" as="p" hint-placeholder-count="4">
+<div style="border-bottom: 1px solid #DDDDDD">
+<button onClick="{{ p.toggle }}" aria-expanded="{{ p.open }}" style="width: 100%; min-height: 60px; background: transparent; border: 0; padding: 18px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: Outfit, sans-serif; font-size: 20px; font-weight: 700; color: #141414; text-align: left">{{ p.title }}<span style="font-family: Figtree, sans-serif; font-size: 24px">{{ p.sign }}</span></button>
+<sc-if value="{{ p.open }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0 0 20px; font-size: 16px; line-height: 1.65; color: #575757">{{ p.body }}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Feature band -->
+<section style="background: #F3F3F2">
+<div style="max-width: 1280px; margin: 0 auto; padding: 104px 32px; display: flex; flex-direction: column; gap: 44px">
+<div style="text-align: center; display: flex; flex-direction: column; gap: 12px; align-items: center">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2A2A2A">Why parents choose it</p>
+<h2 style="margin: 0; font-size: 48px; line-height: 1.06; font-weight: 600; max-width: 760px">Light leaks round the edges. The Calm Panel seals them.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<div style="background: #FFFFFF; border-radius: 24px; padding: 34px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)"><div style="width: 56px; height: 56px; border-radius: 16px; background: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V5h14v16"></path><path d="M5 5l3 3M19 5l-3 3"></path></svg></div><h3 style="margin: 0; font-size: 24px; font-weight: 600">Blocks light at the edges</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #575757">Side and bottom panels press into the corners of the frame, right where light usually creeps in.</p></div>
+<div style="background: #FFFFFF; border-radius: 24px; padding: 34px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)"><div style="width: 56px; height: 56px; border-radius: 16px; background: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17L17 3l4 4L7 21H3z"></path><path d="M7 13l2 2M10 10l2 2M13 7l2 2"></path></svg></div><h3 style="margin: 0; font-size: 24px; font-weight: 600">Made for your window</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #575757">Custom-made to the inside of your frame, so it sits neatly and looks considered, not cobbled together.</p></div>
+<div style="background: #FFFFFF; border-radius: 24px; padding: 34px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)"><div style="width: 56px; height: 56px; border-radius: 16px; background: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M5.6 5.6l12.8 12.8"></path></svg></div><h3 style="margin: 0; font-size: 24px; font-weight: 600">No drilling, no damage</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #575757">A discreet hook strip along the top of the frame holds it. Ideal for rented homes and grandparents' houses too.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Grows with your child -->
+<section style="background: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 72px; align-items: center">
+<div style="position: relative; padding: 0 28px 28px 0"><div aria-hidden="true" style="position: absolute; top: 28px; left: 28px; right: 0; bottom: 0; border-radius: 28px; background: #E7E7E5"></div>
+<img src="./assets/0d0b658d886e48a59375ade45c5aa09c.jpg" alt="The Calm Panel fitted in a calm nursery" style="position: relative; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 28px; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2A2A2A">Beautifully made</p>
+<h2 style="margin: 0; font-size: 48px; line-height: 1.06; font-weight: 600">Durable, calming, and made to grow with your child.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #575757">Soft, premium fabric in Chalk that looks at home in the nursery, not like a stopgap. From newborn naps to toddler regressions and early wake-ups, it adapts as your children grow.</p>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 17px"><span style="width: 28px; height: 28px; flex: 0 0 auto; border-radius: 999px; background: #E7E7E5; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Use with your existing curtains or blinds</div>
+<div style="display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 17px"><span style="width: 28px; height: 28px; flex: 0 0 auto; border-radius: 999px; background: #E7E7E5; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Up for bedtime, down in the morning</div>
+<div style="display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 17px"><span style="width: 28px; height: 28px; flex: 0 0 auto; border-radius: 999px; background: #E7E7E5; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>A simple cue that it's time for sleep</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- How it works strip -->
+<section style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 88px 32px; display: flex; flex-direction: column; gap: 40px">
+<h2 style="margin: 0; font-size: 46px; line-height: 1.04; font-weight: 600">Fitted in minutes. Dark in seconds.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
+<div style="display: flex; gap: 18px; align-items: flex-start; background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)), #242424; border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 40px 80px -28px rgba(0,0,0,0.6); border-radius: 24px; padding: 30px"><span style="font-family: Outfit, sans-serif; font-size: 48px; font-weight: 600; line-height: 1; color: {{accent}}">1</span><div><h3 style="margin: 0 0 6px; font-size: 22px; font-weight: 600">Measure</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #CFCFCF">Inside the window frame, width and height.</p></div></div>
+<div style="display: flex; gap: 18px; align-items: flex-start; background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)), #242424; border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 40px 80px -28px rgba(0,0,0,0.6); border-radius: 24px; padding: 30px"><span style="font-family: Outfit, sans-serif; font-size: 48px; font-weight: 600; line-height: 1; color: {{accent}}">2</span><div><h3 style="margin: 0 0 6px; font-size: 22px; font-weight: 600">Attach</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #CFCFCF">Stick the hook strip along the top of the frame.</p></div></div>
+<div style="display: flex; gap: 18px; align-items: flex-start; background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)), #242424; border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 40px 80px -28px rgba(0,0,0,0.6); border-radius: 24px; padding: 30px"><span style="font-family: Outfit, sans-serif; font-size: 48px; font-weight: 600; line-height: 1; color: {{accent}}">3</span><div><h3 style="margin: 0 0 6px; font-size: 22px; font-weight: 600">Hang</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #CFCFCF">Press the panel on and into the corners.</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- Comparison -->
+<section style="background: #F3F3F2">
+<div style="max-width: 1080px; margin: 0 auto; padding: 104px 32px; display: flex; flex-direction: column; gap: 40px">
+<div style="text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center">
+<h2 style="margin: 0; font-size: 50px; line-height: 1.04; font-weight: 600">Why the usual fixes fall short</h2>
+<p style="margin: 0; font-size: 19px; color: #575757; max-width: 620px">Most blackouts cover the window. The Calm Panel fits inside it.</p>
+</div>
+<div style="overflow-x: auto; background: #FFFFFF; border-radius: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)">
+<table style="width: 100%; border-collapse: collapse; min-width: 640px; font-size: 16px">
+<thead>
+<tr>
+<th scope="col" style="text-align: left; padding: 22px 28px; font-weight: 700; color: #575757"></th>
+<th scope="col" style="padding: 22px 16px; background: {{ink}}; color: #FFFFFF; font-family: Outfit, sans-serif; font-size: 18px; font-weight: 600; border-radius: 16px 16px 0 0">The Calm Panel</th>
+<th scope="col" style="padding: 22px 16px; font-weight: 700">Blackout curtains</th>
+<th scope="col" style="padding: 22px 16px; font-weight: 700">Blinds</th>
+<th scope="col" style="padding: 22px 16px; font-weight: 700">Travel blackouts</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 20px 28px; font-weight: 700">Blocks light at the edges</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A">Yes</td>
+<td style="text-align: center; color: #575757">Gaps</td>
+<td style="text-align: center; color: #575757">Gaps</td>
+<td style="text-align: center; color: #575757">Partly</td>
+</tr>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 20px 28px; font-weight: 700">Made to your exact window</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A">Yes</td>
+<td style="text-align: center; color: #575757">Rarely</td>
+<td style="text-align: center; color: #575757">Sometimes</td>
+<td style="text-align: center; color: #575757">No</td>
+</tr>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 20px 28px; font-weight: 700">No drilling</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A">Yes</td>
+<td style="text-align: center; color: #575757">Usually not</td>
+<td style="text-align: center; color: #575757">Usually not</td>
+<td style="text-align: center; color: #575757">Yes</td>
+</tr>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 20px 28px; font-weight: 700">Sits inside the window frame</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A; border-radius: 0 0 16px 16px">Yes</td>
+<td style="text-align: center; color: #575757">No</td>
+<td style="text-align: center; color: #575757">Sometimes</td>
+<td style="text-align: center; color: #575757; padding: 20px 16px">No</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- Reviews -->
+<section id="product-reviews" style="background: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap">
+<h2 style="margin: 0; font-size: 46px; line-height: 1.04; font-weight: 600">What parents say</h2>
+<span style="font-size: 16px; font-weight: 600; color: #575757">From 4 months to 7 years old</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px"><span style="color: #141414; font-size: 18px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span><blockquote style="margin: 0; font-size: 17px; line-height: 1.55; font-weight: 600">[Review 1 quote]</blockquote><figcaption style="font-size: 14px; color: #575757">[Name], parent of a [age]</figcaption></figure>
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px"><span style="color: #141414; font-size: 18px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span><blockquote style="margin: 0; font-size: 17px; line-height: 1.55; font-weight: 600">[Review 2 quote]</blockquote><figcaption style="font-size: 14px; color: #575757">[Name], parent of a [age]</figcaption></figure>
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px"><span style="color: #141414; font-size: 18px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span><blockquote style="margin: 0; font-size: 17px; line-height: 1.55; font-weight: 600">[Review 3 quote]</blockquote><figcaption style="font-size: 14px; color: #575757">[Name], parent of a [age]</figcaption></figure>
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px"><span style="color: #141414; font-size: 18px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span><blockquote style="margin: 0; font-size: 17px; line-height: 1.55; font-weight: 600">[Review 4 quote]</blockquote><figcaption style="font-size: 14px; color: #575757">[Name], parent of a [age]</figcaption></figure>
+</div>
+</div>
+</section>
+
+<!-- Final CTA -->
+<section style="position: relative; background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF; overflow: hidden">
+<div style="max-width: 1280px; margin: 0 auto; padding: 104px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 64px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: 52px; line-height: 1.06; font-weight: 500">Darker nights start tomorrow.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #CFCFCF">Order by 10am for next-day delivery. And if it's not quite right for your window, we'll remake it.</p>
+<div style="display: flex; gap: 14px; flex-wrap: wrap">
+<a href="#" style="background: {{accent}}; color: {{ink}}; text-decoration: none; font-weight: 700; font-size: 17px; padding: 18px 30px; border-radius: 999px; box-shadow: 0 10px 24px -10px rgba(0,0,0,0.6)">Choose your size from £77</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 26px; border-radius: 999px; border: 2px solid rgba(255,255,255,0.4)">Free measurement check</a>
+</div>
+</div>
+<img src="./assets/99b17a0e92c64849b18d3742eb40ae18.jpg" alt="The Calm Panel fitted inside a window frame" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 28px; display: block; box-shadow: 0 50px 100px -30px rgba(0,0,0,0.7)">
+</div>
+</section>
+
+
+
+<!-- Footer -->
+<footer style="background: #0A0A0A; color: #B8B8B8">
+<div style="max-width: 1280px; margin: 0 auto; padding: 72px 32px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.06em; color: #FFFFFF">K &amp; T</span>
+<p style="margin: 0; font-size: 15px; line-height: 1.6">A design-led sleep solutions company, and the makers of The Calm Panel.</p>
+</div>
+<nav aria-label="Shop" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">Shop</span>
+<a href="#page-product" style="color: #B8B8B8; text-decoration: none">The Calm Panel</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Measuring and fitting guide</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Perfect fit guarantee</a>
+</nav>
+<nav aria-label="Help" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">Help</span>
+<a href="#faq" style="color: #B8B8B8; text-decoration: none">FAQ</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Delivery and returns</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Contact us</a>
+</nav>
+<nav aria-label="About" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">About</span>
+<a href="#page-about" style="color: #B8B8B8; text-decoration: none">Our story</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">The Quiet</a>
+</nav>
+</div>
+<div style="max-width: 1280px; margin: 0 auto; padding: 24px 32px 40px; border-top: 1px solid #242424; font-size: 14px">© 2026 K &amp; T. All rights reserved.</div>
+</footer>
+</div>
+</div>
+<div style="flex: 0 0 390px; width: 390px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Mobile</p>
+<div style="width: 390px; background: #FFFFFF; border-radius: 40px; overflow: hidden; box-shadow: 0 0 0 10px #141414, 0 60px 120px -40px rgba(0,0,0,0.45)">
+<!-- Announcement bar -->
+<div style="background: {{ink}}; color: #FFFFFF; font-size: 14px; font-weight: 600; padding: 10px 24px; display: flex; justify-content: center; align-items: center; gap: 28px; flex-wrap: wrap; text-align: center">
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Order by 10am for next-day delivery</span>
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Perfect fit guaranteed or we remake it</span>
+</div>
+
+<!-- Header -->
+<header style="background: #FFFFFF; border-bottom: 1px solid #E6E6E6">
+<div style="padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<button aria-label="Open menu" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+<a href="#page-home" aria-label="K and T home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: {{ink}}"><span aria-hidden="true" style="width: 34px; height: 34px; box-sizing: border-box; border: 1.5px solid {{ink}}; display: flex; align-items: center; justify-content: center; font-family: Outfit, sans-serif; font-weight: 400; font-size: 15px">KT</span><span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 21px; letter-spacing: 0.06em">K &amp; T</span></a>
+<button aria-label="Basket" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></button>
+</div>
+</header>
+
+<!-- Main product block -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 15px 20px 67px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; color: #575757; margin-bottom: 24px"><a href="#page-home" style="color: #575757">Home</a> / <span>The Calm Panel</span></nav>
+<div style="display: flex; flex-wrap: wrap; gap: 36px; align-items: flex-start">
+
+<!-- Gallery -->
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; border-radius: 28px; overflow: hidden; background: #F3F3F2; aspect-ratio: 1 / 1; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
+<sc-if value="{{ mainIsPhoto }}" hint-placeholder-val="{{ true }}">
+<img src="{{ mainSrc }}" alt="{{ mainAlt }}" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</sc-if>
+<sc-if value="{{ mainIsPlaceholder }}" hint-placeholder-val="{{ false }}">
+<div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: #575757; font-weight: 700; font-size: 18px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 17l-5-5-9 8"></path></svg>{{ mainAlt }}</div>
+</sc-if>
+<span style="position: absolute; left: 20px; top: 20px; background: {{accent}}; color: {{ink}}; font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 999px">Made to measure</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{ thumbs }}" as="t" hint-placeholder-count="6">
+<button onClick="{{ t.pick }}" aria-label="{{ t.alt }}" aria-pressed="{{ t.active }}" style="{{ t.style }}">
+<sc-if value="{{ t.isPhoto }}" hint-placeholder-val="{{ true }}">
+<img src="{{ t.src }}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</sc-if>
+<sc-if value="{{ t.isPlaceholder }}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 11px; font-weight: 700; color: #575757; padding: 6px; text-align: center; line-height: 1.2">Fabric close-up</span>
+</sc-if>
+</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 14px; margin-top: 6px">
+<div style="position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)">
+<img src="./assets/09e8620b0666ca85313ea2e4f92c2f39.jpg" alt="Cot in a calm, dark nursery" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<button aria-label="Play the fitting video" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; border-radius: 999px; border: 0; background: {{accent}}; color: {{ink}}; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3)"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></button>
+<span style="position: absolute; left: 14px; bottom: 14px; background: {{ink}}; color: #FFFFFF; font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 999px">Watch it go up in seconds</span>
+</div>
+<div style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)">
+<svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><path d="M20.5 7.5a9.5 9.5 0 1 0 3 12 7.5 7.5 0 0 1-3-12z" fill="{{accent}}"></path></svg>
+<p style="margin: 0; font-family: Outfit, sans-serif; font-size: 22px; line-height: 1.3; font-weight: 400">"The magic isn't the darkness. It's the calm it creates for your family."</p>
+<a href="#page-about" style="color: {{accent}}; font-weight: 700; font-size: 15px">Read our story</a>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+<div style="background: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg><span style="font-weight: 700; font-size: 15px">Next-day delivery</span><span style="font-size: 14px; color: #575757">Order by 10am</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span style="font-weight: 700; font-size: 15px">Perfect fit</span><span style="font-size: 14px; color: #575757">Or we remake it</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M5.6 5.6l12.8 12.8"></path></svg><span style="font-weight: 700; font-size: 15px">No drilling</span><span style="font-size: 14px; color: #575757">No damage to frames</span></div>
+</div>
+</div>
+
+<!-- Buy box -->
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<a href="#product-reviews" style="display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 15px; font-weight: 600; color: #575757"><span style="color: #141414; font-size: 18px; letter-spacing: 2px" aria-hidden="true">★★★★★</span>5-star reviews from parents</a>
+<h1 style="margin: 0; font-size: 34px; line-height: 1; font-weight: 600">The Calm Panel</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.5; color: #575757">A made-to-measure blackout panel that fits inside your child's window frame and stops light at the edges.</p>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<span style="background: #E7E7E5; color: #1E1E1E; font-size: 14px; font-weight: 700; padding: 8px 14px; border-radius: 999px">Blocks edge light</span>
+<span style="background: #E7E7E5; color: #1E1E1E; font-size: 14px; font-weight: 700; padding: 8px 14px; border-radius: 999px">No drilling</span>
+<span style="background: #E7E7E5; color: #1E1E1E; font-size: 14px; font-weight: 700; padding: 8px 14px; border-radius: 999px">Works with curtains and blinds</span>
+</div>
+<div style="display: flex; align-items: baseline; gap: 12px">
+<span style="font-family: Outfit, sans-serif; font-size: 26px; font-weight: 600">£{{ price }}</span>
+<span style="font-size: 15px; color: #575757">{{ summary }}</span>
+</div>
+
+<!-- Step 1 -->
+<div style="background: #F3F3F2; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<h2 style="margin: 0; font-size: 20px; font-weight: 600"><span style="color: #575757">1.</span> Measure inside your frame</h2>
+<a href="#" style="font-size: 14px; font-weight: 700">Measuring guide</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="m-w" style="font-size: 14px; font-weight: 700">Width (cm)</label>
+<input id="m-w" inputmode="decimal" placeholder="e.g. 95" style="min-height: 52px; border: 1.5px solid #CCCCCC; border-radius: 12px; padding: 0 16px; font-family: Figtree, sans-serif; font-size: 17px; background: #FFFFFF; color: #141414">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="m-h" style="font-size: 14px; font-weight: 700">Height (cm)</label>
+<input id="m-h" inputmode="decimal" placeholder="e.g. 120" style="min-height: 52px; border: 1.5px solid #CCCCCC; border-radius: 12px; padding: 0 16px; font-family: Figtree, sans-serif; font-size: 17px; background: #FFFFFF; color: #141414">
+</div>
+</div>
+<p style="margin: 0; font-size: 14px; color: #575757">Enter your measurements and we'll highlight the right size band. Unsure? <a href="#" style="font-weight: 700">Get a free 10-minute check on WhatsApp</a></p>
+</div>
+
+<!-- Step 2 -->
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<h2 style="margin: 0; font-size: 20px; font-weight: 600"><span style="color: #575757">2.</span> Size band: {{ sizeName }}</h2>
+<a href="#" style="font-size: 14px; font-weight: 700">Size chart</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{ sizes }}" as="s" hint-placeholder-count="4">
+<button onClick="{{ s.pick }}" aria-pressed="{{ s.active }}" style="{{ s.style }}"><span style="font-weight: 600; font-size: 16px">{{ s.name }}</span><span style="font-size: 14px; font-weight: 600; opacity: 0.85">£{{ s.price }}</span></button>
+</sc-for>
+</div>
+</div>
+
+<!-- Step 3 -->
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 20px; font-weight: 600"><span style="color: #575757">3.</span> Height</h2>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{ heights }}" as="h" hint-placeholder-count="3">
+<button onClick="{{ h.pick }}" aria-pressed="{{ h.active }}" style="{{ h.style }}"><span style="display: flex; align-items: center; gap: 12px"><span style="{{ h.dot }}"></span><span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-weight: 600; font-size: 16px">{{ h.name }}</span><span style="font-size: 14px; color: #575757">{{ h.range }}</span></span></span><span style="font-weight: 600; font-size: 15px">{{ h.extra }}</span></button>
+</sc-for>
+</div>
+</div>
+
+<!-- Colour -->
+<div style="display: flex; align-items: center; gap: 14px">
+<span style="width: 44px; height: 44px; border-radius: 999px; background: #EEECE6; box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px {{ink}}" aria-hidden="true"></span>
+<span style="font-size: 16px"><strong>Colour:</strong> Chalk</span>
+</div>
+
+<!-- ATC -->
+<div style="display: flex; flex-direction: column; gap: 12px">
+<button style="min-height: 64px; border: 0; border-radius: 999px; background: {{ink}}; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 19px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 12px">Add to basket <span style="opacity: 0.6">|</span> £{{ price }}</button>
+<p style="margin: 0; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Order by 10am for next-day delivery</p>
+</div>
+
+<!-- Guarantee -->
+<div style="background: #E7E7E5; border-radius: 20px; padding: 20px 22px; display: flex; gap: 16px; align-items: flex-start">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+<div>
+<p style="margin: 0; font-weight: 600; font-size: 17px">Perfect fit, guaranteed</p>
+<p style="margin: 4px 0 0; font-size: 15px; line-height: 1.5">If your Calm Panel isn't quite right for your window, we'll remake it. <a href="#" style="font-weight: 700">Learn more</a></p>
+</div>
+</div>
+
+<!-- Accordions -->
+<div style="border-top: 1px solid #DDDDDD">
+<sc-for list="{{ panels }}" as="p" hint-placeholder-count="4">
+<div style="border-bottom: 1px solid #DDDDDD">
+<button onClick="{{ p.toggle }}" aria-expanded="{{ p.open }}" style="width: 100%; min-height: 60px; background: transparent; border: 0; padding: 18px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: Outfit, sans-serif; font-size: 20px; font-weight: 700; color: #141414; text-align: left">{{ p.title }}<span style="font-family: Figtree, sans-serif; font-size: 24px">{{ p.sign }}</span></button>
+<sc-if value="{{ p.open }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0 0 20px; font-size: 16px; line-height: 1.65; color: #575757">{{ p.body }}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Feature band -->
+<section style="background: #F3F3F2">
+<div style="max-width: 1280px; margin: 0 auto; padding: 57px 20px; display: flex; flex-direction: column; gap: 44px">
+<div style="text-align: center; display: flex; flex-direction: column; gap: 12px; align-items: center">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2A2A2A">Why parents choose it</p>
+<h2 style="margin: 0; font-size: 32px; line-height: 1.06; font-weight: 600; max-width: 760px">Light leaks round the edges. The Calm Panel seals them.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<div style="background: #FFFFFF; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)"><div style="width: 56px; height: 56px; border-radius: 16px; background: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V5h14v16"></path><path d="M5 5l3 3M19 5l-3 3"></path></svg></div><h3 style="margin: 0; font-size: 24px; font-weight: 600">Blocks light at the edges</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #575757">Side and bottom panels press into the corners of the frame, right where light usually creeps in.</p></div>
+<div style="background: #FFFFFF; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)"><div style="width: 56px; height: 56px; border-radius: 16px; background: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17L17 3l4 4L7 21H3z"></path><path d="M7 13l2 2M10 10l2 2M13 7l2 2"></path></svg></div><h3 style="margin: 0; font-size: 24px; font-weight: 600">Made for your window</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #575757">Custom-made to the inside of your frame, so it sits neatly and looks considered, not cobbled together.</p></div>
+<div style="background: #FFFFFF; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)"><div style="width: 56px; height: 56px; border-radius: 16px; background: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M5.6 5.6l12.8 12.8"></path></svg></div><h3 style="margin: 0; font-size: 24px; font-weight: 600">No drilling, no damage</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #575757">A discreet hook strip along the top of the frame holds it. Ideal for rented homes and grandparents' houses too.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Grows with your child -->
+<section style="background: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 62px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 36px; align-items: center">
+<div style="position: relative; padding: 0 28px 28px 0"><div aria-hidden="true" style="position: absolute; top: 28px; left: 28px; right: 0; bottom: 0; border-radius: 28px; background: #E7E7E5"></div>
+<img src="./assets/0d0b658d886e48a59375ade45c5aa09c.jpg" alt="The Calm Panel fitted in a calm nursery" style="position: relative; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 28px; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2A2A2A">Beautifully made</p>
+<h2 style="margin: 0; font-size: 32px; line-height: 1.06; font-weight: 600">Durable, calming, and made to grow with your child.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #575757">Soft, premium fabric in Chalk that looks at home in the nursery, not like a stopgap. From newborn naps to toddler regressions and early wake-ups, it adapts as your children grow.</p>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 17px"><span style="width: 28px; height: 28px; flex: 0 0 auto; border-radius: 999px; background: #E7E7E5; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Use with your existing curtains or blinds</div>
+<div style="display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 17px"><span style="width: 28px; height: 28px; flex: 0 0 auto; border-radius: 999px; background: #E7E7E5; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Up for bedtime, down in the morning</div>
+<div style="display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 17px"><span style="width: 28px; height: 28px; flex: 0 0 auto; border-radius: 999px; background: #E7E7E5; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>A simple cue that it's time for sleep</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- How it works strip -->
+<section style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 48px 20px; display: flex; flex-direction: column; gap: 28px">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.04; font-weight: 600">Fitted in minutes. Dark in seconds.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
+<div style="display: flex; gap: 18px; align-items: flex-start; background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)), #242424; border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 40px 80px -28px rgba(0,0,0,0.6); border-radius: 24px; padding: 30px"><span style="font-family: Outfit, sans-serif; font-size: 32px; font-weight: 600; line-height: 1; color: {{accent}}">1</span><div><h3 style="margin: 0 0 6px; font-size: 22px; font-weight: 600">Measure</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #CFCFCF">Inside the window frame, width and height.</p></div></div>
+<div style="display: flex; gap: 18px; align-items: flex-start; background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)), #242424; border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 40px 80px -28px rgba(0,0,0,0.6); border-radius: 24px; padding: 30px"><span style="font-family: Outfit, sans-serif; font-size: 32px; font-weight: 600; line-height: 1; color: {{accent}}">2</span><div><h3 style="margin: 0 0 6px; font-size: 22px; font-weight: 600">Attach</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #CFCFCF">Stick the hook strip along the top of the frame.</p></div></div>
+<div style="display: flex; gap: 18px; align-items: flex-start; background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)), #242424; border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 40px 80px -28px rgba(0,0,0,0.6); border-radius: 24px; padding: 30px"><span style="font-family: Outfit, sans-serif; font-size: 32px; font-weight: 600; line-height: 1; color: {{accent}}">3</span><div><h3 style="margin: 0 0 6px; font-size: 22px; font-weight: 600">Hang</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #CFCFCF">Press the panel on and into the corners.</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- Comparison -->
+<section style="background: #F3F3F2">
+<div style="max-width: 1080px; margin: 0 auto; padding: 57px 20px; display: flex; flex-direction: column; gap: 28px">
+<div style="text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center">
+<h2 style="margin: 0; font-size: 33px; line-height: 1.04; font-weight: 600">Why the usual fixes fall short</h2>
+<p style="margin: 0; font-size: 19px; color: #575757; max-width: 620px">Most blackouts cover the window. The Calm Panel fits inside it.</p>
+</div>
+<div style="overflow-x: auto; background: #FFFFFF; border-radius: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24)">
+<table style="width: 100%; border-collapse: collapse; min-width: 640px; font-size: 16px">
+<thead>
+<tr>
+<th scope="col" style="text-align: left; padding: 16px; font-weight: 700; color: #575757"></th>
+<th scope="col" style="padding: 22px 16px; background: {{ink}}; color: #FFFFFF; font-family: Outfit, sans-serif; font-size: 18px; font-weight: 600; border-radius: 16px 16px 0 0">The Calm Panel</th>
+<th scope="col" style="padding: 22px 16px; font-weight: 700">Blackout curtains</th>
+<th scope="col" style="padding: 22px 16px; font-weight: 700">Blinds</th>
+<th scope="col" style="padding: 22px 16px; font-weight: 700">Travel blackouts</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 16px 14px; font-weight: 700">Blocks light at the edges</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A">Yes</td>
+<td style="text-align: center; color: #575757">Gaps</td>
+<td style="text-align: center; color: #575757">Gaps</td>
+<td style="text-align: center; color: #575757">Partly</td>
+</tr>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 16px 14px; font-weight: 700">Made to your exact window</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A">Yes</td>
+<td style="text-align: center; color: #575757">Rarely</td>
+<td style="text-align: center; color: #575757">Sometimes</td>
+<td style="text-align: center; color: #575757">No</td>
+</tr>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 16px 14px; font-weight: 700">No drilling</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A">Yes</td>
+<td style="text-align: center; color: #575757">Usually not</td>
+<td style="text-align: center; color: #575757">Usually not</td>
+<td style="text-align: center; color: #575757">Yes</td>
+</tr>
+<tr style="border-top: 1px solid #E6E6E6">
+<th scope="row" style="text-align: left; padding: 16px 14px; font-weight: 700">Sits inside the window frame</th>
+<td style="text-align: center; background: #F6F6F6; font-weight: 600; color: #2A2A2A; border-radius: 0 0 16px 16px">Yes</td>
+<td style="text-align: center; color: #575757">No</td>
+<td style="text-align: center; color: #575757">Sometimes</td>
+<td style="text-align: center; color: #575757; padding: 20px 16px">No</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- Reviews -->
+<section id="m-product-reviews" style="background: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 53px 20px; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.04; font-weight: 600">What parents say</h2>
+<span style="font-size: 16px; font-weight: 600; color: #575757">From 4 months to 7 years old</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px"><span style="color: #141414; font-size: 18px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span><blockquote style="margin: 0; font-size: 17px; line-height: 1.55; font-weight: 600">[Review 1 quote]</blockquote><figcaption style="font-size: 14px; color: #575757">[Name], parent of a [age]</figcaption></figure>
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px"><span style="color: #141414; font-size: 18px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span><blockquote style="margin: 0; font-size: 17px; line-height: 1.55; font-weight: 600">[Review 2 quote]</blockquote><figcaption style="font-size: 14px; color: #575757">[Name], parent of a [age]</figcaption></figure>
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px"><span style="color: #141414; font-size: 18px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span><blockquote style="margin: 0; font-size: 17px; line-height: 1.55; font-weight: 600">[Review 3 quote]</blockquote><figcaption style="font-size: 14px; color: #575757">[Name], parent of a [age]</figcaption></figure>
+<figure style="margin: 0; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px"><span style="color: #141414; font-size: 18px; letter-spacing: 2px" role="img" aria-label="5 out of 5 stars">★★★★★</span><blockquote style="margin: 0; font-size: 17px; line-height: 1.55; font-weight: 600">[Review 4 quote]</blockquote><figcaption style="font-size: 14px; color: #575757">[Name], parent of a [age]</figcaption></figure>
+</div>
+</div>
+</section>
+
+<!-- Final CTA -->
+<section style="position: relative; background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF; overflow: hidden">
+<div style="max-width: 1280px; margin: 0 auto; padding: 57px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 36px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: 34px; line-height: 1.06; font-weight: 500">Darker nights start tomorrow.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #CFCFCF">Order by 10am for next-day delivery. And if it's not quite right for your window, we'll remake it.</p>
+<div style="display: flex; gap: 14px; flex-wrap: wrap">
+<a href="#" style="background: {{accent}}; color: {{ink}}; text-decoration: none; font-weight: 700; font-size: 17px; padding: 18px 30px; border-radius: 999px; box-shadow: 0 10px 24px -10px rgba(0,0,0,0.6)">Choose your size from £77</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 26px; border-radius: 999px; border: 2px solid rgba(255,255,255,0.4)">Free measurement check</a>
+</div>
+</div>
+<img src="./assets/99b17a0e92c64849b18d3742eb40ae18.jpg" alt="The Calm Panel fitted inside a window frame" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 28px; display: block; box-shadow: 0 50px 100px -30px rgba(0,0,0,0.7)">
+</div>
+</section>
+
+
+
+<!-- Footer -->
+<footer style="background: #0A0A0A; color: #B8B8B8">
+<div style="max-width: 1280px; margin: 0 auto; padding: 40px 20px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.06em; color: #FFFFFF">K &amp; T</span>
+<p style="margin: 0; font-size: 15px; line-height: 1.6">A design-led sleep solutions company, and the makers of The Calm Panel.</p>
+</div>
+<nav aria-label="Shop" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">Shop</span>
+<a href="#page-product" style="color: #B8B8B8; text-decoration: none">The Calm Panel</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Measuring and fitting guide</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Perfect fit guarantee</a>
+</nav>
+<nav aria-label="Help" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">Help</span>
+<a href="#faq" style="color: #B8B8B8; text-decoration: none">FAQ</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Delivery and returns</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Contact us</a>
+</nav>
+<nav aria-label="About" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">About</span>
+<a href="#page-about" style="color: #B8B8B8; text-decoration: none">Our story</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">The Quiet</a>
+</nav>
+</div>
+<div style="max-width: 1280px; margin: 0 auto; padding: 13px 20px 24px; border-top: 1px solid #242424; font-size: 14px">© 2026 K &amp; T. All rights reserved.</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+
+<div id="page-about" style="display: flex; flex-direction: column; gap: 28px">
+<p style="margin: 0; display: flex; align-items: baseline; gap: 16px; font-size: 18px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #575757"><span style="font-family: Outfit, sans-serif; font-size: 44px; font-weight: 300; letter-spacing: 0; color: #141414">03</span>Our story</p>
+<div style="display: flex; gap: 72px; align-items: flex-start">
+<div style="flex: 0 0 1440px; width: 1440px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Desktop</p>
+<div style="background: #FFFFFF; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 60px 120px -40px rgba(0,0,0,0.35)">
+<!-- Announcement bar -->
+<div style="background: {{ink}}; color: #FFFFFF; font-size: 14px; font-weight: 600; padding: 10px 24px; display: flex; justify-content: center; align-items: center; gap: 28px; flex-wrap: wrap; text-align: center">
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Order by 10am for next-day delivery</span>
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Perfect fit guaranteed or we remake it</span>
+</div>
+
+<!-- Header -->
+<header style="background: #FFFFFF; border-bottom: 1px solid #E6E6E6">
+<div style="max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+<a href="#page-home" aria-label="K and T home" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: {{ink}}">
+<span aria-hidden="true" style="width: 40px; height: 40px; box-sizing: border-box; border: 1.5px solid {{ink}}; display: flex; align-items: center; justify-content: center; font-family: Outfit, sans-serif; font-weight: 400; font-size: 17px; letter-spacing: 0.02em">KT</span><span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 24px; letter-spacing: 0.06em">K &amp; T</span>
+</a>
+<nav aria-label="Main" style="display: flex; gap: 28px; flex-wrap: wrap; font-size: 15px; font-weight: 600">
+<a href="#page-product" style="text-decoration: none">Shop</a>
+<a href="#how" style="text-decoration: none">How it works</a>
+<a href="#" style="text-decoration: none">Measuring guide</a>
+<a href="#" style="text-decoration: none">The Quiet</a>
+<a href="#page-about" style="text-decoration: none">Our story</a>
+<a href="#reviews" style="text-decoration: none">Reviews</a>
+<a href="#faq" style="text-decoration: none">FAQ</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 6px">
+<button aria-label="Account" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></button>
+<button aria-label="Basket" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></button>
+<a href="#page-product" style="margin-left: 8px; background: {{ink}}; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 15px; padding: 12px 20px; border-radius: 999px">Start your order</a>
+</div>
+</div>
+</header>
+
+<!-- Hero (dark) -->
+<section style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr))">
+<div style="padding: 104px 64px; display: flex; flex-direction: column; justify-content: center; gap: 26px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: {{accent}}">About K &amp; T</p>
+<h1 style="margin: 0; font-size: 72px; line-height: 1.02; font-weight: 500">Born from real motherhood, not theory.</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.6; color: #CFCFCF; max-width: 520px">K &amp; T (pronounced Kay-and-Tay) began with one tired mum, one wakeful baby, and the discovery that a truly dark room changes everything.</p>
+</div>
+<div style="position: relative; min-height: 600px">
+<img src="./assets/bf32e027a5133cb9757b3ba77dbe1f1a.jpg" alt="A calm, dark-ready nursery with a wooden cot" style="position: absolute; top: 48px; right: 48px; bottom: 48px; left: 0; width: calc(100% - 48px); height: calc(100% - 96px); object-fit: cover; border-radius: 32px; box-shadow: 0 50px 100px -30px rgba(0,0,0,0.7)">
+</div>
+</div>
+</section>
+
+<!-- Our story (light) -->
+<section style="background: #FFFFFF">
+<div style="max-width: 1180px; margin: 0 auto; padding: 120px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 80px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2A2A2A">Our story</p>
+<h2 style="margin: 0; font-size: 50px; line-height: 1.06; font-weight: 500">For the first time, he slept. And so did I.</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px; font-size: 19px; line-height: 1.7; color: #3A3A3A">
+<p style="margin: 0">When my first son was born, he struggled to sleep from the very beginning. Short naps, early mornings, endless overtiredness. I tried every piece of sleep advice, until the thing that finally changed everything was almost laughably simple: a truly dark room.</p>
+<p style="margin: 0">Out of pure exhaustion, I bought a £10 plastic blackout panel and my husband got cutting and sticking. It wasn't pretty, but it worked. For the first time, he slept, and so did I.</p>
+</div>
+</div>
+</section>
+
+<!-- A considered beginning (mist) -->
+<section style="background: #F3F3F2">
+<div style="max-width: 1280px; margin: 0 auto; padding: 120px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 72px; align-items: center">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<img src="./assets/adbaa67a9ca0ec80c233a8112299efa5.jpg" alt="Peace lily on a wooden stool" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 24px; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
+<div style="width: 100%; aspect-ratio: 3 / 4; border-radius: 24px; background: #E4E4E2; margin-top: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: #575757; font-weight: 700; font-size: 15px; text-align: center; padding: 20px; box-sizing: border-box"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 17l-5-5-9 8"></path></svg>Founder photo or the first hand-made panel</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2A2A2A">A considered beginning</p>
+<h2 style="margin: 0; font-size: 46px; line-height: 1.08; font-weight: 500">Why couldn't blackout be both functional and beautiful?</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #3A3A3A">One day, my neighbour Cassie and I started talking about the power of a dark room for our children. She shared a blackout panel she had hand-made using a beautiful fabric (much nicer than our plastic panel!). And in that moment, something clicked. Why not something durable, calming, beautiful and able to grow with your child?</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #3A3A3A">That question led to the very first version of The Calm Panel, which saw us through toddler regressions, early wake-ups, and eventually the arrival of my second son, whose sleep journey was much calmer with a blackout from day one.</p>
+</div>
+</div>
+</section>
+
+<!-- Pull quote (dark) -->
+<section style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<div style="max-width: 980px; margin: 0 auto; padding: 120px 32px; display: flex; flex-direction: column; gap: 28px; align-items: center; text-align: center">
+<svg width="44" height="44" viewBox="0 0 32 32" aria-hidden="true"><path d="M20.5 7.5a9.5 9.5 0 1 0 3 12 7.5 7.5 0 0 1-3-12z" fill="{{accent}}"></path></svg>
+<p style="margin: 0; font-family: Outfit, sans-serif; font-size: 40px; line-height: 1.3; font-weight: 300">When my sister, who suffers from insomnia, asked if I could make her one, and it worked, I knew this was bigger than a parenting hack.</p>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #CFCFCF; max-width: 640px">What began as a survival tool became a family essential. And then it became my purpose.</p>
+</div>
+</section>
+
+<!-- Our name (light) -->
+<section style="background: #FFFFFF">
+<div style="max-width: 1180px; margin: 0 auto; padding: 120px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 72px; align-items: center">
+<div style="aspect-ratio: 1 / 1; border-radius: 32px; background: #E7E7E5; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px">
+<span style="font-family: Outfit, sans-serif; font-size: 168px; font-weight: 300; line-height: 1; color: #141414; letter-spacing: -0.04em">K &amp; T</span>
+<span style="font-size: 16px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1E1E">Kay &amp; Tay</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2A2A2A">Our name</p>
+<h2 style="margin: 0; font-size: 46px; line-height: 1.08; font-weight: 500">Inspired by the two little boys who shaped this journey.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #3A3A3A">But the name has come to hold a deeper meaning for us. To us, K &amp; T represents care, intention, and the importance of the family, the place where everything begins.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #3A3A3A">Our brand began from love, and from a simple truth I learned through motherhood: when a child sleeps well, the whole family feels calmer. K &amp; T is our way of helping families find a little more of that calm.</p>
+</div>
+</div>
+</section>
+
+<!-- Our why (mist) -->
+<section style="background: #F3F3F2">
+<div style="max-width: 1180px; margin: 0 auto; padding: 120px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 80px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2A2A2A">Our why</p>
+<h2 style="margin: 0; font-size: 50px; line-height: 1.06; font-weight: 500">The smallest things can bring the greatest relief.</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px; font-size: 19px; line-height: 1.7; color: #3A3A3A">
+<p style="margin: 0">Motherhood is beautiful, overwhelming, and often a little isolating. For me, creating K &amp; T was an act of intention. A way to bring calm, clarity, and care into my own home, and into the lives of other families.</p>
+<p style="margin: 0">Everything we make begins with that same purpose: to support families with something simple, thoughtful and beautifully made.</p>
+<p style="margin: 0">At the heart of K &amp; T is The Calm Panel. A gentle, design-led blackout solution that adapts as your children grow, and brings a sense of stillness to the spaces you all share.</p>
+</div>
+</div>
+</section>
+
+<!-- Closing (dark) with photo -->
+<section style="position: relative; background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF; overflow: hidden">
+<img src="./assets/0d0b658d886e48a59375ade45c5aa09c.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.22">
+<div style="position: relative; max-width: 980px; margin: 0 auto; padding: 140px 32px; display: flex; flex-direction: column; gap: 32px; align-items: center; text-align: center">
+<h2 style="margin: 0; font-size: 60px; line-height: 1.1; font-weight: 400">The magic isn't the darkness.<br>It's the calm it creates for your family.</h2>
+<div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center">
+<a href="#page-product" style="background: {{accent}}; color: {{ink}}; text-decoration: none; font-weight: 700; font-size: 17px; padding: 18px 30px; border-radius: 999px; box-shadow: 0 10px 24px -10px rgba(0,0,0,0.55)">Find your Calm Panel</a>
+<a href="#how" style="color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 26px; border-radius: 999px; border: 2px solid rgba(255,255,255,0.4)">How it works</a>
+</div>
+</div>
+</section>
+
+
+
+<!-- Footer -->
+<footer style="background: #0A0A0A; color: #B8B8B8">
+<div style="max-width: 1280px; margin: 0 auto; padding: 72px 32px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.06em; color: #FFFFFF">K &amp; T</span>
+<p style="margin: 0; font-size: 15px; line-height: 1.6">A design-led sleep solutions company, and the makers of The Calm Panel.</p>
+</div>
+<nav aria-label="Shop" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">Shop</span>
+<a href="#page-product" style="color: #B8B8B8; text-decoration: none">The Calm Panel</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Measuring and fitting guide</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Perfect fit guarantee</a>
+</nav>
+<nav aria-label="Help" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">Help</span>
+<a href="#faq" style="color: #B8B8B8; text-decoration: none">FAQ</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Delivery and returns</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Contact us</a>
+</nav>
+<nav aria-label="About" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">About</span>
+<a href="#page-about" style="color: #B8B8B8; text-decoration: none">Our story</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">The Quiet</a>
+</nav>
+</div>
+<div style="max-width: 1280px; margin: 0 auto; padding: 24px 32px 40px; border-top: 1px solid #242424; font-size: 14px">© 2026 K &amp; T. All rights reserved.</div>
+</footer>
+</div>
+</div>
+<div style="flex: 0 0 390px; width: 390px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Mobile</p>
+<div style="width: 390px; background: #FFFFFF; border-radius: 40px; overflow: hidden; box-shadow: 0 0 0 10px #141414, 0 60px 120px -40px rgba(0,0,0,0.45)">
+<!-- Announcement bar -->
+<div style="background: {{ink}}; color: #FFFFFF; font-size: 14px; font-weight: 600; padding: 10px 24px; display: flex; justify-content: center; align-items: center; gap: 28px; flex-wrap: wrap; text-align: center">
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Order by 10am for next-day delivery</span>
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Perfect fit guaranteed or we remake it</span>
+</div>
+
+<!-- Header -->
+<header style="background: #FFFFFF; border-bottom: 1px solid #E6E6E6">
+<div style="padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<button aria-label="Open menu" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+<a href="#page-home" aria-label="K and T home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: {{ink}}"><span aria-hidden="true" style="width: 34px; height: 34px; box-sizing: border-box; border: 1.5px solid {{ink}}; display: flex; align-items: center; justify-content: center; font-family: Outfit, sans-serif; font-weight: 400; font-size: 15px">KT</span><span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 21px; letter-spacing: 0.06em">K &amp; T</span></a>
+<button aria-label="Basket" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></button>
+</div>
+</header>
+
+<!-- Hero (dark) -->
+<section style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr))">
+<div style="padding: 57px 20px; display: flex; flex-direction: column; justify-content: center; gap: 26px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: {{accent}}">About K &amp; T</p>
+<h1 style="margin: 0; font-size: 40px; line-height: 1.02; font-weight: 500">Born from real motherhood, not theory.</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.6; color: #CFCFCF; max-width: 520px">K &amp; T (pronounced Kay-and-Tay) began with one tired mum, one wakeful baby, and the discovery that a truly dark room changes everything.</p>
+</div>
+<div style="position: relative; min-height: 380px">
+<img src="./assets/bf32e027a5133cb9757b3ba77dbe1f1a.jpg" alt="A calm, dark-ready nursery with a wooden cot" style="position: absolute; top: 0; right: 20px; bottom: 32px; left: 20px; width: calc(100% - 40px); height: calc(100% - 32px); object-fit: cover; border-radius: 32px; box-shadow: 0 50px 100px -30px rgba(0,0,0,0.7)">
+</div>
+</div>
+</section>
+
+<!-- Our story (light) -->
+<section style="background: #FFFFFF">
+<div style="max-width: 1180px; margin: 0 auto; padding: 66px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 36px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2A2A2A">Our story</p>
+<h2 style="margin: 0; font-size: 33px; line-height: 1.06; font-weight: 500">For the first time, he slept. And so did I.</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px; font-size: 19px; line-height: 1.7; color: #3A3A3A">
+<p style="margin: 0">When my first son was born, he struggled to sleep from the very beginning. Short naps, early mornings, endless overtiredness. I tried every piece of sleep advice, until the thing that finally changed everything was almost laughably simple: a truly dark room.</p>
+<p style="margin: 0">Out of pure exhaustion, I bought a £10 plastic blackout panel and my husband got cutting and sticking. It wasn't pretty, but it worked. For the first time, he slept, and so did I.</p>
+</div>
+</div>
+</section>
+
+<!-- A considered beginning (mist) -->
+<section style="background: #F3F3F2">
+<div style="max-width: 1280px; margin: 0 auto; padding: 66px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 36px; align-items: center">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<img src="./assets/adbaa67a9ca0ec80c233a8112299efa5.jpg" alt="Peace lily on a wooden stool" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 24px; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
+<div style="width: 100%; aspect-ratio: 3 / 4; border-radius: 24px; background: #E4E4E2; margin-top: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: #575757; font-weight: 700; font-size: 15px; text-align: center; padding: 20px; box-sizing: border-box"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 17l-5-5-9 8"></path></svg>Founder photo or the first hand-made panel</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2A2A2A">A considered beginning</p>
+<h2 style="margin: 0; font-size: 30px; line-height: 1.08; font-weight: 500">Why couldn't blackout be both functional and beautiful?</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #3A3A3A">One day, my neighbour Cassie and I started talking about the power of a dark room for our children. She shared a blackout panel she had hand-made using a beautiful fabric (much nicer than our plastic panel!). And in that moment, something clicked. Why not something durable, calming, beautiful and able to grow with your child?</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #3A3A3A">That question led to the very first version of The Calm Panel, which saw us through toddler regressions, early wake-ups, and eventually the arrival of my second son, whose sleep journey was much calmer with a blackout from day one.</p>
+</div>
+</div>
+</section>
+
+<!-- Pull quote (dark) -->
+<section style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<div style="max-width: 980px; margin: 0 auto; padding: 66px 20px; display: flex; flex-direction: column; gap: 28px; align-items: center; text-align: center">
+<svg width="44" height="44" viewBox="0 0 32 32" aria-hidden="true"><path d="M20.5 7.5a9.5 9.5 0 1 0 3 12 7.5 7.5 0 0 1-3-12z" fill="{{accent}}"></path></svg>
+<p style="margin: 0; font-family: Outfit, sans-serif; font-size: 26px; line-height: 1.3; font-weight: 300">When my sister, who suffers from insomnia, asked if I could make her one, and it worked, I knew this was bigger than a parenting hack.</p>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #CFCFCF; max-width: 640px">What began as a survival tool became a family essential. And then it became my purpose.</p>
+</div>
+</section>
+
+<!-- Our name (light) -->
+<section style="background: #FFFFFF">
+<div style="max-width: 1180px; margin: 0 auto; padding: 66px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 36px; align-items: center">
+<div style="aspect-ratio: 1 / 1; border-radius: 32px; background: #E7E7E5; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px">
+<span style="font-family: Outfit, sans-serif; font-size: 109px; font-weight: 300; line-height: 1; color: #141414; letter-spacing: -0.04em">K &amp; T</span>
+<span style="font-size: 16px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1E1E">Kay &amp; Tay</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2A2A2A">Our name</p>
+<h2 style="margin: 0; font-size: 30px; line-height: 1.08; font-weight: 500">Inspired by the two little boys who shaped this journey.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #3A3A3A">But the name has come to hold a deeper meaning for us. To us, K &amp; T represents care, intention, and the importance of the family, the place where everything begins.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #3A3A3A">Our brand began from love, and from a simple truth I learned through motherhood: when a child sleeps well, the whole family feels calmer. K &amp; T is our way of helping families find a little more of that calm.</p>
+</div>
+</div>
+</section>
+
+<!-- Our why (mist) -->
+<section style="background: #F3F3F2">
+<div style="max-width: 1180px; margin: 0 auto; padding: 66px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 36px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2A2A2A">Our why</p>
+<h2 style="margin: 0; font-size: 33px; line-height: 1.06; font-weight: 500">The smallest things can bring the greatest relief.</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px; font-size: 19px; line-height: 1.7; color: #3A3A3A">
+<p style="margin: 0">Motherhood is beautiful, overwhelming, and often a little isolating. For me, creating K &amp; T was an act of intention. A way to bring calm, clarity, and care into my own home, and into the lives of other families.</p>
+<p style="margin: 0">Everything we make begins with that same purpose: to support families with something simple, thoughtful and beautifully made.</p>
+<p style="margin: 0">At the heart of K &amp; T is The Calm Panel. A gentle, design-led blackout solution that adapts as your children grow, and brings a sense of stillness to the spaces you all share.</p>
+</div>
+</div>
+</section>
+
+<!-- Closing (dark) with photo -->
+<section style="position: relative; background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF; overflow: hidden">
+<img src="./assets/0d0b658d886e48a59375ade45c5aa09c.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.22">
+<div style="position: relative; max-width: 980px; margin: 0 auto; padding: 77px 20px; display: flex; flex-direction: column; gap: 32px; align-items: center; text-align: center">
+<h2 style="margin: 0; font-size: 33px; line-height: 1.1; font-weight: 400">The magic isn't the darkness.<br>It's the calm it creates for your family.</h2>
+<div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center">
+<a href="#page-product" style="background: {{accent}}; color: {{ink}}; text-decoration: none; font-weight: 700; font-size: 17px; padding: 18px 30px; border-radius: 999px; box-shadow: 0 10px 24px -10px rgba(0,0,0,0.55)">Find your Calm Panel</a>
+<a href="#how" style="color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 26px; border-radius: 999px; border: 2px solid rgba(255,255,255,0.4)">How it works</a>
+</div>
+</div>
+</section>
+
+
+
+<!-- Footer -->
+<footer style="background: #0A0A0A; color: #B8B8B8">
+<div style="max-width: 1280px; margin: 0 auto; padding: 40px 20px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 26px; letter-spacing: 0.06em; color: #FFFFFF">K &amp; T</span>
+<p style="margin: 0; font-size: 15px; line-height: 1.6">A design-led sleep solutions company, and the makers of The Calm Panel.</p>
+</div>
+<nav aria-label="Shop" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">Shop</span>
+<a href="#page-product" style="color: #B8B8B8; text-decoration: none">The Calm Panel</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Measuring and fitting guide</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Perfect fit guarantee</a>
+</nav>
+<nav aria-label="Help" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">Help</span>
+<a href="#faq" style="color: #B8B8B8; text-decoration: none">FAQ</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Delivery and returns</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">Contact us</a>
+</nav>
+<nav aria-label="About" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<span style="color: #FFFFFF; font-weight: 700">About</span>
+<a href="#page-about" style="color: #B8B8B8; text-decoration: none">Our story</a>
+<a href="#" style="color: #B8B8B8; text-decoration: none">The Quiet</a>
+</nav>
+</div>
+<div style="max-width: 1280px; margin: 0 auto; padding: 13px 20px 24px; border-top: 1px solid #242424; font-size: 14px">© 2026 K &amp; T. All rights reserved.</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FFFFFF","options":["#FFFFFF","#EDEAE4","#D6D6D6"],"section":"Theme"},"ink":{"editor":"color","default":"#141414","options":["#141414","#000000","#262626"],"section":"Theme"},"$preview":{"width":6146,"height":11000}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { page: 'home', faq: 0, img: 0, size: 0, height: 0, open: 0 };
+  }
+  renderVals() {
+    const ink = this.props.ink ?? '#141414';
+    const accent = this.props.accent ?? '#FFFFFF';
+    const PRICES = [[77, 82, 85], [92, 97, 100], [107, 112, 115], [125, 152, 160]];
+    const SIZE_NAMES = ['Small', 'Medium', 'Large', 'Custom'];
+    const HEIGHTS = [
+      { name: 'Standard height', range: 'Up to 150cm' },
+      { name: 'Extra length', range: '151 to 200cm' },
+      { name: 'Custom height', range: 'Over 200cm' }
+    ];
+    const IMGS = [
+      { src: './assets/99b17a0e92c64849b18d3742eb40ae18.jpg', alt: 'The Calm Panel fitted inside a window frame' },
+      { src: './assets/0d0b658d886e48a59375ade45c5aa09c.jpg', alt: 'The Calm Panel in a calm nursery' },
+      { src: './assets/bf32e027a5133cb9757b3ba77dbe1f1a.jpg', alt: 'Nursery with cot and The Calm Panel' },
+      { src: './assets/adbaa67a9ca0ec80c233a8112299efa5.jpg', alt: 'Peace lily beside the window' },
+      { src: './assets/09e8620b0666ca85313ea2e4f92c2f39.jpg', alt: 'Wooden cot and basket' },
+      { src: '', alt: 'Fabric close-up photo goes here' }
+    ];
+    const s = this.state;
+    const thumbs = IMGS.map((im, i) => ({
+      ...im,
+      isPhoto: !!im.src,
+      isPlaceholder: !im.src,
+      active: s.img === i,
+      pick: () => this.setState({ img: i }),
+      style: 'aspect-ratio: 1 / 1; padding: 0; border-radius: 14px; overflow: hidden; cursor: pointer; background: #F3F3F2; display: flex; align-items: center; justify-content: center; border: 2.5px solid ' + (s.img === i ? ink : 'transparent')
+    }));
+    const sizes = SIZE_NAMES.map((n, i) => ({
+      name: n,
+      price: PRICES[i][s.height],
+      active: s.size === i,
+      pick: () => this.setState({ size: i }),
+      style: 'min-height: 72px; border-radius: 14px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-family: Figtree, sans-serif; ' + (s.size === i ? 'background: ' + ink + '; color: #FFFFFF; border: 2px solid ' + ink : 'background: #FFFFFF; color: #141414; border: 2px solid #DDDDDD')
+    }));
+    const heights = HEIGHTS.map((h, i) => {
+      const diff = PRICES[s.size][i] - PRICES[s.size][0];
+      return {
+        ...h,
+        extra: i === 0 ? 'Included' : '+£' + diff,
+        active: s.height === i,
+        pick: () => this.setState({ height: i }),
+        style: 'min-height: 64px; border-radius: 14px; cursor: pointer; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; font-family: Figtree, sans-serif; color: #141414; background: ' + (s.height === i ? '#F6F6F6' : '#FFFFFF') + '; border: 2px solid ' + (s.height === i ? ink : '#DDDDDD'),
+        dot: 'width: 20px; height: 20px; border-radius: 999px; box-sizing: border-box; flex: 0 0 auto; border: ' + (s.height === i ? '6px solid ' + ink : '2px solid #9A9A9A')
+      };
+    });
+    const P = [
+      { title: 'Details', body: 'Made from soft, premium fabric, The Calm Panel is engineered with side and bottom panels. This lets it fit neatly inside your window frame and block light at the edges. Use it alongside your existing curtains or blinds to create a darker, calmer room that cues your child for sleep.' },
+      { title: 'Measuring and fitting', body: 'Measure the inside of your window frame. Stick the discreet hook strip along the top of the frame, then press the panel onto it and into the corners. No drilling, no damage. Everything you need is in the box.' },
+      { title: 'Delivery', body: 'Order by 10am for next-day delivery. [Add delivery cost and returns details]' },
+      { title: 'Perfect fit guarantee', body: 'If your Calm Panel is not quite right for your window, we will remake it. [Add guarantee terms]' }
+    ];
+    const panels = P.map((p, i) => ({
+      ...p,
+      open: s.open === i,
+      sign: s.open === i ? '−' : '+',
+      toggle: () => this.setState({ open: s.open === i ? -1 : i })
+    }));
+    const main = IMGS[s.img];
+    const list = [
+      { q: 'How do I know which size to order?', a: 'Measure the inside of your window frame, width and height, and follow our measuring guide. Not sure? Send us your numbers and we will check them within 10 minutes.' },
+      { q: 'Do I need to drill into my window frame?', a: 'No. A discreet hook strip sticks along the top of the frame and the panel attaches to it. Everything you need is in the box.' },
+      { q: 'What if it does not fit?', a: 'Our perfect fit guarantee means that if your Calm Panel is not quite right for your window, we will remake it.' },
+      { q: 'Can I use it with my curtains or blinds?', a: 'Yes. The Calm Panel sits inside the frame, so your existing curtains or blinds stay exactly where they are.' },
+      { q: 'How quickly will it arrive?', a: 'Order by 10am for next-day delivery.' }
+    ];
+    const faqs = list.map((f, i) => ({
+      ...f,
+      open: this.state.faq === i,
+      sign: this.state.faq === i ? '−' : '+',
+      toggle: () => this.setState({ faq: this.state.faq === i ? -1 : i })
+    }));
+    const page = s.page;
+    const go = (p) => () => this.setState({ page: p });
+    const navStyle = (on) => 'text-decoration: none; padding-bottom: 2px; border-bottom: 2px solid ' + (on ? ink : 'transparent');
+
+    return {
+      ink, accent,
+      price: PRICES[s.size][s.height],
+      sizeName: SIZE_NAMES[s.size],
+      summary: SIZE_NAMES[s.size] + ', ' + HEIGHTS[s.height].name.toLowerCase() + ', Chalk',
+      mainSrc: main.src, mainAlt: main.alt,
+      mainIsPhoto: !!main.src, mainIsPlaceholder: !main.src,
+      thumbs, sizes, heights, panels, faqs,
+      isHome: page === 'home', isProduct: page === 'product', isAbout: page === 'about',
+      goHome: go('home'), goProduct: go('product'), goAbout: go('about'),
+      navShop: navStyle(page === 'product'), navAbout: navStyle(page === 'about')
+    };
+  }
+}
+</script>
+</body>
+</html>

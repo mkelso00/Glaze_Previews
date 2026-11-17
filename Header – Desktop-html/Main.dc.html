@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Glaze Header – Desktop</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+.gz-nav a:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+.gz-util a:hover{color:#FFFFFF}
+</style>
+</helmet>
+<div style="width: 100%; min-height: 440px; background: #FFFFFF; font-family: Inter, system-ui, sans-serif; color: {{ink}}">
+
+<!-- Utility bar -->
+<div class="gz-util" style="background: {{ink}}; color: #D9DBE1; font-size: 13px; line-height: 20px">
+<div style="max-width: 1280px; margin: 0 auto; padding: 10px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border: 1px solid #3A3D45; border-radius: 999px; color: #FFFFFF; font-weight: 600; font-size: 12px; letter-spacing: 0.02em">
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+Shopify Premier Partner
+</span>
+<span>Top 0.3% of Shopify agencies worldwide</span>
+</div>
+<div style="display: flex; align-items: center; gap: 24px">
+<a href="tel:+442895900429" style="display: inline-flex; align-items: center; gap: 8px">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>
++44 28 95 900 429
+</a>
+<a href="mailto:hello@glazedigital.com" style="display: inline-flex; align-items: center; gap: 8px">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>
+hello@glazedigital.com
+</a>
+</div>
+</div>
+</div>
+
+<!-- Main bar -->
+<header style="background: #FFFFFF; border-bottom: 1px solid #E6E7EB">
+<div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 32px">
+
+<a href="/" aria-label="Glaze Digital home" style="font-family: 'Space Grotesk', Inter, sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.14em; line-height: 1; color: {{ink}}">GLAZE</a>
+
+<nav class="gz-nav" aria-label="Main" style="display: flex; align-items: center; gap: 36px; font-size: 15px; font-weight: 500">
+<a href="/pages/services" style="display: inline-flex; align-items: center; gap: 6px; padding: 12px 0">
+Services
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+</a>
+<a href="/pages/work" style="padding: 12px 0">Work</a>
+<a href="/pages/about-us" style="padding: 12px 0">About</a>
+<a href="/blogs/news" style="padding: 12px 0">Insights</a>
+<a href="/pages/contact" style="padding: 12px 0">Contact</a>
+</nav>
+
+<div style="display: flex; align-items: center; gap: 12px">
+<a href="/pages/contact" style="display: inline-flex; align-items: center; gap: 10px; height: 48px; padding: 0 22px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-weight: 600; font-size: 15px">
+Book a strategy call
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+</a>
+</div>
+
+</div>
+</header>
+
+<!-- Hero slice for context -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 72px 32px 64px; display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #5A5E69">Belfast · Working with brands worldwide</p>
+<h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-weight: 700; font-size: 64px; line-height: 1.02; letter-spacing: -0.02em; max-width: 900px">Full Service Shopify Agency.</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.5; color: #454954; max-width: 640px">250+ stores built and £20m+ in monthly revenue supported.</p>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#2F4BFF"},"ink":{"editor":"color","default":"#0F1115"},"$preview":{"width":1440,"height":440}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+accent: this.props.accent ?? '#2F4BFF',
+ink: this.props.ink ?? '#0F1115'
+};
+}
+}
+</script>
+</body>
+</html>
