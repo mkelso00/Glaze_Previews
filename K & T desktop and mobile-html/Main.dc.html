@@ -18,7 +18,9 @@ h1,h2,h3,h4{font-family:Outfit,Figtree,sans-serif;letter-spacing:-0.01em}
 a{color:#141414}a:hover{color:#242424}
 </style>
 </helmet>
-<div style="width: 6146px; box-sizing: border-box; padding: 80px; background: #DCDCDA; display: flex; gap: 140px; align-items: flex-start; font-family: Figtree, system-ui, sans-serif; color: #141414">
+<div style="position: relative; width: 7442px; box-sizing: border-box; padding: 80px; background: #DCDCDA; display: flex; gap: 140px; align-items: flex-start; font-family: Figtree, system-ui, sans-serif; color: #141414">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><div style="position: absolute; top: 20px; left: 80px; display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; color: #141414"><span style="width: 26px; height: 26px; border-radius: 999px; background: #C2410C; box-shadow: 0 0 0 5px rgba(234,88,12,0.28)"></span>Numbered orange hotspots match the design notes beside each page. Turn them off in Tweaks under Design notes.</div></sc-if>
+
 
 <div id="page-home" style="display: flex; flex-direction: column; gap: 28px">
 <p style="margin: 0; display: flex; align-items: baseline; gap: 16px; font-size: 18px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #575757"><span style="font-family: Outfit, sans-serif; font-size: 44px; font-weight: 300; letter-spacing: 0; color: #141414">01</span>Homepage</p>
@@ -27,13 +29,17 @@ a{color:#141414}a:hover{color:#242424}
 <p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Desktop</p>
 <div style="background: #FFFFFF; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 60px 120px -40px rgba(0,0,0,0.35)">
 <!-- Announcement bar -->
-<div style="background: {{ink}}; color: #FFFFFF; font-size: 14px; font-weight: 600; padding: 10px 24px; display: flex; justify-content: center; align-items: center; gap: 28px; flex-wrap: wrap; text-align: center">
+<div style="position: relative; background: {{ink}}; color: #FFFFFF; font-size: 14px; font-weight: 600; padding: 10px 24px; display: flex; justify-content: center; align-items: center; gap: 28px; flex-wrap: wrap; text-align: center">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 3px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">1</span></sc-if>
+
 <span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Order by 10am for next-day delivery</span>
 <span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Perfect fit guaranteed or we remake it</span>
 </div>
 
 <!-- Header -->
-<header style="background: #FFFFFF; border-bottom: 1px solid #E6E6E6">
+<header style="position: relative; background: #FFFFFF; border-bottom: 1px solid #E6E6E6">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: -14px; right: 200px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">2</span></sc-if>
+
 <div style="max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
 <a href="#page-home" aria-label="K and T home" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: {{ink}}">
 <span aria-hidden="true" style="width: 40px; height: 40px; box-sizing: border-box; border: 1.5px solid {{ink}}; display: flex; align-items: center; justify-content: center; font-family: Outfit, sans-serif; font-weight: 400; font-size: 17px; letter-spacing: 0.02em">KT</span><span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 24px; letter-spacing: 0.06em">K &amp; T</span>
@@ -57,6 +63,8 @@ a{color:#141414}a:hover{color:#242424}
 
 <!-- Hero -->
 <section style="position: relative; background: {{ink}}; color: #FFFFFF; overflow: hidden; min-height: 780px; display: flex; align-items: center">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">3</span></sc-if>
+
 <video src="./assets/dd3603af001d37f37aded7f19435dbf2.mp4" poster="./assets/0d0b658d886e48a59375ade45c5aa09c.jpg" autoplay="" muted="" loop="" playsinline="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"></video>
 <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.62) 42%, rgba(10,10,10,0.08) 75%), linear-gradient(0deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0) 30%)"></div>
 <div style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 96px 32px 160px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap">
@@ -90,7 +98,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- USP strip -->
-<section style="background: linear-gradient(180deg, {{ink}} 0, {{ink}} 50%, #FFFFFF 50%); padding: 0 32px">
+<section style="position: relative; background: linear-gradient(180deg, {{ink}} 0, {{ink}} 50%, #FFFFFF 50%); padding: 0 32px">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: -17px; right: 40px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">4</span></sc-if>
+
 <div style="max-width: 1216px; margin: -56px auto 0; position: relative; background: #FFFFFF; border-radius: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 30px 60px -20px rgba(0,0,0,0.35); padding: 28px 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
 <div style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Next-day delivery by 10am</div>
 <div style="display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17L17 3l4 4L7 21H3z"></path><path d="M7 13l2 2M10 10l2 2M13 7l2 2"></path></svg>Made to measure</div>
@@ -100,7 +110,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Darkness in seconds -->
-<section style="background: #FFFFFF">
+<section style="position: relative; background: #FFFFFF">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">5</span></sc-if>
+
 <div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 72px; align-items: center">
 <div style="position: relative; padding: 0 28px 28px 0"><div aria-hidden="true" style="position: absolute; top: 28px; left: 28px; right: 0; bottom: 0; border-radius: 28px; background: #E7E7E5"></div>
 <div style="position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 4 / 3; background: #F3F3F2; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
@@ -123,7 +135,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Comparison -->
-<section style="background: #F3F3F2">
+<section style="position: relative; background: #F3F3F2">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">6</span></sc-if>
+
 <div style="max-width: 1080px; margin: 0 auto; padding: 104px 32px; display: flex; flex-direction: column; gap: 40px">
 <div style="text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center">
 <h2 style="margin: 0; font-size: 50px; line-height: 1.04; font-weight: 600">Why the usual fixes fall short</h2>
@@ -176,7 +190,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- How it works -->
-<section id="how" style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<section id="how" style="position: relative; background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">7</span></sc-if>
+
 <div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px; display: flex; flex-direction: column; gap: 56px">
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
 <div style="display: flex; flex-direction: column; gap: 14px; max-width: 640px">
@@ -219,7 +235,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Bedtime ritual -->
-<section style="background: #FFFFFF">
+<section style="position: relative; background: #FFFFFF">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; left: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">8</span></sc-if>
+
 <div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 72px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 22px">
 <p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2A2A2A">The bedtime ritual</p>
@@ -235,7 +253,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Choose your size -->
-<section style="background: #F3F3F2">
+<section style="position: relative; background: #F3F3F2">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">9</span></sc-if>
+
 <div style="max-width: 1280px; margin: 0 auto; padding: 104px 32px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
 <div style="display: flex; flex-direction: column; gap: 12px">
@@ -275,7 +295,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Reviews -->
-<section id="reviews" style="background: #F3F3F2">
+<section id="reviews" style="position: relative; background: #F3F3F2">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">10</span></sc-if>
+
 <div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px; display: flex; flex-direction: column; gap: 44px">
 <div style="text-align: center; display: flex; flex-direction: column; gap: 12px; align-items: center">
 <h2 style="margin: 0; font-size: 50px; line-height: 1.04; font-weight: 600">Parents are sleeping better too</h2>
@@ -307,7 +329,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Guarantee -->
-<section style="background: #E7E7E5">
+<section style="position: relative; background: #E7E7E5">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">11</span></sc-if>
+
 <div style="max-width: 1280px; margin: 0 auto; padding: 80px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px; align-items: center">
 <div style="display: flex; gap: 24px; align-items: center">
 <div style="flex: 0 0 auto; width: 112px; height: 112px; border-radius: 999px; background: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
@@ -321,7 +345,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- FAQ -->
-<section id="faq" style="background: #FFFFFF">
+<section id="faq" style="position: relative; background: #FFFFFF">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">12</span></sc-if>
+
 <div style="max-width: 880px; margin: 0 auto; padding: 112px 32px; display: flex; flex-direction: column; gap: 32px">
 <h2 style="margin: 0; font-size: 50px; line-height: 1.04; font-weight: 600; text-align: center">Questions parents ask</h2>
 <div style="display: flex; flex-direction: column; border-top: 1px solid #DDDDDD">
@@ -338,7 +364,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Newsletter -->
-<section style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<section style="position: relative; background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">13</span></sc-if>
+
 <div style="max-width: 1280px; margin: 0 auto; padding: 88px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 12px">
 <h2 style="margin: 0; font-size: 46px; line-height: 1.04; font-weight: 600">Sleep tips, straight to your inbox</h2>
@@ -383,6 +411,28 @@ a{color:#141414}a:hover{color:#242424}
 </footer>
 </div>
 </div>
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><div style="flex: 0 0 360px; width: 360px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #C2410C">Design notes</p>
+<div style="background: #FFFFFF; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 30px 60px -30px rgba(0,0,0,0.3)">
+<p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Desktop</p>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">1</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Top bar: answer the two big worries</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Next-day delivery and the perfect fit guarantee lead, because timing and getting the size wrong are what stop people buying a made-to-measure product.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">2</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Order button always in reach</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">A "Start your order" button in the header means a ready buyer can start from anywhere on the site, as Sleepout does.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">3</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Video hero speaks to the problem</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Movement holds attention in the first screen. The headline uses their own line about curtains and blinds failing, which matches what the parent already feels.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">4</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Four reasons in one glance</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Delivery, made to measure, guarantee and no drilling, in a card that overlaps the hero to pull the eye down the page.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">5</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Proof before claims</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Video slot for their real fitting clip. Seeing the edges sealed does more than any copy to justify the price.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">6</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Why not curtains or blinds?</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Buyers have already tried the alternatives. A plain comparison answers "why is this different?" and makes the price feel fair.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">7</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Take the fear out of fitting</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Three simple steps plus a free 10-minute measurement check. Sizing doubt is the main reason made-to-measure shoppers leave.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">8</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">The emotional reason to buy</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Frames the panel as part of the bedtime routine, not just a fabric product. Calm is what the parent is really paying for.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">9</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Prices shown early</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Real "from" prices on the homepage answer "how much?" and send people straight to the product page ready to choose.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">10</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Social proof from parents</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Placeholders for their four 5-star reviews. Ages from 4 months to 7 years show it works for every stage.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">11</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Risk reversal</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">The remake promise removes the last objection for a custom-sized product, so it gets its own band.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">12</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Objections handled on the page</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">The five questions that stop a sale, answered before the visitor has to go looking or leave.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">13</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Capture the not-ready-yet</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Most first visits will not buy. An email sign-up with sleep tips starts retention so they come back.</p></div></div>
+<p style="margin: 8px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Mobile</p>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">14</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Compact mobile header</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Menu, logo and basket only, so the hero and headline get the screen.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">15</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Readable over video</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Shading runs bottom up on mobile so white text stays legible on a narrow screen.</p></div></div>
+</div>
+</div></sc-if>
 <div style="flex: 0 0 390px; width: 390px; display: flex; flex-direction: column; gap: 16px">
 <p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Mobile</p>
 <div style="width: 390px; background: #FFFFFF; border-radius: 40px; overflow: hidden; box-shadow: 0 0 0 10px #141414, 0 60px 120px -40px rgba(0,0,0,0.45)">
@@ -393,7 +443,9 @@ a{color:#141414}a:hover{color:#242424}
 </div>
 
 <!-- Header -->
-<header style="background: #FFFFFF; border-bottom: 1px solid #E6E6E6">
+<header style="position: relative; background: #FFFFFF; border-bottom: 1px solid #E6E6E6">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 5px; right: 64px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">14</span></sc-if>
+
 <div style="padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
 <button aria-label="Open menu" style="width: 44px; height: 44px; border: 0; background: transparent; color: {{ink}}; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
 <a href="#page-home" aria-label="K and T home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: {{ink}}"><span aria-hidden="true" style="width: 34px; height: 34px; box-sizing: border-box; border: 1.5px solid {{ink}}; display: flex; align-items: center; justify-content: center; font-family: Outfit, sans-serif; font-weight: 400; font-size: 15px">KT</span><span style="font-family: Outfit, sans-serif; font-weight: 400; font-size: 21px; letter-spacing: 0.06em">K &amp; T</span></a>
@@ -403,6 +455,8 @@ a{color:#141414}a:hover{color:#242424}
 
 <!-- Hero -->
 <section style="position: relative; background: {{ink}}; color: #FFFFFF; overflow: hidden; min-height: 600px; display: flex; align-items: center">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 16px; left: 12px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">15</span></sc-if>
+
 <video src="./assets/dd3603af001d37f37aded7f19435dbf2.mp4" poster="./assets/0d0b658d886e48a59375ade45c5aa09c.jpg" autoplay="" muted="" loop="" playsinline="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"></video>
 <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.5) 60%, rgba(10,10,10,0.3) 100%), linear-gradient(0deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0) 30%)"></div>
 <div style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 53px 20px 96px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; flex-wrap: wrap">
@@ -773,7 +827,9 @@ a{color:#141414}a:hover{color:#242424}
 <div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
 
 <!-- Gallery -->
-<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 14px; position: sticky; top: 24px">
+<div style="position: relative; flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 14px; position: sticky; top: 24px">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; left: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">1</span></sc-if>
+
 <div style="position: relative; border-radius: 28px; overflow: hidden; background: #F3F3F2; aspect-ratio: 1 / 1; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
 <sc-if value="{{ mainIsPhoto }}" hint-placeholder-val="{{ true }}">
 <img src="{{ mainSrc }}" alt="{{ mainAlt }}" style="width: 100%; height: 100%; object-fit: cover; display: block">
@@ -815,7 +871,9 @@ a{color:#141414}a:hover{color:#242424}
 </div>
 
 <!-- Buy box -->
-<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="position: relative; flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 0; left: -46px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">2</span></sc-if>
+
 <div style="display: flex; flex-direction: column; gap: 10px">
 <a href="#product-reviews" style="display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 15px; font-weight: 600; color: #575757"><span style="color: #141414; font-size: 18px; letter-spacing: 2px" aria-hidden="true">★★★★★</span>5-star reviews from parents</a>
 <h1 style="margin: 0; font-size: 52px; line-height: 1; font-weight: 600">The Calm Panel</h1>
@@ -832,7 +890,9 @@ a{color:#141414}a:hover{color:#242424}
 </div>
 
 <!-- Step 1 -->
-<div style="background: #F3F3F2; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; background: #F3F3F2; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 0; left: -46px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">3</span></sc-if>
+
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
 <h2 style="margin: 0; font-size: 20px; font-weight: 600"><span style="color: #575757">1.</span> Measure inside your frame</h2>
 <a href="#" style="font-size: 14px; font-weight: 700">Measuring guide</a>
@@ -851,7 +911,9 @@ a{color:#141414}a:hover{color:#242424}
 </div>
 
 <!-- Step 2 -->
-<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="position: relative; display: flex; flex-direction: column; gap: 12px">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 0; left: -46px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">4</span></sc-if>
+
 <div style="display: flex; justify-content: space-between; align-items: center">
 <h2 style="margin: 0; font-size: 20px; font-weight: 600"><span style="color: #575757">2.</span> Size band: {{ sizeName }}</h2>
 <a href="#" style="font-size: 14px; font-weight: 700">Size chart</a>
@@ -880,13 +942,17 @@ a{color:#141414}a:hover{color:#242424}
 </div>
 
 <!-- ATC -->
-<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="position: relative; display: flex; flex-direction: column; gap: 12px">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 0; left: -46px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">5</span></sc-if>
+
 <button style="min-height: 64px; border: 0; border-radius: 999px; background: {{ink}}; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 19px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 12px">Add to basket <span style="opacity: 0.6">|</span> £{{ price }}</button>
 <p style="margin: 0; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>Order by 10am for next-day delivery</p>
 </div>
 
 <!-- Guarantee -->
-<div style="background: #E7E7E5; border-radius: 20px; padding: 20px 22px; display: flex; gap: 16px; align-items: flex-start">
+<div style="position: relative; background: #E7E7E5; border-radius: 20px; padding: 20px 22px; display: flex; gap: 16px; align-items: flex-start">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 0; left: -46px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">6</span></sc-if>
+
 <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
 <div>
 <p style="margin: 0; font-weight: 600; font-size: 17px">Perfect fit, guaranteed</p>
@@ -910,7 +976,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Feature band -->
-<section style="background: #F3F3F2">
+<section style="position: relative; background: #F3F3F2">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">7</span></sc-if>
+
 <div style="max-width: 1280px; margin: 0 auto; padding: 104px 32px; display: flex; flex-direction: column; gap: 44px">
 <div style="text-align: center; display: flex; flex-direction: column; gap: 12px; align-items: center">
 <p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2A2A2A">Why parents choose it</p>
@@ -925,7 +993,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Grows with your child -->
-<section style="background: #FFFFFF">
+<section style="position: relative; background: #FFFFFF">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">8</span></sc-if>
+
 <div style="max-width: 1280px; margin: 0 auto; padding: 112px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 72px; align-items: center">
 <div style="position: relative; padding: 0 28px 28px 0"><div aria-hidden="true" style="position: absolute; top: 28px; left: 28px; right: 0; bottom: 0; border-radius: 28px; background: #E7E7E5"></div>
 <img src="./assets/0d0b658d886e48a59375ade45c5aa09c.jpg" alt="The Calm Panel fitted in a calm nursery" style="position: relative; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 28px; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 40px 80px -28px rgba(0,0,0,0.45)">
@@ -1026,6 +1096,8 @@ a{color:#141414}a:hover{color:#242424}
 
 <!-- Final CTA -->
 <section style="position: relative; background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF; overflow: hidden">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">9</span></sc-if>
+
 <div style="max-width: 1280px; margin: 0 auto; padding: 104px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 64px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 22px">
 <h2 style="margin: 0; font-size: 52px; line-height: 1.06; font-weight: 500">Darker nights start tomorrow.</h2>
@@ -1070,6 +1142,23 @@ a{color:#141414}a:hover{color:#242424}
 </footer>
 </div>
 </div>
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><div style="flex: 0 0 360px; width: 360px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #C2410C">Design notes</p>
+<div style="background: #FFFFFF; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 30px 60px -30px rgba(0,0,0,0.3)">
+<p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Desktop</p>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">1</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Gallery stays in view</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">On a live site the gallery stays put while the options scroll, so the product is always on screen as people choose.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">2</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Proof and benefits up top</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Stars, name, one-line promise and three benefit chips sit above the fold, before any choices.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">3</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Measure first</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Starting with measurements matches how parents actually buy, and the WhatsApp check catches doubt at the exact moment it appears.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">4</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">12 variants made simple</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Size band, then height, with the live price updating. No surprises at the basket and no confusing dropdown.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">5</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Big, clear add to basket</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Full-width button showing the price, with the 10am next-day cut-off right underneath to create gentle urgency.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">6</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Guarantee at the point of decision</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">The remake promise sits right under the button, where the fear of ordering the wrong size peaks.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">7</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">For people who scroll</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Shoppers who keep scrolling are not convinced yet. Each section below answers a different objection.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">8</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Beautiful, not a stopgap</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Positions it against the cheap plastic panels parents start with, using the brand story of durable and calming.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">9</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">One last push</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Repeats delivery speed and the guarantee with a direct route back to choosing a size.</p></div></div>
+<p style="margin: 8px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Mobile</p>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">10</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Gallery, then options</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Stacks naturally on a phone. Next step: a sticky add to basket bar that stays at the bottom while scrolling.</p></div></div>
+</div>
+</div></sc-if>
 <div style="flex: 0 0 390px; width: 390px; display: flex; flex-direction: column; gap: 16px">
 <p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Mobile</p>
 <div style="width: 390px; background: #FFFFFF; border-radius: 40px; overflow: hidden; box-shadow: 0 0 0 10px #141414, 0 60px 120px -40px rgba(0,0,0,0.45)">
@@ -1136,7 +1225,9 @@ a{color:#141414}a:hover{color:#242424}
 </div>
 
 <!-- Buy box -->
-<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="position: relative; flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: -6px; right: 0; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">10</span></sc-if>
+
 <div style="display: flex; flex-direction: column; gap: 10px">
 <a href="#product-reviews" style="display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 15px; font-weight: 600; color: #575757"><span style="color: #141414; font-size: 18px; letter-spacing: 2px" aria-hidden="true">★★★★★</span>5-star reviews from parents</a>
 <h1 style="margin: 0; font-size: 34px; line-height: 1; font-weight: 600">The Calm Panel</h1>
@@ -1430,7 +1521,9 @@ a{color:#141414}a:hover{color:#242424}
 </header>
 
 <!-- Hero (dark) -->
-<section style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<section style="position: relative; background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">1</span></sc-if>
+
 <div style="max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr))">
 <div style="padding: 104px 64px; display: flex; flex-direction: column; justify-content: center; gap: 26px">
 <p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: {{accent}}">About K &amp; T</p>
@@ -1444,7 +1537,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Our story (light) -->
-<section style="background: #FFFFFF">
+<section style="position: relative; background: #FFFFFF">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">2</span></sc-if>
+
 <div style="max-width: 1180px; margin: 0 auto; padding: 120px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 80px; align-items: start">
 <div style="display: flex; flex-direction: column; gap: 18px">
 <p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2A2A2A">Our story</p>
@@ -1474,7 +1569,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Pull quote (dark) -->
-<section style="background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<section style="position: relative; background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">3</span></sc-if>
+
 <div style="max-width: 980px; margin: 0 auto; padding: 120px 32px; display: flex; flex-direction: column; gap: 28px; align-items: center; text-align: center">
 <svg width="44" height="44" viewBox="0 0 32 32" aria-hidden="true"><path d="M20.5 7.5a9.5 9.5 0 1 0 3 12 7.5 7.5 0 0 1-3-12z" fill="{{accent}}"></path></svg>
 <p style="margin: 0; font-family: Outfit, sans-serif; font-size: 40px; line-height: 1.3; font-weight: 300">When my sister, who suffers from insomnia, asked if I could make her one, and it worked, I knew this was bigger than a parenting hack.</p>
@@ -1483,7 +1580,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Our name (light) -->
-<section style="background: #FFFFFF">
+<section style="position: relative; background: #FFFFFF">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">4</span></sc-if>
+
 <div style="max-width: 1180px; margin: 0 auto; padding: 120px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 72px; align-items: center">
 <div style="aspect-ratio: 1 / 1; border-radius: 32px; background: #E7E7E5; box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 16px 40px -14px rgba(0,0,0,0.24); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px">
 <span style="font-family: Outfit, sans-serif; font-size: 168px; font-weight: 300; line-height: 1; color: #141414; letter-spacing: -0.04em">K &amp; T</span>
@@ -1515,6 +1614,8 @@ a{color:#141414}a:hover{color:#242424}
 
 <!-- Closing (dark) with photo -->
 <section style="position: relative; background: radial-gradient(1100px 560px at 88% -10%, rgba(255,255,255,0.07), transparent 60%), radial-gradient(900px 520px at -5% 110%, rgba(255,255,255,0.04), transparent 60%), {{ink}}; color: #FFFFFF; overflow: hidden">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 24px; right: 24px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">5</span></sc-if>
+
 <img src="./assets/0d0b658d886e48a59375ade45c5aa09c.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.22">
 <div style="position: relative; max-width: 980px; margin: 0 auto; padding: 140px 32px; display: flex; flex-direction: column; gap: 32px; align-items: center; text-align: center">
 <h2 style="margin: 0; font-size: 60px; line-height: 1.1; font-weight: 400">The magic isn't the darkness.<br>It's the calm it creates for your family.</h2>
@@ -1556,6 +1657,19 @@ a{color:#141414}a:hover{color:#242424}
 </footer>
 </div>
 </div>
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><div style="flex: 0 0 360px; width: 360px; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #C2410C">Design notes</p>
+<div style="background: #FFFFFF; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 30px 60px -30px rgba(0,0,0,0.3)">
+<p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Desktop</p>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">1</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Founder story leads</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">A real mum's story builds trust that a product page cannot. It separates the brand, K &amp; T, from the product.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">2</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Her words, lightly edited</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Kept in the founder's voice. Only a stray comma and a dash were tidied.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">3</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Dark and light rhythm</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Alternating dark and light bands breaks a long story into easy chunks and keeps people reading.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">4</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Explain the name</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Saying how to pronounce K &amp; T and where it comes from helps people remember and recommend it.</p></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">5</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">Route to buy</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Readers who reach the end are warm. Give them a clear next step to the product.</p></div></div>
+<p style="margin: 8px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Mobile</p>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 30px; text-align: center">6</span><div><p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: #141414">One column story</p><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3A3A3A">Short paragraphs and big headings keep the story easy to read with a thumb.</p></div></div>
+</div>
+</div></sc-if>
 <div style="flex: 0 0 390px; width: 390px; display: flex; flex-direction: column; gap: 16px">
 <p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #575757">Mobile</p>
 <div style="width: 390px; background: #FFFFFF; border-radius: 40px; overflow: hidden; box-shadow: 0 0 0 10px #141414, 0 60px 120px -40px rgba(0,0,0,0.45)">
@@ -1589,7 +1703,9 @@ a{color:#141414}a:hover{color:#242424}
 </section>
 
 <!-- Our story (light) -->
-<section style="background: #FFFFFF">
+<section style="position: relative; background: #FFFFFF">
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 16px; left: 12px; z-index: 40; width: 34px; height: 34px; border-radius: 999px; background: #C2410C; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 15px; font-weight: 700; line-height: 34px; text-align: center; letter-spacing: 0; text-transform: none; box-shadow: 0 0 0 6px rgba(234,88,12,0.28), 0 6px 14px rgba(0,0,0,0.3)">6</span></sc-if>
+
 <div style="max-width: 1180px; margin: 0 auto; padding: 66px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 36px; align-items: start">
 <div style="display: flex; flex-direction: column; gap: 18px">
 <p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2A2A2A">Our story</p>
@@ -1706,7 +1822,7 @@ a{color:#141414}a:hover{color:#242424}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FFFFFF","options":["#FFFFFF","#EDEAE4","#D6D6D6"],"section":"Theme"},"ink":{"editor":"color","default":"#141414","options":["#141414","#000000","#262626"],"section":"Theme"},"$preview":{"width":6146,"height":11000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FFFFFF","options":["#FFFFFF","#EDEAE4","#D6D6D6"],"section":"Theme"},"showNotes":{"editor":"boolean","default":true,"section":"Design notes"},"ink":{"editor":"color","default":"#141414","options":["#141414","#000000","#262626"],"section":"Theme"},"$preview":{"width":7442,"height":11000}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -1794,6 +1910,7 @@ class Component extends DCLogic {
       summary: SIZE_NAMES[s.size] + ', ' + HEIGHTS[s.height].name.toLowerCase() + ', Chalk',
       mainSrc: main.src, mainAlt: main.alt,
       mainIsPhoto: !!main.src, mainIsPlaceholder: !main.src,
+      showNotes: this.props.showNotes ?? true,
       thumbs, sizes, heights, panels, faqs,
       isHome: page === 'home', isProduct: page === 'product', isAbout: page === 'about',
       goHome: go('home'), goProduct: go('product'), goAbout: go('about'),
