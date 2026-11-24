@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bed tile</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#334C56}a:hover{color:#1E2E35}
+</style>
+</helmet>
+<article style="width: 100%; height: 100%; min-height: 452px; box-sizing: border-box; background: #ffffff; border: 1px solid rgba(51,76,86,0.12); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; font-family: Poppins, sans-serif; color: #334C56">
+<a href="{{item.href}}" style="display: block; position: relative; padding: 12px 12px 0; text-decoration: none">
+<div style="background: #F4F2EC; border-radius: 10px; aspect-ratio: 1.6; overflow: hidden; display: flex; align-items: center; justify-content: center">
+<img src="{{item.img}}" alt="{{item.name}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+</div>
+<span style="position: absolute; left: 22px; top: 22px; background: rgba(255,255,255,0.95); color: #334C56; font-size: 11px; font-weight: 600; padding: 6px 10px; border-radius: 999px; box-shadow: 0 1px 3px rgba(30,46,53,0.15)">{{item.badge}}</span>
+<sc-if value="{{item.onSale}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; right: 22px; top: 22px; background: #B5443E; color: #ffffff; font-size: 11px; font-weight: 600; padding: 6px 10px; border-radius: 999px">Save 40%</span></sc-if>
+</a>
+<div style="flex: 1 1 auto; padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 9px">
+<h4 style="margin: 0; font-size: 17px; font-weight: 600; line-height: 1.3"><a href="{{item.href}}" style="text-decoration: none; color: #334C56">{{item.name}}</a></h4>
+<div style="display: flex; align-items: baseline; gap: 8px">
+<sc-if value="{{item.onSale}}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 18px; font-weight: 600; color: #B5443E">{{item.price}}</span>
+<span style="font-size: 13px; color: #5C6F77; text-decoration: line-through">{{item.was}}</span>
+</sc-if>
+<sc-if value="{{item.full}}" hint-placeholder-val="{{ true }}">
+<span style="font-size: 18px; font-weight: 600; color: #334C56">{{item.price}}</span>
+</sc-if>
+</div>
+<div style="display: flex; align-items: center; gap: 4px">
+<sc-for list="{{item.dots}}" as="d" hint-placeholder-count="5">
+<img src="{{d.src}}" alt="{{d.label}}" title="{{d.label}}" style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover; display: block; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1), 0 0 0 1px rgba(51,76,86,0.15)">
+</sc-for>
+<span style="font-size: 12px; font-weight: 600; margin-left: 4px">{{item.more}}</span>
+</div>
+<p style="margin: 0; font-size: 12px; line-height: 1.5; color: #5C6F77">{{item.sub}}</p>
+<a href="{{item.href}}" style="margin-top: auto; height: 44px; border-radius: 999px; background: #334C56; color: #ffffff; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none">Build your bed <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"item":{"editor":null},"$preview":{"width":320,"height":460}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const B = '/_blob/';
+    const fallback = {
+      img: './assets/0275d5175669fca60eb7edbea8986881.jpg', name: 'Shaker Sunday', price: '£741', was: '£1,235', onSale: true, full: false,
+      badge: 'Available in 15 finishes', sub: 'Plus 24 fabric colours and 8 headboard styles', more: '+10', href: '#',
+      dots: [
+        { src: './assets/3a123fb7d9f27df6d258aed7525705be.jpg', label: 'Black stain' },
+        { src: './assets/0d29f2231d9dea32f4576d5699f73ec2.jpg', label: 'Medium Oak stain' },
+        { src: './assets/3b1dfd69c0525aac0831b8ec1067bae0.jpg', label: 'Varnished' },
+        { src: './assets/2f0454ad1231607937bb7ff437685315.jpg', label: 'Oak stain' },
+        { src: './assets/5f0b110ba1b7178ccf1ddef82fa27c0b.jpg', label: 'Red Mahogany stain' }
+      ]
+    };
+    return { item: this.props.item ?? fallback };
+  }
+}
+</script>
+</body>
+</html>
