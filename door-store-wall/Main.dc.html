@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Doorstore product page with door visualiser prototype</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Libre+Baskerville:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#1A1A1A}a:hover{color:#D23733}
+@keyframes dsspin{to{transform:rotate(360deg)}}
+</style>
+</helmet>
+<div style="position: relative; font-family: Inter, system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF; min-height: 1100px">
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 24px; font-size: 13px">
+<div style="display: flex; gap: 20px; letter-spacing: 0.06em"><a href="#" style="text-decoration: none">FLOOR STORE</a><a href="#" style="text-decoration: none">PATIO STORE</a></div>
+<p style="margin: 0; font-weight: 600">Free shipping on all orders over £650</p>
+<div style="display: flex; gap: 20px; font-weight: 600"><a href="#" style="text-decoration: none">Call Us</a><a href="#" style="text-decoration: none">Visit Our Stores</a></div>
+</div>
+
+<header style="background: {{brandRed}}; color: #FFFFFF">
+<div style="padding: 20px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); align-items: center; gap: 16px">
+<label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; max-width: 300px; min-height: 44px; padding: 0 12px; border: 2px solid #FFFFFF; border-radius: 3px">
+<span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search</span>
+<input placeholder="Search by product, colour or finish" style="flex: 1; min-width: 0; border: 0; background: transparent; color: #FFFFFF; font: 500 13px Inter, system-ui, sans-serif; opacity: 0.75">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+</label>
+<a href="#" style="justify-self: center; font-family: 'Libre Baskerville', Georgia, serif; font-size: 28px; letter-spacing: 0.12em; color: #FFFFFF; text-decoration: none">DOORSTORE</a>
+<div style="justify-self: end; display: flex; flex-wrap: wrap; align-items: center; gap: 20px; font-size: 13px">
+<span>Inc VAT · Ex VAT</span>
+<a href="#" style="color: #FFFFFF; text-decoration: none">My Account</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none">Cart</a>
+</div>
+</div>
+</header>
+
+<nav aria-label="Main" style="border-bottom: 1px solid #E5E2DD; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 28px; padding: 14px 24px; font-size: 15px">
+<a href="#" style="text-decoration: none">Internal Doors</a>
+<a href="#" style="text-decoration: none">External Doors</a>
+<a href="#" style="text-decoration: none">Handles &amp; Accessories</a>
+<a href="#" style="text-decoration: none">Staircasing</a>
+<a href="#" style="text-decoration: none">Slatwall</a>
+<a href="#" style="text-decoration: none">Floors</a>
+<a href="#" style="text-decoration: none">Patios</a>
+</nav>
+
+<main style="max-width: 1120px; margin: 0 auto; padding: 18px 24px 72px">
+<nav aria-label="Breadcrumb" style="display: flex; gap: 10px; font-size: 13px; margin-bottom: 18px">
+<a href="#">Home</a><span aria-hidden="true">›</span><span>Shaker White Oak 1 Panel Door (40mm)</span>
+</nav>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: 44px; align-items: start">
+
+<section aria-label="Product images" style="display: flex; flex-direction: column; gap: 22px">
+<div style="position: relative; aspect-ratio: 1; overflow: hidden; background: #E9E6E1">
+<svg viewBox="0 0 600 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Shaker White Oak 1 Panel Door fitted in a hallway">
+<rect width="600" height="600" fill="#ECE9E4"></rect>
+<rect x="520" width="80" height="600" fill="#DEDAD3"></rect>
+<rect y="500" width="600" height="100" fill="#B48A58"></rect>
+<path d="M0 524H600M0 556H600M0 590H600" stroke="#9F7748" stroke-width="2"></path>
+<rect y="476" width="520" height="24" fill="#C9A46E"></rect>
+<rect x="178" y="48" width="244" height="452" fill="#C9A46E" stroke="#A97F48" stroke-width="2"></rect>
+<rect x="196" y="66" width="208" height="434" fill="#CDA872"></rect>
+<rect x="228" y="100" width="144" height="330" fill="#C39C64" stroke="#A97F48" stroke-width="3"></rect>
+<path d="M240 106C250 200 236 300 248 424M268 106C262 220 276 330 266 424M300 106C306 210 296 320 304 424M336 106C330 220 342 330 334 424M358 106C364 220 352 320 360 424" stroke="#A97F48" stroke-width="1.2" fill="none" opacity="0.45"></path>
+<circle cx="214" cy="276" r="8" fill="#BFC2C4"></circle>
+<rect x="212" y="272" width="36" height="7" rx="3.5" fill="#B6B9BB"></rect>
+<circle cx="214" cy="300" r="7" fill="#BFC2C4"></circle>
+<rect x="0" y="372" width="120" height="128" fill="#C29A62"></rect>
+<rect x="0" y="372" width="120" height="10" fill="#B08650"></rect>
+<rect x="10" y="392" width="100" height="34" fill="none" stroke="#A97F48" stroke-width="2"></rect>
+<rect x="10" y="434" width="100" height="56" fill="none" stroke="#A97F48" stroke-width="2"></rect>
+<path d="M44 372C38 346 42 334 56 330C70 334 74 346 68 372Z" fill="#F2F0EC"></path>
+<path d="M56 330L40 270M56 330L66 262M56 330L84 286M56 330L28 300" stroke="#5F6F55" stroke-width="2.4" fill="none"></path>
+<ellipse cx="40" cy="270" rx="9" ry="14" fill="#6E7F63"></ellipse>
+<ellipse cx="66" cy="262" rx="9" ry="14" fill="#6E7F63"></ellipse>
+<ellipse cx="84" cy="286" rx="8" ry="12" fill="#6E7F63"></ellipse>
+<ellipse cx="28" cy="300" rx="8" ry="12" fill="#6E7F63"></ellipse>
+</svg>
+<button aria-label="Previous image" style="position: absolute; left: 14px; top: 50%; margin-top: -22px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{brandRed}}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+<button aria-label="Next image" style="position: absolute; right: 14px; top: 50%; margin-top: -22px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{brandRed}}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+<button type="button" onClick="{{open}}" style="background: transparent; border: 0; cursor: pointer; font-family: inherit; text-align: center; position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 20px; background: #FFFFFF; color: {{navy}}; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; box-shadow: 0 6px 18px rgba(0,0,0,0.18)">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{navy}}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3v12H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+See it in your home
+</button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px">
+<button aria-label="Image 1, door in hallway" style="aspect-ratio: 1; border: 2px solid #1A1A1A; background: #ECE9E4; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="34" height="62" viewBox="0 0 34 62" aria-hidden="true"><rect width="34" height="62" fill="#CDA872"></rect><rect x="6" y="7" width="22" height="44" fill="#C39C64" stroke="#A97F48"></rect></svg></button>
+<button aria-label="Image 2, door front on" style="aspect-ratio: 1; border: 0; background: #FFFFFF; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="30" height="62" viewBox="0 0 30 62" aria-hidden="true"><rect width="30" height="62" fill="#CDA872"></rect><rect x="5" y="7" width="20" height="44" fill="#C39C64" stroke="#A97F48"></rect></svg></button>
+<button aria-label="Image 3, door in a living room" style="aspect-ratio: 1; border: 0; background: #E6E6E3; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="34" height="62" viewBox="0 0 34 62" aria-hidden="true"><rect width="34" height="62" fill="#CDA872"></rect><rect x="6" y="7" width="22" height="44" fill="#C39C64" stroke="#A97F48"></rect></svg></button>
+<button type="button" onClick="{{open}}" aria-label="See this door in your home" style="background: transparent; border: 0; cursor: pointer; font-family: inherit; text-align: center; aspect-ratio: 1; border: 1.5px dashed {{navy}}; background: #F2F0EC; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-decoration: none; color: {{navy}}; font-size: 12px; font-weight: 600; text-align: center; padding: 6px">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{navy}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3v12H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+Your room
+</button>
+</div>
+</section>
+
+<section aria-label="Product details" style="display: flex; flex-direction: column; gap: 18px">
+<h1 style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: 36px; line-height: 1.25; font-weight: 700">Shaker White Oak 1 Panel Door (40mm)</h1>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 22px; font-weight: 600; color: {{brandRed}}">£161.88</p>
+<p style="margin: 0; font-size: 13px; color: #4A4A4A">or 36 payments of £5.16 with humm, late fees apply <a href="#">more info</a></p>
+</div>
+
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 15px">
+<li style="display: flex; gap: 12px; align-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{navy}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6.5"></path></svg><span><strong>Robust</strong> solid engineered core</span></li>
+<li style="display: flex; gap: 12px; align-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{navy}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6.5"></path></svg><span><strong>Premium</strong> white oak veneer</span></li>
+<li style="display: flex; gap: 12px; align-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{navy}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6.5"></path></svg><span><strong>Classic</strong> traditional Shaker style</span></li>
+<li style="display: flex; gap: 12px; align-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{navy}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6.5"></path></svg><span><strong>Ideal</strong> for domestic or commercial settings</span></li>
+</ul>
+<a href="#" style="font-size: 14px; font-weight: 700; text-decoration-color: {{brandRed}}; text-decoration-thickness: 2px; text-underline-offset: 4px">Full Product Details</a>
+
+<div style="background: #F2F0EC; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="size" style="font-size: 14px; font-weight: 600">Size</label>
+<div id="size" style="min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 14px; border: 2px solid {{navy}}; background: #FFFFFF; font-size: 14px">
+<span style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">78" x 24" (1981 x 610 x 40mm) <span style="display: flex; align-items: center; gap: 6px; color: #1E7A34; font-size: 13px"><span style="width: 10px; height: 10px; border-radius: 50%; background: #2DA44E"></span>In Stock</span></span>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div style="display: flex; align-items: center; gap: 8px; padding: 4px; border: 2px solid {{navy}}; background: #FFFFFF">
+<button aria-label="Decrease quantity" style="width: 36px; height: 36px; border: 0; background: {{navy}}; color: #FFFFFF; font-size: 18px; cursor: pointer">−</button>
+<span style="width: 24px; text-align: center; font-size: 15px">1</span>
+<button aria-label="Increase quantity" style="width: 36px; height: 36px; border: 0; background: {{navy}}; color: #FFFFFF; font-size: 18px; cursor: pointer">+</button>
+</div>
+<button style="flex: 1 1 220px; min-height: 50px; border: 0; border-radius: 4px; background: {{navy}}; color: #FFFFFF; font: 700 16px Inter, system-ui, sans-serif; cursor: pointer">Add to Cart - £161.88</button>
+</div>
+<button type="button" onClick="{{open}}" style="background: transparent; border: 0; cursor: pointer; font-family: inherit; text-align: center; min-height: 50px; display: flex; align-items: center; justify-content: center; gap: 10px; border: 2px solid {{navy}}; border-radius: 4px; background: #FFFFFF; color: {{navy}}; font-size: 15px; font-weight: 700; text-decoration: none">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{navy}}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3v12H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+See this door in your home
+<span style="padding: 2px 8px; border-radius: 999px; background: {{brandRed}}; color: #FFFFFF; font-size: 11px; letter-spacing: 0.04em">NEW</span>
+</button>
+<p style="margin: -8px 0 0; font-size: 13px; color: #4A4A4A; text-align: center">Upload a photo of your doorway or try it against a wall colour.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px" aria-label="Payment methods">
+<span style="padding: 6px 8px; background: #FFFFFF; border-radius: 3px; font-size: 11px; font-weight: 600">Shop Pay</span>
+<span style="padding: 6px 8px; background: #FFFFFF; border-radius: 3px; font-size: 11px; font-weight: 600">Apple Pay</span>
+<span style="padding: 6px 8px; background: #FFFFFF; border-radius: 3px; font-size: 11px; font-weight: 600">G Pay</span>
+<span style="padding: 6px 8px; background: #FFFFFF; border-radius: 3px; font-size: 11px; font-weight: 600">Mastercard</span>
+<span style="padding: 6px 8px; background: #FFFFFF; border-radius: 3px; font-size: 11px; font-weight: 600">PayPal</span>
+<span style="padding: 6px 8px; background: #FFFFFF; border-radius: 3px; font-size: 11px; font-weight: 600">Visa</span>
+<span style="padding: 6px 8px; background: #FFFFFF; border-radius: 3px; font-size: 11px; font-weight: 600">Klarna</span>
+<span style="padding: 6px 8px; background: #FFFFFF; border-radius: 3px; font-size: 11px; font-weight: 600">humm</span>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
+<p style="margin: 0">Available for <strong>Home Delivery</strong> or <strong>Click and Collect</strong></p>
+<p style="margin: 0">Free delivery on <strong>orders over £650</strong></p>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: 18px; font-weight: 700">Talk to Our Experts</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.6">Got a question about our products or your order? We're here to help you find the right answers.</p>
+<a href="#" style="font-size: 17px; font-weight: 700">020 3989 9908</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: 18px; font-weight: 700">Visit Our Showrooms</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.6">Our friendly team is on hand to help you find the perfect fit for your home. <a href="#" style="font-weight: 700">discover more</a></p>
+</div>
+</div>
+</section>
+</div>
+</main>
+
+<sc-if value="{{showModal}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 10; background: rgba(20,20,20,0.72); padding: 40px 24px; box-sizing: border-box; display: flex; align-items: flex-start; justify-content: center">
+
+<sc-if value="{{isChoose}}" hint-placeholder-val="{{ true }}">
+<div role="dialog" aria-labelledby="vz-choose" style="width: 100%; max-width: 880px; background: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.35)">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px 12px 24px; border-bottom: 1px solid #E5E2DD">
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #4A4A4A">Shaker White Oak 1 Panel Door (40mm)</p>
+<button type="button" onClick="{{close}}" aria-label="Close" style="width: 44px; height: 44px; flex: none; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 50%; background: transparent; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div style="padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<h2 id="vz-choose" style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: 28px; line-height: 1.25; font-weight: 700">See this door in your home</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px">
+<button type="button" onClick="{{goPhoto}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 24px; border: 1px solid #CFC6B8; border-radius: 6px; background: #FFFFFF; text-align: left; cursor: pointer; font-family: Inter, system-ui, sans-serif; color: #1A1A1A">
+<span style="width: 56px; height: 56px; border-radius: 50%; background: #F2F0EC; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="{{navy}}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3v12H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span>
+<span style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 19px; font-weight: 700">Upload a photo</span>
+<span style="font-size: 14px; line-height: 1.5; color: #4A4A4A">Take or choose a photo of your doorway and place this door in it.</span>
+<span style="font-size: 14px; font-weight: 700; color: {{navy}}">Choose photo ›</span>
+</button>
+<button type="button" onClick="{{goPaint}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 24px; border: 1px solid #CFC6B8; border-radius: 6px; background: #FFFFFF; text-align: left; cursor: pointer; font-family: Inter, system-ui, sans-serif; color: #1A1A1A">
+<span style="display: flex; height: 56px; width: 120px; border-radius: 28px; overflow: hidden" aria-hidden="true"><span style="flex: 1; background: #33404E"></span><span style="flex: 1; background: #B7C0AA"></span><span style="flex: 1; background: #C2B8AA"></span><span style="flex: 1; background: #D8BCB5"></span></span>
+<span style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 19px; font-weight: 700">Choose a wall colour</span>
+<span style="font-size: 14px; line-height: 1.5; color: #4A4A4A">See the door against Dulux and Farrow &amp; Ball paint colours.</span>
+<span style="font-size: 14px; font-weight: 700; color: {{navy}}">Pick a colour ›</span>
+</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isPaint}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-labelledby="vz-paint" style="width: 100%; max-width: 1120px; background: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.35)">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px 12px 12px; border-bottom: 1px solid #E5E2DD">
+<button type="button" onClick="{{back}}" style="min-height: 44px; display: flex; align-items: center; gap: 6px; padding: 0 10px 0 4px; border: 0; background: transparent; cursor: pointer; font: 600 14px Inter, system-ui, sans-serif; color: #1A1A1A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>Back</button>
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #4A4A4A">Choose a wall colour</p>
+<button type="button" onClick="{{close}}" aria-label="Close" style="width: 44px; height: 44px; flex: none; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 50%; background: transparent; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr))">
+<div style="padding: 24px; background: #FBF9F6">
+<div style="aspect-ratio: 1; border-radius: 6px; overflow: hidden">
+<svg viewBox="0 0 600 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="{{sceneLabel}}" style="display: block">
+<rect width="600" height="600" fill="{{wall}}"></rect>
+<rect x="520" width="80" height="600" fill="{{wallSide}}"></rect>
+<rect y="500" width="600" height="100" fill="#B48A58"></rect>
+<path d="M0 524H600M0 556H600M0 590H600" stroke="#9F7748" stroke-width="2"></path>
+<rect y="476" width="520" height="24" fill="#C9A46E"></rect>
+<rect x="178" y="48" width="244" height="452" fill="#C9A46E" stroke="#A97F48" stroke-width="2"></rect>
+<rect x="196" y="66" width="208" height="434" fill="#CDA872"></rect>
+<rect x="228" y="100" width="144" height="330" fill="#C39C64" stroke="#A97F48" stroke-width="3"></rect>
+<path d="M240 106C250 200 236 300 248 424M268 106C262 220 276 330 266 424M300 106C306 210 296 320 304 424M336 106C330 220 342 330 334 424M358 106C364 220 352 320 360 424" stroke="#A97F48" stroke-width="1.2" fill="none" opacity="0.45"></path>
+<circle cx="214" cy="276" r="8" fill="#BFC2C4"></circle>
+<rect x="212" y="272" width="36" height="7" rx="3.5" fill="#B6B9BB"></rect>
+<circle cx="214" cy="300" r="7" fill="#BFC2C4"></circle>
+<rect x="0" y="372" width="120" height="128" fill="#C29A62"></rect>
+<rect x="0" y="372" width="120" height="10" fill="#B08650"></rect>
+<rect x="10" y="392" width="100" height="34" fill="none" stroke="#A97F48" stroke-width="2"></rect>
+<rect x="10" y="434" width="100" height="56" fill="none" stroke="#A97F48" stroke-width="2"></rect>
+<path d="M44 372C38 346 42 334 56 330C70 334 74 346 68 372Z" fill="#F2F0EC"></path>
+<path d="M56 330L40 270M56 330L66 262M56 330L84 286M56 330L28 300" stroke="#5F6F55" stroke-width="2.4" fill="none"></path>
+<ellipse cx="40" cy="270" rx="9" ry="14" fill="#6E7F63"></ellipse>
+<ellipse cx="66" cy="262" rx="9" ry="14" fill="#6E7F63"></ellipse>
+<ellipse cx="84" cy="286" rx="8" ry="12" fill="#6E7F63"></ellipse>
+<ellipse cx="28" cy="300" rx="8" ry="12" fill="#6E7F63"></ellipse>
+</svg>
+</div>
+</div>
+<div style="padding: 24px 28px; display: flex; flex-direction: column; gap: 18px; border-left: 1px solid #E5E2DD">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 id="vz-paint" style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: 24px; line-height: 1.25; font-weight: 700">{{paintTitle}}</h2>
+<p style="margin: 0; font-size: 14px; color: #4A4A4A">{{paintSub}}</p>
+</div>
+<div role="tablist" aria-label="Paint brand" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 4px; background: #F2F0EC; border-radius: 6px">
+<sc-for list="{{brands}}" as="b" hint-placeholder-count="2">
+<button type="button" role="tab" aria-selected="{{b.selected}}" onClick="{{b.pick}}" style="min-height: 44px; border: 0; border-radius: 4px; background: {{b.bg}}; color: {{b.color}}; box-shadow: {{b.shadow}}; font: 600 14px Inter, system-ui, sans-serif; cursor: pointer">{{b.name}}</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{swatches}}" as="p" hint-placeholder-count="12">
+<button type="button" onClick="{{p.pick}}" aria-pressed="{{p.pressed}}" style="display: flex; flex-direction: column; gap: 6px; padding: 4px 4px 8px; border: {{p.border}}; border-radius: 6px; background: #FFFFFF; cursor: pointer; text-align: left; font-family: Inter, system-ui, sans-serif; color: #1A1A1A">
+<span style="display: block; height: 44px; border-radius: 4px; background: {{p.hex}}; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08)"></span>
+<span style="font-size: 12px; font-weight: 600; line-height: 1.25">{{p.name}}</span>
+<span style="font-size: 11px; color: #5E574F">{{p.code}}</span>
+</button>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 12px; color: #5E574F">On-screen colours are a guide. Always check a paint sample.</p>
+<div style="display: flex; flex-direction: column; gap: 10px; margin-top: auto">
+<button type="button" style="min-height: 52px; border: 0; border-radius: 4px; background: {{navy}}; color: #FFFFFF; font: 700 16px Inter, system-ui, sans-serif; cursor: pointer">Add to Cart - £161.88</button>
+<button type="button" onClick="{{goPhoto}}" style="min-height: 44px; border: 0; background: transparent; font: 600 14px Inter, system-ui, sans-serif; color: #1A1A1A; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Upload your own photo instead</button>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isPhoto}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-labelledby="vz-photo" style="width: 100%; max-width: 1120px; background: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.35)">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px 12px 12px; border-bottom: 1px solid #E5E2DD">
+<button type="button" onClick="{{back}}" style="min-height: 44px; display: flex; align-items: center; gap: 6px; padding: 0 10px 0 4px; border: 0; background: transparent; cursor: pointer; font: 600 14px Inter, system-ui, sans-serif; color: #1A1A1A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>Back</button>
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #4A4A4A">Upload a photo</p>
+<button type="button" onClick="{{close}}" aria-label="Close" style="width: 44px; height: 44px; flex: none; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 50%; background: transparent; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr))">
+<div style="position: relative; padding: 24px; background: #FBF9F6">
+<input id="vz-file" type="file" accept="image/*" onChange="{{onFile}}" style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none">
+<sc-if value="{{noPhoto}}" hint-placeholder-val="{{ true }}">
+<label for="vz-file" style="aspect-ratio: 1; box-sizing: border-box; border: 2px dashed #B8AFA2; border-radius: 6px; background: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 32px; text-align: center; cursor: pointer">
+<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="{{navy}}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3v12H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+<span style="font-family: 'Libre Baskerville', Georgia, serif; font-size: 20px; font-weight: 700">Add a photo of your doorway</span>
+<span style="font-size: 14px; color: #4A4A4A">Stand straight on and get the whole door frame in.</span>
+<span style="display: flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 4px; background: {{navy}}; color: #FFFFFF; font-size: 15px; font-weight: 700">Choose photo</span>
+</label>
+</sc-if>
+<sc-if value="{{hasPhoto}}" hint-placeholder-val="{{ false }}">
+<div style="position: relative; aspect-ratio: 1; border-radius: 6px; overflow: hidden; background: #1A1A1A; touch-action: none">
+<img src="{{photo}}" alt="Your doorway" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none">
+<div onPointerDown="{{dragStart}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragEnd}}" onPointerCancel="{{dragEnd}}" style="position: absolute; left: {{doorX}}%; top: {{doorY}}%; height: {{doorH}}%; aspect-ratio: 244 / 452; transform: translate(-50%, -50%); cursor: grab; touch-action: none; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35)); outline: 2px dashed rgba(255,255,255,0.85); outline-offset: 4px">
+<svg viewBox="178 48 244 452" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Shaker White Oak 1 Panel Door placed in your photo" style="display: block; pointer-events: none">
+<rect x="178" y="48" width="244" height="452" fill="#C9A46E" stroke="#A97F48" stroke-width="2"></rect>
+<rect x="196" y="66" width="208" height="434" fill="#CDA872"></rect>
+<rect x="228" y="100" width="144" height="330" fill="#C39C64" stroke="#A97F48" stroke-width="3"></rect>
+<path d="M240 106C250 200 236 300 248 424M268 106C262 220 276 330 266 424M300 106C306 210 296 320 304 424M336 106C330 220 342 330 334 424M358 106C364 220 352 320 360 424" stroke="#A97F48" stroke-width="1.2" fill="none" opacity="0.45"></path>
+<circle cx="214" cy="276" r="8" fill="#BFC2C4"></circle>
+<rect x="212" y="272" width="36" height="7" rx="3.5" fill="#B6B9BB"></rect>
+<circle cx="214" cy="300" r="7" fill="#BFC2C4"></circle>
+</svg>
+</div>
+<span style="position: absolute; left: 12px; bottom: 12px; padding: 6px 12px; border-radius: 999px; background: rgba(26,26,26,0.8); color: #FFFFFF; font-size: 13px; font-weight: 600; pointer-events: none">Drag the door into place</span>
+</div>
+</sc-if>
+</div>
+<div style="padding: 24px 28px; display: flex; flex-direction: column; gap: 18px; border-left: 1px solid #E5E2DD">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 id="vz-photo" style="margin: 0; font-family: 'Libre Baskerville', Georgia, serif; font-size: 24px; line-height: 1.25; font-weight: 700">{{photoTitle}}</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #4A4A4A">{{photoSub}}</p>
+</div>
+<sc-if value="{{hasPhoto}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="vz-size" style="font-size: 14px; font-weight: 600">Door size in your photo</label>
+<input id="vz-size" type="range" min="25" max="98" value="{{doorH}}" onChange="{{onSize}}" style="height: 44px; margin: 0; accent-color: {{navy}}">
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<button type="button" onClick="{{resetDoor}}" style="min-height: 44px; padding: 0 16px; border: 1px solid #CFC6B8; border-radius: 4px; background: #FFFFFF; font: 600 14px Inter, system-ui, sans-serif; color: #1A1A1A; cursor: pointer">Centre the door</button>
+<label for="vz-file" style="min-height: 44px; display: flex; align-items: center; padding: 0 16px; border: 1px solid #CFC6B8; border-radius: 4px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer">Change photo</label>
+</div>
+</div>
+</sc-if>
+<p style="margin: 0; padding: 14px; border-radius: 6px; background: #F2F0EC; font-size: 13px; line-height: 1.5">Your photo stays on your device for this preview. It isn't uploaded or saved.</p>
+<div style="display: flex; flex-direction: column; gap: 10px; margin-top: auto">
+<button type="button" style="min-height: 52px; border: 0; border-radius: 4px; background: {{navy}}; color: #FFFFFF; font: 700 16px Inter, system-ui, sans-serif; cursor: pointer">Add to Cart - £161.88</button>
+<button type="button" onClick="{{goPaint}}" style="min-height: 44px; border: 0; background: transparent; font: 600 14px Inter, system-ui, sans-serif; color: #1A1A1A; text-decoration: underline; text-underline-offset: 3px; cursor: pointer">Try wall colours instead</button>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"brandRed":{"editor":"color","default":"#D23733"},"navy":{"editor":"color","default":"#15303F"},"startStep":{"editor":"enum","options":["Closed","Choose","Paint","Photo"],"default":"Closed"},"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { step: null, brand: 'Farrow & Ball', paint: null, photo: null, doorX: 50, doorY: 52, doorH: 70 };
+this.drag = null;
+}
+componentWillUnmount() {
+if (this.state.photo) { try { URL.revokeObjectURL(this.state.photo); } catch (e) {} }
+}
+renderVals() {
+const step = this.state.step ?? this.props.startStep ?? 'Closed';
+const go = (s) => () => this.setState({ step: s });
+const palettes = {
+'Dulux': [
+{ name: 'Pure Brilliant White', code: 'Dulux', hex: '#F6F6F3' },
+{ name: 'Egyptian Cotton', code: 'Dulux', hex: '#E8E2D4' },
+{ name: 'Natural Hessian', code: 'Dulux', hex: '#D7CCB7' },
+{ name: 'Polished Pebble', code: 'Dulux', hex: '#B9B3A8' },
+{ name: 'Tranquil Dawn', code: 'Colour of the Year 2020', hex: '#B7C0AA' },
+{ name: 'Bright Skies', code: 'Colour of the Year 2022', hex: '#BCD2DC' },
+{ name: 'Wild Wonder', code: 'Colour of the Year 2023', hex: '#C8B288' },
+{ name: 'Sweet Embrace', code: 'Colour of the Year 2024', hex: '#D8BCB5' },
+{ name: 'True Joy', code: 'Colour of the Year 2025', hex: '#E3C76C' },
+{ name: 'Denim Drift', code: 'Dulux', hex: '#8899A5' },
+{ name: 'Overtly Olive', code: 'Dulux', hex: '#8B8A5E' },
+{ name: 'Midnight Navy', code: 'Dulux', hex: '#2F3A4F' }
+],
+'Farrow & Ball': [
+{ name: 'Pointing', code: 'No. 2003', hex: '#EFEADF' },
+{ name: 'Skimming Stone', code: 'No. 241', hex: '#DCD4CA' },
+{ name: "Elephant's Breath", code: 'No. 229', hex: '#C2B8AA' },
+{ name: 'Setting Plaster', code: 'No. 231', hex: '#E2C3B2' },
+{ name: 'Sulking Room Pink', code: 'No. 295', hex: '#B08E86' },
+{ name: 'Lichen', code: 'No. 19', hex: '#A4A68B' },
+{ name: 'Card Room Green', code: 'No. 79', hex: '#6F7A68' },
+{ name: 'Inchyra Blue', code: 'No. 289', hex: '#4D5B5D' },
+{ name: 'Stiffkey Blue', code: 'No. 281', hex: '#3F4D61' },
+{ name: 'Hague Blue', code: 'No. 30', hex: '#33404E' },
+{ name: 'Railings', code: 'No. 31', hex: '#3C3F44' },
+{ name: 'Off-Black', code: 'No. 57', hex: '#323232' }
+]
+};
+const shade = (hex, f) => {
+const n = parseInt(hex.slice(1), 16);
+const c = [n >> 16, (n >> 8) & 255, n & 255].map((v) => Math.max(0, Math.min(255, Math.round(v * f))));
+return '#' + c.map((v) => v.toString(16).padStart(2, '0')).join('');
+};
+const brand = this.state.brand;
+const paint = this.state.paint;
+const wall = paint ? paint.hex : '#ECE9E4';
+const photo = this.state.photo;
+return {
+brandRed: this.props.brandRed ?? '#D23733',
+navy: this.props.navy ?? '#15303F',
+showModal: step !== 'Closed',
+isChoose: step === 'Choose',
+isPaint: step === 'Paint',
+isPhoto: step === 'Photo',
+open: go('Choose'),
+close: go('Closed'),
+back: go('Choose'),
+goPaint: go('Paint'),
+goPhoto: go('Photo'),
+wall: wall,
+wallSide: shade(wall, 0.92),
+sceneLabel: 'Shaker White Oak 1 Panel Door on a ' + (paint ? paint.name : 'plain') + ' wall',
+paintTitle: paint ? paint.name : 'Pick a wall colour',
+paintSub: paint ? paint.brand + ' · ' + paint.code : 'Tap a colour to paint the wall around the door.',
+brands: Object.keys(palettes).map((name) => ({
+name: name,
+selected: name === brand ? 'true' : 'false',
+bg: name === brand ? '#FFFFFF' : 'transparent',
+color: name === brand ? '#1A1A1A' : '#4A4A4A',
+shadow: name === brand ? '0 1px 3px rgba(0,0,0,0.15)' : 'none',
+pick: () => this.setState({ brand: name })
+})),
+swatches: palettes[brand].map((p) => {
+const on = !!paint && paint.name === p.name;
+return { ...p, pressed: on ? 'true' : 'false', border: on ? '2px solid #15303F' : '1px solid #E5E2DD', pick: () => this.setState({ paint: { ...p, brand: brand } }) };
+}),
+photo: photo || '',
+hasPhoto: !!photo,
+noPhoto: !photo,
+photoTitle: photo ? "Here's your new door" : 'Upload a photo of your doorway',
+photoSub: photo ? 'Drag the door over your doorway and use the slider to match its size.' : 'Use a clear photo taken straight on, with the lights on.',
+doorX: this.state.doorX,
+doorY: this.state.doorY,
+doorH: this.state.doorH,
+onFile: (e) => {
+const f = e.target.files && e.target.files[0];
+if (!f) return;
+if (this.state.photo) { try { URL.revokeObjectURL(this.state.photo); } catch (err) {} }
+this.setState({ photo: URL.createObjectURL(f), doorX: 50, doorY: 52, doorH: 70 });
+e.target.value = '';
+},
+onSize: (e) => this.setState({ doorH: Number(e.target.value) }),
+resetDoor: () => this.setState({ doorX: 50, doorY: 52 }),
+dragStart: (e) => {
+const box = e.currentTarget.parentElement.getBoundingClientRect();
+this.drag = { box: box, dx: e.clientX - (box.left + box.width * this.state.doorX / 100), dy: e.clientY - (box.top + box.height * this.state.doorY / 100) };
+try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) {}
+},
+dragMove: (e) => {
+if (!this.drag) return;
+const b = this.drag.box;
+const x = ((e.clientX - this.drag.dx - b.left) / b.width) * 100;
+const y = ((e.clientY - this.drag.dy - b.top) / b.height) * 100;
+this.setState({ doorX: Math.max(5, Math.min(95, x)), doorY: Math.max(5, Math.min(95, y)) });
+},
+dragEnd: () => { this.drag = null; }
+};
+}
+}
+</script>
+</body>
+</html>
